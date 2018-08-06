@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.670 --> 00:04.770
+Welcome back. I think it's time to create our own server now.
+
+00:06.270 --> 00:09.620
+So let's create a new file called 'server.js'.
+
+00:09.660 --> 00:11.470
+[touch server.js]
+
+00:11.700 --> 00:15.540
+And in order for nodemon to listen to 'server.js'.
+
+00:15.540 --> 00:19.630
+Let's just type in 'nodemon' and then 'server.js'.
+
+00:19.830 --> 00:27.450
+Now if I save this nodemon will listen to this as long as I say 'npm start'
+
+00:31.120 --> 00:33.070
+As I've mentioned before
+
+00:34.360 --> 00:42.250
+Node comes with its own HTTP module and that's what we're going to use to create our server.
+
+00:42.250 --> 00:44.080
+And it's very very simple to use.
+
+00:44.260 --> 00:56.600
+We simply grab the HTTP module and then create a server by defining it saying 'http.createServer()'. In this
+
+00:56.600 --> 01:05.940
+'createServer' we'll create an arrow function and within here for now let's just do
+
+01:05.970 --> 01:11.100
+'console.log('I hear you! thanks for the request)'
+
+01:12.910 --> 01:20.320
+And then finally we have to do 'server.listen()' and give it the port number that we want to listen
+
+01:20.320 --> 01:20.660
+for.
+
+01:20.770 --> 01:23.930
+So just do 3000 for now but again you can do anything, you can do
+
+01:23.930 --> 01:27.710
+3001 if you want, but 3000 is nice.
+
+01:27.940 --> 01:31.160
+Let's do 'node server.js'
+
+01:31.180 --> 01:32.020
+-
+
+01:34.690 --> 01:37.000
+And it looks like it's just hanging there.
+
+01:38.000 --> 01:43.680
+But let's go to port 3000 on our localhost that is our machine and see what happens.
+
+01:45.140 --> 01:51.910
+If I open up a new tab and go to localhost 3000 hmm, nothing's happening.
+
+01:52.180 --> 01:59.160
+If I open up the console nothing's there but if I go back I see "I hear you.
+
+01:59.230 --> 02:05.080
+Thanks for the request" and that is because remember 'server.js' is running in Node.
+
+02:05.230 --> 02:11.350
+It's running here in the Terminal. But it's listening to connections.
+
+02:11.350 --> 02:19.570
+So when I hit 'refresh' here or I press Enter and try to connect, it will be listening and it will run
+
+02:19.870 --> 02:24.410
+'console.log()' and you can see the second "I hear you. Thanks for the request" just here.
+
+02:24.520 --> 02:25.180
+If I refresh
+
+02:25.180 --> 02:26.300
+two more times.
+
+02:28.190 --> 02:31.260
+Well again I get two more.
+
+02:31.480 --> 02:36.150
+But right now the browser is just hanging there because we're not doing anything.
+
+02:36.190 --> 02:37.800
+We're not responding with anything.
+
+02:37.800 --> 02:40.760
+You can see at the bottom it says 'waiting for localhost'.
+
+02:40.960 --> 02:44.080
+We're just console logging on our end but we're not getting any response.
+
+02:46.060 --> 02:47.050
+Let's do that.
+
+02:47.050 --> 02:53.950
+I'm going to remove the console log and use the parameters that 'createServer' gets us.
+
+02:53.980 --> 03:02.510
+So any time we try to connect, we have a 'request' then a 'response' parameter that we can use and let's
+
+03:02.510 --> 03:07.240
+make this a little bit smaller just so we can see.
+
+03:07.430 --> 03:16.700
+And within here we can do something like 'response.setHeader()' ...
+
+03:19.760 --> 03:26.010
+'Content-Type' – we're letting you know what kind of content we were going to send and it's going to be
+
+03:26.580 --> 03:37.950
+'text/html' – and this is just the standard way of declaring content type and we'll say 'response.end()' with
+
+03:39.470 --> 03:42.200
+an '<h1>' tag that says 'Helloooooo'.
+
+03:46.740 --> 03:50.730
+If I save this and re-run
+
+03:54.350 --> 03:57.530
+well, again we have to restart our server.
+
+03:57.620 --> 04:02.840
+So let's get nodemon involved in here so that it listens to file changes.
+
+04:02.880 --> 04:05.000
+I go to 'package.json' I'll save this.
+
+04:05.000 --> 04:10.340
+And now I'll run 'npm start' see that everything is running.
+
+04:10.340 --> 04:12.150
+Let's go back to our 'server.js' file.
+
+04:12.410 --> 04:19.560
+If I go back and refresh I get 'helloooooo'; if I go to the Network tab
+
+04:20.350 --> 04:28.670
+I see that localhost I get a 200 response; if I click on this I see that the response was '<h1>helloooooo</h1>'
+
+04:28.900 --> 04:39.970
+If I go to Headers I see that it was a 200 status code and the content type was 'text/html'.
+
+04:40.150 --> 04:41.230
+Very cool.
+
+04:41.260 --> 04:43.940
+I can also listen to requests.
+
+04:43.990 --> 04:51.720
+So for example in here I could have said 'console.log(request.headers)'
+
+04:54.700 --> 05:05.880
+I could have also said, I've could've also said 'method' and finally something like 'url'
+
+05:05.880 --> 05:10.430
+'request' gives us a lot information about the requests that we receive.
+
+05:10.530 --> 05:13.700
+And just so we are clear on what each one of these are.
+
+05:13.710 --> 05:25.680
+I can say 'headers', 'method' and 'url'. If I save this
+
+05:28.820 --> 05:29.540
+and rerun
+
+05:32.440 --> 05:36.680
+I see that I get headers are 'localhost: 3000'.
+
+05:36.850 --> 05:42.310
+We see that 'user-agent' was Mozilla, Macintosh. So that's what we used.
+
+05:42.610 --> 05:44.180
+We used an Apple to make that request.
+
+05:44.180 --> 05:44.930
+All right.
+
+05:46.050 --> 05:51.830
+And the method was a 'GET' method and the url was just the backslash [\].
+
+05:51.900 --> 05:55.890
+Let's just comment out the headers for now and show you how things change.
+
+05:55.890 --> 06:01.020
+If I now enter 'localhost:3000/profile/123'
+
+06:04.450 --> 06:07.930
+I get 'method GET' and 'url' was '/profile/123'
+
+06:07.990 --> 06:12.530
+So we get information about the request that the front-end made, which is very cool.
+
+06:13.560 --> 06:22.240
+Now with our response we responded with 'text/html' but you remember JSON right? We talked about how useful
+
+06:22.240 --> 06:26.260
+JSON is when doing AJAX requests.
+
+06:26.370 --> 06:27.630
+Can we do that here?
+
+06:27.690 --> 06:35.870
+Of course if I go and change 'Content-Type' to 'application/json' then you'll just have to get used to
+
+06:35.870 --> 06:39.980
+this but this is the way you say that the content type is JSON.
+
+06:40.040 --> 06:50.270
+Now we can send a JavaScript object such as 'user' and will say "name: 'John'"
+
+06:53.210 --> 06:57.280
+"hobby: 'Skating'".
+
+06:57.320 --> 07:05.360
+Now this user, I can pass here, but remember in order to transfer between the wires we need to use
+
+07:05.510 --> 07:12.980
+'JSON.stringify' and make sure you check out the JSON video if that is confusing to you.
+
+07:13.040 --> 07:22.090
+But again we're changing this object into a JSON string so that we can send it over the wires.
+
+07:22.230 --> 07:33.390
+If I save and let's go back and refresh I get – look at that! – a JSON response again "name: 'John', hobby: 'skating'"
+
+07:33.960 --> 07:40.560
+and if I click on the Network tab here I see that the 'Content-Type' is 'application/json' and the response
+
+07:40.620 --> 07:43.610
+is in JSON format.
+
+07:43.640 --> 07:47.740
+So on the front-end we'll run 'json.parse()'
+
+07:47.750 --> 07:52.520
+And then this [{"name:"John","hobby":"Skating"}] in order to convert it to a JavaScript object.
+
+07:52.580 --> 07:53.340
+Very cool.
+
+07:54.340 --> 08:03.670
+We've just created our very first server but this HTTP is pretty bare bones; as you can imagine, building servers
+
+08:03.670 --> 08:11.670
+is something that everybody does that has a website and there are many tools that we can use now that
+
+08:11.790 --> 08:12.780
+are more elegant
+
+08:12.840 --> 08:19.500
+than running HTTP, and the most popular and the best one to use with Node.js is something called
+
+08:19.500 --> 08:23.510
+Express, which we're going to talk about in the next video.
+
+08:23.620 --> 08:25.360
+I'll see you in that one. Bye-bye

@@ -1,0 +1,845 @@
+WEBVTT
+
+00:01.160 --> 00:05.470
+Welcome back, let's start using NPM.
+
+00:05.680 --> 00:10.220
+I wanted to go over one more time exactly what's happening underneath it.
+
+00:10.600 --> 00:20.100
+So now that we have a package.json file we're able to grab whatever packages we want from NPM
+
+00:20.100 --> 00:21.900
+and the next section will be grabbing react
+
+00:21.900 --> 00:28.380
+again a JavaScript library that will be using. and that file lives on NPM.
+
+00:28.380 --> 00:35.770
+so using package.json file and the newly found NPM command,
+
+00:36.010 --> 00:45.190
+We can grab react and have it as part of our project. So let's get started.
+
+00:45.210 --> 00:51.210
+I'm going to minimize this and because we're using react in the next section I'm going to show you two
+
+00:51.240 --> 01:01.290
+other packages that I really really like in NPM. One is called live-server and the other one is lodash.
+
+01:01.340 --> 01:04.300
+I'm going to be going through each one of them so you know what they are.
+
+01:04.400 --> 01:10.320
+But I pick these two because they're actually different in the way that you install them.
+
+01:12.880 --> 01:18.890
+For example, with live-server, I have 'npm install -g live-server'
+
+01:18.990 --> 01:19.290
+OK,
+
+01:19.330 --> 01:20.980
+that seems fairly easy.
+
+01:21.100 --> 01:28.820
+And then with lodash, if I go to the NPM registry, I see that it's
+
+01:28.810 --> 01:41.440
+'npm i --save lodash'. Hmm, well, NPM allows you to install things two ways. One, globally or two, locally.
+
+01:41.520 --> 01:42.300
+What does that mean?
+
+01:43.550 --> 01:52.220
+In our project here our background generator, if we install something locally that means NPM will install
+
+01:53.150 --> 02:00.790
+a package that is only able to run in this folder, in background-generator.
+
+02:00.880 --> 02:06.260
+But if I downloaded globally and that is what '-g' means.
+
+02:06.490 --> 02:14.780
+Well I can use live-server outside of this folder anywhere on my computer. As the name suggests,
+
+02:14.840 --> 02:20.760
+globally means you can't run it everywhere and usually globally means you can run it on your terminal.
+
+02:20.960 --> 02:26.390
+So remember that if you install it with '-g', that means it's going to give you a command that you
+
+02:26.390 --> 02:28.690
+can run in the terminal.
+
+02:29.000 --> 02:38.060
+If you don't install it with '-g', if it's locally then it will give you powers such as new abilities in
+
+02:38.090 --> 02:42.970
+the JavaScript file. Let's actually go through this to demonstrate this point.
+
+02:44.450 --> 02:53.560
+I'm going to install live-server by doing and 'npm install -g live-server' and again every time you install
+
+02:53.560 --> 03:01.580
+an npm, it's the same thing. You run 'npm install' and the package name because I want this install globally.
+
+03:01.580 --> 03:05.280
+I'll do '-g' and I'll say 'live-server'
+
+03:07.110 --> 03:09.020
+It's going to run through the install here.
+
+03:11.320 --> 03:12.890
+Ah and there you go.
+
+03:12.940 --> 03:15.320
+We have what's called an
+
+03:15.550 --> 03:16.390
+EACCES:
+
+03:16.390 --> 03:18.030
+permission denied.
+
+03:18.030 --> 03:19.050
+Remember what I said?
+
+03:19.060 --> 03:25.910
+If you don't have correct permissions, you might have to run with sudo?
+
+03:25.940 --> 03:30.470
+This is what it's saying -it's saying my user doesn't have access to install.
+
+03:30.680 --> 03:37.160
+You need to have admin permissions and that just means you'll have to enter your username and password.
+
+03:37.480 --> 03:45.860
+You can fix this on your computer after this, but for now you can run
+
+03:49.620 --> 03:50.210
+'sudo npm install -g live-server'
+
+03:53.140 --> 03:59.500
+and you see it ask me for my password and there you go, live-server has been added.
+
+03:59.710 --> 04:00.550
+Let's clear this.
+
+04:03.340 --> 04:03.760
+OK.
+
+04:03.980 --> 04:09.330
+So if I look at my package.json file, well, nothing has changed.
+
+04:10.840 --> 04:17.640
+And nothing should. Because we installed the package globally, it now lives on our computer but not
+
+04:17.640 --> 04:18.610
+inside of our folder.
+
+04:18.610 --> 04:24.870
+As I mentioned. We have a cool ability now we can run a command with live server
+
+04:24.880 --> 04:28.080
+You can actually read through the documentation here.
+
+04:28.250 --> 04:35.170
+But what it allows us to do is if I type in live-server while I'm in the background-generator folder,
+
+04:37.950 --> 04:45.430
+Did you catch that? It automatically loaded our background-generator project.
+
+04:45.430 --> 04:46.760
+What is happening here?
+
+04:47.230 --> 04:54.760
+Well, we see over here live-server creates a server, a fake server for you and then watch for changes
+
+04:55.330 --> 05:03.190
+so that if I go now to, let's do CSS and I'll do 'text-align: left'
+
+05:03.280 --> 05:14.080
+and I saved. live-server does detects the change that says CSS change and it automatically changes this
+
+05:14.170 --> 05:19.850
+without me refreshing it. Remember how annoying it was every time I changed anything on our project,
+
+05:19.860 --> 05:25.950
+we had to hit refresh to make sure that the changes work? well, live-server creates a server that keeps
+
+05:25.950 --> 05:33.420
+watching your files and every time a change is made it sees it and updates the project and you see over
+
+05:33.420 --> 05:37.030
+here that we have 127.0.0.1
+
+05:37.230 --> 05:38.990
+And then this is Port 8080.
+
+05:39.240 --> 05:42.520
+And this is the default what we call local hosts.
+
+05:42.540 --> 05:44.980
+That's something that I'll talk about later on in the course.
+
+05:46.300 --> 05:52.680
+But as you can see is just saying you can open this test web site at this address.
+
+05:52.870 --> 06:00.760
+If I actually type in here  localhost which is you're local host, you're the server,
+
+06:00.760 --> 06:02.780
+it's the exact same thing.
+
+06:02.790 --> 06:03.910
+How cool is that.
+
+06:03.950 --> 06:10.680
+I'm going to return this back to the way it was and again changes detected as soon as I save everything
+
+06:10.680 --> 06:12.440
+is restored.
+
+06:12.480 --> 06:16.160
+So live-server is really cool in the next section I'll show you something even nicer than that.
+
+06:16.350 --> 06:20.680
+But again a really really great example of why NPM is great.
+
+06:20.700 --> 06:27.720
+I was able to install something really quickly and now I have a server which is my computer that is
+
+06:27.870 --> 06:33.020
+watching these files and serving up my project right here on my computer.
+
+06:33.030 --> 06:36.160
+We didn't need to buy a server, we didn't need to put it on github,
+
+06:36.300 --> 06:38.010
+Everything is here already.
+
+06:39.570 --> 06:41.670
+Now that we've done that let me just close this.
+
+06:41.670 --> 06:43.670
+I'm going to clear this.
+
+06:44.520 --> 06:47.080
+So that was a globally installed package.
+
+06:47.130 --> 06:50.040
+The other type of package you can intall is local, as I said.
+
+06:50.070 --> 06:56.910
+and with a local package we can install something like lodash and it's actually one of the
+
+06:56.910 --> 06:59.290
+more popular libraries.
+
+06:59.370 --> 07:06.120
+Now for those that don't know lodash, you can think of it as an extension of JavaScript.
+
+07:06.120 --> 07:09.400
+With JavaScript, we have all these methods that come with it.
+
+07:09.420 --> 07:11.520
+We have -you know, querySelector,
+
+07:11.520 --> 07:13.390
+We have getElementById,
+
+07:13.680 --> 07:20.700
+But would it be nice if we had more functions that we can run? Well, lodash has a whole bunch of
+
+07:20.700 --> 07:21.920
+them they can use.
+
+07:22.110 --> 07:29.400
+And if you go to the Web site, if you go to documentation, you'll see that they have all these things
+
+07:29.470 --> 07:32.790
+you can do with an array and they have really good examples as well.
+
+07:32.800 --> 07:40.000
+So any time you have an issue, lodash is really really good instead of maybe writing your own.
+
+07:40.100 --> 07:42.800
+I don't want lodash to be on my computer.
+
+07:42.800 --> 07:48.520
+I just want it just for this project. What I'm going to say is, I'm going to say 'npm install lodash'
+
+07:52.260 --> 07:56.580
+and I'm going to open up the package.json file to see if it changes while we do this.
+
+07:56.730 --> 08:01.240
+I'm going to press enter.
+
+08:01.480 --> 08:10.180
+Now if I go into my sublime text, we see that package.json just added a new line, it says "dependencies",
+
+08:10.730 --> 08:15.660
+"lodash" and this is the version of lodash that we've downloaded.
+
+08:16.120 --> 08:22.630
+And another thing you might notice is that we have something called node-modules folder that was just created.
+
+08:22.630 --> 08:24.550
+what does that mean?
+
+08:24.760 --> 08:29.230
+If we open this we see that lodash is installed.
+
+08:29.540 --> 08:35.300
+And oh boy that's a lot of files of lodash that we just installed.
+
+08:36.790 --> 08:45.950
+You see as soon as we do npm install then package name, it fits locally and we have a package.json file
+
+08:46.070 --> 08:47.650
+since we did 'npm init',
+
+08:47.780 --> 08:56.090
+It will add it to our dependencies which means packages that our website needs to work. And the way it
+
+08:56.090 --> 09:03.810
+finds these is that all these packages live under the node modules folder and you can see that lodash is here
+
+09:03.930 --> 09:08.340
+and now we can use all of their new methods.
+
+09:08.390 --> 09:09.140
+So let's give it a try.
+
+09:09.140 --> 09:13.380
+Let's see if we actually have a lodash working and our JavaScript.
+
+09:13.490 --> 09:14.950
+I'm going to open up the script.js,
+
+09:15.030 --> 09:15.990
+-
+
+09:16.040 --> 09:21.240
+And the way we want to get lodash in here there's a few ways.
+
+09:21.260 --> 09:25.070
+One is shows you the way to do it in Node.js,
+
+09:25.170 --> 09:27.060
+but we're not using Node.js,
+
+09:27.110 --> 09:36.840
+So if you remember with modules, we can just do 'import without' -which is a lodash function,
+
+09:36.920 --> 09:40.360
+I think we can see it down here without.js,
+
+09:44.140 --> 09:53.720
+and I'll just say 'from lodash', let's close that and just to check that we have lodash working,
+
+09:53.720 --> 09:55.100
+I'll just do 'console.log(without)',
+
+09:56.700 --> 10:03.150
+I'm going to save, and you know what, let's start up live-server, because it was working nicely for us.
+
+10:03.150 --> 10:05.660
+Let's open up the console, hmm
+
+10:06.500 --> 10:07.830
+Uncaught SyntaxError,
+
+10:07.920 --> 10:09.990
+Unexpected token import
+
+10:10.100 --> 10:18.350
+And if I actually do import here, Yep, the console doesn't recognize the import because as I said before
+
+10:18.620 --> 10:23.750
+it's a new syntax that browsers haven't gone around to actually implementing.
+
+10:23.900 --> 10:32.440
+So looks like I have to use the 'require' syntax and you might remember this syntax from this video where
+
+10:32.440 --> 10:39.400
+we talked about moduling in JavaScript and we discussed that ES6 and this thing called a webpack is
+
+10:39.400 --> 10:40.370
+what we use now.
+
+10:41.660 --> 10:44.270
+But that's for the react section.
+
+10:44.270 --> 10:47.690
+For now we want to be able to use require.
+
+10:47.750 --> 10:52.250
+And the way we're able to do that is browserify.
+
+10:52.270 --> 11:02.840
+Luckily for us we have something called NPM that we can install a global package, so I can do install
+
+11:04.090 --> 11:05.240
+global,
+
+11:05.640 --> 11:11.520
+And there's browserify
+
+11:11.640 --> 11:19.480
+And again I have the access error, so I have to do 'sudo npm install -g browserify'
+
+11:23.740 --> 11:27.390
+let me clear that everything's installed again.
+
+11:28.160 --> 11:36.260
+Import syntax which comes from ES6 were able to use that with Webpack, but because that's for next section
+
+11:36.260 --> 11:38.750
+I want to show you what we did before this.
+
+11:38.750 --> 11:44.920
+We use something called browserify which allowed us to use this requires syntax.
+
+11:45.030 --> 11:54.620
+So let's copy this the way they have it in NPM and now I'm going to say 'console.log'
+
+11:56.720 --> 11:59.940
+underscore(_) but this won't actually do anything.
+
+11:59.960 --> 12:08.660
+If you remember this is a module bundler, and it's a global package that we installed.
+
+12:08.700 --> 12:16.730
+We give it a script file and it outputs another script file that we can use in the browser.
+
+12:16.970 --> 12:22.890
+The command for that because we installed it globally we can use browserify now and I can say that
+
+12:23.130 --> 12:33.150
+my script.js file should be bundle.js
+
+12:33.240 --> 12:34.210
+Did you see that?
+
+12:34.210 --> 12:37.050
+We now have a bundle.js file.
+
+12:37.230 --> 12:45.070
+And if I click on this, well, I have a whole bunch of things it looks like a big file and that's because
+
+12:45.070 --> 12:47.910
+we included lodash.
+
+12:48.020 --> 12:56.770
+It has created for us a bundle file that adds what we wanted so that the browser understands it.
+
+12:57.630 --> 13:07.210
+We simply go to index.html file and instead of the script.js file, we'll do bundle.js, I'll save
+
+13:08.210 --> 13:14.700
+and let's try this one more time I'm going to do live-server, open up the console,
+
+13:14.710 --> 13:15.840
+There you go.
+
+13:16.000 --> 13:18.300
+It looks like it's working.
+
+13:18.380 --> 13:26.810
+If I go back to my script file with lodash now in my project if I had an array Let's call it variable(var)
+
+13:27.380 --> 13:40.350
+array that has 1 2 3 4 5 6 7 8. And I can use a lodash method that is without.
+
+13:40.500 --> 13:49.210
+And I can do console.log, answer: within here will say lodash which is the underscore we have assigned
+
+13:49.210 --> 13:58.780
+the underscore variable to lodash as the library suggests and we'll give it without which again is
+
+13:58.780 --> 14:00.890
+a method that comes with lodash that
+
+14:00.910 --> 14:03.280
+you can check on their Web site. Within here,
+
+14:03.280 --> 14:06.400
+I will put my array,
+
+14:06.400 --> 14:12.180
+And the second parameter will be what I want it to be without.
+
+14:12.220 --> 14:17.290
+So let's say I wanted to be without the number 3.
+
+14:17.420 --> 14:23.860
+In that case, I save this, change has been detected.
+
+14:23.920 --> 14:34.130
+I open up the console and refresh, Ah- but you see, we don't see anything here because again we need to
+
+14:34.130 --> 14:36.500
+put it into 'bundle.js',
+
+14:36.540 --> 14:43.760
+I know it's annoying, but this is good practice for us to understand how all of this works.
+
+14:43.760 --> 14:51.770
+So again bundle has been updated and now I can run my live-server, open up console and look at that-
+
+14:51.770 --> 14:56.620
+I have an array with 1, 2, No 3, 4, 5, 6, 7, 8.
+
+14:56.960 --> 15:01.110
+So I can use lodash.
+
+15:01.150 --> 15:09.160
+So looking at this you might realize why NPM is called Node Package Manager. Because it was initially
+
+15:09.160 --> 15:17.770
+created for node which accepted this require syntax but not for the browser. browserify allowed us to
+
+15:18.160 --> 15:22.410
+use the syntax that would require syntax that was use in
+
+15:22.490 --> 15:23.550
+node.js,
+
+15:23.950 --> 15:24.940
+on the browser.
+
+15:25.000 --> 15:33.480
+All we had to do was input our script files into browserify and then it outputs the bundle for us.
+
+15:33.520 --> 15:34.450
+Very cool.
+
+15:34.450 --> 15:34.840
+All right.
+
+15:34.870 --> 15:40.090
+There has a lot of hoops to go through to show you a few things but you have some really really good
+
+15:40.090 --> 15:42.700
+contacts of what we're trying to do here.
+
+15:42.760 --> 15:50.620
+We've set up a system now where we're able to import all these different things that other people have
+
+15:50.620 --> 15:52.400
+written to make our code better.
+
+15:52.480 --> 15:55.660
+But you might notice two issues with the current setup.
+
+15:56.560 --> 16:01.940
+One is the fact that I'm only using this without method that comes with lodash.
+
+16:02.170 --> 16:09.070
+But if I look in the bundle.js file, well, it's massive because it's included this entire library
+
+16:10.920 --> 16:16.120
+and that is something that you want to be careful with. When you're working with NPM,
+
+16:16.120 --> 16:22.870
+A lot of beginners just start installing a ton of packages without thinking about how much weight they
+
+16:22.870 --> 16:24.390
+add to a project.
+
+16:24.430 --> 16:31.480
+It's a good idea to really assess whether you need that package as a team and add it to the project.
+
+16:31.480 --> 16:36.760
+If it saves you time, if it's really well written, it has a big community around it.
+
+16:36.760 --> 16:40.500
+It's something that you always want to consider.
+
+16:40.510 --> 16:48.220
+The second thing is that now we have something called "dependencies" that is our project depends on
+
+16:48.220 --> 16:48.720
+these things.
+
+16:48.850 --> 16:57.670
+We need to make sure that our website or our app always has lodash in a certain version so that
+
+16:57.670 --> 16:59.040
+it works with our website.
+
+16:59.350 --> 17:06.730
+It also adds that extra layer of complexity that you should consider. But package.json file also
+
+17:06.730 --> 17:09.610
+offers you a lot of great things.
+
+17:09.700 --> 17:15.660
+Maybe they're not evident right now because our project is fairly small but when you are working on
+
+17:15.660 --> 17:22.170
+big big projects it serves as a great documentation for what packages your project depends on.
+
+17:23.230 --> 17:31.750
+You'll see that most big projects can have close to 100 dependencies and having just one location
+
+17:31.750 --> 17:38.350
+package.json file to see all these packages to see what the project depends on is really really nice for all
+
+17:38.350 --> 17:45.090
+all that are joining the team and it also allows you to specify the version here of your dependencies.
+
+17:45.100 --> 17:46.000
+To lodash updates,
+
+17:46.000 --> 17:52.720
+I can also update my version just from this one line without having to go to the lodash website, download
+
+17:52.720 --> 17:56.460
+the file and add it into
+
+17:56.470 --> 17:57.750
+my index.html script file.
+
+17:58.240 --> 18:02.190
+Again another thing is we're not adding the script files over and over and over.
+
+18:02.260 --> 18:04.220
+As we've spoken about before.
+
+18:04.590 --> 18:10.030
+Now these numbers that you've seen before it's called  and they each have a meaning.
+
+18:10.270 --> 18:13.920
+The right most number is the patch release.
+
+18:13.990 --> 18:16.520
+So that is if there's any bug fixes.
+
+18:16.780 --> 18:20.330
+They will update it here if they find a bug and they need to fix it.
+
+18:20.350 --> 18:22.110
+This will become five.
+
+18:22.300 --> 18:24.550
+This one is the minor release.
+
+18:24.550 --> 18:30.610
+That means there is some some new features that were added to lodash but there won't be any changes
+
+18:30.610 --> 18:31.560
+that are major.
+
+18:31.600 --> 18:37.390
+And then finally, this is a major release which means this is a fourth version of the fifth version of
+
+18:37.390 --> 18:38.710
+lodash was released.
+
+18:38.740 --> 18:40.870
+Well that's a major release.
+
+18:40.900 --> 18:48.280
+That might be quite different from version 4 and it might break some of the websites that depend on
+
+18:48.460 --> 18:54.880
+lodash 4. package.json allows you to really decide what versions you need for each of these
+
+18:55.300 --> 18:56.430
+packages.
+
+18:56.530 --> 19:02.890
+But probably the biggest benefit that you get with NPM, this project is much easier to share with other
+
+19:02.890 --> 19:03.790
+developers.
+
+19:03.790 --> 19:10.360
+I don't need to add script tags in html for these now, and for a developer,
+
+19:10.360 --> 19:17.020
+in order for them to download all the packages or the dependencies that a project requires,
+
+19:17.180 --> 19:25.480
+Well, I will never put the node modules into my github repo. because all you need is the
+
+19:25.480 --> 19:26.330
+package.json file.
+
+19:26.440 --> 19:27.760
+Let me show you what I mean.
+
+19:27.910 --> 19:29.800
+If I delete my node packages here
+
+19:34.810 --> 19:40.090
+and let's say somebody new started at the company and we want to make sure that they have the latest
+
+19:40.090 --> 19:42.380
+version of the project so they can start working on it.
+
+19:43.060 --> 19:50.110
+Well even though there's no node modules because we have package.json file, NPM is spawn enough
+
+19:50.740 --> 19:59.590
+to say -let me clear this up, or let me stop this server, and I'll clear, as long as the new person does
+
+19:59.600 --> 20:01.140
+'npm install'
+
+20:01.580 --> 20:06.620
+And there is a package.json file.
+
+20:06.680 --> 20:11.340
+Well, in that case all of the dependencies get downloaded.
+
+20:11.810 --> 20:16.640
+So right away they can start the project with the exact same version of all the files that everybody
+
+20:16.640 --> 20:17.860
+else has.
+
+20:18.050 --> 20:24.440
+And that's why you won't see any known modules folders which can get really really big on github
+
+20:24.530 --> 20:25.260
+because we don't need it.
+
+20:25.310 --> 20:32.020
+We have it all described here in package.json.
+
+20:32.050 --> 20:33.750
+Now one other thing.
+
+20:34.210 --> 20:41.000
+There's actually another type of dependencies that you can have, these dependencies are what
+
+20:41.080 --> 20:42.940
+background-generator depends on.
+
+20:42.940 --> 20:50.140
+But there's another type of dependency called 'dev dependency' and a dev dependency are packages that
+
+20:50.140 --> 20:53.520
+are only needed for development and testing.
+
+20:53.740 --> 21:00.850
+So it will never be shipped to a website so that an end user can't see and you can do many many things
+
+21:00.850 --> 21:06.700
+that again we'll get into the react section but we'll have a separate section called 'dev dependencies'
+
+21:06.700 --> 21:14.980
+here that will have different things that only are use for the developers but are taken out automatically
+
+21:15.220 --> 21:21.730
+when we release the product so that it doesn't add too much weight to our project.
+
+21:21.730 --> 21:22.420
+Ok ok.
+
+21:22.570 --> 21:24.160
+I promise this is the last thing.
+
+21:24.160 --> 21:30.870
+Let me clear this. If I now run npm run test
+
+21:30.870 --> 21:32.870
+So the syntax is 'npm run'
+
+21:32.940 --> 21:35.450
+then whatever the script says-
+
+21:35.460 --> 21:40.470
+in this case 'test', I get 'echo "error: no test
+
+21:40.480 --> 21:42.720
+specified."
+
+21:42.790 --> 21:45.960
+Now that's actually what is defined in here.
+
+21:46.190 --> 21:51.390
+NPM scripts allow you to do comments from package.json file.
+
+21:51.430 --> 22:00.200
+Let me show you. Remember how annoying it was that we had to do browserify to do the bundle? well, in here
+
+22:00.210 --> 22:06.530
+I can say "build" and within this section
+
+22:09.370 --> 22:11.570
+-let me make this bigger- within this section,
+
+22:11.570 --> 22:19.850
+I can say "browserify script.js" to "bundle.js"
+
+22:22.620 --> 22:29.520
+and I can run the scripts a build script that automatically runs this in my terminal.
+
+22:29.520 --> 22:32.100
+Let me show you, if I save here.
+
+22:35.140 --> 22:45.910
+need clear- and I'll say 'npm run' and then whatever the name of the script is 'build'
+
+22:45.930 --> 22:50.260
+Look at that. I've just updated browserify and it runs the script.
+
+22:50.430 --> 22:51.000
+Very cool.
+
+22:51.090 --> 23:02.760
+Well, what if we also add the live-server too, command to it? '&& live-server' I save and
+
+23:02.760 --> 23:07.710
+run the same command again.
+
+23:07.760 --> 23:17.410
+Look at that. I have my array displayed, my website's running and it does all the commands right away from my terminal.
+
+23:17.410 --> 23:18.340
+How cool is that?
+
+23:20.010 --> 23:20.500
+All right.
+
+23:20.820 --> 23:23.880
+I think that's enough for NPM.
+
+23:24.000 --> 23:25.990
+It is a very useful tool.
+
+23:26.020 --> 23:31.530
+We're going to use it a lot and you will use that a lot in your day to day and you will get more comfortable
+
+23:31.530 --> 23:31.980
+with it.
+
+23:31.980 --> 23:39.840
+The more use it. In the next section we're finally going to get to building a real life app with react.
+
+23:39.840 --> 23:43.400
+We're going to use some of the knowledge that we've gathered up to this point.
+
+23:43.440 --> 23:48.010
+We now have a complete view of Front-End.
+
+23:48.240 --> 23:53.760
+Although you may not feel extremely confident you'll see that we've gotten to the point where we can
+
+23:53.760 --> 23:57.350
+build really really nice apps and websites.
+
+23:57.510 --> 24:02.880
+We have all the tools in our arsenal now to create some amazing things.
+
+24:02.880 --> 24:05.980
+So I really really look forward to the next session with you.
+
+24:06.090 --> 24:07.510
+I'll see you in that one.
+

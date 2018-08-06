@@ -1,0 +1,563 @@
+WEBVTT
+
+00:01.070 --> 00:02.480
+Welcome back.
+
+00:02.480 --> 00:10.100
+I want to do a quick review of our security and how our app is working right now because putting a secure
+
+00:10.310 --> 00:19.650
+web app online is a very very important responsibility of the Web Developer. Let's go back to our codebase.
+
+00:19.750 --> 00:24.250
+There's two main problems that I see so far.
+
+00:24.280 --> 00:28.870
+The first thing is that we're not doing anything called validation.
+
+00:29.010 --> 00:39.820
+If I'm going to signin here and I go to my signin controller if a user doesn't enter the proper e-mail
+
+00:40.150 --> 00:45.460
+or enters something that we don't expect maybe leaves that e-mail field blank or the password field blank
+
+00:46.860 --> 00:51.310
+Well what happens then? And same with the register.
+
+00:51.470 --> 01:00.800
+If we go to register and a user doesn't type in the proper email or name or password we technically
+
+01:00.800 --> 01:09.230
+still register them because if we leave email blank name blank password blank they'll just enter a blank
+
+01:09.260 --> 01:10.810
+user into the database.
+
+01:12.160 --> 01:14.670
+Let's go to the app and show you what that means.
+
+01:15.460 --> 01:23.480
+If I leave this blank and click register look at that I'm entered into the app and if I go back to the
+
+01:23.480 --> 01:24.170
+database
+
+01:26.910 --> 01:37.200
+and go to users I see a blank user. And this isn't very harmful, but it showcases one important topic
+
+01:37.200 --> 01:44.790
+that you really want to focus on in your app and that is validation - making sure that when you communicate
+
+01:44.790 --> 01:49.520
+between the front end and the back end there's a few layers of security.
+
+01:49.620 --> 01:54.420
+First the Front-End will do its own validation.
+
+01:54.420 --> 02:03.670
+For example if we go to the sign in page or the register page within our Front-End within our re-act
+
+02:03.670 --> 02:10.100
+app we'll actually check before when we click register will have an on Submit button.
+
+02:10.330 --> 02:18.360
+And on submit is going to check to make sure that the name is not empty the email has proper email format
+
+02:18.450 --> 02:26.830
+such as having an at sign or a dot com at the end and then password will have some sort of validation for
+
+02:26.830 --> 02:33.690
+let's say it has to be greater than six characters. And now the front end sends that validated information
+
+02:34.320 --> 02:40.520
+to the backend and an important thing that you want to make sure with your server is that the server
+
+02:40.520 --> 02:45.590
+never trusts anything received from the front end.
+
+02:45.640 --> 02:48.050
+So it should do its own validation.
+
+02:48.070 --> 02:56.470
+That is to check email name and password and make sure there are values that it wants to enter and transact
+
+02:56.590 --> 02:58.030
+into the database.
+
+02:58.920 --> 03:14.470
+One way we can do this. Well we can simply say that if email or name or password and we can just do the
+
+03:14.800 --> 03:17.070
+not so that is the opposite.
+
+03:17.320 --> 03:20.700
+So if this is empty they'll turn to true.
+
+03:20.740 --> 03:24.500
+If this is empty they'll turn to true, this is empty they'll turn to true.
+
+03:24.580 --> 03:30.280
+So if any of these are empty we can just respond status
+
+03:32.710 --> 03:33.370
+400
+
+03:36.330 --> 03:40.910
+and we can just respond with incorrect form submission.
+
+03:43.710 --> 03:45.420
+Let's save this and see what happens.
+
+03:47.570 --> 03:53.500
+I'll save. The one thing I want to do is actually go back to my database and hove my PSQL running
+
+03:53.500 --> 03:53.850
+here.
+
+03:53.890 --> 03:58.540
+If I go to login or users I want to delete the empty user.
+
+03:58.540 --> 03:58.800
+Now
+
+04:02.920 --> 04:07.130
+and this one is well perfect.
+
+04:07.350 --> 04:09.570
+If I go back here and try to click register
+
+04:12.780 --> 04:15.470
+I still get the register.
+
+04:15.490 --> 04:19.180
+That's because if I go back I see that I get an error here
+
+04:23.080 --> 04:26.050
+and I get "can't set headers after they are sent".
+
+04:26.590 --> 04:33.430
+And this is a little bit of a trick because if you go here and open up the console.
+
+04:33.660 --> 04:44.890
+All right we have a bad request from the server but this if statement gets run and then it continues
+
+04:44.890 --> 04:52.810
+on and does this as well because remember in order to end execution within a function we have to say
+
+04:53.050 --> 04:53.670
+return.
+
+04:53.920 --> 05:01.870
+So that way if this gets run it returns from this function and this part never gets run.
+
+05:03.480 --> 05:14.860
+Let me save that go back to our app now let's just refresh here. We'll just do a blank user.
+
+05:14.950 --> 05:21.100
+Again we're getting logged in because now when we go to the front end if you remember in our register
+
+05:21.100 --> 05:26.030
+file on the front end when we click register.
+
+05:28.890 --> 05:30.180
+Well we're fetching
+
+05:32.690 --> 05:40.640
+and we're just checking if user and this user because we're responding in here with incorrect form submission
+
+05:41.060 --> 05:43.400
+user will be that.
+
+05:43.400 --> 05:51.530
+So let's just check here for ID. We save and remember, this is something that we did with our signin
+
+05:51.560 --> 06:00.310
+as well in the previous videos if we go back go back to register try to register.
+
+06:00.780 --> 06:06.430
+It's not letting me because if I open up the console I have failed to load resources.
+
+06:06.430 --> 06:17.400
+If I go to network, try that again go to register I get "incorrect form submission".
+
+06:17.520 --> 06:19.530
+So that is really really important.
+
+06:19.560 --> 06:28.460
+The server and the client should do its own validation and make sure that it handles all possibilities.
+
+06:28.530 --> 06:35.610
+If an attacker for example enters some really really bad piece of code instead of an email. Well we need
+
+06:35.610 --> 06:42.260
+to validate against that and make sure that we take proper action based on that.
+
+06:42.430 --> 06:49.220
+So we can add things like this into other parts of our app especially ones where we accept input.
+
+06:49.510 --> 06:57.760
+Luckily for us that's for our register and then we have our signin as well.
+
+06:57.760 --> 07:05.430
+And then for the signin we can simply just copy and paste and here we using request dot body dot email
+
+07:05.550 --> 07:10.740
+and password so we can simply just again restructure it
+
+07:13.540 --> 07:17.310
+password from request dot body
+
+07:20.360 --> 07:21.390
+we'll remove the name
+
+07:25.190 --> 07:34.300
+and again and we'll just remove the request dot body from these just to make it a little bit cleaner.
+
+07:34.460 --> 07:37.270
+And if I save this this should work as well.
+
+07:37.640 --> 07:40.610
+Let's go to signin, make sure I'm not able to sign in.
+
+07:40.730 --> 07:41.260
+Perfect.
+
+07:41.270 --> 07:51.570
+And if I go to Wes at gmail dot com One two three sign in I'm able to sign in.
+
+07:51.590 --> 07:54.550
+All right so that's the first part of the security I wanted to cover.
+
+07:54.890 --> 07:59.170
+There's obviously a few more things that we can do here but I think you get the idea.
+
+08:00.570 --> 08:09.160
+The next thing, and another major flaw in our app, is that when we submit an image let's grab this
+
+08:12.200 --> 08:14.880
+and let's open up the tab.
+
+08:15.320 --> 08:18.020
+The network tab here click detect
+
+08:20.930 --> 08:25.600
+and if you look at the image endpoint well that when we take care of.
+
+08:25.610 --> 08:31.560
+But if you look at the outputs this is where we're asking API clarifai for the request.
+
+08:31.580 --> 08:43.650
+If I click on this and look at the headers and I look at the authorization I get the key with DCB17e...
+
+08:43.690 --> 08:49.290
+And if I go back to the Front-End and under app dot js
+
+08:55.810 --> 08:58.170
+DCB17e...
+
+08:58.180 --> 08:59.970
+That's our API key.
+
+09:00.390 --> 09:03.520
+We're making our API key which in my case is a free one.
+
+09:03.520 --> 09:11.190
+But when you're using an API that costs money somebody could steal this information and use your API
+
+09:11.350 --> 09:19.690
+to just load that API with requests and make you pay a lot of money and you never want to do this when
+
+09:19.690 --> 09:22.090
+you're playing as a developer on your own project.
+
+09:22.090 --> 09:23.230
+That's fine.
+
+09:23.590 --> 09:26.560
+But things like this shouldn't happen.
+
+09:26.560 --> 09:31.880
+So one thing we can do to avoid this is actually move this to the backend instead of the front end.
+
+09:32.200 --> 09:33.510
+Let me show you how we can do that.
+
+09:36.800 --> 09:44.390
+We're going to go back to our front end and in our front end I'm actually going to copy the clarifai
+
+09:44.390 --> 09:49.440
+information to the Backend and remove it from the front end.
+
+09:49.910 --> 09:56.490
+So if you remember we need to just install clarifai on the back end so I'm going to stop the server and
+
+09:56.490 --> 10:02.370
+do NPM install clarifai so that we have the package dot json
+
+10:06.500 --> 10:14.230
+we will import it this time using require.
+
+10:14.250 --> 10:16.200
+So let's go to our handle image
+
+10:19.250 --> 10:29.860
+and then the handle image we'll just import and instead of import we'll do const clarifai equals require
+
+10:32.150 --> 10:41.550
+clarifai and we'll just copy exactly what we have in our app and want to remove this going to cut
+
+10:41.550 --> 10:42.120
+this out
+
+10:46.840 --> 10:48.730
+use our API key right here.
+
+10:52.680 --> 11:01.940
+Then scrolling down we take a look at where we use our API key in our case it's here app.models.
+
+11:02.280 --> 11:08.940
+And here we want to just do the clarifai and then grab our response.
+
+11:09.090 --> 11:11.210
+So this bottom part we can keep.
+
+11:11.210 --> 11:19.620
+We just need the clarifai call to now be coming from the backend so we'll copy that.
+
+11:19.670 --> 11:20.900
+Go back to our back endand
+
+11:24.110 --> 11:31.320
+let's put that in place because we have app now from the new instantiation of clarifai and we will now
+
+11:31.320 --> 11:33.500
+need to grab the input.
+
+11:33.570 --> 11:40.210
+So it sounds like we'll need a new endpoint. Let's clean this up a bit and do predict
+
+11:42.580 --> 11:43.380
+clarifai
+
+11:46.470 --> 11:49.950
+let's do it over here just so we can see better. I'm gonna minimize this a bit
+
+11:52.860 --> 12:03.780
+and app dot models predict we will predict it with our request dot body dot input which we obviously
+
+12:03.780 --> 12:04.470
+don't have.
+
+12:04.490 --> 12:09.980
+But now we know that we need the input and we can wrap this around a function just like this.
+
+12:10.140 --> 12:20.560
+We can say const handleApiCall and this one will receive a request response
+
+12:25.280 --> 12:30.230
+and we'll just move this up here.
+
+12:30.300 --> 12:39.550
+So now we can just say handle API call at the bottom over here and on our server we can create a new
+
+12:39.550 --> 12:48.710
+endpoint for Image and we can do a post request because we'll add it to our request dot body and
+
+12:48.710 --> 12:50.540
+we'll just call that imageurl
+
+12:50.570 --> 12:59.900
+and the imageurl endpoint will have the handleApiCall.
+
+13:00.040 --> 13:07.240
+It won't need the database. We'll definitely need to import it but we have it on the image object already.
+
+13:07.240 --> 13:17.220
+OK so if I save this we now need to make sure that we receive the body with the URL, so going to
+
+13:17.220 --> 13:18.940
+the front end.
+
+13:19.190 --> 13:28.980
+We'l say that on submit we need to fetch and let's just copy this.
+
+13:28.980 --> 13:36.780
+What we have here for now. We want to fetch imageurl.
+
+13:37.010 --> 13:49.310
+It's going to be a post method and we'll have a json of input and that input will simply be that this
+
+13:49.310 --> 14:01.700
+state DOT input. That's going to give us a response and that response will keep trickle down this way.
+
+14:01.810 --> 14:08.220
+But keep in mind that because this is a fetch we'll have to do response dot json.
+
+14:08.470 --> 14:16.550
+So that's simple enough to do let's fix the indentation here and we'll do a dot then response equals
+
+14:18.530 --> 14:19.760
+response dot Jason
+
+14:22.420 --> 14:28.510
+We'll save and we'll want to go back and make sure that this is working.
+
+14:28.510 --> 14:41.660
+So let's go to our server go to image and make sure that we're responding here with dot then data and
+
+14:41.660 --> 14:43.180
+this data will have a response dot json
+
+14:43.260 --> 14:51.470
+of data. Whatever this gives us. If there is some sort of an error we'll do a catch.
+
+14:54.470 --> 14:56.420
+I will say response status 400.
+
+14:59.050 --> 15:00.810
+We'll do.
+
+15:00.810 --> 15:12.900
+json "unable to work with API". Let's save. We'll see if this works the first time.
+
+15:12.920 --> 15:23.930
+It usually doesn't but if we sign in with Wes at Gmail dot com 1 2 3  sign in, we have a bit of an issue.
+
+15:25.420 --> 15:29.060
+Let's go to consol - failed to fetch
+
+15:32.090 --> 15:38.040
+Oh we need to actually NPM start our server.
+
+15:38.110 --> 15:39.510
+All right and now we get some errors.
+
+15:39.520 --> 15:40.660
+All right.
+
+15:40.660 --> 15:47.510
+We have missing brackets so we're just we just made a bit of a syntax error here and that's because
+
+15:47.510 --> 15:50.270
+I forgot a period in here.
+
+15:50.270 --> 15:51.390
+Let's save that.
+
+15:51.920 --> 15:58.810
+And if we go to our front ends running, back end is running. Let's close this and try this again.
+
+16:00.170 --> 16:01.190
+All right I'm signed in.
+
+16:01.250 --> 16:09.680
+If I copy this image again. Moment of Truth.
+
+16:09.790 --> 16:10.180
+All right.
+
+16:10.180 --> 16:17.820
+We're getting the image, but the response - something's not working. We have failed to fetch the server response
+
+16:17.900 --> 16:20.390
+with a status of 500.
+
+16:20.390 --> 16:24.140
+So we get an error in the server and it looks like
+
+16:26.740 --> 16:29.620
+handle API call is not a function.
+
+16:29.650 --> 16:39.010
+So let's go to server and my terrible spelling mistake again. This always gets you with the spelling.
+
+16:39.040 --> 16:41.150
+Let's try that once again.
+
+16:41.340 --> 16:47.710
+We'll clear this and detect. No errors.
+
+16:47.750 --> 16:48.480
+All right.
+
+16:48.570 --> 16:49.410
+Look at that.
+
+16:49.680 --> 16:51.120
+That's working.
+
+16:51.120 --> 16:52.100
+Amazing.
+
+16:52.530 --> 16:59.340
+I see no errors in my API or the front end.
+
+16:59.420 --> 17:00.510
+So that wasn't bad.
+
+17:00.590 --> 17:08.100
+And if I actually go back to the request, go to the network tab and let's check this I'm going to press
+
+17:08.100 --> 17:12.810
+detect if I go to imageurl.
+
+17:13.060 --> 17:15.560
+We're not seeing any of our keys.
+
+17:15.580 --> 17:21.780
+The only thing we're seeing is a response which is the response that we get from clarifai but our server
+
+17:21.780 --> 17:25.850
+is running in our own environment and nobody has access to it.
+
+17:27.290 --> 17:30.110
+So let's go over what we just did.
+
+17:30.200 --> 17:39.720
+We created a new endpoint and because we now have our own controllers and it's regarding the image we
+
+17:39.720 --> 17:46.500
+can add it to the image controllers and within the image controllers we create a new function and just
+
+17:46.500 --> 17:54.480
+pretty much copy and paste it exactly like we had on the front and we responded with Json data and
+
+17:54.480 --> 17:59.400
+this Json data is now getting sent as response dot Json.
+
+17:59.790 --> 18:09.920
+So on the front end we simply created a fetch request that sent the input and we responded with a response.
+
+18:10.290 --> 18:14.630
+So not much really changed on the front end except for the fact that now we're hiding the API key.
+
+18:14.760 --> 18:21.030
+And instead of having clarifai here we have it on the backend.
+
+18:21.280 --> 18:26.630
+I hope that was some valuable security tips for you.
+
+18:26.650 --> 18:31.130
+There's lots of things when it comes to security and it definitely is something that you have to get
+
+18:31.130 --> 18:35.190
+used to as you have more and more years of experience.
+
+18:36.250 --> 18:43.900
+But having that general rule of making sure that your machine or in our case your codebase of front
+
+18:43.900 --> 18:49.210
+end and back and never relies on the security of the other always focuses and make sure that whatever
+
+18:49.220 --> 18:55.650
+inputs it gets from other places outside of itself is always validated.
+
+18:55.780 --> 19:00.510
+And we protect any secrets that we have from the outside world.
+
+19:00.610 --> 19:04.760
+Never trust anybody is pretty much the motto in security.
+
+19:05.570 --> 19:08.680
+So I hope that was insightful and I'll see in the next video.
+

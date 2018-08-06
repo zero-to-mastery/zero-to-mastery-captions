@@ -1,0 +1,227 @@
+WEBVTT
+
+00:01.430 --> 00:02.390
+Welcome back.
+
+00:02.390 --> 00:08.880
+I wanted to show you a quick video on an important concept called environmental variables and I've created
+
+00:08.880 --> 00:15.910
+a simple survey here that we've done before using the http module that comes with node and we have a
+
+00:15.910 --> 00:18.750
+simple server that listens to port 3000.
+
+00:18.970 --> 00:28.470
+If I ran a node server dot js we get server is listening on port 3000. However this is not
+
+00:28.470 --> 00:30.060
+really realistic.
+
+00:31.180 --> 00:36.890
+Sometimes we don't want to hard code what port we are listening to.
+
+00:37.150 --> 00:43.980
+For example when we're deploying something through another service like we will with Heroku we can't
+
+00:43.990 --> 00:46.960
+really pick what port we're going to listen to.
+
+00:47.020 --> 00:50.150
+We need something dynamic so that it can be changed.
+
+00:51.490 --> 00:56.700
+How can we do that? Well this concept of environmental variables.
+
+00:56.850 --> 01:11.160
+is the idea that there is variables just like we have a const A equals one const B equals two that are
+
+01:11.760 --> 01:13.950
+variables in this environment.
+
+01:15.040 --> 01:22.330
+There's an idea of an environmental variable which is an environment such as here, a computer that this
+
+01:22.330 --> 01:25.260
+application is running on or the server is running on.
+
+01:25.510 --> 01:33.460
+It may have its own variables and we're able to inject these variables into the specific location in
+
+01:33.460 --> 01:35.230
+a file.
+
+01:35.340 --> 01:38.550
+And this isn't just a node or server specific.
+
+01:38.550 --> 01:42.090
+It is with all programming.
+
+01:42.090 --> 01:46.050
+Everywhere you look there is going to be environmental variables that are being used.
+
+01:46.050 --> 01:47.640
+It's a concept.
+
+01:47.640 --> 01:58.080
+So how can we do this in node. Well in node we have access to - let's do a console log process dot env
+
+01:59.440 --> 02:00.450
+and with process dot env,
+
+02:00.520 --> 02:10.410
+if I run the server you see that it tells me the environment such as where I'm running this from
+
+02:10.770 --> 02:21.270
+the home, tells us what terminal program I'm running with this with, which is iTerm, getting a lot of information.
+
+02:21.320 --> 02:23.900
+Let's clear this. And with this
+
+02:23.900 --> 02:29.150
+now we can set our own variables. If you want to set the port.
+
+02:29.150 --> 02:37.880
+For example we can say process dot env dot port and now we change this to
+
+02:41.310 --> 02:44.500
+process dot env dot port.
+
+02:45.060 --> 02:55.990
+And just to make this cleaner we can just have PORT equal to process dot env dot PORT.
+
+02:56.010 --> 03:01.240
+So now we can remove the same call.
+
+03:05.980 --> 03:10.180
+Let's just console log here as well just to make sure that we see it.
+
+03:10.220 --> 03:23.040
+If I run node server I get undefined. But that's because this port number is something that we didn't
+
+03:23.040 --> 03:24.190
+have initially.
+
+03:24.270 --> 03:25.670
+I just made this name up.
+
+03:25.710 --> 03:33.440
+I could have said ABC. It doesn't exist. In order for us to access or create an environmental variable
+
+03:33.530 --> 03:35.720
+within this computer.
+
+03:35.720 --> 03:37.500
+We have to inject it.
+
+03:37.610 --> 03:42.620
+I'm going to show you how to do with fish which is the shell that I'm using here which is a little
+
+03:42.620 --> 03:46.700
+bit different than bash and most common you'll see Bash.
+
+03:46.850 --> 04:00.570
+So I'm going to show you that way first. With bash we simply do PORT 3000 node server dot js
+
+04:00.790 --> 04:07.740
+And look at that. Server is listening to port 3000. If I change this to
+
+04:10.380 --> 04:17.670
+3050 server is listening to 3050.
+
+04:17.930 --> 04:20.540
+And this isn't limited to port.
+
+04:20.750 --> 04:28.680
+You'll see in the next couple of videos during production we can set up something like a database URL.
+
+04:32.890 --> 04:36.820
+And this database URL can now be dynamic.
+
+04:36.820 --> 04:41.550
+Maybe we won't know where the database URL will be. In that case.
+
+04:41.590 --> 04:44.890
+I can simply say database
+
+04:48.100 --> 04:56.990
+URL equals 123 node server dot js
+
+04:57.020 --> 04:59.030
+And do we get ports is not defined.
+
+04:59.030 --> 05:07.020
+Because we're not using it here so let's just revert this back to port three thousand and run that command
+
+05:07.020 --> 05:07.540
+again.
+
+05:09.100 --> 05:16.060
+And look at that server listening to port 1 2 3 because that's the database URL and we can set whatever
+
+05:16.060 --> 05:18.030
+environmental variables we want.
+
+05:19.140 --> 05:24.890
+And the importance of them won't really come into play until later on in these videos.
+
+05:25.140 --> 05:31.410
+But they're really important for things that should be kept secret or dynamic.
+
+05:31.420 --> 05:37.570
+For example port we might not know what port the server that's going to be running our API will be run
+
+05:37.570 --> 05:37.830
+on.
+
+05:37.870 --> 05:45.110
+So this way whoever is running it can just set the port without touching the codebase. But also for secrets
+
+05:45.120 --> 05:50.140
+for example API keys that we might not want to have in our codebase.
+
+05:50.160 --> 05:58.830
+We can just launch the app and give maybe API keys or even passwords to log into the database dynamically
+
+05:58.860 --> 06:02.930
+through the environment so that it's more secure.
+
+06:02.940 --> 06:05.820
+Let me show you how to do this in fish.
+
+06:05.820 --> 06:13.680
+It's a little bit different and you don't need to worry too much about it because it's just specific
+
+06:13.680 --> 06:19.730
+to fish it's kind of a weird kink but you can do environment database
+
+06:23.380 --> 06:34.410
+URL Will say hello node server dot js and we have servers listening on port Hello.
+
+06:34.440 --> 06:41.510
+Again this is just specific to fish but to demonstrate to you that there are environment variables
+
+06:41.810 --> 06:47.810
+the environment decides the variables and because the environment that this is running on is a fish shell,
+
+06:47.830 --> 06:54.630
+I have to use the specific fish way of declaring it.
+
+06:54.780 --> 06:56.250
+But the goal is still the same.
+
+06:56.250 --> 07:02.370
+We're trying to inject these properties and values into node so that it has access to it.
+
+07:02.520 --> 07:09.240
+And that's why it's called process dot env for environmental variables and we'll use them in the next
+
+07:09.240 --> 07:10.530
+couple of videos.
+
+07:11.400 --> 07:12.590
+I'll see in the next one.
+
+07:12.910 --> 07:13.200
+Bye-Bye.
+

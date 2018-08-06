@@ -1,0 +1,436 @@
+WEBVTT
+
+00:00.930 --> 00:09.480
+API or Application Programming Interface is a messenger that takes the request and tells the system
+
+00:09.780 --> 00:10.540
+what to do.
+
+00:11.380 --> 00:11.940
+Huh?
+
+00:12.310 --> 00:14.190
+That doesn't mean much, does it?
+
+00:14.360 --> 00:20.160
+In this video, I'm going to explain to you exactly what an API is without all this confusing wording.
+
+00:21.220 --> 00:22.910
+I have over here "skyscanner".
+
+00:23.030 --> 00:26.500
+If you've never used it, it's an Aggregator Web site.
+
+00:26.590 --> 00:35.230
+I look for a flight from LA to New York and it searches all the Web sites all the airlines for the
+
+00:35.230 --> 00:36.410
+best deals for me.
+
+00:37.660 --> 00:40.440
+Now how is it able to do that?
+
+00:40.650 --> 00:48.290
+It found all these flights from different Web sites. But Skyscanner doesn't really have the information.
+
+00:48.310 --> 00:54.920
+I mean this information is somewhere in the database of each individual airline.
+
+00:56.950 --> 01:05.320
+But as an airline you're interested in having this data on Skyscanner because people like myself that
+
+01:05.470 --> 01:10.330
+want to book a flight might not know to go to AmericanAirlines.com
+
+01:10.690 --> 01:14.320
+So by having their information listed on a website like this.
+
+01:14.590 --> 01:19.200
+Well now they can increase their revenue.
+
+01:19.240 --> 01:24.860
+So how is Skyscanner able to do this without having this information themselves?
+
+01:25.980 --> 01:26.780
+Well,
+
+01:27.060 --> 01:28.620
+That's where API is coming.
+
+01:28.680 --> 01:35.730
+If you remember, APIs is what allows strangers to speak to each other, so that we aren't in a closed
+
+01:35.790 --> 01:36.510
+system.
+
+01:36.720 --> 01:46.630
+We can share data and work with each other and APIs' what allows machines, computers to communicate.
+
+01:46.830 --> 01:53.100
+This might sound familiar it's kind of like how we had web browsers speaking with
+
+01:53.250 --> 01:53.780
+servers, right?
+
+01:54.060 --> 01:57.960
+Well yeah because API is a broad topic.
+
+01:58.110 --> 02:02.050
+It applies to the way machines communicate.
+
+02:02.070 --> 02:10.140
+If I open up my console here, well, I always mentioned that there is a window object. and the window object
+
+02:10.140 --> 02:16.940
+has fetch. and fetch is an API.
+
+02:17.140 --> 02:27.970
+It is given by the browser to use, so that I can communicate with this machine that the console can communicate
+
+02:28.030 --> 02:30.450
+with the browser. In the same way,
+
+02:32.060 --> 02:42.010
+although Skyscanner doesn't have access to the databases of American Airlines and Alaska Airlines all
+
+02:42.020 --> 02:49.430
+the other airlines use APIs or give access to this information through APIs.
+
+02:49.700 --> 02:57.580
+So that Web sites like Skyscanner can have the information as well and listed on their websites.
+
+02:57.750 --> 03:04.830
+The best way to think about it is kind of like a waiter. You're sitting at a table about to order and
+
+03:04.920 --> 03:09.340
+the waiter is the messenger that tells the kitchen what to do.
+
+03:09.390 --> 03:12.930
+The kitchen is providing the waiter the restaurant, right?
+ 
+03:12.930 --> 03:18.260
+The restaurant is saying "Hey, waiter, these are the menu items.
+
+03:18.390 --> 03:24.480
+Please go ask the customer what he or she wants and let us know so that we can prepare."
+
+03:24.690 --> 03:28.510
+And this might sound similar to this, right?
+
+03:28.530 --> 03:38.420
+We're asking another machine for something using -let's say a waiter- and this machine gives us a response.
+
+03:38.430 --> 03:47.820
+If we talk to it in a certain way that it expects. And yeah, a server has APIs ways they can communicate with it.
+
+03:48.510 --> 03:54.410
+such as doing "users/about". In the same way,
+
+03:54.490 --> 04:02.770
+we also have our code previously from when we built Robofriends. React which is a library built by
+
+04:02.770 --> 04:09.680
+Facebook exposes an API a way to communicate with the React package
+
+04:09.920 --> 04:20.750
+by doing react Component and using JSX. They tell us how to communicate with it and we're able to communicate
+ 
+04:20.750 --> 04:21.200
+with it.
+
+04:21.350 --> 04:23.950
+Hmm- let's, let's work on this a little bit more.
+
+04:24.080 --> 04:29.050
+What about- what about this?
+
+04:29.060 --> 04:30.250
+Is this an API?
+
+04:30.470 --> 04:33.040
+It's a back of a TV.
+
+04:33.410 --> 04:41.660
+Yeah, it's an API. A TV works in its own way but it gives you access to a couple of things such as the HDMI cable,
+
+04:41.660 --> 04:45.420
+so you can plug into it and communicate with it.
+
+04:46.500 --> 04:54.030
+Such as displaying your laptop into the TV. And we've been using APIs in the Robofriends demonstration as well.
+
+04:54.030 --> 05:04.760
+We already talked about React, but you remember the JSON placeholder? the users that we got?
+
+05:04.810 --> 05:11.770
+Well, if I go to their website, we see that it's a fake Online REST API for Testing and Prototyping.
+
+05:11.780 --> 05:14.310
+It's an API, so it must give us
+
+05:14.450 --> 05:19.380
+It must be giving us information about something that it has. If we go down,
+
+05:19.380 --> 05:28.290
+we see that it has resources and the API tells us we can access them using these methods.
+
+05:28.310 --> 05:37.500
+So by just writing "comments" here, I should be able to get 500 comments, and there you go.
+
+05:38.440 --> 05:41.330
+I get a response in JSON,
+
+05:45.570 --> 05:48.590
+And even with RoboHash,
+
+05:48.660 --> 05:58.350
+Remember how we were able to get images of robots from this robohash.org? That's an API. 
+
+05:58.350 --> 06:01.520
+We can say robahash whatever.
+
+06:01.710 --> 06:09.990
+And because they've said that the way to access this API is to just type in random numbers after robohash.org
+
+06:09.990 --> 06:20.290
+we're able to access it. And people build these APIs usually for business reasons such
+
+06:20.290 --> 06:22.090
+as airline companies, right?
+
+06:22.450 --> 06:32.080
+And they have the incentive to comply to industry standards, such as having JSON responses.
+
+06:32.450 --> 06:40.190
+And that way it makes it easier for a developer like myself to grab bits and pieces from different places.
+
+06:40.490 --> 06:43.910
+For example here, I have the github API.
+
+06:43.910 --> 06:47.120
+You can read up on it but I can access information from githup.
+
+06:47.390 --> 06:55.490
+So I'm accessing the github repo of Facebook, and it tells me how many followers it has, what bio
+
+06:55.490 --> 06:56.170
+it has.
+
+06:56.330 --> 07:02.870
+If I go to apple, I can get the apple username as well.
+
+07:02.870 --> 07:08.000
+And you can see that it's in JSON format because that is the standard.
+
+07:08.000 --> 07:16.380
+If we want to build something with github, well, we can just send a request to this get this data and
+
+07:16.420 --> 07:18.930
+create our Web site based on this data.
+
+07:20.790 --> 07:27.620
+But it's not only JSON. If you remember there's xml as Well. This is a sample API that shows us
+
+07:27.710 --> 07:35.150
+a breakfast menu and here we can request this data through HTTP and we get breakfast menu.
+
+07:35.450 --> 07:41.510
+So as you can see APIs are not just web sites. 
+
+07:41.630 --> 07:42.530
+A TV's inputs and outputs,
+
+07:42.530 --> 07:48.830
+That's an API. A NPM package can be an API.
+
+07:49.010 --> 07:56.300
+Like I've said before it's a way that people communicate or machines communicate and share information.
+
+07:56.420 --> 08:00.970
+Without it we really wouldn't have what we have now with the Worldwide Web.
+
+08:01.160 --> 08:05.220
+But how is this useful to us?
+
+08:05.230 --> 08:09.950
+Well, first off we can build something like this quite easily.
+
+08:10.090 --> 08:20.570
+We can actually search API jetBlue, API American Airlines. And they'll have information of how we can
+
+08:20.570 --> 08:23.330
+access this data so we can build our own thing.
+
+08:23.330 --> 08:28.700
+This web site all it's doing is making in HTTP request to something like here.
+
+08:30.520 --> 08:37.210
+And then grabbing this data and just adding some CSS to it to make it look nice. And there are ton of
+
+08:37.210 --> 08:39.320
+APIs online you can search them,
+
+08:39.420 --> 08:40.930
+you can read up on them.
+
+08:40.960 --> 08:46.930
+Big companies like Facebook have APIs, Google has APIs, you might know Google Maps anytime you see
+
+08:46.930 --> 08:48.770
+Google Maps on a Web site,
+
+08:48.940 --> 08:51.910
+It's using the Google API.
+
+08:51.950 --> 08:59.530
+We also have a silly API like this one, one of my favorites, it's the Star Wars API. It shows you over
+
+08:59.540 --> 09:11.880
+here, if I do "people/2/", I get "C-3PO". If I do "people/3/", I get "R2-D2".
+
+09:12.110 --> 09:15.600
+I can also do "planets".
+
+09:15.650 --> 09:24.740
+This is a free nice to use API, so you can build a sample app using the Star Wars API and all you need
+
+09:24.740 --> 09:36.050
+to do is just fetch this resource, get the JSON converted to a JavaScript object and then style it and
+
+09:36.050 --> 09:38.790
+use it in your app whichever way you want.
+
+09:40.490 --> 09:48.100
+There's also some really important API is that if you're building serious web sites are really useful.
+
+09:48.140 --> 09:49.740
+This is the "stripe API".
+
+09:49.910 --> 09:56.720
+If you want to incorporate payments into your website, well, this shows you exactly what to do.
+
+09:57.380 --> 10:01.590
+And you can add to your server within whichever language you want.
+
+10:01.590 --> 10:09.150
+In our case, we're interested in Node and it tells you how you can add "stripe" as a payment method on
+
+10:09.150 --> 10:09.820
+your server.
+
+10:10.080 --> 10:13.130
+It sounds scary but it's all documented in here.
+
+10:13.170 --> 10:16.030
+It's step by step instructions of how to do it.
+
+10:17.470 --> 10:28.910
+Another one that I really like is the "Twilio API". And Twilio allows sending of messages on phones. So using
+
+10:28.910 --> 10:34.770
+something simple like this you can see there's not much to it other than using this client.messages.create
+
+10:34.850 --> 10:36.420
+that they provide.
+
+10:36.710 --> 10:43.370
+And we just say what we want the body of the text to be, to which number, from which number, if we want
+
+10:43.370 --> 10:48.040
+to include maybe an a heart, then we can add that as well.
+
+10:48.170 --> 10:56.030
+And let's say when a user signs up for a service. Well, we can send them a message by saying "hey we've
+
+10:56.030 --> 10:57.620
+created a new user.
+
+10:57.620 --> 11:00.240
+They've provided us their phone number.
+
+11:00.350 --> 11:03.400
+Send them a text message."
+
+11:03.410 --> 11:07.510
+Now you might be thinking this is almost too good to be true.
+
+11:07.580 --> 11:12.020
+You have so much power now you can just research APIs.
+
+11:12.050 --> 11:16.640
+And all the major Web sites have APIs data that they give to you.
+
+11:16.670 --> 11:23.420
+Well things like robohash, and Star Wars API. They're silly and they're fun and there's no real cost
+
+11:23.420 --> 11:23.900
+to them.
+
+11:24.720 --> 11:31.440
+But when you start building real applications and companies like stripe and Twilio where there's some
+
+11:31.440 --> 11:39.360
+real engineering effort behind creating these. Well, they charge. They charge a service and that's when
+
+11:39.360 --> 11:45.960
+you use something like an API key. And an API key looks like jibberish.
+
+11:46.010 --> 11:54.270
+It is a key, a private key so that every time you access their API they know that it's you.
+
+11:54.410 --> 12:02.000
+And because let's say you have a plan for making a thousand requests. They charge you because they can
+
+12:02.000 --> 12:05.570
+recognize you saying that "oh, this is Andreas key.
+
+12:05.780 --> 12:11.720
+He's the one making the request from a server and we're going to charge him for it". And don't worry.
+
+12:11.720 --> 12:17.060
+In our final project we're going to be using a really really cool machine learning API and we're going
+
+12:17.060 --> 12:20.210
+to generate our API key and actually use it.
+
+12:20.480 --> 12:22.940
+Luckily for us though it's free.
+
+12:23.120 --> 12:24.350
+So it's going to be a lot of fun.
+
+12:26.220 --> 12:34.740
+But from this video I want you to remember this. A server somewhere in the world for a company provides
+
+12:35.190 --> 12:37.830
+an API. In order for other people to use it,
+
+12:37.830 --> 12:40.490
+they usually tell you how to use it.
+
+12:41.600 --> 12:44.630
+And they have documentation on how to use it.
+
+12:44.810 --> 12:51.830
+But most of them comply with the standard like JSON to make it easier for developers like us to use.
+
+12:52.130 --> 12:58.070
+And at the end of the day, an API is a tool used for data communication.
+
+12:58.160 --> 13:06.820
+It's how a program or software or anything running code allows others to communicate with it. 
+
+13:06.850 --> 13:15.740
+It opens up a big possibility of making websites that do more than just list robots.
+
+13:15.790 --> 13:24.670
+You can now with the same principles build Web sites that incorporate different APIs to have the functionality
+
+13:25.150 --> 13:28.570
+of something like Skyscanner.
+
+13:28.700 --> 13:30.150
+I'll see you in the next one.
+
+13:30.370 --> 13:30.590
+Byebye

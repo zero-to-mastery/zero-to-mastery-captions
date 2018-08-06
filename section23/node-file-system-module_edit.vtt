@@ -1,0 +1,736 @@
+WEBVTT
+
+00:00.980 --> 00:02.900
+Hello everybody.
+
+00:02.900 --> 00:04.000
+Welcome back.
+
+00:04.280 --> 00:12.170
+And in this video, I want to show you something that got me really really really excited when I first started
+
+00:12.170 --> 00:19.040
+learning node, and hopefully you get just as excited as I am as we go through this video and then do
+
+00:19.040 --> 00:20.300
+a little bit of a challenge.
+
+00:20.300 --> 00:21.310
+It's going to blow your mind.
+
+00:21.330 --> 00:25.760
+At least it did for me when I first started learning to code.
+
+00:25.850 --> 00:34.250
+Now in the previous video we talked about something called the FS module that comes with node, and this
+
+00:34.250 --> 00:39.590
+is something that is built into node and the way we get it is we'll just do const.
+
+00:39.760 --> 00:50.360
+Well actually we need a file first, so let's do a touch script.js, we'll create a new script perfect.
+
+00:50.400 --> 00:52.920
+Alright we can close that because we don't need this.
+
+00:53.490 --> 01:02.190
+And in the script.js that we have in this folder or some node we can have 'const fs'.
+
+01:02.210 --> 01:14.990
+equals 'require('fs')', so FS here stands for file system and if you have node downloaded you have access
+
+01:14.990 --> 01:15.460
+to this.
+
+01:15.470 --> 01:17.680
+By just doing this.
+
+01:17.880 --> 01:21.750
+Now why is this so exciting and so useful.
+
+01:22.320 --> 01:30.830
+Well because FS file system allows you to access our file system, which again doesn't sound that exciting.
+
+01:30.840 --> 01:38.230
+But let me demonstrate what happens and why this is useful - so bear with me here.
+
+01:38.280 --> 01:42.080
+I'm going to do a bit of coding and then I'm going to explain exactly what is happening.
+
+01:43.140 --> 01:48.470
+So we're going to use the 'fs.readFile'.
+
+01:48.560 --> 01:50.720
+It's pretty self-explanatory.
+
+01:51.200 --> 02:01.380
+We have a blank parameter and then we have err for error, data.
+
+02:01.760 --> 02:03.710
+And this is an arrow function.
+
+02:05.450 --> 02:12.270
+So the second parameter is a function, and this function has either error or data.
+
+02:12.310 --> 02:24.630
+So for the error, I'm going to say if there is an error we'll just throw err, or we can just say console dot
+
+02:25.020 --> 02:30.660
+log errrroooorrr. Really shove it into their face.
+
+02:31.550 --> 02:42.680
+Alright! Now if there wasn't an error, we'll just say well we'll just say console.log and we'll just log out
+
+02:42.680 --> 02:45.150
+whatever data is.
+
+02:45.370 --> 02:45.990
+Alright.
+
+02:46.150 --> 02:47.720
+Let me add the semi-colons.
+
+02:48.830 --> 02:51.090
+And save that.
+
+02:51.100 --> 02:59.440
+So what I just do here. I just imported the FS module that comes with node and the FS module has a method
+
+02:59.740 --> 03:01.670
+readFile() that
+
+03:01.720 --> 03:05.480
+well it looks like it reads some sort of a file.
+
+03:05.560 --> 03:13.300
+The first parameter is actual file that we want to do, so the path to the file, which we don't have yet.
+
+03:13.300 --> 03:14.650
+So let's create one.
+
+03:14.650 --> 03:25.200
+I'm going to say new file and we'll call it 'hello.txt', and with 'hello.txt', we'll do our classic
+
+03:26.300 --> 03:27.850
+helllloooooo there!!!
+
+03:29.090 --> 03:32.300
+And exciting stuff so exclamation marks.
+
+03:32.540 --> 03:37.120
+We saved that and now we can say that we want to read the file.
+
+03:37.190 --> 03:40.340
+'hello.txt' from the current directory.
+
+03:41.140 --> 03:42.340
+Hello dot
+
+03:42.790 --> 03:45.140
+text.
+
+03:45.280 --> 03:50.450
+Now this readFile method is going to find the file with the path,
+
+03:50.500 --> 03:52.700
+ok, so here it is.
+
+03:52.840 --> 03:59.420
+It's going to read it and then if there's an error, it's going to spit out an error.
+
+03:59.590 --> 04:06.670
+If there's some sort of data and everything successful, it's going to spit out data. With the
+
+04:06.670 --> 04:08.300
+way we can run this file in node.
+
+04:08.310 --> 04:13.720
+Well well first I'll have to save it. We'll say node script.js
+
+04:15.140 --> 04:19.740
+Enter and I got buffer.
+
+04:20.920 --> 04:22.740
+What is that?
+
+04:22.840 --> 04:27.460
+And that is because we have to do a little bit of encoding.
+
+04:27.670 --> 04:34.680
+And what that means is if I do this 'toString()', let's just try this and show you what I mean.
+
+04:37.450 --> 04:38.530
+And I get.
+
+04:38.770 --> 04:41.250
+Hello there.
+
+04:41.260 --> 04:49.530
+So the 'readFile' reads the file as the name suggests, and it's going to spit out whatever it's reading.
+
+04:50.010 --> 04:50.750
+Data.
+
+04:51.500 --> 04:55.490
+Now why do we have to put in the 'toString()' here.
+
+04:56.970 --> 05:04.380
+Just so you know 'toString()' does something, by default if you don't add anything, it's going to use the
+
+05:04.380 --> 05:11.280
+encoding called UTF 8 and UTF 8 is a type of a coding.
+
+05:11.420 --> 05:14.640
+Let's just run this to make sure that this is still the same.
+
+05:14.750 --> 05:15.530
+Yep.
+
+05:15.530 --> 05:20.300
+So UTF 8 is a type of encoding that we have.
+
+05:20.300 --> 05:22.980
+That's pretty standard with HTML 5.
+
+05:23.000 --> 05:26.900
+And pretty much everybody uses it on the web.
+
+05:27.290 --> 05:37.160
+It's a way for us to have characters, whether they're Latin characters, you know ABC's or we have Korean
+
+05:37.160 --> 05:45.770
+Japanese, Chinese characters, they're all represented by a number, and UTF 8 is a way of encoding these
+
+05:45.770 --> 05:48.870
+numbers to make sure that we can read them.
+
+05:48.920 --> 05:55.910
+It's actually quite a complex subject, so I recommend the Wikipedia page that talks about UTF 8.
+
+05:55.970 --> 06:03.420
+For now just know that UTF 8 is a type of encoding that is pretty much standard across the web.
+
+06:03.500 --> 06:09.290
+You might have also seen ASCII and ASCII was before UTF 8 existed.
+
+06:09.290 --> 06:19.610
+ASCII was mainly for Latin based languages, so the ABCs; and UTF expanded that to include many more from
+
+06:19.860 --> 06:22.540
+many more languages from different parts of the world.
+
+06:22.960 --> 06:29.780
+Alright well a little bit of a tangent that we didn't need to go on, but as you can see over here we
+
+06:30.530 --> 06:30.990
+have
+
+06:31.070 --> 06:35.300
+'helllloooooo there' and we're able to read the file.
+
+06:35.300 --> 06:36.320
+Alright.
+
+06:36.330 --> 06:37.030
+Very cool.
+
+06:38.270 --> 06:42.810
+Let me just add one other method to your repertoire.
+
+06:43.250 --> 06:57.160
+Let's also do 'fs.readFileSync()' and 'fs.readFileSync()' works a little bit different than the previous
+
+06:57.160 --> 07:00.210
+one and sync stands for synchronous.
+
+07:00.580 --> 07:01.540
+So we'll see what happens.
+
+07:01.540 --> 07:02.500
+I'm going to put in
+
+07:05.340 --> 07:12.230
+'hello.txt' once again, and this time I'm just going to leave it like that.
+
+07:14.150 --> 07:26.630
+And let's just say that this is going to equal the file and we'll just 'console.log(file)'.
+
+07:26.650 --> 07:27.020
+Alright.
+
+07:27.050 --> 07:31.710
+Let me save that and run this.
+
+07:31.760 --> 07:32.390
+Alright.
+
+07:32.460 --> 07:37.370
+We know once again that we got this because we need to do 'toString()'.
+
+07:37.440 --> 07:38.610
+So let's do that.
+
+07:38.640 --> 07:42.660
+I'm going to try 'toString()'
+
+07:46.060 --> 07:51.020
+I'm going to save and run this again. Alright I get
+
+07:51.280 --> 07:52.410
+'helllloooooo there!!!'
+
+07:52.510 --> 08:05.020
+But just to distinguish them, let's just say that this is number one and this is number two.
+
+08:05.450 --> 08:07.660
+I save this, run this again.
+
+08:08.630 --> 08:12.510
+And whoa, what just happened.
+
+08:14.050 --> 08:21.140
+We have one coming after the two.
+
+08:21.920 --> 08:30.830
+Now if you've watched the asynchronous synchronous video in this course, then you might understand what's
+
+08:30.830 --> 08:32.090
+happening here.
+
+08:32.090 --> 08:34.210
+If not I'm going to do a quick synopsis.
+
+08:34.220 --> 08:42.610
+But I do recommend you check out that video. Now read file is asynchronous, and that's why it has something
+
+08:42.610 --> 08:45.200
+called the callback function.
+
+08:45.220 --> 08:53.290
+It is saying: hey I'm going to read this file, and when I'm done with it, you just keep going on with your
+
+08:53.290 --> 08:55.120
+business and keep reading.
+
+08:55.120 --> 08:59.010
+Line three, line four, line five, line six, all the way to 11.
+
+08:59.260 --> 09:07.010
+When I'm done, I'll let you know and I'll either give you an error or some data. 'readFileSync()' which
+
+09:07.010 --> 09:11.740
+is synchronous says: I'm going to read this file.
+
+09:11.780 --> 09:14.750
+Don't do anything, just wait here when I'm done
+
+09:14.750 --> 09:18.600
+I'm going to assign it to 'file' and then you can keep going.
+
+09:20.210 --> 09:30.080
+So as you can see here what happens is we read the file and because this is an asynchronous, it's going
+
+09:30.080 --> 09:41.280
+to run this and come to line 10 and run the 'fs.readFileSync()' and the 'readFileSync()' because it's saying
+
+09:41.280 --> 09:45.150
+hey wait until I'm done this, it is going to print out
+
+09:45.330 --> 09:46.920
+'helllloooooo there!!!'
+
+09:47.160 --> 09:52.340
+and then the asynchronous code is going to say: hey I finished reading the file,
+
+09:52.380 --> 09:55.770
+here's the data and it prints out down over here.
+
+09:55.770 --> 09:59.860
+Again I really really recommend you check out the asynchronous synchronous video.
+
+10:00.330 --> 10:03.070
+But for now hopefully that makes sense.
+
+10:03.240 --> 10:12.240
+Now looking at this, which one should you use? Well for a simple case like this,
+
+10:12.400 --> 10:19.690
+we can use whichever we want. But you may see a problem with the second one especially if we're building
+
+10:19.690 --> 10:21.150
+something like a server.
+
+10:21.250 --> 10:25.090
+If we have a massive file that has something more than 'helllloooooo there!!!',
+
+10:25.300 --> 10:34.360
+well if we're doing 'readFileSync()', what happens is we're going to halt or pause the execution of our
+
+10:34.360 --> 10:39.980
+file and it's going to read the entire text.
+
+10:40.370 --> 10:47.000
+And the program is just going to be waiting for that to finish; versus the read file which says: hey you
+
+10:47.000 --> 10:48.230
+can keep going ahead.
+
+10:48.320 --> 10:50.340
+I'll let you know when I'm done with this.
+
+10:50.360 --> 10:56.210
+So when you're building a server and let's say an express server with routes.
+
+10:56.360 --> 11:03.530
+Well in that case we want to use readFile() if we're reading any sort of a file or text file, whatever
+
+11:03.530 --> 11:04.160
+it is.
+
+11:04.310 --> 11:08.680
+Because that way we're not blocking the execution and the program can keep doing things.
+
+11:09.700 --> 11:10.050
+Alright.
+
+11:10.150 --> 11:12.750
+So one last time just to clarify things.
+
+11:12.760 --> 11:17.690
+I'm going to label this as 'Async' and 'Sync'.
+
+11:17.710 --> 11:22.350
+So once again if we run this we have 'Sync' and 'Async'.
+
+11:22.420 --> 11:23.360
+'helllloooooo there!!!'
+
+11:23.790 --> 11:32.350
+But very cool we're able to read a file and both instances which was kind of cool.
+
+11:32.350 --> 11:38.800
+Let me show you a few more of these and then tell you exactly why this is so exciting, and how we can
+
+11:38.800 --> 11:40.880
+use it to do some really exciting things.
+
+11:44.090 --> 11:50.770
+So let's say the 'helllloooooo there!!!' text is kind of boring and we want to add to it.
+
+11:51.110 --> 11:54.230
+Well we can do something like this.
+
+11:55.280 --> 12:01.160
+'fs.appendFile()' we give it the file we want to append.
+
+12:01.430 --> 12:05.220
+So in this case it's './hello.txt'.
+
+12:05.780 --> 12:10.130
+And by the way if this doesn't exist, it'll actually just create the file for us.
+
+12:10.130 --> 12:13.130
+And the second parameter will say what we want to add.
+
+12:13.130 --> 12:28.150
+So let's say we also wanted to add maybe a space and then say "This is so cool", now there is an exclamation mark.
+
+12:28.210 --> 12:36.020
+And finally third parameter takes in an error and this error will just say that if there is an error.
+
+12:36.040 --> 12:37.020
+Let me make this smaller
+
+12:37.040 --> 12:43.540
+so you can see - let's just say if there is an error, we'll just 'console.log'
+
+12:47.320 --> 12:49.790
+'console.log(err)'
+
+12:49.870 --> 12:50.210
+Alright.
+
+12:50.260 --> 12:51.780
+Perfect.
+
+12:51.830 --> 12:53.900
+So let's run this and see what happens.
+
+12:53.900 --> 12:57.520
+I'm going to run the script and I get
+
+12:57.530 --> 12:58.360
+'helllloooooo there!!!'
+
+12:58.370 --> 12:58.970
+'helllloooooo there!!!'
+
+12:58.970 --> 13:10.710
+Because these ran first but if I go to 'hello.txt', look at that, we just wrote to a file. And now we have "This
+
+13:10.710 --> 13:11.690
+is so cool."
+
+13:12.000 --> 13:17.440
+So if I run this again and let me clear this just so we have more space
+
+13:21.160 --> 13:22.180
+Look at that. I get
+
+13:22.270 --> 13:22.930
+'helllloooooo there!!!'
+
+13:22.930 --> 13:23.860
+'This is so cool'
+
+13:23.860 --> 13:24.520
+'helllloooooo there!!!'
+
+13:24.520 --> 13:25.990
+'This is so cool'
+
+13:26.010 --> 13:30.770
+If we go back to the hello.txt file, Oh boy we've add in even more
+
+13:30.770 --> 13:31.850
+'This is so cool'
+
+13:32.490 --> 13:33.460
+text.
+
+13:33.680 --> 13:35.140
+So that's pretty cool.
+
+13:35.140 --> 13:39.740
+We just added a few more lines to our file.
+
+13:39.800 --> 13:42.450
+Let me remove that just so it doesn't get too annoying.
+
+13:42.800 --> 13:44.780
+Going to save it and come back.
+
+13:46.190 --> 13:48.930
+All right so we learned the append.
+
+13:49.090 --> 13:57.880
+Let me just comment this out so that it doesn't interfere with any of the other ones.
+
+13:57.900 --> 14:04.570
+Let's do a 'write' this time - now create some space here so we can see
+
+14:07.240 --> 14:09.220
+With the write, as you can imagine,
+
+14:10.320 --> 14:17.020
+'fs.writeFile()' and we'll just say that this file will be called 'bye.txt'.
+
+14:17.020 --> 14:19.550
+Very original naming by myself.
+
+14:20.400 --> 14:21.540
+And will just say.
+
+14:21.540 --> 14:23.750
+Sad to see you go.
+
+14:27.200 --> 14:44.280
+And once again it'll take an error and this error will say 'if (err)' 'console.log(err)'
+
+14:44.340 --> 14:50.640
+Alright, so let's save that, run the file or run the script.
+
+14:51.890 --> 14:56.110
+And look at that, 'bye.txt' just got added.
+
+14:56.240 --> 15:00.580
+If we click on it, we have "Sad to see you go".
+
+15:00.650 --> 15:03.090
+We've just created a new text file.
+
+15:03.940 --> 15:05.870
+Very very cool.
+
+15:05.930 --> 15:17.010
+By the way, just so you know what happens, if let's say I misspell the read file and now it's 'hell.txt'
+
+15:17.150 --> 15:22.280
+Well if I run this, I'll get an error and you can see that.
+
+15:22.340 --> 15:30.610
+Because it errors out I get the error message, error with a lot of R's.
+
+15:30.620 --> 15:30.930
+Alright.
+
+15:30.950 --> 15:39.260
+A little bit of a segue there but just in case people are asking or you were thinking about that.
+
+15:39.340 --> 15:39.990
+Alright.
+
+15:40.160 --> 15:45.190
+Woo~ I'm getting tired so let's do one last one and then I'm going to tell you exactly why this is so
+
+15:45.190 --> 15:46.670
+cool.
+
+15:46.840 --> 15:54.180
+The final one we're going to do - again let's make some space here - is going to be the 'delete'.
+
+15:54.490 --> 15:59.240
+So with that 'delete' we can do 'fs.unlink()'.
+
+15:59.270 --> 16:08.500
+the name is a little bit off here but 'fs.unlink()' and we'll say the 'bye.txt' and notice that I was able to
+
+16:08.500 --> 16:18.730
+just do 'bye.txt' but just to keep it consistent, I'll just say './bye.txt' with the './' before
+
+16:18.730 --> 16:18.940
+it
+
+16:23.530 --> 16:24.400
+and with this one.
+
+16:24.400 --> 16:25.970
+Again if there's any errors
+
+16:28.550 --> 16:29.680
+just 'console.log(err)'
+
+16:29.790 --> 16:32.720
+Whoops I forgot to do the 'if'
+
+16:37.540 --> 16:39.900
+perfect, now
+
+16:40.130 --> 16:42.020
+Well let's see what happens here.
+
+16:43.460 --> 16:52.940
+And just for fun, let's just add a 'console.log()' here after it has done deleting and we'll say 'inception' because
+
+16:52.940 --> 16:58.590
+we're saying 'bye' to the './bye.text'. Mind blown.
+
+16:58.990 --> 17:00.290
+Alright let's run this.
+
+17:00.290 --> 17:06.220
+I'm going to say - and we'll comment out the write file here because you don't need to write it,
+
+17:06.220 --> 17:08.320
+we already have the 'bye.text'.
+
+17:08.420 --> 17:09.640
+Let me save.
+
+17:09.810 --> 17:13.280
+Now if you look at the 'bye.text', let's see what happens here when I run the script
+
+17:16.580 --> 17:20.410
+look at that, the 'bye.text' was just removed.
+
+17:20.830 --> 17:22.910
+Inception just happened.
+
+17:25.290 --> 17:26.430
+Awesome.
+
+17:26.490 --> 17:30.840
+So that was very exciting for me hopefully it was for you as well.
+
+17:30.900 --> 17:34.270
+But why is this exciting?
+
+17:34.650 --> 17:42.900
+Well because now we're able to use programming in javascript outside of just web browsers and outside
+
+17:42.900 --> 17:46.760
+of just building websites and servers.
+
+17:46.890 --> 17:52.760
+What we can do now with this knowledge is we can make our lives easier.
+
+17:52.800 --> 18:01.540
+You can think of cases maybe you want to read an excel file and there are things that you can use, using
+
+18:01.540 --> 18:05.690
+read file and using NPM modules that you can read.
+
+18:05.830 --> 18:06.180
+Let's say.
+
+18:06.180 --> 18:10.730
+Columns in an excel and do some math.
+
+18:11.140 --> 18:18.100
+Or maybe you have an excel sheet with all these emails and you want to send out an e-mail to let's say
+
+18:18.190 --> 18:24.160
+100 people on this list but you also don't want to be caught spamming people by the google filter saying
+
+18:24.160 --> 18:32.650
+that hey this account is spamming because they just sent 100 emails in two minutes. Well using something
+
+18:32.650 --> 18:40.150
+like Node, you can create perhaps something that in every six hours, sends out five e-mails.
+
+18:40.150 --> 18:48.520
+Another thing you can do if you had a robot for example something similar to a file system instead of
+
+18:48.520 --> 18:50.010
+having reading from the file.
+
+18:50.000 --> 18:58.000
+You can read from the robot, maybe through wireless maybe through wires and get an input of some data
+
+18:58.450 --> 19:00.040
+that the robot has.
+
+19:00.400 --> 19:03.570
+Maybe it detected a cat.
+
+19:03.910 --> 19:10.120
+Well using that input, you can do something you can respond maybe send you an e-mail saying that the
+
+19:10.120 --> 19:16.420
+robot just detected a cat and send that e-mail out or send an output.
+
+19:16.420 --> 19:24.160
+And that's what we call input output, where you're getting an input from another source, another machine
+
+19:24.760 --> 19:32.140
+and then you are also outputting something for consumption, that is really really exciting because it
+
+19:32.170 --> 19:35.490
+opens up the world where you can create tools for yourself.
+
+19:35.620 --> 19:36.730
+You can automate things.
+
+19:36.730 --> 19:41.760
+You can literally do anything that your mind can think of.
+
+19:42.310 --> 19:48.310
+And I know this is still early and you're still at the beginning of your developer career but this is
+
+19:48.310 --> 19:54.370
+the first step into understanding how you can use programming to solve problems and make your life
+
+19:54.610 --> 19:58.580
+more efficient, or maybe just a little bit more fun.
+
+19:58.630 --> 20:02.040
+So in the next video we're going to do something fun.
+
+20:02.140 --> 20:07.650
+We're going to use what we've just learned and we're going to help Santa out on a coding challenge.
+
+20:08.720 --> 20:10.190
+I'll see you in that one.
+
+20:10.360 --> 20:10.570
+Bye-Bye

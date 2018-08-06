@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.990 --> 00:08.250
+Welcome back! Using our newfound knowledge of loops, we're going to make our Facebook app a little bit
+
+00:08.250 --> 00:09.000
+better.
+
+00:09.420 --> 00:13.270
+I mean because Facebook has more than one user, right?
+
+00:13.350 --> 00:16.660
+It's not just one user, it's got millions of them.
+
+00:16.950 --> 00:25.990
+So, how can we check somebody's password by going through not just one user, but multiple ones?
+
+00:26.140 --> 00:30.510
+Well, sounds like a perfect solution for loops, so let's give it a go.
+
+00:30.520 --> 00:33.650
+I'm going to add a few more users in here.
+
+00:33.740 --> 00:42.100
+We'll just copy this. And we have 'sally' with the password '123'.
+
+00:42.400 --> 00:49.600
+And we also have 'ingrid' with password '777'.
+
+00:49.820 --> 00:51.700
+So let's refresh it.
+
+00:51.700 --> 00:54.760
+I'm going to make this on a new line just so you can see it.
+
+00:54.890 --> 00:59.850
+I'm going to refresh and let's type in 'ingrid'.
+
+01:02.570 --> 01:06.960
+'777'. 'Sorry, wrong username and password'.
+
+01:07.210 --> 01:13.360
+And that makes sense, right? Because when we created our 'signIn' function, well, it's only checking the
+
+01:13.360 --> 01:15.480
+first item in the database.
+
+01:15.790 --> 01:17.260
+But we want to check through all of them.
+
+01:17.260 --> 01:22.800
+We want to check through the first item in the array, the second and the third.
+
+01:22.900 --> 01:25.510
+Looks like we need to add a 'looping' here.
+
+01:26.480 --> 01:28.050
+So how can we do that?
+
+01:28.430 --> 01:31.910
+We should, well, add a 'for loop'.
+
+01:31.940 --> 01:34.500
+I'm going to say in here.
+
+01:34.730 --> 01:44.150
+Well, actually I'm going to comment this out first, and we'll say, that when in 'signIn' we want to do 'for var
+
+01:44.150 --> 01:47.130
+i = 0'.
+
+01:47.170 --> 01:56.210
+We remember this index from last video, we'll say 'i is less than database.length'.
+
+01:56.950 --> 02:09.410
+So, 'database.length' that's '3'. And we'll increment 'i' every time. Open and close brackets, and then here
+
+02:09.410 --> 02:14.320
+we want to say 'if(database[i])'.
+
+02:14.420 --> 02:15.280
+So instead of '0'
+
+02:15.290 --> 02:22.470
+now we can say 'i', because 'i' is going to go '0, 1, 2'. So
+
+02:22.510 --> 02:30.080
+'if database[i] equals', and we should have a 'username' here as well.
+
+02:30.180 --> 02:42.470
+So if the 'username' equals the 'username', that we receive, which is the input 'username'. And I'm going to start
+
+02:42.480 --> 02:56.600
+a new line here. 'database[i].password' equals the 'password', that we receive from the 'user'. Well, if that's
+
+02:56.810 --> 02:58.940
+the case what should we do.
+
+02:59.270 --> 03:03.380
+Well, if that's correct, we'll do 'console.log(newsfeed)'.
+
+03:04.830 --> 03:05.610
+Otherwise.
+
+03:05.910 --> 03:10.970
+Otherwise we'll do 'alert'.
+
+03:11.050 --> 03:17.780
+"Sorry, wrong username and password".
+
+03:17.920 --> 03:28.700
+So, now I'm going to save. Let's try this out. 'username'? - 'ingrid', 'password'? - '777'. 'Sorry, wrong username and password'.
+
+03:28.890 --> 03:33.550
+"Sorry, wrong username and password', but then I get the 'newsfeed'.
+
+03:33.670 --> 03:34.630
+What just happened?
+
+03:35.920 --> 03:41.680
+Well, what we just did was, we did a 'for loop', but we ran this 3 times.
+
+03:41.680 --> 03:47.830
+So, the first time I got 'Sorry, wrong username', the second time I got 'Sorry, wrong username', because it's
+
+03:47.830 --> 03:56.080
+checking 'andrei' and 'sally', and then is checking 'ingrid', which finally works and gives me back the 'newsfeed'.
+
+03:57.330 --> 04:04.110
+So our logic here isn't right. What can we do to solve this?
+
+04:04.160 --> 04:08.390
+Well I have an idea. Let's create another function.
+
+04:08.390 --> 04:16.910
+I'm going to call this function 'isUserValid' and this function is going to receive 'username'
+
+04:20.330 --> 04:22.340
+and 'password'.
+
+04:22.410 --> 04:28.550
+And here we can copy this and move it over here.
+
+04:28.550 --> 04:35.750
+But we don't really want to do what happened here where we constantly log, instead we would want to say
+
+04:36.290 --> 04:39.520
+'return true'.
+
+04:39.560 --> 04:50.180
+So if user is valid 'return true', if the user is not valid, then we should 'return false', right?
+
+04:50.210 --> 04:52.740
+But how can we do that?
+
+04:52.850 --> 04:58.060
+Well, if I do 'return false' here - let's look at the logic.
+
+04:58.340 --> 05:00.320
+I am looping through everything.
+
+05:00.620 --> 05:06.710
+If at any point the 'username' and the 'password' match, with what we have in the database 'return true'.
+
+05:06.710 --> 05:11.630
+And we remember that a function stops and exits when it sees 'return'.
+
+05:11.630 --> 05:13.150
+So, it's going to return 'true'.
+
+05:13.580 --> 05:20.810
+But if it does the looping 3 times and this 'if' condition never passes, it's going to go to the next
+
+05:20.810 --> 05:23.410
+line which is 'return false'.
+
+05:25.590 --> 05:28.350
+So now 'isUserValid'.
+
+05:28.350 --> 05:30.420
+Well let's test this out!
+
+05:30.660 --> 05:40.820
+I'm going to say 'console.log(isUserValid)', and we'll give it 'username' and 'password'.
+
+05:41.310 --> 05:44.970
+You can see that the 'username' and 'password' is coming from here.
+
+05:45.000 --> 05:47.880
+So let's see. I'm going to save and refresh
+
+05:50.500 --> 05:54.980
+'ingrid', '777'.
+
+05:55.190 --> 05:55.870
+'true'.
+
+05:55.880 --> 05:56.540
+That's right.
+
+05:56.660 --> 05:58.550
+Let's test something where it's not right.
+
+05:58.550 --> 06:03.280
+I'm going to say 't' and 'garblegarblegarble', 'false'.
+
+06:03.380 --> 06:03.610
+OK.
+
+06:03.620 --> 06:07.160
+It looks like our 'isUserValid' function is working.
+
+06:08.810 --> 06:11.300
+So now watch this:
+
+06:11.540 --> 06:17.730
+We can remove the log and uncomment our original function.
+
+06:19.500 --> 06:33.610
+And instead of doing all this check we can now say 'if(isUserValid)', 'username' and 'password', which
+
+06:33.610 --> 06:40.070
+is again this 'username' and 'password', that we receive over here from the 'prompt'.
+
+06:40.280 --> 06:45.230
+If this is 'true', then run the 'newsfeed'.
+
+06:45.350 --> 06:51.020
+If it's false, well 'else' you say 'Sorry, wrong username and password'.
+
+06:51.500 --> 06:54.280
+Let's save and refresh. OK.
+
+06:54.360 --> 06:55.170
+Let's go.
+
+06:55.170 --> 07:05.760
+'ingrid', password '777'. We get our 'newsfeed' and if we enter the wrong information,
+
+07:08.790 --> 07:13.290
+we get 'Sorry, wrong username and password'.
+
+07:13.300 --> 07:14.730
+How cool is that?
+
+07:14.770 --> 07:20.700
+We now just created 2 functions and it reads pretty nicely, right? And it says 'signIn'.
+
+07:21.040 --> 07:24.040
+Here's the 'username'. Here's the 'password'.
+
+07:24.040 --> 07:29.730
+We go to the 'signIn' function, it says: "Hey, if 'isUserValid'?"
+
+07:30.260 --> 07:36.140
+"Yes, user is valid". "Than 'log newsfeed', otherwise 'alert' 'Sorry, wrong username and password".
+
+07:36.360 --> 07:42.180
+And that is a really important concept of naming things and ordering codes so you can kind of read it
+
+07:42.180 --> 07:44.560
+like English and it makes sense.
+
+07:44.660 --> 07:45.940
+And there you have it.
+
+07:46.080 --> 07:48.780
+We have our Facebook app.
+
+07:48.780 --> 07:50.960
+You can see here the power of JavaScript.
+
+07:51.000 --> 08:00.640
+Again we've created these functionalities that can be applied on grander scale on real web apps.
+
+08:00.750 --> 08:02.670
+I'll see you in the next one. Bye-bye

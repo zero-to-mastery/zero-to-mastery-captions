@@ -1,0 +1,598 @@
+WEBVTT
+
+00:01.070 --> 00:11.070
+Welcome back. So far we've taken a look at how Javascript interacts with HTML and CSS and we've
+
+00:11.070 --> 00:18.390
+seen that we've been able to change text, change styles and interact with our Web page.
+
+00:18.620 --> 00:21.350
+In this video we're going to try something fun.
+
+00:21.410 --> 00:26.780
+We're going to have an exercise where we're going to create a background generator so that for our future
+
+00:26.780 --> 00:34.660
+projects we can have a nice awesome gradient for our backgrounds.
+
+00:34.770 --> 00:39.670
+We're going to use just a few lines of Javascript to create this.
+
+00:39.790 --> 00:40.830
+So let's get started.
+
+00:42.760 --> 00:46.460
+All right we have a beautiful blank canvas here.
+
+00:46.540 --> 00:53.080
+Open up the console so that as we write code make sure we don't make any errors and we're going to start
+
+00:53.080 --> 00:55.420
+off with a simple HTML file.
+
+00:56.690 --> 01:05.780
+We'll call it gradient background and within the body we'll have a few things we'll have in each one
+
+01:06.410 --> 01:18.560
+that will say background generator and we'll also have an H2 that will say current CSS background
+
+01:22.020 --> 01:29.790
+and we'll have an H3 that will be blank for now because we're going to be putting the CSS style so
+
+01:29.790 --> 01:34.250
+that people can copy and paste that background gradient from right in here.
+
+01:34.410 --> 01:42.630
+And obviously we need Javascript so we'll add a script tag and we'll do source equals the script dot JS.
+
+01:42.810 --> 01:50.000
+Yes let's refresh Now I want to show you two cool things that comes with HTML and CSS.
+
+01:51.080 --> 01:53.780
+The first is the input type color.
+
+01:57.690 --> 02:02.630
+And the second is CSS's linear gradient.
+
+02:08.430 --> 02:13.330
+So CSS3 has these cool gradient backgrounds that we can do.
+
+02:13.390 --> 02:21.640
+So we'll use this syntax to create our gradient and for the color picker we'll use the HTML type
+
+02:22.030 --> 02:27.850
+color for the input to get a color picker so we can do that fairly quick.
+
+02:27.850 --> 02:40.500
+Let's go right below the H2 and we'll create an input and the type will be color name will be color
+
+02:40.600 --> 02:48.180
+1 and we can actually also give it a default value so we'll do value and we'll just put it in a random
+
+02:49.050 --> 02:51.030
+HEX color will do
+
+02:51.040 --> 02:57.720
+00ff00. And we want to have two color pickers because the way gradients work it
+
+02:57.720 --> 03:00.490
+goes from one color to the other.
+
+03:00.510 --> 03:05.070
+So we'll put another color picker will save.
+
+03:05.240 --> 03:16.510
+Change the name to color2 this time this color will have more red and refresh and there you go.
+
+03:16.540 --> 03:19.400
+We have our color pickers.
+
+03:20.580 --> 03:21.840
+Now the one thing I want to show you.
+
+03:21.840 --> 03:27.940
+I created a style sheet that I'll provide for you that will have some default style so it looks really
+
+03:27.940 --> 03:28.950
+really good.
+
+03:29.380 --> 03:38.080
+And we can include that in our HTML file will say Link style
+
+03:38.210 --> 03:41.610
+CSS and if I refresh.
+
+03:42.210 --> 03:51.390
+Well we got an awesome background with our cool font and everything centered just show you quickly what
+
+03:51.390 --> 03:54.330
+made the background have this gradient.
+
+03:54.330 --> 04:03.390
+All I did was have the background linear gradient and you go to and then give it a direction we want
+
+04:03.390 --> 04:08.510
+to go to the right and we give it the starting color and the ending color.
+
+04:08.820 --> 04:11.620
+So that's the default color that we have.
+
+04:11.670 --> 04:15.750
+The rest is all just font and text aligning.
+
+04:15.750 --> 04:22.290
+So nothing too crazy nothing that you can't do yourself but the one thing that we need is this needs to
+
+04:22.290 --> 04:23.410
+be interactive.
+
+04:23.430 --> 04:30.080
+If I pick a color here well I want to change same for this one.
+
+04:30.680 --> 04:37.940
+And ideally if I find a background that are really really light for my app I can print it out over here
+
+04:37.940 --> 04:43.000
+so I can just copy and paste the linear gradient and use that.
+
+04:43.010 --> 04:43.840
+So let's work on that.
+
+04:48.030 --> 04:49.640
+What do we know so far?
+
+04:49.640 --> 04:55.630
+We know that Javascript can read from the DOM and it can affect it.
+
+04:55.880 --> 05:02.890
+So we want to read what the value what the colors are of both inputs.
+
+05:04.030 --> 05:10.840
+And we want to put out a piece of text at the bottom here with those values in the CSS format.
+
+05:11.050 --> 05:21.620
+So it looks like we'll need to select two inputs and then also select the H3 so we can enter some text
+
+05:21.620 --> 05:32.610
+here. Let's go to the script JS file and the first thing we want to do is we want to select the H3.
+
+05:33.100 --> 05:43.670
+So all of our CSS equals document dot querySelector and because there's only one H3 we can
+
+05:43.670 --> 05:47.510
+just select H3. OK.
+
+05:47.510 --> 05:56.490
+We also want to select the colors and we should give it a class to so we can distinguish them.
+
+05:56.530 --> 06:12.270
+So I'm going to say a class equals color1 and the other one will have class color2.
+
+06:12.280 --> 06:15.040
+So now we can do variable color1
+
+06:15.190 --> 06:24.790
+equals document querySelector and we'll do color1.
+
+06:24.870 --> 06:32.880
+Again it's a querySelector. So we do classSelector just like we do in CSS and for color2 we do the
+
+06:32.880 --> 06:33.820
+same thing.
+
+06:41.850 --> 06:43.040
+This looks good for now.
+
+06:44.030 --> 06:45.890
+We ideally grab all these
+
+06:46.010 --> 06:48.650
+and our background should change.
+
+06:48.650 --> 06:53.210
+Let's check everything and make sure that we are correct.
+
+06:53.720 --> 06:55.050
+And what have you done so far.
+
+07:03.170 --> 07:05.810
+Let's refresh the page and there you go.
+
+07:05.810 --> 07:12.420
+We have our H3 that's where we're going to want to have our CSS text for our background.
+
+07:12.500 --> 07:13.920
+We have our inputs.
+
+07:14.270 --> 07:16.150
+The first one and the second one.
+
+07:16.610 --> 07:18.750
+OK it looks like we're doing everything right.
+
+07:19.690 --> 07:22.220
+Now what do we want to happen?
+
+07:22.240 --> 07:30.090
+We want to listen to an event where we notice the user's actions here.
+
+07:30.210 --> 07:38.370
+We've learned about click and mouse center and key press.
+
+07:38.370 --> 07:41.810
+But this isn't really any of those is it?
+
+07:41.830 --> 07:49.610
+Well there is a really really good event for inputs and it's called input.
+
+07:49.680 --> 07:55.700
+So any time the input value changes which it does every time we change the color we can detect it.
+
+07:57.630 --> 08:00.810
+So let's think about how we would do this.
+
+08:00.810 --> 08:07.580
+We want to have color1 to have an event listener.
+
+08:11.110 --> 08:20.020
+That will have input and you will have a function that for now we can just console dot log
+
+08:20.030 --> 08:22.980
+color1 dot value.
+
+08:23.040 --> 08:27.290
+Now we also want the second color to have the same thing.
+
+08:28.510 --> 08:34.530
+But for color2. Let's refresh and check here we remove the console logs because we don't need any
+
+08:34.530 --> 08:39.460
+more refresh and let's see. Look at that.
+
+08:39.550 --> 08:41.320
+You see them in the console.
+
+08:41.440 --> 08:42.940
+This is getting updated.
+
+08:42.940 --> 08:44.290
+That's pretty cool.
+
+08:44.290 --> 08:45.730
+All right so the first one's working.
+
+08:45.730 --> 08:51.260
+The second one now it's working too. Awesome.
+
+08:51.290 --> 08:54.480
+So we're grabbing the colors, the color of value.
+
+08:54.530 --> 08:57.680
+What do we want to do next with this value.
+
+08:59.570 --> 09:02.780
+Well we want to change the background color.
+
+09:03.720 --> 09:12.400
+And how can we do that? Well the background if we right click and do inspect.
+
+09:12.570 --> 09:17.340
+You make this bigger this bigger.
+
+09:17.470 --> 09:25.230
+We see that the background is in the body tag so ideally we change this.
+
+09:28.240 --> 09:29.830
+Let's go back to the console.
+
+09:30.010 --> 09:35.170
+Minimize this and let's try and change the background now with the information that we have.
+
+09:35.250 --> 09:39.700
+Any time color1 changes we want to grab the background's tag.
+
+09:39.750 --> 09:46.560
+Well again we can say body equals document dot get...
+
+09:49.230 --> 09:52.390
+getElementBy and let's have an Id here.
+
+09:52.770 --> 09:53.820
+Well say Id
+
+09:56.750 --> 10:07.150
+gradient and we can say get elementById and we'll say gradient.
+
+10:07.350 --> 10:10.310
+Again we want to make sure that we're actually selecting it.
+
+10:10.320 --> 10:11.180
+So let's try
+
+10:15.320 --> 10:17.430
+body and refresh.
+
+10:17.860 --> 10:25.750
+All right we're getting the body tag and if we remember we can change the style of the body by doing
+
+10:27.310 --> 10:30.350
+style dot background. That's
+
+10:30.620 --> 10:34.620
+a CSS property and we can just say red. see if that works.
+
+10:35.630 --> 10:36.030
+Great.
+
+10:36.030 --> 10:42.000
+We're changing the color to red but that doesn't look as good as great but at least now we know how
+
+10:42.000 --> 10:53.340
+to change this so we can say when the first input changes, body dot background or style dot background
+
+10:56.320 --> 11:03.270
+equals linear gradient to right.
+
+11:04.210 --> 11:06.740
+And there's just the syntax you'll have to get used to.
+
+11:08.040 --> 11:14.520
+And we'll say the first color will be color1 dot value and we'll need a comma for that.
+
+11:14.760 --> 11:23.080
+And the second value will be inside a space here color2 value.
+
+11:23.250 --> 11:32.650
+So that's the second color picker and we'll say plus close the bracket and the CSS and it should be good
+
+11:32.650 --> 11:33.360
+to go.
+
+11:33.360 --> 11:35.550
+And I put this on a new line just so you can see it.
+
+11:42.390 --> 11:48.080
+Perfect and again javascript doesn't see the semicolons here so it just keeps reading line by line.
+
+11:48.120 --> 11:50.850
+OK so let's save and see if we did that right.
+
+11:50.850 --> 11:54.730
+I'm going to refresh and actually you don't need a semicolon here.
+
+11:54.810 --> 11:56.510
+So let's see if that works.
+
+11:56.640 --> 12:05.160
+I'm going to refresh select the first one and look at that and get ourself the gradient working.
+
+12:05.440 --> 12:10.760
+But obviously we need to do the second one as well because right now is just console logging.
+
+12:11.150 --> 12:23.620
+Again let's do the same thing into the second color picker I save and refresh you picked the first one
+
+12:25.510 --> 12:28.390
+and we pick the next one.
+
+12:28.410 --> 12:29.560
+Look at that.
+
+12:29.640 --> 12:31.510
+That's really pretty.
+
+12:31.660 --> 12:33.710
+But that should have triggered something.
+
+12:33.760 --> 12:37.090
+We just copy and pasted the same lines of code.
+
+12:37.210 --> 12:43.790
+And if we remember that's a big problem because dry. Do not repeat yourself.
+
+12:44.080 --> 12:49.750
+So how can we extract this function so that it's a lot cleaner?
+
+12:49.940 --> 13:01.800
+Very easy we can create a function and we'll say set the gradient and set gradient well, as the name
+
+13:01.800 --> 13:06.780
+suggests set our beautiful gradient.
+
+13:06.790 --> 13:17.590
+So now this function can just be called setGradient and same for the second color.
+
+13:17.680 --> 13:23.550
+I can say setGradient look how much cleaner that looks.
+
+13:23.700 --> 13:25.850
+Well let's see if everything still works.
+
+13:25.910 --> 13:28.590
+I'm going to refresh.
+
+13:28.840 --> 13:30.210
+I'm going to select.
+
+13:30.520 --> 13:32.190
+And looks like we broke something.
+
+13:33.630 --> 13:34.810
+See what we did here.
+
+13:35.680 --> 13:40.570
+This event of input gets triggered automatically and runs a function.
+
+13:41.550 --> 13:51.210
+We don't need to call the function because this input event is triggered automatically and the second
+
+13:51.210 --> 13:55.680
+parameter automatically gets ran with the event.
+
+13:55.680 --> 14:06.610
+So now if I save this select one everything works again just to reiterate. If we had called the functions
+
+14:06.610 --> 14:07.360
+like these.
+
+14:07.570 --> 14:15.400
+The first pass through when the HTML documents loaded it reads the script file and it goes through the
+
+14:15.400 --> 14:16.230
+lines.
+
+14:16.640 --> 14:23.480
+And when we have the event listener we also set the gradient.
+
+14:23.760 --> 14:29.930
+But we want this to be called every time the input is selected.
+
+14:29.940 --> 14:37.840
+So again our function is now like this and we have ourself
+
+14:40.620 --> 14:42.950
+beautiful background generator.
+
+14:43.190 --> 14:48.800
+We're actually going to use this when we design our final project because well I think the backgrounds
+
+14:48.800 --> 14:50.270
+look pretty cool with this.
+
+14:51.910 --> 14:52.760
+Very cool.
+
+14:53.080 --> 14:57.250
+And you see how easier that was fairly fast
+
+14:57.250 --> 14:59.060
+Just a few lines of code.
+
+14:59.350 --> 15:07.180
+I want to show you one last thing and that is we've been using addEventListener which is the recommended
+
+15:07.180 --> 15:14.440
+way of doing things because we're keeping the Javascript and the Javascript file but we could have also
+
+15:14.440 --> 15:24.560
+done within the input an onclick attribute or oninput attribute.
+
+15:26.330 --> 15:35.250
+So within here I could have said, because we have this available to us setGradient I could have said
+
+15:37.290 --> 15:47.390
+setGradient and also on the second one we would do setGradient
+
+15:50.360 --> 15:51.730
+so we'll see if this works.
+
+15:51.760 --> 15:57.520
+If I comment these out so I never had the event listener and I refresh
+
+16:00.130 --> 16:01.510
+see that it still changes.
+
+16:05.570 --> 16:11.850
+What is the difference between doing this and doing it this way?
+
+16:13.510 --> 16:21.320
+Well the difference is that here we're adding Javascript to HTML against separation of concerns.
+
+16:21.490 --> 16:28.550
+And also you can see here that we can only add setGradient.
+
+16:28.630 --> 16:40.150
+So this input can only have one oninput attribute versus here where we can keep adding different functions
+
+16:40.160 --> 16:41.250
+different events.
+
+16:41.480 --> 16:49.010
+So this is a lot more extensible but I wanted to show you that you can do that and you can do an
+
+16:49.010 --> 16:52.350
+onclick function is just an HTML specifications.
+
+16:52.550 --> 16:59.360
+When we get to the React section you'll see that it has its own way of doing these type of events.
+
+17:01.170 --> 17:08.030
+So again I'm going to restore that refresh back to our beautiful Website.
+
+17:08.060 --> 17:14.550
+There is one other thing that we need to do and that is we need to have the CSS at the bottom right here.
+
+17:14.910 --> 17:16.460
+That's very easy to do.
+
+17:16.500 --> 17:24.630
+We can just say CSS dot textContent which is new.
+
+17:24.630 --> 17:33.110
+You haven't seen it before. But you can just say body dot style dot background and we'll add the
+
+17:33.160 --> 17:34.070
+semicolons.
+
+17:35.190 --> 17:36.570
+If I save and refresh
+
+17:40.360 --> 17:43.410
+look at that. As we pick the gradient
+
+17:46.060 --> 17:54.060
+we have this updating.
+
+17:54.240 --> 17:56.350
+Now a few questions you may have one.
+
+17:56.520 --> 17:58.450
+What is this textContent thing?
+
+17:58.500 --> 18:03.310
+Up until now I've shown you innerHTML.
+
+18:03.800 --> 18:18.070
+I also showed you createTextNode and now we have textContent like there's so many things to remember.
+
+18:18.480 --> 18:19.960
+What is it?
+
+18:19.990 --> 18:28.870
+It adds a text content as you can see there's many many ways to add things to the DOM.
+
+18:29.440 --> 18:35.950
+And the reason I did this is because I wanted to show you the frustration that a lot of people had an
+
+18:36.340 --> 18:39.330
+early 2000s when working with the DOM.
+
+18:39.390 --> 18:47.080
+And in the next video I'm going to talk about some of those issues and what we did to resolve that. And
+
+18:47.110 --> 18:52.210
+eventually when we would get into React we'll see that we actually won't be using any of these because
+
+18:52.660 --> 19:00.580
+React has extracted all of these out for us so that it's a lot simpler than figuring out how to enter
+
+19:00.580 --> 19:09.780
+text content adding event listeners and all this stuff that can get frankly pretty frustrating at times.
+
+19:09.780 --> 19:10.830
+That's it for now.
+
+19:11.770 --> 19:14.690
+Let's see what else you can add onto this background.
+
+19:14.710 --> 19:21.400
+I'll leave the code for you in the next section so you can play around with it and make it even better
+
+19:21.400 --> 19:23.230
+than it is right now.
+
+19:23.230 --> 19:24.460
+I'll see you in the next one.
+
+19:24.610 --> 19:25.090
+Bye bye.

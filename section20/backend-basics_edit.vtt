@@ -1,0 +1,367 @@
+WEBVTT
+
+00:00.540 --> 00:05.330
+It's time to learn another exciting topic and we're going to get into Backend basics.
+
+00:05.610 --> 00:10.650
+But I wanted to show you what we've covered so far on the Front-End.
+
+00:10.840 --> 00:17.950
+We've started with this diagram of asking for "Who is google.com?" and going through the ISP asking
+
+00:17.950 --> 00:20.810
+the domain name server for the IP address.
+
+00:20.950 --> 00:29.460
+We then ask the IP address to find the Google servers and then the Google servers gives us our HTML,
+
+00:29.470 --> 00:34.400
+CSS and JavaScript file which we're able to get one through HTML
+
+00:34.420 --> 00:43.040
+And then the link tags and the script tags to get the CSS and Javascript. The browser reads the file for
+
+00:43.040 --> 00:51.860
+us, the HTML, CSS and the V8 engine or the JavaScript engine of the browser uses it to read the JavaScript
+
+00:51.920 --> 00:58.510
+and we manipulate the DOM using JavaScript.
+
+00:58.520 --> 01:05.300
+We also learned that the location of the server is important, how many trips we make, how many HTTP requests
+
+01:05.300 --> 01:06.590
+we make is important.
+
+01:06.590 --> 01:08.560
+The size of the files is important.
+
+01:08.810 --> 01:16.660
+And we learned some of those solutions such as content delivery networks, having script into just a bundle.js file
+
+01:16.820 --> 01:21.230
+and also minimizing our files.
+
+01:23.740 --> 01:33.040
+And then we also learned about this new technology called AJAX where we can just fetch users, talk to
+
+01:33.040 --> 01:40.750
+the server while the user is still browsing the website and receive a JSON response to update the
+
+01:40.750 --> 01:43.050
+website in real time.
+
+01:43.390 --> 01:49.730
+And this picture that we started with looks a lot clearer than in the first video, doesn't it?
+
+01:49.780 --> 01:53.210
+We understand what a Front-End developer does.
+
+01:53.230 --> 02:00.760
+We see the power of React and we also know that these arrows simply mean HTTP requests; a language that
+
+02:01.090 --> 02:08.310
+both Front-End and Back-End can speak and using AJAX and JSON we're able to do it dynamically.
+
+02:09.570 --> 02:15.930
+Now the Back-End and the role of a Back-End developer. They are the ones that are in charge of working
+
+02:15.930 --> 02:24.330
+with servers and databases. And a server is responsible for whatever you get in the browser.
+
+02:24.650 --> 02:32.140
+I can ask from the browser anything; such as "Go to google.com". But at the end of the day the web server
+
+02:32.170 --> 02:38.890
+can just give me whatever it wants. If it's going to just send me to twitter.com instead of google.com,
+
+02:38.920 --> 02:42.500
+well, that's up to the server. Whatever we need,
+
+02:42.520 --> 02:47.740
+we just make the request and we hope that the server gives us what we asked for. And if you remember
+
+02:47.980 --> 02:57.740
+a server is just a computer; a computer that's somewhere in the world just listening to this HTTP
+
+02:57.880 --> 03:02.770
+connection, asking to see if we have any files.
+
+03:02.830 --> 03:11.800
+The most basic of servers and you might have used this before maybe using Hostgator a hosting site
+
+03:11.860 --> 03:19.120
+or even WordPress sites and putting them on Hostgator. It uses something called a 'LAMP STACK'.
+
+03:19.120 --> 03:28.330
+This was what was useful for the most basic of websites that is, (if) you just want a simple information
+
+03:28.330 --> 03:28.920
+website
+
+03:29.050 --> 03:33.460
+Maybe a simple WordPress website where nothing complex is happening.
+
+03:33.550 --> 03:41.380
+Nothing professional really. What they used was a Linux server which is the operating system.
+
+03:41.740 --> 03:47.280
+Just like I have Mac, Linux will be the operating system of the server.
+
+03:47.430 --> 03:48.810
+We have the Apache server.
+
+03:48.810 --> 03:51.980
+Apache is a server, again
+
+03:52.080 --> 03:58.500
+a program written by somebody that is really really good at just accepting requests and sending
+
+03:58.500 --> 04:01.070
+out responses of files.
+
+04:01.200 --> 04:03.990
+We had MySQL which is database.
+
+04:03.990 --> 04:09.230
+Maybe you had a comment section in your blog and you need to store that data,
+
+04:09.260 --> 04:16.680
+that would be the database. And then we had the PHP which was just a language that you can use to have
+
+04:16.680 --> 04:23.040
+a bit of logic in your servers. And the server, just like your computer, had a file system where all the
+
+04:23.040 --> 04:29.140
+files of your website are stored. And Apache just did that.
+
+04:29.330 --> 04:31.790
+Just listen to see if anybody entered
+
+04:31.790 --> 04:37.650
+funfunwebsite.com into the URL. If it got that request,
+
+04:37.770 --> 04:42.270
+it'll just default give you index.html.
+
+04:42.720 --> 04:51.260
+If somebody entered funfunwebsite.com/about, it will just give you about.html. It a was very
+
+04:51.260 --> 04:53.640
+simple very easy server.
+
+04:53.750 --> 05:00.860
+That's what most hosting websites like Hostgator use. And you might be asking "Could I just download Apache
+
+05:00.860 --> 05:05.150
+server and just run my own server from your computer?"
+
+05:05.160 --> 05:07.320
+Yes you absolutely can.
+
+05:07.490 --> 05:11.630
+But without having a server software,
+
+05:12.080 --> 05:14.210 
+well, our computer is unreachable.
+
+05:14.360 --> 05:21.350
+Nobody over the Internet can access our computer because our computer is not a server, (it) has no code that
+
+05:21.350 --> 05:25.570
+tells it "Hey, if I get a request, send this out."
+
+05:25.710 --> 05:33.930
+But as we saw in our previous videos, we can create fake servers to test our websites.
+
+05:33.960 --> 05:36.710
+Now this was the old way of doing things.
+
+05:36.720 --> 05:39.530
+There wasn't much logic to it, you couldn't really expand on it.
+
+05:39.720 --> 05:46.190
+You can't have websites like Facebook or Amazon using this type of a system.
+
+05:46.350 --> 05:51.940
+Like I said, this was for very basic websites.
+
+05:52.000 --> 05:59.310
+Now a new stack something we call an application server looks something more like this.
+
+05:59.380 --> 06:06.580
+Now an application server is different than our previous example because unlike using Apache server
+
+06:06.610 --> 06:14.050
+that is very simple and just does request response, just give files there and back. With a something like
+
+06:14.050 --> 06:23.750
+a Node server where you have Node.js running, well you can write a script and say "If I receive a request
+
+06:23.750 --> 06:33.230
+for a log in then check the user's username in the database. If it matches then let me know and then
+
+06:33.320 --> 06:42.260
+send a response through JSON to the Front-End application. And we can customize what these scripts say.
+
+06:42.260 --> 06:50.990
+So far we've only been able to use JavaScript on the web. But now, with Node.js, we can use it on a server,
+
+06:51.680 --> 06:55.670
+on a computer that isn't running a web browser. With Node.js,
+
+06:55.670 --> 07:02.630
+we can write JavaScript where, if I posted something on Facebook, that post on Facebook, when I clicked 'post',
+
+07:02.630 --> 07:08.060
+it will get sent to the Node Server that's listening for requests.
+
+07:09.000 --> 07:18.060
+It will say that, "Andrei just posted this message that is in JSON format." The Node.js and Express.js file
+
+07:18.180 --> 07:27.000
+on the server will read it and it'll say "Ah, we want to store this post in our database." and this
+
+07:27.000 --> 07:32.460
+database is going to store that post, so that when I come back next time it's still there.
+
+07:32.460 --> 07:39.360
+And then once that's done, it's going to respond with a success saying that "My post is a success" and now
+
+07:39.360 --> 07:42.060
+displays in my timeline.
+
+07:42.420 --> 07:49.410
+I can edit the post, I can delete the post, and again Node Server can delete that post from the database and
+
+07:49.410 --> 07:52.520
+then send a response and remove it from the timeline.
+
+07:52.560 --> 07:59.070
+You just have the power to constantly be interacting with the Front-End. Over in the next couple of videos
+
+07:59.070 --> 08:03.570
+we're going to be building a project that incorporates all of this.
+
+08:03.630 --> 08:07.320
+We're going to create a Node Server using a Express,
+
+08:07.320 --> 08:14.610
+We're going to create our own database where we store user information. And we're going to be using AJAX
+
+08:14.610 --> 08:20.400
+and JSON to constantly create, sign in, update user information.
+
+08:20.460 --> 08:26.880
+So we have an understanding of this full system. If you're building websites and web apps, 
+
+08:26.910 --> 08:34.540
+well, you're not really building these. As a web developer, you're building something more similar to this:
+
+08:34.750 --> 08:38.300
+but you might be asking yourself, "Is this it?"
+
+08:38.320 --> 08:44.420
+"Is this the ultimate end to what a Back-End server infrastructure can do?"
+
+08:44.770 --> 08:53.760
+Well, no, if you're Facebook, or Twitter, or Amazon, you would do something like this and don't get too worried
+
+08:53.760 --> 08:57.210
+here, we can explain what's going on.
+
+08:57.280 --> 09:01.740
+You are just making copies of your computer.
+
+09:01.750 --> 09:11.660
+So think of each of these rectangles as a computer. And because Facebook gets a lot of people, it makes
+
+09:11.660 --> 09:15.720
+a copy of their server and put it maybe in Asia,
+
+09:15.860 --> 09:22.640
+and one in Africa, so that everybody from Asia can access this one and everybody from Africa can
+
+09:22.640 --> 09:23.530
+access this one, 
+
+09:23.630 --> 09:30.530
+instead of having everybody access one server and overload the system. Because they have the same server
+
+09:30.560 --> 09:35.910
+it's just copying these files and putting it on a server somewhere else.
+
+09:35.970 --> 09:36.570
+That's it.
+
+09:36.650 --> 09:43.900
+And that's what we called scaling. But they also still use the same database, so that if from this server
+
+09:43.900 --> 09:51.460
+somebody updates the information, well, this person over here who uses this server, this user will still
+
+09:51.460 --> 09:55.920
+have access to the information that person using this server updated.
+
+09:55.960 --> 10:04.640
+And then finally, we have something called a 'Load Balancer'. And this is similar to what Apache or NginX
+
+10:05.240 --> 10:14.090
+would do. Where it listens for an HTTP request and it notices that "Hmm, this one over here in North America
+
+10:14.090 --> 10:15.700
+it's really really busy right now."
+
+10:15.720 --> 10:22.940
+"I'm going to transfer this person to this server over here." and it just balances the load of the servers.
+
+10:24.040 --> 10:29.290
+and it can keep growing this having more and more servers as you have more and more users.
+
+10:29.410 --> 10:33.390
+And finally you can even have multiple databases.
+
+10:33.400 --> 10:40.600
+Again these squares each represent a computer; a computer that's running a database, a computer that's
+
+10:40.600 --> 10:48.380
+running a server, a computer that's running a load balancer. And you can have multiple databases, again,
+
+10:48.400 --> 10:52.220
+so that they don't get overwhelmed with all these requests.
+
+10:52.420 --> 10:59.250
+And each one maintains a copy of the other. And this is something that we'll talk (about) more when we get to
+
+10:59.250 --> 11:02.030
+the Node section and Database section.
+
+11:02.100 --> 11:08.160
+But I want to show you the idea behind servers. To work with the Back-End,
+
+11:08.370 --> 11:18.050
+the main goal is to make sure that when we make a HTTP request from the Front-End that we get a response
+
+11:18.470 --> 11:22.100
+back as fast as possible with correct data.
+
+11:22.370 --> 11:28.680
+And that is what Back-End development is. Making sure that we return those resources so that our Front-End
+
+11:28.700 --> 11:35.870
+team can be confident that we are going to receive exactly what we need.
+
+11:35.880 --> 11:42.090
+So I want you to get excited because over the next sections we're going to be focusing on the Back-End as
+
+11:42.090 --> 11:49.920
+well as the Front-End. We're going to build a App that uses all of these technologies in one place.
+
+11:49.920 --> 11:57.210
+So you know exactly how everything is connected and you have an idea of how to go from something like
+
+11:57.210 --> 12:04.290
+this to one day having something like this.
+
+12:04.400 --> 12:05.210
+I'll see in the next one, bye-bye.

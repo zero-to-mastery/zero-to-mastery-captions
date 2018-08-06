@@ -1,0 +1,277 @@
+WEBVTT
+
+00:01.990 --> 00:10.800
+ES8 has a few more new features that were introduced in 2017, compared to ES7. In this video,
+
+00:10.810 --> 00:13.360
+We'll just go over the important ones.
+
+00:13.660 --> 00:17.750
+So the very first one is 'string padding'.
+
+00:18.010 --> 00:28.110
+We have new functions that we can add to strings which is '.padStart' and '.padEnd'. Now to demonstrate
+
+00:28.110 --> 00:43.810
+this, let's go into the console. And just do a 'Turtle' and we'll do a '.padStart' of 10, if I do this,
+
+00:43.810 --> 00:48.230
+I get 'Turtle' with 10 spaces in front of it.
+
+00:49.810 --> 01:01.170
+If I do '.padEnd' get 'Turtle' with 10 spaces after it, and this is useful just for aligning characters, of
+
+01:01.170 --> 01:09.310
+strings, if you want specific padding for them. Again very very simple easy to pick up, just another string
+
+01:09.310 --> 01:11.980
+method that we received.
+
+01:11.980 --> 01:13.510
+All right let's go into the second one.
+
+01:13.510 --> 01:20.830
+The second one that we got is something called trailing commas in function's parameter lists and calls.
+
+01:21.040 --> 01:21.840
+Hmm!, what does that mean?
+
+01:21.970 --> 01:33.200
+Well, now I can do something like 'const fun', 'a,b,c,d' and add a comma at the end.
+
+01:34.370 --> 01:38.610
+And, if I do a function let's just say 'console.log'(s)
+
+01:38.930 --> 01:41.670
+'a', just a silly simple function.
+
+01:41.690 --> 01:48.920
+I can now run this function, like one, two, three, four and then a comma at the end.
+
+01:49.220 --> 01:54.120
+And this is still valid javascript. If I run this,
+
+01:54.200 --> 01:55.550
+You see that, it works.
+
+01:55.550 --> 01:56.680
+Console log 'a'.
+
+01:56.690 --> 01:59.030
+Which is one, gets logged.
+
+01:59.030 --> 02:03.850
+Now why would this be useful at all?
+
+02:03.860 --> 02:09.320
+The main reason is, when you start getting really really big parameter lists, you'll see a lot of people
+
+02:09.320 --> 02:12.420
+doing things similar to this.
+
+02:15.910 --> 02:18.140
+Just to make things a little bit cleaner.
+
+02:18.310 --> 02:27.080
+And when you start doing this, every time you add a new parameter, it's a lot easier.
+
+02:27.100 --> 02:32.710
+But also in github, when you make changes, it actually makes the difference.
+
+02:32.710 --> 02:35.860
+The green and the red differences is a lot cleaner.
+
+02:35.860 --> 02:41.750
+So it's just syntactic and just make things look a little bit nicer.
+
+02:41.760 --> 02:47.530
+Again, you normally wouldn't want to do something like this, but maybe when you have a long parameter list
+
+02:47.770 --> 02:54.520
+like that, the ending comma is now valid and it won't give out an error. All right.
+
+02:54.630 --> 02:56.130
+Let's look at the next one.
+
+02:56.400 --> 03:00.720
+The next one is, we have 'object.values'
+
+03:03.310 --> 03:12.410
+and 'object.entries' and these are very very useful because before these, we had something called
+
+03:12.420 --> 03:21.680
+'object.keys' and 'object.keys' allowed us to do something similar to arrays but on objects.
+
+03:22.030 --> 03:32.700
+So for example, if we had an object(obj) that, let's say will have an object and this object 
+
+03:32.790 --> 03:42.820
+will have 'userName0', 'Santa', we have 'userName1', 'Rudolph'.
+
+03:43.000 --> 03:51.920
+And we also have, 'userName2', 'Mr. Grinch'.
+
+03:52.000 --> 03:57.550
+Now looking at this object, because it's not an array
+
+03:57.550 --> 04:05.790
+we can't do the 'map' or 'filter' or 'reduce' but this kind of an ugly object.
+
+04:05.830 --> 04:10.810
+And this illustrates a good point, sometimes when you're working with servers, you'll get objects that
+
+04:10.930 --> 04:17.110
+you don't really like or you don't want to work with but you still want to iterate over that.
+
+04:17.230 --> 04:22.360
+And before we could do something like this with 'object.keys', le'me make a little bit more space over here,
+
+04:22.360 --> 04:31.450
+so we can see, I could do 'object.keys' and in here, we'll throw the object.
+
+04:31.450 --> 04:36.140
+And now, I can use it like an array or go one by one.
+
+04:37.190 --> 04:38.240
+Like an array.
+
+04:39.490 --> 04:42.120
+So it's as if, it's an array.
+
+04:42.120 --> 04:45.310
+But except, it has property and values.
+
+04:45.490 --> 04:53.180
+So let's say, we wanted to do a 'forEach' loop and for each key, that is, for each key in the array.
+
+04:53.500 --> 05:05.840
+So for each 'username', we also have the index that is 0, 1, 2, just rap this in brackets.
+
+05:05.980 --> 05:15.710
+And now, within hear, we can say 'console.log(key)' and then 'object[key]'.
+
+05:15.970 --> 05:20.500
+So now, we're grabbing the object with the key 'username'.
+
+05:20.500 --> 05:29.470
+So if I 'console.log' this, let's copy and paste this, clean this up a bit and I see that I have,
+
+05:29.480 --> 05:34.970
+'username' 'Santa', 'username1' 'Rudolph', 'username2' 'Mr. Grinch'.
+
+05:35.190 --> 05:44.580
+And that's one way for us to iterate or loop through objects, but with 'object.entries',
+
+05:44.760 --> 05:45.860
+things become a little bit easier.
+
+05:46.730 --> 05:58.610
+For example, we can do 'object', must make more space, we can do 'object.values' and the 'object.values',
+
+05:58.970 --> 06:06.020
+if I do a 'forEach' here, I simply grab the 'value' from the value.
+
+06:06.140 --> 06:11.670
+I can just 'console.log(value)'.
+
+06:13.080 --> 06:19.530
+And now, I get the value of each object.
+
+06:19.560 --> 06:28.830
+That is it loops through 'Santa', 'Rudolf' and 'Mr. Grinch'.
+
+06:29.060 --> 06:31.390
+With the entries, if I do 'object.entries'.
+
+06:31.630 --> 06:33.250
+Well, let's see what happens.
+
+06:34.360 --> 06:42.990
+Let's clear this, I get an array of 'username' 'Santa', 'username1 ' 'Rudolph' and 'username2' 'Mr. Grinch'.
+
+06:43.030 --> 06:49.600
+So this gives you a lot of control you get both property and value or key and value, and you can do whatever
+
+06:49.600 --> 06:55.910
+you want with it and use 'foreach', 'map', 'reduce', 'filter' all those array functions.
+
+06:55.930 --> 06:58.130
+So let's use a real life scenario here.
+
+06:58.390 --> 07:04.330
+Let's say, we wanted to, we just received this from the backend, the backend just send us a bunch of
+
+07:04.330 --> 07:09.940
+users that they had in the database and we want to generate 'usernames' for that because we don't like
+
+07:09.940 --> 07:16.540
+the 'username0', 'username1', 'username2', you want to display name that displays the 'Santa' with
+
+07:16.690 --> 07:21.540
+the ID numbe, that is 0, for 'Rudolf' will be 1, for 'Mr. Grinch' will be 2.
+
+07:21.610 --> 07:25.160
+How can we do that? using our newfound powers.
+
+07:25.570 --> 07:30.040
+Well, I can just simply do something with 'object.entries',
+
+07:31.340 --> 07:40.290
+and 'object.entries' will have an 'object' that I can map over and this will give us a 'value',
+
+07:40.860 --> 07:44.370
+again remember that this will return arrays.
+
+07:44.640 --> 07:55.700
+And here we just want to return to a value of 1 because we want to grab 'Santa', 'Rudolph' and 'Mr. Grinch'.
+
+07:55.740 --> 07:58.690
+So that is the second item in the array.
+
+07:59.130 --> 08:06.710
+And then we want to add to that, like a string 'value 0' which is the first item.
+
+08:06.750 --> 08:09.540
+So 'username0', 'username1', 'username2'.
+
+08:10.080 --> 08:13.330
+And here we want to 'replace',
+
+08:13.440 --> 08:21.480
+this is just a function that we can use on strings and we want it replace 'username' with an empty string('').
+
+08:22.710 --> 08:29.520
+So what we're doing here is, we're creating a new string with 'Santa', 0
+
+08:29.940 --> 08:30.490
+because we don't need the username in here.
+
+08:30.510 --> 08:38.280
+So now, even though we have an object, we can loop through it like an array, and like that we have new
+
+08:38.280 --> 08:42.430
+usernames, 'Santa0', 'Rudolph1' and 'Mr. Grinch2'.
+
+08:42.780 --> 08:43.880
+How cool is that?
+
+08:44.880 --> 08:50.790
+So, these are really really useful additions to the language, especially 'object.values' and 
+
+08:50.790 --> 08:57.970
+'objects.entries', you can do a lot with it, but there is one big ES8 feature that has arrived and
+
+08:57.980 --> 09:03.870
+everybody's excited about, and they're called 'Async', Oh wait!
+
+09:04.100 --> 09:07.670
+Now it's brand new and everybody in the community is really excited about it.
+
+09:07.670 --> 09:14.710
+However, in order to fully grasp the benefit and understand it, we need an entire video on its own.
+
+09:14.960 --> 09:17.220
+So I'll see you in that one.
+
+09:17.530 --> 09:17.790
+Buh-bye.

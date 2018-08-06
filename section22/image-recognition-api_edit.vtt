@@ -1,0 +1,910 @@
+WEBVTT
+
+00:01.480 --> 00:05.110
+Welcome back. We have our beautiful web site set up.
+
+00:05.110 --> 00:14.440
+It's time to create some functionality, where we enter a url, press 'Detect' and an image appears with
+
+00:14.920 --> 00:16.440
+a face detection box,
+
+00:16.540 --> 00:21.980
+if a face exists in the picture. So how are we going to do that?
+
+00:24.100 --> 00:28.900
+Well, the first thing we want to do, we want to make sure that there is some functionality here where
+
+00:29.260 --> 00:36.730
+we can detect, what the user enters. And it's something that we've done before with react, when we had
+
+00:36.730 --> 00:37.710
+our robo friends app.
+
+00:37.720 --> 00:41.440
+We had our input that filtered through the robots.
+
+00:41.520 --> 00:50.930
+So again, using the similar technique, using the 'ImageLinkForm', we can create this functionality.
+
+00:50.950 --> 00:56.620
+So the first thing you might realize is that, yeah! we definitely need 'state', we need to create a 'state'
+
+00:56.650 --> 01:05.020
+so that, our app knows, what the value is that the user enters, remembers it, and updates at any time it
+
+01:05.020 --> 01:06.340
+gets changed.
+
+01:06.340 --> 01:10.360
+So as you remember, in order to do that, we will define a 'constructor'
+
+01:13.770 --> 01:19.800
+and within this 'constructor', we have to call 'super' to be able to use this.
+
+01:19.850 --> 01:21.500
+And here, we can do 'this'
+
+01:21.500 --> 01:25.310
+'state' equals and we'll call it,
+
+01:25.310 --> 01:28.890
+'input', that's what the user will input.
+
+01:30.940 --> 01:43.630
+And this input will have a 'onChange' or 'onInputChange', that we will use with arrow functions,
+
+01:44.430 --> 01:49.230
+so that we don't get that error that we saw previously.
+
+01:49.230 --> 01:56.710
+And as you know anytime there's some sort of an event listener on a web page, we receive an event and
+
+01:56.710 --> 01:57.760
+we want to do something here.
+
+01:57.760 --> 02:07.130
+So we'll do a 'console dot log', 'event' to make sure that we can detect it and on 'inputChange' in the
+
+02:07.130 --> 02:11.020
+'imageLinkForm' we can pass it as a prop.
+
+02:15.310 --> 02:17.860
+And we'll get the error 'onInputChange' is not defined.
+
+02:17.860 --> 02:25.930
+Remember that because it's part of this class to access it, you need to save 'this dot onInputChange'
+
+02:25.960 --> 02:32.150
+because 'onInputChange' is a property of the 'App'.
+
+02:32.150 --> 02:34.510
+Let's save that, right now,
+
+02:34.520 --> 02:37.910
+well it's not doing anything because we need to trigger this.
+
+02:38.090 --> 02:42.440
+We go back to 'imageLinkForm' that's the css 'imageLinkForm.js'.
+
+02:42.470 --> 02:47.990
+We can destructor the 'onInputChange' that we're getting.
+
+02:48.020 --> 02:58.080
+So instead of doing 'props' dot 'onInputChange' down here, we just destructur it from the 'props' and we
+
+02:58.080 --> 03:01.500
+can say on 'input' here 'onChange',
+
+03:05.090 --> 03:13.220
+so 'onChange' is technically a react synthetic event that mimics what the html does with whenever input
+
+03:13.220 --> 03:14.480
+changes.
+
+03:14.480 --> 03:22.750
+And here the 'onChange', well what's it going to do, if we just do 'onInputChange' here,
+
+03:22.800 --> 03:23.910
+let's see what happens?
+
+03:26.860 --> 03:37.640
+I'm going to open up the console, click or press something, oop! go to the input and press something.
+
+03:37.660 --> 03:37.940
+All right.
+
+03:37.950 --> 03:42.790
+And looks like I'm getting something, a proxy event.
+
+03:42.810 --> 03:43.050
+All right.
+
+03:43.050 --> 03:45.170
+What if I go back into my 
+
+03:45.190 --> 03:51.660
+app dot js? and if you remember the way we get our value from the input is dot 'target' dot 'value'.
+
+03:51.840 --> 03:59.710
+If I save that, and go back, there you go, we get our input.
+
+03:59.790 --> 04:03.390
+Nice and easy, just like we did before with our initial react app.
+
+04:05.560 --> 04:12.730
+Right, so we're getting the 'onInputChange' and we also want that when we click on 'Detect' that while we
+
+04:12.970 --> 04:16.100
+detect an image, how are we going to do that?
+
+04:17.030 --> 04:23.660
+For now, just because I like keeping things simple, building things one step at a time we can just 'console
+
+04:23.660 --> 04:28.320
+log' and we'll say 'onSubmit' and it won't have any parameters for now.
+
+04:29.420 --> 04:40.880
+We'll just say 'console dot log', click, and now 'onSubmit', we can pass to our 'imageLinkForm' again.
+
+04:46.250 --> 04:51.000
+We will title it 'onButtonSubmit' here, just to make it clear.
+
+04:52.680 --> 04:57.520
+And again, we'll pass it with 'this' dot 'onButtonSubmit'.
+
+04:59.660 --> 05:02.810
+We save that, I'm going to put this on a new line just again so you can see,
+
+05:08.200 --> 05:13.480
+now the 'imageLinkForm' will receive 'onButton
+
+05:13.780 --> 05:32.150
+Submit' and we can say, here that, other than the 'className', they'll be a 'onClick' event that listens for the 'on
+
+05:33.700 --> 05:34.530
+ButtonSubmit'.
+
+05:35.240 --> 05:39.750
+Let's save, go back to our example,
+
+05:39.750 --> 05:42.730
+click, look at that, that's working.
+
+05:44.280 --> 05:44.620
+All right.
+
+05:44.650 --> 05:48.850
+So there's a bit of functionality but the hard part is just getting started.
+
+05:48.880 --> 05:54.850
+How do we display an image down here and have it detect the face? Well,
+
+05:54.870 --> 06:03.200
+luckily for us, we can use an API, and this API I think is one of the coolest out there.
+
+06:03.200 --> 06:11.320
+It's called 'clarifai' and as you can see from their tagline 'understand your image and video data'. You can
+
+06:11.320 --> 06:15.400
+use this tool actually for free, up to a certain point.
+
+06:15.490 --> 06:24.520
+If you look at the pricing over here for developers you have a free 5000 operations per month.
+
+06:24.720 --> 06:28.620
+So you can submit 5000 pictures and it'll guess it for you.
+
+06:28.710 --> 06:31.160
+Once your app becomes popular then you can start paying for it.
+
+06:31.170 --> 06:39.600
+But we're going to be using a free API. And I want you to sign up for this, if you want to use it because
+
+06:39.900 --> 06:43.840
+the API key that I'll use in this example, I'll delete it afterwards so that,
+
+06:43.870 --> 06:47.190
+well, so that other people don't ah! don't use it
+
+06:47.190 --> 06:50.570
+and then I reach my limit and I won't be able to use it anymore.
+
+06:51.250 --> 06:52.830
+But it's very simple to sign up.
+
+06:52.900 --> 06:54.190
+You just log in.
+
+06:54.190 --> 07:00.400
+And once you create your account here, you'll be taken onto your profile.
+
+07:02.630 --> 07:05.860
+And they might already have my first application for you.
+
+07:05.990 --> 07:10.880
+If there's nothing here you just click on 'CREATE NEW APPLICATION' and here,
+
+07:13.620 --> 07:17.890
+and your application, you can title it whatever you want but you don't need to touch anything.
+
+07:18.150 --> 07:28.890
+If you go to API Keys, this key is your way of accessing the 'clarifai' API.
+
+07:30.500 --> 07:40.680
+So if here I enter a url, I press detect, I can send that url with my API key that they provide for you
+
+07:42.280 --> 07:51.280
+to their service and using the API key they'll say, oh! that's Andre, he's under the free plan.
+
+07:51.490 --> 07:54.120
+He hasn't hit his 5000 limit yet for the month.
+
+07:54.340 --> 07:54.680
+Yes.
+
+07:54.700 --> 07:55.710
+Let's respond.
+
+07:57.260 --> 08:04.330
+And in case you're wondering what they can actually do, if you go to their models you see over here that
+
+08:04.780 --> 08:09.370
+they use machine learning to train something called 'Models'.
+
+08:09.610 --> 08:19.090
+That is they train a computer by giving it many many pictures, tons of pictures, to memorize celebrity
+
+08:19.090 --> 08:30.240
+faces, detect 'Apparel' like here, and it knows that these are sunglasses with 100 percent probability because
+
+08:30.270 --> 08:37.470
+it's been trained probably millions of pictures of sunglasses to know what sunglasses are like. So you
+
+08:37.470 --> 08:39.960
+can play around with a lot of the stuff that they have here.
+
+08:39.960 --> 08:42.780
+It's really really nice what they have.
+
+08:42.780 --> 08:48.540
+We're going to be using their face detection API. And their face detection API,
+
+08:48.540 --> 08:49.560
+we simply,
+
+08:52.280 --> 09:04.350
+if we go to the js(javascript), we simply run this function, to the 'clarifai' servers using our own API and it gives
+
+09:04.350 --> 09:07.490
+us a response or an error.
+
+09:07.550 --> 09:16.610
+Now this is always a lot easier, to demonstrate than to actually talk about, so let's implement it.
+
+09:16.640 --> 09:19.600
+I'm using their face recognition.
+
+09:19.740 --> 09:25.770
+So I'm just going to copy and paste this. Go back to my app and in app dot
+
+09:25.910 --> 09:30.320
+js(app.js), I'll say that 'onButtonSubmit',
+
+09:30.420 --> 09:41.170
+I want to run, the function that 'clarifai' just told me to use. But as you can see here, it has 'app
+
+09:41.460 --> 09:45.100
+dot models dot predict'.
+
+09:45.480 --> 09:52.330
+Well, how is my program going to know what 'app dot models dot predict' is?
+
+09:52.520 --> 09:59.790
+Well, if you go to their API guide, they will show you exactly how to get started and how to use their API.
+
+09:59.960 --> 10:05.720
+But you can see over here and they're 'Getting started', 'API clients' if we go to javascript, they'll say
+
+10:05.920 --> 10:08.140
+install the client from npm.
+
+10:08.180 --> 10:16.640
+So let's just follow along and install 'clarifai' and this is a package that they've built so they can
+
+10:17.000 --> 10:25.340
+work with javascript, while that's loading, we can see that, we can import 'clarify'.
+
+10:25.460 --> 10:30.010
+We can see here that they're using the common JS, 'require' way of importing,
+
+10:30.020 --> 10:36.160
+but since we're using 'create react app', we can use 'import' here, and then we simply initialize your API
+
+10:36.160 --> 10:44.630
+key with this. So that now we'll be able to have the app object. As you can see here we're using 'app
+
+10:44.630 --> 10:45.220
+.models'.
+
+10:45.230 --> 10:53.980
+But if I run this, I'll have no idea what 'app' is. Just to demonstrate for you, if I go back to the console
+
+10:53.980 --> 10:54.320
+here,
+
+10:57.940 --> 11:05.050
+'run npm start', I get the 'app is not defined', all right.
+
+11:05.050 --> 11:15.350
+So again copy, what we see here will copy this, put it up in our configuration at the top of the file.
+
+11:17.910 --> 11:20.650
+It asks for our API key.
+
+11:20.730 --> 11:24.070
+In my case I'll use the one that they've given me.
+
+11:27.670 --> 11:29.670
+Let me open that link in a new file.
+
+11:30.620 --> 11:34.220
+I go to 'my first application', 'API keys'.
+
+11:34.560 --> 11:38.920
+I'll copy and paste my API key. Paste it in here.
+
+11:40.640 --> 11:46.730
+Like we talked about in the API section most useful APIs require a set up like this, where you have
+
+11:46.730 --> 11:55.190
+to add an API key. So although these documents are specifically for 'clarifai' most APIs that you use are
+
+11:55.190 --> 11:58.560
+going to be very very similar to this.
+
+11:58.570 --> 12:01.060
+All right, so we have that, we also need to import,
+
+12:01.090 --> 12:07.140
+if you remember, so going back here, I can just
+
+12:10.090 --> 12:18.460
+import 'clarifai' and because, we can use the new javascript way of importing.
+
+12:18.750 --> 12:22.430
+We'll just do that because it looks so much nicer.
+
+12:23.280 --> 12:25.140
+All right let's save and see what happens.
+
+12:26.100 --> 12:26.560
+All right.
+
+12:26.760 --> 12:29.420
+It looks like it's working.
+
+12:29.440 --> 12:35.250
+We see that we're just getting a, this is just a sample image that we're getting.
+
+12:36.940 --> 12:45.550
+So we're using our API key and then submitting a url image and then having this dot then occur let's
+
+12:45.550 --> 12:50.220
+console dot log the response, and see what we get.
+
+12:53.580 --> 12:59.590
+I'm going to click submit(Detect), and I get status,
+
+12:59.590 --> 12:59.950
+all right.
+
+12:59.950 --> 13:03.420
+It looks like it's responding with something, that's good.
+
+13:04.810 --> 13:09.960
+Very good.
+
+13:09.960 --> 13:14.520
+All right, so for now, it looks like this is working.
+
+13:14.520 --> 13:20.370
+We have an image, that we're receiving, when I put this on a new line so you can see.
+
+13:28.540 --> 13:28.920
+Right.
+
+13:28.960 --> 13:35.950
+So for now, let's have it, so we can display whatever image they just gave us in our example. Let's just copy
+
+13:35.950 --> 13:42.420
+and see what this image is of.
+
+13:42.440 --> 13:47.030
+So we want this to display at the bottom.
+
+13:47.100 --> 13:48.700
+So how can we do that?
+
+13:49.470 --> 14:03.640
+Well, we can start creating our last 'FaceRecognition' component. So we can move the brackets or the comments.
+
+14:03.800 --> 14:13.790
+And now here, we'll import this new component, that we don't have yet and this would be called The 'Face
+
+14:13.790 --> 14:16.730
+Recognition' component.
+
+14:21.900 --> 14:27.540
+And again we'll create a new folder, that will say 'FaceRecognition'.
+
+14:28.560 --> 14:33.650
+And within this new folder, (there)will be a new file 'FaceRecognition dot
+
+14:33.860 --> 14:40.380
+js', using our very good tool,
+
+14:40.380 --> 14:45.240
+copy and paste, going to copy and paste the 'Navigation' component
+
+14:48.160 --> 14:53.410
+and now change the name of this to 'FaceRecognition'
+
+14:54.390 --> 14:56.870
+component and what should this display?
+
+14:57.090 --> 15:00.930
+Well for now we just want to display a static image to make sure that it works.
+
+15:02.230 --> 15:03.580
+So I'm going to create
+
+15:07.730 --> 15:14.620
+a 'div' with the 'className' of well, 'center' that we've already defined before,
+
+15:14.660 --> 15:23.760
+if you remember in our app.css. And will have an image, with a source(src) of,
+
+15:28.930 --> 15:32.010
+close the tag and we could just save that.
+
+15:32.380 --> 15:33.380
+Let's see if that works.
+
+15:35.500 --> 15:36.280
+All right.
+
+15:36.280 --> 15:37.620
+That looks pretty good actually.
+
+15:37.630 --> 15:40.040
+We got our image right at the bottom.
+
+15:41.430 --> 15:44.190
+I get an error saying that we need an 'alt' tag.
+
+15:44.250 --> 15:45.920
+So we'll just say 'alt'
+
+15:49.290 --> 15:50.770
+and we'll just leave it blank for now.
+
+15:50.880 --> 15:53.100
+Just so we have something.
+
+15:53.220 --> 15:53.600
+All right.
+
+15:53.640 --> 16:03.240
+So we have the basic look of the image and that's working but that's not really connected to the API.
+
+16:03.250 --> 16:08.820
+When I click detect, well it's just hard coded.
+
+16:08.970 --> 16:16.050
+So first let's look at the API and see how we can actually submit, image urls, if you go back to their
+
+16:16.050 --> 16:17.350
+documents.
+
+16:17.650 --> 16:20.870
+Again they're very very good with this.
+
+16:20.940 --> 16:22.020
+If you scroll down,
+
+16:25.960 --> 16:29.660
+under the 'Predict', you see that they have images and videos.
+
+16:29.830 --> 16:37.720
+So we can use the 'Images', 'via URL' and we see that we have the javascript and it looks like the 'Predict'
+
+16:38.500 --> 16:43.690
+function takes the 'clarifai' a model that they have.
+
+16:43.690 --> 16:50.830
+So in this case they're sending the general model and the url. Right so it's very similar to what
+
+16:50.830 --> 16:51.740
+we saw before.
+
+16:52.640 --> 16:59.070
+So by the looks of it because we've already defined our API key we don't need this anymore.
+
+16:59.450 --> 17:05.020
+All we need is to tell it, what model do we want to use.
+
+17:05.040 --> 17:11.040
+But if you remember they have a ton of models. And actually want to show you a smart way of looking at
+
+17:11.040 --> 17:11.310
+this.
+
+17:11.310 --> 17:17.910
+They have this information in the docs but another good way of doing it is if you remember there was
+
+17:17.910 --> 17:30.740
+a 'clarifai' npm package and this npm package has a github link and all npm packages usually do. In here,
+
+17:31.020 --> 17:40.620
+if you go to visit their codebase, if you go into source, as you might remember, and index.js, this
+
+17:40.620 --> 17:50.360
+is what they're giving us access to, and you see over here they have 'exports global dot clarifai' and here
+
+17:50.380 --> 17:55.360
+all their models that we can use. So they're giving us the 'GENERAL_MODEL'.
+
+17:55.690 --> 17:58.910
+But you can see, if we can get the 'FOOD_MODEL', the 'COLOR_MODEL'.
+
+17:59.050 --> 18:04.570
+So let's use the 'COLOR_MODEL' for now, and in here, we will say
+
+18:08.850 --> 18:13.050
+'COLOR_MODEL'.
+
+18:13.240 --> 18:21.270
+And in order to have access to that, we have to do 'clarifai' dot 'COLOR_MODEL'.
+
+18:21.580 --> 18:30.490
+So let's save that, and we (are) going to test this by opening up the console clicking detect,
+
+18:30.730 --> 18:44.570
+I get a response and within their response, if I go to 'outputs', 'zero(0)', 'data', I get 'colors' and these
+
+18:44.570 --> 18:51.090
+are all the hex colors predictions and you see the one with the highest probability, let's see what
+
+18:51.090 --> 18:52.090
+color that is.
+
+18:55.660 --> 19:02.480
+It's were pretty much black and if you look at this image yeah it's pretty much black.
+
+19:02.480 --> 19:05.680
+All right so that is working.
+
+19:05.740 --> 19:11.150
+And the reason I was able to find this is again in their API documentation it tells you if it's an it's
+
+19:11.200 --> 19:15.190
+an outputs and an output returns an array with data inside it.
+
+19:15.220 --> 19:23.130
+And because we selected the colors model we get colors. All right, so for now using the colors model,
+
+19:23.280 --> 19:26.760
+let's build it up.
+
+19:27.130 --> 19:39.660
+We want to have an 'imageUrl' state and it will be empty for now and this 'imageUrl' should
+
+19:39.810 --> 19:51.500
+get displayed when we click on submit, so we can say that 'onButtonSubmit', we wanna 'this' dot 'setState' to
+
+19:51.530 --> 19:58.920
+equal, to have image url updated with whatever the 'input' is.
+
+19:58.920 --> 20:06.100
+So this way, we can pass the 'imageUrl' down to the 'FaceRecognition'.
+
+20:06.120 --> 20:15.960
+So if I do 'imageUrl' equal to 'this' dot 'state' dot 'imageUrl', I can now use 'imageUrl' in
+
+20:15.960 --> 20:25.670
+my 'FaceRecognition' component as the source(src).
+
+20:25.670 --> 20:32.180
+Now we obviously need to receive this, so I'm gonna destructure it and use it as parameters.
+
+20:32.180 --> 20:33.800
+And I get 'input is not defined',
+
+20:33.800 --> 20:47.850
+That's because in here, I used input and well, it needs to be 'this' dot 'state' dot 'input'. Go back let's ah!, let's
+
+20:47.870 --> 20:49.500
+find a new face actually. Let's do,
+
+20:49.520 --> 20:50.150
+let's do a color.
+
+20:50.160 --> 20:58.110
+Let's do a landscape, let's do one with a defining color.
+
+20:58.110 --> 21:08.070
+That's a good one, let's do view image, copy this, if we do this and we don't get anything because well, if
+
+21:08.070 --> 21:13.080
+you remember 'onInputChange', we've never actually updated the 'input' component.
+
+21:13.080 --> 21:15.510
+We just console logged everything.
+
+21:15.530 --> 21:19.950
+So now that we know that we can just say, 'this' dot 'set
+
+21:19.960 --> 21:20.510
+State'
+
+21:23.440 --> 21:23.950
+'input'
+
+21:26.740 --> 21:30.060
+is the 'event' 'target' dot 'value'.
+
+21:30.200 --> 21:31.460
+Let's see if that works.
+
+21:32.340 --> 21:36.370
+And I go back, try it out and,
+
+21:36.430 --> 21:39.420
+Oh boy!, that's a big picture we'll need to fix that,
+
+21:39.430 --> 21:45.620
+but we got our image displaying. Now using this information,
+
+21:45.620 --> 21:51.390
+it means that, we can give our url as the input over here.
+
+21:51.620 --> 21:54.960
+We can just put 'this' dot 'state' dot 'input'
+
+22:03.150 --> 22:08.530
+and open up the console.
+
+22:08.550 --> 22:08.760
+All right,
+
+22:08.760 --> 22:10.730
+looks like we're getting a response.
+
+22:10.770 --> 22:13.540
+We're getting 'data' 'colors'.
+
+22:13.790 --> 22:17.930
+We have this with 40 percent chance of this being the color.
+
+22:17.930 --> 22:19.400
+Let's see what color that is.
+
+22:22.040 --> 22:23.150
+All right that's green.
+
+22:23.210 --> 22:24.650
+That's pretty cool.
+
+22:24.650 --> 22:26.870
+So it's clearly working.
+
+22:26.870 --> 22:28.970
+We're getting, I'm gonna close some of these.
+
+22:36.160 --> 22:40.210
+All right, things are clearly working now, which is great.
+
+22:40.210 --> 22:45.950
+Now the one trick I want to show you, because of the way react works,
+
+22:46.240 --> 22:55.320
+if I would have done here, 'imageUrl', I would actually get an error,
+
+22:55.540 --> 22:59.980
+So if I copy and paste, let's do an image 'Apple'
+
+23:12.590 --> 23:32.790
+I get a 'Bad request' and that is because of the way 'set state' works.
+
+23:32.870 --> 23:33.170
+All right.
+
+23:33.200 --> 23:44.700
+So, while we actually want to use is the 'FACE_DETECT_MODEL' so using what we have now,
+
+23:46.050 --> 23:52.960
+Let's see if we can get a response for, and if we go to our API we can look at the models,
+
+23:58.830 --> 24:06.100
+and actually if we go to the top, you go to 'Models', and we go to 'Face Detection',
+
+24:09.320 --> 24:15.280
+we see that we'll have a response that looks something like this.
+
+24:15.310 --> 24:22.600
+What we're interested in is from the outputs, to get data and then regions that give us the regions or
+
+24:22.600 --> 24:28.200
+the bounding box of the face. We'll see if we can get that working.
+
+24:28.670 --> 24:33.470
+I've put the 'FACE_DETECTION_MODEL' and we don't know what the response is going to be yet so I'm just
+
+24:33.470 --> 24:34.820
+going to leave it at that.
+
+24:35.800 --> 24:39.390
+I'm going to find a face image,
+
+24:44.050 --> 24:47.060
+let's do this picture,
+
+24:47.060 --> 24:47.980
+copy and paste, detect,
+
+24:53.400 --> 24:55.450
+oh boy! we need to fix that face.
+
+24:55.550 --> 25:00.510
+But, we see that we're gtting output.
+
+25:02.700 --> 25:06.240
+In the first array, we get 'data', 'regions'
+
+25:10.500 --> 25:12.340
+and we have a 'bounding_box'.
+
+25:12.340 --> 25:14.290
+So it's a little bit nested here.
+
+25:14.320 --> 25:21.190
+So using this information, let's clean it up a little bit and then actually get what we need from here.
+
+25:25.030 --> 25:29.670
+In our case, it looks like we'll need to get the 'response'
+
+25:29.930 --> 25:33.150
+dot 'outputs'.
+
+25:36.110 --> 25:46.190
+And then the 'zero(0)' the first array, then it was 'data', 'regions', 'zero(0)', 'region info', then 'bounding box'.
+
+25:46.400 --> 25:47.700
+All right, let's do that.
+
+25:47.720 --> 25:56.550
+So 'data regions' access the first array,
+
+25:57.530 --> 26:01.020
+'region_info' and I think the last one was 'bounding box'.
+
+26:01.100 --> 26:01.860
+Let's try that.
+
+26:05.370 --> 26:05.630
+All right.
+
+26:05.640 --> 26:07.050
+Let's give that a go.
+
+26:07.930 --> 26:09.260
+And see if that works.
+
+26:11.190 --> 26:11.760
+Detect
+
+26:14.710 --> 26:20.230
+Look at that. We have our 'bottom row', 'left column', 'right column', 'top row'.
+
+26:20.500 --> 26:22.760
+We still don't really know what these numbers mean.
+
+26:22.810 --> 26:27.370
+We'll have to actually figure it out because as you can see it doesn't add anything to the face.
+
+26:27.370 --> 26:29.030
+That's something that we'll have to do.
+
+26:29.830 --> 26:33.270
+But it's working and we got our API connection.
+
+26:33.370 --> 26:36.050
+We're actually doing something we're displaying the image.
+
+26:36.070 --> 26:41.860
+So before we get into the next video let's fix this image issue to make sure that everything looks, well,
+
+26:42.340 --> 26:44.470
+looks better than this.
+
+26:44.470 --> 26:50.310
+So if we go to the 'FaceRecognition' here, there's a couple of things that we will need to fix.
+
+26:50.350 --> 26:52.740
+I'm going to remove this 'console'.
+
+26:52.880 --> 27:02.650
+We will do 'ma', which is a 'tachion' class and then we'll also wrap this in a 'div' and there's many ways
+
+27:02.650 --> 27:03.220
+to do this.
+
+27:03.220 --> 27:07.990
+Like I said before with styling, I'll show you the main way of doing it.
+
+27:08.140 --> 27:17.640
+I going say 'absolute margin top two' just so there's a bit of a space in between the input and the image.
+
+27:17.770 --> 27:25.330
+And now within the image, we want to make sure that the 'width' is always the same no matter the size of
+
+27:25.330 --> 27:27.770
+the picture.
+
+27:27.960 --> 27:34.890
+We'll do '500 pixels' but we also don't want it to get squished or have weird proportions.
+
+27:34.890 --> 27:42.490
+So the way to fix that is to do 'auto'. So hight is automatically going to be adjusted based on the width.
+
+27:42.530 --> 27:44.060
+So let's save and see what happens
+
+27:44.070 --> 27:44.470
+now.
+
+27:47.570 --> 27:48.140
+All right.
+
+27:48.140 --> 27:50.740
+That's a, that's a lot better.
+
+27:50.760 --> 27:51.840
+So that was pretty quick.
+
+27:51.840 --> 27:55.300
+This was the main thing that really fixed it.
+
+27:56.630 --> 27:57.320
+All right.
+
+27:57.350 --> 27:57.850
+Awesome.
+
+27:57.860 --> 28:03.830
+So we got ourselves a working app that returns real results.
+
+28:04.040 --> 28:12.400
+And now we can work on having a box displayed around the face, if something gets detected. Just out of
+
+28:12.400 --> 28:13.200
+curiosity.
+
+28:13.210 --> 28:25.230
+If I do landscape again.
+
+28:25.280 --> 28:25.760
+All right.
+
+28:25.760 --> 28:26.450
+Everything's working fine.
+
+28:26.460 --> 28:30.980
+Huh! that was a long one but things are starting to work.
+
+28:30.980 --> 28:32.370
+I'll see you in the next video.
+
+28:32.830 --> 28:33.130
+Buh-bye

@@ -1,0 +1,877 @@
+WEBVTT
+
+00:01.490 --> 00:02.700
+Welcome back.
+
+00:02.840 --> 00:05.050
+This is the part that gets really exciting.
+
+00:05.360 --> 00:11.230
+You can use JavaScript to listen to events and that based on what the user does.
+
+00:11.240 --> 00:19.900
+Now what do I mean by events? Events are things like clicking, mouse entering or hovering over something
+
+00:20.470 --> 00:24.170
+or user trying something in a search bar.
+
+00:25.560 --> 00:31.310
+So we can listen to these events and react to them using JavaScript.
+
+00:31.320 --> 00:36.100
+Let me show you how. We have are all shopping lists from the previous video.
+
+00:36.510 --> 00:39.310
+And if I add a button here.
+
+00:42.060 --> 00:47.530
+And we'll just say Click Me, save and refresh.
+
+00:47.590 --> 00:50.800
+We have the Click Me button.
+
+00:50.830 --> 00:57.340
+I've also created a script dot JS file here in the same folder as index HTML and we obviously
+
+00:57.340 --> 00:58.130
+want to add it.
+
+00:58.180 --> 01:08.070
+So we'll do it right at the bottom as we've mentioned in previous videos and we can include it by referencing
+
+01:08.070 --> 01:16.070
+it through the source and we'll call it Script thought just to reference the name on the script.
+
+01:16.110 --> 01:19.420
+Let's save now learning what we've learned.
+
+01:19.430 --> 01:22.460
+We can select this quick button.
+
+01:22.460 --> 01:25.830
+Let's test this out if we want to select the button.
+
+01:25.850 --> 01:38.600
+I can say document dot get element by tag name and we'll say button so that selects the button for us.
+
+01:38.620 --> 01:43.580
+OK so how can we listen to the fact that a user can click this button.
+
+01:45.900 --> 01:51.770
+What we have something called events and what these are and are all linked.
+
+01:51.780 --> 01:59.550
+The reference here is there are a whole bunch of events that a Web browser allows us to listen to.
+
+01:59.550 --> 02:06.360
+So if you look over here we have mouse events like mouse moved mouse over a click double click.
+
+02:06.360 --> 02:10.400
+We have key press and a whole bunch of other events.
+
+02:10.740 --> 02:16.710
+But the most common ones and the one thing you'll see 90 percent of the time are mouse events and keyboard
+
+02:16.710 --> 02:17.750
+events.
+
+02:17.790 --> 02:23.450
+So if we look over here we have a click so we can listen for click.
+
+02:23.610 --> 02:24.500
+How can we do that.
+
+02:25.530 --> 02:36.360
+Well in my script Paul I'm going to say document or let's call it button equals document dot get aliments
+
+02:36.600 --> 02:44.240
+by Diagne and it will select the button.
+
+02:44.440 --> 02:54.690
+Now that we have the reference to the button I can now say button Daut had the event listener and this
+
+02:54.690 --> 03:01.380
+is a method that we can use and it accepts two parameters.
+
+03:01.380 --> 03:03.910
+The first one is the event.
+
+03:03.980 --> 03:12.040
+In our case we're listening to the click event and the second parameter is the function or what we want
+
+03:12.040 --> 03:14.440
+to do based on the click.
+
+03:14.500 --> 03:16.270
+So in our case we can just say
+
+03:19.030 --> 03:24.700
+console dot log click.
+
+03:24.790 --> 03:32.890
+So we're saying had an event listener to this button that we've selected whenever the user clicks I
+
+03:32.890 --> 03:39.370
+want to run this function and this function is to console log click.
+
+03:39.460 --> 03:40.560
+Let's see if that works.
+
+03:40.720 --> 03:41.600
+And refresh.
+
+03:41.620 --> 03:49.770
+And we see that we have button add event listener is not a function and that is because remember Get
+
+03:49.830 --> 03:55.830
+elements by tag name returns an array of buttons.
+
+03:55.830 --> 04:07.870
+So if we copy and paste this we see that in order to access the button we have to go 0 to access the
+
+04:07.870 --> 04:09.060
+first element in the array.
+
+04:09.060 --> 04:12.670
+So that's a very common mistake that people make.
+
+04:12.670 --> 04:19.130
+So make sure that if you get this error that's probably because you're trying to use a method on an
+
+04:19.130 --> 04:24.300
+array and you need to use that method on the actual element OK.
+
+04:24.430 --> 04:27.550
+Let me close that and fix this to say
+
+04:30.830 --> 04:39.170
+the first born perfect I'm going to save that a little bit smaller so you can see and refresh and I
+
+04:39.170 --> 04:46.820
+can open up the console and see what happens when I click click click click click click OK.
+
+04:46.880 --> 04:47.620
+So it's working.
+
+04:47.620 --> 05:00.410
+We're listening to the click event very very cool I can also listen to something like my center and
+
+05:00.800 --> 05:04.180
+other ear over here and refresh.
+
+05:04.280 --> 05:06.680
+You can see over here that as soon as I do most enter
+
+05:09.590 --> 05:10.960
+it registers the event.
+
+05:11.210 --> 05:22.290
+You can also do mouse leave refresh and every time I leave I get that event.
+
+05:22.460 --> 05:23.270
+Very cool.
+
+05:23.450 --> 05:26.500
+So there's a ton of them are all linked to this.
+
+05:26.510 --> 05:28.000
+So you can check it out yourself.
+
+05:28.010 --> 05:33.280
+But like I said keyboard events and mouse events is what you would like to look at.
+
+05:33.560 --> 05:38.990
+So looking at this list I think we can improve it.
+
+05:39.020 --> 05:47.480
+I think we should have an input and a button where we can type in something and add to the shopping
+
+05:47.480 --> 05:49.410
+list.
+
+05:49.510 --> 05:51.000
+So I'll try and do that.
+
+05:51.360 --> 05:56.380
+And going to erase this code and I'm want to save and refresh.
+
+05:56.920 --> 06:04.390
+And we're also going to change a few things here instead of click me the button we want to say Panter
+
+06:05.320 --> 06:16.280
+and we'll get this one class of Cantor and we also need an implicit I'm going to remove this p tag and
+
+06:16.280 --> 06:23.790
+instead of the no excuses how I'm going to say and put type text.
+
+06:24.240 --> 06:26.070
+You remember that's the default.
+
+06:26.120 --> 06:33.480
+And we can also add an attribute placeholder enter items.
+
+06:33.500 --> 06:41.130
+So now if I save and refresh about I have a placeholder and I can type in whatever I want for right
+
+06:41.130 --> 06:41.910
+now.
+
+06:42.800 --> 06:43.900
+They don't really do anything.
+
+06:43.940 --> 06:50.240
+Ideally when we click enter it gets added to the bottom of the list.
+
+06:50.430 --> 06:51.440
+So how can we do that.
+
+06:52.390 --> 06:55.410
+First we're going to need to select these items.
+
+06:55.540 --> 07:02.110
+So the one thing I really like doing is making sure that we have good class names or Ids for these elements
+
+07:02.110 --> 07:04.690
+so that we can grab them easily.
+
+07:04.720 --> 07:14.050
+So we definitely want to grab the button which has a class over enter but I actually like using Id because
+
+07:14.060 --> 07:18.810
+it'll be really really fast for the Web browser to grab an Id because there's only one of them.
+
+07:18.970 --> 07:22.320
+Performance wise although it's very very minuscule
+
+07:22.450 --> 07:23.200
+it does help.
+
+07:23.200 --> 07:25.880
+So I'm going to change the Id of enter.
+
+07:26.150 --> 07:32.990
+And we also want to grab the user input so we can give it an Id of user input.
+
+07:34.120 --> 07:42.400
+Now let's open up our script dot JS file and think about the few things that we want to select.
+
+07:42.510 --> 07:52.750
+We want to select the input and the button so we can do that by signing them to variable document dot
+
+07:52.990 --> 07:59.620
+getElementById.
+
+07:59.730 --> 08:02.070
+And here we can just say Antar.
+
+08:02.070 --> 08:08.910
+Remember we signed that ID and input will be document.
+
+08:08.940 --> 08:21.040
+Get help and by id and we'll do user input here and we want to add an event listener to the button.
+
+08:21.160 --> 08:22.680
+So let's do that.
+
+08:22.840 --> 08:35.260
+I'm going to say button Dot had event listener We want to listen to the click event and we want to perform
+
+08:35.290 --> 08:38.780
+the action the function for now.
+
+08:38.860 --> 08:45.100
+Before we get into the actual code it's always good to test what we've written so far so we're just
+
+08:45.100 --> 08:50.760
+going to do console log click is working.
+
+08:51.010 --> 08:56.970
+Let's save open up the console and refresh.
+
+08:57.120 --> 09:00.320
+And if I click click is working right.
+
+09:00.370 --> 09:02.380
+Everything's looking good so far.
+
+09:02.380 --> 09:04.880
+Ideally we can enter something here.
+
+09:05.050 --> 09:08.860
+And when I click enter it gets added to the bottom of the list.
+
+09:10.640 --> 09:12.970
+How can we do that let's think about this.
+
+09:13.070 --> 09:22.420
+The first thing we want to do is we need to create another alignment so whatever we enter should be
+
+09:22.420 --> 09:30.690
+added to the bottom of candle's can use something called a create element method.
+
+09:32.030 --> 09:43.910
+So we can do variable ally equals document Daut create element again another method that document gives
+
+09:43.910 --> 09:47.390
+us an end here we just tell which element we want to create.
+
+09:47.440 --> 09:53.980
+In our case will be a list an ally can now this lie.
+
+09:53.990 --> 09:56.730
+We've just created that lives in this very Bowl.
+
+09:56.750 --> 09:59.620
+We want to attach it to the bottom of the list.
+
+10:00.630 --> 10:06.850
+Again the document object gives us something called append child.
+
+10:06.890 --> 10:17.960
+So if I do a lie that append child now in here in order to append to child if we remember our whole
+
+10:17.960 --> 10:26.170
+diagram of the dorm we see that each element has a text will be called node.
+
+10:26.480 --> 10:32.310
+So we need to add a text note let's do that here.
+
+10:32.410 --> 10:43.630
+We'll have to do something called document create text node and then here we can just say testing.
+
+10:43.650 --> 10:50.850
+So now we've attached testing to the ally that we've just created.
+
+10:50.850 --> 11:02.360
+Again going back to our diagram I've created an ally element and I've added the text of test.
+
+11:02.510 --> 11:09.420
+So the last thing we need to do is to attach this to the unordered list.
+
+11:09.430 --> 11:20.950
+Right now what we've done is we've created an ally that says testing.
+
+11:21.160 --> 11:26.790
+But this is actually not attached to anything it just lives in our program.
+
+11:26.800 --> 11:30.920
+But we need to attach it to the unordered list.
+
+11:31.730 --> 11:38.410
+And the way we do that is well we grab the unordered list and then append to it.
+
+11:38.420 --> 11:50.250
+So again we're going to select one urged list document dot query selector
+
+11:53.290 --> 11:56.030
+and we'll select to you all.
+
+11:56.230 --> 11:57.970
+And now we can say
+
+12:00.950 --> 12:02.550
+I want to append
+
+12:05.440 --> 12:12.570
+so append a child to you Well that is lie when we just create it.
+
+12:13.470 --> 12:14.540
+So let's see that in action.
+
+12:14.540 --> 12:17.000
+I'm going to save and refresh.
+
+12:17.250 --> 12:18.540
+I'm going to close the console.
+
+12:18.580 --> 12:23.440
+I'm going to press enter that.
+
+12:23.630 --> 12:24.650
+It's working.
+
+12:25.100 --> 12:26.500
+Let me refresh it again.
+
+12:27.950 --> 12:28.850
+There you go.
+
+12:29.240 --> 12:32.520
+So this is working and we've learned a few new things here.
+
+12:33.330 --> 12:36.750
+One is that we can create an element.
+
+12:36.750 --> 12:43.070
+So we just give it the tag that we want to create but this element needs to.
+
+12:43.110 --> 12:47.880
+Well if you want to display something it needs to have some sort of a text inside it.
+
+12:47.970 --> 12:50.440
+So that is this.
+
+12:50.490 --> 12:57.200
+Over here and the way that the document object model works is that in order to create a text you do
+
+12:57.380 --> 13:02.140
+create text note and put whatever you want inside of it.
+
+13:02.630 --> 13:08.690
+Now we've created the supply but we need to attach it to something that is part of the actual view right
+
+13:08.690 --> 13:09.470
+now.
+
+13:09.470 --> 13:19.620
+In our case we want to attach it to the unordered list and use apan child which adds it as a child these
+
+13:19.620 --> 13:22.210
+three are quite useful.
+
+13:22.420 --> 13:24.640
+So you'll just have to practice them and remember them.
+
+13:25.430 --> 13:28.350
+But we have something working here which is good.
+
+13:29.340 --> 13:36.980
+But ideally we can put something that we enter in here and not just a static testing.
+
+13:37.050 --> 13:38.520
+So how can we do that.
+
+13:38.800 --> 13:48.800
+We have the input already grabbed and the way we get the value from an input is input.
+
+13:50.180 --> 13:58.700
+Daut we don't need the brackets anymore it's input dot thali and we can just test it out over here.
+
+13:58.720 --> 13:59.710
+Konsole dialogue
+
+14:07.500 --> 14:08.430
+got to refresh.
+
+14:08.460 --> 14:17.260
+If I click enter I get hello and it should also be attached to the bottom over here.
+
+14:21.230 --> 14:21.640
+OK.
+
+14:22.120 --> 14:27.790
+So we have a basic to do list we can enter stuff and quick answer.
+
+14:27.910 --> 14:35.750
+But what happens if it's empty and I click enter at DC that just keeps adding stuff on.
+
+14:35.850 --> 14:44.520
+Ideally we can skip that if the input is empty well enter shouldn't do anything the way we do that.
+
+14:44.550 --> 14:47.820
+Well it sounds like a conditional statement might be useful here.
+
+14:47.920 --> 14:52.000
+We can do if input value is.
+
+14:52.240 --> 14:54.440
+Well what can we do here to test.
+
+14:54.790 --> 15:02.680
+If you remember we have full length property on strings the length property tells us how many characters
+
+15:02.740 --> 15:08.500
+a string has.
+
+15:08.540 --> 15:16.520
+So we can do something along those lines to say if you put a value to all that is greater than zero.
+
+15:17.590 --> 15:26.860
+Then we will move this in here.
+
+15:27.070 --> 15:28.090
+Otherwise well.
+
+15:28.230 --> 15:31.640
+Otherwise we don't really need to do anything.
+
+15:31.730 --> 15:36.600
+We'll just let that click event happen without any actions.
+
+15:36.720 --> 15:44.700
+OK so let's see that in action you can save and refresh and I'll do nothing and press ENTER nothing
+
+15:45.150 --> 15:46.650
+press enter.
+
+15:47.070 --> 15:51.720
+But if I type something it adds it to the list.
+
+15:51.800 --> 15:57.290
+But here's another problem I can just keep adding these forever.
+
+15:57.300 --> 16:01.340
+Ideally after I enter something it all clears up.
+
+16:01.390 --> 16:09.840
+So let me refresh and here what can we do at the end of all of this where we can say and put it toward
+
+16:09.840 --> 16:14.080
+value equals an empty string.
+
+16:16.050 --> 16:23.790
+After we create the new ally and added to the unordered list I want the input value to now be completely
+
+16:23.790 --> 16:25.160
+empty an empty string.
+
+16:25.950 --> 16:28.120
+Let's save and refresh.
+
+16:28.330 --> 16:34.620
+Let's try that hello quick enter and look at that.
+
+16:34.650 --> 16:39.570
+Now I have to type something new again.
+
+16:41.590 --> 16:46.680
+All right things are starting to look nicer but it's kind of annoying that I have to keep clicking.
+
+16:46.790 --> 16:52.230
+It would be nice to just also be able to press Enter right again if we look at the events.
+
+16:52.230 --> 16:55.770
+We also have keyboard events and key press.
+
+16:55.770 --> 17:00.100
+Well as the name suggests listens to some sort of a keypress.
+
+17:00.280 --> 17:05.900
+And luckily for us we can just listen for the enter key or the return key.
+
+17:07.290 --> 17:09.580
+Now how do we do that.
+
+17:09.840 --> 17:10.970
+Let's give it a try first.
+
+17:11.020 --> 17:20.090
+Well just copy and paste this and this time on the input I'm going to say instead of the Click event
+
+17:20.150 --> 17:22.210
+I'm going to say key press.
+
+17:22.220 --> 17:27.950
+So we're listening for the key press event and we want to do the exact same thing that we've been doing
+
+17:28.420 --> 17:29.930
+so that works.
+
+17:29.930 --> 17:32.890
+So how do we know when the enter key is suppressed.
+
+17:34.000 --> 17:42.260
+Will we have something called character codes and that is we can listen to which key was typed and each
+
+17:42.260 --> 17:45.260
+one is associated with a code with that number.
+
+17:45.290 --> 17:51.620
+So this Web site again which are linked to I can just press for a key here and I'll tell me exactly
+
+17:51.980 --> 17:57.010
+what code it has so if I press enter I get key code 13.
+
+17:57.170 --> 18:03.920
+So we're listening for a key code 13 but again how do we access that.
+
+18:03.980 --> 18:06.130
+Open up the console here.
+
+18:06.170 --> 18:14.530
+I'll show you that the way we do it is that we listen to something called event dot which And I'm going
+
+18:14.530 --> 18:15.610
+to console log this
+
+18:19.090 --> 18:26.890
+now and here I'm going to comment the software an so you can see every time an event listeners added.
+
+18:26.890 --> 18:32.540
+We have the key press and this function also receives a parameter automatically.
+
+18:32.980 --> 18:34.300
+That is the event.
+
+18:34.360 --> 18:37.700
+So we can call it we can call it event.
+
+18:37.720 --> 18:49.500
+In my case I'll call it event and now when the user presses a key it gives this function an event of
+
+18:49.500 --> 18:54.720
+the description of that event that happened actually Leisure's console log the event and see what it
+
+18:54.720 --> 18:55.070
+is.
+
+18:55.110 --> 19:05.970
+I'm going to refresh and say keep keypress and see that I have the keyboard event and here I get a whole
+
+19:05.970 --> 19:11.240
+bunch of information about the event that I just did even get the time when I pressed the key.
+
+19:11.340 --> 19:18.760
+But the thing that's really important here is we see that there's key code and there's also which both
+
+19:18.760 --> 19:33.900
+of them 107 if my press Enter we see that the key code is 13 which is 13.
+
+19:34.060 --> 19:36.090
+Let's give it a go.
+
+19:36.330 --> 19:52.580
+I'm going to say now that if input value is greater than zero and event the dot key code equals 13 then
+
+19:53.150 --> 19:55.230
+add the item to the list.
+
+19:55.460 --> 19:57.790
+Let's save and refresh give that a go.
+
+19:58.070 --> 20:05.970
+I'm going to say shopping lists will need pants or Precentor like that.
+
+20:07.280 --> 20:10.900
+And that's to Jojo adds it to the list
+
+20:13.660 --> 20:21.530
+everything looks good but there's one issue that I'm having here and that is we have a lot of repeat
+
+20:21.580 --> 20:22.900
+code.
+
+20:22.900 --> 20:24.780
+This seems really unnecessary.
+
+20:24.790 --> 20:31.630
+And as I said before one of the principles with being a developer is dry which stands for do not repeat
+
+20:31.630 --> 20:33.100
+yourself.
+
+20:33.100 --> 20:35.320
+This is not very extensive or is it.
+
+20:35.320 --> 20:40.810
+It looks like we're just copy and pasting code and imagine if we had a bunch of events this will just
+
+20:40.810 --> 20:42.220
+be a massive file.
+
+20:42.340 --> 20:48.130
+So let's extract some of the logic out and show you how we can do something called refactoring which
+
+20:48.130 --> 20:50.620
+is making code look a little bit better.
+
+20:50.620 --> 20:57.910
+One thing we can do is that it looks like in our IF and we're doing the same thing which is checking
+
+20:57.910 --> 21:01.570
+that the input value length is greater than zero.
+
+21:02.020 --> 21:12.480
+So if we can add a function here called and put full length and as the name suggests this checks for
+
+21:13.570 --> 21:21.420
+and put that value up length but remember as a function we need to return something otherwise.
+
+21:21.480 --> 21:26.920
+Well we're going to run this function and it's going to say undefined and undefined cannot well undefined
+
+21:26.920 --> 21:27.750
+to greater than zero.
+
+21:27.750 --> 21:29.250
+That doesn't make sense.
+
+21:29.280 --> 21:33.880
+So return the lenth.
+
+21:33.900 --> 21:43.080
+So now again we've extracted that out so we can just say and put lenth run that function whatever of
+
+21:43.080 --> 21:47.930
+returns is greater than zero and we'll do the same over here as well.
+
+21:51.310 --> 21:58.090
+Now that is a minor change but now we have something that we can use everywhere anytime we create a
+
+21:58.090 --> 21:59.470
+new event listener.
+
+21:59.470 --> 22:00.940
+What else can we clean up.
+
+22:00.940 --> 22:06.130
+It looks like this whole block of code is being repeated here.
+
+22:07.090 --> 22:20.550
+So again we can call a function create list element here we can just remove this code added here
+
+22:24.060 --> 22:26.130
+and now we can just say
+
+22:30.660 --> 22:39.410
+create this element and again remove this and say create this settlement
+
+22:42.230 --> 22:45.640
+let's just save and see how everything works right now.
+
+22:45.760 --> 22:54.660
+Want to refresh make sure the console doesn't give me any errors and I'm going to say Shell's and if
+
+22:54.660 --> 22:55.470
+I press enter
+
+22:58.090 --> 22:59.320
+everything still works.
+
+22:59.320 --> 23:04.040
+And in case everything's empty I can't add anything.
+
+23:04.040 --> 23:04.590
+All right.
+
+23:04.590 --> 23:06.450
+The code is looking nice.
+
+23:07.360 --> 23:09.070
+It reads pretty well.
+
+23:09.920 --> 23:18.430
+The last thing maybe I want to do is instead of having the function here I can extract that out as well.
+
+23:18.460 --> 23:23.830
+I can say function add list after
+
+23:28.910 --> 23:36.800
+and we can just say Copy this function out and pat it into your and we don't need this function anymore.
+
+23:40.730 --> 23:53.570
+And now we can just say add the list after click and we can also have a function pad list after key
+
+23:53.590 --> 23:55.570
+press.
+
+23:55.650 --> 23:58.650
+And here's the tricky part.
+
+23:58.700 --> 24:05.430
+Now we have to copy this.
+
+24:05.610 --> 24:12.290
+But before I leave this function you see that we need to receive an event with this.
+
+24:12.480 --> 24:17.960
+So it has to receive a parameter because we need that information from the event.
+
+24:17.970 --> 24:28.140
+So again when we pass that event remove this function and we have event Tukey code.
+
+24:28.240 --> 24:31.760
+Let's see if everything works as expected.
+
+24:32.920 --> 24:36.730
+I'm going to save refresh.
+
+24:36.910 --> 24:42.300
+See if there's any errors in the console and press water.
+
+24:42.790 --> 24:47.330
+That's water juice has juice.
+
+24:47.500 --> 24:52.080
+And if I don't press anything or don't try anything it still works.
+
+24:52.120 --> 24:56.210
+Let's look at this code one more time and see what's happening.
+
+24:56.230 --> 25:05.220
+We started off with selecting the elements that we're interested in and notice here that we're not constantly
+
+25:05.230 --> 25:08.800
+every time we need them saying document get Al Lombardi.
+
+25:09.100 --> 25:10.790
+We're cashing this.
+
+25:10.810 --> 25:14.830
+So at the beginning when the script runs we're saying hey remember this.
+
+25:14.830 --> 25:17.520
+I'm going to use it and store it in bond.
+
+25:17.800 --> 25:18.950
+And same with Bud.
+
+25:18.970 --> 25:20.640
+Same with the unordered list.
+
+25:22.030 --> 25:28.840
+We then have a bunch of function declarations but these are never run because they're just saying hey
+
+25:29.080 --> 25:32.530
+we have this function but nobody has run them yet.
+
+25:32.720 --> 25:39.340
+And the program goes to the bottom and says hey I don't have an listener for klick if anybody ever clicks
+
+25:39.670 --> 25:42.250
+on the button run this function.
+
+25:42.590 --> 25:49.200
+And if anybody ever has the key press on the input call this function.
+
+25:49.330 --> 25:56.290
+And now every time I click this gets triggered and it goes over here says hey has ample length greater
+
+25:56.290 --> 25:59.050
+than zero if it is.
+
+25:59.050 --> 26:01.740
+Create a list element.
+
+26:01.990 --> 26:03.400
+And here it is.
+
+26:03.400 --> 26:10.500
+And if I ever have a key press it checks to see if it's the input is greater than zero.
+
+26:10.750 --> 26:19.600
+Then I check to see if I press the enter key and then I create a list element and this looks pretty
+
+26:19.630 --> 26:20.470
+clean right.
+
+26:20.560 --> 26:23.820
+Anybody can come in if they know a little bit of JavaScript.
+
+26:23.830 --> 26:29.350
+You can read what is happening just from the code and that is something you really want to strive for
+
+26:29.350 --> 26:32.200
+where you don't want to repeat yourself.
+
+26:32.200 --> 26:40.490
+You want to cache these queries so that we're not using up too much power for the browser.
+
+26:41.550 --> 26:49.450
+And we have everything broken down into functions that are very very simple OK.
+
+26:49.690 --> 26:50.990
+That's it for now.
+
+26:51.010 --> 26:57.340
+Add any shopping list items you need and I'll see you in the next video. Bye Bye.

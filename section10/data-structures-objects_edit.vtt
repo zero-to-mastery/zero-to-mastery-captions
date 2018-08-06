@@ -1,0 +1,448 @@
+WEBVTT
+
+00:01.790 --> 00:05.860
+Objects. They are really powerful data structures.
+
+00:06.810 --> 00:12.270
+And as you can see it's the second data structure that we're going to learn in Javascript.
+
+00:12.270 --> 00:22.440
+And as a matter of fact they are also a javascript type. Objects are collections of property. Well what
+
+00:22.440 --> 00:23.270
+does that mean?
+
+00:24.410 --> 00:27.530
+Let's take a look by trying to write an object.
+
+00:27.530 --> 00:37.700
+So to write an object I can have something like a user and curly brackets and within this we can say
+
+00:37.820 --> 00:41.790
+name equals "John".
+
+00:42.170 --> 00:46.000
+I can say H is "34".
+
+00:46.050 --> 00:49.320
+Hobby is "soccer".
+
+00:50.900 --> 00:54.490
+And maybe we can even put "is married" 
+
+00:56.660 --> 01:00.390
+to false and the comma at 
+
+01:00.540 --> 01:03.440
+the end here I can leave it off or add it,
+
+01:03.460 --> 01:04.630
+it works both ways.
+
+01:05.770 --> 01:13.880
+But now if I save this and refresh - let's see if we have the user object. Yep.
+
+01:13.950 --> 01:20.820
+Looks like we have "name: John age: 34 hobby: soccer is married: false".
+
+01:20.990 --> 01:28.190
+And you see over here that we have an object and it looks a little bit different from an array doesn't it?
+
+01:28.220 --> 01:38.210
+Because if we remember an array looked like this, "apple", "banana", "orange".
+
+01:38.240 --> 01:47.100
+So - an array if we refresh we have 'user' that looks like this and a 'list' that looks like this.
+
+01:47.210 --> 01:57.280
+If I open this up we see that we have a bit of a difference because an object is more dynamic
+
+01:57.280 --> 02:00.000
+I can have properties and value.
+
+02:00.220 --> 02:12.770
+So property 'name', value "John", property, 'age', value "34". With an array we had an index '0' which held "apple"
+
+02:12.890 --> 02:17.720
+and an index '1' which held "banana".
+
+02:17.720 --> 02:18.680
+Hmm interesting.
+
+02:18.740 --> 02:19.000
+OK.
+
+02:19.010 --> 02:30.370
+But how do I grab properties because with an array I could do 'list', grab the second element with '1'
+
+02:30.940 --> 02:39.520
+and I got a "banana". What with objects what you can do is you can say 'user.name',
+
+02:39.690 --> 02:51.950
+John. 'User.age', 34. 'User.hobby', soccer. And 'user.isMarried', false. OK.
+
+02:52.250 --> 03:06.510
+Now with an array we had methods like 'pop' or 'push' to change the array.
+
+03:06.590 --> 03:08.740
+We even had 'concat'.
+
+03:09.210 --> 03:14.930
+How can we add properties to an object? Well it's very simple.
+
+03:14.930 --> 03:29.700
+All we have to do is say something like 'user.favoriteFood' and I'll do equals and I'll do spinach.
+
+03:29.890 --> 03:36.320
+Now if I look at the user object I have favorite food,
+
+03:36.320 --> 03:39.160
+spinach.
+
+03:39.230 --> 03:44.060
+So we've just expanded the user object.
+
+03:44.100 --> 03:44.730
+What about this -
+
+03:44.730 --> 03:53.000
+Can I change to 'isMarried' to "true" to say our friend John over here just got married.
+
+03:53.130 --> 04:01.510
+Well, now if I go to user I have 'isMarried' to "true".
+
+04:01.560 --> 04:02.940
+Very cool.
+
+04:02.940 --> 04:07.890
+So you see the difference there between an array and an object.
+
+04:07.890 --> 04:22.370
+Now one question you might be having is, "Why isn't 'array' a javascript type but 'object' is? Well because
+
+04:22.370 --> 04:32.120
+in simplified terms technically an array is just something like this.
+
+04:36.480 --> 04:44.040
+We even saw it when we looked at the list that we have "0" goes to Apple.
+
+04:44.040 --> 04:52.220
+"1" equals to banana and "2" equals to orange. And you see what the power of data structures are
+
+04:52.580 --> 04:54.020
+in javascript.
+
+04:54.080 --> 05:01.120
+That idea of a desk drawer and in that drawer you don't want to have a mess you don't want to just put
+
+05:01.130 --> 05:07.920
+one thing, you want to have multiple things but you want them organized. So maybe you want the pens all
+
+05:07.930 --> 05:12.420
+organized in a section and the files organized in a different section.
+
+05:12.830 --> 05:18.280
+And as I mentioned data structures help us organize things better.
+
+05:18.350 --> 05:26.570
+So for example an array is really really good at maybe containing a shopping list or a To Do list.
+
+05:27.140 --> 05:33.190
+But an object might be really really good at containing something like user information.
+
+05:34.000 --> 05:39.610
+So if you think of a game - let's say you're building a game where you're controlling this wizard.
+
+05:39.940 --> 05:48.050
+Well this wizard - how tall the wizard is, how powerful it is, how many experience points it has.
+
+05:48.250 --> 05:54.040
+Well that would be really really good to put in an object because that wizard is an object.
+
+05:54.040 --> 06:03.400
+We need properties and values but maybe the spells that could be a list because we can just have a string
+
+06:03.520 --> 06:07.050
+of all the spells that the wizard would know.
+
+06:07.090 --> 06:11.890
+So does it mean that we can have arrays inside of objects?
+
+06:12.010 --> 06:25.350
+Yeah if the user was a wizard I can put 'spell' or 'spells' and I can do an array of all the spells
+
+06:25.740 --> 06:35.340
+"abracadabra" or "Shazam" or I can do "boo".
+
+06:35.430 --> 06:39.800
+So now I have an array inside a user.
+
+06:40.080 --> 06:41.460
+OK what about the other way around.
+
+06:41.460 --> 06:48.310
+Can I have a user inside of an array?
+
+06:48.710 --> 06:49.480
+Well, yeah you can.
+
+06:49.640 --> 06:59.790
+Let's say we wanted to have a list of users over an app for our website. We can have a list of objects
+
+06:59.790 --> 07:01.710
+where we have 'username'
+
+07:06.960 --> 07:15.830
+"Andy" who has 'password', "secret" and we can have
+
+07:18.540 --> 07:28.310
+'username', "Jess" that has the 'password' "123". Let's see this in action.
+
+07:28.370 --> 07:37.370
+I'm going to refresh and say 'list' and look at that. Within this list I have the first item with the
+
+07:37.370 --> 07:38.520
+username and password.
+
+07:38.520 --> 07:44.500
+And the second item username and password. So lists are really really good at
+
+07:44.530 --> 07:52.240
+well, making lists and those are arrays. And objects are really really good at containing objects. But
+
+07:52.360 --> 07:54.520
+how do we access them now?
+
+07:55.000 --> 07:57.580
+Well let's look at the user first.
+
+07:57.670 --> 08:07.630
+If I wanted to access a spell well I could do 'user.spells' and I'll get an array back but if I wanted
+
+08:07.630 --> 08:10.050
+to - let's say access "Shahzam"
+
+08:10.450 --> 08:15.680
+Well I would just do 'user.spells' and then because it's an array
+
+08:15.730 --> 08:28.740
+I get the second item by using '[1]' - "Shahzam". The other way around for the list I can say 'list' - the first
+
+08:28.740 --> 08:35.320
+item which is "Andy" and I want to get his password.
+
+08:35.450 --> 08:37.410
+Well I'll do 'password'.
+
+08:37.770 --> 08:42.590
+And now I get - well Andy misspelled his password, it's supposed to say "secret".
+
+08:42.600 --> 08:45.930
+But we get "secre".
+
+08:46.180 --> 08:48.220
+So that's how you access things.
+
+08:48.570 --> 08:49.350
+OK.
+
+08:49.840 --> 08:51.480
+One other question that I have.
+
+08:51.850 --> 09:05.590
+What if I wanted to say that this user John who's a wizard also can 'shout'. Maybe it can do some sort
+
+09:05.590 --> 09:06.510
+of an action.
+
+09:06.640 --> 09:09.320
+Can we add a function to an object?
+
+09:09.580 --> 09:13.080
+Yeah we can, all we have to do is do 'function'
+
+09:13.120 --> 09:17.260
+And you see the color changed, means we're doing something right.
+
+09:17.260 --> 09:20.840
+I can say 'function console.log'
+
+09:24.380 --> 09:29.070
+Shouting "Ah" let's save that and let's see that in action.
+
+09:31.720 --> 09:35.940
+'User' - make sure that we have the shout there yeah
+
+09:35.960 --> 09:38.380
+And look it has the "F" for 'function'.
+
+09:38.900 --> 09:45.350
+And now if I go 'user.shout' and remember I have to call the function.
+
+09:45.770 --> 09:53.960
+I get "AHHHHH!". Very cool. So I can have functions inside objects.
+
+09:54.320 --> 10:00.680
+And one thing you might notice is - hold on a second, I thought functions were supposed to say something
+
+10:00.680 --> 10:03.120
+like, you know,  alert.
+
+10:03.330 --> 10:08.710
+But this one we have 'user.shout'.
+
+10:08.770 --> 10:16.240
+So this is a little bit different than what we've seen before and this is actually called a method and
+
+10:16.240 --> 10:18.250
+this is another terminology that we're going to learn.
+
+10:18.250 --> 10:23.110
+But a function inside an object is a 'method'.
+
+10:23.110 --> 10:29.500
+So I can say that 'shout' is a 'method' of 'user'.
+
+10:29.720 --> 10:42.090
+Just like with an array like lists and if I do 'pop' - well 'pop' is a 'method' of 'list'.
+
+10:42.230 --> 10:48.390
+And another thing that you might have realize is 'console.log'.
+
+10:48.620 --> 10:49.310
+What do you think
+
+10:49.370 --> 10:58.190
+'log' is that we've been doing all this time? Well, 'console' as it turns out is just an object.
+
+10:58.260 --> 11:06.300
+Do you see that? 'console' has all these looks like method on it.
+
+11:06.360 --> 11:10.180
+So this entire time we've just been doing console.log.
+
+11:10.400 --> 11:19.770
+But I can also do - let's do 'info'. If I do console.info and I'll say "hello".
+
+11:23.930 --> 11:24.850
+I get "hello"
+
+11:24.990 --> 11:26.220
+Nothing changes.
+
+11:26.220 --> 11:29.150
+But what if we do something like 'error'.
+
+11:29.340 --> 11:40.100
+Well I can do 'console.error' and now - look at that, I get the error.
+
+11:40.420 --> 11:46.690
+So that's what methods are. They're functions inside an object.
+
+11:46.700 --> 11:55.510
+OK I have one last cool thing to show you and that is, "Can I do something like this?
+
+11:57.450 --> 12:03.200
+Can a user be an empty object?" Yep it works.
+
+12:03.200 --> 12:09.170
+So if I get 'user2' I just get the empty object and there's nothing really in it.
+
+12:10.630 --> 12:10.940
+OK.
+
+12:10.960 --> 12:11.950
+What about arrays?
+
+12:11.950 --> 12:15.490
+Can I do a list that is empty?
+
+12:18.010 --> 12:24.050
+Yep I can do a list that is empty.
+
+12:24.210 --> 12:31.040
+But as you can see I can't really use any properties in 'user2' because it has no properties.
+
+12:31.920 --> 12:41.610
+And I can't really access 'list[0]' or 'list2[0]', which is the empty one,
+
+12:41.680 --> 12:44.130
+Well because there's nothing in it right now.
+
+12:46.200 --> 12:57.440
+So this reminds us of when we don't declare a variable we get "undefined" but with an object and a list
+
+12:57.500 --> 13:03.030
+we can have something empty and it's not undefined. But there is one thing I want to show you.
+
+13:03.230 --> 13:06.350
+There can be an empty object.
+
+13:06.350 --> 13:18.730
+So if I do 'var' empty object, well it's an empty object but there is something called 'null'.
+
+13:19.120 --> 13:33.030
+And that is our sixth datatype and 'null' is a special type that just says that an object is null.
+
+13:33.040 --> 13:34.530
+So let's see what that means.
+
+13:34.600 --> 13:39.640
+If I look at empty object I get an empty object.
+
+13:39.970 --> 13:46.920
+If I get a 'null' object it returns null.
+
+13:46.960 --> 13:54.850
+So this is a special character that we'll get into later on in the lessons but it just means that there
+
+13:54.850 --> 13:57.190
+is nothing in this object.
+
+13:57.190 --> 14:09.150
+If I go 'null0bj.name = Andy'
+
+14:09.340 --> 14:13.230
+I can't set property name of null.
+
+14:13.400 --> 14:22.430
+But if I do that for an empty object which is just an empty object, well I can say the name
+
+14:22.790 --> 14:27.300
+equals Andy
+
+14:27.370 --> 14:30.400
+And look I have Andy.
+
+14:30.610 --> 14:32.230
+So that's what a 'null' object is
+
+14:32.290 --> 14:40.140
+It is empty, completely empty and well right now it kind of looks useless like we don't need it.
+
+14:40.150 --> 14:44.580
+But I'll show you cases where this is important for us.
+
+14:44.590 --> 14:46.930
+OK that was a whole lot of stuff.
+
+14:47.020 --> 14:51.870
+But you've actually learnt so much in javascript.
+
+14:51.990 --> 14:59.550
+This is pretty much I would say 80 percent of what you need to know in javascript to work professionally
+
+14:59.670 --> 15:05.650
+and it sounds like we didn't cover that much or maybe to some it may feel like we covered a lot.
+
+15:05.670 --> 15:12.390
+But in terms of syntax just looking at this we've only learned a few words and a few ways of doing things.
+
+15:13.470 --> 15:20.190
+With this newfound power I'm going to show you how we can build a simple Facebook with what we just
+
+15:20.190 --> 15:20.780
+learned.
+
+15:22.630 --> 15:23.730
+I'll see you in the next video. Bye-bye

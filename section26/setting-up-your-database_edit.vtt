@@ -1,0 +1,289 @@
+WEBVTT
+
+00:00.770 --> 00:02.360
+Welcome back.
+
+00:02.360 --> 00:09.110
+I am so excited for this section because we're finally combining everything we know into one place. By
+
+00:09.110 --> 00:17.680
+the end of this we'll have a unified understanding of how everything works, ind the world of web development.
+
+00:17.800 --> 00:28.830
+We have our Front-End "smart brain" here with the sign in page and we have our app, built in React. We also
+
+00:28.830 --> 00:34.880
+have our server running on port 3000, listening to requests.
+
+00:35.040 --> 00:37.700
+But now we don't need this database anymore.
+
+00:37.960 --> 00:46.240
+We can create our own PostgreSQL database now and have the server interacting with it through SQL,
+
+00:46.330 --> 00:54.860
+updating everything and then responding through Express back to the front-end. It's going to be so
+
+00:54.860 --> 00:55.490
+much fun.
+
+00:55.550 --> 00:56.750
+I'm so excited.
+
+00:56.870 --> 01:03.690
+But before we actually start to code anything we have to design our database.
+
+01:03.920 --> 01:09.050
+Let's create a database.
+
+01:11.470 --> 01:14.080
+And we'll call it "smart-brain".
+
+01:19.470 --> 01:19.830
+All right.
+
+01:19.830 --> 01:20.800
+Perfect.
+
+01:20.940 --> 01:28.350
+Now that we have our database created I want to think of these three separate things as their own individual
+
+01:28.350 --> 01:33.130
+computers that when we deploy is going to be different parts.
+
+01:33.220 --> 01:36.830
+We have our server living on a computer.
+
+01:36.940 --> 01:44.960
+We have our database living on a computer and we can actually connect here to it.
+
+01:47.710 --> 01:52.110
+And we also have our app in a separate computer as well.
+
+01:55.860 --> 02:03.660
+So let's close this quickly and connect to our database, to our local host, and we called it smart brain.
+
+02:05.510 --> 02:08.640
+Click connect and there you go.
+
+02:08.960 --> 02:12.390
+But, no tables yet. To get started,
+
+02:12.710 --> 02:18.710
+as we did when we created our API design for our server we really want to think about how our database
+
+02:18.710 --> 02:26.230
+would look and we're using relational database here because in my opinion in 2018 and moving forward
+
+02:26.680 --> 02:33.480
+relational databases are really really good. Although databases like MongoDB are really easy to get
+
+02:33.480 --> 02:35.020
+started with and they're dynamic.
+
+02:35.040 --> 02:38.250
+You don't have to think too much about when you're starting off.
+
+02:38.250 --> 02:45.660
+I think relational databases offer a really strong way to think about how your app should be structured
+
+02:45.870 --> 02:49.780
+and how everything and all the pieces come together.
+
+02:50.380 --> 02:58.240
+It's a really really powerful tool that I see the industry shifting back to more and more in 2018. Whether
+
+02:58.270 --> 03:06.180
+you use postgreSQL or MySQL or SQLite, all these databases are pretty much the same.
+
+03:06.180 --> 03:12.510
+They're super powerful and we're going to do the exact same thing with our app because we're not necessarily
+
+03:12.510 --> 03:17.430
+storing information like LinkedIn or Facebook where everything is a document model.
+
+03:17.430 --> 03:20.600
+We have users that are interacting with each other.
+
+03:20.610 --> 03:25.710
+But if within our app we can have different things we can have login information, if we expand our
+
+03:25.710 --> 03:30.820
+app we can have maybe information about the type of images that they've submitted.
+
+03:30.850 --> 03:34.690
+Now looking at what we've built.
+
+03:34.690 --> 03:42.520
+There's definitely a few things that we want to create. If we go back to our database example here we
+
+03:42.520 --> 03:47.980
+have our users table which we're going to have to create. But remember what I said about passwords and
+
+03:47.980 --> 03:49.400
+the way we store passwords.
+
+03:50.300 --> 03:57.230
+We don't necessarily want to create a user object or a user table with all these columns.
+
+03:57.230 --> 04:00.510
+We want to separate things out and connect them through foreign keys.
+
+04:01.850 --> 04:10.440
+So we're going to create a users table and then a login table and have those tables connected through
+
+04:10.680 --> 04:13.150
+perhaps the email field.
+
+04:13.410 --> 04:19.730
+Let's go back to our GUI and create these tables now. I'm going to open up the query, let's remove this for
+
+04:19.730 --> 04:25.160
+now (our old query) and let's create our users table.
+
+04:25.530 --> 04:36.460
+As you remember it's create table users. I have brackets around here, just so it's clean.
+
+04:36.610 --> 04:44.260
+And within here I'll say ID is going to be serial and this will be our primary key.
+
+04:47.260 --> 04:56.750
+We will also have name and the name, we'll give it a variable character (VARCHAR) of 100. We'll just assume
+
+04:56.750 --> 05:03.570
+that nobody's name is going to be more than 100 characters which again I don't think we will.
+
+05:03.620 --> 05:05.980
+Otherwise our database will give us an error.
+
+05:06.260 --> 05:11.180
+We can also create a email field and this will be a text.
+
+05:11.300 --> 05:14.510
+We also want to make sure that this is a unique email.
+
+05:14.510 --> 05:20.120
+Otherwise we don't want to register the same user, over and over and it cannot be ignored.
+
+05:20.360 --> 05:30.030
+It must always be there, because this is what we're going to use in our login table. We also know that we
+
+05:30.030 --> 05:38.860
+want entries and the entries can really be a quite a big number if we have a really dedicated user.
+
+05:39.170 --> 05:42.330
+Well then that person can keep submitting those photos.
+
+05:42.560 --> 05:45.260
+So let's just do a LARGEint here.
+
+05:45.430 --> 05:45.680
+Whoops.
+
+05:45.680 --> 05:55.520
+And instead of large it's BIGINT there you go. with BIGINT we will also say that we want the default.
+
+05:55.670 --> 06:04.250
+And this might be new for us but default value should be zero unless we somehow insert with entries
+
+06:04.250 --> 06:11.790
+and a number. If we don't specify wherewhat we're inserting the number with it should be default to zero.
+
+06:11.790 --> 06:20.250
+Finally we also want to get the time that they joined our app and we can use a time stamp data type for
+
+06:20.250 --> 06:20.820
+that.
+
+06:21.180 --> 06:26.900
+And again we want to make sure that this is NOT NULL either.
+
+06:26.910 --> 06:28.700
+All right let's run this and see if it works.
+
+06:31.000 --> 06:36.140
+And I get an error at or near ")" And that's because I added a comma at the end here.
+
+06:36.160 --> 06:37.040
+Let's try that again.
+
+06:38.710 --> 06:39.350
+There you go.
+
+06:39.430 --> 06:40.770
+If I refresh.
+
+06:40.870 --> 06:44.050
+We have our users table. Amazing.
+
+06:44.500 --> 06:51.120
+So we have the users table in which we're going to store all this information.
+
+06:51.500 --> 06:58.310
+And we also want to make sure that we store our login information, that e-mail and the hashes because
+
+06:58.310 --> 07:02.070
+remember we're never storing plain text passwords.
+
+07:03.410 --> 07:06.430
+Let's create that. I'm going to go back to the query
+
+07:09.140 --> 07:13.380
+remove this and change it to logon.
+
+07:13.980 --> 07:17.500
+And this logon will now have an ID.
+
+07:17.580 --> 07:25.800
+Once again of serial and the serial data type will just increment it will be the primary key
+
+07:29.260 --> 07:38.060
+and we'll have a column hash that has a variable character (VARCHAR) of 100 once again because we know that 
+
+07:38.070 --> 07:45.970
+bcrypt always gives us a certain length hash and it will never be over 100 characters. NOT NULL - we absolutely
+
+07:45.970 --> 07:47.740
+need this information.
+
+07:47.740 --> 07:55.520
+And then finally email which will be the same as the users table and this e-mail would be a text it
+
+07:55.680 --> 08:00.820
+must be unique and definitely NOT NULL.
+
+08:03.950 --> 08:05.010
+Let's run the query.
+
+08:06.550 --> 08:09.090
+And refresh.
+
+08:09.220 --> 08:09.890
+All right.
+
+08:09.910 --> 08:10.920
+We've got ourselves
+
+08:11.200 --> 08:13.380
+our tables design.
+
+08:13.600 --> 08:21.410
+So now that we have these tables we understand what our data is going to look like.
+
+08:21.600 --> 08:27.960
+This is going to be a database that will persist no matter if the server goes down. It's going to make
+
+08:27.960 --> 08:30.770
+sure that this data stays put.
+
+08:31.910 --> 08:40.220
+Now that we have these three pieces running we can start to work with the server, remove the database
+
+08:41.090 --> 08:45.320
+variable and actually connect to our database.
+
+08:45.410 --> 08:45.990
+I'm excited to
+
+08:45.990 --> 08:48.590
+show you how we're going to do that in the next video. Bye-bye.

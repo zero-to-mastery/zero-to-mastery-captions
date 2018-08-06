@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.900 --> 00:06.940
+Welcome back there is one missing piece with the diagram we created in the previous video on
+
+00:06.980 --> 00:08.620
+HTTP.
+
+00:08.790 --> 00:16.860
+We talked about URL parameters such as the "google.com/about" and query string parameters we
+
+00:16.860 --> 00:20.480
+can do with GET but what about the data
+
+00:20.490 --> 00:23.960
+when we post something. Can we post anything?
+
+00:24.000 --> 00:31.970
+Well not really. When exchanging data between a browser and a server the data can only be text.
+
+00:32.070 --> 00:40.940
+So we can't just send a javascript object such as a user with first name John and last name doe.
+
+00:41.010 --> 00:44.070
+One because HTTP won't understand it.
+
+00:44.460 --> 00:49.070
+But also if we were sending this data to Google servers-
+
+00:49.220 --> 00:56.700
+Well unlike the Front-End the web browser where HTML, CSS and Javascript is a standard when I send
+
+00:56.700 --> 00:58.980
+a user object to the server.
+
+00:59.190 --> 01:02.500
+A server can use any type of language like Python,
+
+01:02.640 --> 01:13.010
+Go, PHP. If we send them a java script type, like an object they will really be confused because they
+
+01:13.010 --> 01:14.890
+would have no idea what it is.
+
+01:15.260 --> 01:16.790
+That's not really their language.
+
+01:17.820 --> 01:22.410
+Text on the other hand can be understood by all.
+
+01:22.440 --> 01:28.050
+So we need a way to have a standard way to send data over the wires and receive it.
+
+01:28.050 --> 01:32.360
+That is what JSON is and what we're going to talk about it in this video.
+
+01:32.580 --> 01:40.620
+JSON stands for javascript object notation. It's a syntax for storing and exchanging data and it's text
+
+01:40.800 --> 01:43.540
+written with javascript object notation.
+
+01:43.650 --> 01:45.180
+Let's look at the second point here.
+
+01:45.270 --> 01:49.320
+JSON is a syntax for storing and exchanging data.
+
+01:49.320 --> 01:52.530
+It's used to send data between machine.
+
+01:52.650 --> 02:05.800
+Is it the only way? No, there's also XML. Both XML and JSON can be used to receive data from
+
+02:05.860 --> 02:06.760
+a web server.
+
+02:07.920 --> 02:10.020
+And you can see the differences between the two.
+
+02:10.020 --> 02:12.630
+These are the same data.
+
+02:12.630 --> 02:16.970
+Just first names and last names of employees and XML uses
+
+02:16.980 --> 02:25.740
+this HTML like syntax while JSON uses well an object - javascript object like syntax. But the
+
+02:25.740 --> 02:31.740
+standard is now more towards JSON because when you're writing front end code in Javascript getting a
+
+02:31.740 --> 02:37.560
+JSON data back makes it easier to load that data into an object tree because it's so similar to
+
+02:37.560 --> 02:40.130
+a javascript object than an XML.
+
+02:40.880 --> 02:48.500
+And JSON format is a more succinct way which saves bandwidth and improves response times when sending
+
+02:48.740 --> 02:51.590
+messages back and forth between client and server.
+
+02:53.030 --> 03:00.810
+And XML is just not very efficient. So JSON now is more of a standard you'll still see XML but it
+
+03:00.810 --> 03:04.300
+is outdated so we won't be talking about it in this video.
+
+03:04.470 --> 03:13.770
+But they both are used to transfer data between two machines that might not speak the same language.
+
+03:14.190 --> 03:20.330
+JSON however although it looks similar to Javascript it is a little bit different.
+
+03:20.340 --> 03:24.210
+It has these double quotes for even properties.
+
+03:24.210 --> 03:28.440
+Everything has to be a string and wrapped around double quotes.
+
+03:28.920 --> 03:38.120
+And well it looks like it's a object syntax. But JSON can be read by any language.
+
+03:39.100 --> 03:45.250
+If Google servers was running a different language they'll understand JSON they'll be able to modify
+
+03:45.760 --> 03:50.550
+that JSON which is just text into their own version.
+
+03:50.560 --> 03:59.100
+So now we can convert this into a JSON object, send it over HTTP.
+
+04:00.390 --> 04:06.780
+And then the Google servers or whatever it is will change it to their own language understand it and
+
+04:06.780 --> 04:08.010
+then send a response.
+
+04:08.010 --> 04:13.270
+Again let's say for example it was returning - the user has money 345 dollars.
+
+04:13.620 --> 04:22.330
+Well it will then modify this to JSON send it over the wire and then the web browser will change it
+
+04:22.330 --> 04:25.080
+from JSON to javascript.
+
+04:25.270 --> 04:26.540
+But how can we do that?
+
+04:26.590 --> 04:31.550
+Luckily for us javascript comes with its own JSON function.
+
+04:33.350 --> 04:39.440
+We have JSON.parse and JSON.stringify with JSON.parse
+
+04:39.440 --> 04:50.150
+if we had JSON again this form, we simply wrap it as the parameter of parse and it will return a object.
+
+04:50.210 --> 04:53.100
+In the opposite way with stringify
+
+04:53.270 --> 04:58.750
+we can give it an object such as the one we just created and it will return JSON.
+
+04:59.300 --> 05:09.490
+So this myJSON variable can now be put into the HTTP request to send it over the wire or the server
+
+05:09.490 --> 05:11.410
+can respond with myJSON.
+
+05:11.410 --> 05:20.380
+So let's review JSON is text and we can convert any javascript object into JSON and send JSON to
+
+05:20.380 --> 05:21.060
+the server.
+
+05:21.070 --> 05:29.080
+We can also convert any JSON received from the server into javascript objects. This way we can work
+
+05:29.080 --> 05:36.940
+with data as javascript objects with no complicated translation and this text can be used as a data format
+
+05:36.940 --> 05:38.640
+for any programming language.
+
+05:38.770 --> 05:40.620
+So lets go through the flow one more time
+
+05:40.620 --> 05:48.530
+now with this complete. User object before I send it with HTTP I will do
+
+05:48.610 --> 05:51.030
+"JSON.stringify(user);"
+
+05:51.070 --> 06:02.210
+So now its converted into a JSON string and this JSON string will be sent over HTTP to the Google
+
+06:02.210 --> 06:02.940
+servers.
+
+06:03.080 --> 06:08.840
+It is then going to say JSON.parse this user so it understands it.
+
+06:08.870 --> 06:11.620
+Lets say it was running Javascript or Node.
+
+06:11.930 --> 06:19.790
+Now it'll understand the user. They'll say - oh he wants the money amount for this user.
+
+06:19.990 --> 06:29.860
+So now it gets money 345 from the account. It stringify's it the money variable. Sends it with a status
+
+06:29.860 --> 06:32.070
+code of 200
+
+06:32.240 --> 06:42.880
+And now the web browser can parse this string that it received and see that oh yeah I have a variable
+
+06:42.880 --> 06:52.060
+money of $345. And don't worry when we get to the backend section in a few videos we are going to show
+
+06:52.060 --> 07:01.000
+you exactly how to do this in code. How to make HTTP requests, use JSON, use GET, POST, PUT, DELETE
+
+07:01.000 --> 07:03.540
+methods and I'm going to show you how to do that
+
+07:03.640 --> 07:05.720
+in our final project as well.
+
+07:05.860 --> 07:11.830
+But now this diagram although a little bit messy should make a little bit more sense and you should
+
+07:11.830 --> 07:14.930
+understand now how things are working.
+
+07:16.290 --> 07:23.120
+In the next video I'm going to introduce you to something that changed web browsing in 2006.
+
+07:23.410 --> 07:25.060
+I'll see you in that one. Bye-bye.

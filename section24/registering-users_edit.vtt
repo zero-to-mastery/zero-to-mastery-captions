@@ -1,0 +1,358 @@
+WEBVTT
+
+00:00.570 --> 00:01.290
+Welcome back.
+
+00:01.410 --> 00:05.160
+Let's implement more routes into our front-end app.
+
+00:05.230 --> 00:09.430
+We've just done the Sign In on the front-end.
+
+00:09.580 --> 00:18.320
+So now let's also work on the Register, and we already have a nice framework of what we want to do based
+
+00:18.320 --> 00:34.290
+on what we did with Sign In. We can again convert this to a class that extends 'React.Component'.
+
+00:34.520 --> 00:37.340
+And this will render
+
+00:42.370 --> 00:49.870
+this return statement.
+
+00:50.100 --> 00:57.520
+And we also want to have a couple of routes that for now we're just going to completely copy from Sign In.
+
+01:05.120 --> 01:09.140
+And here we'll just have – for registration
+
+01:09.180 --> 01:09.830
+we can say
+
+01:12.330 --> 01:16.000
+'email' 'password'
+
+01:16.270 --> 01:18.190
+And then finally also 'name'
+
+01:21.840 --> 01:25.750
+and we'll have to add another method here.
+
+01:26.960 --> 01:35.460
+That will be just for the name and this will be called 'onNameChange' and we'll have to change the
+
+01:35.460 --> 01:43.680
+values to 'name', 'email' and 'password'. Awesome.
+
+01:48.230 --> 01:55.680
+We'll save that and we'll have to actually start adding these to our component.
+
+01:55.680 --> 02:02.700
+The first thing we want to do is we want to use destructuring to get our component or 'onRouteChange'
+
+02:03.600 --> 02:12.820
+from 'this.props' and let's add 'onPasswordChange' on all the other inputs; again creating these
+
+02:12.820 --> 02:36.860
+on a new line.
+
+02:37.030 --> 02:38.830
+Whoo! All right.
+
+02:38.990 --> 02:41.720
+And again we want to create a 'fetch' method here.
+
+02:41.720 --> 02:48.910
+So looking at Sign In we definitely want to do a POST so we can just copy this for now.
+
+02:48.910 --> 02:55.700
+Again not a big fan of copying and repetition of code but I hope this gives you an idea of some of the
+
+02:55.700 --> 03:00.410
+things we can improve on as we improve our app later on.
+
+03:00.830 --> 03:10.680
+Now on 'submitSignIn' again we will want to do this instead of the 'onRouteChange' so let's do 'on'
+
+03:11.350 --> 03:16.600
+and we'll have to do 'this.onSubmitSignIn'.
+
+03:16.740 --> 03:21.260
+And I forgot the this keyword in all these as well.
+
+03:25.070 --> 03:30.600
+All right, now the – I see that we're missing the 'email' from here.
+
+03:30.620 --> 03:31.480
+That shouldn't be there.
+
+03:31.500 --> 03:32.340
+All right.
+
+03:32.460 --> 03:38.010
+And we will want to make sure we send the 'email' to 'this.state.email'
+
+03:38.540 --> 03:39.700
+-
+
+03:43.070 --> 03:50.020
+We'll do 'password'
+
+03:50.120 --> 03:54.260
+And finally we'll do 'this.state.name'.
+
+03:58.580 --> 04:05.430
+And 'onRouteChange' – we don't need it over here anymore do we? 'onRouteChange'
+
+04:05.620 --> 04:12.610
+– we want to go to 'home' once we're registered, but remember if we go to our server our '/register' returns
+
+04:12.610 --> 04:13.940
+the last user
+
+04:13.960 --> 04:19.840
+so our current user. This data will be the user.
+
+04:19.850 --> 04:26.130
+So let's just say user.
+
+04:26.230 --> 04:36.640
+So if we get a user back we will route-change to 'home' and we also probably want to update the user profile
+
+04:37.330 --> 04:38.250
+on the front-end.
+
+04:39.630 --> 04:44.720
+But if you look at the front-end, we don't have a user profile yet but maybe we should.
+
+04:44.720 --> 04:52.430
+So let's add that. I'm going to say user and it's going to be an object that contains 'email', which is
+
+04:52.430 --> 04:53.480
+an empty string.
+
+04:54.910 --> 04:59.680
+And we can just copy whatever we get returned from our database
+
+05:04.180 --> 05:05.060
+in our case
+
+05:05.140 --> 05:12.580
+it'll be all these values – we don't need the email because we have it down there – except everything will be
+
+05:13.760 --> 05:17.690
+empty to start off, and we don't need to return the password.
+
+05:22.400 --> 05:30.850
+'email' is removed. 'entries' will be zero for now, and 'joined' will just be an empty string.
+
+05:30.860 --> 05:34.690
+Ideally when we register we can update these.
+
+05:34.760 --> 05:42.650
+So what we can do with Register is that we will have a route change but perhaps also call a function
+
+05:42.650 --> 05:51.830
+call: 'updateUser' or 'loadUser', which we don't have yet.
+
+05:51.830 --> 05:55.370
+And we can perhaps pass the user object to this.
+
+05:55.680 --> 06:01.840
+And because this is something that the entire app needs I think we should build it in the App component.
+
+06:01.970 --> 06:11.460
+So we'll save 'this.props.loadUser(user)' and we'll go back to 'App.js' and create that function
+
+06:12.400 --> 06:28.370
+We'll say 'loadUser', 'user' and it'll just update the state with the user that we received.
+
+06:30.570 --> 06:33.030
+In our case it'll be these values.
+
+06:46.030 --> 06:54.100
+And all these values will come from the 'user' parameter. And let's just change the name here just so we
+
+06:54.100 --> 06:57.350
+don't get confused – to 'data' for now.
+
+07:02.120 --> 07:03.260
+'data.id'
+
+07:06.890 --> 07:11.110
+We'll have 'name' here; we'll have 'email'
+
+07:15.360 --> 07:16.210
+'entries'
+
+07:16.530 --> 07:17.490
+And then finally
+
+07:23.520 --> 07:33.950
+'joined'. I have the syntax here a little bit off. There you go.
+
+07:34.080 --> 07:41.130
+All right if we go back to 'Register.js' we have 'onRouteChange' saved successfully. So we're loading the user
+
+07:41.670 --> 07:46.020
+and then also changing the route. That was a lot of work without testing the code
+
+07:46.020 --> 07:47.300
+so let's check it out.
+
+07:47.400 --> 07:48.570
+Let's see if this works.
+
+07:49.440 --> 08:02.890
+I'm going to go to Register. I doubt this works the first time but let's see. 'wes@gmail.com'
+
+08:03.230 --> 08:03.920
+That's the name.
+
+08:03.950 --> 08:12.370
+So we'll say 'wes', 'wes@gmail.com' our password is '123'. I'm going to open up the Console here just to see
+
+08:12.370 --> 08:13.710
+what kind of errors we get.
+
+08:15.860 --> 08:17.810
+I doubt that it works the first time but we'll see.
+
+08:17.810 --> 08:19.930
+Register. All right.
+
+08:19.930 --> 08:29.590
+We have a couple of errors here. "loadUser is not a function" and that is because if we go to 'App.js'
+
+08:29.630 --> 08:34.450
+'loadUser' is never passed into 'Register'.
+
+08:34.530 --> 08:35.190
+So let's do that.
+
+08:38.110 --> 08:42.730
+'Register' will also receive 'loadUser'
+
+08:46.810 --> 08:47.200
+like this.
+
+08:50.720 --> 08:52.130
+And it'll have to be 'this.loadUser'.
+
+08:52.220 --> 08:52.780
+-
+
+08:53.300 --> 08:53.830
+All right.
+
+08:53.870 --> 08:54.520
+Round two.
+
+08:54.620 --> 08:55.960
+Let's see if this works.
+
+09:03.250 --> 09:08.190
+One two three.
+
+09:08.190 --> 09:08.710
+All right.
+
+09:08.730 --> 09:17.160
+We're able to sign in but we have a bad request.
+
+09:17.190 --> 09:21.210
+Let's see our information looks good.
+
+09:21.210 --> 09:23.210
+'email', 'name', 'password'.
+
+09:23.630 --> 09:26.830
+And the response we got was "error logging in".
+
+09:27.110 --> 09:31.580
+And that's because if we go back to our Register page.
+
+09:31.610 --> 09:34.390
+Well we didn't change just this to '/register' did we?
+
+09:34.400 --> 09:35.680
+That's silly of us.
+
+09:36.580 --> 09:39.190
+We change that to 'register', save
+
+09:42.670 --> 09:42.910
+I'm going to get
+
+09:42.920 --> 09:45.420
+tired of writing Wes's information here.
+
+09:50.000 --> 09:54.700
+And register. All right.
+
+09:54.720 --> 10:00.990
+No errors. Let's see what the response was of 'register'.
+
+10:01.180 --> 10:11.340
+We get the response; Wes is user '125'; 'password' is '123'; 'entries' is 0', and 'joined' – on this day.
+
+10:11.470 --> 10:13.590
+Again we don't really want the password.
+
+10:13.630 --> 10:22.250
+We shouldn't really be returning the password, but it's an easy fix and we just simply remove it from
+
+10:22.250 --> 10:24.490
+the 'server.js'.
+
+10:24.500 --> 10:25.420
+How cool is that?
+
+10:25.430 --> 10:27.700
+We have our self a registration.
+
+10:28.130 --> 10:35.260
+And if we actually go back to just a root route, or if we go to localhost, let's go on this side over
+
+10:35.270 --> 10:35.730
+here.
+
+10:36.940 --> 10:44.470
+And just go to the root route; we've refreshed again so Wes is not there but if you register again ...
+
+10:48.050 --> 10:53.020
+Again this is exactly why we cannot wait to have a database.
+
+10:53.060 --> 10:55.630
+Let's try that again and look at that.
+
+10:55.670 --> 10:59.230
+We have Wes as our user.
+
+10:59.290 --> 11:00.520
+Very cool.
+
+11:00.520 --> 11:06.760
+And now there's a bit of repetition right? We just pretty much fetch in order to connect with our server
+
+11:07.060 --> 11:12.910
+and both parties want to make sure that they send the right data and the server responds with the right
+
+11:12.910 --> 11:13.480
+data.
+
+11:13.480 --> 11:18.190
+There's definitely a lot of cleanup that we can do – a lot of errors that can happen – for example if I
+
+11:18.190 --> 11:23.210
+enter an invalid email and password or username.
+
+11:23.430 --> 11:26.280
+But I think you're starting to get the point.
+
+11:26.290 --> 11:26.650
+All right.
+
+11:26.740 --> 11:28.040
+I'll see you in the next one. Bye-bye

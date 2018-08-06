@@ -1,0 +1,310 @@
+WEBVTT
+
+00:01.050 --> 00:04.340
+OK! OK! Andrei, can we finally submit this form?!
+
+00:04.410 --> 00:04.710
+All right.
+
+00:04.740 --> 00:08.580
+And this video will finally see, what happens when we submit this form?
+
+00:09.060 --> 00:16.910
+But, there is one last thing, that we need to include and that is the "name" attributes.
+
+00:16.920 --> 00:18.420
+And then I'll explain.
+
+00:18.480 --> 00:20.980
+Towards the end of this video, why we need those.
+
+00:21.030 --> 00:28.850
+So we want to add, in each one of our fields, a "name" attribute. So this one will be "firstname" and I'm just
+
+00:28.860 --> 00:31.800
+going to copy and paste here, just so it'll be a little bit faster.
+
+00:31.800 --> 00:46.700
+We have "lastname", "email", "password", "birthday" and we already have these four, the radio buttons, which is good.
+
+00:46.920 --> 00:51.090
+And we need here "cat", "dog".
+
+00:51.410 --> 00:54.680
+"volvo", "audi" */It's "audi" not "volvo"/*.
+
+00:54.700 --> 00:58.310
+Okay. Now we don't need it for the buttons, because well there's no user information there.
+
+00:59.120 --> 01:04.970
+So, I'm going to save that and I'm going to make this full screen, so you can see, I'm going to refresh
+
+01:04.970 --> 01:10.450
+the page and let's enter some fake data and see what happens.
+
+01:10.460 --> 01:21.610
+So I'm going to say "fake", "man", e-mail address is fake password will be "123", birthday, "male", with
+
+01:21.610 --> 01:24.620
+a "cat" and has an "audi".
+
+01:24.770 --> 01:27.550
+I'm going to click "Register!" now, but keep an eye out.
+
+01:27.680 --> 01:28.460
+Up over here.
+
+01:28.470 --> 01:33.320
+To See what happens, when I click. Did you catch that?!
+
+01:33.680 --> 01:43.130
+Let's copy this, because when I clicked "Register!", this got attached. I am going to minimize this and print
+
+01:43.130 --> 01:45.280
+this out here, so we can see it for ourselves.
+
+01:46.240 --> 01:48.300
+First we have a question mark, then.
+
+01:48.340 --> 01:49.880
+First name "fake".
+
+01:49.960 --> 01:51.130
+That's exactly what we entered.
+
+01:51.130 --> 01:53.450
+We have last name "man".
+
+01:54.070 --> 01:55.240
+Email is 
+
+01:55.240 --> 01:57.010
+"fake something something gmail dot com"
+
+01:59.590 --> 02:01.360
+password "123". Uh oh
+
+02:01.480 --> 02:11.810
+They know our password, birthday, gender, and Cat "on". we didn't, didn't select "volvo".
+
+02:11.890 --> 02:13.820
+Not sure why? I'll take a look at that later.
+
+02:14.140 --> 02:22.450
+But, you can see over here, that the values that we entered, into our form were just attached
+
+02:22.780 --> 02:23.700
+to this link.
+
+02:23.980 --> 02:27.090
+And this is actually called query strings and what it is.
+
+02:27.100 --> 02:34.540
+It's one way for us, to send our information to the backend or the servers, beca use we have to store this
+
+02:34.780 --> 02:40.520
+form information somewhere, so that when we come back onto this page, the Web site remembers us.
+
+02:40.840 --> 02:51.620
+This was automatically generated in HTML5, with a form. But form was using an attribute called
+
+02:51.860 --> 02:54.200
+"GET" and this "GET".
+
+02:54.380 --> 03:01.670
+If I left it as this, will do the exact same thing, where it will attach the form information to the URL
+
+03:01.670 --> 03:04.300
+and send it to the server.
+
+03:04.310 --> 03:11.810
+There is another option, where you can do "POST" and you can try it on your own here, but you wouldn't
+
+03:11.990 --> 03:14.290
+see any query parameters.
+
+03:14.450 --> 03:20.450
+So this wouldn't change, the bar at the top won't change and that is because, it will be attached to the
+
+03:20.450 --> 03:24.710
+body of the request, which we'll get into, when we get to that section.
+
+03:24.710 --> 03:30.110
+I don't want to confuse you too much, but you can see the difference here, of why we might want to use
+
+03:30.110 --> 03:35.480
+"POST" instead of "GET" because well, what if somebody was over my shoulder and they can see my password
+
+03:35.480 --> 03:36.980
+right there in the bar.
+
+03:36.980 --> 03:42.950
+I just want you, to get comfortable with the idea that, we are sending this information to the backend
+
+03:43.250 --> 03:44.850
+the way we handle that.
+
+03:44.900 --> 03:47.030
+We'll get into, later on in the course.
+
+03:47.030 --> 03:50.170
+Right now, we're just focusing on the front end.
+
+03:50.300 --> 03:57.830
+The last thing I want to show you was, that form also has a "action" attribute, which used to get used a
+
+03:57.830 --> 04:08.120
+lot, if you saw old PHP based web sites, they will have, some sort of "action.php" which said, submit
+
+04:08.120 --> 04:08.750
+this form.
+
+04:08.780 --> 04:17.380
+And when you submit this form, to the backend, to the server, run this script this file, that's on the server.
+
+04:17.570 --> 04:21.530
+But there are better ways of doing this now, so I'll show that later on
+
+04:21.530 --> 04:22.100
+in the course
+
+04:25.780 --> 04:29.240
+let's, take a look at this.
+
+04:29.320 --> 04:35.500
+So we have a question mark and this is the standard, Any time there's a query string, so we're adding
+
+04:35.500 --> 04:39.210
+a piece of data to our URL.
+
+04:39.400 --> 04:45.820
+It starts off, with a question mark which states, Hey! coming up, we're going to have a bunch of data for
+
+04:45.820 --> 04:46.490
+you.
+
+04:46.720 --> 04:52.750
+The first one is "firstname", which again corresponds with the name, that we have in our form.
+
+04:53.080 --> 04:55.330
+And that was equal to "fake".
+
+04:55.440 --> 04:58.450
+So that's "property" and "value".
+
+04:58.780 --> 05:10.440
+So, you can think of "name" as "property" and the "value" as "man" so, 'lastname' 'firstname', you can see here, that
+
+05:10.440 --> 05:11.580
+there's an "&" sign.
+
+05:11.580 --> 05:16.980
+So that's again saying, 'firstname' equals to 'fake' and 'lastname' equals to 'man'.
+
+05:17.130 --> 05:20.200
+And 'email' equals to 'fake some jibberish.
+
+05:20.340 --> 05:21.290
+Gmail dot com'.
+
+05:21.450 --> 05:25.130
+So this is because of something called the URL encoding.
+
+05:25.380 --> 05:33.990
+And because the URL has special meaning for some characters, such as this and the 'questionmark'. It encodes
+
+05:34.230 --> 05:40.670
+the "@" sign with something, that it understands but it won't affect its encoding.
+
+05:41.460 --> 05:52.170
+We have 'password' '123', 'birthday', 'gender' 'on' and 'cat' 'on' and I've actually realized, why the 'volvo' and 'audi'
+
+05:52.230 --> 05:58.530
+information didn't register and that is because for the query string to work, as you can see it needs
+
+05:58.530 --> 06:03.540
+to have a name associated with the value, so we have 'firstname' and 'fake'.
+
+06:03.540 --> 06:11.840
+If we look at the radio buttons, we have a 'name' which is 'gender' and we have 'on'
+
+06:11.850 --> 06:17.730
+So you see over here, how we didn't send, any value.
+
+06:17.880 --> 06:21.570
+We know that the gender, some button was clicked, and the gender.
+
+06:21.600 --> 06:30.920
+So it's on, but we don't know, which value and that is because, we should have included a "value" for the
+
+06:30.920 --> 06:37.250
+"male" so that, if that's the one that is selected, a 'value' will be sent.
+
+06:37.340 --> 06:50.780
+And finally value and now same with the select. We should have had our "name" of the select field, the "cars"
+
+06:51.940 --> 06:56.790
+so that now the "name", can be associated with the value.
+
+06:56.830 --> 06:59.470
+So let's give that a try, one more time.
+
+06:59.470 --> 07:01.710
+I'm going to delete this.
+
+07:01.830 --> 07:04.640
+I'm going to save, the changes that we just made.
+
+07:05.130 --> 07:12.030
+I am going to make this full screen, let's refresh and enter some new information.
+
+07:12.120 --> 07:22.950
+'Fake', 'new', e-mail is 'newfake@gmail.com', password is '1234' this time.
+
+07:23.940 --> 07:25.000
+Birthday.
+
+07:25.080 --> 07:36.850
+Let's do 'female', 'dog' and 'audi' and then I click "Register!". And let's see, what we have here.
+
+07:36.950 --> 07:46.280
+We have 'firstname' 'fake', 'lastname' is 'new', 'email' 'newfake@gmail.com', 'password' '1234', 'birthday', 'gender' is
+
+07:46.280 --> 07:47.350
+'female'.
+
+07:47.360 --> 07:49.130
+Good. 'dog' is 'on'.
+
+07:49.130 --> 07:49.410
+OK.
+
+07:49.430 --> 07:51.140
+So we've selected dog, that's great.
+
+07:51.140 --> 07:53.560
+And then cars is 'audi'.
+
+07:53.570 --> 07:54.240
+There you go.
+
+07:56.400 --> 08:00.510
+And that's as complicated, as forms are going to get.
+
+08:00.540 --> 08:06.300
+You'll encounter this a lot and there is definitely in most websites, that you build whether it's a landing
+
+08:06.300 --> 08:10.820
+page, a Web site that requires registration.
+
+08:10.890 --> 08:16.020
+This is something that, you'll see a lot. Once you understand this, once it makes sense.
+
+08:16.550 --> 08:19.090
+You know, you can call yourself an HTML developer.
+
+08:19.190 --> 08:21.240
+So I'll see you in the next one.
+
+08:21.500 --> 08:21.770
+Bye bye

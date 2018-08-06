@@ -1,0 +1,685 @@
+WEBVTT
+
+00:01.000 --> 00:02.050
+Welcome back.
+
+00:02.050 --> 00:09.070
+In this video I want to do something called code review and specifically for the front end of our application
+
+00:09.610 --> 00:14.710
+a code review is something that you want to do every once in a while when you're working with your codebase
+
+00:14.950 --> 00:17.400
+because it can always be improved.
+
+00:17.410 --> 00:23.650
+It's never perfect and the project we've been working on is pretty good but there's minor adjustments
+
+00:23.890 --> 00:25.770
+that we could make.
+
+00:25.780 --> 00:31.600
+So in this video I want to go through a simple code review process to show you how we can improve the
+
+00:31.600 --> 00:37.030
+app so that you can take this code base and expanded it, make it even better, on your own.
+
+00:38.900 --> 00:40.700
+Let me show you a bug that we have.
+
+00:40.970 --> 00:50.520
+If I create a new user Mike and Mike has an email and password. Now if I log in with Mike and I have a
+
+00:50.520 --> 00:59.620
+sample face here that we can use. If I enter this face, I get up to my face dissection which is great but
+
+00:59.770 --> 01:05.590
+when I sign out now and I register with a new user, let's call him Wes
+
+01:11.440 --> 01:17.830
+Well, we never clear the state of the front end application.
+
+01:17.840 --> 01:24.810
+So Wes now somehow sees what Mike submitted. So let's fix this.
+
+01:24.810 --> 01:34.100
+If we go to our front end application and let's open up app.js, we have the onRouteChange that
+
+01:34.100 --> 01:36.040
+gets called right over here
+
+01:36.200 --> 01:42.610
+when we sign up. And when we sign out, all we do is setState to isSignedIn: false.
+
+01:42.610 --> 01:51.090
+But if we look at our state, we never clear out the user object, do we?
+
+01:51.430 --> 01:55.060
+The user object which at the beginning was Mike stays the same.
+
+01:55.270 --> 02:03.110
+And when we come logging back in as Wes, this has Mike's information.
+
+02:03.220 --> 02:07.080
+So we can do something interesting here we can just create an initial state
+
+02:10.110 --> 02:20.330
+so outside of the app we'll call it initial state and this initial state will have this entire object
+
+02:21.690 --> 02:32.080
+so that this dot state will be initial state.
+
+02:32.090 --> 02:32.830
+All right.
+
+02:32.960 --> 02:40.120
+And we can now simply use this variable to change onRouteChange when we sign out.
+
+02:40.130 --> 02:42.340
+We want to remove all the information.
+
+02:42.380 --> 02:55.700
+So instead of doing setState is signed in to false we can just say that we want to set state to initialState.
+
+02:55.730 --> 02:56.750
+Let's see if that works.
+
+02:57.620 --> 03:04.790
+I'm going to save go back to our application and let's log in as Mike again.
+
+03:12.250 --> 03:14.510
+And we'll grab this face again.
+
+03:20.460 --> 03:21.540
+Face is detected.
+
+03:21.570 --> 03:26.100
+If we sign out now and sign in as Wes
+
+03:33.240 --> 03:37.700
+we get an error - bad request.
+
+03:37.740 --> 03:40.990
+Oh and that's because I misspelt his name.
+
+03:41.010 --> 03:44.430
+We'll try that again. Sign in. All right!
+
+03:44.460 --> 03:45.170
+There you go.
+
+03:45.360 --> 03:47.550
+We have Wes now with a clear profile.
+
+03:47.560 --> 03:51.410
+He doesn't know what Mike has been up to.
+
+03:51.410 --> 03:51.690
+All right.
+
+03:51.710 --> 03:56.610
+We managed to fix a bug which is great.
+
+03:56.810 --> 04:00.220
+What else can we do with this code base.
+
+04:00.250 --> 04:08.320
+There's a lot of things that I think we can clean up for example it's always important to have a catch
+
+04:08.320 --> 04:12.490
+statement every time you do some sort of a fetch.
+
+04:12.580 --> 04:19.950
+We see that we're using fetch but we never catch if for some reason this fetch response to localhost
+
+04:20.010 --> 04:23.230
+image ever fails.
+
+04:24.500 --> 04:31.710
+The only thing we catch is we catch if the clarifai API fails.
+
+04:31.900 --> 04:36.310
+But a good practice is to always have a dot catch after you do any dot then.
+
+04:36.310 --> 04:45.480
+Then we can do something simple like a catch console dot log to log out any errors we have.
+
+04:45.700 --> 04:52.210
+And that's something that will improve our what we call error handling to make sure that you don't have
+
+04:52.240 --> 04:54.220
+errors that happen without us knowing.
+
+04:55.640 --> 05:03.580
+So that's one thing we can improve we also have the register and sign-in components. If you remember
+
+05:03.590 --> 05:07.350
+those are very very similar, we did a lot of copy and pasting.
+
+05:07.490 --> 05:14.930
+And the only thing that was really different with them was these input values. The register form has an extra
+
+05:15.200 --> 05:20.860
+field which is name, and the sign-in, well just had email and password.
+
+05:23.800 --> 05:24.820
+And we won't get into it
+
+05:24.820 --> 05:31.900
+into this video because it is pretty simple and there's many ways of doing it. But we can imagine maybe
+
+05:31.900 --> 05:39.810
+having a shared component maybe we'll call it form and this form accepts different props like input
+
+05:39.880 --> 05:47.080
+types so that we can set and share that component between sign-in and register so we don't have this duplicate 
+
+05:47.640 --> 05:52.510
+codebase.
+
+05:52.530 --> 05:52.990
+All right.
+
+05:53.010 --> 05:53.780
+Awesome.
+
+05:53.800 --> 06:00.540
+So that's something that we can do with our front end just to improve some of our errors and some of
+
+06:00.540 --> 06:02.340
+the duplication of code.
+
+06:02.790 --> 06:09.490
+We can probably even put this into a container component so that App.js App.css and App.test.js
+
+06:09.650 --> 06:12.320
+are all in a container component.
+
+06:12.510 --> 06:16.050
+But overall the front end looks pretty nice and clean.
+
+06:16.080 --> 06:17.490
+Pretty simple.
+
+06:17.760 --> 06:24.330
+As we expand the app we can always move components and make them smaller and smaller if we want so we
+
+06:24.330 --> 06:25.490
+want to reuse them.
+
+06:26.380 --> 06:32.470
+We see we already talked about how we can break down the sign-in and register component. Maybe inside the
+
+06:32.470 --> 06:36.660
+image link form if we go to that component.
+
+06:36.900 --> 06:42.360
+We can divide up the input and the button so that we can reuse it somewhere.
+
+06:42.360 --> 06:48.340
+But for an app of this size I think this is a good enough place to leave this application.
+
+06:48.570 --> 06:54.300
+So let's move on to the back-end and see how we can improve the back-end.
+
+06:54.510 --> 07:04.900
+You remember here our API, which is connected to a database, and we have our four simple routes, and we've
+
+07:04.900 --> 07:06.790
+kept this a little bit messy.
+
+07:08.240 --> 07:11.840
+We've had everything in just one file server.js.
+
+07:11.930 --> 07:19.590
+But ideally in any large project you don't have just one single file that contains everything.
+
+07:19.800 --> 07:23.880
+Although this is just four routes, you can imagine this getting bigger and bigger.
+
+07:23.880 --> 07:31.280
+So one thing I like to do in the back-end is create something called a controllers folder.
+
+07:34.630 --> 07:42.350
+And what controllers do controllers are things that control whatever happens when an endpoint gets hit.
+
+07:43.560 --> 07:44.770
+Let me show you what I mean.
+
+07:44.840 --> 07:54.590
+I'm going create a new file and this file will say register.js and within register.js
+
+07:54.590 --> 08:01.980
+we can copy this entire function, this entire transaction that we use
+
+08:06.380 --> 08:15.340
+so that now we have apt dot post register and we can call the function here instead of having that entire
+
+08:15.340 --> 08:16.930
+block.
+
+08:16.950 --> 08:26.670
+So let's say that we're going to call it register dot handleRegister.
+
+08:26.700 --> 08:27.860
+So how is this going to work.
+
+08:28.020 --> 08:34.370
+Well let's go into the register file and I'm going to copy the function that I just copied
+
+08:34.410 --> 08:35.160
+out of there.
+
+08:37.110 --> 08:45.270
+Looking at server dot js we see that Register dot handleRegister will get the request response so
+
+08:45.270 --> 08:52.840
+that when register endpoint gets hit I'll receive the request and response and get called with it.
+
+08:57.190 --> 09:00.820
+So all we will be doing here is
+
+09:03.710 --> 09:07.360
+module dot exports.
+
+09:07.630 --> 09:09.050
+If you remember this syntax
+
+09:13.740 --> 09:22.490
+and within here we'll just have a handle register function that we'll create.
+
+09:22.720 --> 09:28.770
+And we're just exporting it and this handle register function will just be this block of function
+
+09:28.770 --> 09:31.910
+that we are creating.
+
+09:31.950 --> 09:37.050
+So we'll call it const handleRegister.
+
+09:37.220 --> 09:44.310
+equals this block but you may notice a problem here.
+
+09:45.800 --> 09:55.370
+We have the request and response but we don't have DB or bcrypt.
+
+09:55.520 --> 10:01.940
+If I run this function in this file I'll get an error saying I have no idea what bcrypt is and I have
+
+10:01.940 --> 10:05.510
+no idea what DB is and we have two options.
+
+10:05.840 --> 10:08.780
+We can either within this file place the
+
+10:12.050 --> 10:20.690
+bcrypt and KNEX imports and connect to the database or we can pass these to the function.
+
+10:20.690 --> 10:21.140
+Let me show you.
+
+10:24.030 --> 10:30.420
+Within the register, well I can simply just do a request response.
+
+10:33.080 --> 10:45.630
+And this request response will receive the request response as well as the database connects and bcrypt.
+
+10:45.710 --> 10:51.760
+So it has that available. This what we called dependency injection we're injecting whatever dependencies
+
+10:52.210 --> 10:56.310
+this handle register function needs.
+
+10:56.350 --> 11:08.280
+So if we go back and now change our parameters to include the ones that we've stated and save well.
+
+11:08.400 --> 11:11.050
+Let's go down and see that.
+
+11:11.060 --> 11:11.240
+Yeah.
+
+11:11.280 --> 11:14.860
+We have modular exports everything looks fine on this end.
+
+11:15.670 --> 11:27.220
+If I go back to the server and now within here I do a const the register require and we give it a
+
+11:27.220 --> 11:28.000
+path.
+
+11:28.060 --> 11:33.280
+In our case it will be controllers and register.
+
+11:36.740 --> 11:50.890
+So let's see if this works. Go to Tim Tim at gmail dot com password 1 2 3 register and looks like I'm registered.
+
+11:51.110 --> 12:01.120
+If I go to my database and make sure that we have Tim in there I can select star from users.
+
+12:01.120 --> 12:04.090
+All right I have Tim in there and if I go to the login table
+
+12:09.410 --> 12:12.780
+I have Tim's email as well.
+
+12:12.930 --> 12:15.390
+So we haven't changed any of our functionality.
+
+12:15.390 --> 12:23.100
+Everything is still working but the only difference is that we've now made register just have one
+
+12:23.100 --> 12:32.280
+line and separate it out the register function to just be in this file. So that if we wanted to have more
+
+12:32.280 --> 12:39.720
+things added specifically to register we separate these concerns of the register logic to be in this file.
+
+12:40.870 --> 12:43.520
+And this is a better way of doing things.
+
+12:43.660 --> 12:47.270
+So let's follow suit and do that to the rest of the functions as well.
+
+12:48.380 --> 12:51.910
+We'll start with the signin now.
+
+12:51.960 --> 13:02.990
+Again I'll just copy this and we see that signin requires the bcrypt and the DB as well.
+
+13:07.970 --> 13:24.760
+I will say request response will be run with a function that is signin dot handle signin that
+
+13:24.760 --> 13:27.160
+will have a request response
+
+13:30.210 --> 13:32.890
+DB and the bcrypt
+
+13:35.680 --> 13:42.340
+and I make this smaller just so you can see better.
+
+13:42.340 --> 13:42.640
+All right.
+
+13:42.640 --> 13:56.660
+And we can create that up here by saying signin require and we'll create that file right after this.
+
+13:56.850 --> 13:58.640
+We'll call it signin.
+
+14:03.900 --> 14:05.160
+Going to the controllers.
+
+14:08.210 --> 14:10.450
+It looks like we've got an error here let's just check this -
+
+14:13.370 --> 14:15.860
+cannot find module that's because we're creating it right now.
+
+14:15.860 --> 14:35.000
+I'll say new file signin dot js copy and paste our function and we'll call it handleSignin it will receive
+
+14:35.030 --> 14:44.550
+the database and bcrypt through dependency injection and we'll export it
+
+14:50.110 --> 14:54.770
+handleSignin as handleSignin
+
+14:55.160 --> 15:06.690
+Let's save. Make sure that we can still sign into our app. We'll sign out, sign into Tim at gmail dot com
+
+15:07.050 --> 15:12.460
+and his password was 1 2 3 right we get a bit of an error.
+
+15:12.460 --> 15:16.360
+Let's see. That request
+
+15:20.770 --> 15:25.970
+Oh we want to make sure that we spell that right - bcrypt. Be sure we have that on the server as well
+
+15:26.100 --> 15:27.290
+bcrypt.
+
+15:27.440 --> 15:29.510
+All right let's give it a try.
+
+15:29.510 --> 15:36.210
+We'll go to sign and we have Wes at gmail password 1 2 3 we're able to sign it.
+
+15:36.240 --> 15:36.930
+All right.
+
+15:39.220 --> 15:41.900
+OK things are starting to look a little bit cleaner.
+
+15:43.480 --> 15:45.540
+Let's continue with this one again.
+
+15:45.550 --> 15:48.000
+And you can see that there is a bit of repetition here.
+
+15:49.210 --> 15:52.600
+But hopefully this now makes sense.
+
+15:52.600 --> 15:57.000
+We know that here we're not using bcrypt but we are using the DB.
+
+15:57.220 --> 16:01.790
+So we'll do request response
+
+16:06.670 --> 16:07.920
+we'll say profile
+
+16:11.810 --> 16:14.570
+handleProfile and we'll say Get here.
+
+16:18.140 --> 16:27.670
+And be request response and the DB. Again we'll create a new file calling it profile dot js.
+
+16:30.920 --> 16:45.200
+const handleProfileGet which receives the DB. And of course we'll do module dot exports
+
+16:49.360 --> 16:53.540
+and we'll do handleProfileGet and I'll show you again with ES6
+
+16:53.540 --> 16:56.700
+we actually don't need de-value.
+
+16:57.050 --> 17:02.170
+So if I do this go to the server let's
+
+17:04.900 --> 17:09.670
+do profile here and profile.
+
+17:09.670 --> 17:19.710
+And then finally let's do our image endpoint which does not need bcrypt but does need the DB dependency.
+
+17:19.840 --> 17:22.100
+So we'll do a request response
+
+17:26.120 --> 17:32.280
+image.handleImage requests response DB.
+
+17:35.410 --> 17:43.250
+Create a new file image dot js
+
+17:43.580 --> 17:45.170
+Copy that properly so I'll have to
+
+17:56.080 --> 17:58.300
+handleImage
+
+18:02.230 --> 18:04.030
+module dot exports
+
+18:06.640 --> 18:07.550
+handleImage
+
+18:10.590 --> 18:13.500
+and make sure we get that database in there as well.
+
+18:15.220 --> 18:20.370
+Go back to our servers and let's just make sure that this image endpoint works.
+
+18:20.660 --> 18:23.470
+If I go back sign is in as Wes
+
+18:30.610 --> 18:37.060
+and I'll submit a face here.
+
+18:37.310 --> 18:41.250
+And I'm not getting the entry point so we made a mistake let's go back here
+
+18:47.030 --> 18:52.820
+image is not defined and that is because up at the top over here
+
+18:52.870 --> 18:55.630
+we haven't imported yet
+
+19:00.790 --> 19:07.260
+controllers and image. All right.
+
+19:07.290 --> 19:08.370
+Let's give that a go.
+
+19:08.490 --> 19:10.030
+Make sure we don't have any errors.
+
+19:12.520 --> 19:17.440
+Let's try that again detect we're doing one.
+
+19:17.440 --> 19:20.740
+And if we detect again we're a two.
+
+19:20.740 --> 19:21.840
+Everything is working.
+
+19:22.830 --> 19:23.600
+Awesome.
+
+19:24.030 --> 19:33.000
+So that was a little bit of repetition but look how much cleaner our server dot js looks now.
+
+19:33.000 --> 19:44.290
+We just have very simple files very simple one liners and somebody can come and look at the server
+
+19:44.320 --> 19:46.580
+and know exactly what our endpoints are.
+
+19:49.030 --> 19:53.850
+And anytime we want to add more functions to handle images maybe we don't want to do a post request
+
+19:53.950 --> 19:59.310
+with an image maybe with profile we also want to do a delete request.
+
+19:59.500 --> 20:05.800
+We can just expand on this and know exactly where our concerns lie with the profile and just import
+
+20:05.800 --> 20:09.230
+them into our server as a way of handling things.
+
+20:09.280 --> 20:12.760
+The one last thing I wanted to show you is how we can clean this up.
+
+20:12.790 --> 20:17.980
+So this is really nice because you get to see exactly what each function depends on.
+
+20:17.980 --> 20:24.790
+But you can also do something like this where instead of declaring the function
+
+20:28.640 --> 20:36.680
+and we now because of the way we're doing this we're first running this function with DB and bcrypt.
+
+20:36.830 --> 20:41.760
+And then it automatically receives request and response.
+
+20:41.810 --> 20:43.980
+So this function gets run.
+
+20:44.130 --> 20:51.370
+Then request response gets called as well.
+
+20:52.510 --> 20:57.430
+And I know that's a little bit confusing and it's a little bit advanced but if you remember our functions
+
+20:57.520 --> 21:04.480
+section advanced function section in javascript. It's similar to that we can go back to our handle signin
+
+21:05.110 --> 21:08.080
+and within here we can now have
+
+21:14.780 --> 21:18.240
+request response.
+
+21:18.270 --> 21:22.980
+I know this looks a little bit scary but let's just see what happens if I save this
+
+21:26.660 --> 21:35.330
+sign in as Wes and it works fine add another image here.
+
+21:38.010 --> 21:41.220
+Everything is still working.
+
+21:41.410 --> 21:47.670
+And this is a little bit advanced and it might take a while to wrap your head around it.
+
+21:47.680 --> 21:55.580
+We have a function that returns another function and then runs this.
+
+21:55.660 --> 22:00.060
+But if you look at it step by step it's pretty clear right.
+
+22:00.160 --> 22:03.610
+We're running handleSignin with DB and bcrypt.
+
+22:03.610 --> 22:13.720
+If we go back to him -to signin again we're passing this and then we are also when signing gets hit.
+
+22:13.840 --> 22:20.790
+We're passing the request response so we're running the function again request response.
+
+22:21.010 --> 22:30.160
+So that this order is the exact same as this order right here.
+
+22:30.330 --> 22:36.330
+And this is a matter of preference if this you find a little bit too confusing you can resort to this
+
+22:36.330 --> 22:38.070
+other way of doing it.
+
+22:39.690 --> 22:45.180
+I don't think one is better than the other is just a matter of preference I do like the fact that this
+
+22:45.180 --> 22:50.220
+looks a lot cleaner than the repetition here but it might be more confusing for some team members so
+
+22:50.220 --> 22:51.870
+I wanted to show you both ways.
+
+22:53.850 --> 22:54.470
+All right.
+
+22:54.470 --> 22:57.320
+I think that's enough for a code review.
+
+22:58.020 --> 23:01.500
+We've made this server a little bit cleaner.
+
+23:01.500 --> 23:05.880
+Our server dot js looks pretty nice pretty clean.
+
+23:05.880 --> 23:14.280
+We only have 35 lines of code here and we know exactly where to go to find our controllers how each
+
+23:14.280 --> 23:17.400
+route gets called.
+
+23:17.410 --> 23:19.090
+All right that's it for now.
+
+23:19.090 --> 23:20.810
+I'll see you in the next video.
+
+23:20.820 --> 23:21.330
+Bye-bye.

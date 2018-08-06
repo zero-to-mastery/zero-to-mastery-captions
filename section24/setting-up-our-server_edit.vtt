@@ -1,0 +1,307 @@
+WEBVTT
+
+00:01.100 --> 00:06.280
+Welcome back. In this section we're going to continue working on our final project:
+
+00:06.410 --> 00:12.620
+the face recognition app that we've built, and we have the front-end mostly done for it but now we need
+
+00:12.620 --> 00:16.720
+a server – something that the front-end can communicate with
+
+00:17.060 --> 00:23.910
+so that this app can live on more than just our laptop – we can actually deploy it.
+
+00:24.120 --> 00:33.480
+And if you remember our app we have a Sign In and the Sign In also links to a Register that we can register
+
+00:33.480 --> 00:35.270
+the users.
+
+00:35.520 --> 00:40.130
+And if we just had the app the way it is now there's nothing interacting with it.
+
+00:40.290 --> 00:47.830
+Every time we log into the app we can just create a new user a new password and sign in no problem.
+
+00:50.530 --> 00:57.140
+But if we build a back-end for it we now have the ability to interact with it.
+
+00:57.250 --> 01:02.820
+We can even include a database so there's memory and we can have actual users that our back-end will
+
+01:02.830 --> 01:07.450
+remember, and we'll get to the database in the next sections.
+
+01:07.540 --> 01:12.440
+But for now we've worked on Node and Express and we should be familiar with how they work.
+
+01:13.330 --> 01:15.500
+It's fairly nice and simple right?
+
+01:15.520 --> 01:24.160
+We're simply creating URLs and endpoints and providing a response to the front-end.
+
+01:24.180 --> 01:26.360
+So that's what we're going to work on in this section.
+
+01:27.730 --> 01:28.930
+If we go back to our app
+
+01:32.470 --> 01:37.080
+just looking at this app we can figure out what endpoints we might want to have.
+
+01:37.090 --> 01:46.370
+We definitely want to have a 'sign in' endpoint; we want to have a 'register' endpoint and every time we
+
+01:46.370 --> 01:50.480
+log into this app – well, we'll have some sort of a profile.
+
+01:50.480 --> 02:00.450
+We want our name and our rank displayed and ideally this rank will change based on how many faces or
+
+02:00.450 --> 02:03.190
+how many URLs I've submitted for my profile.
+
+02:05.870 --> 02:07.610
+So here's the fun part.
+
+02:07.610 --> 02:13.850
+We actually won't be really touching the front-end for the first couple of videos because the way you
+
+02:13.850 --> 02:21.790
+want to build an API server is you want to figure out what the functionality is that we want and test
+
+02:21.790 --> 02:30.100
+it out on something like Postman. So over the next couple of videos we're going to be using Postman and
+
+02:30.100 --> 02:37.310
+just creating our server, and with Postman we're going to test our server just like we did in the previous
+
+02:37.310 --> 02:38.020
+section,
+
+02:39.030 --> 02:43.060
+get all our end points working and then finally we're going to connect it to our front-end.
+
+02:44.360 --> 02:45.740
+It's going to be a lot of fun.
+
+02:45.920 --> 02:54.200
+Now over here I have renamed our front-end project to smart-brain, but that's the React app that we've
+
+02:54.200 --> 03:03.050
+been working on and I've also created a folder called 'smart-brain-api', and it has absolutely nothing
+
+03:03.050 --> 03:07.090
+in it except for a 'package.json'.
+
+03:07.220 --> 03:10.040
+So I just ran 'npm init'.
+
+03:10.040 --> 03:13.520
+But it's something that we were already familiar with so I won't bore you with it.
+
+03:13.760 --> 03:19.560
+And then I've installed a couple of packages that we've used in the previous section.
+
+03:19.880 --> 03:26.870
+The Express framework – so that we can build a server really nicely, Nodemon – so we can run Nodemon in our
+
+03:26.870 --> 03:36.100
+scripts and make sure our server is running, and we also have body-parser, which we use to parse and
+
+03:36.100 --> 03:40.120
+have access to the request dot body [req.body] to read JSON and form data.
+
+03:40.360 --> 03:43.610
+Other than that well there's no JavaScript file.
+
+03:43.720 --> 03:53.760
+So let's start off by creating a 'server.js' and now that we have 'server.js', in the "scripts" we
+
+03:53.760 --> 04:02.280
+can just say that NPM "start" and again it's JSON so I got to wrap it in curly brackets.
+
+04:03.280 --> 04:08.410
+And this "start" will just say "nodemon server.js"
+
+04:10.730 --> 04:12.800
+-
+
+04:12.800 --> 04:19.800
+And now every time we run 'npm start' our server will run but we have nothing yet.
+
+04:19.810 --> 04:27.170
+So let's get our basic skeleton of our Express app, and this should be familiar to you by now.
+
+04:27.640 --> 04:38.470
+We'll just have a const express equals require the express package [const express = require('express')].
+
+04:38.620 --> 04:41.890
+We'll then create our app by running Express
+
+04:46.140 --> 04:55.710
+and then finally we'll have app dot listen and we'll use port 3000 [app.listen(3000)] and within the 'listen'
+
+04:55.710 --> 05:00.970
+we can actually send it a second parameter, which is a function within this function,
+
+05:03.610 --> 05:08.220
+it will run right after the 'listen' happens on port 3000.
+
+05:08.440 --> 05:19.990
+And just to make sure that everything is running smoothly we'll just say 'app is running on port 3000'
+
+05:20.240 --> 05:28.110
+Nodemon kind of does this for us but I like having it here regardless.
+
+05:28.120 --> 05:28.410
+All right.
+
+05:28.420 --> 05:30.790
+So just to test this if I do 'npm start'
+
+05:35.330 --> 05:42.410
+we have Nodemon started, app is running on port 3000 just like I've said it here [console.log('app is running on port 3000')].
+
+05:42.500 --> 05:48.830
+Right so now that we have app running let's just create a basic route to make sure that everything
+
+05:48.830 --> 05:50.720
+is working nicely.
+
+05:50.750 --> 05:58.780
+You can just create a 'app.get()' at the root route [('/')].
+
+05:59.080 --> 06:04.700
+And again as we've done previously this will get a request response.
+
+06:08.150 --> 06:19.240
+And in here we'll just do a response dot send [res.send('this is working')] let's save and go back to our Postman and
+
+06:19.250 --> 06:24.100
+do our localhost 3000 and we'll just do a root [/]
+
+06:27.270 --> 06:31.850
+and we get 'this is working' perfectly.
+
+06:31.870 --> 06:35.560
+So now that we have this set up I like planning our API.
+
+06:35.590 --> 06:40.450
+And this is something as a developer you really want to do before you just start coding and you want
+
+06:40.450 --> 06:44.900
+to make sure that you have an idea of what your API design will look like.
+
+06:46.470 --> 06:47.850
+So let's think about this.
+
+06:47.940 --> 06:53.760
+I'm going to wrap this in comments and we can work on it one by one. If you want to have a root route
+
+06:53.850 --> 07:00.280
+that perhaps for now we'll just say responds with
+
+07:00.510 --> 07:02.760
+'this is working'.
+
+07:02.820 --> 07:12.150
+We also want to have a 'signin' route because well we want people to sign in and this 'signin' will most
+
+07:12.150 --> 07:22.190
+likely be a POST request because we're posting some data some JSON, some user information, and it's going
+
+07:22.190 --> 07:24.530
+to respond with either
+
+07:27.680 --> 07:29.640
+success or fail.
+
+07:30.110 --> 07:30.710
+All right.
+
+07:30.770 --> 07:39.200
+We also have a 'register' and the register again will be a POST request because we want to add the data
+
+07:39.230 --> 07:49.610
+to the database or in our case a variable in our server and with our new user information.
+
+07:49.620 --> 07:53.860
+So perhaps this one instead of saying 'success/fail' we will return
+
+07:53.880 --> 07:57.620
+the newly created user to make sure that everything is working.
+
+07:57.930 --> 08:03.300
+And we will say that this is the new user object that we'll return. OK.
+
+08:03.310 --> 08:11.190
+We also want in the homescreen to have an ability to access the profile of the user.
+
+08:11.250 --> 08:19.890
+So perhaps we'll have a profile with an optional parameter of 'userId' so that each user has their own
+
+08:20.020 --> 08:21.110
+homescreen.
+
+08:21.390 --> 08:25.230
+And this will most likely be a GET request.
+
+08:25.230 --> 08:33.700
+We just want to get the user information and this will return us the user. And because we want to work with
+
+08:33.700 --> 08:41.530
+the ranking or anytime a user posts a new photo we want to make sure that their count of how many photos
+
+08:41.530 --> 08:49.190
+they've submitted goes up and maybe you have a way to keep score – a variable that increases by one every
+
+08:49.190 --> 08:54.740
+time a user submits these photos and then checks against other users to see who has submitted the most
+
+08:54.740 --> 08:56.170
+and give them a rank.
+
+08:56.540 --> 09:09.080
+Perhaps we can have an image endpoint that again will be a post or maybe in our case because we're
+
+09:09.080 --> 09:11.210
+updating the score it should be a PUT.
+
+09:11.210 --> 09:17.520
+Because the user already exists and we want to make sure that there is an update on the user profile.
+
+09:17.810 --> 09:26.470
+And this will just return the updated user object or perhaps whatever we've updated – in our case a
+
+09:26.800 --> 09:28.130
+count of some sort.
+
+09:29.710 --> 09:37.660
+And you also might be wondering here with the 'signin' if we're not creating a new user why are we doing
+
+09:37.690 --> 09:40.110
+a POST?
+
+09:40.140 --> 09:46.680
+And if you remember any time we're sending a password we don't really want to send it as a query string
+
+09:46.670 --> 09:56.030
+do we? We want to send it inside of the body ideally over HTTPS so that it's hidden from man-in-the-middle
+
+09:56.030 --> 10:00.250
+attacks and it's secure. Looking at this
+
+10:00.250 --> 10:06.860
+this might change as we go through the project but we have an idea of what we want to create.
+
+10:06.880 --> 10:14.070
+So in the next videos we're going to start creating these endpoints and testing them with Postman to
+
+10:14.070 --> 10:16.950
+make sure that they're working.
+
+10:17.040 --> 10:18.900
+I'll see you in the next one. Bye-bye

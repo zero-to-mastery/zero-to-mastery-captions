@@ -1,0 +1,175 @@
+WEBVTT
+
+00:01.110 --> 00:07.120
+Welcome to the fifth developer fundamental. You're still going strong and I'm proud of you.
+
+00:07.170 --> 00:10.770
+You just got through the toughest section which is DOM manipulation.
+
+00:10.800 --> 00:17.760
+But before we get going, I want to talk to you about another developer fundamental, which is accessing
+
+00:17.970 --> 00:25.330
+the DOM. Javascript and oh sorry I think we got John. How's it going John? "You and what army?"
+
+00:25.490 --> 00:26.110
+All right.
+
+00:26.180 --> 00:32.270
+Back to what we're talking about - Javascript in the HTML make things on the Web very exciting with all
+
+00:32.270 --> 00:33.230
+the things you can do.
+
+00:33.440 --> 00:36.530
+But it also introduced a whole slew of problems.
+
+00:36.710 --> 00:39.110
+One was innerHTML here.
+
+00:39.620 --> 00:45.820
+Every time innerHTML is set the HTML has to be parsed,
+
+00:46.100 --> 00:51.000
+a DOM constructed and inserted into the document.
+
+00:51.020 --> 00:52.420
+Now what does that mean?
+
+00:52.430 --> 01:01.740
+Well, we need to recreate this tree and then add it to the Web browser and then have everything in here
+
+01:01.750 --> 01:03.660
+show up on the Web page.
+
+01:03.910 --> 01:08.110
+I mean Web browsers are fast but they still have to do work.
+
+01:08.200 --> 01:09.620
+This takes time.
+
+01:09.640 --> 01:17.200
+For example if element let's say here has the tag 'a',
+
+01:17.290 --> 01:26.190
+and there's thousands of these in the DOM tree if you call this dot innerHTML, it's going
+
+01:26.190 --> 01:30.870
+to cause the Parser to re-parse everything all over again.
+
+01:31.230 --> 01:37.450
+And this could break references to maybe click events and cause other chaos.
+
+01:37.470 --> 01:42.760
+In reality all you want to do is attach a single new element to the end.
+
+01:43.950 --> 01:51.070
+And innerHTML is also susceptible to some attacks called cross-site scripting which is a security problem.
+
+01:52.260 --> 01:58.680
+Now as more and more websites try to make their Web page do more than just show a page, think a Web
+
+01:58.680 --> 02:01.170
+app, like Udemy here.
+
+02:01.560 --> 02:06.570
+There's obviously a lot more going on than just text and style.
+
+02:06.700 --> 02:13.050
+They access the DOM and change things quite a lot but this is a huge performance problem.
+
+02:13.300 --> 02:19.060
+In the previous videos we learned that we want to make performant and fast websites in this day and
+
+02:19.060 --> 02:23.500
+age by minimizing the amount of backend requests we make.
+
+02:23.500 --> 02:32.070
+So if you remember we learned that the location of servers is important, how many trips we make to grab
+
+02:32.280 --> 02:36.560
+all the files is important, and the size of the files matter.
+
+02:36.560 --> 02:44.980
+Now in this lesson we want to minimize the amount of DOM manipulation we make. If we change, let's say one
+
+02:44.980 --> 02:45.750
+drop down,
+
+02:45.810 --> 02:48.340
+we don't want the whole page to re-render.
+
+02:48.540 --> 02:55.200
+We want to have an interactive website but not necessarily make the Web browser work because we're
+
+02:55.200 --> 03:00.400
+constantly changing things to the document object.
+
+03:00.410 --> 03:01.700
+Let's see what I'm talking about
+
+03:01.700 --> 03:03.650
+by showing you an example.
+
+03:03.650 --> 03:11.450
+If I open up the console here, and I can actually press escape and you'll see that it toggles a new bar
+
+03:12.770 --> 03:18.380
+and you might not see rendering you might have to click here, and select the rendering you'll be able
+
+03:18.380 --> 03:21.340
+to do something called Paint flashing.
+
+03:21.520 --> 03:33.430
+And now if I minimize this, every time this turns green it means something's being repainted on the Web page
+
+03:34.150 --> 03:37.450
+and you can see over here, as I'm scrolling through everything,
+
+03:40.410 --> 03:43.080
+all the green actions happening.
+
+03:43.350 --> 03:46.590
+And that's a lot, of a lot of things.
+
+03:46.600 --> 03:53.320
+And Udemy does a good job of making sure that when I do this only this section that I'm actually
+
+03:53.320 --> 04:01.830
+touching gets...gets painted. So play around with it if you want and check out some different websites. Some
+
+04:01.830 --> 04:04.040
+websites you'll notice when you scroll...
+
+04:04.270 --> 04:08.330
+it'll re-renders the whole thing instead of just the bar as you can see here.
+
+04:09.780 --> 04:12.170
+But that is your lesson.
+
+04:12.540 --> 04:17.870
+You want to minimize the amount of DOM manipulation and events.
+
+04:17.920 --> 04:24.160
+It's a very important concept in building Web apps, and you also want to be smart and use the best methods
+
+04:24.580 --> 04:27.190
+to minimize this. Now,
+
+04:27.280 --> 04:32.350
+luckily for you that is exactly why REACT was created.
+
+04:32.350 --> 04:36.220
+You'll learn more about it in that section but get excited.
+
+04:36.220 --> 04:40.340
+It's going to make things really really fast and really simple to build.
+
+04:41.650 --> 04:42.220
+OK.
+
+04:42.520 --> 04:43.750
+That's it for now.
+
+04:44.020 --> 04:44.710
+Until next time. Bye Bye

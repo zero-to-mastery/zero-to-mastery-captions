@@ -1,0 +1,265 @@
+WEBVTT
+
+00:00.480 --> 00:01.620
+Welcome back.
+
+00:01.620 --> 00:08.720
+Let's connect our database to our server. And in order to do that there's tons of tools as you might
+
+00:08.720 --> 00:09.540
+have known.
+
+00:09.830 --> 00:16.090
+Yes we're using NPM again, a node package that allows us to connect to a database.
+
+00:16.130 --> 00:17.180
+There's many options.
+
+00:17.210 --> 00:21.170
+And in this video we're going to work with my favorite KNEX.js.
+
+00:21.210 --> 00:23.770
+It works with PostgreSQL, MSSQL, 
+
+00:23.770 --> 00:25.770
+MySQL,
+
+00:25.790 --> 00:27.650
+MariaDB, SQLite,
+
+00:27.840 --> 00:33.620
+Oracle, pretty much any relational database KNEX works with and is super simple to use.
+
+00:33.860 --> 00:36.880
+I absolutely love it and you're going to love it too.
+
+00:38.120 --> 00:42.220
+Just to show you there's different options there is something like pg-promise here.
+
+00:42.380 --> 00:47.780
+That again is very popular and you can see it here that it's very easy.
+
+00:47.780 --> 00:56.220
+You just import it and do .any and do your SQL statement. And you can pick whichever one you
+
+00:56.220 --> 00:57.120
+want.
+
+00:57.570 --> 01:05.970
+Although pg-promise really allows you to write simple SQL queries, KNEX is just a really good tool
+
+01:05.970 --> 01:11.130
+that if you're ever working on a project I would recommend, so I'm going to use KNEX.js to do
+
+01:11.130 --> 01:20.040
+it. And if you go into installation and Node.js, of course they have good documentation of how to install
+
+01:20.040 --> 01:22.250
+it. In our case
+
+01:22.380 --> 01:26.200
+We can just NPM install KNEX.
+
+01:26.310 --> 01:32.630
+I'm just going to stop the server for now and run NPM install.
+
+01:32.640 --> 01:34.770
+Let's open up the package.json file.
+
+01:34.770 --> 01:36.790
+Make sure that it's working. There is
+
+01:36.870 --> 01:43.400
+KNEX and they also say that we need to install the PostgreSQL or whichever database we want.
+
+01:43.440 --> 01:45.080
+In our case we want PostgreSQL.
+
+01:45.270 --> 01:52.660
+So we're going to NPM install PG.
+
+01:52.850 --> 02:00.080
+All right we have PostgreSQL installed as well. Amazing.
+
+02:00.160 --> 02:06.490
+Again the reason that I love this library is it makes things so simple you can see over here that in
+
+02:06.480 --> 02:10.570
+their document it tells you exactly what you need to do to connect to the database.
+
+02:10.630 --> 02:27.450
+So let's copy this, go to our server.js. Let's import by doing const KNEX = require('knex');
+
+02:29.020 --> 02:35.230
+and in here we'll just copy and paste, and we can remove the variable
+
+02:37.870 --> 02:39.350
+and just use it like that.
+
+02:40.460 --> 02:49.180
+Now this syntax might be confusing to you but all it's doing is (if we remove this) is just doing knex
+
+02:51.030 --> 02:54.330
+and running that KNEX function that we just had.
+
+02:54.330 --> 02:56.140
+So let's just keep it like that because it looks better.
+
+02:56.950 --> 03:01.670
+We want to update our client to PostgreSQL.
+
+03:01.720 --> 03:10.270
+So again if we do PostgreSQL it'll be PG because that's what we just downloaded and then we have to
+
+03:10.270 --> 03:18.390
+tell it where this database lives. And we would modify this according to where we set up our database
+
+03:18.620 --> 03:20.700
+on a hosted platform.
+
+03:21.680 --> 03:29.110
+But for now we have localhost and localhost is the same thing as this number 127.0.0.1
+
+03:29.110 --> 03:32.200
+ is home.
+
+03:32.230 --> 03:38.590
+There's a funny t-shirt that I saw a developer wear once, that says there's no place like 127.0.0.1
+
+03:38.590 --> 03:44.020
+ because it means localhost and it was a play on there's no place like home.
+
+03:44.050 --> 03:45.200
+I thought it was funny.
+
+03:45.360 --> 03:53.180
+Anyway this is the same thing as local host so we'll just keep it like that and we have our user in our case if you
+
+03:53.180 --> 03:59.340
+remember and we go to our database the user I guess will be me so I'll just do my name.
+
+04:02.040 --> 04:06.700
+There's no password to our database so we can just leave it blank.
+
+04:07.050 --> 04:08.290
+There's actually no user either.
+
+04:08.300 --> 04:10.170
+But for now that's fine.
+
+04:10.380 --> 04:12.150
+And the database if you remember
+
+04:15.820 --> 04:21.690
+is called 'smart-brain'.
+
+04:21.690 --> 04:24.090
+Now if I actually exit this
+
+04:26.840 --> 04:30.190
+and start over you see that it's the same thing that we're entering here.
+
+04:30.350 --> 04:34.460
+We're just saying where the host is, the user password and database.
+
+04:34.460 --> 04:41.120
+And because we're able to log in here without the user and password, Well, we don't really need that information.
+
+04:42.220 --> 04:43.300
+Let's give that a go.
+
+04:43.300 --> 04:50.300
+I'm going to save. Do npm start.
+
+04:50.340 --> 04:50.720
+All right.
+
+04:50.730 --> 04:56.160
+I'm not getting any errors here which is good.
+
+04:56.210 --> 04:58.450
+Let's go back to the, to the page here
+
+05:03.310 --> 05:10.760
+and copy and paste just a simple, maybe select statement to make sure that everything is working.
+
+05:10.930 --> 05:14.750
+If we go back to the left hand side over here we have the query builder and select.
+
+05:14.760 --> 05:18.360
+So let's just grab something from our database.
+
+05:18.370 --> 05:26.470
+Even though we don't really have anything. You see that we just have knex.select and then whatever
+
+05:26.470 --> 05:30.360
+we want to select from the database.
+
+05:30.370 --> 05:31.330
+All right let's do that.
+
+05:31.510 --> 05:32.000
+Let's do 
+
+05:32.001 --> 05:44.000
+knex.select(*).from('users'); 
+
+05:44.000 --> 05:46.310
+database.
+
+05:46.450 --> 05:50.400
+I'm going to save and I get an error which is good.
+
+05:50.400 --> 05:57.950
+It's reading here but it says unexpected token because, well I have to wrap this as a string. Let's try
+
+05:57.950 --> 05:58.570
+that again.
+
+05:59.820 --> 06:06.180
+And you see here how I get connect select is not a function because here I have to assign this to a
+
+06:06.180 --> 06:07.070
+variable.
+
+06:07.530 --> 06:13.710
+And the way we do that is we can just say const database equals just like we had before.
+
+06:13.800 --> 06:16.150
+KNEX.select.
+
+06:16.380 --> 06:27.320
+But let's just do Postgres for now. Save and change this to the Postgres with save, and now there's no
+
+06:27.440 --> 06:29.150
+errors.
+
+06:29.240 --> 06:29.990
+That's awesome.
+
+06:30.330 --> 06:33.200
+If we perhaps console.log
+
+06:33.870 --> 06:38.480
+now and save.
+
+06:38.680 --> 06:42.460
+All right we get a ton of information here.
+
+06:43.550 --> 06:46.630
+But it looks like it's responding with something that's perfect.
+
+06:46.640 --> 06:54.380
+It looks like we're connected to the smart-brain but this isn't exactly how we return information from
+
+06:54.380 --> 06:57.390
+KNEX and we'll get into that into the next video.
+
+06:57.680 --> 07:03.530
+But for now we've connected our server to our database.
+
+07:03.590 --> 07:05.040
+I'll see you in the next one.
+
+07:05.240 --> 07:05.520
+Bye-bye.

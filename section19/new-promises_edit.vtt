@@ -1,0 +1,832 @@
+WEBVTT
+
+00:01.390 --> 00:09.650
+Promises are a new feature in JavaScript as of ES6. But that means they are really useful to have them
+
+00:09.650 --> 00:11.590
+introduce as part of the language.
+
+00:11.630 --> 00:12.410
+Right?
+
+00:12.660 --> 00:14.490
+Well you're absolutely right.
+
+00:14.510 --> 00:16.350
+Promises are everywhere.
+
+00:16.400 --> 00:21.680
+And in this video I'm going to show you what they are, how they work and hopefully we'll understand why
+
+00:21.710 --> 00:25.970
+we should all be jumping for joy that we have them instead of callbacks.
+
+00:25.970 --> 00:29.260
+Now in order to understand promises let's define it.
+
+00:29.660 --> 00:36.650
+A promise is an object that may produce a single value sometime in the future. Either a resolved value,
+
+00:37.160 --> 00:39.920
+or a reason that it's not resolved or rejected.
+
+00:40.910 --> 00:46.890
+A promise maybe in one of three possible states fulfilled, rejected or pending.
+
+00:47.010 --> 00:47.750
+Huh.
+
+00:48.150 --> 00:53.730
+Let's figure out what that means in this video so that by the end of it that is all going to make sense
+
+00:53.730 --> 00:54.340
+to you.
+
+00:54.450 --> 01:00.840
+Now in order to fully grasp the concept we must first talk about what we had before promises and that is
+
+01:01.050 --> 01:02.050
+callbacks.
+
+01:03.340 --> 01:04.430
+Something like this.
+
+01:04.570 --> 01:11.170
+When something is done execute this piece of code. Callbacks in javascript are exactly that.
+
+01:11.170 --> 01:17.360
+I text my friend Bob and say Hey Bob what's that really good song by the Backstreet Boys.
+
+01:18.130 --> 01:23.020
+When Bob has time he called me back and says oh yea-yea that song-
+
+01:23.090 --> 01:23.370
+It's
+
+01:23.380 --> 01:24.460
+I want it that way.
+
+01:24.670 --> 01:27.590
+And that's exactly what's happening here too.
+
+01:27.820 --> 01:30.940
+We have an element that we're adding an event listener to.
+
+01:31.120 --> 01:38.320
+And when a user clicks we're going to have the callback submit form. That is once the user clicks we're
+
+01:38.320 --> 01:42.100
+going to answer with submit form.
+
+01:42.140 --> 01:43.750
+Let's think of another example.
+
+01:44.000 --> 01:50.480
+Let's say we're creating a game and we have this move player function that has the distance to move
+
+01:50.480 --> 01:52.230
+the player and the direction.
+
+01:52.640 --> 01:59.330
+Well, if I wanted to move player 100 to the left I'd run that. Once that is done
+
+01:59.360 --> 02:07.070
+I want it to run a callback function which is to move player 400 to the left again and then another callback
+
+02:07.070 --> 02:12.740
+function right after that is done to move player 10 to the right and another callback option to move
+
+02:12.740 --> 02:15.200
+player 330 to the left.
+
+02:15.350 --> 02:19.950
+And we have something called the pyramid of doom.
+
+02:20.030 --> 02:23.060
+This is obviously a simple example.
+
+02:23.240 --> 02:30.290
+But with callbacks you'll get this nested- nested function and you create this pyramid of really really
+
+02:30.290 --> 02:35.930
+complicated code of this happens, then this happens and this happens and this happens and it's really
+
+02:35.930 --> 02:37.460
+really hard to read.
+
+02:37.550 --> 02:39.460
+Let me show you a more realistic example.
+
+02:42.640 --> 02:50.380
+Let's say we had some sort of an app that uses Twitter and let me make this bigger so you can see we
+
+02:50.380 --> 02:51.350
+have a grabTweets
+
+02:51.360 --> 02:56.410
+function that the first parameter has the URL
+
+02:56.410 --> 02:57.740
+For now I just simplified it.
+
+02:57.760 --> 03:00.430
+We just passed Twitter and the Twitter handle.
+
+03:00.640 --> 03:05.780
+And then the callback function after you grab the tweets which has an error.
+
+03:05.830 --> 03:07.330
+And the tweets.
+
+03:07.750 --> 03:11.040
+And if there's an error we throw an error.
+
+03:11.050 --> 03:13.620
+So that just creates an error in javascript.
+
+03:13.810 --> 03:15.870
+Otherwise we're going to display the tweets.
+
+03:16.180 --> 03:21.740
+But then if andrei's tweets were successful then we also want to grab the tweets again.
+
+03:22.000 --> 03:24.840
+Let's do Elon Musk this time and again if error
+
+03:24.880 --> 03:25.830
+We're going to throw error.
+
+03:25.930 --> 03:28.270
+Otherwise we're going to display his tweets.
+
+03:28.450 --> 03:33.880
+And if that's successful then we're also going to grab Vitalik Buterin's tweets.
+
+03:34.000 --> 03:42.520
+And again if error, throw error otherwise display tweets. And that doesn't look very pretty does it?
+
+03:43.340 --> 03:46.840
+I mean we have to do the same thing we have to check for error.
+
+03:46.880 --> 03:54.310
+And each time we have it nested and just overall we have a lot of repetition of code.
+
+03:55.820 --> 04:01.330
+Now promises serve the same purpose as callbacks.
+
+04:01.450 --> 04:03.520
+So why do we have two things.
+
+04:03.520 --> 04:08.080
+Well promises are new in ES6 and they are a little bit more powerful.
+
+04:08.080 --> 04:10.490
+Let me show you what a promise looks like.
+
+04:12.190 --> 04:14.830
+You remember this move player code.
+
+04:14.970 --> 04:21.690
+Well this with a promise will look something like this.
+
+04:21.690 --> 04:29.010
+Doesn't that look much much better but it's really hard to grasp what's happening here without really
+
+04:29.010 --> 04:30.900
+knowing how to create a promise.
+
+04:30.930 --> 04:32.420
+So let's start with that.
+
+04:32.760 --> 04:44.150
+I'm going to remove this and create our very first promise. We'll say const promise equals-
+
+04:44.320 --> 04:47.240
+and this is a new syntax that you'll just have to get used to.
+
+04:47.440 --> 04:49.900
+'new Promise()'
+
+04:49.900 --> 04:59.940
+So we're creating a new promise and this promise has parameter that either resolves or rejects.
+
+05:00.080 --> 05:08.560
+And in here- in this function we have the option to let's just say either resolve.
+
+05:08.670 --> 05:23.570
+Let's just do 'stuff worked' or reject and in this case we have an 'Error, it broke'.
+
+05:23.610 --> 05:29.160
+Now we obviously want to have a conditional statement here we'll say if condition in our case we'll just
+
+05:29.160 --> 05:30.720
+let it be true for now.
+
+05:31.850 --> 05:32.850
+if true-
+
+05:33.050 --> 05:42.520
+So this is if the promise returned we're going to resolve it.
+
+05:42.600 --> 05:50.510
+Otherwise we're going to reject.
+
+05:50.590 --> 05:51.330
+And here's the thing.
+
+05:51.340 --> 05:54.530
+This looks confusing without actually knowing the application.
+
+05:54.580 --> 05:58.780
+But I want you to just have this over here so you can take a look at it as we progress through this
+
+05:58.780 --> 06:01.310
+video this is going to make more and more sense.
+
+06:01.360 --> 06:10.360
+So now that we have a promise if I put this into my console, my Chrome browser.
+
+06:11.180 --> 06:11.470
+All right
+
+06:11.480 --> 06:12.820
+I have the promise now.
+
+06:12.830 --> 06:16.850
+But how can we get this promise to run now.
+
+06:17.090 --> 06:21.240
+Well I can just do promise.then
+
+06:21.370 --> 06:32.650
+So again once the promise is resolved or rejected .then I want to get the results and then we want to
+
+06:32.650 --> 06:38.590
+console.log the 'result'.
+
+06:38.740 --> 06:39.250
+That's it.
+
+06:39.270 --> 06:41.260
+So let's see what happens here.
+
+06:41.260 --> 06:43.850
+I'm going to copy this paste it on here.
+
+06:44.650 --> 06:45.800
+"Stuff Worked".
+
+06:46.120 --> 06:46.560
+All right.
+
+06:46.600 --> 06:57.000
+So we ran the promise it ran this part and because we've just made if equals to true it's going to
+
+06:57.000 --> 06:58.310
+run the resolve.
+
+06:59.150 --> 07:05.760
+And the resolve is going to send "Stuff Worked" into the result and we're going to console.log "Stuff
+
+07:05.770 --> 07:06.350
+Worked."
+
+07:06.560 --> 07:10.750
+And you also see over here that the promise is resolved.
+
+07:11.200 --> 07:21.520
+Again if I just log 'promise' here I see that we have the promise with 'Stuff Worked' awesome.
+
+07:21.690 --> 07:21.880
+Okay
+
+07:21.890 --> 07:28.110
+So based on what we know now let's just take a look at what we can do with promises.
+
+07:28.160 --> 07:33.710
+Let's say that now with 'Stuff Worked' I want to grab the result.
+
+07:37.880 --> 07:48.380
+And add an exclamation mark to it and then- and this is called chaining in promises.
+
+07:48.380 --> 07:55.250
+Then after I do that it's going to return this return the result with the exclamation mark and in our case
+
+07:55.310 --> 07:59.220
+I just want to get the 'result2'.
+
+07:59.330 --> 08:06.370
+And we will just console.log 'result2'.
+
+08:06.520 --> 08:07.120
+All right.
+
+08:07.170 --> 08:08.660
+Well let's see what happens now.
+
+08:08.780 --> 08:13.340
+So I have my promise just to make sure that we have it here.
+
+08:13.340 --> 08:14.250
+Perfect.
+
+08:15.300 --> 08:25.070
+And we're going to run the promise stuff worked with the exclamation mark very cool.
+
+08:25.180 --> 08:30.970
+But what happens if something happens in between here we just have a console.log, but
+
+08:30.970 --> 08:36.300
+let's say we have an error and that error causes us to throw an error.
+
+08:37.500 --> 08:44.290
+Well what happens now? With promises you can actually do something called '.catch()'
+
+08:44.710 --> 08:48.880
+And this will catch any error that the promise may have.
+
+08:48.880 --> 08:51.700
+In our case we just want a console.log
+
+08:52.390 --> 08:54.460
+And now if I run this
+
+08:57.770 --> 09:00.170
+we console log the error.
+
+09:00.210 --> 09:02.250
+Let's just make this a little bit cleaner.
+
+09:02.660 --> 09:06.620
+So that you can see exactly what is happening.
+
+09:09.700 --> 09:14.480
+So again copy and paste.
+
+09:14.560 --> 09:16.220
+There you go we get the error.
+
+09:16.390 --> 09:20.760
+If the throw error happens before, let's say it happens
+
+09:23.430 --> 09:24.150
+above
+
+09:28.170 --> 09:29.610
+and we want to return this
+
+09:32.990 --> 09:43.310
+Well if I move the throw error at the top over here. Save and again copy and paste. Let's clean this up a
+
+09:43.310 --> 09:46.300
+bit and see that we still get the error.
+
+09:46.370 --> 09:56.300
+So .catch catches any errors that may happen between the chains .then which is very very cool.
+
+09:56.290 --> 09:57.990
+All right so I have a little question for you.
+
+09:58.100 --> 10:05.060
+What happens if we do something along this line- let me just go back to what we have before. We don't
+
+10:05.060 --> 10:06.690
+have an error anymore.
+
+10:07.910 --> 10:17.900
+But this time we have the result2 plus the question mark.
+
+10:18.060 --> 10:20.920
+So we're going to add a question mark to that.
+
+10:20.950 --> 10:22.360
+We're going to return that.
+
+10:22.390 --> 10:27.450
+We're going to catch with Console.log error.
+
+10:27.620 --> 10:33.160
+And after that we're going to have a .then 
+
+10:33.950 --> 10:39.270
+result3 and then result3 will have a
+
+10:40.610 --> 10:41.180
+result3
+
+10:42.200 --> 10:43.800
+plus
+
+10:44.780 --> 10:47.190
+let's do another exclamation mark.
+
+10:47.540 --> 10:50.820
+And we want to console log this so again.
+
+10:50.900 --> 10:51.440
+Whoops.
+
+10:52.260 --> 10:55.900
+We're going to console.log
+
+10:57.840 --> 10:59.680
+this all right.
+
+10:59.690 --> 11:00.860
+What do you think is going to happen?
+
+11:00.860 --> 11:02.780
+Let's see.
+
+11:03.010 --> 11:09.530
+We save, copy and paste and look at that.
+
+11:09.540 --> 11:12.790
+We have 'stuffed worked' - or 'Stuff Worked!?!' - haha
+
+11:12.870 --> 11:15.280
+Exclamation questionmark exclamation.
+
+11:15.420 --> 11:20.450
+So '.catch' only runs if something fails in between here.
+
+11:20.490 --> 11:25.840
+But because I placed it before this, if this fails
+
+11:33.210 --> 11:42.140
+- well I don't get the error console. I get an error within our console because we did throw an error, but the
+
+11:42.170 --> 11:44.100
+catch statement never runs.
+
+11:44.480 --> 11:53.750
+So where you put the catch statement is- it's going to check and run if anything before it fails.
+
+11:54.140 --> 11:54.800
+All right.
+
+11:54.800 --> 11:55.440
+Awesome.
+
+11:55.730 --> 11:58.250
+So that's how we create a promise.
+
+11:58.340 --> 12:01.130
+A promise has a resolve and a reject.
+
+12:01.190 --> 12:03.770
+And so far it's only been resolved.
+
+12:03.770 --> 12:05.330
+It's just worked out.
+
+12:05.360 --> 12:06.950
+We've never run the reject.
+
+12:06.950 --> 12:08.320
+We'll do that later on.
+
+12:08.570 --> 12:19.060
+But we see that with a promise we can give it to a variable and run this and do something with it asynchronously.
+
+12:19.280 --> 12:25.730
+When we run .then and get the result and do whatever you want with it we can keep chaining it and
+
+12:25.730 --> 12:27.890
+we can also catch our errors.
+
+12:27.920 --> 12:32.840
+A promise is something that you have now that you can use around your code even though you don't have
+
+12:32.840 --> 12:34.450
+the value just yet.
+
+12:34.610 --> 12:39.230
+You can just assign it to a variable like we did here to a const promise.
+
+12:39.240 --> 12:43.250
+"Now, when would this be a good thing?"
+
+12:43.670 --> 12:48.380
+Well promises are great for asynchronous programming. If you don't remember what that is
+
+12:48.380 --> 12:52.790
+Make sure you check out my video on 'how javascript works' to grasp the concept.
+
+12:53.030 --> 12:58.940
+When you don't want javascript to block the execution of your code like making API calls, grabbing data
+
+12:58.940 --> 13:04.960
+from a database or maybe optimizing an image you use a promise so that the task happens in the back
+
+13:05.690 --> 13:12.800
+when the promise gets resolved or rejected then you'll get that response.
+
+13:12.800 --> 13:16.610
+Now let's show you something else that promises can do.
+
+13:16.610 --> 13:18.750
+That makes them really really powerful.
+
+13:18.890 --> 13:30.840
+Let's say that within here we had another promise a const promise2 and this promise again has
+
+13:30.840 --> 13:33.080
+a resolve.
+
+13:34.810 --> 13:35.380
+reject
+
+13:41.960 --> 13:50.170
+Im going to make this a little bit smaller and this 'resolve, reject' is going to have a setTimeout. So setTimeout
+
+13:50.180 --> 13:56.470
+is a web API it allows us to time out and run something after a few seconds.
+
+13:56.570 --> 13:58.150
+So 'setTimeout()'
+
+13:58.190 --> 14:07.690
+We're going to say "resolve in 100 seconds" or "100 milliseconds" the 'HIII' text
+
+14:10.490 --> 14:11.070
+Okay.
+
+14:11.150 --> 14:12.910
+Don't worry too much about the syntax.
+
+14:12.950 --> 14:19.100
+Essentially this is saying, "Run this and return resolve 'HIII' in 100 millisecond."
+
+14:19.100 --> 14:21.970
+Let's also have another promise.
+
+14:22.870 --> 14:23.740
+Let's say promise3
+
+14:23.740 --> 14:28.610
+and this one resolves in one second.
+
+14:28.730 --> 14:33.010
+And this one's going to say 'POOKIE'.
+
+14:33.080 --> 14:40.250
+And then finally a fourth promise and this fourth promise is going to resolve
+
+14:40.310 --> 14:42.630
+in three seconds.
+
+14:42.770 --> 14:49.280
+And it's going to say 'Is it me you are looking for?'.
+
+14:54.240 --> 14:54.860
+All right.
+
+14:55.030 --> 14:56.650
+So we have these promises.
+
+14:56.650 --> 15:05.470
+Well again a feature that we have is something called 'Promise.all()' and promise.all takes
+
+15:05.470 --> 15:07.480
+an array of promises.
+
+15:07.480 --> 15:20.330
+In our case 'promise' (one), 'promise2', 'promise3' and then lets do 'promise4', that's a lot of promises
+
+15:21.460 --> 15:24.550
+and in here we can do a .then
+
+15:24.930 --> 15:31.160
+And the values will be returned as an array in the order that they were just written down.
+
+15:32.080 --> 15:37.910
+And here we can just console.log values let's save.
+
+15:38.310 --> 15:43.420
+And I'm going to copy this into our console.
+
+15:43.650 --> 15:45.560
+Actually let's just copy and paste.
+
+15:45.570 --> 15:51.600
+All of these, watch the bottom of the screen here as I press enter.
+
+15:53.190 --> 15:59.540
+One, two, three, four, five and we have our result
+
+15:59.700 --> 16:06.870
+Five seconds later. You see here that even though these ones took a lot less well because we did 'promise.all'
+
+16:06.870 --> 16:15.250
+it waited until all the promises were resolved and then logged out the values very cool.
+
+16:15.960 --> 16:29.060
+And by the way, the reason that if I do this: where I assign the variables first and then run 'promise.all'
+
+16:29.140 --> 16:32.610
+the result is instant.
+
+16:32.800 --> 16:36.300
+And that is because we've already run these promises right.
+
+16:36.310 --> 16:43.570
+We've assigned it to a variable and between the time that we copied and pasted this in here these promises
+
+16:43.600 --> 16:46.390
+in the background have been resolved.
+
+16:46.600 --> 16:47.170
+All right.
+
+16:47.170 --> 16:53.410
+Let's finish up with the final example that has some real world applications so that you have an idea
+
+16:53.410 --> 16:55.710
+of when we want to use promises
+
+17:01.840 --> 17:04.710
+I'm going to delete this, refresh.
+
+17:04.790 --> 17:11.680
+Now I have here a list of URLs and these URLs are from a simple API.
+
+17:11.750 --> 17:12.860
+Let me show you.
+
+17:17.500 --> 17:23.120
+Called JSON placeholder and they just give us some end points that we could use such as users that return
+
+17:23.120 --> 17:25.310
+us some JSON data.
+
+17:25.540 --> 17:28.410
+So I have users, posts and albums here.
+
+17:29.670 --> 17:34.310
+And this is very similar to something you do on a Website where you want to grab some information maybe
+
+17:34.320 --> 17:44.390
+from your server from the database with users, posts and albums and let's say that they're all important
+
+17:44.390 --> 17:47.440
+to us for the page for the profile page of the user.
+
+17:47.480 --> 17:54.450
+"How can we grab them all?" Well again using promises we can just to promise.all
+
+17:54.450 --> 17:59.330
+and we can just grab the URLs.
+
+17:59.930 --> 18:03.730
+And in this case we can just map over this so it's an array.
+
+18:05.770 --> 18:18.980
+And with each URL that we grab. We want to- we want to fetch again a web API to grab URLs make
+
+18:18.980 --> 18:24.250
+an AJAX call to the URL
+
+18:24.330 --> 18:32.730
+.then we want to run the response through the response.json again
+
+18:32.800 --> 18:34.520
+That just comes with fetch
+
+18:34.550 --> 18:35.470
+that you need to do
+
+18:38.320 --> 18:43.350
+and then from here we can do a .then
+
+18:43.580 --> 18:48.320
+And this is going to return us remember an array because we're getting a promise.
+
+18:48.330 --> 18:55.110
+All these fetches it's going to return results these results.
+
+18:55.150 --> 18:57.720
+Well for now let's just console.log 
+
+18:57.720 --> 19:01.250
+them and we'll do results.
+
+19:01.630 --> 19:02.350
+The first one
+
+19:05.850 --> 19:16.170
+the second one and the third one. Let's see if that works. I'm going to copy all of these.
+
+19:16.590 --> 19:18.710
+Let's go back to our page.
+
+19:19.500 --> 19:23.130
+Copy and paste our code waiting a bit.
+
+19:23.130 --> 19:24.760
+And there you go.
+
+19:24.840 --> 19:26.490
+There's our response.
+
+19:26.580 --> 19:35.120
+We see that we've got undefine here because I put three here instead of two. Let's do that. We copy and
+
+19:35.120 --> 19:40.760
+paste this again going to refresh the page and there you go.
+
+19:40.790 --> 19:48.680
+We have our users we have our posts and then we also have our albums.
+
+19:48.690 --> 19:49.730
+Very cool.
+
+19:50.920 --> 19:56.320
+Let's say that something fails here maybe we misspelled one of the URLs.
+
+19:56.350 --> 19:58.990
+So the users API won't work.
+
+19:59.290 --> 20:03.490
+Let's add a .catch and console.log
+
+20:09.910 --> 20:22.170
+error. If I copy and paste this refresh and again run this through the console look at that we get an error. With
+
+20:22.170 --> 20:28.320
+promised.all if everything fails because we need users, posts and albums for our entire page on
+
+20:28.320 --> 20:29.420
+our website.
+
+20:29.490 --> 20:37.980
+We get a 'reject' from the promise and we can catch it and we can do whatever we want with this error.
+
+20:38.010 --> 20:39.040
+Very cool.
+
+20:39.180 --> 20:40.810
+All right so let's fix that.
+
+20:40.830 --> 20:42.460
+So it's working again.
+
+20:42.800 --> 20:43.550
+And there you go.
+
+20:43.590 --> 20:47.100
+That's why promises are so beneficial.
+
+20:47.100 --> 20:50.750
+We're able to do something like this in a very clean way.
+
+20:50.760 --> 20:56.060
+Remember the fetch simply returns
+
+20:56.200 --> 21:00.970
+A promise. If I just run fetch here
+
+21:01.000 --> 21:04.100
+You see that I get a promise that's pending.
+
+21:04.180 --> 21:12.370
+And by adding a .then we are answering to whatever the promise returns with whether it's resolved
+
+21:12.370 --> 21:13.260
+or rejects.
+
+21:13.390 --> 21:16.500
+And get to manipulate the debt.
+
+21:16.900 --> 21:24.130
+So at their most basic promises are a bit like event listeners except a promise can only succeed or
+
+21:24.130 --> 21:27.850
+fail once it cannot succeed or fail twice.
+
+21:27.940 --> 21:31.860
+And this is extremely useful for things that are asynchronous
+
+21:31.870 --> 21:39.580
+Success and failure such as API calls because we're less interested in the exact time something became
+
+21:39.580 --> 21:43.490
+available and more interested in reacting to the outcome.
+
+21:43.600 --> 21:48.130
+So we're reacting to something that happens asynchronously.
+
+21:48.150 --> 21:56.700
+So again let's remember what we started with a promise is an object that may produce a single value
+
+21:56.790 --> 22:06.020
+sometime in the future either resolved or rejected with a reason why it was rejected and a promise maybe
+
+22:06.120 --> 22:18.590
+in one of three possible states it can be fulfilled, rejected or pending. See that wasn't so bad was it now
+
+22:18.590 --> 22:23.970
+go off and practice some promises and see all their power.
+
+22:24.190 --> 22:25.950
+I'll see you in the next one. Bye-bye.

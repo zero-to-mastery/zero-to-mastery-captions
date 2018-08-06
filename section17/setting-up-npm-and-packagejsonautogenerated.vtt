@@ -1,0 +1,263 @@
+WEBVTT
+
+00:01.020 --> 00:06.600
+Let's talk about how we can set up NPM on our computers so we can start using it. If we wanted to
+
+00:06.600 --> 00:08.740
+learn react, well,
+
+00:08.790 --> 00:13.990
+React is actually a package created by Facebook that we're going to be using in the next section.
+
+00:14.010 --> 00:16.830
+We need to get it and then how do we do that.
+
+00:16.890 --> 00:25.320
+First thing we need is this. We need to download Node.js which comes with NPM you can see over here that
+
+00:25.320 --> 00:31.830
+the Latest LTS, which means Long Term Support version 8.9.1 includes NPM and
+
+00:31.830 --> 00:33.670
+you have the version numbers here as well.
+
+00:33.690 --> 00:37.130
+So for Windows you can install here, Mac here,
+
+00:37.170 --> 00:40.100
+Anything else you can use the source code as well.
+
+00:40.170 --> 00:46.710
+You simply click on your operating system of choice and you'll have your node package install
+
+00:46.800 --> 00:52.510
+You simply click and it will install everything for you and take you through the whole process.
+
+00:52.560 --> 00:53.550
+This should be very quick.
+
+00:53.550 --> 00:55.140
+You can do it in less than a minute.
+
+00:55.350 --> 00:57.400
+Now why do we need Node
+
+00:57.420 --> 01:01.360
+And what is Node is probably what's going through your head right now.
+
+01:01.470 --> 01:03.470
+And don't worry we'll get through it.
+
+01:03.480 --> 01:10.560
+The simple version of it is that Node allows us to run JavaScript outside of the browser.
+
+01:10.560 --> 01:17.400
+I mean up until this point every time we wanted to use JavaScript we either wrote it here in the console
+
+01:17.910 --> 01:24.090
+or we attached a script file to HTML and loaded the HTML file in the browser.
+
+01:24.360 --> 01:32.460
+As you know each browser has a JavaScript engine such as the V8 engine that Chrome has. But that was
+
+01:32.460 --> 01:36.350
+the only thing that was able to read JavaScript. Outside of a browser,
+
+01:36.360 --> 01:43.800
+we need something to read it to understand it and Node.js was created actually using the V8 engine
+
+01:44.190 --> 01:51.720
+that the Google Chrome browser uses to read JavaScript and run JavaScript outside of the browser.
+
+01:52.730 --> 01:55.290
+But like I said, we'll get into that later.
+
+01:55.310 --> 01:58.690
+For now let's download
+
+01:58.740 --> 01:59.370
+Node.js
+
+01:59.630 --> 02:02.890
+which automatically installs NPM for you.
+
+02:03.110 --> 02:10.070
+And don't worry in the next section I have resources for you to go through this step line by line both
+
+02:10.070 --> 02:14.710
+for Windows and Mac and also some troubleshooting in case you run into errors.
+
+02:14.750 --> 02:19.280
+Now after you've installed everything there is a simple way to check that everything is working.
+
+02:20.340 --> 02:31.170
+You just go to your terminal and you type in 'npm -v' and this should give you a version number.
+
+02:31.290 --> 02:36.510
+If that didn't work, well then go through the steps that I've listed for you and you should be able to
+
+02:36.510 --> 02:37.570
+get it.
+
+02:37.590 --> 02:42.240
+So you want to make sure that if you're watching this video and going on through the rest of the course
+
+02:42.240 --> 02:47.290
+when we're building our projects, you want to make sure that NPM our version is higher than
+
+02:47.320 --> 02:49.350
+5.5.1
+
+02:49.560 --> 02:51.720
+Otherwise it might not work.
+
+02:51.870 --> 02:58.650
+And we also want to make sure that we have Node and we simply do 'node -v'
+
+02:58.830 --> 03:04.540
+And again we want to make sure that our Node version is higher than 8.9.1
+
+03:04.540 --> 03:07.950
+Now let's say that for some reason these are lower.
+
+03:07.970 --> 03:13.030
+Well, Node -you simply go to the Web site and they'll have the latest version for you which should be
+
+03:13.120 --> 03:14.920
+fine with this.
+
+03:14.950 --> 03:24.780
+With NPM, if for some reason this is lower, you can simply run 'npm install npm@latest -g'
+
+03:25.000 --> 03:28.630
+I don't think you'll run into there so you should be good.
+
+03:28.660 --> 03:34.690
+Finally, while running through NPM commands which is why we'll use to download things and I'll show you
+
+03:34.690 --> 03:36.410
+how to do that in the next video.
+
+03:36.490 --> 03:43.200
+You might run into some permission errors where you're running a command like 'npm install react' for example.
+
+03:43.210 --> 03:49.540
+When you press enter you might get some permission errors. In that case,
+
+03:49.540 --> 03:56.770
+that means that your user whatever you're logged into to your computer doesn't have permission rights.
+
+03:56.770 --> 04:02.520
+Maybe they're not the administrator at all the computer in which case you'll have to run these commands
+
+04:02.530 --> 04:12.910
+as the administrator which simply means running 'sudo npm install react' and it'll ask for your username
+
+04:12.910 --> 04:13.770
+and password.
+
+04:13.930 --> 04:15.220
+you're going to have links to this after this video.
+
+04:15.220 --> 04:20.950
+If you're on Windows there is a different command and sudo again both found and the
+
+04:20.970 --> 04:23.990
+resources after this video.
+
+04:24.000 --> 04:24.230
+All right.
+
+04:24.240 --> 04:27.840
+So we have NPM and Node installed.
+
+04:27.840 --> 04:29.410
+Everything looks good.
+
+04:29.460 --> 04:34.590
+How can we start using NPM and even getting that package.json file that I keep talking about.
+
+04:34.620 --> 04:44.390
+It's very easy all you do is 'npm init' and any time you start a project you want to do the 'npm init'
+
+04:44.420 --> 04:49.490
+And this command creates a package.json file in your directory.
+
+04:49.520 --> 04:51.530
+So we have the background generator here.
+
+04:51.620 --> 04:57.280
+You'll see that after I run this command, it'll ask me a few questions and then package.json file
+
+04:57.320 --> 04:59.070
+will appear here.
+
+04:59.090 --> 05:02.970
+Let's go through it. And you can see over here it's going to walk me through the set up.
+
+05:03.110 --> 05:05.530
+I can name my package if I want.
+
+05:05.570 --> 05:11.050
+In this case I'm just going to keep pressing Enter because unless you are publishing an NPM package.
+
+05:11.270 --> 05:14.380
+You don't really need to worry about it, so I'm just going to keep pressing enter.
+
+05:14.390 --> 05:19.640
+But you can see I can add a few things about the author of the license of the project.
+
+05:21.200 --> 05:28.610
+I just keep pressing enter. And I don't know if you noticed but if I clear here and on the left,
+
+05:28.610 --> 05:33.520
+look at that, we have package.json file.
+
+05:33.570 --> 05:35.140
+Let's open it up.
+
+05:35.250 --> 05:42.190
+I'm going to minimize this a little bit so we can see it clearly and we have package.json.
+
+05:42.200 --> 05:43.400
+There you go.
+
+05:43.520 --> 05:45.650
+We have our name "background-generator"
+
+05:45.830 --> 05:50.790
+It's version 1.0.1, main is "script.js"
+
+05:51.190 --> 05:56.320
+It actually finds out where our main JavaScript file is and we have a couple of other things that we'll
+
+05:56.320 --> 05:58.280
+go through in the rest of the section.
+
+05:58.390 --> 06:02.880
+But one question you might be having is 'What is .json?'
+
+06:02.880 --> 06:05.410
+Up until this point, we've had
+
+06:05.570 --> 06:07.600
+.html .js  .css
+
+06:07.630 --> 06:11.190
+Well, json is a file format.
+
+06:11.230 --> 06:19.150
+You can see over here on the right hand side of the bottom that Sublime Text says this is a JSON(NPM) file.
+
+06:20.700 --> 06:28.770
+it's just a format and it looks kind of like a JavaScript object except for the fact that it has double
+
+06:28.770 --> 06:31.350
+quotes for properties.
+
+06:31.350 --> 06:37.580
+All right with this comes a lot of power so I'm excited to show you what we can do with this.
+
+06:37.610 --> 06:38.750
+I'll see you in the next one.
+

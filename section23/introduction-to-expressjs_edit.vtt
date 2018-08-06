@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.760 --> 00:07.620
+Welcome back as I mentioned before developers are really really good at making sure they don't keep
+
+00:07.620 --> 00:09.630
+doing the same thing over and over.
+
+00:09.900 --> 00:15.940
+And if there's anything that is done over and over they build a tool for it so that it becomes simpler.
+
+00:17.810 --> 00:20.170
+Well, building servers was one of them.
+
+00:20.170 --> 00:23.290
+It's something that everybody uses.
+
+00:23.450 --> 00:29.360
+So people use libraries just like we used React on the front-end on top of JavaScript to make our
+
+00:29.360 --> 00:34.260
+lives easier and build faster more robust servers.
+
+00:34.270 --> 00:39.690
+And there many libraries that people use with Node to create a server.
+
+00:40.340 --> 00:47.630
+But the most popular and hands-down the best one right now is Express and I have here the State of JavaScript 2017
+
+00:47.630 --> 00:54.290
+survey - it's a famous survey that gets done every year at the end of the year that asks developers
+
+00:54.350 --> 00:57.740
+what their favorite tools are what front-end tools they use.
+
+00:57.740 --> 00:59.880
+And I highly recommend that you check it out.
+
+01:00.050 --> 01:07.910
+But you can see here that for the back-end, the library that is most popular is Express, and this purple bar
+
+01:07.910 --> 01:10.710
+means 'I've used it before and would use it again'.
+
+01:11.430 --> 01:17.500
+There's other ones like Koa, Meteor, Hapi, but their usage is very very small.
+
+01:17.510 --> 01:24.370
+Express is just tried and tested; there's plenty of tools and information online for it
+
+01:24.370 --> 01:29.140
+so if you ever get stuck you're able to find an answer to your issue right away.
+
+01:29.260 --> 01:33.160
+So Express is the way to go in 2018.
+
+01:33.160 --> 01:40.130
+So let's learn some Express and show you how much easier it becomes to create our own server.
+
+01:41.610 --> 01:48.510
+So we're going to delete the server that we built previously in the last video and install Express.
+
+01:48.860 --> 01:55.680
+Let's do 'npm install' and again through npm we have the Express package.
+
+01:58.930 --> 02:01.620
+And now we have Express available to us.
+
+02:01.660 --> 02:03.070
+So let's grab it.
+
+02:03.110 --> 02:13.230
+The way you create an Express server is very simple: you simply do 'const express = require('express');'.
+
+02:13.550 --> 02:25.800
+We have to do a 'const app' and then to create that app, to run Express, we simply do 'express()'
+
+02:25.970 --> 02:27.650
+And then finally
+
+02:27.650 --> 02:32.710
+'app.listen(3000)' and that's it.
+
+02:32.730 --> 02:35.710
+We have Express running.
+
+02:36.010 --> 02:44.920
+Let me do 'npm start' and we see that our Node server is running.
+
+02:45.150 --> 02:51.140
+And if I go back to localhost:3000 I have 'Cannot GET'.
+
+02:51.370 --> 02:54.150
+And that is because well again we're not doing anything.
+
+02:54.470 --> 03:01.580
+But in just three lines we have a server and I want to show you that Express has great
+
+03:04.510 --> 03:09.600
+a great guide to getting started and a ton of information on how to use it.
+
+03:10.680 --> 03:14.120
+And documentation for it that you can check out on your own.
+
+03:14.250 --> 03:15.630
+But for now lets build our own.
+
+03:18.440 --> 03:20.890
+Well express is really really good at doing routing.
+
+03:21.030 --> 03:29.690
+If you remember in our local host we got 'Cannot GET'. To do a GET request with Express we simply do
+
+03:29.930 --> 03:34.450
+'app.get()' â in the first parameter is the path; we'll just do the route path ['/'].
+
+03:36.710 --> 03:43.580
+And the second parameter receives a request and a response and in Express instead of writing everything
+
+03:43.580 --> 03:56.620
+out, the common way of doing it is doing 'req' and 'res' and in here we can say 'res.send()' and we'll
+
+03:56.720 --> 04:06.780
+just send a 'hellooooo' just like we did in our previous video where we use the HTTP module that comes with Node.
+
+04:06.920 --> 04:19.750
+So let's check that; let's see if that works. I'm going to save, refresh and I get 'hellooooo'. If I open up the console
+
+04:19.750 --> 04:28.560
+here and the Network tab and I refresh again I see that the response is 'hellooooo'.
+
+04:28.690 --> 04:40.520
+We see 'Content-Type: text/html' that was converted automatically for us. I can also instead of send[ing]
+
+04:40.730 --> 04:43.710
+just an HTML.
+
+04:43.880 --> 04:47.150
+So instead of doing something like '<h1>'
+
+04:49.990 --> 04:51.010
+and '</h1>'
+
+04:54.400 --> 05:06.080
+which gives us an <h1> 'Hellooooo' I can also now send JSON. 'const user' again and this time the user name will
+
+05:06.080 --> 05:08.300
+be Sally
+
+05:13.590 --> 05:23.470
+and her hobby will be soccer and we need to add an '=' here and then pass in 'user'
+
+05:26.370 --> 05:31.430
+If I save that and go back and refresh. Look at that!
+
+05:31.780 --> 05:37.180
+It automatically does the 'JSON.stringify()' for me and returns
+
+05:37.280 --> 05:46.000
+a JSON Content-Type an 'application/json' Content-Type with the response that is JSON. Very cool. So you
+
+05:46.000 --> 05:49.400
+can see the power of Express even just from this simple example.
+
+05:49.690 --> 05:56.420
+It takes away a lot of the repetition and makes our life a whole lot easier.
+
+05:56.440 --> 06:01.990
+Now we've only done GET here but you can also do POST requests.
+
+06:01.990 --> 06:05.920
+So for example if I did 'post' '/profile', well
+
+06:06.190 --> 06:11.440
+now if I refresh I get an error because
+
+06:14.390 --> 06:19.410
+because now I've made the Request Method, which was GET from the browser.
+
+06:19.640 --> 06:30.950
+But here I only accept a POST request from 'profile'. If I do '/profile' here
+
+06:35.620 --> 06:45.060
+I get 'Cannot GET /profile' because even though we are going to the proper URL now we're doing a GET request.
+
+06:45.070 --> 06:46.750
+Any time we refresh a browser
+
+06:46.780 --> 06:48.290
+it's a GET request.
+
+06:48.790 --> 06:56.530
+And in order to do that we need to actually send some data over and I'll show you how to do that in
+
+06:56.620 --> 06:58.200
+the next couple of videos.
+
+06:58.240 --> 07:07.890
+But just to show you how Express works I can keep adding these routes - let's do 'get' a '/profile' that returns
+
+07:12.790 --> 07:15.460
+"getting profile".
+
+07:15.640 --> 07:17.110
+And if I do a
+
+07:21.230 --> 07:26.760
+another 'get' this time to the 'root' url [/] and this one I'll just say "getting root"
+
+07:29.580 --> 07:30.630
+if I save this now
+
+07:30.620 --> 07:43.340
+and refresh '/profile' I'll get a '200 OK' with the response of 'getting pro and if I do no '/profile'
+
+07:43.340 --> 07:45.830
+and just the 'root' url I'll I get 'root'.
+
+07:48.950 --> 07:53.780
+And the way Express works is it checks each one line by line.
+
+07:53.790 --> 08:01.670
+So for example it will check, "Hey did the GET request have the 'root' url [/]?".
+
+08:02.100 --> 08:05.160
+"Did the GET request have '/profile'.
+
+08:05.160 --> 08:07.760
+Did the POST request have '/profile'.
+
+08:07.980 --> 08:10.150
+And if it matches any of these
+
+08:10.260 --> 08:14.640
+well, it will run whatever the function inside of it is.
+
+08:14.940 --> 08:28.280
+If I do a url that doesn't exist I get a '404 Not Found' because well we did a GET request to this url
+
+08:28.280 --> 08:33.660
+that doesn't exist. So using this we can use the GET method
+
+08:33.670 --> 08:41.830
+the POST method, the PUT method and the DELETE method that we're going to actually demonstrate in the next
+
+08:41.830 --> 08:43.210
+couple of videos.
+
+08:43.210 --> 08:49.990
+But as we can see it's a simple matter of saying if you go to this route do this if you go to this one
+
+08:50.200 --> 08:54.510
+do this and everything is just logical and trickles all the way down.
+
+08:56.040 --> 08:58.480
+All right I'll see you in the next video.
+
+08:58.480 --> 08:58.930
+Bye-bye.

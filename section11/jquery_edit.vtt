@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.510 --> 00:07.440
+When I teach students for the first time DOM manipulation and events it's always overwhelming.
+
+00:07.440 --> 00:10.230
+It takes a few tries to really get it.
+
+00:10.320 --> 00:16.620
+And one thing you may have noticed in the previous videos is that there were a lot of methods that you
+
+00:16.620 --> 00:23.990
+learned and the Dom has a lot of them but you constantly have to check and see if it was compatible
+
+00:23.990 --> 00:26.450
+with the browsers to make sure it works.
+
+00:26.450 --> 00:33.860
+So we used websites like can I use dot com to constantly check that we can use those properties.
+
+00:33.860 --> 00:37.000
+It was a tedious process a few years ago.
+
+00:37.010 --> 00:43.320
+The support for the selectors and DOM manipulation techniques were even worse.
+
+00:43.400 --> 00:51.540
+For example query selector now is all good but a few years ago only a few browsers have them.
+
+00:51.560 --> 00:56.510
+So what did people do if it was even worse than it is now.
+
+00:56.970 --> 01:01.280
+Well there was a library that was created that solved this huge problem.
+
+01:02.600 --> 01:05.000
+And that was jQuery.
+
+01:05.060 --> 01:07.230
+You might have heard of it.
+
+01:07.290 --> 01:16.200
+It's one of the most popular libraries for JavaScript. In 2006 J.A.G. was introduced to the Web development
+
+01:16.200 --> 01:17.010
+world.
+
+01:17.040 --> 01:23.970
+It was a library which means it's just JavaScript a JavaScript file run by a few people that added a
+
+01:23.970 --> 01:27.660
+little bit more to the language so you can do more things.
+
+01:27.680 --> 01:31.140
+You had more properties more functions.
+
+01:31.140 --> 01:37.730
+Its main goal was to make DOM manipulation easier and compatible with all browsers.
+
+01:37.960 --> 01:41.820
+So they took care of the hard work and browser compatibility issues.
+
+01:41.830 --> 01:42.860
+Isn't that nice of them?
+
+01:43.940 --> 01:49.940
+Let's check this W3C example of jQuery.
+
+01:50.080 --> 01:59.860
+You can see over here that they're loading a script tag with a CDN that is pointed at a jQuery minified
+
+02:00.070 --> 02:05.860
+JavaScript and jQuery is just this snippet of code.
+
+02:05.970 --> 02:16.180
+It always has the dollar sign document dot ready which means, when the document the DOM object is ready
+
+02:16.230 --> 02:20.080
+run this function and inside of it you are write all this
+
+02:20.100 --> 02:20.940
+jQuery.
+
+02:21.150 --> 02:24.420
+So in this case you can see that we want to select P.
+
+02:24.420 --> 02:30.800
+This was a jQuery specific syntax and on click run this function.
+
+02:31.020 --> 02:34.940
+So it was the exact same thing as when we did p
+
+02:34.950 --> 02:44.340
+Dot addEventListener and then we would do click and then do some sort of a function.
+
+02:44.560 --> 02:51.610
+So you can see it made things a little bit cleaner to do and you can do things like this dot hide.
+
+02:51.690 --> 02:54.630
+So if I click over here it hides.
+
+02:54.780 --> 02:57.150
+It hides it hides.
+
+02:57.210 --> 02:58.360
+That's pretty nice.
+
+02:58.770 --> 03:01.960
+But jQuery had a one issue.
+
+03:02.110 --> 03:04.690
+It made the code very imperative.
+
+03:04.810 --> 03:06.600
+And what does that mean?
+
+03:06.700 --> 03:09.670
+It's a word you're going to hear a lot when you become a developer.
+
+03:09.760 --> 03:13.560
+It means that you have to tell the program exactly what to do.
+
+03:13.720 --> 03:21.160
+One by one this may not seem like a bad idea but when your websites get big and complicated it creates
+
+03:21.160 --> 03:22.550
+a huge mess.
+
+03:23.150 --> 03:30.140
+One action is dependent on one action which is dependent on another action which is dependent on another
+
+03:30.140 --> 03:30.830
+action.
+
+03:30.860 --> 03:33.730
+Now you lose track of what is happening.
+
+03:34.570 --> 03:40.420
+More errors and more bugs into your codebase and it becomes really really complicated.
+
+03:40.420 --> 03:41.490
+Let me show you an example.
+
+03:42.970 --> 03:50.320
+We have a simple jQuery code here where we say again document ready function and then we're selecting
+
+03:51.070 --> 03:54.990
+article left section when the click happens.
+
+03:55.000 --> 04:03.770
+Then we check this has a class and we remove class and I mean this doesn't look that bad.
+
+04:04.660 --> 04:12.100
+But it got to a point where you had code like this called pyramid of Doom where if this happens you
+
+04:12.100 --> 04:17.680
+do this and if this happens you do this and if this happens you do this and you can imagine if there
+
+04:17.680 --> 04:24.130
+was another thing that was listening to another event that might have unexpected consequences because
+
+04:24.250 --> 04:29.760
+this is running and the user is at the same time interacting with the website.
+
+04:29.830 --> 04:36.910
+And you can see here how much of a mess it is I mean this is this is just an example but you can see
+
+04:37.150 --> 04:38.850
+that it's very imperative.
+
+04:38.860 --> 04:45.940
+This happens and do this and within it if that happens then do this and so on and so forth.
+
+04:46.210 --> 04:49.520
+It creates a big mess when you have big websites.
+
+04:49.620 --> 04:55.810
+jQuery was great at the time he made JavaScript really popular because it was finally easy to make interactive
+
+04:55.840 --> 04:58.140
+websites and it did a lot of great things for the industry.
+
+04:58.140 --> 05:03.380
+However as time progressed people found new and better ways to do things.
+
+05:03.550 --> 05:08.450
+Web browsers adapted new things like querySelector.
+
+05:08.740 --> 05:19.330
+And we even have a website now that compares what you can do with simple JavaScript and HTML and what
+
+05:19.570 --> 05:23.860
+you can do with jQuery and most of the things you can do both.
+
+05:23.860 --> 05:29.850
+And it's not that different as time progressed people found new and better ways to do things.
+
+05:30.730 --> 05:36.070
+You still have jQuery being used today but there are fewer and fewer people starting projects that
+
+05:36.070 --> 05:38.010
+are using jQuery right now.
+
+05:38.200 --> 05:43.300
+As a matter of fact the number of job postings with jQuery as a requirement has really gone down
+
+05:43.300 --> 05:50.130
+and there's rather a negative view of developers who only know jQuery this is not to bash a library.
+
+05:50.130 --> 05:52.380
+It was an important part of JavaScript growth.
+
+05:52.740 --> 05:56.340
+But in 2018 it isn't that useful of a skill.
+
+05:56.340 --> 06:04.150
+That is why in this course we are learning React. React is a library that solves the huge problem of
+
+06:04.150 --> 06:04.960
+jQuery.
+
+06:04.990 --> 06:11.650
+Instead of being imperative it's declarative. We will get into more of the benefits and what that means
+
+06:12.130 --> 06:13.520
+when we get to the section.
+
+06:13.780 --> 06:21.000
+But having a historical perspective of where we were and where we are now is important.
+
+06:21.340 --> 06:23.130
+So remember this.
+
+06:23.470 --> 06:27.760
+First we had HTML, then CSS and JavaScript.
+
+06:28.030 --> 06:31.360
+Then came jQuery to make our JavaScript easier.
+
+06:31.360 --> 06:36.540
+Then came more libraries that made JavaScript even more fun and easy to work with.
+
+06:37.490 --> 06:42.320
+From now on we won't be using DOM manipulation techniques we have learned in this section.
+
+06:42.320 --> 06:46.250
+Bummer. I know but I'll show you what we can do better.
+
+06:46.310 --> 06:47.620
+So stay tuned.
+
+06:47.620 --> 06:49.760
+It gets way more fun after this.
+
+06:50.390 --> 06:52.280
+I'll see you in the next one. Bye bye.

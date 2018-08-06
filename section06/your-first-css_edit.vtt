@@ -1,0 +1,511 @@
+WEBVTT
+
+00:01.010 --> 00:06.510
+It's time to flaunt your inner designer because we're about to learn some CSS.
+
+00:07.230 --> 00:10.600
+To start off I want to show you this website; if you look at it,
+
+00:10.620 --> 00:15.740
+well it's quite quite pretty.
+
+00:15.750 --> 00:17.610
+Look at that; that's really nice.
+
+00:17.610 --> 00:21.440
+Now hopefully in the future we can create something like this.
+
+00:21.480 --> 00:25.450
+But I want to show you what this website will look like, without CSS.
+
+00:27.610 --> 00:28.150
+Here it is.
+
+00:32.340 --> 00:33.580
+Pretty impressive, right?
+
+00:33.780 --> 00:39.170
+With just CSS you'll be able to create something like this.
+
+00:39.200 --> 00:40.460
+So let's get started, shall we?
+
+00:43.430 --> 00:50.360
+I've created here for us a simple website – nothing that we haven't seen before; you can see that I
+
+00:50.360 --> 01:00.170
+have created semantic tags with 'header' tag, 'nav' tag, an unordered list [ul] that has some links, an 'h2' tag and a 'p' tag that's
+
+01:00.170 --> 01:03.250
+wrapped in another semantic tag called 'section'.
+
+01:03.700 --> 01:03.930
+OK.
+
+01:03.950 --> 01:10.970
+So again nothing crazy; if I go to the 'About' page it's the exact same thing except for the About 'li'
+
+01:11.060 --> 01:12.170
+doesn't have an anchor tag.
+
+01:12.410 --> 01:14.610
+And then the same with ‘Login’.
+
+01:14.620 --> 01:23.880
+OK so let's talk about CSS. The way that we would add CSS to something like this is ... well we would create a
+
+01:23.880 --> 01:24.750
+CSS file.
+
+01:24.870 --> 01:25.960
+So let's do that.
+
+01:26.010 --> 01:30.190
+I'm going to create a new file that I'm going to save.
+
+01:30.360 --> 01:34.590
+Let's call it 'style.css'.
+
+01:34.830 --> 01:44.100
+If I save that you'll see at the bottom over here that Sublime Text now has CSS as the file type.
+
+01:44.100 --> 01:45.350
+The rules with CSS are
+
+01:45.360 --> 01:46.650
+very simple.
+
+01:46.710 --> 01:56.900
+We essentially have a selector and then we have the squiggly brackets and within it we put our property,
+
+01:57.930 --> 02:02.850
+colon and then value, and then we have this special character as well [semi-colon] at the end.
+
+02:02.940 --> 02:11.470
+And and that is pretty much CSS. You know this, and you can pretty much write CSS – just like HTML, just a couple
+
+02:11.470 --> 02:13.130
+of syntactic rules.
+
+02:13.270 --> 02:16.330
+And once you get used to it, it's very very simple.
+
+02:16.750 --> 02:22.030
+But obviously this doesn't really mean anything so let's write actual code here.
+
+02:22.120 --> 02:27.140
+I'm going to comment that out by again doing 'Command /' in Sublime Text.
+
+02:27.220 --> 02:31.050
+You can see that the commenting is different than in HTML.
+
+02:31.390 --> 02:40.690
+And let's say that we want to make this 'Home' text red – the way that we would do it is – we want to select what's
+
+02:40.690 --> 02:42.520
+called the selector.
+
+02:42.550 --> 02:47.160
+So here we want to say that the 'h2', we want that to be red.
+
+02:47.170 --> 02:50.850
+So all I would say is: 'h2', curly brackets.
+
+02:50.920 --> 02:56.790
+And then within here I want to say the property; I want to change the color to the value that is red.
+
+02:58.180 --> 03:07.950
+So if I say that, and refresh, well, nothing happens, and that's obvious, right? Because how does this file
+
+03:08.310 --> 03:10.860
+know that this file exists?
+
+03:10.860 --> 03:12.170
+We have to link it somehow.
+
+03:12.390 --> 03:18.870
+And we do that in the 'head' and we haven't talked too much about the 'head' tag element in the HTML section,
+
+03:19.350 --> 03:27.940
+but by now you can probably tell that 'head' tag just contains information about what the page needs.
+
+03:27.990 --> 03:35.910
+Maybe not the stuff that we see on a web page other than the title, but 'meta' tags and information that
+
+03:35.910 --> 03:38.570
+we need for the website. OK.
+
+03:38.780 --> 03:50.140
+So in here we can actually link to this stylesheet that we call 'style.css' with a 'link' tag.
+
+03:50.140 --> 03:55.830
+This 'link' tag allows us to link this HTML file to something else.
+
+03:55.990 --> 03:59.080
+And again Sublime Text has something very useful here.
+
+03:59.080 --> 04:03.210
+If I hit 'Tab', look at that: it auto-fills it for me.
+
+04:03.240 --> 04:07.620
+These are the standard attributes that you'll see to link to CSS.
+
+04:07.710 --> 04:11.690
+So you just have to get used to it and eventually it'll become second nature.
+
+04:11.700 --> 04:18.600
+So we have 'rel' here, which is the added attribute for 'relation' it just specifies what relationship
+
+04:18.750 --> 04:23.310
+this link will have, and we have the default stylesheet and then for the type,
+
+04:23.310 --> 04:27.250
+this is the media type, we want to say that it's a text CSS file.
+
+04:27.270 --> 04:33.810
+We're essentially telling the HTML, "Hey just a heads up – we're linking to a CSS file here". And then the 'href' –
+
+04:33.840 --> 04:37.260
+this should be familiar. We're going to link to 'style.css'.
+
+04:37.300 --> 04:48.390
+So if I type in 'style.css' and save, let's refresh, turns red.
+
+04:48.600 --> 04:56.130
+And just to let you know that 'index.html' is in the same folder as 'style.css' – we can check
+
+04:56.130 --> 04:57.170
+it over here.
+
+04:57.180 --> 05:03.600
+If I click on Exercise, you see that yup, I have 'style.css' with 'index.html'.
+
+05:06.270 --> 05:06.910
+Perfect.
+
+05:07.210 --> 05:07.590
+OK.
+
+05:07.620 --> 05:13.510
+Now what if we also want to make the paragraph over here a separate color as well.
+
+05:13.770 --> 05:19.640
+Well again we would do the selector and then we'll do color ... let's do 'pink'.
+
+05:19.780 --> 05:28.430
+I save, refresh, and it's pink. Hopefully you can see that. You also see here that Sublime Text does some really
+
+05:28.430 --> 05:30.070
+nice coloring for us.
+
+05:30.170 --> 05:36.380
+So if for example I put a property that doesn't exist like a misspelled color, well you see that it
+
+05:36.380 --> 05:38.730
+doesn't highlighted properly with the blue color?
+
+05:38.870 --> 05:40.520
+And you know that you've made a mistake. Again,
+
+05:40.550 --> 05:42.480
+another great feature of Sublime Text.
+
+05:42.650 --> 05:46.410
+So 'CSS' – what does it actually stand for?
+
+05:46.490 --> 05:52.400
+It stands for Cascading Style Sheets, and 'style sheets' – that makes sense – that we're creating
+
+05:52.400 --> 05:54.910
+style sheets, but what does 'cascading' mean?
+
+05:55.400 --> 06:03.190
+Well cascading means that it always takes the selector that is at the end.
+
+06:04.170 --> 06:05.700
+And that's simplified terms.
+
+06:05.700 --> 06:08.310
+But I want to demonstrate for you what that means.
+
+06:08.340 --> 06:16.950
+So let's say at the bottom over here I do this again – paragraph – I want 'color' to be green. Well if I save
+
+06:16.950 --> 06:18.550
+this what do you think will happen?
+
+06:18.570 --> 06:20.920
+Let's refresh and see.
+
+06:21.030 --> 06:22.090
+It turns green.
+
+06:22.290 --> 06:25.510
+And why is that? Well because it's cascading.
+
+06:25.650 --> 06:28.940
+It's saying, "Okay I'll set 'h2' to red."
+
+06:29.370 --> 06:29.790
+OK.
+
+06:29.790 --> 06:37.500
+"I'll set 'paragraph' to pink", and then it says, "OK I'll set 'p' to green". So you can see here,
+
+06:37.530 --> 06:45.700
+as it trickles down and cascades it takes the last input that it receives for a specific selector.
+
+06:45.810 --> 06:50.760
+We'll get more into the cascading effects of CSS in a later video.
+
+06:50.760 --> 06:54.560
+But I want you to understand the basic concept around it.
+
+06:54.780 --> 06:55.160
+OK.
+
+06:55.320 --> 06:58.230
+I also wanted to show you something cool that you can do with Chrome.
+
+06:58.230 --> 07:02.640
+And we did this in the first couple of video series but now you'll actually understand what it means.
+
+07:02.640 --> 07:09.930
+So again 'View', 'Developer', 'Developer Tools' and from now on I'll be using this shortcut to open it, and you'll
+
+07:09.930 --> 07:11.320
+be able to do it as well.
+
+07:12.920 --> 07:18.950
+And if you remember we have our style tab, and if we click on the style tab we have the HTML on the left
+
+07:19.320 --> 07:22.560
+style's over here and nothing for the styles.
+
+07:22.760 --> 07:29.610
+But if I now go into my Home and I click on that, it will show you 'color: red'.
+
+07:30.660 --> 07:39.330
+So Google Chrome allows us to see our CSS styles so I can even add stuff here and I could say 'background-color'
+
+07:39.600 --> 07:45.320
+and let's do black. Look at that.
+
+07:45.380 --> 07:49.060
+So this is a really good way to play with your website and add colors.
+
+07:49.070 --> 07:54.560
+You can check and uncheck here and also if you see something on a website that you really really like
+
+07:55.070 --> 07:57.150
+you can go to that element.
+
+07:57.230 --> 07:58.620
+Let's try it off here.
+
+07:58.640 --> 08:01.410
+Let's go to 
+
+08:01.440 --> 08:05.450
+waitbutwhy.com.
+
+08:05.700 --> 08:12.510
+And let's say that we really really want to know how this was made.
+
+08:12.700 --> 08:21.890
+Again right click, do 'Inspect' - it'll take us exactly to that element and then we can see here some of the
+
+08:21.890 --> 08:27.220
+properties, the CSS properties, that they've used. And the same here – you can see that the background color
+
+08:27.220 --> 08:29.530
+is this and so on and so forth.
+
+08:30.650 --> 08:32.160
+OK let's close that for now.
+
+08:33.470 --> 08:43.880
+The last thing I want to leave you with is, what if – just close this – what if I also want the About page to
+
+08:43.880 --> 08:49.110
+have styles and the same with the Login page. As you can see, there's no style for these ones.
+
+08:49.310 --> 08:52.980
+But we want the same thing for the About and Login page.
+
+08:53.330 --> 09:03.570
+Well as you can imagine we copy the 'link' tag and we go to About; we link it on to here, and then Login,
+
+09:03.750 --> 09:06.170
+we can again; we'll link it here.
+
+09:06.180 --> 09:08.340
+If I save both of these files,
+
+09:08.520 --> 09:16.890
+and now if I refresh, and go About – look at that – we have our style, and you may be wondering well what
+
+09:16.890 --> 09:19.480
+if I want different styles, maybe for the Login.
+
+09:19.530 --> 09:21.200
+I want this to be blue instead.
+
+09:21.600 --> 09:28.230
+Well we can actually create multiple style sheets so I can say for example let's create a new file and
+
+09:28.230 --> 09:33.500
+we'll call it 'style2.css'.
+
+09:33.630 --> 09:42.930
+I save that and this time I'm going to say that I want my 'h2' to have the color blue.
+
+09:43.160 --> 09:47.530
+I save that; I go into my 'login.html';
+
+09:47.810 --> 09:54.360
+And now I'll make Login reference the second stylesheet instead of the first one.
+
+09:54.830 --> 10:01.190
+So now if I refresh, Login is referencing our 'style2.css',
+
+10:01.450 --> 10:06.300
+But all the other ones are still referencing the old one.
+
+10:06.460 --> 10:07.080
+Ok I lied.
+
+10:07.080 --> 10:14.450
+There is one thing that I want to add and that is that this is the common way of adding styles.
+
+10:14.740 --> 10:20.080
+But there is actually two other ways that you won't see as often especially when you're starting off,
+
+10:20.350 --> 10:20.800
+but
+
+10:20.840 --> 10:23.720
+I wanted to show it to you so that you're not surprised.
+
+10:24.720 --> 10:32.000
+The first way of doing it is something called 'inline styles' and this was the original way that we incorporated
+
+10:32.070 --> 10:39.450
+styles into our HTML and that is by specifying within the element, let's say, let's go with 'header' tag
+
+10:39.450 --> 10:40.620
+over here.
+
+10:41.010 --> 10:42.540
+We want to say style.
+
+10:42.540 --> 10:44.460
+So it has a style attribute.
+
+10:44.820 --> 10:54.990
+And then within here we can do 'background-color' – let's do green, and refresh.
+
+10:55.030 --> 10:57.990
+And we're at the About page right now; we changed that for 'index.html'.
+
+10:57.990 --> 11:00.220
+So let's go over here and look at that.
+
+11:00.290 --> 11:01.680
+We have a green background.
+
+11:02.400 --> 11:12.270
+And if you want to add more, again we do 'color: red' with save and refresh, and look at that – the header
+
+11:12.270 --> 11:18.720
+has the color red and you'll see here that these ones are still purple because they are 'link' tags
+
+11:18.720 --> 11:20.440
+and they have the default linking.
+
+11:20.690 --> 11:21.340
+OK.
+
+11:21.810 --> 11:27.590
+So that's one way and the third and last way is in the 'head' tag.
+
+11:27.600 --> 11:36.330
+You can actually create 'style' tags, and then within these 'style' tags you can enter CSS.
+
+11:36.330 --> 11:37.650
+So if we just refresh here,
+
+11:37.650 --> 11:40.120
+so we have a fresh clean slate,
+
+11:40.170 --> 11:45.350
+I can now say all the 'p' tags, or let's do 'li' this time.
+
+11:45.390 --> 11:58.530
+So all the lists; I want the lists to have 'background-color' of purple; so if I now save this and refresh.
+
+11:58.710 --> 12:02.270
+Everything is purple, and that looks pretty yucky.
+
+12:02.280 --> 12:11.690
+You can keep adding stuff on here and I can say 'color: white', save, refresh and it changed the color to white.
+
+12:11.690 --> 12:15.420
+Now you may be wondering why don't we just do it like this.
+
+12:15.420 --> 12:19.600
+This seems a lot simpler than linking to another CSS file.
+
+12:20.090 --> 12:24.610
+Well the reason is that for this website everything is fairly small.
+
+12:24.620 --> 12:29.900
+It's just a couple lines of CSS, but you can imagine with websites, as they get bigger and bigger you'll
+
+12:29.900 --> 12:37.100
+have hundreds and hundreds of lines of CSS, and having one massive file will be very very challenging
+
+12:37.100 --> 12:38.330
+to maintain.
+
+12:38.330 --> 12:44.330
+You can also think of it as if you were working on an HTML file, and you also had a team of designers
+
+12:44.570 --> 12:46.960
+that were working on a CSS file.
+
+12:47.060 --> 12:54.140
+You want to have a separation where you have some team members working on the CSS and then some team
+
+12:54.140 --> 13:00.140
+members working on the HTML and that is a concept called 'separation of concerns'.
+
+13:00.170 --> 13:05.020
+It's a fancy way of saying that everybody just worry about what they're good at.
+
+13:05.030 --> 13:11.740
+So, HTML, just worry about text, and CSS, just worry about styles.
+
+13:11.810 --> 13:17.330
+This phrase 'separation of concerns' is something that we'll encounter throughout later videos when we
+
+13:17.330 --> 13:24.410
+get into JavaScript and React and it's a very very important concept in web development and computer
+
+13:24.410 --> 13:26.690
+science in general so we will get back to that,
+
+13:26.720 --> 13:31.620
+but you know that it'll be a phrase that will keep coming up.
+
+13:31.640 --> 13:37.360
+So for now let's delete this; let's keep things the way that we have it.
+
+13:37.470 --> 13:43.290
+Let's refresh and in the next video I'm going to show you a couple of CSS properties that are more
+
+13:43.290 --> 13:46.510
+exciting than just color and background.
+
+13:46.530 --> 13:48.180
+I'll see you in that one. Bye-bye

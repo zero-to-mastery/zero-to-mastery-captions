@@ -1,0 +1,163 @@
+WEBVTT
+
+00:00.520 --> 00:01.780
+Welcome back.
+
+00:01.780 --> 00:08.160
+We left off in the last video with this console log of the KNEX query that we just did.
+
+00:08.200 --> 00:16.000
+Now this on the right here is what KNEX does. It builds our SQL statement for us.
+
+00:16.300 --> 00:26.230
+So what we just console logged, was the query statement that postgres or KNEX created for postgres.
+
+00:26.340 --> 00:32.100
+You can see over here that the builder is an object that has all the information we need to speak with
+
+00:32.100 --> 00:34.670
+the smart-brain and do this query.
+
+00:34.770 --> 00:43.890
+If I actually want to access something from the users, I will have to do our friend .then() because
+
+00:44.010 --> 00:49.170
+this returns a promise and we get our response.
+
+00:49.170 --> 00:55.950
+In our case it will be data, this data - again we don't have to do Json because we're not sending it through HTTP - 
+
+00:55.950 --> 01:03.040
+we get back the data and if we just console.log this data let's see what we get.
+
+01:03.140 --> 01:09.420
+Save and go down and it's an empty array.
+
+01:09.460 --> 01:10.510
+That's a good sign.
+
+01:10.510 --> 01:13.480
+We don't have any users yet but we're getting a response.
+
+01:14.320 --> 01:15.270
+So let's do that.
+
+01:15.490 --> 01:21.960
+Let's create a statement to insert users when they register.
+
+01:22.090 --> 01:28.390
+I'm going to change this into the DB variable just so it doesn't get confusing.
+
+01:28.630 --> 01:31.740
+And we'll just keep that as database.
+
+01:31.740 --> 01:37.710
+All right let's go to the register endpoint and I'm going to minimize this database because we're going
+
+01:37.710 --> 01:40.440
+to stop using it and delete it afterwards.
+
+01:42.680 --> 01:49.490
+And if we go to register we see that now instead of doing the database .users.push in the variable
+
+01:49.730 --> 01:59.490
+we can just use KNEX we can remove this and do DB dot - Well we'll have to insert,
+
+01:59.490 --> 01:59.920
+right.
+
+02:00.120 --> 02:06.780
+Let's look at the KNEX docs and see and we see clear methods - insert.
+
+02:06.790 --> 02:08.670
+All right look at this great documentation.
+
+02:08.670 --> 02:13.410
+We can just find out exactly what we need. In order to insert something we have the insert method with
+
+02:13.410 --> 02:17.580
+the data and what we want, or what is going to get returned.
+
+02:17.580 --> 02:28.610
+We can't just copy and paste this, so we can just do DB into users we want to insert and it just reads so nicely.
+
+02:28.610 --> 02:29.730
+I love KNEX.
+
+02:30.030 --> 02:38.570
+We want to insert an object and this object is going to contain whatever we had in the users information.
+
+02:38.610 --> 02:47.400
+So we want to insert an e-mail, in which case there will be email. We have the name, which again has the name
+
+02:47.430 --> 02:50.010
+that we see from the body.
+
+02:50.010 --> 02:57.600
+We also have the password but remember in our table we don't have the password under the users so we'll
+
+02:57.600 --> 02:58.740
+leave that blank.
+
+02:58.740 --> 03:06.960
+And if we go back to our table example here and connect back to here we see the user's ID is automatically
+
+03:06.960 --> 03:12.710
+generated name, email, entries defaults to zero so we don't have to enter anything.
+
+03:13.080 --> 03:17.780
+And joined is the date that they've joined.
+
+03:17.800 --> 03:32.320
+So let's just do joined new date and once we insert let's just do a .then(console.log) to see what
+
+03:32.320 --> 03:34.290
+we get back.
+
+03:34.330 --> 03:41.390
+I'm going to save. We don't get any errors which is good and we can go back to our app. Actually, just
+
+03:41.390 --> 03:48.350
+because it's faster, instead of doing register through here, we're going to open up postman and 
+
+03:48.350 --> 03:52.870
+postman already has all our previous commands here, which I love.
+
+03:52.940 --> 04:03.610
+So let's click on the register and point with the body of Ann Apples and let's click send.
+
+04:03.630 --> 04:08.790
+All right we get a response but remember we never change a response but if we go back to the server
+
+04:10.220 --> 04:12.550
+we get result insert.
+
+04:12.650 --> 04:13.460
+All right.
+
+04:13.460 --> 04:14.660
+It looks like it worked.
+
+04:14.870 --> 04:25.260
+If we go back to the database and do select star from users how cool is that.
+
+04:25.490 --> 04:34.250
+We have Ann who has been entered as our very first user, with default entries of 0. Amazing.
+
+04:34.340 --> 04:35.980
+It's like magic.
+
+04:35.990 --> 04:42.430
+How simple was it to just use KNEX and postgres and create our first database.
+
+04:42.460 --> 04:43.170
+All right.
+
+04:43.250 --> 04:47.870
+In the next video we're going to work on this response.
+
+04:47.870 --> 04:48.740
+I'll see you in that one.
+
+04:49.270 --> 04:49.650
+Buh-bye.

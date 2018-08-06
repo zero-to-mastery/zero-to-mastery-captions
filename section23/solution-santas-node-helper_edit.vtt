@@ -1,0 +1,679 @@
+WEBVTT
+
+00:01.610 --> 00:02.320
+Alright.
+
+00:02.360 --> 00:10.460
+Hopefully everybody had a chance to solve the Advent of Code Santa's little puzzle that he has here.
+
+00:10.610 --> 00:18.590
+I'm going to show you now what I would do if I was reading this question or if I was looking at this
+
+00:18.590 --> 00:24.980
+logical problem which again is something that in interviews you get asked a lot.
+
+00:25.130 --> 00:33.410
+And in your day today when you solve complex problems, they're usually the small chunks of logical questions
+
+00:33.410 --> 00:35.190
+that are asked and you want to solve.
+
+00:35.600 --> 00:38.320
+So I'm going to go through what I would do.
+
+00:38.330 --> 00:43.130
+Doesn't mean it's the only way but what I would do to solve these problems.
+
+00:44.520 --> 00:44.880
+Alright.
+
+00:44.910 --> 00:47.520
+By now you've all read the question.
+
+00:47.520 --> 00:57.630
+And what we need to do, so after reading the question I would get my puzzle input which I have here.
+
+00:57.660 --> 01:05.230
+I'm going to copy all of this and right here I have my 'awesome node' folder with nothing inside it.
+
+01:05.310 --> 01:14.830
+I'm just going to create a 'santa.txt' file and in this text file, I'll copy and paste the directions.
+
+01:14.860 --> 01:18.400
+Well, we have no idea what's going on.
+
+01:19.810 --> 01:21.290
+Let me close that.
+
+01:21.760 --> 01:29.140
+Now reading the question the first thing I want to do is I want to make sure that I have a script file
+
+01:29.950 --> 01:33.750
+that I can run. Alright.
+
+01:33.750 --> 01:39.610
+Now before I start coding anything, everything in my head needs to make sense.
+
+01:39.840 --> 01:41.710
+And I like to keep things organized.
+
+01:41.910 --> 01:48.570
+So the very first thing I usually do is I comment and say that - from reading the question we know that
+
+01:48.570 --> 01:50.530
+there are two parts.
+
+01:50.790 --> 01:53.810
+There is question number one.
+
+01:54.030 --> 01:55.660
+Question number two.
+
+01:55.840 --> 02:09.670
+So we're only going to focus on the first one, which is "What floor does Santa end up on"
+
+02:09.740 --> 02:16.800
+And the second question is, well if we go here, the first character that causes him to enter the basement.
+
+02:16.820 --> 02:27.150
+So we want to say "When does Santa first enter the basement".
+
+02:27.170 --> 02:27.560
+Alright.
+
+02:27.560 --> 02:29.680
+So now I have everything clear.
+
+02:29.780 --> 02:32.480
+And we also know that there is a few rules.
+
+02:32.660 --> 02:47.190
+The rules are that: this character means that 'it' or - not 'it' - 'Santa' should go up one floor.
+
+02:47.320 --> 02:56.680
+And I also know that this character is the opposite and should go down one floor. And I know this is
+
+02:56.680 --> 03:02.980
+silly but it's really important for you to write things out and understand what you're doing and what
+
+03:02.980 --> 03:04.540
+your goals are.
+
+03:04.570 --> 03:15.000
+We know that we want to solve this question using these parameters that we get from our input, which
+
+03:15.000 --> 03:17.700
+is well jibberish for now.
+
+03:19.450 --> 03:19.660
+Right.
+
+03:19.670 --> 03:25.120
+So question number one always like starting it off with a nice function and we'll just say.
+
+03:25.120 --> 03:26.870
+'question1'.
+
+03:28.650 --> 03:34.930
+And within 'question1' I'm going to do our read file.
+
+03:34.980 --> 03:38.760
+So let's go to the top here and do.
+
+03:38.790 --> 03:45.040
+'const fs = require('fs')'
+
+03:45.170 --> 03:49.380
+Alright and we've done this before so this should be fairly simple.
+
+03:49.520 --> 03:53.140
+fs.readFile
+
+03:53.220 --> 03:58.050
+We're going to read the 'santa.txt' file.
+
+03:59.010 --> 04:04.290
+And the santa.txt file will get an error or data
+
+04:07.350 --> 04:10.580
+and within here, we are going to ignore 'err' for now.
+
+04:10.620 --> 04:23.480
+I'm sure it's going to work so I'm just going to say 'const directions' are going to be 'data.toString()'
+
+04:25.120 --> 04:29.780
+and that in itself means that the 'directions' variable
+
+04:30.190 --> 04:31.120
+now has
+
+04:33.810 --> 04:35.020
+the directions that we want.
+
+04:35.040 --> 04:38.540
+So let me just run that to make sure that it's all OK.
+
+04:39.840 --> 04:46.900
+And you saw over here that nothing is printed because this function was never run - so let's do that.
+
+04:46.920 --> 04:47.610
+We're going to say.
+
+04:47.610 --> 04:49.630
+'question1()'.
+
+04:49.980 --> 04:51.000
+Let's run it.
+
+04:54.140 --> 05:00.990
+It looks like we're printing out all this information which is exactly what we want.
+
+05:00.990 --> 05:02.630
+Those are the directions.
+
+05:02.820 --> 05:09.390
+And this is another thing. I like doing things step by step, making sure that it all works before I write
+
+05:09.390 --> 05:14.210
+everything out and then "uh-oh something's wrong, but I don't know what's wrong."
+
+05:14.220 --> 05:21.780
+I go one step at a time, logically talking it out in my head to make sure that it makes sense. As I'm
+
+05:21.780 --> 05:23.010
+writing this,
+
+05:23.010 --> 05:25.690
+everything flows like I'm speaking.
+
+05:25.740 --> 05:33.030
+We have the first question we're reading file (santa.txt) and from the 'santa.txt', we're getting the directions.
+
+05:33.030 --> 05:33.650
+Alright.
+
+05:33.810 --> 05:35.820
+So what do we want to do next?
+
+05:36.120 --> 05:41.600
+Well we saw in the output that these, well, it's just one big string.
+
+05:41.610 --> 05:44.320
+But ideally we can split them.
+
+05:44.670 --> 05:50.460
+So if we split them we can analyze each one, one by one like an array, maybe we can map over in an
+
+05:50.460 --> 06:02.470
+array, so a sneaky way of doing this is we can just say 'const directionsArray' and this directions
+
+06:02.470 --> 06:13.460
+array will get split up into arrays by doing '.split' and splitting it just like that.
+
+06:13.580 --> 06:17.180
+And there's just a little bit of a shorthand little trick.
+
+06:17.570 --> 06:21.500
+So again if I 'console.log(directionsArray)'
+
+06:27.710 --> 06:31.400
+there you go, I have everything in an array.
+
+06:31.400 --> 06:35.500
+That's a lot of items in the array but everything is split out individually now.
+
+06:35.700 --> 06:41.810
+Alright next step. So I have each array, so we want to read each one of these, because each one equates
+
+06:41.810 --> 06:45.680
+to either up 1 or down 1.
+
+06:45.740 --> 06:52.820
+And we want to map over this, we want to go over each one of them, but we're accumulating something right.
+
+06:52.820 --> 06:57.980
+We're saying "one", then if we have two floors up, that's "two".
+
+06:58.070 --> 07:02.930
+If we go one down that's "one" - we're adding and subtracting constantly.
+
+07:02.930 --> 07:06.560
+So in that case we can actually do reduce.
+
+07:06.860 --> 07:19.260
+So with Reduce, I can say 'const answer' in this case will be 'directionsArray.(reduce)' and this reduce
+
+07:19.470 --> 07:21.870
+takes the first function.
+
+07:21.870 --> 07:30.990
+So the first parameter is a function and this function takes the accumulator and I'll just do 'acc'.
+
+07:30.990 --> 07:33.600
+for now just because it's shorter.
+
+07:33.840 --> 07:38.110
+And then the second one is the current value.
+
+07:38.190 --> 07:43.690
+Let me make this smaller so you can see - and this is a function
+
+07:46.560 --> 07:48.560
+that we're going to do some stuff here.
+
+07:48.570 --> 07:53.700
+But the second parameter is what we want to start off with, in the accumulator.
+
+07:53.700 --> 07:55.080
+So we're going to start off with zero.
+
+07:55.080 --> 08:01.150
+So Santa is on floor zero, on the ground floor - within here
+
+08:01.200 --> 08:11.690
+we can just say if current value - because reduce maps over each one of these items and if the current
+
+08:11.690 --> 08:20.410
+value '===' and let's say, this, which is up 1 floor.
+
+08:20.410 --> 08:29.440
+If that's the case, well we can just 'return acc'.
+
+08:29.540 --> 08:36.750
+'+= 1', which is shorthand for doing accumulator plus 1.
+
+08:37.160 --> 08:40.770
+So this adds one to the accumulator.
+
+08:40.850 --> 08:48.060
+So if the first item is this little bracket here, it's going to be 0 plus 1.
+
+08:48.070 --> 08:57.000
+So Santa is going to move up one level and then we'll say 'else if'
+
+08:57.610 --> 08:59.320
+'currentValue ==='
+
+09:02.520 --> 09:06.330
+the opposite bracket ')', than we do the exact opposite.
+
+09:06.330 --> 09:12.490
+And we're going to our 'return acc -= 1'.
+
+09:12.540 --> 09:13.920
+So it's going to go down one
+
+09:17.250 --> 09:17.890
+Alright.
+
+09:18.300 --> 09:22.460
+So just out of curiosity, let's run this and see what happens.
+
+09:22.480 --> 09:32.380
+I'm going to 'clear' and run this one time and we get nothing, because well we haven't said anything.
+
+09:33.430 --> 09:37.790
+So let's just console log at the end of this: we have the answer.
+
+09:37.900 --> 09:42.510
+So let's just 'console.log'
+
+09:45.720 --> 09:46.570
+'answer:'
+
+09:47.490 --> 09:52.980
+And we will say that the 'answer:'' or we will just say 'floor:'
+
+09:53.760 --> 10:00.750
+so if I run this again. Uh-oh I get a bit of an error and that's because I forgot to - come over here.
+
+10:00.750 --> 10:01.660
+Silly me.
+
+10:01.710 --> 10:09.490
+Let's run that again, let me clear and I get 'floor: 280' and that's the answer.
+
+10:09.490 --> 10:11.920
+That's where Santa ends up.
+
+10:12.010 --> 10:18.020
+He ends up on floor 280 if he keeps following the direction until the very end.
+
+10:19.230 --> 10:20.490
+Very cool.
+
+10:20.490 --> 10:32.600
+So again just out of curiosity let's add time to figure out how long this takes - and we will say 'console.time'
+
+10:32.690 --> 10:37.540
+Oops Whoa.
+
+10:37.670 --> 10:40.410
+My little tab is not working well today.
+
+10:40.520 --> 10:48.370
+And we'll say 'santa-time' and this 'santa-time' within this function.
+
+10:48.470 --> 10:58.960
+Until we get the answer we'll say 'santa-time' - and if I run this, our function runs four hundred
+
+10:59.530 --> 11:02.910
+thirty seven, 0.437ms
+
+11:02.980 --> 11:07.570
+So pretty fast, because we're not doing anything too crazy.
+
+11:07.570 --> 11:09.640
+So curious why you got here.
+
+11:09.640 --> 11:15.110
+Keep in mind that this really depends on the type of the machine, the type of machine you're on.
+
+11:15.130 --> 11:20.400
+But again pretty fun to think about how to structure your code.
+
+11:20.650 --> 11:23.680
+So it's, first of all it makes sense.
+
+11:23.740 --> 11:25.030
+It runs nicely.
+
+11:25.450 --> 11:32.170
+And also, you want to make sure that it's efficient - and looking at this.
+
+11:32.200 --> 11:34.820
+We're not doing anything too inefficient.
+
+11:35.020 --> 11:42.230
+Alright let's move on to question number two. And question number two - let's make space for this - question
+
+11:42.230 --> 11:47.270
+number 2 asks when does Santa's first enter the basement.
+
+11:47.270 --> 11:54.650
+So that is well using this loop over here - as Santa starts to get direction.
+
+11:54.650 --> 11:59.030
+When does accumulator go into the negative number.
+
+11:59.170 --> 12:05.030
+Now I can simply copy and paste this into question number two.
+
+12:06.650 --> 12:10.750
+And just maybe add an 'if' statement here.
+
+12:10.910 --> 12:19.120
+Maybe I can say 'if acc is less than zero'.
+
+12:20.170 --> 12:25.730
+Then you know, we can say 'console.log' the answer.
+
+12:25.870 --> 12:27.750
+And that works well.
+
+12:28.620 --> 12:34.550
+But again thinking about the question, this reduces going to map over everything.
+
+12:34.650 --> 12:40.320
+And you remember this is a pretty big array that we're creating out of the directions.
+
+12:40.350 --> 12:45.900
+So if Santa, on the first move, goes into the basement.
+
+12:46.020 --> 12:50.290
+And then we still go through every item in the array.
+
+12:50.370 --> 12:52.530
+That's a bit of a wasted time.
+
+12:52.770 --> 12:53.310
+Right.
+
+12:53.310 --> 13:00.750
+So we want to think about the problems in ways that make sense to us and are efficient; and that's something
+
+13:00.810 --> 13:02.630
+again that you want to practice.
+
+13:02.630 --> 13:07.680
+Does it make sense in your head if you're supposed to do this manually.
+
+13:07.920 --> 13:17.250
+Would you go step by step through everything, or would you just stop when Santa enters into the basement
+
+13:17.250 --> 13:19.080
+into the negative number.
+
+13:19.080 --> 13:21.700
+So let's find a better way to do
+
+13:21.720 --> 13:26.280
+question number two. Again with question number two
+
+13:26.290 --> 13:41.420
+I'm going to say 'function question2()', and within here we'll say 'fs.readFile' once again.
+
+13:44.490 --> 13:50.550
+And this read file will read './santa.txt'.
+
+13:50.760 --> 13:52.530
+Again this is the same as above.
+
+13:52.650 --> 14:01.800
+So I'm just going to do this quickly, and as the very first part which is the directions and getting
+
+14:01.800 --> 14:08.280
+them into an array, that's the same so I'm just going to copy that, again getting the directions making
+
+14:08.280 --> 14:10.230
+into an array by splitting it.
+
+14:10.350 --> 14:18.300
+And now I'm going to add a little function that I think is better than reduce in this case. So I am going
+
+14:18.300 --> 14:24.000
+to say the 'const answer = directionsArray.some()'
+
+14:24.200 --> 14:33.960
+And some what it does is going to look through the array, go step by step and if it finds something
+
+14:33.960 --> 14:37.600
+that matches, it is going to stop looping.
+
+14:37.800 --> 14:46.260
+So with 'directionsArray.some', I'm going to have the current value and this current value.
+
+14:46.800 --> 14:52.800
+So that is the item or the bracket that we're getting.
+
+14:54.140 --> 14:55.570
+So this current value.
+
+14:56.000 --> 15:01.250
+Again we're going to do this if statement, current value and current value, we're going to add one or
+
+15:01.250 --> 15:02.540
+subtract one.
+
+15:02.540 --> 15:05.820
+So again I copy and paste it on here.
+
+15:05.820 --> 15:14.160
+But again we don't really have acc in this function. And because we're not really using a reduce but
+
+15:14.160 --> 15:19.820
+we do want to keep track of a counter to see when Santa is going to enter the basement.
+
+15:19.830 --> 15:24.600
+So outside of the function I'm going to say 'let accumulator'.
+
+15:24.720 --> 15:35.890
+Let me just be more descriptive this time, and we'll say 0 and this accumulator is going to get incremented
+
+15:36.010 --> 15:37.410
+based on the directions.
+
+15:37.420 --> 15:37.880
+Alright.
+
+15:38.050 --> 15:45.080
+So using that, let's see what my 'console.log answer' will be.
+
+15:45.190 --> 15:51.520
+So we'll say again 'basement entered at: '
+
+15:54.670 --> 16:01.060
+and we'll say 'answer' and let me just remove
+
+16:01.060 --> 16:06.860
+question 1 for now and just run question two.
+
+16:07.070 --> 16:12.940
+Let's run this, 'basement entered at: true'.
+
+16:13.160 --> 16:19.760
+And we made a mistake here because what we want to do from '.some' is we want to return something we want
+
+16:19.760 --> 16:22.930
+to return when a goal is met.
+
+16:22.940 --> 16:26.600
+So at the end we're going to say 'return accumulator'
+
+16:29.060 --> 16:32.930
+and when the accumulator is greater than zero.
+
+16:32.960 --> 16:41.720
+Remember return ends the function; we're going to say "Stop whatever you're doing" and then that's going
+
+16:41.720 --> 16:43.040
+to end the function.
+
+16:43.100 --> 16:48.080
+But we want to know when does Santa first enter the basement.
+
+16:48.080 --> 16:54.490
+So that is a: what number of directions does Santa make before he enter the basement.
+
+16:54.500 --> 16:57.730
+So we also need a counter.
+
+16:57.840 --> 17:00.390
+So this counter is going to be equal to zero.
+
+17:00.600 --> 17:03.830
+And I've missed a bunch of semi-colons here but that's fine.
+
+17:04.020 --> 17:14.520
+And we're going to increase the counter, every time it goes through an item.
+
+17:14.680 --> 17:23.540
+And now the answer, well not this, but the answer is going to be the counter itself.
+
+17:23.540 --> 17:32.780
+So if I do counter, save, alright and let's run this. And I actually made a mistake here because it's
+
+17:32.780 --> 17:39.740
+still zero because the counter is being incremented after the return statement.
+
+17:39.740 --> 17:44.710
+So 'currentValue', let's actually name this 'currentItem'.
+
+17:44.750 --> 17:52.630
+It's a lot more descriptive: 'currentItem'.
+
+17:52.710 --> 17:55.820
+This is being returned before you even hit the counter.
+
+17:55.890 --> 18:01.570
+So in our case, unlike above, we don't really need the return statement.
+
+18:04.640 --> 18:09.330
+We're going to save, run, and there you go.
+
+18:09.570 --> 18:14.210
+And the answer in this case is a thousand seven hundred ninety seven.
+
+18:15.770 --> 18:16.390
+Awesome.
+
+18:16.400 --> 18:24.260
+So again to test it out, let's use our 'santa-time' now, to copy from above and we'll just put it at
+
+18:24.260 --> 18:35.210
+the top for 'console.time' and the end for 'console.timeEnd'. Let's see how fast that function runs.
+
+18:35.370 --> 18:38.910
+We have again, quite fast.
+
+18:38.910 --> 18:47.200
+But if I did reduce, which in our case that's what we use for the first question.
+
+18:47.200 --> 18:52.470
+So let's just go through that, we see that
+
+18:52.640 --> 18:59.090
+Well the first round of 'console.time('santa-time')', which is question 1 is
+
+18:59.130 --> 19:12.790
+Let me just add a q1 in here so we can see, and q2, add that to make sure the labels match
+
+19:18.460 --> 19:19.940
+Let's do that again.
+
+19:30.390 --> 19:32.040
+That's a lot better alright.
+
+19:32.040 --> 19:35.930
+So we see that question 1.
+
+19:36.050 --> 19:42.540
+Definitely long, runs a little longer than Question 2 because the first time around we have to loop through
+
+19:42.540 --> 19:43.520
+everything.
+
+19:43.530 --> 19:47.540
+The second time around it's a lot less time. Just for fun
+
+19:47.550 --> 19:50.690
+again, how it's like testing our assumptions.
+
+19:50.730 --> 19:52.980
+So if the first direction was
+
+19:56.000 --> 20:01.160
+to go downstairs. Let's see what happens.
+
+20:01.160 --> 20:06.890
+Alright so that's a little bit faster than before.
+
+20:06.900 --> 20:12.720
+Not by a lot because we're still kind of doing a bit of calculations, but still a lot faster than going
+
+20:12.720 --> 20:19.600
+through this many items. Just in case you're wondering why in this case question 2 ended  
+
+20:19.650 --> 20:23.400
+before question one and not so in the other cases,
+
+20:23.400 --> 20:30.890
+again remember that Read file is asynchronous. Whichever one returns first, gets returned.
+
+20:30.930 --> 20:31.470
+Alright.
+
+20:31.470 --> 20:33.480
+Hope you have fun with the challenges.
+
+20:33.670 --> 20:40.800
+If you've enjoyed this, I recommend you keep going through the advent of code and hopefully as a group,
+
+20:40.920 --> 20:42.010
+with our community.
+
+20:42.210 --> 20:49.100
+When December rolls around, we're all ready to follow advent of code for this year.
+
+20:49.170 --> 20:50.730
+I'll see you in the next one. Bye-bye

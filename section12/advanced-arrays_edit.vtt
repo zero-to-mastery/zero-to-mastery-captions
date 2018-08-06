@@ -1,0 +1,538 @@
+WEBVTT
+
+00:01.370 --> 00:10.140
+And we're back to talk about arrays again in the first section when we talked about arrays we said that
+
+00:10.190 --> 00:11.980
+they looked something like this
+
+00:15.010 --> 00:18.230
+square brackets and we can put whatever we want.
+
+00:18.220 --> 00:20.920
+We just put in a few numbers here.
+
+00:21.100 --> 00:27.340
+So these are arrays and we talked about the fact that we can do four loops with them.
+
+00:27.340 --> 00:32.590
+We can do for each with them which was new in my script five.
+
+00:32.720 --> 00:35.390
+And today we're going to learn a few more.
+
+00:35.540 --> 00:41.990
+But before we do that let's remember how the For Each works.
+
+00:42.030 --> 00:47.200
+Let's say we want to multiply every single number in the array.
+
+00:47.430 --> 01:01.860
+We can just to Konst remember now we can just use our new E6 syntax and we can say that new array equals
+
+01:03.240 --> 01:08.170
+array dot for each and it reads nicely right for each array.
+
+01:09.290 --> 01:15.750
+We are going to use a number and we're going to use as a function again.
+
+01:15.980 --> 01:17.690
+No more function word.
+
+01:17.690 --> 01:28.290
+Everything looks nicer this way with the fat arrow and for each number in the array Whalsay number times
+
+01:29.040 --> 01:34.020
+two so multiply everything by two.
+
+01:34.020 --> 01:38.810
+Now we'll see what that gives us console log.
+
+01:39.830 --> 01:41.160
+You re
+
+01:46.950 --> 01:47.700
+undefined.
+
+01:47.860 --> 01:50.250
+Well because that's not how.
+
+01:50.260 --> 01:58.510
+For each works right for each just says I'm going to move over these elements and I'm going to multiply
+
+01:58.510 --> 02:02.280
+a number by two but we're not changing the array.
+
+02:02.380 --> 02:08.500
+If we look at the array right now well it's still the same thing 1 to 10 16.
+
+02:08.700 --> 02:14.190
+We're just randomly multiplying the numbers by two but we're not really storing it anywhere.
+
+02:14.830 --> 02:24.940
+If we want to do what we're doing then we have to say Konst double and we'll say that double is an array
+
+02:25.600 --> 02:31.760
+and then double dot push.
+
+02:31.820 --> 02:38.410
+So we're pushing onto the array as we loop through it number times to.
+
+02:38.480 --> 02:40.210
+Now let's see what double gives us.
+
+02:43.440 --> 02:48.760
+I save a refresh and look at that.
+
+02:48.820 --> 02:52.500
+I get two for 20 32.
+
+02:52.570 --> 02:53.160
+OK.
+
+02:53.380 --> 03:05.910
+Now the ones we're going to talk about today is map filter and reduce I would say that these three are
+
+03:05.910 --> 03:11.810
+probably the most important methods that you'll use in your day today.
+
+03:11.880 --> 03:17.340
+Javascript they're super useful so really start to become familiar with them.
+
+03:17.390 --> 03:25.610
+And any time you think of doing some sort of a loop most likely you want to do one of these three.
+
+03:25.680 --> 03:32.850
+Let's start off with map the above way of doubling each thing in the array and creating a new array
+
+03:32.850 --> 03:52.430
+well with map we can do cost map parade array dot map number is number times to and the way map works
+
+03:52.490 --> 04:01.720
+is that you always need to return something because what's different for mabbe than it is for for each
+
+04:01.930 --> 04:10.690
+well for each just loop's over something and it just does whatever the function says versus with the
+
+04:10.690 --> 04:11.530
+array.
+
+04:11.680 --> 04:19.330
+We can do what we couldn't with for each which is loop over each element each number and return a new
+
+04:19.330 --> 04:21.100
+array.
+
+04:21.110 --> 04:22.310
+Let me show you what I mean.
+
+04:22.790 --> 04:25.270
+Every time the array loops.
+
+04:25.310 --> 04:29.110
+So let's say over here the first one is number one.
+
+04:29.310 --> 04:36.340
+We return 1 times 2 that gets put into map array which is now 2.
+
+04:36.450 --> 04:39.370
+And then we go to the next number to 2 times 2.
+
+04:39.390 --> 04:46.290
+Now gets added to the array 10 times 2 gets added to the array and 16 times 2 gets added to the array.
+
+04:46.300 --> 04:47.740
+So that's why we return it.
+
+04:47.860 --> 04:53.980
+And by doing this if we Konsole dog log map array
+
+04:57.520 --> 05:00.460
+and let's refresh here.
+
+05:00.850 --> 05:07.890
+And got a closing bracket here let's try that again.
+
+05:08.010 --> 05:09.900
+You see that map array.
+
+05:09.900 --> 05:23.650
+So the first line is double and the second one is knackery will name these just so we know the difference.
+
+05:23.670 --> 05:26.760
+And let's just redo that all over again.
+
+05:27.260 --> 05:31.340
+By the way you're wondering why I'm refreshing instead of just copy and pasting it down here.
+
+05:31.350 --> 05:38.570
+Well that's because because we're using Konst it's saying array has already been declared so I have
+
+05:38.580 --> 05:39.960
+to refresh.
+
+05:40.290 --> 05:41.520
+But there you go.
+
+05:41.520 --> 05:47.830
+For each map looking at these two they seem to both be doing the same thing.
+
+05:48.720 --> 05:54.570
+But there's a critical difference between map and for each and I'm here to tell you that whenever you
+
+05:54.570 --> 06:00.160
+want to loop do a simple loop and take some action on something like an array.
+
+06:00.450 --> 06:06.980
+You want to use map over for each with for each the operation may do nothing.
+
+06:07.020 --> 06:15.310
+You can just leave this completely blank or do Konsole log because all for each cares about is to iterate
+
+06:15.350 --> 06:24.550
+which is going one by one to iterate over a collection of elements like 1 to 10 and 16 and apply whatever
+
+06:24.550 --> 06:27.440
+operation we tell it to on each element.
+
+06:27.460 --> 06:31.800
+Now map on the other hand has a restriction on the operation.
+
+06:31.930 --> 06:35.230
+It expects the operation to return an element.
+
+06:35.230 --> 06:42.580
+So with map with for each you can have multiple lines of code doing all these crazy things versus map
+
+06:42.970 --> 06:43.740
+with map.
+
+06:43.750 --> 06:46.900
+You always have a return element.
+
+06:46.930 --> 06:54.280
+The map iterates again loops through over a collection of elements applying the operation on each element
+
+06:54.730 --> 07:00.510
+and then finally storing the result of each invocation of the operation.
+
+07:00.520 --> 07:06.970
+That's this into another collection which is map array.
+
+07:07.010 --> 07:12.920
+In other words map transforms the array.
+
+07:12.920 --> 07:22.490
+It creates a new array which is map array versus for each which just does a whole bunch of actions based
+
+07:22.490 --> 07:27.620
+on the array and what those actions are aren't really that limited.
+
+07:27.620 --> 07:34.230
+If we want to return a new array we have to create our own array and then push.
+
+07:34.370 --> 07:39.260
+And you might notice here something that we spoke about in the last section when we talked about advanced
+
+07:39.260 --> 07:49.990
+functions and that is the idea of side effects if we go back with foreach we can do a whole bunch of
+
+07:49.990 --> 07:52.010
+side effects within the function.
+
+07:52.210 --> 08:00.650
+You can Konsole law you can create a new array you can push to that array you can return undefined.
+
+08:00.650 --> 08:07.960
+You saw that when we first did the for each or even now we're not really returning anything.
+
+08:08.010 --> 08:12.120
+So we're returning undefined versus with a map.
+
+08:12.220 --> 08:15.700
+All these side effects are theoretically gone.
+
+08:15.840 --> 08:19.190
+And because with a map we have to return.
+
+08:19.240 --> 08:22.800
+Let me just show you if I don't return here let's see what happens.
+
+08:30.910 --> 08:34.280
+I get map undefined undefined undefined undefined.
+
+08:34.540 --> 08:37.660
+Right away we know that we're doing something wrong that we need to return.
+
+08:38.140 --> 08:47.230
+And as we mentioned in the previous section we've now created a pure function where there's no question
+
+08:47.230 --> 08:48.790
+about whether we return or not.
+
+08:49.660 --> 08:59.130
+We have inputs a function with no side effects that just simply returns a value.
+
+08:59.180 --> 09:01.350
+Again a very important concept.
+
+09:01.370 --> 09:05.990
+We want to keep things acting in an expected way.
+
+09:06.080 --> 09:13.310
+We don't want to have a piece of code that lives on a website let's say for four years and somebody
+
+09:13.310 --> 09:21.350
+comes along who doesn't know it intimately and all of a sudden have all these side effects happen that
+
+09:21.500 --> 09:23.950
+they don't know about.
+
+09:24.080 --> 09:31.540
+Again we want to write pure simple Foxtons and that is what map allows us to do.
+
+09:31.650 --> 09:34.980
+And the other important thing is that we're not changing the array.
+
+09:34.980 --> 09:40.830
+This array stays the exact same with math because we're always just making a new copy of the array we're
+
+09:40.830 --> 09:44.420
+never mutating the data.
+
+09:44.490 --> 09:44.910
+All right.
+
+09:44.910 --> 09:46.090
+So that was map.
+
+09:46.200 --> 09:48.100
+Let's bring back the return here.
+
+09:48.420 --> 09:51.940
+And let's bring back the consul.
+
+09:51.960 --> 09:59.160
+I also want to show you that when you only have a single parameter with an air function you can actually
+
+09:59.640 --> 10:04.400
+avoid the brackets.
+
+10:04.560 --> 10:11.410
+And again because we're returning and we're just returning a single line here we can do shorthand which
+
+10:11.410 --> 10:12.970
+is just this
+
+10:16.290 --> 10:19.020
+housecleaner does outlook.
+
+10:19.250 --> 10:24.050
+Let's again test that out.
+
+10:24.060 --> 10:24.490
+There you go.
+
+10:24.490 --> 10:26.070
+Everything's looking nice.
+
+10:26.070 --> 10:35.280
+Look at that difference between the map and the for each the next I'm going to show you is filter.
+
+10:35.600 --> 10:39.460
+Now with filter we can say filter array.
+
+10:40.310 --> 10:51.230
+And as the name suggests we can filter our array with a condition in our case we can say Blits return
+
+10:51.350 --> 11:00.010
+all the elements in the array that are above forth so we can say number is greater than 5.
+
+11:00.310 --> 11:11.360
+And as with map this returns a new array so we have to return something because filter array is going
+
+11:11.360 --> 11:12.890
+to contain that information.
+
+11:12.890 --> 11:23.620
+So the way you read this is filter this Saray which is up here as you're going one by one so a number
+
+11:24.190 --> 11:31.150
+will be first one return is one greater than 5.
+
+11:31.190 --> 11:34.100
+In this case it's going to say that's false.
+
+11:34.310 --> 11:38.290
+So we're not going to add this into the filter array.
+
+11:39.090 --> 11:43.350
+Then it iterates to two is too greater than five.
+
+11:43.350 --> 11:44.580
+No that's false.
+
+11:44.580 --> 11:50.940
+So it's not going to go into the filter array is 10 greater than 5.
+
+11:51.390 --> 11:52.550
+Yes it is good.
+
+11:52.560 --> 11:57.520
+Ten is going to go into the filter array and is 16 greater than 5.
+
+11:57.870 --> 11:58.350
+Yep.
+
+11:58.500 --> 12:03.100
+Then 16 is going to go into the array.
+
+12:03.300 --> 12:08.070
+And again because it's just a single line we can do short form here.
+
+12:11.410 --> 12:19.450
+And now if we cancel log and we'll say filter filter array.
+
+12:22.590 --> 12:39.920
+And refresh we get the filter containing 10 and 16 if we do equals to 5 while in that case we get an
+
+12:39.920 --> 12:43.850
+empty array because nothing equals five.
+
+12:43.910 --> 12:46.000
+So you can put any condition you want in here.
+
+12:46.010 --> 12:51.480
+If he had strength and you want to see if it contains a word hello Well you can do that as well.
+
+12:51.560 --> 12:56.210
+All you have to do is return true or false if it returns false.
+
+12:56.210 --> 13:02.050
+It won't go into the array if it returns true while it will go into the array.
+
+13:02.050 --> 13:04.210
+Very cool very useful.
+
+13:04.500 --> 13:05.430
+What else do we have.
+
+13:05.440 --> 13:11.550
+Well the last one I want to show you is reduce and this is really really powerful you can do a lot with
+
+13:11.550 --> 13:12.250
+Reduce.
+
+13:12.330 --> 13:16.910
+You can actually do filtering and mapping with reduce.
+
+13:17.040 --> 13:19.110
+So it's a really really powerful method.
+
+13:19.410 --> 13:22.470
+But I'm going to show you one easy way to get you started.
+
+13:23.910 --> 13:27.810
+Well we're going to do is we're going to say Konst
+
+13:30.590 --> 13:43.270
+reduce array he calls and again this returns a new array we save reduce and reduce takes something called
+
+13:43.300 --> 13:50.080
+an accumulator and the number.
+
+13:50.120 --> 13:52.490
+Now obviously this can be any name.
+
+13:52.510 --> 13:58.190
+Sometimes you'll see a CC for a accumulator we'll just leave it like that for now so you can see we
+
+13:58.190 --> 13:59.180
+know what number is.
+
+13:59.180 --> 14:05.860
+Number is 1 to 10 and 16 but what is accumulator.
+
+14:06.230 --> 14:15.140
+Well accumulator is something where we can store the information that happens in the body of the function.
+
+14:15.140 --> 14:25.180
+Let me explain accumulator plus number and again because we reduce we're returning an array.
+
+14:25.260 --> 14:27.930
+We have to return a value.
+
+14:28.210 --> 14:36.030
+And what we're saying here is that every time you iterate So let's say the first go round.
+
+14:36.060 --> 14:42.220
+You have number one accumulator plus number one equals.
+
+14:42.310 --> 14:49.050
+Let's say if the accumulator is zero then all equal 1 now zero plus one equals 1.
+
+14:49.270 --> 14:57.160
+When 2 comes around we do 1 plus 2 because the accumulator remembers what was there previously and then
+
+14:57.160 --> 15:03.260
+10 comes around and you go three plus 10.
+
+15:03.270 --> 15:05.540
+Now what is the accumulator.
+
+15:05.540 --> 15:10.800
+We haven't defined it anywhere in redos after the function.
+
+15:11.010 --> 15:14.220
+You have a second parameter.
+
+15:14.340 --> 15:20.460
+And here we can specify what we want our accumulator to star with the default value.
+
+15:20.910 --> 15:23.740
+In our case let's say zero.
+
+15:23.740 --> 15:28.190
+Now if I do Konsole dialogue reduce
+
+15:31.000 --> 15:32.890
+and do reduce.
+
+15:33.220 --> 15:34.370
+Let's see what happens.
+
+15:39.150 --> 15:48.940
+We get reduce 29 because 10 plus 16 is 26 plus three is 29.
+
+15:48.980 --> 16:05.560
+If I changed this to 5 and I copy and try this again we get 34 because the starting number is now five.
+
+16:05.600 --> 16:06.570
+Very cool.
+
+16:06.610 --> 16:07.550
+So that's it.
+
+16:07.660 --> 16:13.820
+I want you to remember these three methods because you're going to be using them a lot in your career.
+
+16:13.810 --> 16:15.490
+They're very very useful.
+
+16:15.550 --> 16:24.290
+They're pure which means every time we do an operation whatever inputs we get in it always returns a
+
+16:24.290 --> 16:24.940
+value.
+
+16:24.980 --> 16:28.610
+And there are no side effects.
+
+16:28.690 --> 16:33.270
+And as you can see they're very easy and simple to read.
+
+16:33.400 --> 16:36.830
+So get used to them and good luck with the exercises
+
+16:36.880 --> 16:40.130
+after this video. I'll see you in the next one bye.

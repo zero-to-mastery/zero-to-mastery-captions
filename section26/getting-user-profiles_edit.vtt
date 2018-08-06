@@ -1,0 +1,223 @@
+WEBVTT
+
+00:00.700 --> 00:09.660
+Let's use KNEX to finish up some of our other routes. If we go to profile slash ID.
+
+00:09.790 --> 00:11.500
+We don't really use this yet on our app.
+
+00:11.500 --> 00:14.440
+It's something for future development.
+
+00:14.440 --> 00:20.260
+This is a good example because sometimes backend engineers develop endpoints that might not be used
+
+00:20.260 --> 00:25.750
+for the front end but they might need in future installations such as this one, where maybe we might
+
+00:25.750 --> 00:33.250
+have a profile page for each one of our users and they can edit this and maybe they can have a post, a
+
+00:33.250 --> 00:36.240
+delete, a put.
+
+00:36.270 --> 00:42.240
+So let's work on this with profile dot ID, which want I grab the user.
+
+00:42.240 --> 00:45.580
+That's a very simple operation with our database right.
+
+00:45.600 --> 00:53.040
+We can simply remove this now and say DB dot select
+
+00:55.700 --> 01:05.120
+everything because we want everything from the users table from the users table. Seems a little too easy
+
+01:05.120 --> 01:05.830
+right.
+
+01:05.840 --> 01:07.910
+Let's see if that works I'll do a dot then.
+
+01:10.040 --> 01:11.420
+I'll return the user.
+
+01:13.260 --> 01:23.510
+And just console log again just to test everything out we'll console log user.
+
+01:23.550 --> 01:24.960
+Let's go to profile.
+
+01:24.960 --> 01:26.050
+Slash ID.
+
+01:26.220 --> 01:36.760
+And remember if we go back to our database we have ID 1, 2, 3, 6 so let's just do ID 1. Using our postman
+
+01:37.880 --> 01:40.890
+we will grab the profile. We'll see if we have one of these here.
+
+01:40.890 --> 01:41.340
+There you go.
+
+01:41.340 --> 01:45.670
+There's a get request, and we'll do profile 1, send.
+
+01:45.920 --> 01:54.630
+And if we go back to the console, all right we're getting all our users. But remember with profile ID we
+
+01:54.630 --> 02:01.220
+want to make sure that it is the ID and not every single user that we're grabbing.
+
+02:01.450 --> 02:11.200
+So we can simply say dot where and within the WHERE clause if we go back to KNEX and I want to demonstrate
+
+02:11.200 --> 02:14.170
+to you here that this is what a developer does.
+
+02:14.170 --> 02:20.120
+They don't know every single spec of a library or a package.
+
+02:20.140 --> 02:26.080
+You simply get really good at reading documentation and seeing why you need such as here, and we
+
+02:26.080 --> 02:32.940
+pass in an object of what we want to check against. So first name Test last name User.
+
+02:32.980 --> 02:46.650
+In our case we want a object where ID is the ID that we received in the params. If we save and run this
+
+02:46.650 --> 02:52.120
+again through postgres, go back to our example and look at that.
+
+02:52.220 --> 03:04.840
+We have Ann. And we want to grab the array of the user, so we can just do - oops, and we can just do zero.
+
+03:04.860 --> 03:05.280
+Amazing.
+
+03:06.550 --> 03:08.390
+Just to keep this short
+
+03:08.400 --> 03:16.000
+again, with ES6 we can do just this because both the id the property and the value are the same.
+
+03:16.060 --> 03:27.040
+I'm going to save, and now, instead of console logging, we'll do response dot Json user, that will be the user
+
+03:27.040 --> 03:28.040
+that we get.
+
+03:28.330 --> 03:30.560
+And we don't need that found anymore, do we.
+
+03:30.700 --> 03:32.160
+Let's clean up the code now.
+
+03:32.360 --> 03:40.080
+And if this is a not found well, in that case we will get an empty array.
+
+03:41.230 --> 03:46.960
+But let's just see what we get with our response first and then we'll touch the error case. We'll save
+
+03:47.920 --> 03:53.390
+go back to postman, we'll send, and we get an error.
+
+03:53.410 --> 03:57.480
+Found is not defined and we should comment this out.
+
+03:57.670 --> 04:01.380
+We'll try that again click send.
+
+04:02.370 --> 04:04.220
+All right we get Ann.
+
+04:04.530 --> 04:05.540
+This is so cool.
+
+04:06.750 --> 04:08.250
+And if we do 2
+
+04:11.430 --> 04:21.990
+we get Anne with an e. If we do six we have Amy and if I do three I get John. What if I do a number that
+
+04:21.990 --> 04:23.010
+doesn't exist.
+
+04:25.000 --> 04:27.360
+I get 200 OK with no response.
+
+04:28.600 --> 04:36.770
+Because well, we don't have that user. But let's just console log and see if we get back a user from this.
+
+04:36.890 --> 04:43.450
+If I save and send I get an empty array.
+
+04:43.750 --> 04:49.350
+So it's still returning something, it's just telling me that there's no user.
+
+04:49.540 --> 04:54.770
+If I do a dot cache here - let me just fix the alignment here.
+
+04:58.250 --> 05:11.880
+And I do the error with Json or response that status 400 and we'll just do not found if I save this
+
+05:12.780 --> 05:16.640
+and go back to postman click send again with the wrong ID.
+
+05:16.770 --> 05:28.960
+I still get 200 OK not the error that we catch because in javascript if I open up the chrome again. Trick
+
+05:28.980 --> 05:32.270
+of javascript. If I do
+
+05:32.280 --> 05:35.860
+Boolean array an empty array.
+
+05:36.120 --> 05:39.030
+It's technically true.
+
+05:39.070 --> 05:51.380
+So the way we want to check against the empty array we simply say if user dot length exists in that
+
+05:51.380 --> 06:01.420
+case it will be greater than 1 or equal to 1 will respond with the user.
+
+06:01.540 --> 06:05.150
+Otherwise we'll respond with
+
+06:09.840 --> 06:14.130
+our status not found and maybe we can also in here say
+
+06:17.250 --> 06:26.730
+error getting user. If we save now and go back to - let's remove console because we don't need it anymore.
+
+06:27.050 --> 06:28.040
+Go back to postman.
+
+06:30.920 --> 06:34.090
+Click send. Not found.
+
+06:34.130 --> 06:35.040
+That's awesome.
+
+06:35.180 --> 06:41.150
+We got a 400 bad request but if we grab somebody that we want it's now working.
+
+06:42.320 --> 06:45.900
+Very cool. We can now remove this ugly code.
+
+06:46.790 --> 06:50.540
+We have much better syntax here now.
+
+06:50.910 --> 06:53.150
+And we also have the register done.
+
+06:53.640 --> 06:55.630
+We'll leave the sign in till the end.
+
+06:55.980 --> 06:59.580
+But let's work on the image endpoint in the next one.
+
+07:00.780 --> 07:02.160
+I'll see on that one. Bye-bye.

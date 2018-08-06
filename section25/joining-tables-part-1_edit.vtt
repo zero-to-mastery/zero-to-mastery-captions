@@ -1,0 +1,238 @@
+WEBVTT
+
+00:00.730 --> 00:04.680
+Welcome back. Now we've gone over a few SQL commands
+
+00:04.680 --> 00:10.660
+and you should feel pretty comfortable with most of them. But there's one thing that I've kind of omitted
+
+00:10.710 --> 00:16.500
+until now. You remember here when we spoke about relational databases I mentioned something about our
+
+00:16.500 --> 00:19.030
+primary key and a foreign key.
+
+00:19.200 --> 00:25.550
+How these tables are linked with one another with some values like username.
+
+00:25.560 --> 00:31.210
+Well we're going to start introducing this idea of connecting the tables and how we can do that.
+
+00:32.890 --> 00:41.220
+The first thing I want to show you is this command right here. I want to create a login table with create
+
+00:41.220 --> 00:42.300
+TABLE which we've seen
+
+00:44.860 --> 00:49.600
+And now within here,
+
+00:49.750 --> 00:50.940
+I have a few things.
+
+00:51.190 --> 00:55.440
+I have an ID that has data type serial.
+
+00:55.450 --> 00:59.190
+Let's look at what that is.
+
+00:59.230 --> 01:04.400
+We see that the data type serial is an auto incrementing integer value.
+
+01:04.610 --> 01:05.220
+OK.
+
+01:05.470 --> 01:11.980
+And this auto incremented value every time a new user is created.
+
+01:11.990 --> 01:16.350
+It'll go one, two, three, four, five.
+
+01:16.450 --> 01:20.640
+So it's a unique ID that we can assign to each user.
+
+01:20.650 --> 01:22.720
+However, this is for the login table.
+
+01:22.720 --> 01:27.930
+So that is we're creating an ID for each login entry here.
+
+01:29.510 --> 01:30.960
+And you see that it says NOT NULL.
+
+01:31.020 --> 01:39.230
+Not null means that this well has to be a filled in property.
+
+01:39.260 --> 01:45.000
+Remember when we had the users table and we didn't have the scores and we had null here.
+
+01:45.320 --> 01:49.380
+Well if we do not NOT NULL, that means that, that's not possible.
+
+01:50.900 --> 01:54.760
+And then we also have primary key and setting primary keys
+
+01:54.770 --> 02:01.480
+when you're creating a table is one of the most important things. By saying that the ID here is the
+
+02:01.480 --> 02:02.780
+primary key.
+
+02:03.530 --> 02:11.420
+It's saying that this is what I want you to access when I'm looking for things. And databases are really
+
+02:11.420 --> 02:11.930
+really good.
+
+02:11.930 --> 02:21.400
+When you set a primary key to grab this information. And as you know primary keys are only one per table.
+
+02:21.520 --> 02:28.090
+Usually something like an ID or something unique like an email. By setting this as primary key,
+
+02:28.130 --> 02:35.930
+we now have a really, really fast way of selecting or grabbing information.
+
+02:36.010 --> 02:43.360
+If we look at the second value here, the second column. We have secret which is a variable character
+
+02:43.360 --> 02:44.260
+of a 100.
+
+02:44.440 --> 02:53.350
+Let's look at what that data type is. For the string datatype variable character has a size,
+
+02:56.100 --> 02:58.810
+and we can say that numeric characters to store.
+
+02:59.130 --> 03:06.270
+So we're saying that the secret value in our case this will be the hash will not be greater than a 100.
+
+03:06.630 --> 03:13.050
+And it also is not null, that is this always has to be filled when we're inserting something into this
+
+03:13.050 --> 03:13.690
+table.
+
+03:13.770 --> 03:20.930
+Otherwise it's gonna fail. And then we have name which will be text that we've used before.
+
+03:21.030 --> 03:28.680
+But it also has to be unique. And the unique Keyword says that if a name already exists well then we
+
+03:28.680 --> 03:30.850
+can't insert into it.
+
+03:30.960 --> 03:33.140
+So let's run this command and see what happens.
+
+03:35.030 --> 03:37.070
+Let's refresh.
+
+03:37.130 --> 03:41.980
+We have the login table now with ID, secret and name.
+
+03:42.120 --> 03:44.090
+Let's enter some information in here.
+
+03:46.520 --> 03:53.080
+I'm going to say INSERT INTO login.
+
+03:53.080 --> 03:59.890
+We don't need to now insert anything in the ID because that's actually done for us because it's serial,
+
+03:59.890 --> 04:10.740
+it will just automatically increment. But for the secret we can say that secret will be a hash and the name
+
+04:11.280 --> 04:16.180
+will be some sort of a text. Let's format this a little bit.
+
+04:23.270 --> 04:27.170
+VAULES and we'll say some sort of a string.
+
+04:27.200 --> 04:28.930
+We'll just say 'abc' here.
+
+04:30.750 --> 04:32.190
+And the name will be 'Andrei'.
+
+04:36.310 --> 04:39.430
+let's run the query.
+
+04:39.630 --> 04:44.510
+Let's go back to the login, refresh, go to login.
+
+04:44.640 --> 04:52.150
+And we see that Andrei has been inserted with ID of 1. If I go back to the query and add a different
+
+04:52.150 --> 04:57.970
+person let's do Sally and her password is 'xyz'.
+
+04:59.350 --> 05:08.680
+Run the query and now should be, in there.
+
+05:08.890 --> 05:16.030
+And you also noticed that her id is now 2. What if I enter this again.
+
+05:17.250 --> 05:24.090
+I get an error, duplicate key value violates unique constraint "login_name_key" because we've said that
+
+05:24.090 --> 05:27.080
+we want unique for name.
+
+05:27.240 --> 05:28.110
+Very cool.
+
+05:28.450 --> 05:30.210
+Let's enter the last one.
+
+05:31.090 --> 05:32.290
+And this will be
+
+05:32.090 --> 05:33.990
+John
+
+05:34.970 --> 05:40.970
+because that's what we have in our users table.
+
+05:41.040 --> 05:50.090
+So we have 'John' perfect and if you go to login we also have 'John' with his secret which is 'lol'.
+
+05:50.270 --> 05:57.380
+And notice here that it's four instead of three because we ran a command but we failed to do this, but
+
+05:57.380 --> 06:01.980
+doesn't really matter because as long as these are unique. These are the primary keys.
+
+06:02.030 --> 06:10.450
+This is the one thing that we make sure that is unique at all times in our table. But by doing this we've
+
+06:10.450 --> 06:12.480
+created something interesting.
+
+06:12.640 --> 06:21.910
+We have Andrei, Sally and John that also live with Andrei, Sally and John in the Users table. When we design
+
+06:21.910 --> 06:29.850
+databases like this we can now have Andrei, Sally and John referencing the users.
+
+06:29.930 --> 06:40.380
+And if I wanted to grab Andrei or Andrei's secret which is 'abc' in that case I have a foreign key which
+
+06:40.380 --> 06:51.870
+is this. This name column in the login is the foreign key that references the- in our case the primary
+
+06:51.870 --> 06:57.540
+key here because these are the unique identifying values in the Users table.
+
+06:57.750 --> 06:59.610
+That is Andrei.
+
+06:59.830 --> 07:03.880
+In the next video I'm going to show you how we can finally connect these two together.
+
+07:04.880 --> 07:05.910
+I'll see you in that one.
+
+07:06.160 --> 07:06.440
+Bye-bye.

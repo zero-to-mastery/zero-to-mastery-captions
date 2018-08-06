@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00.640 --> 00:01.750
+Welcome back.
+
+00:01.870 --> 00:04.070
+We have our final end point.
+
+00:04.090 --> 00:09.010
+Sign in where we're finally able to sign in users.
+
+00:09.120 --> 00:14.110
+Now there might be something that you have realized when we were working on register.
+
+00:14.490 --> 00:26.590
+That is we're inserting the user with email, name and joined, but we're never updating our login table.
+
+00:26.800 --> 00:36.190
+If I do select star from login, well we have nothing there.
+
+00:37.080 --> 00:38.010
+That's not good is it.
+
+00:38.010 --> 00:43.980
+We want to create something every time a new user logs in and actually capture their passwords or the
+
+00:43.980 --> 00:45.300
+hash of their passwords.
+
+00:46.470 --> 00:51.810
+So let's work on that in this video. In order for us to do this.
+
+00:51.850 --> 00:58.300
+We first need to register a user and grab their passwords.
+
+00:59.650 --> 01:05.650
+Now for us to do this we need to insert into another database.
+
+01:05.720 --> 01:10.000
+But first let's use bcrypt to hash out a password that we get.
+
+01:10.200 --> 01:17.730
+If you remember we already have bcrypt installed and it's from a previous video we can go back to the
+
+01:17.970 --> 01:24.540
+bcrypt Node.js package and although I've shown you the asynchronous way of doing things we're going to
+
+01:24.540 --> 01:27.970
+do the synchronous one because it's simpler.
+
+01:28.200 --> 01:33.120
+Just keep in mind that with synchronous it means that as this is working javascript is not going to
+
+01:33.120 --> 01:39.120
+get executed on the next line versus with asynchronous if you run bcrypt hash,
+
+01:39.120 --> 01:41.080
+Javascript keeps executing.
+
+01:41.220 --> 01:44.130
+And then when this returns it will come back here.
+
+01:45.050 --> 01:48.200
+This way is just a little bit cleaner for now.
+
+01:48.200 --> 01:50.510
+So we'll use this code example.
+
+01:51.080 --> 01:59.700
+We will copy this, go to our register, and in here - we don't want to compare yet.
+
+01:59.750 --> 02:10.250
+We just want to store, so we can say const hash we want to bcrypt the password.
+
+02:10.280 --> 02:15.360
+So let's change this to password.
+
+02:15.580 --> 02:22.780
+And now that we have the password hash we need to make sure that we update the users as well as the
+
+02:22.780 --> 02:28.480
+login table so that we don't have an issue
+
+02:32.880 --> 02:36.020
+like this where we have these users.
+
+02:36.240 --> 02:44.640
+But if we go to the logon Well we have absolutely nothing.
+
+02:44.640 --> 02:54.090
+So to avoid this we have an important concept of transactions and transactions are these code blocks
+
+02:54.180 --> 03:01.740
+that we can add to make sure that when we're doing multiple operations on a database if one fails then
+
+03:01.740 --> 03:02.750
+they all fail.
+
+03:02.880 --> 03:09.600
+If for some reason, I can't enter something in the users table, but I can in login, as long as it's wrapped
+
+03:09.600 --> 03:14.410
+around a transaction they both fail so that I never have these inconsistencies.
+
+03:14.670 --> 03:15.950
+Let me show you how to do that.
+
+03:17.060 --> 03:25.390
+With the users table I want to have this part. I'm going to indent it a little bit.
+
+03:25.450 --> 03:34.810
+And before we do the users, I want to create a transaction. I'm going to say DB dot transaction and now
+
+03:34.810 --> 03:42.940
+we have a transaction in KNEX and if we go to the KNEX they have transactions and you can read
+
+03:42.940 --> 03:46.230
+about them here and SQL has transaction as well.
+
+03:49.450 --> 03:59.680
+If we go back this transaction gets a trx parameter that we can now use instead set of the DB to make
+
+03:59.680 --> 04:09.460
+sure that whatever we do is a transaction. The first transaction we want to do is that we want to insert
+
+04:11.460 --> 04:24.960
+into the users or into the login the hash in the email, so we can say hash email or hash hash that we
+
+04:24.960 --> 04:30.870
+just received from bcrypt, and then email which we just got from request dot body.
+
+04:34.470 --> 04:37.530
+Instead of just doing this syntax which we can do as well.
+
+04:37.800 --> 04:39.420
+We can do into
+
+04:42.950 --> 04:53.590
+login and then finally returning the email of the user.
+
+04:53.720 --> 05:01.650
+Now that we have this returned we can say dot then email because we're returning the email.
+
+05:03.590 --> 05:11.170
+And just to keep it separate from the request or body we'll say that this is the login email and this
+
+05:11.170 --> 05:17.020
+long email will now be used in here. So we can just copy and paste this
+
+05:21.690 --> 05:22.620
+into here.
+
+05:24.510 --> 05:33.400
+Just make sure the spacing is right. And we can use the log in email after we've updated the log and
+
+05:33.400 --> 05:40.450
+table to update the login email so we don't really change anything.
+
+05:40.450 --> 05:49.210
+The only thing we did was this block we moved it inside a dot then so that we first update the login
+
+05:49.210 --> 05:58.430
+table we get the login email and in order to make sure that these are both part of the transaction
+
+05:58.830 --> 06:02.910
+instead of doing DB here we have the TRX object.
+
+06:02.970 --> 06:08.820
+So we will do TRX and let's save and see what happens.
+
+06:11.610 --> 06:16.860
+And then I go back to our example here, our NodeMon.
+
+06:16.860 --> 06:18.400
+We have a register with John.
+
+06:18.480 --> 06:21.430
+If I click send.
+
+06:21.550 --> 06:31.690
+All right I get ID 11 John, I get e-mail if I go into the logon.
+
+06:31.960 --> 06:33.940
+I don't have login here.
+
+06:34.060 --> 06:37.030
+If I go into users I don't have John either.
+
+06:37.060 --> 06:38.630
+So something must have gone wrong.
+
+06:39.880 --> 06:47.950
+The last thing we want to do is at the end, and you can read about this in the KNEX section, we can do-
+
+06:48.240 --> 06:49.940
+dot then
+
+06:50.150 --> 06:57.520
+TRX commit, because we weren't able to send these because we didn't say that if all these pass then
+
+06:57.640 --> 07:00.310
+commit send this transaction through.
+
+07:00.820 --> 07:04.300
+And if I do dot catch, I'll do
+
+07:04.300 --> 07:08.670
+TRX roll back
+
+07:08.700 --> 07:11.800
+So now let's give this a go.
+
+07:11.830 --> 07:19.770
+I'm going to click send, I get a response. If I go to users.
+
+07:19.770 --> 07:28.000
+I have John and if I go to login I have John with the hash.
+
+07:28.000 --> 07:35.010
+The only thing that's wrong here is that I have this syntax for the e-mail, which is not what we want.
+
+07:35.030 --> 07:38.590
+That's a simple fix because we're giving the login email here.
+
+07:38.590 --> 07:42.620
+Remember we're returning an array.
+
+07:42.670 --> 07:49.790
+So if I go like this let's do John 1 send
+
+07:53.460 --> 07:55.170
+go to our example of login.
+
+07:55.290 --> 07:56.270
+That looks good.
+
+07:56.490 --> 08:01.670
+And login our users we have John1 at gmail dot com.
+
+08:01.770 --> 08:02.300
+Amazing.
+
+08:04.020 --> 08:09.220
+So this transaction is probably the trickiest part to get used to.
+
+08:09.420 --> 08:11.300
+And you can see here it is a little bit.
+
+08:11.310 --> 08:14.800
+But once you get the syntax it becomes very easy.
+
+08:14.970 --> 08:22.440
+You create a transaction when you have to do more than two things at once, and you use this TRX object
+
+08:22.620 --> 08:26.370
+instead of the DB now, to do these operations.
+
+08:26.370 --> 08:36.570
+In my case I insert it into login, it returned the email, and then we use the login e-mail to also return
+
+08:36.570 --> 08:46.810
+another TRX transaction to insert into the users and responded with Json and then in order for this
+
+08:46.840 --> 08:54.610
+to get added We have to make sure that we commit and then in case anything fails we roll back the changes.
+
+08:54.880 --> 09:03.220
+If I enter the same user again I get unable to register. If I send the wrong information I'll get unable
+
+09:03.220 --> 09:04.390
+to register. Perfect.
+
+09:07.610 --> 09:15.280
+Now that we have this working we can finally go to our signin. we are containing the hash now on to
+
+09:15.280 --> 09:20.290
+our table and all we need to do now is, well let's remove this.
+
+09:20.710 --> 09:38.950
+And in this signin we can do a DB we'll do a select, we'll select email and hash from login.
+
+09:38.980 --> 09:43.040
+Dot then we'll get the e-mail and hash.
+
+09:43.040 --> 09:46.820
+So let's get response or in this case let's just do data
+
+09:51.520 --> 09:53.950
+and let's just console log to see what we receive
+
+09:57.440 --> 10:06.400
+I'm going to save go to signin and see if we still have something. There you go. Let's do signin body 
+
+10:06.610 --> 10:13.350
+John cookies I senD this. I'm not responding with anything so it hangs.
+
+10:13.500 --> 10:21.630
+But if I go back I see that I get e-mail and hash and I receive everything because well I haven't selected
+
+10:21.990 --> 10:23.400
+any specific criteria.
+
+10:23.520 --> 10:33.220
+We can say that now we want to do the WHERE clause where email
+
+10:37.440 --> 10:41.930
+equals the request
+
+10:42.000 --> 10:50.110
+dot body dot email. If that's the case let's save and try again, send.
+
+10:50.280 --> 10:55.060
+We got a syntax error because we don't need an object here.
+
+10:55.060 --> 10:56.200
+There you go.
+
+10:56.530 --> 10:57.410
+Let's try that again.
+
+10:57.410 --> 10:59.030
+Click send.
+
+10:59.250 --> 11:01.600
+This will hang so we'll cancel.
+
+11:01.770 --> 11:02.700
+And there you go.
+
+11:02.700 --> 11:05.840
+We have John's e-mail and hash.
+
+11:06.270 --> 11:11.760
+And now we need to check to see if John put in the right password.
+
+11:12.040 --> 11:21.220
+So within data here we can grab the array which is the first one.
+
+11:21.480 --> 11:31.140
+And now use bcrypt. And remember with bcrypt we have compare sync.
+
+11:31.340 --> 11:37.040
+We can simply say bcrypt dot compare sync with whatever the user entered.
+
+11:37.030 --> 11:48.910
+In this case request a body dot password with the hash, in our case we can just say data zero dot
+
+11:49.060 --> 11:50.040
+hash.
+
+11:50.230 --> 11:55.200
+If this returns true well let's just have a const is valid.
+
+11:59.110 --> 12:01.520
+In that case - let's make this a little bit smaller so you can see
+
+12:05.960 --> 12:07.990
+we'll say if is valid
+
+12:10.910 --> 12:12.710
+this will return true or false.
+
+12:12.740 --> 12:17.130
+We'll do a response dot Json with the user information.
+
+12:17.210 --> 12:24.830
+So we'll have to do a DB dot select star from
+
+12:27.370 --> 12:30.520
+users dot where
+
+12:33.390 --> 12:46.220
+email equals to  request dot body dot email then we'll get the user.
+
+12:46.300 --> 12:49.090
+And finally within here we can
+
+12:54.020 --> 13:02.740
+move this to response dot Json user array first item.
+
+13:03.150 --> 13:06.810
+And if there's some issue getting that down we'll say catch
+
+13:11.070 --> 13:11.760
+error response dot
+
+13:11.790 --> 13:26.370
+Json we'll do status again 400 Json unable to get user, and also down here because we're still doing
+
+13:26.370 --> 13:29.090
+the database search right here.
+
+13:29.250 --> 13:35.190
+And this doesn't need to be a transaction because, well we're just checking, we're not modifying any of
+
+13:35.190 --> 13:37.950
+the database items in here. We can say dot catch
+
+13:41.760 --> 13:42.990
+if there's an error.
+
+13:43.290 --> 13:55.910
+We can just respond dot status 400 This time we can say wrong credentials.
+
+13:56.120 --> 13:57.130
+All right let's give that a go.
+
+13:57.140 --> 14:01.110
+I'm going to save no errors here.
+
+14:01.110 --> 14:04.800
+Fine go back to postman and click.
+
+14:04.820 --> 14:08.360
+John cookies send.
+
+14:08.550 --> 14:09.600
+I get it 200.
+
+14:09.620 --> 14:15.320
+OK but I didn't receive a user so let's console log here.
+
+14:20.410 --> 14:22.780
+And this is a simple error.
+
+14:22.930 --> 14:31.680
+We always want to make sure that we're returning this so that this database knows about it.
+
+14:31.680 --> 14:33.150
+We always want to make sure we're returning.
+
+14:33.150 --> 14:34.800
+Let's try that again.
+
+14:34.800 --> 14:40.780
+I'm going to send with the right information with password cookies.
+
+14:40.780 --> 14:42.850
+All right I got 200.
+
+14:43.000 --> 14:45.310
+But let's do a console log here.
+
+14:46.710 --> 14:51.120
+Is valid. We'll save and see what we get here.
+
+14:51.120 --> 14:55.190
+We're going to send OK.
+
+14:55.350 --> 14:59.820
+Is valid is running and then users is zero.
+
+14:59.820 --> 15:03.750
+So we're not grabbing the users properly.
+
+15:03.750 --> 15:04.420
+Let's see why.
+
+15:07.060 --> 15:09.580
+And that is because our e-mail for John.
+
+15:09.580 --> 15:14.410
+Remember we made a mistake of not returning it properly.
+
+15:14.410 --> 15:19.420
+So let's register a new user and make sure that they have the right password.
+
+15:19.900 --> 15:33.460
+We'll go back to register we'll register with Eddy password it will be hello and his name will be Andy
+
+15:33.490 --> 15:37.770
+We'll click send. Perfect.
+
+15:37.960 --> 15:40.810
+And now if we sign in with Eddy
+
+15:44.540 --> 15:47.870
+you don't need to send the name just the password.
+
+15:48.390 --> 15:51.840
+If we click send.
+
+15:51.940 --> 15:54.770
+All right we've got 200.
+
+15:54.820 --> 15:56.150
+Looks like it's working.
+
+15:57.510 --> 16:02.320
+But if Eddy enters the wrong password.
+
+16:02.390 --> 16:02.610
+All right.
+
+16:02.630 --> 16:03.740
+This is still hanging.
+
+16:03.770 --> 16:08.420
+Because we never stated if this is false what should happen.
+
+16:09.550 --> 16:23.230
+In our case we want to say response dot status 400 dot Json wrong credentials and make sure
+
+16:23.230 --> 16:26.330
+that I do an else statement here.
+
+16:27.420 --> 16:30.160
+And put that up here.
+
+16:32.430 --> 16:33.000
+Let's save
+
+16:36.170 --> 16:40.080
+Click send. Wrong credentials.
+
+16:40.180 --> 16:41.350
+But if I click hello
+
+16:45.190 --> 16:47.020
+I get Eddy.
+
+16:47.140 --> 16:48.240
+That is awesome.
+
+16:48.370 --> 16:52.060
+We have our entire signin flow working.
+
+16:52.210 --> 16:54.080
+We can remove the console logs here
+
+16:56.960 --> 17:04.380
+and now that we have everything working we have our users our new Eddy user and he's also part of the login
+
+17:04.380 --> 17:13.700
+with the hash with storing everything securely because in our database we never store Eddy's password.
+
+17:13.740 --> 17:19.110
+And we finally have our logs working. In the next video we're finally going to test all this out with
+
+17:19.110 --> 17:26.310
+our Front-End and hopefully everything works well and looks like we don't need this database any more.
+
+17:26.460 --> 17:27.630
+Good job everybody.
+
+17:27.660 --> 17:29.150
+I'll see you on the next one.
+
+17:29.150 --> 17:29.630
+Bye-bye.

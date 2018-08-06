@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.940 --> 00:06.610
+Welcome back, in this section, we're going to be talking about some advanced topics in CSS and I'm going
+
+00:06.610 --> 00:09.930
+to start off with the critical render path.
+
+00:10.000 --> 00:10.800
+What is that?
+
+00:11.720 --> 00:17.540
+Well, we always should know how things work underneath the hood so we can make our websites as fast
+
+00:17.570 --> 00:19.950
+and reliable as possible.
+
+00:19.970 --> 00:25.410
+So based on what we've built in the previous section, let's look at what's happening underneath the hood.
+
+00:25.520 --> 00:31.760
+We are going to our website and ideally our website will be on a server and I'll show you how to do
+
+00:31.760 --> 00:33.500
+that later on in the course.
+
+00:33.620 --> 00:41.660
+For now it's just our computer. But let's pretend we have a server, where our files are hosted. When we go
+
+00:41.660 --> 00:42.620
+to our website.
+
+00:42.650 --> 00:45.160
+We'll call it "coolwebsite.com".
+
+00:45.290 --> 00:54.150
+We will request the HTML file and the browser now sees our HTML file.
+
+00:54.270 --> 01:02.730
+So it reads through this document and as it's looking through it notices that 'Oh I need a CSS file
+
+01:02.730 --> 01:03.230
+here'.
+
+01:04.210 --> 01:11.040
+So it goes back, makes another request and says 'Hey, can you please give me a CSS file as well?'
+
+01:11.850 --> 01:13.760
+The server says 'Yep, no problem.
+
+01:13.860 --> 01:15.690
+Let me grab that for you.'
+
+01:15.690 --> 01:27.560
+Grabs the CSS file and now it starts looking at both: the HTML and the CSS file to try and figure out
+
+01:27.620 --> 01:30.000
+how the web page should look.
+
+01:30.170 --> 01:34.000
+But then it also notices that - 'Hold on a second.
+
+01:34.070 --> 01:36.090
+I need some fonts as well.'
+
+01:36.320 --> 01:39.980
+So it goes to this address and looks for font again.
+
+01:40.430 --> 01:45.420
+The website now asks the website that the fonts are hosted at.
+
+01:45.440 --> 01:53.950
+In our case it's the Google API and it grabs the font file. Now here's the thing.
+
+01:54.170 --> 02:02.110
+While it's grabbing the font file it could render the page and rendering means displaying the website,
+
+02:03.590 --> 02:05.800
+so it could display the website.
+
+02:05.810 --> 02:13.970
+If it only has the HTML or CSS but it might not show up the text, because the text is looking for the
+
+02:13.970 --> 02:16.000
+font file.
+
+02:16.090 --> 02:22.930
+So when we talk about the critical render path we like to mention that CSS is a render blocking file
+
+02:22.930 --> 02:30.520
+so you won't be able to render a web page until you receive your CSS and sometimes, if you have font
+
+02:30.520 --> 02:36.460
+files, you'll also have to wait for the text to render on the page.
+
+02:36.630 --> 02:41.460
+So keep that in mind when you build your websites. But what are some things that we can consider when
+
+02:41.670 --> 02:44.900
+doing this, so that our websites load up faster?
+
+02:44.970 --> 02:47.580
+One is maybe to have our own font files.
+
+02:47.700 --> 02:54.420
+Another one might be, that you don't want to make your CSS too big if we had hundreds and hundreds
+
+02:54.420 --> 02:56.250
+of lines of code of CSS.
+
+02:56.490 --> 03:01.620
+Well the file gets bigger and bigger and it's more and more that you have to transfer over the wire.
+
+03:03.240 --> 03:09.950
+One method that people have used and you'll see often is something, called 'minifying' your CSS. And
+
+03:09.950 --> 03:12.080
+if we open up the browser here.
+
+03:12.300 --> 03:13.050
+"Good morning!"
+
+03:13.070 --> 03:15.320
+Yeah, it's early in the morning that I'm filming this!
+
+03:16.730 --> 03:23.660
+And CSS Minifier. What it does is, you can enter your CSS here - you can see an example over here.
+
+03:23.660 --> 03:28.070
+So you enter this and you click 'Minify'.
+
+03:28.310 --> 03:33.890
+And what Minify does - it removes all the whitespace so everything is on one line,
+
+03:33.890 --> 03:36.060
+just really tiny together.
+
+03:36.080 --> 03:43.040
+So even though it's the same CSS, it technically makes the file a little bit smaller so that the
+
+03:43.130 --> 03:50.030
+number of bytes that you're sending over the Internet is a lot less and you'll see that technique used
+
+03:50.030 --> 03:51.350
+in Javascript as well.
+
+03:51.350 --> 03:57.620
+And we'll talk about that in that section. That is the critical render path, a path that a website
+
+03:57.620 --> 04:03.300
+takes to display something to the user. I'll see you in the next one.
+
+04:03.330 --> 04:03.810
+Bye-bye

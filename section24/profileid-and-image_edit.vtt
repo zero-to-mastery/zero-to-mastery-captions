@@ -1,0 +1,301 @@
+WEBVTT
+
+00:00.920 --> 00:10.160
+Welcome back. Let's finish setting up the last two routes in our server. We first have the '/profile/:userId'
+
+00:10.160 --> 00:12.420
+which is a GET request.
+
+00:12.440 --> 00:18.960
+That is what we want to GET the user for their homepage.
+
+00:19.190 --> 00:22.510
+Let's do that. I'm going to add a other route.
+
+00:22.670 --> 00:32.030
+This time it'll just be a GET request and it's going to accept '/profile/' and an 'id' – remember that if we do
+
+00:32.030 --> 00:39.170
+it with this syntax [:id] that means we can enter in our browser anything and we'll be able to grab this 'id'
+
+00:39.650 --> 00:43.270
+through the 'req.params' property rights.
+
+00:43.280 --> 00:45.580
+We will again do the same thing.
+
+00:45.590 --> 00:46.670
+Request, response
+
+00:49.910 --> 00:52.460
+and let's add a space here to keep things clean.
+
+00:54.150 --> 01:06.360
+And within this request, response we want to first of all grab the parameter 'id' so let's do 'const', 'id'
+
+01:06.840 --> 01:11.190
+will be coming from 'req.params'.
+
+01:11.450 --> 01:13.700
+And what should we do here?
+
+01:13.700 --> 01:21.380
+Well in order to get our users we want to loop through our sample database and find the matching 'id'.
+
+01:21.710 --> 01:22.550
+If it matches
+
+01:22.550 --> 01:27.930
+We want to return the user.
+
+01:27.940 --> 01:28.170
+All right.
+
+01:28.170 --> 01:29.470
+We can avoid it any longer.
+
+01:29.470 --> 01:36.370
+We have to do a 'for' loop here. The way we do that is we can just do 'database.users'
+
+01:40.180 --> 01:44.800
+– although I like using 'map' for this case – we're just looping through the users and we dont really need
+
+01:44.800 --> 01:49.600
+to create a new array – it's just a database and we want to keep that constant so we'll just say 'forEach()'
+
+01:51.240 --> 02:01.210
+and if you remember 'forEach()' will run through the users one at a time and we'll say that if 'user.id'
+
+02:02.670 --> 02:11.390
+which is what will get from that database equals the 'id' that we received from the 'params', if that's
+
+02:11.390 --> 02:23.610
+the case, we will respond with JSON, that user [req.json(user)] – we'll just send the user of the matching 'id' – otherwise
+
+02:26.440 --> 02:34.180
+We will respond with 'req.json('no such user')'.
+
+02:38.140 --> 02:45.830
+And we can even say that its a status of 404, which means 'not found'.
+
+02:45.840 --> 02:46.040
+All right.
+
+02:46.050 --> 02:47.440
+Let's see if this works.
+
+02:47.630 --> 02:57.700
+I'm going to save go back to our example. Well we know that we have '123' and '124'
+
+02:57.740 --> 03:01.410
+and because the server restarted we won't have Ann.
+
+03:01.810 --> 03:04.000
+You want to grab '/profile/123'.
+
+03:04.410 --> 03:09.830
+If we click Send I get '200 OK'.
+
+03:09.840 --> 03:10.500
+-
+
+03:10.500 --> 03:11.710
+All right we got John.
+
+03:11.880 --> 03:20.060
+If I do '124' I get "no such user" if we go back here
+
+03:22.780 --> 03:23.860
+– hmm, Sally should be here.
+
+03:23.860 --> 03:25.220
+How come we're not getting her?
+
+03:28.240 --> 03:30.880
+And we see here that we get an error here:
+
+03:30.970 --> 03:32.890
+'Can't set headers after they are sent.'
+
+03:32.890 --> 03:39.590
+That is because we're looping through this and instead of returning from the loop – because once we find
+
+03:39.590 --> 03:44.480
+the user id – we don't really need to keep looping.
+
+03:44.520 --> 03:49.830
+So here we should just be sending a 'return res.json()'
+
+03:49.980 --> 03:57.180
+and if the user isn't found well you don't necessarily want to do that in the loop, do we?
+
+03:57.390 --> 04:07.980
+We want to say that for each if this user is found 'return res.json()' and we'll say that a variable
+
+04:09.270 --> 04:16.780
+'found', which we'll default to 'false' will also get updated with 'true'
+
+04:20.610 --> 04:26.610
+and it'll have to be a 'let' because we're reassigning it so 'found' will equal to 'true'
+
+04:26.620 --> 04:29.610
+if we find it, and I know there's better ways of doing it.
+
+04:29.620 --> 04:32.250
+But again I think this will illustrate a point.
+
+04:32.290 --> 04:38.030
+We could also do a 'map' or a 'filter' to see if we actually find a person with an 'id'.
+
+04:38.420 --> 04:42.670
+But for now let's just do 'if isn't found' [if(!found)]
+
+04:42.700 --> 04:48.000
+So the opposite of 'found' – in that case we'll just respond with
+
+04:51.830 --> 05:00.090
+'res.status(400).json('not found')'
+
+05:00.260 --> 05:01.210
+Let's give that a go.
+
+05:07.130 --> 05:07.470
+All right.
+
+05:07.490 --> 05:19.150
+I get Sally. If I go '123' I get John – perfect and just for fun let's register
+
+05:19.590 --> 05:25.080
+Ann again. I'm going to hit send and her 'id' is '125'.
+
+05:25.200 --> 05:30.970
+So if I go back to '/profile/' and do '125' I get Ann.
+
+05:31.060 --> 05:32.470
+And how cool is that?
+
+05:34.600 --> 05:34.990
+Awesome.
+
+05:34.990 --> 05:42.610
+So we have this endpoint working and we have one last one which is the image and this one we just wanted
+
+05:42.610 --> 05:47.020
+to update the user to increase their
+
+05:49.890 --> 05:53.130
+'entries' count. Every time they submit an image
+
+05:53.130 --> 05:55.330
+we want to increase their 'entries'.
+
+05:57.670 --> 06:03.580
+Let's do that by creating our final endpoint which is 'app.post()'
+
+06:06.930 --> 06:11.330
+and we'll call it '/image'.
+
+06:11.560 --> 06:19.510
+We'll get a request, response.
+
+06:19.790 --> 06:26.200
+And again here we will have to find the 'id' of the user again.
+
+06:27.800 --> 06:31.070
+To update their entries.
+
+06:35.860 --> 06:43.080
+In this case we can just copy what we've done before and any time we need to copy some sort of a function
+
+06:44.140 --> 06:52.390
+well it's a good time to actually pull it out and create your own function so you can use it in both
+
+06:52.390 --> 06:53.770
+of these.
+
+06:53.900 --> 06:57.070
+But for now let's just copy and paste
+
+07:01.410 --> 07:09.960
+and instead of actually having 'params' in our case we will receive the user's 'id' from the body.
+
+07:10.170 --> 07:15.340
+And now we want to say that – we want to copy this bottom part as well
+
+07:19.010 --> 07:27.480
+– we'll say that if the user's 'id' matches, in that case we will respond
+
+07:29.100 --> 07:38.450
+with the 'user.entries' and this 'entries' we want to actually increase.
+
+07:38.450 --> 07:48.070
+So we'll say that 'user.entries++' – remember thats the short form of me doing plus one and reassigning
+
+07:48.070 --> 07:48.540
+it.
+
+07:48.820 --> 07:54.010
+So we'll just do '++' and now the entries of the user should increase and then we'll respond with
+
+07:54.010 --> 07:59.490
+that. If that doesn't work, if the user wasn't found
+
+08:00.360 --> 08:05.500
+– in that case we'll just keep it the way it is: user was 'not found'.
+
+08:06.780 --> 08:12.640
+Let's say that and go back to Postman. We'll say '/image'.
+
+08:12.880 --> 08:23.010
+And within this image we will have a POST request, which means a body and we can just pass the user's
+
+08:23.450 --> 08:24.600
+"id".
+
+08:25.080 --> 08:29.560
+In our case we'll say "Id": "123", which is Johns 'id'.
+
+08:32.240 --> 08:34.270
+And we'll click Send.
+
+08:35.750 --> 08:47.900
+I get "1" if I click again I get "2", "3", "4", "5" and if I go back to the 'root' which
+
+08:47.900 --> 08:57.370
+returns our users and change that to GET I get John with five entries and Sally with zero entries.
+
+09:00.090 --> 09:02.080
+Let's make sure it works for Sally as well.
+
+09:02.120 --> 09:14.340
+If I do "124" I get now entries of "1" and going back to the GET users I get John with five entries
+
+09:14.370 --> 09:20.070
+and Sally with one entry. Amazing!
+
+09:20.250 --> 09:24.200
+We got ourselves a nice API server.
+
+09:24.230 --> 09:25.430
+It can definitely improve.
+
+09:25.430 --> 09:32.600
+There is a few things that we obviously want to change such as 'signin' – to not just have it for John.
+
+09:32.900 --> 09:40.040
+We have a few repetition of code that perhaps we can extract this out into a function.
+
+09:40.260 --> 09:47.970
+But I wanted us to have something working something that we can use so that we can connect it immediately
+
+09:47.970 --> 09:48.680
+with our front-end.
+
+09:51.680 --> 09:58.150
+We can finally delete our commented-out section where we planned what our API is going to look like.
+
+09:59.950 --> 10:01.710
+Good job getting this far.
+
+10:01.810 --> 10:03.670
+I'll see in the next video. Bye-bye

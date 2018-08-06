@@ -1,0 +1,817 @@
+WEBVTT
+
+00:01.000 --> 00:06.710
+Welcome back! Functions are the hardest part of JavaScript.
+
+00:07.140 --> 00:11.380
+And it will take some time to fully get it. However,
+
+00:11.480 --> 00:13.810
+in this video we're going to try and do that.
+
+00:13.880 --> 00:18.020
+We're going to learn JavaScript functions.
+
+00:18.030 --> 00:21.710
+So, let's start off with, "What are functions?"
+
+00:22.640 --> 00:28.040
+Well, they're piece of code, that perform actions. Without functions
+
+00:28.040 --> 00:30.730
+JavaScript wouldn't really do anything.
+
+00:30.740 --> 00:40.340
+The beauty is that functions can perform one action or multiple actions. But we'll get back to that. First,
+
+00:40.390 --> 00:45.560
+let's talk about how you already know some JavaScript functions without even realizing it.
+
+00:45.640 --> 00:47.250
+You've seen them before.
+
+00:47.300 --> 00:53.160
+'alert' - that's a function. 'prompt' -
+
+00:56.130 --> 00:57.970
+that's a function.
+
+00:58.150 --> 00:59.350
+You've seen these before.
+
+01:00.240 --> 01:07.500
+So, JavaScript provides for us some functions, that are really-really useful, so that everybody who writes
+
+01:07.500 --> 01:12.380
+JavaScript, can use them without having to write them over and over.
+
+01:12.430 --> 01:15.700
+So with functions we have 2 options.
+
+01:15.830 --> 01:20.990
+One - is using existing JavaScript functions, like 'alert' and 'prompt'.
+
+01:21.980 --> 01:25.880
+And two - we can create our own.
+
+01:25.880 --> 01:32.900
+So, before we get into how we create our own functions and what is so useful about them, you might have
+
+01:32.900 --> 01:37.920
+noticed - noticed one thing: these brackets, that are right next to each other with functions.
+
+01:37.940 --> 01:45.800
+What do they mean? Well, that in JavaScript means to execute the function.
+
+01:46.840 --> 01:52.750
+So, let's see if what happens, when I just type in 'alert' and press 'enter'.
+
+01:52.810 --> 02:01.540
+I get 'f alert()' and some weird stuff. Hmmm, 'f' over here stands for function and can see when I hover
+
+02:01.540 --> 02:01.990
+over it.
+
+02:01.990 --> 02:04.450
+It says 'function alert()'.
+
+02:04.450 --> 02:08.060
+This is what running a function means: in order to run
+
+02:08.080 --> 02:08.960
+'alert()'
+
+02:09.010 --> 02:13.090
+I execute it by calling it like this ['alert()']
+
+02:15.010 --> 02:23.330
+So, these brackets mean 'calling a function', so I can call a function.
+
+02:23.490 --> 02:28.580
+And you also noticed, that within 'alert' I can add things like
+
+02:29.050 --> 02:33.800
+"hi there!"
+
+02:33.910 --> 02:42.190
+These are all called 'arguments' and I know, I'm throwing a bunch of jargon, a bunch of words at you, but these
+
+02:42.190 --> 02:44.670
+are just things that you'll hear over and over,
+
+02:44.710 --> 02:51.490
+when you're a developer, and they'll stick to you - it won't the first time, but, like I said, just try and
+
+02:51.700 --> 02:53.990
+get there one step at a time.
+
+02:54.010 --> 02:58.630
+So 'arguments' are what's given to functions.
+
+02:58.840 --> 03:03.880
+For example, when we did, in our example here.
+
+03:03.970 --> 03:13.190
+"Hellooooo" and the 'console.log' was an 'argument'. And the interesting thing is that you can have multiple arguments:
+
+03:13.200 --> 03:19.820
+for example, if I removed this and just have, let's just have 'console.log' for now.
+
+03:20.190 --> 03:24.690
+I can do "How are you".
+
+03:24.700 --> 03:27.950
+I save and refresh and I get.
+
+03:27.950 --> 03:29.150
+"Hellooooo How are you".
+
+03:29.210 --> 03:37.800
+See, I can have multiple arguments, but just adding a comma. But again, that depends on the function.
+
+03:37.810 --> 03:47.870
+Now, again before we start creating our own, let's review. 'alert' is a function, 'alert' with the brackets,
+
+03:47.960 --> 03:56.220
+I'm calling the 'alert' function and I am calling the 'alert' function with the argument
+
+03:56.400 --> 03:59.910
+'Hi'. 'alert' needs to be called,
+
+04:00.090 --> 04:02.460
+otherwise it's just sitting there.
+
+04:03.900 --> 04:08.880
+Now the big reason to use function is that you can call them as many times as you want.
+
+04:08.970 --> 04:19.080
+Think about 'alert', imagine having to say every time "Hey, computer, create this 'popup' window and print whatever
+
+04:19.080 --> 04:21.090
+argument I put in" every time.
+
+04:21.270 --> 04:27.540
+I mean that would really suck. Isn't it nice, that we can just call 'alert' and that popup window pops up for
+
+04:27.540 --> 04:29.770
+us and everything's done for you?
+
+04:29.780 --> 04:32.010
+Well, that's pretty much what functions do.
+
+04:32.010 --> 04:39.810
+They make life easier by having actions, bundled up, so you only write them once and then you can just
+
+04:39.810 --> 04:41.450
+call it.
+
+04:41.480 --> 04:43.480
+OK. So let's get to the fun part.
+
+04:43.490 --> 04:54.970
+Let's create our own functions. So, if we go back to our document here, let's see right here. We have 2
+
+04:54.970 --> 05:00.180
+ways of creating functions and I'll show you the first way.
+
+05:00.340 --> 05:01.980
+Actually, I'm going to show you this one first.
+
+05:02.200 --> 05:08.970
+So, let's create our own function, using the first method, which is 'function declaration'.
+
+05:09.310 --> 05:17.780
+And we're going to use our 'script.js' here, that's linked to our HTML, that we did at the previous video.
+
+05:17.930 --> 05:23.840
+So, here I can say 'function sayHello()'
+
+05:27.960 --> 05:30.510
+is 'console.log("Hello")'.
+
+05:35.380 --> 05:38.700
+Again the syntax a little bit different, but you just have to remember it.
+
+05:38.800 --> 05:41.850
+I'm saying 'function' - is going to be called 'sayHello'.
+
+05:42.070 --> 05:49.150
+We have those brackets, that are very familiar to us. And then 'console.log("Hello");'. Let's see, what happens
+
+05:49.150 --> 05:53.480
+when I save. I refresh.
+
+05:53.830 --> 05:54.860
+Hmmm, nothing happens.
+
+05:55.980 --> 05:56.920
+Why is that?
+
+05:57.240 --> 06:00.530
+Well, we declared this function.
+
+06:00.540 --> 06:09.430
+But remember, what we did with 'alert'? Well, it exists, but we haven't run it.
+
+06:09.480 --> 06:16.170
+We have to call the function, so we have to say 'sayHello', like so. Now when I refresh.
+
+06:16.740 --> 06:19.430
+I get "Hello".
+
+06:19.570 --> 06:25.610
+So think of this with the variable. When I say 'var a equals 5',
+
+06:25.720 --> 06:29.260
+that's not going to do anything, until we actually get the 'a'.
+
+06:29.560 --> 06:34.120
+And that's when it prints '5'.
+
+06:34.130 --> 06:36.500
+OK. So that's one way.
+
+06:36.510 --> 06:39.060
+What's the second way of creating a function?
+
+06:39.270 --> 06:45.150
+The second way is called 'function expression'.
+
+06:45.340 --> 06:47.900
+And this goes like this.
+
+06:48.130 --> 07:01.430
+I can say 'var sayBye = function()' 'console.log("Bye");'.
+
+07:02.300 --> 07:05.620
+Again I'll save this and refresh.
+
+07:05.810 --> 07:11.660
+And again we only get 'Hello' because, well, again we have to call that function.
+
+07:11.720 --> 07:20.560
+So, I say 'sayBye', run it and refresh. "Hello", "Bye". Now
+
+07:20.640 --> 07:30.040
+one thing you may have noticed here, is that we're assigning this function to the 'sayBye' variable, but
+
+07:30.940 --> 07:33.240
+what is the name of the function?
+
+07:33.250 --> 07:40.520
+I mean here clearly function's name is 'sayHello', but here we're, we're just assigning to the variable.
+
+07:40.520 --> 07:48.230
+I mean, technically the function doesn't have a name and this is called an 'anonymous function'.
+
+07:48.360 --> 07:54.480
+We've assigned this function to 'sayBye', so we can reference it through 'sayBye', but otherwise we can't
+
+07:54.480 --> 07:56.350
+really access this function.
+
+07:56.640 --> 07:59.880
+Well, you'll see why that's important
+
+07:59.940 --> 08:01.500
+in later videos.
+
+08:01.500 --> 08:06.770
+But you could technically do this: and call this function 'byebye'.
+
+08:13.110 --> 08:13.760
+OK.
+
+08:14.050 --> 08:20.560
+So, now that we know, how to create functions, why do we need these arguments?
+
+08:20.830 --> 08:23.740
+Remember, why do we need stuff inside the brackets?
+
+08:23.740 --> 08:26.660
+I mean - these look useful enough, right?
+
+08:27.630 --> 08:40.090
+Well, let's try something. 'sing', let's do a function 'sing' and this 'sing' will have, will have 'console.log'
+
+08:40.120 --> 08:46.220
+and I'll say "AHHHHHHHHHHHH". That's, that's me, singing.
+
+08:46.230 --> 08:51.550
+And it also has 'console.log("TEEEEEEEEE")'.
+
+08:52.030 --> 09:00.390
+That's how I sing. Now, if I save this and refresh, make sure it still sings. Oh, I have to call it!
+
+09:03.440 --> 09:04.920
+Let's refresh.
+
+09:05.040 --> 09:07.410
+Beautiful song: AHHHHHHHHHHHH, TEEEEEEEEE.
+
+09:07.680 --> 09:18.530
+But now, every time I want to change to a different song, maybe I wanted to say 'laaa deeee daaa'.
+
+09:18.660 --> 09:31.840
+Well, I have to either delete this and change this to 'laaa deeee daaa' or I have to create a new one, calling
+
+09:32.260 --> 09:33.640
+'sing2' 
+
+09:36.310 --> 09:50.750
+'console.log' and you can see over here, how annoying that is, that I'm typing the same thing over and over
+
+09:51.020 --> 09:52.710
+and just changing these things.
+
+09:52.910 --> 10:00.090
+And now I have to run 'sing2'. And I refresh, and phew, that was tiring! OK.
+
+10:00.460 --> 10:07.600
+I did all of this and now imagine, if we had thousands of songs, that we want to sing; we're 'Spotify' and
+
+10:07.600 --> 10:10.330
+we want to display all the song lyrics.
+
+10:10.330 --> 10:13.210
+I mean that's pretty-pretty tiring, right?
+
+10:13.210 --> 10:18.680
+And one of the rules with developers is this idea of "DRY: Do not repeat yourself".
+
+10:18.730 --> 10:21.790
+Ideally you want to make things as efficient as possible.
+
+10:22.000 --> 10:34.820
+And one thing you can do is - by adding arguments. So I can add something like 'song' and now - let me just
+
+10:34.820 --> 10:35.970
+delete this for now.
+
+10:37.720 --> 10:46.670
+In the 'console.log' I can just say 'song'.
+
+10:46.820 --> 11:01.190
+So now any time I want to change the song, I can say "Laaa deee daaa". 'sing("helllloooooo")
+
+11:02.140 --> 11:02.990
+Then "sing
+
+11:05.330 --> 11:08.990
+("backstreets back alright")
+
+11:11.770 --> 11:14.470
+Now I save and refresh.
+
+11:14.500 --> 11:23.060
+And look at that! You see how many lines of code we just saved and how I can now use 'sing' any time I want,
+
+11:23.330 --> 11:26.600
+and I can customize it to what I want.
+
+11:26.600 --> 11:28.050
+Kind of like 'alert'.
+
+11:28.130 --> 11:30.570
+That's what arguments do.
+
+11:30.830 --> 11:37.790
+Arguments allow us to not repeat ourselves and make our functions what we call more extensible.
+
+11:37.790 --> 11:40.530
+They can be customized.
+
+11:40.590 --> 11:44.860
+Let's do one other thing to learn a fun thing about functions.
+
+11:44.970 --> 11:57.450
+We're going to delete this and try 'function multiply()'. And we'll give it 'a' and 'b', so it'll accept two
+
+11:57.450 --> 12:01.330
+arguments and we'll do 'a*b'.
+
+12:01.710 --> 12:15.320
+And now within 'a*b' we'll say 'multiply', and we'll call 'multiply(5, 10)'. Save and refresh.
+
+12:15.460 --> 12:18.890
+And now we should have 'multiply' available to us.
+
+12:18.910 --> 12:24.570
+You can see over here 'multiply(a, b)' that's 'b' exactly what we wrote.
+
+12:24.600 --> 12:27.370
+OK, so what happens if I do 'multiply'
+
+12:29.630 --> 12:32.020
+(5, 10)?
+
+12:32.480 --> 12:33.410
+What do you think I'll get?
+
+12:33.560 --> 12:33.910
+Let's see!
+
+12:37.980 --> 12:39.770
+Hmmm, that's really weird.
+
+12:39.780 --> 12:42.340
+Let's try that again with a different number.
+
+12:42.370 --> 12:44.180
+Still 'undefined'.
+
+12:44.380 --> 12:47.530
+Why is that? Well, this is called debugging.
+
+12:47.530 --> 12:50.680
+Let's see if we can figure out what's happening here.
+
+12:50.680 --> 12:53.580
+I'm going to do a 'console.log' here.
+
+12:54.490 --> 12:59.050
+And I'm going to log out 'a' and 'b' to make sure that this function's actually running.
+
+12:59.210 --> 13:11.600
+So I'm going to save and refresh. OK. 'console.log', 'a' and 'b' and I just run the function again.
+
+13:11.660 --> 13:17.610
+'console.log'. OK. So it looks like it's running, but then I'm getting 'undefined' over here.
+
+13:17.770 --> 13:23.440
+Well, I can show you this in a diagram.
+
+13:23.440 --> 13:27.270
+So, a function is an 'input'.
+
+13:27.330 --> 13:32.270
+We give it some sort of an 'input', maybe sometimes it's empty, so that's whatever's in the bracket.
+
+13:32.460 --> 13:34.900
+In our case it's 'a' and 'b'.
+
+13:35.010 --> 13:42.790
+So those are numbers, so '5' and '10'. And then the function does whatever we tell it to do.
+
+13:42.790 --> 13:51.550
+In our case it was to 'multiply 5 and 10'. And then we get an 'output', but we're not getting that 'output'.
+
+13:51.550 --> 13:52.280
+Why is that?
+
+13:52.350 --> 13:56.270
+Well, because a function works like this.
+
+13:56.650 --> 14:01.450
+And don't worry, I've just added a bunch of arrows, but I'll go through everything and explain it to you.
+
+14:01.450 --> 14:03.400
+The 'input' is receiving '5' and '10'.
+
+14:03.400 --> 14:11.950
+The function does some stuff, and up to this point we've only done 'console.log', and the way 'console.log'
+
+14:11.950 --> 14:18.870
+works is, the function is saying: 'Just log it to the console in the browser'.
+
+14:19.100 --> 14:24.400
+But we've never done it where we've returned a 'value'.
+
+14:24.470 --> 14:25.820
+Let me show you what I mean.
+
+14:26.600 --> 14:29.300
+When we don't return something, we get 'undefined'.
+
+14:29.330 --> 14:32.240
+When we return something, we get the 'value'.
+
+14:32.240 --> 14:37.090
+So let's see over here if we can explain this.
+
+14:37.110 --> 14:47.410
+So, here whenever I am saying 'multiply (10 ,5)', and I'm going to remove the 'console.log' just so it doesn't confuse
+
+14:47.410 --> 14:50.400
+us, save and refresh...
+
+14:50.770 --> 14:51.820
+I get 'undefined'.
+
+14:52.000 --> 14:56.710
+That is because as you see in this diagram we're not returning anything.
+
+14:56.710 --> 15:04.330
+So, in JavaScript the way you return things is - you have to put in 'return' inside of a function.
+
+15:04.690 --> 15:12.400
+So, now it's going to 'return a * b' and you see, that it's a - it's a special word in JavaScript - it
+
+15:12.400 --> 15:13.740
+highlighted in red.
+
+15:14.020 --> 15:20.310
+Well, now it's saying 'Yep, we're going to return the value'.
+
+15:20.370 --> 15:28.320
+So, even if we added 'console.log'. You'll do 'console.log' and then ask "Hey, do I have a 'return'?".
+
+15:28.470 --> 15:31.160
+If I do, I'm going to send it a value.
+
+15:32.170 --> 15:33.520
+Hopefully, that's not too confusing.
+
+15:33.520 --> 15:35.170
+Let's see if it works.
+
+15:35.930 --> 15:37.980
+I'm going to save and refresh.
+
+15:38.240 --> 15:47.700
+And now if I do 'multiply (5, 10)', I get '50'.
+
+15:47.840 --> 15:56.860
+Yay! We got our function working and that is a very important key concept, that we need to remember
+
+15:56.860 --> 16:01.010
+is that we need to return something from a function.
+
+16:01.030 --> 16:02.870
+I mean we don't have to.
+
+16:02.980 --> 16:07.990
+But ideally we do, so we don't get these cases, where we just have 'undefined' and we don't know what the
+
+16:07.990 --> 16:08.680
+function does.
+
+16:08.680 --> 16:14.830
+It's kind of like a 'black box', that does something and we might get a 'console.log', or not but we don't
+
+16:14.830 --> 16:16.410
+know what's happening inside.
+
+16:16.410 --> 16:22.620
+It's nice to have a 'return' to make sure that the function acts the way we expect it to.
+
+16:22.650 --> 16:24.540
+Ok, what if we do something like this?
+
+16:24.540 --> 16:33.550
+What if I do 'return a', and I forgot a semicolon here, and 'return b'. What do you think will happen? Let's
+
+16:33.550 --> 16:37.930
+refresh and run this.
+
+16:37.960 --> 16:38.540
+OK.
+
+16:38.830 --> 16:41.870
+What if I change the order and I put 'a' first?
+
+16:41.960 --> 16:43.080
+Let's try that again.
+
+16:44.960 --> 16:54.550
+I get '5' and 'return' is the final way to end a function if that makes sense. So, as soon as you say
+
+16:54.550 --> 16:57.770
+'return' in a function, the program exits.
+
+16:57.820 --> 17:04.240
+So, to go through this I say 'multiply (5, 10)'. It goes to the function, it says: "Yep, I have the function
+
+17:04.240 --> 17:10.690
+'multiply'. I'm going to put 'a' as '5' and '10' as 'b'".
+
+17:10.840 --> 17:20.540
+And now it goes into the function and says: 'return 5', which is 'a'. So it returns that and exits the function.
+
+17:20.950 --> 17:23.290
+So now these two lines aren't being run at all.
+
+17:23.290 --> 17:30.090
+The program simply reads this, goes to here, reads the first line of the function and then exits.
+
+17:30.100 --> 17:37.630
+So, in a function you should have one 'return' statement, or is that right?
+
+17:38.500 --> 17:41.910
+Let's see a case where that might not be correct.
+
+17:41.920 --> 17:43.750
+Let's add an 'if' statement to this.
+
+17:44.080 --> 17:53.330
+Let's say that we want to do 'multiply', but we're also kind of lazy and we don't want to be too hard with
+
+17:53.330 --> 17:54.040
+the computer.
+
+17:54.140 --> 18:05.420
+So let's say we want to say that, 'if' - we remember the 'if statement'. "if 'a' is greater than '10'" or "if 'b' is
+
+18:05.420 --> 18:07.430
+greater than '10'".
+
+18:10.170 --> 18:18.430
+We can say 'return "that's too hard";'.
+
+18:18.710 --> 18:19.290
+Otherwise [else]
+
+18:25.850 --> 18:33.380
+we'll return 'a * b'. Let's see what happens here.
+
+18:34.890 --> 18:39.050
+I'm going to save and refresh. Let's do 'multiply (5,4)'.
+
+18:43.400 --> 18:46.220
+I get '20'.
+
+18:46.270 --> 18:49.680
+What if we do '5' and '40'? I get
+
+18:49.690 --> 19:01.180
+"that's too hard", because now it's reading the function '5' and '10', and it's saying: "Hmmm, 'b', which is '40' is higher
+
+19:01.180 --> 19:02.440
+than '10'".
+
+19:02.470 --> 19:06.560
+So, according to the 'if statement' I'm going to go "that's too hard".
+
+19:06.670 --> 19:19.480
+And because a 'return' exits the function, it never gets to this, even if I do 'return a * b', you'll never
+
+19:19.480 --> 19:24.490
+get there, because the 'return' exits the function. Just to double check,
+
+19:24.490 --> 19:28.960
+let's do that: let's do '5*40'.
+
+19:28.970 --> 19:34.750
+And it never gets to any of these lines, because as soon as this sees a 'return', it exits the function.
+
+19:35.790 --> 19:37.320
+I know it's a lot.
+
+19:37.320 --> 19:41.980
+And we'll get to why these things are important in the next couple of videos.
+
+19:42.210 --> 19:50.540
+But I wanted to also show you that you can have inner functions. So in JavaScript functions are 'variables'.
+
+19:50.880 --> 19:54.120
+And what that means is, that we were able to assign
+
+19:56.880 --> 19:59.990
+functions like this. Right?
+
+20:00.200 --> 20:02.960
+And if we did something like this,
+
+20:03.080 --> 20:09.640
+well, we can call 'a' in the same way that we did and we just assigned function as a variable.
+
+20:09.680 --> 20:15.030
+So technically we could do something like this.
+
+20:15.050 --> 20:22.830
+So let's have 'multiply' - Let's go back to the way we had it. We'll leave 'multiply' the way it is in the
+
+20:22.830 --> 20:23.580
+simple form.
+
+20:27.330 --> 20:29.640
+And we can actually
+
+20:32.140 --> 20:38.190
+say 'alert(multiply)'.
+
+20:38.650 --> 20:43.900
+And then here we'll do '3' and '4'. And I know that's a lot of brackets.
+
+20:43.900 --> 20:45.620
+Don't worry we'll go through it.
+
+20:45.760 --> 20:49.490
+But, let's just save this and refresh and see what happens.
+
+20:49.570 --> 20:58.150
+I get '12'. Because what's happening is: We're starting with the inner function and we're saying: "Hey, we
+
+20:58.150 --> 20:59.330
+want to alert something!".
+
+20:59.470 --> 21:00.630
+"What do you want to alert?"
+
+21:00.640 --> 21:03.610
+"Well, we want to 'multiply'"
+
+21:03.610 --> 21:06.330
+"We want to call this function and give 'a' it '3' and '4'".
+
+21:06.400 --> 21:14.560
+So it goes to 'multiply' and it says: "Yep, we'll assign 'a' and 'b' to '3' and '4', and I want to return 'a' and 'b'.
+
+21:14.560 --> 21:24.010
+So now 'multiply' gets changed to '12' and then we 'alert'.
+
+21:24.020 --> 21:33.580
+So, you see that now, instead of having something like 'total', 'multiply(4,5)' and then putting 'total'
+
+21:33.590 --> 21:37.420
+here, we can just assign 'multiply' into here.
+
+21:40.370 --> 21:41.620
+Whew! that was, that was a lot!
+
+21:41.640 --> 21:44.850
+But I want to show you that we've - we've tackled,
+
+21:44.880 --> 21:51.000
+I think, the hardest topic in JavaScript, which is functions. And you've also covered the 'return', which
+
+21:51.000 --> 21:53.040
+is very very good.
+
+21:53.050 --> 21:59.140
+The one other thing I want to show you is that a lot of people get confused with the terminology and
+
+21:59.260 --> 22:02.340
+I don't think it's as important but I just want to clarify it.
+
+22:02.390 --> 22:11.370
+There is the concept of 'parameters' and 'arguments'.
+
+22:11.400 --> 22:18.520
+Now 'parameters' and 'arguments' kind of are very similar but just slightly different.
+
+22:18.520 --> 22:22.420
+So 'arguments' as we've said, are '4' and '5'.
+
+22:22.480 --> 22:27.640
+So functions can have 'arguments' and they get called with 'arguments'.
+
+22:28.060 --> 22:31.330
+'Parameters' are what 'a' and 'b' is.
+
+22:31.330 --> 22:36.290
+So 'multiply' has two 'parameters' of 'a' and 'b'.
+
+22:36.420 --> 22:38.210
+I know that's a little bit confusing.
+
+22:38.210 --> 22:40.010
+You can read up on it a little bit more.
+
+22:40.010 --> 22:46.860
+I don't think it's important to really know the difference, but just so whenever you're reading articles
+
+22:46.860 --> 22:52.550
+or learning, maybe through YouTube, that you'll hear these words almost interchangeably.
+
+22:52.590 --> 22:56.710
+They pretty much mean the same thing, just a little bit slight difference in them.
+
+22:58.460 --> 23:00.290
+All right!
+
+23:00.910 --> 23:03.690
+I know, I know I've thrown a lot of terminology at you!
+
+23:03.730 --> 23:10.780
+But after repeating it a few times it will make sense, so stay strong. But that's it for functions.
+
+23:11.080 --> 23:13.580
+It's time for you to try some exercises.
+
+23:13.600 --> 23:15.420
+Rewatch this video if you need to.
+
+23:15.430 --> 23:21.370
+You really want to make sure you understand functions, since it will be the core of JavaScript.
+
+23:21.370 --> 23:28.360
+Just remember, what we're doing with functions is, we are creating new words in the language, in the JavaScript
+
+23:28.360 --> 23:34.510
+language. So we can create 'variables' or we can create 'functions' to add vocabulary to the language and
+
+23:34.750 --> 23:37.370
+up to this point that's all we've been doing.
+
+23:37.390 --> 23:44.950
+We got this JavaScript that had a few words, that we can use, and we've added new ones like 'multiply' and
+
+23:45.370 --> 23:48.760
+'total' in order to make it more useful to us.
+
+23:49.000 --> 23:51.020
+And that's what programming is.
+
+23:51.210 --> 23:53.110
+I'll see you in the next one. Bye-bye

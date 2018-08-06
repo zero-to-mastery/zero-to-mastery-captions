@@ -1,0 +1,272 @@
+WEBVTT
+
+00:01.730 --> 00:10.480
+Now if we look at '/profile/:id', well this isn't really useful for going to 'home' is it? Because once
+
+00:10.480 --> 00:23.150
+we sign in we have our user information and perhaps '/profile/:id' will be useful for us to grab our
+
+00:23.150 --> 00:29.920
+profile and perhaps update our name or our email.
+
+00:30.010 --> 00:34.600
+That's something that perhaps we can incorporate into our app in the future.
+
+00:35.870 --> 00:45.110
+But the one I really want to focus on is this our last route, which is 'image', which allows us to increment
+
+00:45.500 --> 00:48.400
+the number of our 'entries'.
+
+00:48.460 --> 00:50.350
+So let's work on that in this video.
+
+00:50.350 --> 00:59.290
+Every time we submit on the front-end we want the user to hit this route so that we can increase their
+
+00:59.380 --> 01:03.750
+entries count. Lets give that a go.
+
+01:04.010 --> 01:15.450
+If we go back to our react app, we can go into our App.js, and we have our Clarifai API.
+
+01:15.470 --> 01:16.320
+That's when we do
+
+01:16.330 --> 01:22.210
+'onButtonSubmit' and this is specific to that homescreen of ours.
+
+01:26.860 --> 01:35.860
+Looking at this then what we would want to do is if clarify gives us a response in that case on top
+
+01:35.860 --> 01:41.970
+of displaying and calculating as long as we have a response
+
+01:48.790 --> 01:59.370
+in that case we would want to fetch the localhost route at 3000.
+
+01:59.590 --> 02:02.570
+And this time run '/image'.
+
+02:07.450 --> 02:09.380
+This is a POST request.
+
+02:09.490 --> 02:16.990
+So in order to do a POST request – and actually lets do this as a PUT request.
+
+02:17.050 --> 02:24.240
+I think thats what we planned on initially and because we're updating the user's information PUT will
+
+02:24.250 --> 02:27.800
+be a better use of it but it will work both ways.
+
+02:27.880 --> 02:34.390
+Is just a way for us to keep with the standards – that PUT is the way to update things.
+
+02:35.920 --> 02:39.760
+And a PUT? request works the same way as we've done before.
+
+02:39.760 --> 02:45.250
+Instead of putting the method POST we will actually have
+
+02:48.610 --> 02:49.780
+the method PUT.
+
+02:53.820 --> 02:54.850
+Again, same thing
+
+02:54.850 --> 03:04.590
+'application/json as our 'Content-Type' and we want to send within the body – well, do we request any information?
+
+03:04.590 --> 03:09.460
+The only thing that the put request needs is 'id'.
+
+03:09.750 --> 03:10.910
+So let's do that.
+
+03:10.950 --> 03:18.130
+We will just send 'id', which we have of the user when they sign in.
+
+03:18.390 --> 03:29.600
+And that is 'this.state.user.id'.
+
+03:29.740 --> 03:30.890
+Let's see if that works.
+
+03:31.870 --> 03:32.870
+I'm going to save
+
+03:37.710 --> 03:48.410
+go back to our app, sign in as our best friend by now, John. I'll click Sign In and let's find a face again.
+
+03:53.250 --> 03:57.390
+Do this face this time.
+
+03:57.480 --> 04:02.050
+View Image. If I go to 'here' and I click Detect ...
+
+04:06.770 --> 04:08.570
+I get the face.
+
+04:08.570 --> 04:13.090
+But our current rank isn't updated.
+
+04:13.320 --> 04:15.840
+And if you remember our rank is more of the 'entries'.
+
+04:15.970 --> 04:18.590
+So let's change the wording there so it doesn't confuse us.
+
+04:20.670 --> 04:33.140
+"your current entry count is..." and we want to update the 'entries'. If we go back here once we send this we
+
+04:33.140 --> 04:38.440
+want to say that again '.then()' we'll get a response.
+
+04:40.320 --> 04:45.080
+And this response will go through the motions of running
+
+04:45.210 --> 04:49.040
+'json'
+
+04:49.550 --> 05:02.640
+And finally we'll say 'count' will now have to be updated by using 'this' 'setState' 'users'
+
+05:05.700 --> 05:10.470
+'id' or 'entries' to the 'count' number.
+
+05:10.800 --> 05:14.720
+Let's try that again.
+
+05:17.420 --> 05:18.970
+I'm going to sign in as John.
+
+05:22.560 --> 05:26.610
+'cookies'. Let's copy and paste that face again
+
+05:30.130 --> 05:30.700
+Detect
+
+05:34.420 --> 05:35.750
+Let's look at the Console.
+
+05:35.770 --> 05:39.340
+Let's just go through the network and see what we had.
+
+05:43.290 --> 05:44.520
+I see that the image
+
+05:47.980 --> 05:52.160
+the Payload that we recieve is '123'.
+
+05:52.260 --> 05:57.990
+When we look at the response we have '2'. All right, so looks like everything is working.
+
+05:57.990 --> 06:01.240
+We've sent this twice but it hasn't been updated.
+
+06:03.920 --> 06:15.530
+Let's look at our – and we want to make sure that it's 'user' not 'users'.
+
+06:15.670 --> 06:17.250
+And let's try that again.
+
+06:17.800 --> 06:18.270
+We have
+
+06:18.310 --> 06:26.740
+'john@gmail.com' and it'll be 'cookies'. If I click Sign in.
+
+06:27.180 --> 06:27.920
+All right.
+
+06:27.960 --> 06:29.600
+"Your current count is 3".
+
+06:29.610 --> 06:30.980
+If I add another picture
+
+06:34.200 --> 06:34.800
+Look at that.
+
+06:34.900 --> 06:38.090
+I get "your current entry count is 4".
+
+06:38.160 --> 06:46.570
+Ah, but you see how the name gets changed to 'undefined'? Well it's because the way we have it here you see
+
+06:46.570 --> 06:51.090
+how 'this.setState' just changes the entire user object?
+
+06:52.300 --> 07:02.030
+That's not good is it? Because we need to make sure that 'user' is still the same but we're just updating
+
+07:02.960 --> 07:05.030
+the 'user' object.
+
+07:08.850 --> 07:15.420
+Now the way to get around this – because like I said before, we're just changing the user object
+
+07:15.660 --> 07:19.870
+We can use something called 'Object.assign'.
+
+07:21.880 --> 07:23.210
+And you can read up on it.
+
+07:23.210 --> 07:28.120
+It's part of the JavaScript spec but you get the target object.
+
+07:28.120 --> 07:32.560
+In our case it's 'this.state.user'.
+
+07:32.560 --> 07:36.670
+And the second parameter is where you want to extend it with.
+
+07:36.820 --> 07:43.040
+In our case the'entries' and 'count'. If we do it like this and save
+
+07:47.590 --> 07:57.900
+and let's do 'john@gmail.com' 'cookies' Sign In.
+
+07:58.050 --> 08:00.460
+We had to restart the server so now it's at zero.
+
+08:00.540 --> 08:04.200
+But if I had a picture ...
+
+08:08.350 --> 08:12.560
+Look at that. "John, your current entry count is 1".
+
+08:12.790 --> 08:14.600
+And there you go.
+
+08:14.740 --> 08:18.690
+The name doesn't change.
+
+08:18.810 --> 08:20.300
+So we can sign out.
+
+08:20.490 --> 08:21.710
+We can register.
+
+08:21.870 --> 08:24.070
+We can sign in.
+
+08:24.240 --> 08:33.270
+We have our end points , and using this you can imagine how you can expand your app – you can add
+
+08:33.300 --> 08:39.810
+a DELETE for example to '/profile/:id' to delete your account.
+
+08:39.810 --> 08:44.410
+You can add a PUT method to update your account.
+
+08:44.430 --> 08:51.420
+There's many many things that we can do but I hope you saw the power of the server and the front-end
+
+08:51.480 --> 08:55.750
+finally connecting through 'fetch' to create some real functionality.
+
+08:57.320 --> 08:58.860
+I'll see you in the next one.
+

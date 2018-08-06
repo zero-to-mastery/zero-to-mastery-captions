@@ -1,0 +1,265 @@
+WEBVTT
+
+00:02.130 --> 00:02.840
+Welcome back.
+
+00:02.910 --> 00:08.820
+We're going to start setting up Postgres on our computer so that just like we did with servers in
+
+00:08.830 --> 00:16.050
+Front End we're going to have a terminal that's running our front end and a Back End that is running
+
+00:16.050 --> 00:22.920
+our server, but also another terminal that is running a database because as you remember these are just
+
+00:22.920 --> 00:28.940
+computers running somewhere. In the same way that we ran our server on our computer.
+
+00:28.940 --> 00:31.810
+We can also run our database on our computer.
+
+00:32.120 --> 00:36.060
+And in this video we're going to get us set up with Postgres. Now
+
+00:36.260 --> 00:38.950
+MongoDB has gotten popular,
+
+00:39.040 --> 00:45.020
+however nothing beats a relational database for really developing your knowledge of databases.
+
+00:45.020 --> 00:52.130
+Once you understand relational databases it gives you really really good tools and mental models to
+
+00:52.130 --> 00:56.620
+work with MongoDB. MongoDB is very, very simple.
+
+00:56.750 --> 01:02.720
+You can think of it as a JSON data structure where we just have JSON that looks like an object
+
+01:03.080 --> 01:09.460
+and we store that information there. With SQL and relational databases
+
+01:09.470 --> 01:11.200
+it's more complex than that.
+
+01:11.210 --> 01:17.150
+So if you understand this, you are miles ahead when it comes to understanding databases.
+
+01:17.150 --> 01:23.720
+So we're going to be focusing on that because the principles are still the same for MongoDB.
+
+01:23.750 --> 01:24.050
+All right.
+
+01:24.100 --> 01:30.150
+So let's get Postgres set up on our computer.
+
+01:30.190 --> 01:34.890
+The first thing we want to do is download something called a GUI.
+
+01:34.900 --> 01:42.630
+So a graphical user interface for Postgres. And this exists for pretty much any database out there.
+
+01:42.670 --> 01:44.960
+I like PSequel because it's free.
+
+01:45.040 --> 01:49.090
+It's really, really good for Mac and it's very light and simple.
+
+01:49.090 --> 01:55.580
+I'll also make sure to add notes on how to download something like this and Postgres in general
+
+01:55.600 --> 02:02.360
+if you're using a Windows machine. But otherwise just click on the download link, it will be completely
+
+02:02.360 --> 02:03.090
+fast.
+
+02:03.110 --> 02:08.340
+Just open it up and you'll have something like this that I'm going to be using throughout the course.
+
+02:08.570 --> 02:11.130
+But there's many, many options and you can take a look for it.
+
+02:11.330 --> 02:14.800
+You just search for PostgreSQL GUI.
+
+02:15.380 --> 02:23.440
+And once you have PSequel installed you'll have it in your application folder and you can follow along.
+
+02:23.440 --> 02:29.020
+Now let's go back to the terminal. In order to have Postgres installed - there's many, many ways and
+
+02:29.020 --> 02:32.270
+again I'll provide some notes on how you can do it.
+
+02:32.530 --> 02:37.570
+But the best way especially on Mac is to use Brew which we've already talked about.
+
+02:37.690 --> 02:44.290
+Every time you do something with homebrew- again it's a way to download packages from the Internet on
+
+02:44.290 --> 02:45.360
+your terminal.
+
+02:45.370 --> 02:49.930
+You always want to make sure that you do a brew update to make sure that everything is updated.
+
+02:53.420 --> 02:59.780
+And also a brew doctor which just makes sure everything is working on your system.
+
+03:03.840 --> 03:06.350
+Let's clear that. Perfect.
+
+03:06.530 --> 03:12.530
+Once you have that set up we're going to just say Brew install
+
+03:15.040 --> 03:19.490
+postgresql and this will install for us
+
+03:19.670 --> 03:24.250
+Postgres. And you see over here that I already have Postgres installed.
+
+03:24.400 --> 03:30.130
+But if it's your first time it'll run through the commands and then actually at the end tell you exactly
+
+03:30.130 --> 03:31.650
+how to start using it.
+
+03:33.080 --> 03:37.370
+But in our case I'll just tell you. It'll be much easier. To start Postgres.
+
+03:37.400 --> 03:46.890
+You need to do 'brew services start postgresql' and don't worry this isn't Postgres specific. Any database
+
+03:46.920 --> 03:52.140
+that you are downloading you're essentially downloading the software and then you want to start the service.
+
+03:52.250 --> 03:58.520
+Each one has its own commands but it's as simple as Googling and figuring out how to run the database.
+
+03:58.520 --> 04:02.350
+So we've started postgresql.
+
+04:02.350 --> 04:02.940
+It looks like
+
+04:02.940 --> 04:12.740
+I've already started the service and just to show you if I actually do stop here, it will stop the postgres
+
+04:12.750 --> 04:13.380
+service.
+
+04:16.080 --> 04:24.510
+And lets do start again and you can see that it's starting. Now in order for us to use Postgres we
+
+04:24.510 --> 04:26.380
+need to create a database.
+
+04:26.660 --> 04:35.210
+And the way we do that is to use the 'Createdb' command that has come once we've installed Postgres.
+
+04:35.420 --> 04:37.100
+And here we can call it whatever we want.
+
+04:37.130 --> 04:40.790
+So let's call it test.
+
+04:40.910 --> 04:42.390
+It's going to create the DB.
+
+04:42.680 --> 04:45.740
+And there you go. Here's the cool part
+
+04:45.850 --> 04:53.060
+if I go back to my PSequel, open this up. Let me close this.
+
+04:53.160 --> 04:55.310
+I have over here PSequel.
+
+04:55.680 --> 05:00.040
+And it asks for the host which is the link to where the database is located.
+
+05:00.060 --> 05:04.230
+In my case it's located at my localhost, right.
+
+05:04.230 --> 05:07.740
+It's running on my computer.
+
+05:07.820 --> 05:10.790
+So you want it to be localhost and the port number.
+
+05:10.790 --> 05:13.950
+This is the default port number of 5 4 3 2.
+
+05:14.030 --> 05:19.270
+Remember, how we had port 3000 and 3001 for the front end and backend.
+
+05:19.340 --> 05:20.200
+It's similar to that.
+
+05:20.210 --> 05:22.950
+It's opening up a port for it to listen to a database.
+
+05:23.210 --> 05:27.720
+And this is the standard port for Postgres that you'll see.
+
+05:28.100 --> 05:35.960
+So when I did the 'Start postgresql' and 'createdb' the default of '5432' was already set.
+
+05:36.050 --> 05:38.830
+I can actually set what ports and change it up.
+
+05:39.020 --> 05:41.940
+But we want to keep everything standard so we'll keep it the way it is.
+
+05:43.620 --> 05:52.310
+If I now go to the database and we called it 'test' so again we'll do test database hit connect.
+
+05:52.330 --> 05:52.810
+All right.
+
+05:52.810 --> 05:58.900
+We're connected to the database but there's not much in here is there.
+
+05:59.140 --> 06:03.110
+But at least we know that we're connected to localhost test.
+
+06:03.210 --> 06:08.610
+And another way to connect to this, remember this is a GUI- a graphical user interface and I'm showing
+
+06:08.610 --> 06:12.840
+you this because it's really good for demo purposes but I want you to get comfortable working with the
+
+06:12.840 --> 06:17.990
+terminal as well. In order to do the same thing we just did with the GUI,
+
+06:18.260 --> 06:25.060
+We can type in 'psql' again which is a command that we'll get when we install Postgres and we'll
+
+06:25.110 --> 06:27.310
+say which database we want to connect to.
+
+06:27.390 --> 06:30.700
+In our case *it will be the 'test'.
+
+06:30.890 --> 06:32.210
+And there you go.
+
+06:32.390 --> 06:35.050
+Just like when we run node and it changes terminals.
+
+06:35.060 --> 06:42.670
+Now we're inside of Postgres that's running on our computer but we don't know any commands yet, do
+
+06:42.670 --> 06:43.930
+we?
+
+06:43.930 --> 06:49.510
+So in the next video we're going to learn some SQL commands and finally create some tables in our
+
+06:49.510 --> 06:51.100
+Postgres database.
+
+06:51.130 --> 06:52.780
+I'll see in that one, bye-bye.

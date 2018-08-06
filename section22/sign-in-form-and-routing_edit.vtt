@@ -1,0 +1,991 @@
+WEBVTT
+
+00:01.490 --> 00:02.290
+Welcome back.
+
+00:02.290 --> 00:07.840
+It's time to create a 'sign in' form. Maybe even a 'Registration' form because for new users, you wanna
+
+00:07.850 --> 00:09.020
+register them.
+
+00:10.850 --> 00:11.870
+So let's work on that.
+
+00:14.010 --> 00:21.550
+We first, want to perhaps create a 'sign in' and a 'registration' component. So let's do that.
+
+00:21.570 --> 00:32.120
+I'm going to create a new folder, call it 'SignIn' and this folder will have a new file called 'signIn'
+
+00:32.390 --> 00:32.970
+dot
+
+00:33.190 --> 00:33.780
+'js'.
+
+00:37.270 --> 00:45.900
+And again using our best friend, copy and paste, we can use that and call this 'Signin'.
+
+00:46.210 --> 00:52.390
+And we don't have any css for it. And no props yet. Within here
+
+00:52.390 --> 01:02.050
+we definitely want to have a 'Signin' form. And luckily for us because we're using 'tachyons', well, if we
+
+01:02.830 --> 01:14.370
+search 'tachyons' form, they should have, oh! looks like they have a sign in form just for us so we can use.
+
+01:14.430 --> 01:15.370
+All right this looks awesome.
+
+01:15.420 --> 01:19.400
+We can just copy and paste this code,
+
+01:19.740 --> 01:24.650
+and again because we have 'tachyons' the classes will be automatically applied.
+
+01:24.700 --> 01:27.460
+So let's do that. Fix indentation a bit.
+
+01:32.290 --> 01:36.230
+Let's save. And you see here that the syntax is wrong.
+
+01:36.640 --> 01:41.780
+Well that's because with JSX, we could have gotten away in, when we
+
+01:41.780 --> 01:45.090
+let me make this smaller. In html,
+
+01:45.260 --> 01:52.580
+we didn't necessarily have to close the input boxes. But here with JSX, we have to make sure that the
+
+01:52.580 --> 01:57.530
+input tags are closed off.
+
+01:57.560 --> 02:05.030
+So now our case, we have three inputs, I believe. So we can save that and there's still something off. Let's see,
+
+02:05.030 --> 02:06.480
+what else we had.
+
+02:06.880 --> 02:08.510
+And we have one more 'input' in here.
+
+02:09.670 --> 02:10.210
+All right.
+
+02:10.300 --> 02:12.030
+You see the highlighting is fixed.
+
+02:12.140 --> 02:15.440
+Let's just make sure this works by adding this 'signin' component to our app
+
+02:15.440 --> 02:16.320
+dot js.
+
+02:25.950 --> 02:32.180
+And then finally, we can just put it at the top for now, to make sure that it works.
+
+02:34.930 --> 02:36.180
+Let's see what happens.
+
+02:36.580 --> 02:41.400
+It's compiled successfully, going back and all right, we got the form.
+
+02:41.650 --> 02:47.170
+It doesn't look too bad, but there are definitely a few things off. We don't want this bottom stuff and
+
+02:47.170 --> 02:51.110
+we need everything centered.
+
+02:51.140 --> 02:54.830
+Well, one thing, I want, I want this to kind of have a card underneath it.
+
+02:54.900 --> 02:59.220
+So if I go back to 'tachyons' and I do 'tachyons' cards,
+
+03:02.920 --> 03:05.170
+it's like a product card.
+
+03:05.170 --> 03:05.590
+All right.
+
+03:05.600 --> 03:09.250
+I like the look of this product card but I just like the boundaries of it.
+
+03:09.290 --> 03:16.620
+I don't need to copy the contents. So I'm going to just copy this 'article' tag, and add it
+
+03:20.050 --> 03:20.780
+in here.
+
+03:23.980 --> 03:25.540
+Close off the 'article' tag,
+
+03:29.420 --> 03:30.600
+and let's see how that looks.
+
+03:34.410 --> 03:38.960
+All right, we got the boundary box at least, but everything's kind of pushed off.
+
+03:39.000 --> 03:41.760
+Again we're going to start removing some things that we don't need.
+
+03:41.990 --> 03:44.850
+We don't need the 'forgot your password',
+
+03:45.330 --> 03:47.130
+we don't need the 'Remember Me'.
+
+03:51.000 --> 03:53.850
+Let's save, go back to that.
+
+03:54.090 --> 04:01.560
+And again we want to make sure that this is centered, and we actually want to change the classes here,
+
+04:02.480 --> 04:03.010
+to,
+
+04:03.010 --> 04:05.280
+again I did command control,
+
+04:08.060 --> 04:14.700
+command control 'g' to have all these multiple cursors and I'll just say 'className' and we actually want
+
+04:14.700 --> 04:20.260
+to remove this 'center' over here, we already have it up here.
+
+04:20.340 --> 04:23.090
+All right things are starting to look a little bit better.
+
+04:23.100 --> 04:30.400
+I want to make a bit of a shadow around the border, so again maybe change the 'border radius' to three
+
+04:30.900 --> 04:41.160
+and change some of these values, I'm gonna add my favorite shadow, and I don't think I need this.
+
+04:41.290 --> 04:42.520
+Let's see how that looks.
+
+04:43.610 --> 04:47.610
+All right that's better look at that border that's looking very nice.
+
+04:49.950 --> 04:56.620
+And maybe we want this a little bit bigger and this should say 'register' instead of 'sign up' because
+
+04:56.640 --> 05:00.540
+well, we want to ideally have another form for a registry.
+
+05:00.750 --> 05:12.030
+So we'll say 'Register' here, and then for a 'sign In' we'll say, 'f1', save that, go back.
+
+05:12.060 --> 05:13.300
+All right.
+
+05:13.410 --> 05:15.000
+That doesn't look too bad, actually.
+
+05:17.930 --> 05:21.150
+And if I type things here, everything looks good.
+
+05:23.130 --> 05:23.460
+Perfect.
+
+05:23.460 --> 05:27.470
+So we have the 'sign in' form. This 'Sign In' form,
+
+05:27.620 --> 05:32.810
+well, we don't want it to show this, when this app is active.
+
+05:32.810 --> 05:40.860
+Ideally we have a 'Sign In' form and once a user signs in, then they're able to access the homepage.
+
+05:40.970 --> 05:42.220
+So let's do that.
+
+05:42.230 --> 05:45.770
+It sounds like we need a bit of state.
+
+05:46.020 --> 05:55.320
+If I go to app dot js, and this is a problem that is very common in maps and there are libraries that you can
+
+05:55.320 --> 05:57.910
+use, but for us, I want to build this from scratch.
+
+05:57.920 --> 06:06.810
+So we have a better understanding of how things work. We can create a route state, and the route keeps
+
+06:06.810 --> 06:09.410
+track of where we are on the page.
+
+06:09.450 --> 06:14.120
+In our case, we want it to start on 'signin'.
+
+06:14.130 --> 06:21.250
+So when the app, initially loads and the constructor gets run, 'signin' or 'route' should be 'signin'.
+
+06:21.520 --> 06:24.130
+So now that we have this 'signin',
+
+06:24.130 --> 06:27.240
+well it sounds like a conditional statement right.
+
+06:27.250 --> 06:34.460
+We can just say that, if, and I can do an if statement here because we're inside of a return statement.
+
+06:35.010 --> 06:41.110
+But because these are just, this is just JSX, we can wrap things in curly brackets.
+
+06:41.500 --> 06:43.570
+And now it's a javascript expression.
+
+06:43.780 --> 06:47.120
+So we'll say, we'll wrap this in curly brackets,
+
+06:47.200 --> 06:49.640
+And we want the navigation there no matter what.
+
+06:49.720 --> 06:55.330
+If 'this' dot 'state' dot 'route' equals
+
+06:58.380 --> 07:00.300
+'signin'.
+ 
+07:00.630 --> 07:09.610
+If that's true, then I want you to return the 'signin' component. Otherwise you can return,
+
+07:12.400 --> 07:13.940
+the 'Logo' component.
+
+07:14.150 --> 07:18.210
+Let's just change the spacing here, just so it looks a little bit better. Let's save,
+
+07:22.010 --> 07:23.670
+and see if that works.
+
+07:23.690 --> 07:30.440
+There you go, added that. We see that, we get an error here saying, well, json ajax elements must be wrapped in
+
+07:30.440 --> 07:34.800
+an enclosing tag. Remember because we're returning multiple elements here,
+
+07:34.910 --> 07:35.590
+that doesn't work.
+
+07:35.600 --> 07:36.760
+We need to wrap them.
+
+07:37.130 --> 07:39.610
+Yeah that error message is a little bit tricky.
+
+07:42.130 --> 07:47.890
+But, you get used to it after a while, so we want to wrap this, in a
+
+07:52.330 --> 07:58.360
+'div'. Let's save. Let's go back.
+
+07:58.380 --> 07:58.790
+All right.
+
+07:58.810 --> 08:00.680
+Let's look at the console,
+
+08:00.820 --> 08:05.380
+no errors but still showing 'signin'. So let's check to make sure that we did this right.
+
+08:05.950 --> 08:11.140
+If 'this' dot 'state' dot 'route' equals 'signin'.
+
+08:11.310 --> 08:13.580
+And as you can see, I spelled that wrong.
+
+08:15.050 --> 08:16.300
+And that's why (it) wasn't working.
+
+08:16.490 --> 08:18.840
+If I save.
+
+08:19.060 --> 08:19.940
+There you go.
+
+08:20.100 --> 08:21.870
+We get our 'Sign In'.
+
+08:21.960 --> 08:25.140
+And if I change this to something else,
+
+08:25.440 --> 08:28.680
+well in that case, we get our homescreen.
+
+08:28.920 --> 08:29.700
+Amazing.
+
+08:29.880 --> 08:33.740
+Just simple conditionals in javascript, and we have our self-direct (?).
+
+08:33.950 --> 08:37.330
+Let's expand on this. Let's do sign in.
+
+08:37.530 --> 08:40.440
+And now, if the user signs in,
+
+08:43.350 --> 08:51.110
+while we want to direct them to the homepage. So let's create a function on 'signin' and this prop will
+
+08:51.120 --> 08:55.500
+have, we'll call it 'onRouteChange'.
+
+08:55.500 --> 09:02.390
+So when route changes, it's going to be 'this' dot 'onRouteChange'.
+
+09:02.400 --> 09:05.180
+And let's write that function.
+
+09:05.430 --> 09:11.320
+We can say, 'onRouteChange' using arrow functions.
+
+09:11.460 --> 09:19.210
+Let's think about this, for now we can just save 'this' dot 'setState' to 'home'. Doesn't mean much but
+
+09:19.390 --> 09:23.550
+it changes, the 'signin' route to 'home'.
+
+09:25.780 --> 09:29.970
+So let's get that working. I'm going to save.
+
+09:30.160 --> 09:34.310
+Oh! got to wrap this in curly brackets because it's an object.
+
+09:34.320 --> 09:34.630
+Yeah.
+
+09:34.840 --> 09:44.680
+And now if we go into the 'signin' component, we can say, for this 'input', we can just have an 'onClick' event handler.
+
+09:44.680 --> 09:50.640
+So let me, add this on a new space, just so you can see a better.
+
+09:58.060 --> 10:08.510
+Make this bigger a bit, there you go, will do an 'onClick' and 'onClick' this 'signin' will receive the 'onRouteChange'
+
+10:09.880 --> 10:20.320
+event handler, and we'll just say 'onRouteChange', will save. Let's go back, going to click 'Sign In' and it's working.
+
+10:23.180 --> 10:25.320
+All right, we also want to click 'onSignOut'
+
+10:25.340 --> 10:28.420
+and it should take us to the 'Sign In' page.
+
+10:28.460 --> 10:30.190
+So again we have the 'onRouteChange',
+
+10:33.060 --> 10:44.020
+but this time on the click of the sign out which is the 'Navigation' over here, we want it to go to route.
+
+10:44.030 --> 10:45.240
+So how can we do that?
+
+10:45.330 --> 10:53.520
+We'll let's go to the 'Navigation' component and we want to say on the 'p' tag that there's going to be an 'onClick'
+
+10:54.720 --> 11:02.610
+and the 'onclick' event, which we haven't written yet, but we do have the 'onRouteChange'.
+
+11:02.660 --> 11:11.290
+So based on that, I can pass that in as a prop and going back to the app dot js,
+
+11:11.340 --> 11:21.910
+we can pass in to 'Navigation' 'onRouteChange', 'this' dot 'onRouteChange'.
+
+11:22.160 --> 11:33.240
+But, there's an issue here, because once I 'Sign In' and I click 'Sign Out' while nothing happenes. We're never
+
+11:33.390 --> 11:35.600
+changing the route to 'signin'.
+
+11:35.640 --> 11:45.750
+Ideally when we click, we change the route to 'Sign In', so that this statement over here evaluates to
+
+11:45.750 --> 11:50.310
+true and we get the sign in form.
+
+11:50.320 --> 11:57.880
+So it sounds like instead of us just statically entering home to 'onRouteChange', we need to dynamically
+
+11:58.210 --> 11:59.800
+say that our route
+
+12:02.750 --> 12:05.320
+is going to be where we give it.
+
+12:05.330 --> 12:07.460
+We need to change 'onRouteChange' and 'signin',
+
+12:07.490 --> 12:12.130
+and 'onRouteChange' and 'Navigation'.
+
+12:12.340 --> 12:16.180
+So let's go to 'Signin' first and say that 'onRouteChange' 'home'.
+
+12:18.930 --> 12:24.240
+Now, we don't want to actually run this function. The way we have it now is that, we're going to run this
+
+12:24.240 --> 12:27.850
+function when it gets rendered.
+
+12:27.860 --> 12:33.170
+But that's not what you want, we want it to run whenever 'onClick' happens and then 'onClick' will call
+
+12:33.170 --> 12:34.410
+this function.
+
+12:34.410 --> 12:42.340
+So the way we do that is, we can do an arrow function. And this arrow function will just have an 'onRoute
+
+12:43.030 --> 12:43.980
+Change' 'home'.
+
+12:44.180 --> 12:50.870
+So it's just a function that's going to get called. Here we're just defining the function.
+
+12:51.010 --> 12:54.020
+Let's do the same thing in 'Navigation' as well.
+
+12:54.070 --> 13:03.440
+In 'Navigation' 'onRouteChange', will now pass a parameter, but instead of 'home', it will say 'signin'. Let's see
+
+13:03.440 --> 13:04.400
+if that works.
+
+13:05.650 --> 13:14.800
+Going to 'Sign In' and 'Sign Out'. 'Sign In' and 'Sign Out', awesome.
+
+13:14.860 --> 13:18.940
+We're not going to worry too much about getting an error because we haven't entered anything.
+
+13:18.940 --> 13:21.200
+For now we want to make sure that the routes work.
+
+13:21.480 --> 13:21.690
+All right.
+
+13:21.690 --> 13:24.480
+Let's also build out the register for a new user.
+
+13:24.480 --> 13:26.700
+We want them to have a register.
+
+13:26.710 --> 13:32.730
+Maybe it's also asked for the name, of the user.
+
+13:32.900 --> 13:38.650
+And just to keep things simple, we will just add a new folder in 'components'.
+
+13:38.870 --> 13:46.740
+And this is going to be, 'register' and this is going to be very similar to 'sign in'.
+
+13:46.760 --> 13:54.680
+So we'll, we'll have a bit of a code duplication. But again we're just building it fairly fast so it should
+
+13:54.680 --> 13:55.630
+be fine for now.
+
+13:59.160 --> 14:04.730
+So copying this from 'Signin', we can just copy everything from 'Signin' and go to 'Register'.
+
+14:04.890 --> 14:13.790
+And now change the 'Signin' to 'Register' and the 'Register' maybe we'll add a number field.
+
+14:13.960 --> 14:29.620
+Maybe that field will have at the top just the name. And we'll say 'for' 'name', 'type' 'text' and 'name' will be
+
+14:29.680 --> 14:38.050
+just 'name'. 'id' we'll just say 'name'. We actually don't need these properties they just came with the form
+
+14:38.050 --> 14:40.570
+that I copy and pasted from 'tachyons'.
+
+14:40.900 --> 14:44.280
+But, it does the job for now, it should be good.
+
+14:44.450 --> 14:47.510
+And we don't need the 'Register' link at the bottom.
+
+14:50.880 --> 14:52.020
+Let's save.
+
+14:52.430 --> 14:57.810
+And if we go back to the 'Signin', we also don't really want this to be an anchor tag.
+
+14:57.860 --> 15:04.300
+We want to do a route change, so we can just maybe do a 'p' tag
+
+15:08.330 --> 15:14.390
+and this 'p' tag will have the 'onClick' event as well.
+
+15:14.590 --> 15:20.280
+And on click, it will say that from 'signin'  we want to go to 'register'.
+
+15:20.680 --> 15:21.380
+Perfect.
+
+15:21.400 --> 15:27.550
+And then finally, if you go to app dot js, we wanna import this component,
+
+15:32.790 --> 15:35.710
+'Register' and 'Register'.
+
+15:39.570 --> 15:46.420
+And 'Register' is defined but never used, because we need to add it to our render.
+
+15:46.430 --> 15:54.760
+Now this is a little bit tricky because we kind of have to do a few more conditional checks. Will move
+
+15:54.940 --> 15:57.790
+this a little bit around just to have cleaner code.
+
+15:57.790 --> 16:08.320
+I'm going to say, if 'state' dot 'route' is 'home', in that case, I want you to render our homescreen
+
+16:12.140 --> 16:14.300
+and otherwise,
+
+16:19.270 --> 16:22.780
+I'm gonna have another expression, so I'm wrapping it in curly brackets.
+
+16:23.400 --> 16:31.700
+And this other expression, we'll have another ternary, that will say 'this' dot 'state' dot 'route' equals
+
+16:33.540 --> 16:41.320
+'signin', if it's signed in then we'll return the 'Signin' form,
+
+16:44.500 --> 16:51.930
+otherwise, we will return the 'Register' form.
+
+16:52.090 --> 16:53.920
+And I know there's better ways to do it.
+
+16:53.920 --> 16:58.250
+We could have just pulled this out over here or done it and the return statement.
+
+16:58.480 --> 17:02.910
+But for now, we want this to get working so we can test that out.
+
+17:02.950 --> 17:03.680
+We have 'Sign In'.
+
+17:03.700 --> 17:10.490
+If I click 'Register', I go to register but we need to change the title so we can actually see that that.
+
+17:10.540 --> 17:11.740
+Let's do that one more time.
+
+17:11.920 --> 17:20.630
+Let's go back to 'Register' and we'll change the title to 'Register'.
+
+17:20.650 --> 17:22.150
+Let's go back, we are on 'Sign in'.
+
+17:22.150 --> 17:33.440
+If I click 'Register', I go to 'Register' and if I click 'Sign in', I'm finally in. And let's finally also change
+
+17:33.440 --> 17:38.890
+the input 'type' 'submit' or the 'value' to 'Register'.
+
+17:39.170 --> 17:40.360
+Let's save that again.
+
+17:43.370 --> 17:47.030
+Go back, 'Register', clicks on 'Register'.
+
+17:47.510 --> 17:52.460
+I don't know if you also noticed that we're not getting the cursor when we click on 'Register', so let's
+
+17:52.460 --> 17:53.370
+fix that.
+
+17:53.480 --> 17:58.830
+We'll go to 'signin' and we'll say that on this 'p' tag,
+
+17:58.840 --> 18:02.270
+we will say, that it's a 'pointer'
+
+18:02.750 --> 18:08.710
+class.
+
+18:08.920 --> 18:09.310
+There you go. Whoo! All right.
+
+18:09.370 --> 18:13.110
+So we're getting our form, which is good.
+
+18:13.130 --> 18:17.250
+The last thing that I want to fix is the 'Sign Out'.
+
+18:17.410 --> 18:26.980
+I want to be able to have 'Sign Out' only when I'm at home, and maybe when I'm on the 'Sign In' or 'Register',
+
+18:27.100 --> 18:32.290
+I have the two navigation tabs over here.
+
+18:32.520 --> 18:34.010
+That's fairly easy to do.
+
+18:34.020 --> 18:40.110
+We can go back to 'Navigation' and in 'Navigation', we can say that,
+
+18:45.410 --> 18:50.790
+if 'isSignedIn', a variable, that we don't have yet, but we can create one.
+
+18:51.020 --> 18:59.770
+I just want you to think about how we want to design this. So, if it's signed in, the user, in that case
+
+18:59.980 --> 19:01.030
+we want to display
+
+19:03.780 --> 19:07.750
+this, right?
+
+19:07.880 --> 19:14.120
+Otherwise, we can display, and I'm showing you how to do this without the ternary, the way that we did
+
+19:14.120 --> 19:14.940
+it in the app
+
+19:14.950 --> 19:15.680
+dot js.
+
+19:15.770 --> 19:17.260
+I just want to show you both ways.
+
+19:17.420 --> 19:26.330
+If the user isn't signed in then perhaps we should have two navigations, one that says
+
+19:29.440 --> 19:34.940
+'Sign In' and another one that says 'Register'.
+
+19:39.150 --> 19:42.630
+And over here, I see that we're turning this entire thing
+
+19:42.660 --> 19:49.740
+instead of what I should have been doing, is returning the individual.
+
+19:49.750 --> 19:51.400
+So, here I'll say 'return',
+
+19:57.180 --> 20:00.490
+wrap this in a bracket.
+
+20:00.750 --> 20:12.680
+And we have the first return and then if it's signed in, then we'll do 'return'.
+
+20:12.810 --> 20:16.190
+Let's save that, Oop! I made another mistake here.
+
+20:16.200 --> 20:17.930
+We don't need that to 'nav' things.
+
+20:18.000 --> 20:21.780
+We actually just want the middle 'p' tag
+
+20:24.920 --> 20:30.230
+and here, just add the two links.
+
+20:30.380 --> 20:35.870
+So the 'Sign In' and 'Register'. So we can remove this, because it was giving me and error because I was returning
+
+20:35.870 --> 20:36.840
+more than one thing.
+
+20:39.020 --> 20:39.820
+All right.
+
+20:39.900 --> 20:40.690
+Looks good.
+
+20:40.740 --> 20:43.210
+We want to make sure that the 'onRouteChange',
+
+20:43.230 --> 20:52.570
+if we click on 'Sign In', they all go to 'home', if we click on 'Register' again, it will also go to 'home'.
+
+20:52.890 --> 20:57.360
+If I click 'Sign Out', I'll go to 'Sign In'.
+
+20:57.510 --> 21:00.790
+And then finally 'isSignedIn' doesn't exist yet,
+
+21:01.170 --> 21:12.360
+so it looks like we need to add a new state, and we'll call this one 'isSignedIn' and
+
+21:12.690 --> 21:17.390
+to start off, it's going to be false. And there's something that we can easily do
+
+21:17.400 --> 21:26.920
+in the 'onRouteChange'. 'onRouteChange' we can perhaps add another if statement, and we'll say if 'route'
+
+21:29.300 --> 21:33.450
+equals 'signout'.
+
+21:33.740 --> 21:35.540
+So for trying to sign out.
+
+21:35.930 --> 21:45.540
+well then we should 'setState' of 'isSignedIn' to false because we're signing out.
+
+21:45.710 --> 21:46.760
+Else if
+
+21:49.280 --> 22:04.680
+'route' equals 'home', well in that case, we wanna 'setState' of 'isSignedIn' to true.
+
+22:05.310 --> 22:11.520
+And you might be thinking, do we wanna not authenticate and make sure that they have access to getting
+
+22:11.520 --> 22:15.750
+home? and that's something that we are not going to worry about for now, we just want to get it working.
+
+22:16.050 --> 22:21.330
+So if the 'route' is 'signout' then 'isSignedIn' will be false.
+
+22:21.330 --> 22:23.920
+If the 'route' is 'home' then well they're obviously signed it.
+
+22:24.030 --> 22:25.620
+So it's going to be true.
+
+22:25.830 --> 22:31.790
+And no matter what, we still want to change the 'route'. Let's see if this actually works.
+
+22:31.950 --> 22:41.950
+I go back, I click on 'Register', oop! I'm going to 'home' instead of going to 'Register' page.
+
+22:41.970 --> 22:45.510
+So I made a mistake here, if I go into 'Navigation',
+
+22:45.510 --> 22:51.750
+obviously if I click on register, we want to go to the 'register' and if I click on 'Sign In', we want to
+
+22:51.750 --> 22:58.300
+go to 'signin'. Llet's save that, let's try that again.
+
+22:59.410 --> 23:01.840
+'Sign In', nothing happens because we're already here.
+
+23:01.930 --> 23:02.500
+Sign, 'Register',
+
+23:02.500 --> 23:04.030
+nice,
+
+23:04.040 --> 23:06.470
+'Sign In', 'Register', 'Sign In', 'Register'
+
+23:06.490 --> 23:08.900
+Perfect. Try click on 'Register' here,
+
+23:09.040 --> 23:19.000
+I go to 'Register', if I click 'Register', I'm at 'home', and oop! we see tha, we need this change to 'Sign Out' and
+
+23:19.000 --> 23:21.700
+that is on the 'home' page, so we can go back to app dot
+
+23:21.770 --> 23:23.040
+js
+
+23:23.080 --> 23:24.620
+And it's a simple fix.
+
+23:24.730 --> 23:25.930
+We can go back here.
+
+23:26.020 --> 23:34.390
+We want to actually pass the prop here of 'isSignedIn' to be 'this' dot 'state'
+
+23:34.410 --> 23:44.280
+dot 'signin'. Oop! that's not it, 'isSignedIn'. Let's save. So if we go back here, we see that uh! it's not
+
+23:44.280 --> 23:44.760
+working.
+
+23:44.760 --> 23:52.970
+And that's because again this is why it's so tricky with javascript, I made 'false' into a string.
+
+23:53.130 --> 24:03.310
+So when it checks, 'isSignedIn' over here false, technically is true in javascript because it's a string,
+
+24:03.310 --> 24:04.390
+so it exists.
+
+24:04.420 --> 24:08.770
+If I go to here, and I do 'Boolean'
+
+24:11.350 --> 24:15.190
+false, will say that it's true.
+
+24:18.180 --> 24:19.580
+So let's go back to that.
+
+24:19.590 --> 24:25.740
+I'm going to say, isSignedIn', this should be false, a boolean.
+
+24:25.740 --> 24:28.660
+So now let's see if that works.
+
+24:29.400 --> 24:34.670
+It's going to register. If I click 'Register', it's home if I click 'Sign out', I am signing out.
+
+24:35.220 --> 24:37.530
+But see how this isn't changed.
+
+24:38.310 --> 24:42.380
+Because I made another mistake here.
+
+24:42.540 --> 24:49.950
+When we click 'sign out' over here, we ideally want to go and say 'signout'
+
+24:53.310 --> 24:54.390
+and when we sign out,
+
+25:00.640 --> 25:04.870
+we sign out properly.
+
+25:04.880 --> 25:12.750
+All right. We got ourselves a nice working app.
+
+25:12.790 --> 25:20.050
+There's a few cleanup materials that we can do here, such as removing the 'console'.
+
+25:20.140 --> 25:24.650
+We're also using 'this' dot 'state' a lot, where we can use destructuring.
+
+25:24.970 --> 25:41.560
+So I can just have 'isSignedIn', 'imageUrl', 'route' and 'box' destructured.
+
+25:41.760 --> 25:44.140
+So now I can make things a little bit cleaner.
+
+25:48.660 --> 25:50.570
+By removing 'this' dot 'state' everywhere,
+
+25:58.920 --> 25:59.700
+there you go.
+
+26:03.180 --> 26:05.520
+Oh! and I have to add 'const' here.
+
+26:08.610 --> 26:09.330
+All right.
+
+26:09.490 --> 26:12.200
+Perfect, this looks pretty good.
+
+26:14.160 --> 26:16.530
+'OnButtonSubmit', 'onInputChange',
+
+26:16.570 --> 26:17.770
+Everything is looking nice.
+
+26:17.770 --> 26:20.440
+We have our 'calculateFaceLocation'.
+
+26:20.500 --> 26:26.380
+There's obviously a few things that we can improve upon, but for now we have a working app that does
+
+26:26.440 --> 26:28.090
+exactly what we need to.
+
+26:28.120 --> 26:31.710
+It does face recognition and it works nicely.
+
+26:31.720 --> 26:37.060
+I also want to see the console, make sure that we don't get any errors. And we see that we have two things
+
+26:37.060 --> 26:37.640
+here.
+
+26:38.050 --> 26:40.140
+One is invalid DOM property for.
+
+26:40.180 --> 26:47.930
+Did you mean htmlFor?, it gives us a nice error that says at Signin dot js, and that is because again
+
+26:47.930 --> 26:52.880
+we're using JSX and 'for' is a javascript word.
+
+26:53.000 --> 27:01.760
+So even though in html you can use 'for' for 'labels' to attach them to input, in JSX we have to do a 'htmlFor', so
+
+27:01.760 --> 27:09.630
+we can do 'htmlFor', 'htmlFor',
+
+27:13.610 --> 27:17.410
+save that, and we'll have to do that and the 'Register' as well.
+
+27:26.570 --> 27:28.080
+And that works.
+
+27:28.190 --> 27:34.250
+But when I click 'Sign In', I get, the form submission canceled because the form is not connected, and that
+
+27:34.250 --> 27:36.130
+is because with HTML,
+
+27:36.350 --> 27:42.650
+remember when we worked on forms, it automatically if there is an input or a button when there is an
+
+27:42.740 --> 27:50.180
+'onSubmit' event, where there's 'type' submit, you will automatically try and send those forms.
+
+27:50.180 --> 27:53.690
+If I actually change this to a 'div',
+
+27:58.080 --> 28:06.030
+and I save that, if we go back to 'Register' and I click 'Register', I don't get that error anymore. Again,
+
+28:06.060 --> 28:13.080
+because in future videos when we create the backend, we won't be necessarily sending a form,
+
+28:13.080 --> 28:15.690
+we're going to be sending it through JSON, which is more dynamic.
+
+28:15.690 --> 28:18.310
+We can customize things a little bit better.
+
+28:18.510 --> 28:25.530
+We can just not worry about html forms, so that we have full customization with JSON. So we can do the
+
+28:25.530 --> 28:27.510
+same here as well.
+
+28:33.620 --> 28:36.000
+And again, signing again, no errors.
+
+28:36.020 --> 28:38.090
+Everything works as intended.
+
+28:38.090 --> 28:46.900
+If the form part was confusing make sure you check out the HTTP, JSON and AJAX section. Like I said before,
+
+28:46.910 --> 28:52.120
+forms automatically submit or tried to submit things for us, we're not submitting anything yet.
+
+28:52.130 --> 28:58.310
+We're going to create our own server, where we're going to be able to sign in our own users and register
+
+28:58.430 --> 29:01.370
+our own new users.
+
+29:01.380 --> 29:06.330
+There's a few things that we can clean up and we don't need to worry about, because we have a working
+
+29:06.520 --> 29:13.470
+app. And now I want to start diving into creating a server, so that we can actually sign in people and
+
+29:13.470 --> 29:18.840
+sign out and have a server that this website interacts with.
+
+29:18.940 --> 29:20.550
+I'll see you in that one by. Buh-bye

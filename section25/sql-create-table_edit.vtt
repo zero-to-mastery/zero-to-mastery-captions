@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.750 --> 00:01.320
+All right.
+
+00:01.430 --> 00:10.700
+So let's create a table. If you remember to go to our Postgres database we simply write psql
+
+00:10.700 --> 00:14.980
+then our database name and we'll enter the database.
+
+00:15.130 --> 00:18.410
+And now we can communicate with it using SQL.
+
+00:18.430 --> 00:19.950
+Now let's create a table.
+
+00:20.060 --> 00:21.060
+How can we do that.
+
+00:21.940 --> 00:29.380
+Again SQL comes with some language. Language syntax that we can use. And to create a table we can
+
+00:29.380 --> 00:30.840
+use something like this.
+
+00:30.970 --> 00:34.580
+We say 'CREATE TABLE' which is an SQL command.
+
+00:34.870 --> 00:43.780
+We enter a table name followed by brackets and then we say what we want the column_1 to say with
+
+00:43.780 --> 00:52.940
+the data type, column_2 with the data type, column_3 with the data type and then ending it with semicolon.
+
+00:52.940 --> 00:56.010
+Let me just press enter and see what happens here.
+
+00:56.180 --> 01:05.030
+I get an error 'type "datatype" does not exist' and that is because datatype is referring to what Postgres
+
+01:05.060 --> 01:12.000
+or our relational database knows, we have to say ahead of time what type of data
+
+01:12.020 --> 01:14.400
+column_1, column_2, and column_3 hold.
+
+01:15.590 --> 01:23.030
+If we go back to our Chrome browser we see that for Postgres we have a few data types that we can
+
+01:23.030 --> 01:29.240
+hold. String datatypes, numeric datatypes, and date and time datatypes.
+
+01:29.360 --> 01:33.180
+And each one of them have different things. For a numeric data type
+
+01:33.230 --> 01:37.900
+We have integer which is a 4 byte integer.
+
+01:38.000 --> 01:43.980
+We have bigint which allows for a bigger number and all these different things,
+
+01:44.000 --> 01:49.870
+we have money which is currency value and the reason we have to give this datatype is because of the
+
+01:49.880 --> 01:57.080
+way databases work. They're optimized to make sure that as long as everything is the same in their column
+
+01:57.410 --> 02:00.840
+they're able to work really really fast to perform actions.
+
+02:02.190 --> 02:10.550
+In our case let's use some of the most common ones. We can use text for the first column.
+
+02:10.620 --> 02:11.370
+So let's do that.
+
+02:11.370 --> 02:16.110
+I'm going to press the up arrow and get create table.
+
+02:16.110 --> 02:21.300
+I'm also going to name this table, let's call it users
+
+02:24.000 --> 02:39.550
+and column_1 will be name, datatype can be text, column_2 we can say that is age and datatype for an
+
+02:39.550 --> 02:40.390
+age.
+
+02:40.390 --> 02:43.870
+Well if we look down here we look at numeric types.
+
+02:43.960 --> 02:49.920
+We want to use something like smallint which is a 2-byte signed integer.
+
+02:50.080 --> 02:56.320
+It means that a max for a smallint, if I go to smallint Max
+
+02:58.990 --> 03:04.820
+we see that the max range is 32,762. Well nobody's going to be that
+
+03:04.820 --> 03:05.530
+old, right?
+
+03:05.530 --> 03:14.160
+So we can use smallint for now lets do that. I'm going to say age is smallint.
+
+03:14.300 --> 03:24.140
+And finally the third column will just have 'birthday' and birthday can be a date datatype and we can
+
+03:24.140 --> 03:32.460
+just have date let's press enter and I get create table.
+
+03:32.610 --> 03:37.670
+Let's look at our PSequel here. And I'll minimize this.
+
+03:37.900 --> 03:48.190
+And if I click refresh here I see that we have users. Look at that and we have columns for the table users
+
+03:48.220 --> 03:50.470
+that is name, age, birthday.
+
+03:50.520 --> 03:53.110
+It tells us the type and the length.
+
+03:53.110 --> 03:56.320
+So now we have our table. Awesome.
+
+03:56.560 --> 04:06.700
+There's also a way to do it here if we do '\d' I get list of relations and look at that we
+
+04:06.700 --> 04:13.600
+have our users table and the owner which is me, very Cool.
+
+04:13.600 --> 04:14.210
+There you go.
+
+04:14.290 --> 04:20.620
+We've created our first table. Now that we have this we can start entering some information.
+
+04:20.620 --> 04:24.800
+And by the way you might be asking how many times do we run these commands.
+
+04:25.090 --> 04:30.490
+Well ideally once you create your database and it lives somewhere on a computer somewhere in the world
+
+04:31.540 --> 04:33.740
+you only run this once, right.
+
+04:33.910 --> 04:40.420
+You create a table of what you want your database to look like and the rest is just filling in and inserting
+
+04:40.420 --> 04:43.180
+information and reading information off of it.
+
+04:43.180 --> 04:49.510
+So this is the command that we're going to set up when we create our own database to set up our schemas.
+
+04:49.510 --> 04:52.470
+And then after that it'll just run on its own.
+
+04:52.660 --> 04:55.530
+And It will be able to communicate with the back end.
+
+04:55.720 --> 04:57.370
+It's going to be very fun.
+
+04:57.370 --> 05:00.560
+By the way before we get into the next video I want to show you one more command.
+
+05:00.580 --> 05:03.980
+We learned the '\d' shows us our tables.
+
+05:04.060 --> 05:12.480
+If I do '\q' We exit out of here and we're back to the terminal.
+
+05:12.490 --> 05:14.470
+All right I'll see you in the next one.
+
+05:14.860 --> 05:15.100
+Bye-bye.

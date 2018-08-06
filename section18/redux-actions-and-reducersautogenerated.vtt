@@ -1,0 +1,448 @@
+WEBVTT
+
+00:01.220 --> 00:03.020
+And welcome back.
+
+00:03.020 --> 00:11.230
+Now that we have redux and Riak redux installed Let's start writing some code and implementing redux.
+
+00:11.430 --> 00:19.700
+Now the first thing we want to do is create something called an action and also a reducer.
+
+00:19.980 --> 00:30.040
+If you remember this diagram we mentioned that Reebok's has these two components an action and a reduce.
+
+00:30.050 --> 00:33.820
+So we're going to build those two out and show you what I mean.
+
+00:35.460 --> 00:39.440
+The first thing we want to do is create a new file.
+
+00:39.630 --> 00:45.930
+Let's just keep it in the source folder and we'll say that this will be called Actions thought James
+
+00:47.940 --> 00:54.020
+and within here we're going to create an action using just plain old javascript.
+
+00:54.090 --> 01:03.680
+We're going to say that export Konst and the first action we're going to do is the search field.
+
+01:03.750 --> 01:09.810
+So remember when we type into the search box we can filter the robots will say that that action which
+
+01:09.810 --> 01:17.100
+is on search changed that we had in the re-act app will say that this is going to be called Set search
+
+01:17.100 --> 01:31.180
+field and this search field will receive an input of text which the user types and because we want to
+
+01:31.180 --> 01:37.840
+keep this as small as possible we can actually wrap it in curly brackets so that we can avoid the return
+
+01:37.840 --> 01:38.540
+statement.
+
+01:38.560 --> 01:45.100
+We're just returning an object and this object is going to have a type
+
+01:47.810 --> 01:54.430
+called let's say change search field.
+
+01:57.540 --> 02:06.070
+And we'll also have a payload called taxed.
+
+02:06.210 --> 02:13.980
+So that is this action is going to which is called Set search field is going to take taxed which is
+
+02:13.980 --> 02:20.060
+what the user inputs and it's going to return an object that's has a type of changed search field.
+
+02:20.460 --> 02:28.200
+So that's the action that's being taken and it's going to send and payload is a common name that is
+
+02:28.200 --> 02:36.750
+used and redox so just get used to that payload is we're sending whatever data is needed to go on to
+
+02:36.750 --> 02:41.680
+the producer which is just going to be whatever the user enters.
+
+02:42.750 --> 02:43.120
+All right.
+
+02:43.150 --> 02:45.220
+We just created our action.
+
+02:45.340 --> 02:46.030
+That's it.
+
+02:46.180 --> 02:47.800
+That's our action.
+
+02:47.800 --> 02:49.390
+Nice and simple.
+
+02:49.390 --> 02:57.640
+Now in here I've capitalized this because it's a constant and a constant is usually capitalized.
+
+02:57.640 --> 03:07.720
+All caps in javascript is just the standard but I like using an actual constant variable because with
+
+03:07.720 --> 03:12.960
+just a string we can misspell something and we might not get the air.
+
+03:13.000 --> 03:18.220
+But if we use a variable and we misspell it will actually get an error when we're running the app.
+
+03:18.220 --> 03:21.210
+So it's a nice little nifty trick.
+
+03:21.220 --> 03:27.990
+And most redox demos have a cost and follows wall where they keep track of all these actions.
+
+03:28.240 --> 03:34.480
+And it's also nice to have a file where you can see what your actions are.
+
+03:34.480 --> 03:39.630
+Line by line because most apps will have more than just one action as you'll see.
+
+03:39.700 --> 03:44.010
+So let's create a new file and we'll call it constant.
+
+03:44.250 --> 03:46.130
+Yes.
+
+03:46.330 --> 03:51.390
+And within here within just export Let's make this a little bit bigger so you can see.
+
+03:51.500 --> 03:52.740
+There you go.
+
+03:52.780 --> 03:58.650
+We're going to export constant change.
+
+03:59.690 --> 04:02.070
+Search field.
+
+04:02.310 --> 04:04.290
+And that's going to equal our strength.
+
+04:05.180 --> 04:10.250
+Again the exact same thing change search field bought the string
+
+04:13.060 --> 04:16.520
+seems a little bit redundant but it's just good practice to have.
+
+04:16.810 --> 04:23.380
+So now that we have this variable which is a constant and because we're exporting it we can just import
+
+04:23.380 --> 04:24.510
+it up over here
+
+04:29.680 --> 04:38.070
+and we'll say change search field make sure that there's no spelling errors this way and we'll say that
+
+04:38.490 --> 04:41.080
+import from the Constans file.
+
+04:45.710 --> 04:49.630
+And let's make this a little bit smaller just so everything fits in.
+
+04:49.710 --> 04:52.930
+And there you go.
+
+04:52.940 --> 04:59.640
+So now we can use the changed search field instead of the text.
+
+04:59.780 --> 05:00.660
+And there you go.
+
+05:00.730 --> 05:08.650
+We have a nice and good looking actions file with the set search field action and you can imagine here
+
+05:08.650 --> 05:14.680
+as we get more and more actions we can keep adding things and we keep adding all the constants that
+
+05:14.680 --> 05:18.460
+we need for the actions that that our app takes.
+
+05:18.460 --> 05:18.660
+All right.
+
+05:18.670 --> 05:22.020
+The next thing that we remember with redox is after the action.
+
+05:22.030 --> 05:30.190
+We also have a reducer which I said is a big function that just reads the action and spits out what
+
+05:30.190 --> 05:32.420
+we call state.
+
+05:32.530 --> 05:38.560
+So let's do that let's create another file here we'll call it reducers dodgy us
+
+05:42.040 --> 05:53.670
+and we think here let's create that or we first start off by saying Konst initial state.
+
+05:54.050 --> 05:56.030
+So we need some sort of start point.
+
+05:56.030 --> 06:00.790
+So you may remember in our app dodgiest file with create re-act up.
+
+06:00.860 --> 06:08.220
+If I open that up we see that we have initial state with search field that is blank.
+
+06:08.240 --> 06:15.400
+So similar to that we need to say that the initial stage here is going to have the search field
+
+06:18.290 --> 06:20.390
+that is equal to an empty string.
+
+06:22.080 --> 06:23.510
+So that's the initial state.
+
+06:23.550 --> 06:28.050
+That's the initial object that we'll have in the redux store.
+
+06:28.530 --> 06:31.850
+And now we need to create the reducer again.
+
+06:31.920 --> 06:38.190
+Remember it's a function that's very easy to do again because we're going to use it in other places.
+
+06:38.190 --> 06:46.780
+We're going to export it and we'll say that this is going to be called a search robots because that's
+
+06:46.780 --> 06:52.640
+the action that's taking it's going to search the robots using the search field.
+
+06:52.660 --> 06:58.980
+So this search robots reduce their well take in a few things.
+
+06:59.030 --> 07:09.470
+First is a state which is the state of our application and then the second thing is the action.
+
+07:09.490 --> 07:11.720
+So that is what action just happened.
+
+07:13.630 --> 07:20.440
+And using ESX let's just give it default parameters to make sure that if this is empty or action is
+
+07:20.440 --> 07:21.890
+empty We're not getting in there.
+
+07:21.910 --> 07:30.340
+So we'll say that state will be the initial state which is why we have up here and then action is just
+
+07:30.340 --> 07:32.110
+going to be an empty object.
+
+07:32.110 --> 07:38.790
+Remember our actions are just objects that were returning.
+
+07:38.820 --> 07:48.690
+So from here using air functions we have our first reducer and reduce shear what they do is they get
+
+07:48.780 --> 07:52.190
+this input of a state and an action.
+
+07:52.230 --> 07:58.680
+And if they care about the action that they receive in our case if we care if we receive any actions
+
+07:58.680 --> 08:04.980
+that are related to searching robots we're going to do something we're going to act upon the state the
+
+08:04.980 --> 08:09.820
+way we're going to do that is we're going to use a switch statement and we're going to say within the
+
+08:09.820 --> 08:12.960
+switch statement that we're going to do an action type
+
+08:15.650 --> 08:17.370
+remember action type.
+
+08:17.480 --> 08:20.280
+That's something that we use in the action Dodge's.
+
+08:20.510 --> 08:25.480
+Remember we have a type of change search field.
+
+08:25.610 --> 08:31.390
+So looking at this it looks like we're going to care about the change search field action type.
+
+08:31.430 --> 08:41.910
+So let's just import the Constance file up over here for redox as our poor are ready sir as well.
+
+08:42.050 --> 08:51.530
+And within here we can say that if the case that the action type.
+
+08:51.730 --> 08:54.730
+Whoops let's just dude change search field.
+
+08:56.370 --> 09:07.100
+If that's the case well we want to return a new state and this goes back to the three principles that
+
+09:07.100 --> 09:08.060
+we talked about.
+
+09:08.060 --> 09:08.850
+Let's have a look.
+
+09:10.240 --> 09:15.610
+The three principals in react is that we have the single source of truth that is the one big object
+
+09:15.610 --> 09:16.690
+that describes our app.
+
+09:16.840 --> 09:22.490
+So we have our initial state variable that we've said state is read only.
+
+09:22.540 --> 09:26.880
+That means we can never modify that object.
+
+09:26.900 --> 09:37.170
+The only thing we can do is create a new object that has the same as before the previous object the
+
+09:37.200 --> 09:43.670
+previous state that we had with whatever modifications we had so state is Read-Only.
+
+09:43.740 --> 09:50.190
+And then the third thing is that changes only using pure functions I remember pure functions are functions
+
+09:50.430 --> 09:59.520
+that get some sort of an input just like we have in our reducer and return an output that doesn't have
+
+09:59.520 --> 10:00.440
+any side effects.
+
+10:00.450 --> 10:03.120
+That is it doesn't modify anything.
+
+10:03.300 --> 10:07.940
+Every time we enter an input it always gives out the same output.
+
+10:08.400 --> 10:15.310
+So based on these principles if we go back we know that we want this reduced to be a pure function that
+
+10:15.310 --> 10:22.270
+is it's taking some sort of an input and it should return a new state and the way we do that without
+
+10:22.270 --> 10:32.800
+just doing state Daut search field and modifying that property we're going to do object dot assign.
+
+10:32.960 --> 10:43.970
+And the way we do this is curly brackets comma the state that we're receiving which is the initial state
+
+10:43.970 --> 10:50.270
+the start and then finally whatever we want to change in that object.
+
+10:50.270 --> 10:58.280
+In our case we're interested in changing the search field property and the search field property is
+
+10:58.280 --> 11:03.690
+going to have the action Daut payload.
+
+11:03.790 --> 11:06.800
+Again let me just make this a little bit smaller.
+
+11:06.970 --> 11:13.920
+We're returning a new state as you can see here with object design that's going to have everything in
+
+11:13.920 --> 11:14.730
+the state.
+
+11:14.880 --> 11:22.050
+Plus we're going to update whatever search field property new search field property we have with action
+
+11:22.150 --> 11:23.070
+of payload.
+
+11:23.130 --> 11:28.760
+Remember actions have two things that were sending an object with type an object with payload.
+
+11:28.780 --> 11:32.310
+If we go back with sea type and payload.
+
+11:32.450 --> 11:37.370
+So this is simply saying we received an action called Change Sarsfield.
+
+11:37.490 --> 11:45.280
+If that's the case then return the new state with actioned payload whatever the user has entered.
+
+11:45.320 --> 11:50.510
+I know it can get a little bit confusing but this is just standard redux syntax that you'll just have
+
+11:50.510 --> 11:51.330
+to get used to.
+
+11:52.550 --> 11:53.400
+Just a heads up.
+
+11:53.400 --> 11:57.050
+There's another way of doing this that some people like and is cleaner.
+
+11:57.050 --> 12:05.760
+Another option is to do object destructuring or object spread operator which means that we can do something
+
+12:06.150 --> 12:06.810
+like this.
+
+12:10.550 --> 12:12.370
+Which works nicely as well.
+
+12:12.410 --> 12:15.230
+For now though let's just keep it the way we had
+
+12:18.720 --> 12:23.960
+and then always remember that a pure function always needs to return something.
+
+12:23.960 --> 12:39.640
+So in case that the action type is not this we also want to say default to always just return state.
+
+12:39.640 --> 12:40.130
+There you go.
+
+12:40.150 --> 12:41.790
+We've created a redo sir.
+
+12:42.040 --> 12:44.830
+That is a pure function.
+
+12:44.830 --> 12:52.990
+Now here we could use an if statement if we want but I like using switch and Riak documentation also
+
+12:52.990 --> 12:59.550
+recommend switch because you can have multiple cases multiple actions that act upon the search robots
+
+12:59.560 --> 13:06.040
+reducer and it's a lot easier to just add on and add on different things that affect the state of the
+
+13:06.250 --> 13:08.590
+robots.
+
+13:08.590 --> 13:09.100
+All right.
+
+13:09.160 --> 13:10.830
+That wasn't too bad right.
+
+13:10.930 --> 13:21.170
+We've created a reducer with some initial state and we also have our constants and actions.
+
+13:21.300 --> 13:28.530
+So that diagram that I showed you is starting to make a little bit more sense in the next video.
+
+13:28.530 --> 13:33.870
+Let's actually connect these because right now it's not connected to anything it's not connected to
+
+13:33.870 --> 13:36.520
+our apps to our re-act up.
+
+13:36.570 --> 13:39.850
+We've just created these files that kind of live on their own.
+
+13:40.380 --> 13:42.030
+I'll see you in the next one.
+
+13:42.050 --> 13:42.590
+Bye bye.

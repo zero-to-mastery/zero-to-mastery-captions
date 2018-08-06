@@ -1,0 +1,349 @@
+WEBVTT
+
+00:01.010 --> 00:01.960
+Welcome back.
+
+00:02.000 --> 00:07.130
+In this video we're going to talk about RESTful API.
+
+00:07.250 --> 00:08.050
+Now what is that?
+
+00:08.940 --> 00:16.290
+A REST API defines a set of functions which developers can perform requests and receive responses
+
+00:16.350 --> 00:25.310
+via a HTTP protocol such as GET, POST, PUT, DELETE – something we've talked about.
+
+00:25.310 --> 00:33.590
+Remember how I said a web browser sends a request and just hopes that the server returns what the browser
+
+00:33.620 --> 00:34.410
+asked for.
+
+00:34.640 --> 00:37.590
+A Google server can send us whatever it wants.
+
+00:37.610 --> 00:46.040
+It doesn't have to follow the rules that perhaps the web browser sets. With RESTful API we're able to
+
+00:46.070 --> 00:52.670
+create an API that is RESTful – something that follows the rules that everybody can agree on so that we
+
+00:52.670 --> 00:55.930
+have compatibility between different systems.
+
+00:57.350 --> 01:05.290
+So a RESTful API is an architectural style and it's an approach to communications; an agreed upon set
+
+01:05.290 --> 01:14.230
+of rules so everyone plays nicely. A RESTful API users GET to receive a resource, PUT to change the state
+
+01:14.440 --> 01:22.990
+or update a resource, a POST that creates a resource, and a DELETE to remove it.
+
+01:23.390 --> 01:30.800
+And that's something that we've already talked about, and the RESTful API is a way to define our server
+
+01:31.700 --> 01:35.610
+so that it specifies what it can provide and how to use it.
+
+01:37.580 --> 01:42.520
+In other words the URL parameters should make sense.
+
+01:42.550 --> 01:49.360
+For example if we're doing '/profile' – well, we expect that if it's a GET request we're going to
+
+01:49.360 --> 01:50.920
+get a profile.
+
+01:51.130 --> 01:55.270
+If it's a POST request we're going to add a profile.
+
+01:55.270 --> 02:00.130
+If it's a PUT perhaps we're updating the profile, and this URL makes sense.
+
+02:01.050 --> 02:08.140
+And you can think of this as the noun of what we want to receive. The HTTP request
+
+02:08.210 --> 02:13.600
+is the verb and everything after the slash [/] is the noun.
+
+02:16.180 --> 02:23.800
+Now finally REST APis are something called 'stateless' – meaning that calls can be made independently
+
+02:23.800 --> 02:32.040
+of one another and each call contains all the data necessary to complete itself successfully. A server
+
+02:32.160 --> 02:34.560
+doesn't need to keep memorizing things.
+
+02:34.560 --> 02:40.590
+Each request that comes in has enough information that the server can respond with, regardless of who
+
+02:40.590 --> 02:42.570
+that person is.
+
+02:42.570 --> 02:53.080
+So in this example let's build a small little app that has a RESTful API.
+
+02:53.200 --> 02:55.740
+Let's make this a lot smaller.
+
+02:56.900 --> 03:03.940
+There you go – we have our previous example – we'll start the server and talk about some of the things that
+
+03:04.540 --> 03:06.430
+we can do here.
+
+03:06.700 --> 03:14.460
+Well when we look at a GET request this GET request – let's actually remove this as well just so it's
+
+03:14.460 --> 03:16.400
+not too messy.
+
+03:18.240 --> 03:23.900
+This GET request will have a request object that we receive.
+
+03:24.000 --> 03:27.690
+Now this request object can have a few things – we can have
+
+03:27.690 --> 03:29.300
+request dot query [req.query]
+
+03:32.580 --> 03:37.020
+we can have request dot body [req.body], which we saw in the previous video.
+
+03:37.020 --> 03:46.190
+We also have request dot header [req.header], again something that we've seen before and also request dot params [req.params] and
+
+03:46.190 --> 03:50.700
+this is probably the most used properties of request.
+
+03:50.790 --> 03:52.200
+So let's go through it one by one.
+
+03:54.100 --> 04:00.200
+'req.query' is what we get when we do a GET query.
+
+04:00.300 --> 04:08.660
+For example within here, if I do a 
+
+04:11.390 --> 04:12.250
+'console.log(req.query)'
+
+04:12.700 --> 04:24.850
+Well I can go to localhost and in here – something that we've already talked about – I can add a question
+
+04:24.850 --> 04:25.310
+mark
+
+04:25.310 --> 04:35.160
+to say that this is a query string and say 'name=andrei&age=31'.
+
+04:36.200 --> 04:37.770
+I press Enter
+
+04:38.000 --> 04:44.240
+go back and I see here that I have 'name' is 'andrei',
+
+04:44.280 --> 04:52.950
+'age' is '31' because I have access to the query string [console.log(req.query)].
+
+04:52.980 --> 05:01.020
+We also have request body [req.body], which again we've talked about – using something like your 'urlencoded' or 'JSON'
+
+05:01.430 --> 05:12.690
+body-parsers, we can add that middleware to receive whatever the request sends in the body.
+
+05:12.720 --> 05:15.530
+We also have request dot header [req.header].
+
+05:15.600 --> 05:30.900
+So if I 'console.log(req.header)' well this time using Postman I can say in the header – and
+
+05:30.900 --> 05:34.760
+it has a nice Headers tab - you see that we have Content-Type
+
+05:34.760 --> 05:41.210
+'application/json', which automatically does it because the last request was a JSON request.
+
+05:41.430 --> 05:50.130
+But I can put in anything here I can say 'name' is 'andrei' – or this time just to change it we'll say 'sally'
+
+05:51.090 --> 05:56.510
+if I send this – and this is a DELETE method let's make sure it's a GET method –
+
+05:56.620 --> 05:57.490
+If I send this
+
+06:01.120 --> 06:09.180
+I see that now (req.header) has all these headers but also – name: 'sally'.
+
+06:09.250 --> 06:10.510
+Very cool.
+
+06:10.570 --> 06:16.460
+And then finally we also have something called (req.params)
+
+06:16.720 --> 06:28.050
+And if 'console.log(req.params)' – this is a syntax where you use the parameters of the URL.
+
+06:28.140 --> 06:39.620
+If I do the semicolon and then let's say 'id' ['/:id'] – I save this and now we have access to whatever the parameter
+
+06:40.190 --> 06:41.330
+is of the URL.
+
+06:41.390 --> 06:47.510
+So let's just say '1234' and I'll remove the header for now.
+
+06:47.520 --> 06:54.080
+If I 'Send' I now have { id: '1234' } right.
+
+06:54.080 --> 06:54.570
+Awesome.
+
+06:54.740 --> 07:02.290
+And you can have as many parameters as you want and you can nest them but we have access to our request
+
+07:02.300 --> 07:05.340
+information, which is fantastic.
+
+07:06.290 --> 07:15.700
+Now when we send a response we also want to have a bit of an option as to what we want to send. Well with
+
+07:15.700 --> 07:20.840
+a response we can say that with sending
+
+07:20.840 --> 07:32.510
+we also want to respond with a status, let's say a status of 404 and we could say send("not found")
+
+07:34.190 --> 07:45.440
+if I refresh and send now, I get 'not found' with a status of 404.
+
+07:45.640 --> 07:48.460
+Again if I go back to my browser and refresh
+
+07:51.350 --> 07:55.560
+I have in my Network tab a 404 status.
+
+07:55.580 --> 07:56.720
+All right.
+
+07:56.720 --> 07:57.900
+Perfect.
+
+07:57.980 --> 08:01.550
+And again you customize – so that we have a RESTful API –
+
+08:01.820 --> 08:08.430
+the GET, POST, PUT, and DELETE to follow the rules that the web browsers expect.
+
+08:08.460 --> 08:09.780
+Now one last thing.
+
+08:09.840 --> 08:12.270
+Up until now we're just sending data back and forth.
+
+08:12.270 --> 08:20.130
+But what if we want to serve something called static assets that is 'index.html', CSS file, JavaScript file
+
+08:20.130 --> 08:22.180
+– that's more realistic right?
+
+08:22.180 --> 08:30.210
+Usually we want an index file and having our app run – well that's very easy to do.
+
+08:30.270 --> 08:36.310
+We can create it within this project – let's just do a new folder called public.
+
+08:36.780 --> 08:42.150
+And this name might be familiar to you because when we did 'create-react-app' public was there and it
+
+08:42.150 --> 08:44.650
+held all our static files.
+
+08:45.290 --> 08:50.980
+So in here let's just do a new file – 'index.html'.
+
+08:51.020 --> 08:55.070
+Now within this public file we'll just do a quick
+
+08:55.070 --> 08:57.340
+HTML document that says 'hi'.
+
+08:57.590 --> 09:01.940
+And within here I'll say 'it's working'.
+
+09:04.820 --> 09:10.910
+In order to get Express to send static files
+
+09:11.150 --> 09:13.370
+we can just remove this for now
+
+09:13.460 --> 09:20.640
+just to keep this clean and do another middleware 'app.use()'.
+
+09:20.830 --> 09:30.300
+And this comes with Express already we do 'express.static()' and within here we give it the file path.
+
+09:30.410 --> 09:38.190
+In our case we know that we want to get the '__dirname', which we've seen in a previous video, which is the
+
+09:38.190 --> 09:47.850
+directory of where we are; in our case its node and we want to go to the public folder so we do 'public'.
+
+09:53.680 --> 09:55.240
+This is going to print out 'node'
+
+09:58.010 --> 09:59.380
+then 'public'.
+
+09:59.630 --> 10:08.670
+So now if I save this and go back to our GET request I get 'it's working'.
+
+10:08.780 --> 10:12.670
+Let me make that bigger so you can see.
+
+10:12.840 --> 10:22.260
+And if we open up our Console and our Network tab – I refresh I get – ooh, let's do a hard refresh – I get '200'
+
+10:25.100 --> 10:26.210
+I get 'text/html'
+
+10:26.240 --> 10:29.400
+And the response is my HTML file.
+
+10:29.570 --> 10:35.420
+And if I had a CSS link here it will load the CSS in my public folder.
+
+10:35.540 --> 10:41.700
+If I had a JavaScript file then it will load it because within the body we can add a script tag.
+
+10:42.110 --> 10:49.350
+And this is a server that we just built that serves simple static assets.
+
+10:49.580 --> 10:56.210
+And as soon as we want to have something like an API where we interact with it we do GET, POST, PUT 
+
+10:56.210 --> 10:56.930
+DELETE
+
+10:56.990 --> 11:03.810
+that's when we start using our methods that we learned previously.
+
+11:03.860 --> 11:04.880
+Very cool.
+
+11:05.000 --> 11:12.860
+Now that we have this basic foundation we're going to build our server for our app – the app that we build
+
+11:12.860 --> 11:16.230
+in our final project, our image recognition app?
+
+11:16.640 --> 11:19.240
+Well we're going to build the back-end for that.
+
+11:20.230 --> 11:21.870
+I'll see in the next one. Bye-bye

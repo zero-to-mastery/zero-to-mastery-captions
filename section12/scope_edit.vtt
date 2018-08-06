@@ -1,0 +1,350 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+And welcome back.
+
+00:02.830 --> 00:10.710
+In this video we're going to talk about an important concept in javascript called 'scope'.
+
+00:10.840 --> 00:20.890
+Now What is scope? scope means variable access, what variables do I have access to when a code is running?
+
+00:21.710 --> 00:29.600
+So by default in Javascript you are in the 'root scope' which is the 'window' object.
+
+00:29.600 --> 00:30.410
+Let me show you what I'm talking about.
+
+00:31.700 --> 00:36.560
+If in my console I do something like 'function aa()'
+
+00:39.820 --> 00:49.160
+'console.log("test")' and we close off that function.
+
+00:49.230 --> 00:58.530
+Well now, the 'function aa' is part of the 'window scope'.
+
+00:58.630 --> 01:09.120
+If I go 'window' here and open up 'window' you'll see
+
+01:09.330 --> 01:11.250
+that the 'aa' function has been added to the 'window scope'.
+
+01:11.290 --> 01:15.610
+So when you are working in a browser, this is called the 'root scope'.
+
+01:15.610 --> 01:19.600
+So the parent scope.
+
+01:19.760 --> 01:28.890
+Now what if I do something like this. If I go 'function bb'.
+
+01:29.680 --> 01:33.930
+And within this function we'll do.
+
+01:34.180 --> 01:34.870
+variable 'a' equals "hello"
+
+01:39.820 --> 01:47.050
+Will this function, if I run this in the console,
+
+01:47.230 --> 01:54.460
+If I now do 'console.log(a)' will that work.
+
+01:54.550 --> 02:03.280
+No because 'a' only lives within 'function bb' the scope is inside of the function.
+
+02:03.280 --> 02:12.330
+So the only way we can do 'console.log(a)' is within the function to add, oops!
+
+02:12.460 --> 02:20.060
+Must try that again, within the function to add 'console.log(a)'.
+
+02:20.070 --> 02:24.000
+So now if I run the function,
+
+02:24.060 --> 02:24.930
+I have 'hello'.
+
+02:25.410 --> 02:32.850
+Now the interesting thing is that functions have access to
+
+02:32.850 --> 02:34.110
+any variable in the root scope.
+
+02:34.380 --> 02:51.080
+So for example if I do 'variable(var) b equals can I access this?' Will 'function bb' has access to this?
+
+02:51.250 --> 03:05.920
+Because as you know 'window.bb' exists and variable 'b' lives on the window object.
+
+03:05.960 --> 03:13.990
+So they both have the same parent. Let me show you what I mean,
+
+03:13.990 --> 03:15.760
+by copying this and putting it into the console
+
+03:15.940 --> 03:22.180
+Now within 'function bb' if we do 'console.log(b)'
+
+03:27.450 --> 03:39.780
+Well, we have access to this
+
+03:39.860 --> 03:40.170
+OK what if I do something along the lines of variable(var) 'b' can I access this.
+
+03:40.170 --> 03:45.150
+I do 'b' equals "hello", if I copy this.
+
+03:45.280 --> 03:47.940
+And now I do
+
+03:48.020 --> 03:50.230
+'console.log(b)' Well I have,
+
+03:50.230 --> 03:56.840
+Can I access this because I haven't ran the function but if I run the function 'bb()'.
+
+03:57.020 --> 03:57.890
+Now if I do.
+
+03:57.890 --> 04:02.330
+'console.log(b)'
+
+04:02.420 --> 04:03.190
+I get'Hello'.
+
+04:03.470 --> 04:08.860
+Because 'b' is the same variable.
+
+04:09.290 --> 04:14.550
+Ok let's do something a little bit more complex.
+
+04:14.880 --> 04:23.540
+So knowing what we know, we know that this is the root scope in our case is the window.
+
+04:23.540 --> 04:25.150
+Within here we can declare a variable.
+
+04:25.210 --> 04:27.480
+'fun' we'll say equals five.
+
+04:28.280 --> 04:30.290
+And we'll also declare
+
+04:32.840 --> 04:35.550
+a function, we'll call it 'funFunction'.
+
+04:35.870 --> 04:41.940
+And within this function as soon as we create these curly brackets'{}' we've created a child scoping here.
+
+04:46.280 --> 04:55.170
+So within here I'll say variable(var) 'fun' equals 'hellooo' and will 'console.log(fun)' here
+
+05:00.410 --> 05:07.650
+and we'll create another function except this one will call 'funnerfunction'.
+
+05:07.810 --> 05:15.030
+And within this one will say 'Byee' and will console log that.
+
+05:15.180 --> 05:24.110
+And then finally we will create a third function and we'll call this the 'funnestFunction'.
+
+05:24.110 --> 05:32.670
+And within here we'll remove the variable and we'll say 'AHHHHHH'.
+
+05:32.850 --> 05:40.370
+And at the bottom we'll also do 'console.log(fun)'.
+
+05:40.400 --> 05:41.020
+All right.
+
+05:41.160 --> 05:42.390
+So let's go over this.
+
+05:42.390 --> 05:44.020
+We're declaring a variable
+
+05:44.130 --> 05:45.440
+fun equals five.
+
+05:45.480 --> 05:51.800
+We created three functions and each of these functions create their own scope
+
+05:54.770 --> 05:58.240
+and each of these functions 'console.log(fun)'.
+
+05:58.340 --> 06:06.580
+But what 'fun' means in each one of them is different based on their scope.
+
+06:07.430 --> 06:18.510
+So the first one will title it '1' just so we know the second will say '2', 'third(3)' and then finally here
+
+06:18.510 --> 06:22.590
+we can just say 'window'.
+
+06:22.690 --> 06:24.880
+So let's run this function and see what happens.
+
+06:25.800 --> 06:28.730
+See if you can guess,
+
+06:29.000 --> 06:29.480
+what's about to happen here, OK.
+
+06:29.610 --> 06:34.970
+So we have a window 5, which means this line over here.
+
+06:35.200 --> 06:37.700
+The fun variable is '5'.
+
+06:37.720 --> 06:39.770
+Nothing has been run.
+
+06:39.810 --> 06:44.910
+We read through the script and we see that variable fun equals 5, and then we see these functions but
+
+06:44.910 --> 06:46.660
+none of them are run.
+
+06:46.830 --> 06:55.400
+And now if I do 'funFunction' to actually run these and we'll do 'funnerFunction'.
+
+06:55.650 --> 07:06.920
+And finally the 'funnestFunction'. I copy and paste this and rerun this
+
+07:06.920 --> 07:09.650
+we see we have window 5, line 24 that got run which is variable 5.
+
+07:10.070 --> 07:18.350
+Now within the first function we have the variable fun equals to "hellooo" because well we've created
+
+07:19.710 --> 07:25.620
+a new scope and within this function lives variable fun that has "hellooo".
+
+07:25.640 --> 07:27.940
+So that gets overridden.
+
+07:28.190 --> 07:35.630
+And then we have the second function that has "Byee" again same thing as above because we have a new scope
+
+07:35.660 --> 07:36.880
+a new variable.
+
+07:37.050 --> 07:38.480
+fun equals "Buyee".
+
+07:38.870 --> 07:44.410
+And then the third one we see that we have fun equals "AHHHHHH".
+
+07:44.930 --> 07:47.330
+And again that gets changed.
+
+07:47.870 --> 07:50.550
+And that equals the fun.
+
+07:50.690 --> 07:52.550
+Here's the fun part though.
+
+07:52.580 --> 07:56.330
+If I now do 'console.log(fun)'
+
+07:59.610 --> 08:12.670
+it's now equal to 'AHHHHHH' because in the third function we've modified
+
+08:12.720 --> 08:13.550
+fun which is this variable to equals to "AHHHHHH".
+
+08:14.000 --> 08:22.480
+One thing I want to show you is that in the first two functions I won't be able to access the 'fun' variable
+
+08:22.480 --> 08:29.750
+in the root scope because I've essentially overwritten them within the 'funFunction' and 'funnerFunction'
+
+08:30.810 --> 08:35.010
+'fun' equals something that is their own meaning.
+
+08:35.010 --> 08:40.890
+So within this function fun equals "hellooo"  within the funner function fun equals "Byee".
+
+08:41.190 --> 08:49.590
+And no matter what, we won't have access to the root scope and this is called a naming conflict,
+
+08:49.590 --> 08:56.610
+where we name things the same way, a something that lives let's say in the parent scope
+
+08:56.610 --> 08:57.120
+and we will lose access to it.
+
+08:58.070 --> 09:04.710
+So to finalize this point let's just delete this and go over what's happening here.
+
+09:04.800 --> 09:08.640
+So let's delete this as well and we'll say just the 'console.log' here.
+
+09:09.260 --> 09:16.090
+When somebody runs 'funnestFunction' we run this and Javascript breathes console log fun.
+
+09:16.530 --> 09:18.660
+Ok fun, do we,
+
+09:18.660 --> 09:22.060
+Do we know her? and we look at the scope here.
+
+09:22.060 --> 09:22.830
+You look at this function.
+
+09:22.840 --> 09:25.840
+Hey do you know what 'fun' is?
+
+09:25.930 --> 09:32.840
+And the function says, Well sorry friend I don't really know 'fun' but ask my parent.
+
+09:33.070 --> 09:37.110
+So now we go into outside of the function.
+
+09:37.210 --> 09:38.890
+In this case the roots scope.
+
+09:38.890 --> 09:42.650
+Now we say hey do you know 'fun'?
+
+09:42.700 --> 09:44.830
+And they're like, Yah yah! we have a variable fun.
+
+09:44.830 --> 09:46.170
+It equals five.
+
+09:46.570 --> 09:51.000
+So now 'console.log' can log 5.
+
+09:51.180 --> 09:59.760
+But if 'fun' doesn't exist, we asked the parents and the parent says, Sorry I have no idea what 'fun' is.
+
+09:59.810 --> 10:03.410
+Then we get, well we get an error.
+
+10:03.470 --> 10:07.060
+So the last check is always the root scope,
+
+10:07.190 --> 10:09.410
+In our case the window object, if we can't find it.
+
+10:09.410 --> 10:11.360
+We get this error in the console.
+
+10:11.360 --> 10:12.630
+We always see.
+
+10:12.830 --> 10:15.560
+Sorry! your friend variable doesn't exist.
+
+10:15.650 --> 10:19.340
+I think you made her up and that's it for scope.
+
+10:19.340 --> 10:22.390
+I have a fun exercise for you right after this video.
+
+10:22.400 --> 10:25.030
+Give it a try and I'll see you in the next one.
+

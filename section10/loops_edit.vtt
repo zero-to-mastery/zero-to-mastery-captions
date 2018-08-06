@@ -1,0 +1,739 @@
+WEBVTT
+
+00:01.210 --> 00:07.830
+Welcome back. Up to this point we've learned about code just executing from top to bottom.
+
+00:07.830 --> 00:14.020
+Just in a straight line. We've learned about conditionals, where we can add an 'if statement' and have it
+
+00:14.020 --> 00:17.380
+go one way or 'else', go the other way.
+
+00:17.710 --> 00:24.220
+Then we also learned about 'if else' and 'else if'.
+
+00:24.310 --> 00:35.680
+So 'if', 'else if', 'else if', 'else'. And then what if we wanted to do something like this. Something where we keep
+
+00:35.680 --> 00:42.280
+doing it over and over. And that's called 'looping', and that's where we're going to learn about in this video.
+
+00:42.640 --> 00:49.750
+And as you can see in our outline, JavaScript looping, we're going to go through all of this in this video.
+
+00:49.910 --> 00:50.720
+Let's get started.
+
+00:52.480 --> 01:02.160
+I have an empty 'script' tag here. That again is attached to our HTML and let's start off with maybe a 'to-do list'.
+
+01:02.160 --> 01:12.760
+And a to-do list has... or should be an array. And we want to have maybe "clean room".
+
+01:12.880 --> 01:25.730
+We want to have "brush teeth". Maybe "exercise", should definitely "study" some "javascript".
+
+01:25.790 --> 01:28.910
+And finally, well, we should "eat healthy".
+
+01:29.090 --> 01:32.330
+All right. So we have a 'to-do list'.
+
+01:33.200 --> 01:39.950
+Let's say that we wanted to add an exclamation mark at the end of these 'to-do list' items.
+
+01:39.950 --> 01:43.140
+I mean, these are all really important and we want to emphasize that.
+
+01:43.170 --> 01:49.190
+But, I mean, that is kind of tedious, right? I have to go one by one and add an exclamation mark, add an
+
+01:49.220 --> 01:50.130
+exclamation mark.
+
+01:50.130 --> 01:54.310
+And imagine if 'todo list' was hundreds of lines.
+
+01:55.470 --> 01:58.410
+And as programmers we want to do things efficiently.
+
+01:58.410 --> 02:00.310
+That's what we have machines for.
+
+02:00.720 --> 02:06.930
+So, let's add some looping to this. To do a loop in JavaScript
+
+02:06.930 --> 02:12.530
+one of the main ways you can do it, is called a 'for loop'. And you're going to learn a new syntax here.
+
+02:12.540 --> 02:19.410
+And be warned! It looks confusing at first, but it's one of those things again, you have to do it a few
+
+02:19.410 --> 02:21.890
+times - and you'll get the hang of it.
+
+02:21.900 --> 02:27.370
+So the first one is variable 'i' equals '0' we'll do.
+
+02:27.390 --> 02:33.240
+When 'i' is less than 'todos.length'.
+
+02:33.480 --> 02:37.780
+And then we'll do 'i++'.
+
+02:37.780 --> 02:40.220
+Don't worry I'll explain what this means.
+
+02:40.270 --> 02:47.310
+We have the curly brackets and then within here for now let's just wait and explain what's happening.
+
+02:47.320 --> 02:53.410
+So, I'm saying 'for', which is a JavaScript words saying: we're going to do a loop.
+
+02:53.890 --> 02:59.200
+Now in this loop the first thing we're going to do is we're going to say: 'i' equals '0'.
+
+02:59.200 --> 03:01.220
+So just a random variable 'i' is:
+
+03:01.300 --> 03:04.840
+it's common to be used in a 'for' loop - stands for an 'index'.
+
+03:04.840 --> 03:07.080
+So 'i' starts off with '0'.
+
+03:07.090 --> 03:13.670
+We have a semicolon, which means that's the end of the expression, we just assigned the 'i' variable the '0'
+
+03:14.330 --> 03:18.840
+and then in the next line it says: 'i', which is at this moment '0'.
+
+03:19.160 --> 03:27.150
+If that is less than the 'todos' length and 'todos.length' - we've never seen this before.
+
+03:29.360 --> 03:32.050
+But it's saying: how long is the list?
+
+03:32.060 --> 03:40.350
+In this case '1, 2, 3, 4, 5'. So '0' is greater than (*less than) '5'.
+
+03:40.530 --> 03:44.040
+If that's the case, then run this loop.
+
+03:44.280 --> 03:51.800
+And then when you're done, do 'i++', which means 'i' plus '1'.
+
+03:51.820 --> 03:53.620
+So let's go through that.
+
+03:53.620 --> 04:06.760
+First off 'todos.lenth'. if I go, if I copy this, I do 'todos.length' - I get '5', five items.
+
+04:06.870 --> 04:07.940
+I can also do
+
+04:08.070 --> 04:14.060
+'"helllooo".length' and I get '8'.
+
+04:14.070 --> 04:22.730
+So 1, 2, 3, 4, 5, 6, 7, 8. So 'length' just tells us how many items in the list.
+
+04:22.720 --> 04:26.390
+And if I do variable 'i' equals '0'.
+
+04:27.620 --> 04:28.700
+Well, 'i' is '0'.
+
+04:28.710 --> 04:39.700
+But if I do 'i++', and I look at 'i' again, I see that it's '1'. If I do 'i++' again, well I get '2'.
+
+04:39.740 --> 04:43.010
+So this is incrementing 'i'.
+
+04:43.100 --> 04:48.850
+So what we're doing is saying: start off with '0', and as long as 'i'
+
+04:48.890 --> 04:54.120
+is less than '5', then run whatsoever in this block.
+
+04:54.140 --> 04:57.880
+And once you're done with it, add '1' to 'i'.
+
+04:57.950 --> 05:01.980
+So let's see what happens if I do 'console.log'.
+
+05:02.390 --> 05:10.130
+'i' here. Let's save and refresh. '0', '1', '2', '3', '4'.
+
+05:10.320 --> 05:13.570
+So, we're doing a loop, where it starts off with '0'.
+
+05:13.740 --> 05:15.370
+Than we add '1'.
+
+05:15.450 --> 05:21.990
+It's now '1'. Then we add another '1' to '2', another '1' to '3', and another '1' to '4', and how come
+
+05:21.990 --> 05:31.890
+we don't have '5' here because, as soon as 'i' equals '5' that's going to match the 'todos.length' and the loop stops.
+
+05:31.920 --> 05:36.780
+So that's how we tell the loop to stop. OK.
+
+05:36.990 --> 05:44.290
+So, how can we do this: if we wanted to add an exclamation mark on the end of these?
+
+05:44.310 --> 05:47.250
+Well, we can access 'todos'
+
+05:50.430 --> 05:58.840
+by - because it's an array, by 'i'. Because the first go around, 'i' will be '0', which should be "clean room".
+
+05:58.920 --> 06:05.550
+Then '1' which is "brush teeth", then '2' which is "exercise", '3' which is "study javascript" and 4 which
+
+06:05.550 --> 06:07.420
+is "eat healthy".
+
+06:07.540 --> 06:14.620
+So, let's double check that. If I do 'todos[i]' and save. Refresh and I should change this back to 'i'.
+
+06:14.670 --> 06:16.220
+There you go.
+
+06:16.310 --> 06:25.220
+Otherwise if I do this, this actually won't run, watch this. Because, well, this is '5' equals '5', so it's
+
+06:25.220 --> 06:27.570
+never going to, it's never going to go through this.
+
+06:27.770 --> 06:29.090
+So let's change that back to 'i'.
+
+06:29.210 --> 06:34.290
+And refresh: 'clean room', 'brush teeth', 'exercise', 'study javascript', 'eat healthy'.
+
+06:34.310 --> 06:35.050
+Perfect.
+
+06:35.060 --> 06:41.840
+So, now I can just do '[i] + "!"'
+
+06:42.220 --> 06:45.850
+Let's refresh. Look at that!
+
+06:46.090 --> 06:47.630
+That's how important these items are.
+
+06:47.740 --> 06:59.740
+But if I do 'todo' - or 'todos'. Well, my 'todos' don't actually have this exclamation mark we've just console logged
+
+06:59.740 --> 07:02.990
+them, but we haven't actually changed that 'todo', right?
+
+07:03.190 --> 07:06.800
+So let's do that.
+
+07:06.970 --> 07:22.090
+We can now say that 'todos[i] = todos[i] + "!"'.
+
+07:22.110 --> 07:23.020
+So let's see.
+
+07:23.020 --> 07:24.570
+I refresh.
+
+07:24.570 --> 07:25.330
+Nothing happens.
+
+07:25.330 --> 07:26.760
+But now if I check 'todos'...
+
+07:29.490 --> 07:33.540
+Look at that! I have exclamation marks in each of my 'todos'.
+
+07:34.140 --> 07:45.620
+And again, to break that down, we're saying "clean room" now equals "clean room" plus exclamation mark.
+
+07:45.620 --> 07:46.620
+Very cool.
+
+07:47.060 --> 07:47.580
+OK.
+
+07:47.720 --> 07:51.060
+Let's learn a few others - actually before we do,
+
+07:51.290 --> 07:57.620
+what if we want to cross these off the list. Maybe we want to cross them off, because we've done them. Well,
+
+07:58.130 --> 08:01.460
+we can do something like 'todos[i].pop'.
+
+08:01.490 --> 08:06.140
+If you remember, that's an array method 'pop' that removes the last item.
+
+08:06.350 --> 08:14.870
+So, if I go, save and refresh, I get 'todos[i].pop is not a function'.
+
+08:14.870 --> 08:15.540
+Why is that?
+
+08:15.560 --> 08:20.070
+Well, because we're saying "clean room" - 'pop'.
+
+08:20.100 --> 08:21.820
+And that's a 'string'.
+
+08:22.290 --> 08:27.990
+What we want to do is 'todos.pop', because that's the 'array'.
+
+08:28.350 --> 08:34.230
+So, if I save and refresh that, let's see what we have in our 'todos':
+
+08:35.880 --> 08:38.920
+"clean room" and "brush teeth".
+
+08:38.930 --> 08:39.510
+Hmm.
+
+08:39.630 --> 08:40.740
+Why is that?
+
+08:41.160 --> 08:46.820
+Well, because initially this was '0'.
+
+08:47.060 --> 08:50.290
+And 'todos' list length was '5'.
+
+08:50.600 --> 08:59.770
+But then because we popped it, this changed to '4' and this to 'one', and then '3', and '2'.
+
+09:00.050 --> 09:05.910
+So, as you can see we removed "eat healthy", "study javascript" and "exercise".
+
+09:05.930 --> 09:12.270
+But because our 'todos' lenth changed, well, it stopped halfway through.
+
+09:12.310 --> 09:16.080
+So what's one way that we can fix that issue?
+
+09:17.630 --> 09:29.360
+Well, we can do variable 'todos.length' equals 'todos.length'.
+
+09:29.650 --> 09:32.020
+So now this variable is '5'.
+
+09:32.140 --> 09:42.680
+So if I just do variable 'todos.lenth' - this is going to remember, because it's only going to run
+
+09:42.680 --> 09:43.580
+once, it's going...
+
+09:43.730 --> 09:48.370
+This is going to run, then we're going to assign '5' to 'todos.length'.
+
+09:48.560 --> 09:51.370
+And then this is going to loop over.
+
+09:51.400 --> 09:59.940
+So if I save this and refresh, let's look at 'todos'. Look at that! We finished all of our 'todos'!
+
+10:00.070 --> 10:00.790
+Very cool.
+
+10:01.430 --> 10:11.230
+Well, let me show you an another option, which is the "while' loop. The 'while' loop goes something like this.
+
+10:15.250 --> 10:18.810
+'while', - let's create a variable here. Variable 'counter'
+
+10:21.390 --> 10:22.910
+'counterOne'
+
+10:23.090 --> 10:36.160
+We're going to say that, that is '0'. And we're going to say: 'while counterOne is less than 10'.
+
+10:36.300 --> 10:39.810
+In that case I want to 'console.log'
+
+10:43.000 --> 10:50.590
+'counterOne'. And then I want to 'counterOne' plus, plus.
+
+10:50.640 --> 10:53.010
+Remember we're doing, we're adding.
+
+10:53.430 --> 10:58.800
+So every time we're increasing 'counter' by '1'. Let's just see what happens here.
+
+10:58.800 --> 11:09.330
+If I save this and refresh: "0, 1, 2, 3, 4, 5, 6, 7, 8, 9" and then it stops, because, well as soon as this is '10',
+
+11:10.330 --> 11:11.500
+this is no longer right.
+
+11:11.500 --> 11:14.530
+So this part of the block doesn't run.
+
+11:17.820 --> 11:18.260
+OK.
+
+11:18.420 --> 11:29.200
+Can I do something... maybe... the other way around? Where we say that the 'counter' is '10' and this time we want
+
+11:29.200 --> 11:30.180
+to count down.
+
+11:30.520 --> 11:38.940
+So while the counter is '10' - keep going, and otherwise - stop. And the way we do that, we obviously want to
+
+11:39.210 --> 11:39.780
+subtract.
+
+11:39.780 --> 11:43.900
+We don't want to keep going '11' or '12', because otherwise it's going to keep going forever.
+
+11:44.070 --> 11:47.570
+The way we do that is - minus, minus, which is the exact opposite.
+
+11:47.580 --> 11:49.190
+So it subtracts '1'.
+
+11:49.620 --> 11:50.810
+Let's see what happens.
+
+11:52.610 --> 11:56.410
+'10, 9, 8, 7, 6, 5, 4, 3, 2, 1'.
+
+11:56.420 --> 11:57.830
+There you go.
+
+11:57.890 --> 12:05.300
+Now out of curiosity what will happen if I go like this, where the number just keeps increasing from
+
+12:05.330 --> 12:08.560
+'10' to '11', to, well, infinity.
+
+12:08.590 --> 12:08.890
+Right?
+
+12:08.900 --> 12:16.800
+It's just going to keep going up and - you can do this in Google Chrome if you want.
+
+12:16.880 --> 12:19.950
+It's actually pretty-pretty entertaining.
+
+12:19.970 --> 12:27.170
+What happens is - it just keeps going forever and ever. You'll just get a list of all these things and
+
+12:27.260 --> 12:34.460
+it's called that in an 'infinite loop'. An 'infinite loop' means it pretty much goes infinitely. Except it
+
+12:34.460 --> 12:38.910
+doesn't really, because eventually Google Chrome is going to crash.
+
+12:38.990 --> 12:42.440
+It's going to say: "Hey, I can't handle all this information.
+
+12:42.440 --> 12:45.630
+You're driving me crazy." and it's going to stop working.
+
+12:46.640 --> 12:47.040
+OK.
+
+12:47.120 --> 12:49.930
+So we learned the 'for loop'.
+
+12:50.060 --> 12:52.700
+We learned the 'while'. What else do we have?
+
+12:52.700 --> 12:55.630
+We have the 'do'.
+
+12:55.790 --> 13:07.470
+So, this is called the 'do while' loop and it's a little bit different 'the while'. We start off with 'do'.
+
+13:07.750 --> 13:19.070
+Then curly brackets, and we say 'counter'... let's call a 'counterTwo' this time. I'll do variable 'counterTwo'
+
+13:19.910 --> 13:25.860
+equals '10'. And do 'counterTwo', plus, plus.
+
+13:25.930 --> 13:27.180
+So add 'counterTwo'.
+
+13:27.640 --> 13:32.850
+And also 'console.log(counter Two)'.
+
+13:33.130 --> 13:41.440
+And we want to move 'console.log' at the top, because this way I'll start with '10', then increase - oops...
+
+13:41.490 --> 13:43.450
+This should be subtracted.
+
+13:43.530 --> 13:45.700
+So we do '10'.
+
+13:45.790 --> 13:49.710
+It's kind of like '10', then it's going to subtract. So the next time it comes around here, it's going to
+
+13:49.710 --> 13:50.980
+be '9'.
+
+13:51.480 --> 13:55.650
+And then we do 'while', and we give a condition here.
+
+13:55.650 --> 14:04.890
+So the conditions are going to be 'counterTwo', it's going to be greater than '0'.
+
+14:05.240 --> 14:05.520
+OK.
+
+14:05.530 --> 14:08.910
+So let's see what happens here.
+
+14:08.990 --> 14:13.960
+I refresh:  '10, 9, 8, 7, 6, 5, 4, 3, 2, 1'.
+
+14:14.310 --> 14:21.580
+Hmmm,it looks like we just did the same thing as the 'while loop', didn't we?
+
+14:21.580 --> 14:24.060
+So let me just test that out.
+
+14:24.070 --> 14:27.240
+Let's refresh here.
+
+14:27.470 --> 14:35.120
+And we see that we have '10' through '1' for the while loop and '10' through '1' through the 'do while' loop.
+
+14:35.120 --> 14:37.490
+So what is the difference here?
+
+14:37.760 --> 14:44.930
+The difference is that with a 'while' loop we check the condition first, so we say: "Is counterOne greater
+
+14:44.930 --> 14:45.500
+than '0'?
+
+14:45.550 --> 14:53.960
+OK. Then do this stuff." Versus the 'do while' loop, that says: "Do the stuff first and then do 'counterTwo'."
+
+14:54.110 --> 14:57.500
+Let me just demonstrate that point.
+
+14:57.570 --> 15:07.530
+If we do... '10' here. And '10'. Let's refresh.
+
+15:07.750 --> 15:09.200
+I only get '1'.
+
+15:09.210 --> 15:11.430
+Hmm... Let's check something here.
+
+15:11.510 --> 15:24.330
+I'm going to say this is the 'while' loop and this is the 'do while' loop. Save and refresh. So it looks like
+
+15:24.330 --> 15:26.530
+the 'do while' ran.
+
+15:26.910 --> 15:32.520
+But the 'while' loop never did, because. Well, '10' equals to '10'.
+
+15:32.700 --> 15:40.770
+This fails and the loop doesn't run. Versus the 'do while' loop, that does this first and then checks the
+
+15:40.770 --> 15:42.670
+condition, if they should loop.
+
+15:42.810 --> 15:51.180
+So that's the difference between these two. But to be honest with you, most of the time you're going to
+
+15:51.180 --> 16:00.530
+be using a 'for' loop. And the 'for' loop is what you're going to get used to. But, there's actually a better
+
+16:00.530 --> 16:02.530
+way of doing it.
+
+16:02.720 --> 16:08.990
+If you look at the 'SectionOutline', we see that I have one last one, which is 'forEach' and it says "new in
+
+16:08.990 --> 16:10.590
+ECMAScript 5".
+
+16:10.880 --> 16:19.070
+So as you remember JavaScript is constantly evolving and ECMAScript 5 was a new standard, that added
+
+16:19.230 --> 16:25.170
+the 'forEach' method. So, what is the 'forEach' method?
+
+16:25.180 --> 16:29.190
+Well, I'm going to show you the difference between a 'for' loop and a 'forEach'.
+
+16:29.190 --> 16:30.920
+They both do the same thing.
+
+16:31.110 --> 16:34.620
+But, tell me which one looks better.
+
+16:34.710 --> 16:42.490
+So, well here we'll say 'console.log(i)'
+
+16:43.640 --> 16:54.010
+So we're just logging the 'i'. And with a 'forEach' loop I can do 'todos.forEach' function
+
+16:55.110 --> 16:58.260
+'i', 'console.log(i)'.
+
+16:58.560 --> 17:04.270
+It my look a little bit confusing, but let just try it out let's see what happens.
+
+17:04.880 --> 17:16.160
+So it looks like a line '10' is printing out to '0, 1, 2, 3, 4' and line '14' is printing out "clear room, brush
+
+17:16.170 --> 17:17.950
+teeth, exercise, study javascript,
+
+17:17.950 --> 17:19.090
+eat healthy".
+
+17:19.090 --> 17:20.480
+What are we doing here?
+
+17:20.480 --> 17:22.220
+Well the 'forEach'
+
+17:22.430 --> 17:24.190
+It takes an array.
+
+17:24.190 --> 17:31.530
+In this case the 'todos', and it asks for an argument, that is 'tell me what to do with it'.
+
+17:33.030 --> 17:41.820
+So, the action that we want to perform on the 'todos' can be represented in a function.
+
+17:41.870 --> 17:52.330
+So I say 'function', and this function receives the argument of 'i', which is that each individual item in
+
+17:52.330 --> 17:53.170
+the 'todos'.
+
+17:53.530 --> 18:02.750
+So, I could just say 'todo' here and 'todo'. And refresh and it'll still be the exact same.
+
+18:02.770 --> 18:12.030
+So, you see here that we're not necessarily accessing the index like we are with this one, because here
+
+18:12.030 --> 18:21.600
+in order to get the 'todos' I had to do, 'todos[i]'. If i refresh. OK.
+
+18:21.710 --> 18:24.440
+In that case now it's all the same.
+
+18:24.910 --> 18:29.190
+OK, but how do I access the index within the 'forEach'?
+
+18:29.570 --> 18:38.860
+Well, the second parameter. And the second argument that it receives is the 'i', the index.
+
+18:38.870 --> 18:52.260
+So, now if I do 'i' and refresh: '0, 1, 2, 3, 4'. So it's the same thing that's doing this in the 'for' loop. And I refresh
+
+18:52.980 --> 19:03.710
+and look at that. Now by looking at these 2 which one tells you more about what it does?
+
+19:04.850 --> 19:06.670
+This one or this one?
+
+19:06.710 --> 19:17.490
+Let's read it in English: 'todos.forEach' run a function, that 'console logs' that 'todo' and the 'index'
+
+19:18.520 --> 19:19.720
+Versus
+
+19:20.130 --> 19:22.520
+Well, frankly this looks confusing.
+
+19:23.460 --> 19:28.860
+So, 'forEach' is a really-really great method that they've added to the language, that really simplifies
+
+19:28.860 --> 19:29.700
+things.
+
+19:29.700 --> 19:31.930
+Most people might get confused by this part
+
+19:31.920 --> 19:37.610
+the function. But just want to show you how powerful 'forEach' is we can actually do this.
+
+19:37.650 --> 19:45.760
+I'm going to take out the function and I'm going to call it 'logTodos'.
+
+19:46.010 --> 19:59.390
+And now all I have to do is - have a function and call it 'logTodos'.
+
+19:59.570 --> 20:02.340
+And now I'm going to comment this out.
+
+20:02.630 --> 20:09.330
+It's going to do the exact same thing, but I can now use 'logTodos' in other places.
+
+20:10.260 --> 20:23.300
+So, I can now do - let's say, I have another list, that has maybe exclamation marks, like we did in the first one.
+
+20:26.340 --> 20:28.760
+'todosImportant'.
+
+20:30.780 --> 20:44.810
+So, now I can do 'todosImportant.forEach' and use the same function 'logTodos'. I save and refresh. And look
+
+20:44.810 --> 20:47.700
+at that! We have these to use as well.
+
+20:47.740 --> 20:51.280
+So you can see that it's very extensible.
+
+20:51.300 --> 20:56.830
+Now the one caveat I want to show you with 'forEach' is that it's a new standard.
+
+20:56.910 --> 21:01.590
+As we do with all new standards we should check that they work on all browsers.
+
+21:01.590 --> 21:08.070
+So, if you remember, we had 'caniuse.com', that we use for this. And we use it at CSS to make sure
+
+21:08.100 --> 21:15.390
+that our CSS3 features, like 'boxshadow' and 'transitions' work on all the browsers.
+
+21:15.420 --> 21:23.410
+So let's do that. Let's do 'foreach' and you see here 'ECMAScript5' - 'foreach'.
+
+21:23.600 --> 21:27.500
+It looks like, well, full support!
+
+21:27.770 --> 21:29.160
+Everything looks good.
+
+21:29.420 --> 21:33.840
+We just have Opera Mini, that has partial support.
+
+21:33.980 --> 21:41.460
+So, it looks pretty good. Unless we're really worried about Opera Mini. We can use 'foreach' in the browser.
+
+21:41.530 --> 21:54.460
+And just to test if we open up our console, well, we can definitely see that an array has 'forEach'.
+
+21:54.540 --> 21:56.920
+So there you have it.
+
+21:57.060 --> 22:07.630
+We had the 'for' loop, the 'while' loop, the 'do while' loop and then finally 'forEach'. And the next video we're
+
+22:07.630 --> 22:14.320
+going to expand on our Facebook example and we'll have multiple users. So, that we can loop through the database
+
+22:14.410 --> 22:19.830
+of multiple users and see if the 'username' and 'password' match any of those.
+
+22:20.080 --> 22:21.640
+I'll see you in the next one. Bye-bye

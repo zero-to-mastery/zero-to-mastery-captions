@@ -1,0 +1,145 @@
+WEBVTT
+
+00:00.990 --> 00:01.980
+Welcome back.
+
+00:02.190 --> 00:06.110
+I've added one more user here so we have a little bit of a bigger database.
+
+00:07.030 --> 00:08.720
+But let's say we have a problem.
+
+00:08.790 --> 00:15.180
+We realized that we we're working on this project and oops we actually needed to also include a score
+
+00:15.300 --> 00:15.910
+column.
+
+00:16.020 --> 00:21.710
+How can we add another column to a pre-existing table.
+
+00:21.730 --> 00:33.440
+We have SQL for that, we can use alter table. And using this format we can add a new column.
+
+00:33.490 --> 00:45.350
+So let's say that in the users table we want to add a column that is score and data type, we want - let's
+
+00:45.350 --> 00:50.290
+say smallint, a score that can be over 30,000.
+
+00:50.430 --> 00:53.970
+So let's say Max score is a thousand so smallint will be fine.
+
+00:54.180 --> 00:58.370
+I press enter and now we have altered table.
+
+00:58.510 --> 00:59.530
+If I refresh here.
+
+01:02.560 --> 01:08.850
+Go to users, I see that I have scores but we have a problem now.
+
+01:09.170 --> 01:11.930
+We have scores but it's null.
+
+01:11.990 --> 01:14.200
+There's nothing for these users.
+
+01:14.200 --> 01:22.320
+What if we wanted to just update the information here to include the scores.
+
+01:22.380 --> 01:23.610
+Let's try and do that.
+
+01:24.660 --> 01:33.490
+To update we have the update table name and we have three rows which we don't want but for now I just
+
+01:33.490 --> 01:36.150
+want to show you we have update table name.
+
+01:36.280 --> 01:46.410
+And then we want to say set whichever column we want to equal a value, where the column equals some value.
+
+01:46.510 --> 01:48.080
+That looks confusing doesn't it.
+
+01:49.890 --> 01:51.050
+Let me show you what I mean.
+
+01:51.420 --> 01:55.430
+I can say UPDATE users and in the users
+
+01:55.440 --> 02:02.820
+I want to SET score column to equal what do we want it to equal.
+
+02:02.820 --> 02:06.660
+Let's say that we want Andrei to have a score of 50.
+
+02:06.810 --> 02:14.890
+We can say UPDATE users set score 50 WHERE which is another key word name
+
+02:15.020 --> 02:20.900
+equals 'Andrei'. It reads pretty nicely right.
+
+02:20.930 --> 02:27.420
+Update users set the score to 50 if the column name is Andrei.
+
+02:27.460 --> 02:29.080
+Looks like we got an update.
+
+02:29.560 --> 02:39.940
+If I now do select star from users, I see that I have Andrei with score 50.
+
+02:40.380 --> 02:47.090
+And you know what we also want to update Sally and John. But they both have the same score of let's say
+
+02:47.330 --> 02:48.050
+100.
+
+02:48.140 --> 02:49.040
+How can we do that.
+
+02:50.280 --> 02:53.730
+We can say UPDATE users SET score to
+
+02:56.240 --> 03:17.880
+100 WHERE name equals John but also we can say AND name equals Sally. If i press enter I get an update.
+
+03:19.010 --> 03:21.510
+If I go up to select users.
+
+03:22.070 --> 03:25.870
+You see that I did not get an update and that is because
+
+03:25.880 --> 03:30.710
+AND just like we did in javascript means that name should equal John and Sally.
+
+03:30.800 --> 03:32.080
+And we don't have that.
+
+03:32.170 --> 03:34.200
+It should be Sally or John.
+
+03:34.250 --> 03:35.330
+Right.
+
+03:35.390 --> 03:45.030
+So we can just press up to get our old command and change this to OR. We have 2 updates that just happened.
+
+03:45.170 --> 03:49.390
+And if I look up users look at that.
+
+03:49.510 --> 03:55.390
+I have Sally and John with score 100 and Andrei with 50. Looking at our GUI
+
+03:55.450 --> 04:03.810
+if I refresh, look at that we have our table with our new scores.
+
+04:03.830 --> 04:05.220
+Very cool.
+
+04:05.300 --> 04:11.360
+A few more commands that I want to show you in the next video, so I'll see you on that one.
+
+04:11.350 --> 04:11.640
+Bye-bye.

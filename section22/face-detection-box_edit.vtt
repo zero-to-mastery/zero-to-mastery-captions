@@ -1,0 +1,805 @@
+WEBVTT
+
+00:01.210 --> 00:06.990
+Welcome back. Let's review what we have so far in our app.
+
+00:07.160 --> 00:14.430
+We've created our app component that contains a few custom react components,
+
+00:14.450 --> 00:24.240
+that we've built. And in the last video we were able to finally get our response from the 'Clarifai' API. If we
+
+00:24.240 --> 00:32.400
+go back to 'Clarifai', we see that their face detection has a nice little square box that it detects.
+
+00:32.640 --> 00:40.010
+But if you look at the API and the response that we receive, we actually don't get that square box.
+
+00:40.080 --> 00:48.300
+All we get are these bounding box. And based on the face and how many faces it detects,
+
+00:48.500 --> 00:50.390
+it gives you these bounding boxes.
+
+00:53.100 --> 00:56.370
+And you can read through it, over here.
+
+00:56.580 --> 01:05.570
+But these are just saying the, the top row is at 22 percent of the image.
+
+01:05.580 --> 01:12.080
+So these are percentages that we can use. But in order for us to create our own box like this,
+
+01:12.330 --> 01:19.070
+well, we need to just see, what styles are using but doing 'inspect'.
+
+01:19.110 --> 01:24.100
+As you remember, we can see that they have a 'bounding box' clause here.
+
+01:24.360 --> 01:30.030
+So our app we can do something similar and then we'll just have to calculate based on the response where
+
+01:30.270 --> 01:37.260
+we can create these boxes because well, just having the number display to our users doesn't mean much,
+
+01:37.260 --> 01:38.760
+it's nice to have this facebox.
+
+01:38.940 --> 01:41.660
+So let's work on that in this video.
+
+01:41.890 --> 01:48.700
+If we go back to our app, we first want to say that well, we're for sure going to add a new 'state' and
+
+01:48.700 --> 01:56.240
+we'll call it 'box'. And this 'box' will just be an empty object to start off with.
+
+01:56.370 --> 02:00.710
+And this 'box' will contain the values that we receive.
+
+02:01.580 --> 02:05.120
+In the case of a response,
+
+02:07.980 --> 02:13.510
+it'll be the 'top row', 'left column', 'bottom row' and then 'right column'.
+
+02:14.310 --> 02:16.680
+So how can we do this?
+
+02:16.680 --> 02:23.980
+This requires a bit of thinking on our part, but we can start off with creating a function. And this function
+
+02:23.980 --> 02:29.460
+can say 'calculateFaceLocation'
+
+02:32.260 --> 02:38.010
+and this 'calculateFaceLocation' will receive some 'data'.
+
+02:39.330 --> 02:44.280
+And for now we'll just keep it as an empty function.
+
+02:44.510 --> 02:51.620
+But we know that, we want to call this function 'calculateFaceLocation' based on the inputs that we get
+
+02:51.620 --> 02:54.910
+from 'Clarifai'.
+
+02:54.930 --> 03:06.750
+So in our case, with the response that they give us, we want to use this response, and call
+
+03:06.750 --> 03:15.910
+'calculateFaceLocation' with the 'response' data.
+
+03:16.040 --> 03:20.030
+And again because we're using classes here it will have to do,
+
+03:23.120 --> 03:27.030
+'this' dot.
+
+03:27.110 --> 03:30.110
+I also think this function looks a little bit messy right now.
+
+03:31.200 --> 03:33.250
+So I'm going to move a few things around.
+
+03:33.420 --> 03:38.420
+First off using ES6 we can just do arrow functions here.
+
+03:44.830 --> 03:45.600
+That's much better.
+
+03:49.250 --> 03:55.580
+And instead of using this 'error(err)', we can actually with a 'promise' whenever you have a dot 'then' you can do
+
+03:55.580 --> 03:56.730
+a dot 'catch'.
+
+03:56.900 --> 04:01.370
+And that is an 'err'(error) in case something fails.
+
+04:01.370 --> 04:05.600
+In our case, we can just 'console dot log'.
+
+04:05.850 --> 04:12.330
+This 'err'(error).
+
+04:12.500 --> 04:14.680
+So this already looks a little bit cleaner.
+
+04:15.640 --> 04:16.900
+But we need to define, oop!
+
+04:20.330 --> 04:26.730
+and I forgot a bracket here, and now we also don't need this. OK.
+
+04:27.020 --> 04:31.890
+So we know that this is going to get a 'response' which is the bounding box.
+
+04:33.330 --> 04:41.610
+But this 'response' will be received while we console logged last time, which is getting the 'bounding box'.
+
+04:41.610 --> 04:45.660
+For now we're not going to worry about having multiple faces in the picture we're just going to grab
+
+04:45.990 --> 04:55.650
+the first 'bounding box'. Again if we go back to the 'Clarify' API, we see that depending on the regions we
+
+04:55.650 --> 04:56.960
+actually get an array.
+
+04:56.960 --> 05:03.580
+So we had multiple people in the image will have multiple faces.
+
+05:03.670 --> 05:10.990
+In our case, we're just worrying about one, just trying to get one 'bounding box' around a face.
+
+05:10.990 --> 05:19.560
+So we want to change this 'response' to now say 'data' and we can just have a constant called
+
+05:22.840 --> 05:24.570
+'clarifaiFace' equals
+
+05:27.400 --> 05:34.570
+this 'data', I'm going to make this a little bit smaller so we can see. Now within here, what do we want
+
+05:34.570 --> 05:35.480
+to do first.
+
+05:35.680 --> 05:38.490
+Well, we're going to want to do some DOM manipulation.
+
+05:38.620 --> 05:51.700
+So the best thing we can do is say 'const image' equals 'document' dot 'getElementById' and we can create
+
+05:51.700 --> 06:00.370
+an element or we can create an id called 'inputimage' and this 'imputimage' that we're grabbing will
+
+06:01.790 --> 06:02.520
+be here.
+
+06:03.270 --> 06:09.660
+This image that links the 'imageUrl'. So the image that gets displayed in our app. So we can create
+
+06:09.660 --> 06:19.720
+an 'id' here and we'll say 'image' or 'inputimage'.
+
+06:19.730 --> 06:27.410
+So now this 'inputimage' is right here we grabbed it and we want to, as you remember this 'bounding box'
+
+06:27.410 --> 06:32.180
+is a percentage of the image.
+
+06:32.180 --> 06:41.390
+So if it's point two two(.22) that means it's at 20 percent of whatever the height or width of the images.
+
+06:42.050 --> 06:52.980
+In our case, we can say that we for sure want to have the width of our image by saying the 'image' dot 'width'.
+
+06:53.150 --> 06:57.600
+And because this is going to be a string and we want to do some calculations on it we'll wrap it in
+
+06:57.600 --> 06:58.470
+a number.
+
+06:58.470 --> 07:04.650
+This way we make sure that it is a number, and then we'll do 'height' as well of the image that we just
+
+07:04.650 --> 07:06.320
+grabbed.
+
+07:09.020 --> 07:15.060
+And you know, we can just console log now to see that we've been doing everything right, 'width' and 'height'.
+
+07:16.480 --> 07:27.550
+So let's try that. I'm going to save, go back to the image or to the app, grab this sample image, place it
+
+07:27.550 --> 07:32.800
+in, press 'Detect' and let's look at the console.
+
+07:35.450 --> 07:37.610
+'getelement', oh! I spelled that wrong.
+
+07:39.330 --> 07:40.450
+Thank God for the console.
+
+07:40.480 --> 07:42.210
+I'll admit, I can't spell today.
+
+07:42.330 --> 07:43.120
+There you go.
+
+07:43.380 --> 07:44.390
+Let's try that again.
+
+07:48.950 --> 07:50.510
+Open it up, and we'll see,
+
+07:50.510 --> 07:52.740
+five hundred and four hundred ninety seven.
+
+07:52.850 --> 07:53.080
+All right.
+
+07:53.090 --> 07:57.270
+We're grabbing the height and the width of the image, that's perfect.
+
+07:57.470 --> 08:04.720
+And as you know this is 500 because we said it as 500, remember if we go to 'Face Recognition' and we have
+
+08:04.710 --> 08:06.950
+with 500 pixels.
+
+08:06.950 --> 08:12.470
+And the reason that I don't just do 500 here is that, well, if somebody comes along maybe a designer and
+
+08:12.530 --> 08:16.270
+decides to change this, it won't get affected in here.
+
+08:16.280 --> 08:17.850
+It's always going to be calculating it.
+
+08:18.820 --> 08:19.370
+All right.
+
+08:19.430 --> 08:22.320
+So we have the width and the height.
+
+08:22.340 --> 08:29.410
+We also have the bounding box of 'Clarifai' which is right here.
+
+08:29.480 --> 08:33.590
+So we're going to receive this, and we need to do a bit of calculation.
+
+08:35.500 --> 08:36.880
+And I'm not going to lie.
+
+08:36.910 --> 08:42.790
+This took me about an hour and I decided not to include it in this video because it was just me banging
+
+08:42.790 --> 08:45.420
+my brains with a little bit of math.
+
+08:45.580 --> 08:53.740
+So I am cutting to me trying to figure out the math to the solution. But I gonna explain exactly how
+
+08:53.740 --> 08:55.260
+it works.
+
+08:55.300 --> 09:05.010
+We want to return here, an object, and this object is going to be what's going to fill up the 'box' state.
+
+09:06.650 --> 09:16.100
+Now this object will first need to figure out the first dot, the second dot, the third dot and the
+
+09:16.100 --> 09:24.780
+fourth dot, around the face and then we're going to just wrap it in a border. Again if we go back to the
+
+09:24.790 --> 09:28.130
+'Clarifai' API and inspect,
+
+09:31.170 --> 09:35.900
+we see that the 'bounding box' is doing something similar.
+
+09:35.910 --> 09:37.640
+And we're going to use some of these styles.
+
+09:40.870 --> 09:52.270
+We'll say that the left, leftcolumn(lectCol) is going to be the 'clarifaiFace' that we receive right up here.
+
+09:52.350 --> 10:02.070
+And as you remember this has a 'left column' property and now the left column(left_col) is the percentage of the
+
+10:02.070 --> 10:02.570
+width.
+
+10:02.700 --> 10:05.710
+So if we multiply by the 'width' that we have here,
+
+10:06.000 --> 10:12.630
+well, which is 500, we're going to get the width of the actual displayed image and where the left
+
+10:12.630 --> 10:14.260
+column should be.
+
+10:14.280 --> 10:20.250
+So 'width' and the next line is going to be the 'topRow'
+
+10:23.070 --> 10:31.530
+and top row is going to have the 'top_row' column or sorry the 'top_row' not the column and it's going to
+
+10:31.610 --> 10:43.480
+have the 'height'. Again the top row will say that the height of it is the percentage of our image height.
+
+10:44.050 --> 10:58.830
+Now the 'rightColumn' will be the subtraction of the 'width' from the 'clarifaiFace' dot 'right_column' dot 'width'
+
+10:59.780 --> 11:03.720
+or multiplied by the 'width'.
+
+11:03.750 --> 11:12.240
+So again because the right column is on this side, we want to get the number which is the total percentage
+
+11:12.810 --> 11:15.760
+minus the width starting from the left hand side.
+
+11:19.130 --> 11:28.150
+And finally with the 'bottomRow', will do something similar but instead with height and it'll be the
+
+11:28.160 --> 11:30.390
+'clarifaiFace' 'bottom_row'
+
+11:34.380 --> 11:38.170
+multiplied by 'height'.
+
+11:38.200 --> 11:38.690
+All right.
+
+11:38.800 --> 11:45.130
+Huh! that was a lot of math, that's a, that's as crazy as we're going to get with our math. And I'll show you
+
+11:45.130 --> 11:49.720
+how I came up with these numbers, a little bit later on once we have the bounding boxes and I can show
+
+11:49.720 --> 11:53.190
+you how you can play around in the console.
+
+11:53.200 --> 12:00.200
+So now that we have these, we want to fill up the 'box' state with these values.
+
+12:00.330 --> 12:12.440
+So maybe, I can create a, another function, another method on this class that says 'displayFacebox'. Not
+
+12:12.450 --> 12:16.190
+the greatest name for a function but it's the one that I just came up with.
+
+12:16.680 --> 12:20.460
+And this is going to receive this return value.
+
+12:24.900 --> 12:37.230
+And it's going to say 'this' dot 'setState' to equal 'box', 'box'. And just a reminder with the ES6, you
+
+12:37.230 --> 12:38.730
+can actually just do this.
+
+12:38.730 --> 12:42.920
+But just because this is clear for now we'll keep it this way.
+
+12:42.930 --> 12:43.700
+All right.
+
+12:43.800 --> 12:49.760
+So we have a few errors here, so let's check them out.
+
+12:49.950 --> 12:52.570
+Oh! and it's, because I did semicolons here,
+
+12:52.890 --> 12:57.190
+sure some of you were watching this video and saying, why is he putting semicolon in there?
+
+12:57.270 --> 13:01.990
+I don't like putting on the last one. Much better.
+
+13:01.990 --> 13:02.350
+All right.
+
+13:02.350 --> 13:09.170
+So the 'state' is now set with the 'box'.
+
+13:09.410 --> 13:12.720
+Hmmm! but to see it so far everything is working.
+
+13:12.800 --> 13:19.610
+Going back to our 'onButtonSubmit', so when we click the button, we want to calculate face location with
+
+13:19.610 --> 13:28.360
+the response, this 'calculateFaceLocation' is going to run this function, it's going to return an object
+
+13:30.450 --> 13:34.170
+and this object is needed by the 'displayFaceBox' method.
+
+13:35.220 --> 13:43.450
+So it sounds like, whatever this returns, is this 'box' parameter.
+
+13:43.630 --> 13:56.010
+So to make things clean, we can just printed right here saying 'this display FaceBox' and wrap this function
+
+13:58.270 --> 13:58.950
+around.
+
+13:58.990 --> 14:02.710
+So this 'calculateFaceLocation' takes a response,
+
+14:03.950 --> 14:11.770
+returns this object and that returned object is now going into 'displayFacebox'.
+
+14:12.140 --> 14:17.900
+Again the beauty of javascript is that, we can use functions like these and it reads nicely too.
+
+14:17.960 --> 14:23.750
+Once we get the response, we calculate the inner function which is 'calculateFaceLocation' and then
+
+14:23.870 --> 14:25.910
+'displayFacebox'.
+
+14:25.960 --> 14:26.880
+God! that's a terrible name,
+
+14:26.890 --> 14:28.970
+but like I said for now it's fine.
+
+14:29.330 --> 14:29.670
+All right.
+
+14:29.710 --> 14:30.410
+There was a lot.
+
+14:30.430 --> 14:33.730
+Let's test out our code to make sure that we're on the right track.
+
+14:33.790 --> 14:38.980
+I'm going to 'console log' here the 'box' object.
+
+14:39.230 --> 14:44.550
+And if we go back to the face again, pasted in here
+
+14:47.600 --> 14:49.780
+click and open up the console.
+
+14:49.850 --> 14:52.490
+We have an object.
+
+14:52.820 --> 14:55.100
+And all right, we have some numbers.
+
+14:55.340 --> 14:56.330
+That's good.
+
+14:56.330 --> 15:04.340
+Let's try and add some CSS so that these numbers appear on the face. It should correspond with the width.
+
+15:04.400 --> 15:14.610
+But looking at these numbers, it doesn't look too bad. If you remember the image width is 500 pixels and if
+
+15:14.610 --> 15:22.120
+the left column is at 131 pixels which is probably around here right.
+
+15:22.130 --> 15:23.600
+And it doesn't look too bad.
+
+15:23.700 --> 15:29.790
+Again let's have some CSS to verify that. We're calculating the right things.
+
+15:29.800 --> 15:37.420
+Now, what we want to do is we definitely want to pass this 'box state' into our 'faceRecognition' component.
+
+15:38.140 --> 15:47.640
+So we can just do 'box', is going to have 'this' dot 'state' dot 'box'.
+
+15:47.810 --> 15:49.500
+And now within 'FaceRecognition',
+
+15:52.840 --> 16:01.910
+we now have a new prop, that we can use and this prop can be used by creating a new 'div'.
+
+16:02.420 --> 16:07.010
+And this 'div' is actually going to be completely empty, because we're not displaying anything other than
+
+16:07.010 --> 16:09.030
+a border around this 'div'.
+
+16:09.350 --> 16:17.870
+So what I'm going to do actually is, I'm going to copy what 'clarifai' has, by calling a 'bounding box' class
+
+16:18.650 --> 16:21.410
+and we're going to create a new CSS file
+
+16:24.370 --> 16:32.490
+'FaceRecognition.css' and just so don't forget, I'm going to import it right now.
+
+16:37.140 --> 16:42.030
+And this class which has the 'bounding box',
+
+16:48.790 --> 16:49.410
+will have
+
+16:49.420 --> 16:52.540
+well, let's look at what they have over here.
+
+16:52.940 --> 16:54.740
+I'm just going to copy this actually,
+
+16:58.590 --> 16:59.880
+paste it in here.
+
+17:02.800 --> 17:06.910
+And there's a few things that as you see because they're cross-talk they're not actually being
+
+17:06.910 --> 17:07.490
+used.
+
+17:07.510 --> 17:10.020
+So we can, we can remove those.
+
+17:10.030 --> 17:16.270
+You also see that, they have the browser prefixes hear for now, we're not too worried about using other
+
+17:16.270 --> 17:20.880
+browsers, so we can delete it. If you want to keep those on there that's fine too.
+
+17:25.550 --> 17:27.380
+Now that we have that, let's see what happens.
+
+17:27.380 --> 17:29.870
+I've added the 'bounding box' around the 'div'
+
+17:32.650 --> 17:40.270
+and now if you look at 'div' class you also see that they've added a style, which is what we might want
+
+17:40.270 --> 17:46.650
+to do, with our 'top', 'right', 'bottom', 'left' box properties that we just calculatd.
+
+17:46.690 --> 17:48.100
+So let's do that.
+
+17:48.100 --> 17:53.780
+I'm going to say 'style' equals, again,
+
+17:53.970 --> 18:00.950
+we're going to return an object and this will have 'top' as 'box'
+
+18:03.590 --> 18:07.690
+and I don't remember the name, so let's just come back here.
+
+18:09.150 --> 18:12.430
+Left top row, left column, top row,
+
+18:12.440 --> 18:13.640
+right column, bottom row.
+
+18:13.940 --> 18:16.810
+Let's see, if I can remember that. Left column,
+
+18:17.910 --> 18:18.730
+Right
+
+18:18.780 --> 18:22.000
+is going to be 'box' dot
+
+18:22.110 --> 18:22.300
+OK.
+
+18:22.320 --> 18:33.370
+I definitely can't remember that. 'topRow' and then it's going to be 'bottom', which will have right column
+
+18:34.170 --> 18:38.530
+and left which will have the bottom row.
+
+18:42.930 --> 18:49.470
+When I get to add the 'box' because they're properties of the box object.
+
+18:49.710 --> 18:54.220
+And you already saw that I made the mistake, over here you see that, left I have the bottom.
+
+18:54.280 --> 18:56.000
+So let's fix that.
+
+18:56.140 --> 19:03.210
+We want to have the top row to be the 'topRow' here.
+
+19:04.590 --> 19:09.500
+We want the right column to be 'right column(rightCol)'.
+
+19:09.640 --> 19:14.820
+And the bottom row to be the 'bottomRow'
+
+19:18.180 --> 19:25.480
+and then finally left column(leftcol). Let's save and see what happens.
+
+19:25.500 --> 19:29.600
+Want to go back to our face.
+
+19:29.610 --> 19:31.910
+Let's see if I still have, no I don't have the link.
+
+19:31.920 --> 19:39.080
+Let me copy and paste it.
+
+19:39.080 --> 19:40.430
+Look at that.
+
+19:40.430 --> 19:43.170
+It's working.
+
+19:43.260 --> 19:46.020
+Let's just inspect this,
+
+19:49.060 --> 19:54.570
+and first of all how cool is that, that we got this to work.
+
+19:54.880 --> 19:57.520
+And it's wrapped around the face perfectly.
+
+19:58.060 --> 20:00.590
+But I want to show you how I figured this up.
+
+20:01.820 --> 20:07.940
+Now, when I first did this and again I'm sparing you for an hour of me trying to figure out the math
+
+20:07.940 --> 20:16.550
+behind this, I initially had something where the box was a little bit off and all I did was going up
+
+20:16.550 --> 20:22.210
+and down this way, and figuring out where the box should be.
+
+20:22.210 --> 20:27.180
+And based on that looking at the math and saying, hmm! OK,
+
+20:27.220 --> 20:33.610
+so that makes sense that the left column should be the left column percentage times of width, because now
+
+20:33.610 --> 20:40.320
+it's calculating the total width times the percentage of where the left column should be.
+
+20:40.420 --> 20:42.900
+And then let's say for example bottom row,
+
+20:43.090 --> 20:49.810
+well I know that the bottom row should start at the bottom. So the percentage that I get of the bottom
+
+20:49.810 --> 20:56.300
+row, I multiply by the height and then I have to subtract it from the total height because the calculation
+
+20:56.300 --> 20:58.430
+starts from the top not from the bottom.
+
+21:00.500 --> 21:06.740
+But you can play around with this and as you can see by pressing up and down arrows you can adjust these.
+
+21:06.920 --> 21:10.380
+I'm really excited that we got that working in the first scope.
+
+21:10.480 --> 21:12.320
+That looks amazing just to test this,
+
+21:12.330 --> 21:22.640
+let's throw another picture to see if this box moves around with the picture.
+
+21:22.670 --> 21:27.480
+Let's do something like Brad Pitt.
+
+21:27.660 --> 21:29.050
+And I said Brad Pitt,
+
+21:29.190 --> 21:30.340
+is there a Brat Pitt?
+
+21:30.340 --> 21:30.800
+All right.
+
+21:30.870 --> 21:35.290
+So a picture of him where he's not looking, he's not dead center.
+
+21:36.080 --> 21:37.360
+How about this picture.
+
+21:37.390 --> 21:38.950
+This looks like a good one.
+
+21:39.420 --> 21:40.450
+Let's select it,
+
+21:40.450 --> 21:45.270
+go to our app, enter it, detect.
+
+21:45.340 --> 21:46.430
+Well, how cool is that?
+
+21:46.480 --> 21:48.280
+It's detecting the face.
+
+21:48.280 --> 21:48.550
+All right.
+
+21:48.550 --> 21:53.510
+Just because a lot of fun, I'm going to pick one more. Let's do a hiker.
+
+21:59.280 --> 22:05.180
+Maybe I'll do a climber, and let's see if they can detect this face.
+
+22:05.520 --> 22:06.890
+That's going to be pretty tough.
+
+22:06.900 --> 22:07.880
+That's a pretty big picture. Let's see.
+
+22:12.220 --> 22:12.950
+Look of that.
+
+22:12.970 --> 22:17.180
+It detects a face even though the face is very tiny,
+
+22:17.200 --> 22:18.540
+it detects it.
+
+22:18.580 --> 22:20.020
+This is very very cool.
+
+22:23.400 --> 22:28.820
+All right. I want to emphasize here, that I made it look very very easy.
+
+22:28.980 --> 22:35.820
+And one of the myths that I really want to bust here is that, as a developer or just because some experience
+
+22:35.820 --> 22:41.580
+doesn't mean I can do this quickly. I've definitely practiced this and made sure that I don't waste your time
+
+22:41.580 --> 22:47.970
+while you watch this video. And that I keep the errors and if I do anything by mistake I do it intentionally
+
+22:47.970 --> 22:48.920
+to show you a point.
+
+22:50.560 --> 22:56.140
+But it, like I said, it took me a while to figure out how this box works, mainly because I had to do a bit
+
+22:56.140 --> 22:59.750
+of math and look at how 'clarifai' does it.
+
+22:59.900 --> 23:06.800
+But the power comes with simply the response that we get from it. By using this response,
+
+23:07.310 --> 23:08.800
+I can now add anything here.
+
+23:08.870 --> 23:12.640
+Maybe I wanted to replace this with an emoji like a smiley face emoji.
+
+23:12.680 --> 23:13.660
+That's easy to do.
+
+23:13.670 --> 23:17.320
+It's simply adding a CSS style.
+
+23:17.530 --> 23:19.840
+And just to make sure that this is responsive.
+
+23:20.030 --> 23:20.400
+Yeah.
+
+23:20.510 --> 23:23.060
+Everything works beautifully.
+
+23:24.870 --> 23:30.330
+You now have an app that you can show off to your friends. But there's a few other things I want to fix
+
+23:30.750 --> 23:34.500
+before we get on to working on the back-end.
+
+23:34.660 --> 23:41.350
+And that is, I want to make sure that the 'sign out' feature works and we have a 'sign in' form.
+
+23:41.490 --> 23:44.820
+So in the next video we're going to do just that.
+
+23:44.820 --> 23:45.650
+I'll see you in that one.

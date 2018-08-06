@@ -1,0 +1,391 @@
+WEBVTT
+
+00:00.820 --> 00:02.560
+And welcome back.
+
+00:02.590 --> 00:06.250
+Let's make this website a little bit prettier than it is now.
+
+00:06.280 --> 00:10.270
+And I'm going to introduce you to some CSS properties.
+
+00:10.300 --> 00:16.780
+Properties are, as the name suggests, properties that we want to change within a web page and you might
+
+00:16.780 --> 00:20.020
+be asking yourself you know how many properties are there.
+
+00:20.200 --> 00:28.240
+And as we did with the HTML section I have a recommended resource for you and that is CSS Tricks.
+
+00:28.540 --> 00:36.160
+This website any time you google any questions about CSS, most likely some of the top 10 answers are
+
+00:36.160 --> 00:38.410
+going to include something from this website.
+
+00:38.560 --> 00:46.960
+So I highly highly recommend it especially if you go to the menu and Almanac because within this almanac
+
+00:47.380 --> 00:51.790
+we have all the CSS properties listed on here.
+
+00:51.790 --> 00:57.400
+So any time you have a question and you want to say 'hmm... what is justified content?' well you can click on
+
+00:57.400 --> 01:04.530
+it and it will actually give you examples you can play around with it and learn about the specific property.
+
+01:05.300 --> 01:10.310
+Just like with the HTML tags although there are way more properties you don't need to know all of them
+
+01:10.310 --> 01:13.000
+and memorize them because that's not realistic.
+
+01:13.010 --> 01:14.840
+That's not the best use of your time.
+
+01:14.840 --> 01:20.510
+We're going to focus on the ones that you'll encounter most often and any time you seen new ones pop
+
+01:20.510 --> 01:21.740
+up while you're working.
+
+01:21.830 --> 01:27.200
+You can always look them up and learn about them because they're very very simple to read into.
+
+01:27.200 --> 01:35.360
+So let's try a few of these I'm gonna start off with our style.CSS over here and let's change a few
+
+01:35.360 --> 01:36.200
+things.
+
+01:36.410 --> 01:38.860
+We want to have our home be in the center.
+
+01:38.960 --> 01:42.470
+Let's start off with text-align
+
+01:45.450 --> 01:50.570
+and if I type in center and I save, my text is now centered.
+
+01:50.620 --> 01:50.920
+OK.
+
+01:50.920 --> 01:56.010
+We also want to add a border to this image - 'border:'
+
+01:56.170 --> 01:58.140
+and this is a little bit unique.
+
+01:58.150 --> 02:03.590
+You can do something like this you can do five pixels [5px] which is the size of the border.
+
+02:04.030 --> 02:08.080
+What style of border you want so you can do that.
+
+02:08.230 --> 02:11.040
+And then the color of the border - we'll do purple.
+
+02:11.070 --> 02:15.390
+I save, refresh and we have a border.
+
+02:15.460 --> 02:17.730
+You can also do solid.
+
+02:17.860 --> 02:21.410
+And if it's solid, it's a solid border.
+
+02:21.460 --> 02:21.730
+OK.
+
+02:21.730 --> 02:22.770
+And what else can we do.
+
+02:22.770 --> 02:27.170
+It'll be nice to have an image, maybe an entire image for the website.
+
+02:27.310 --> 02:28.240
+So how do we do that.
+
+02:28.240 --> 02:31.670
+Well the tag that we would want to apply to is probably body.
+
+02:31.720 --> 02:40.770
+So if I go into body and you might notice something here as I'm creating these selectors I'm going from
+
+02:40.770 --> 02:47.250
+top to bottom, body which is the parent of almost everything is at the top.
+
+02:47.250 --> 02:53.100
+And as we get more and more specific we trickle down to smaller elements.
+
+02:53.100 --> 02:54.910
+Again we'll get into that in a later video.
+
+02:54.920 --> 02:56.950
+But just keep that in mind.
+
+02:57.130 --> 03:05.430
+OK so for body it'll be awesome to have a cool image on our website so we can do background and you can see
+
+03:05.430 --> 03:11.490
+the Sublime Text actually autofills or has some suggestions for us and we can look through this and
+
+03:11.490 --> 03:17.400
+pick the one that we want but based on the name looks like we want a background image with 'background-image'
+
+03:17.430 --> 03:20.030
+we want to specify a URL.
+
+03:20.040 --> 03:28.220
+In our case I actually have on my desktop saved a nice little picture and let's title it something simple
+
+03:28.220 --> 03:31.260
+like 'backgroundimage'.
+
+03:31.550 --> 03:35.680
+And I got this from a website called ‘unsplash’ if you haven't checked it out.
+
+03:35.930 --> 03:38.750
+They have a ton of high quality, free images they can use.
+
+03:38.750 --> 03:42.730
+So again here we are referencing our -
+
+03:42.740 --> 03:45.030
+Let's put this actually in here.
+
+03:45.170 --> 03:46.700
+So it's in our project folder.
+
+03:46.760 --> 03:53.750
+And then within our project folder we can say that it is 'backgroundimage.jpeg'.
+
+03:54.050 --> 04:01.120
+So I save this I refresh and look at that we have this image but you can see that is a big image and
+
+04:01.120 --> 04:02.650
+doesn't fit the screen.
+
+04:02.710 --> 04:13.800
+So how can we do that we can do 'background-size: cover;' so if we do that and refresh look at that we have
+
+04:13.800 --> 04:16.670
+a beautiful background on our website.
+
+04:16.820 --> 04:17.090
+OK.
+
+04:17.100 --> 04:22.240
+And let's say we want to remove these little dots next to our links.
+
+04:22.260 --> 04:30.630
+We can do that by going into what we want to change our 'li' tag elements, so we'll go into 'style' and
+
+04:30.630 --> 04:38.520
+we can put it in here and 'li' and we'll do something called 'list-style' and we'll go 'none' and refresh
+
+04:38.970 --> 04:42.480
+and look at that those little pesky dots are gone.
+
+04:42.480 --> 04:49.200
+Whenever I select About I want the cursor to not be this I want to change the cursor to maybe have this
+
+04:49.200 --> 04:52.890
+little hand gesture - I like to call them Mickey Mouse hands.
+
+04:53.160 --> 04:53.660
+OK.
+
+04:53.820 --> 05:01.020
+So we go into our 'h2' and we give you something called 'cursor' and let's say you don't really know what
+
+05:01.020 --> 05:06.580
+properties 'cursor' has or you don't even know the property. Can go into CSS tricks.
+
+05:06.630 --> 05:14.360
+And again go to C look at cursor and you can kind of guess by the name what it does.
+
+05:15.390 --> 05:18.270
+And it tells you all the information you need to know.
+
+05:18.630 --> 05:24.130
+But you can see over here that they even have a demo of what you can do with cursors.
+
+05:24.150 --> 05:35.040
+So we want the pointer, so we can just put 'pointer' here save Let's go back to our website refresh and
+
+05:35.040 --> 05:35.880
+look at that.
+
+05:36.000 --> 05:40.330
+We now have a pointer when we hover over About. OK.
+
+05:40.380 --> 05:45.180
+And maybe the last change we want to do is that we want to make sure that our Home About and Login
+
+05:45.180 --> 05:46.780
+are on one line.
+
+05:46.800 --> 05:52.380
+This is a little awkward when they're stacked on top of each other and we can do that by selecting, let's
+
+05:52.380 --> 05:53.320
+look over here.
+
+05:53.400 --> 06:02.460
+We want to select our 'li' tags and we can use something called display and display has a few properties
+
+06:02.460 --> 06:04.170
+that you can use.
+
+06:04.210 --> 06:15.190
+One is block and by default this is actually already a block but there is also something called inline
+
+06:15.340 --> 06:15.880
+block.
+
+06:16.030 --> 06:23.640
+And if I saved this and refresh look at that we have everything inline now we want to change a few things here
+
+06:23.650 --> 06:30.790
+we want to make sure that our colors are better than just purple and green and pink and what if we
+
+06:30.790 --> 06:34.880
+want some specific color and we have a certain design that we want for our website.
+
+06:35.170 --> 06:40.090
+Well colors are very very interesting in CSS because there's a few ways that you can do them and I
+
+06:40.090 --> 06:43.080
+want to show you one of my favorite websites for picking colors.
+
+06:43.540 --> 06:50.770
+What this website does it actually gives you the colors they can use, along with a nice addition of
+
+06:50.770 --> 06:52.890
+what will compliment that color.
+
+06:52.960 --> 06:59.620
+So you can play around with this and change a bunch of criteria and you can click over here and see what
+
+06:59.620 --> 07:01.380
+color combinations work.
+
+07:01.400 --> 07:04.750
+But let's say we wanted to use something like this.
+
+07:05.080 --> 07:10.530
+And if you hover over and click, you'll see over here that I get a couple of numbers that we can use.
+
+07:10.540 --> 07:20.660
+So the first one is a hex number so hex number has a hash and then the number associated with it.
+
+07:20.660 --> 07:23.160
+So I just copied it from the Web site.
+
+07:23.320 --> 07:24.970
+You see the numbers a little bit different.
+
+07:24.970 --> 07:32.920
+Essentially they can use anything from 0 to 9 and then all the way to F, so A to F and this represents
+
+07:32.950 --> 07:34.790
+a specific color.
+
+07:34.810 --> 07:41.970
+So if I copy this and let's make our color uhm.. let's make it the color of our header, we go back to the CSS
+
+07:41.990 --> 07:45.570
+and save this and refresh.
+
+07:45.880 --> 07:48.780
+You'll see that our color changes OK.
+
+07:48.790 --> 07:54.590
+We also want the border again to complement the color.
+
+07:54.690 --> 08:02.670
+Let's do this border color we also have something called RGB and RGB again you see over here that
+
+08:02.700 --> 08:05.880
+there is a hex color and an RGB color.
+
+08:05.970 --> 08:07.600
+These are both the same color.
+
+08:07.650 --> 08:14.280
+So you can pick whichever one you want in the case of an RGB color you can do something like this.
+
+08:14.280 --> 08:22.860
+Say we want for our border have RGB color of these values so that is the value of red, green, and
+
+08:22.860 --> 08:23.240
+blue.
+
+08:23.250 --> 08:28.400
+So that's what RGB stands for and we just wrap it like so.
+
+08:28.620 --> 08:36.690
+So now if I save this and refresh look at that I have a nice little outline just to show you of what exactly
+
+08:36.690 --> 08:38.750
+I mean by red, green, and blue.
+
+08:38.790 --> 08:46.580
+If I set all these to zero so that means that red is in full force and green and blue are non-existent.
+
+08:46.680 --> 08:53.750
+If I save and refresh that is red if I change this to green then that's in green effect.
+
+08:53.760 --> 09:00.380
+And you can imagine here that if I change the blue to 255 and everything else is zero this will be blue
+
+09:03.120 --> 09:03.800
+for you.
+
+09:04.030 --> 09:10.680
+So let's go back here to what we had before because I like the other colors way better.
+
+09:10.730 --> 09:13.720
+So let's refresh. Perfect. Now
+
+09:13.730 --> 09:20.040
+RGB lets you do one other cool thing and that is called RGBA and that it's stands for Alpha.
+
+09:20.230 --> 09:26.230
+You can actually set the opacity so with the fourth number you can actually do something between 0 and
+
+09:26.230 --> 09:35.840
+1 and 1 being well opaque and you can still see everything to zero where it's completely transparent.
+
+09:35.840 --> 09:43.540
+So lets do 0.5 here and you can see that there is a bit of a fade now in our color. Perfect, so using a tool
+
+09:43.540 --> 09:50.920
+like this you can really pick what colors you want your website to have and choose the one that complement
+
+09:50.950 --> 09:52.430
+each other well.
+
+09:52.690 --> 09:58.240
+I use this website a lot when creating new websites and thinking of color templates to use.
+
+09:58.240 --> 10:04.120
+It's a really really good resource and you can use hex and RGB uh whichever way, whichever one you
+
+10:04.120 --> 10:09.230
+want just it's good to have some consistency if you want to add some opacity.
+
+10:09.280 --> 10:14.320
+So the alpha this last number then definitely use RGBA.
+
+10:14.590 --> 10:24.010
+OK so going back here our Web site is starting to look somewhat OK but in the next section I want to
+
+10:24.010 --> 10:28.990
+talk a little bit about selectors and more things that we can do with them.
+
+10:29.500 --> 10:30.980
+I'll see you in that one. Bye-Bye

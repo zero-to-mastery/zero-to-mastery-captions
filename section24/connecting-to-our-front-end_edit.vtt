@@ -1,0 +1,605 @@
+WEBVTT
+
+00:01.360 --> 00:02.340
+Welcome back.
+
+00:02.560 --> 00:10.030
+It's time to finally integrate our server that we just created using Node and Express to our front-end,
+
+00:11.180 --> 00:17.830
+which was built with JavaScript and React. Let's start both of these servers and I want you to think
+
+00:17.830 --> 00:24.520
+of these as two separate computers because in real life most likely these will be two separate computers
+
+00:24.520 --> 00:32.380
+somewhere that are running separately and they're communicating – well, through HTTP. I'm going to run
+'npm start' here.
+
+00:32.390 --> 00:33.260
+-
+
+00:35.050 --> 00:38.920
+And with the React app I'll run 'npm start' as well.
+
+00:39.780 --> 00:46.470
+And you'll notice it'll probably give me a warning or a suggestion that says something is already running
+
+00:46.470 --> 00:52.110
+on port 3000 and it even tells me exactly what's running there.
+
+00:52.110 --> 00:58.440
+And because they're both trying to run on the same port we can just run them on different ones, so I
+
+00:58.440 --> 01:05.930
+can change my server to run on something different than 3000, which is the default for create-react-app.
+
+01:06.120 --> 01:14.160
+Or I can just say "Would you like to run the app on another port?" – I'll click 'Y' and now it will
+
+01:14.670 --> 01:23.610
+create 'localhost:3001' as my front-end. Awesome.
+
+01:23.610 --> 01:25.340
+So we have our app here.
+
+01:26.010 --> 01:34.850
+If we go back we have the app and the server both running and we want to finally connect them. If you remember
+
+01:37.260 --> 01:38.700
+our diagram here.
+
+01:38.700 --> 01:41.660
+We're finally bridging the gap between the two.
+
+01:41.850 --> 01:47.180
+Two separate instances communicating together.
+
+01:47.230 --> 01:48.010
+Let's get started.
+
+01:51.820 --> 02:00.250
+As we know with our React app, in order to communicate with the back-end or the outside world we can use
+
+02:00.310 --> 02:01.280
+'fetch'.
+
+02:01.510 --> 02:07.350
+In our case we can say 'component ...' and let's do this at the top.
+
+02:07.360 --> 02:15.280
+There you go. 'componentDidMount' – a lifecycle hook that comes with React, so we don't have to do arrow functions
+
+02:16.090 --> 02:27.450
+– and we'll say that here we want to 'fetch' and let's do 'localhost' because this is our computer and
+
+02:27.980 --> 02:30.250
+pot '3000' will have to do
+
+02:30.260 --> 02:34.870
+HTTP here 'localhost:3000'
+
+02:35.280 --> 02:38.730
+And remember this syntax is doing
+
+02:38.840 --> 02:43.860
+'.then()' we'll get a response
+
+02:46.480 --> 02:48.860
+and we'll have to run
+
+02:48.940 --> 02:58.230
+'response.json()' on that so we can read it and then we'll get data. And a shorthand way of doing this is if you
+
+02:58.260 --> 03:05.530
+actually do 'console.log' the data will automatically get entered into here.
+
+03:05.580 --> 03:07.480
+So I don't have to do
+
+03:07.660 --> 03:10.980
+'.then(data => console.log(data))'
+
+03:11.010 --> 03:15.640
+It's the same thing.
+
+03:15.650 --> 03:20.330
+So let's try this out and see if it works.
+
+03:20.450 --> 03:31.110
+If you remember if we do the base root route [/] in our server – well the root is just getting the users
+
+03:31.110 --> 03:38.870
+from the database. Let's give that a go. Im going to save; not getting any errors, which is good.
+
+03:40.580 --> 03:53.720
+If I go to 'localhost' and refresh and open up the Console I get 'Failed to load http://localhost:3000/'
+
+03:53.720 --> 03:59.450
+"No 'Access-Control-Allow-Origin' header is present" blah blah blah blah blah.
+
+03:59.810 --> 04:06.710
+And this is an error that is a security feature really.
+
+04:06.900 --> 04:13.770
+You'll get this error because with Google what we're trying to do right now is we're trying to communicate
+
+04:14.040 --> 04:23.920
+with the outside world using HTTP but Chrome doesn't really trust whatever we're accessing here.
+
+04:24.100 --> 04:28.160
+They have no way of knowing that our server is secure.
+
+04:28.210 --> 04:35.680
+Maybe it's some hacker that is secretly trying to make a request from your webpage to their website
+
+04:35.710 --> 04:39.680
+that downloads some bad software on your page.
+
+04:41.380 --> 04:46.640
+And that's called 'Access Control Allow Origin' and for us to test this out on 'localhost'
+
+04:46.810 --> 04:54.110
+we need to do something called CORS, and you can see over here in the error message – "set the request's
+
+04:54.110 --> 04:58.780
+mode to no-cors" and I'll linked to information about CORS here.
+
+04:58.790 --> 05:06.830
+But what we want here is we want an npm package once again called cors and just like body-parser it's
+
+05:06.830 --> 05:09.090
+one of those common ones that you'll see everywhere.
+
+05:09.110 --> 05:11.060
+I'll show you exactly how to use it.
+
+05:11.090 --> 05:17.180
+You see that it's a middleware that we just simply do 'app.use(cors)'. So let's install that.
+
+05:17.540 --> 05:20.120
+I'm going to 'npm install cors'
+
+05:25.820 --> 05:27.620
+and now that we have it we can just
+
+05:31.450 --> 05:40.530
+'const cors = require('cors')' and simply do 'app.use(cors())'.
+
+05:44.700 --> 05:48.170
+Let's save, run 'npm start' again.
+
+05:52.370 --> 05:59.190
+Let's go back to our app, refresh, if I open up Console
+
+05:59.320 --> 06:04.710
+I get an array of two users. How awesome is that?
+
+06:05.610 --> 06:06.570
+It's working.
+
+06:07.020 --> 06:14.640
+So let's work on the sign. We're going to send the Sign In information from the front-end to the
+
+06:14.670 --> 06:15.060
+back-end
+
+06:18.470 --> 06:23.530
+and the way we have 'signin' set up right now it's only going to check for John.
+
+06:23.540 --> 06:25.940
+I've minimized this so it's a little bit cleaner.
+
+06:26.000 --> 06:34.650
+It's going to check for John and let's put back the password for now, to 'cookies'.
+
+06:36.690 --> 06:43.710
+And Sally's password to the 'bananas'.
+
+06:43.890 --> 06:48.210
+I'm going to save and now work on the 'signin' route.
+
+06:49.410 --> 06:52.110
+Right now though we know that fetch is working.
+
+06:52.110 --> 06:56.240
+We're going to actually try and get the 'signin' endpoint to work.
+
+06:56.250 --> 07:06.780
+So let's think about this if we go back to our Sign In page, well this component has two inputs: the Email
+
+07:06.820 --> 07:14.810
+and the Password that when we click Sign In we will have to send through 'request body'.
+
+07:14.900 --> 07:18.500
+We will have to send that to the server.
+
+07:18.500 --> 07:23.490
+The server is going to check if the user exists and then give us a response.
+
+07:23.690 --> 07:24.450
+So let's do that.
+
+07:28.090 --> 07:33.180
+We want to remove componentDidMount from the app because we don't need it anymore.
+
+07:35.430 --> 07:45.540
+And although we can create our fetch function in here – in the app.js – because 'Signin' is it's own little
+
+07:45.540 --> 07:51.650
+component and the rest of the app after 'Signin' doesn't really care if it succeeded or failed
+
+07:51.660 --> 07:57.680
+– I like keeping Signin's functionality within the component.
+
+07:57.680 --> 08:05.000
+Now what that means is that we want to turn this into a smart component so that it has state that
+
+08:05.000 --> 08:09.370
+is the state of input of 'email' and 'password'.
+
+08:09.860 --> 08:23.030
+So let's do that let's convert this into a class 'Signin' which extends React.Component
+
+08:29.270 --> 08:33.290
+and this will have a 'render()' method
+
+08:36.050 --> 08:37.280
+that receives
+
+08:41.940 --> 08:47.060
+all of this [code] – I'm going to minimize this just so you can see it.
+
+08:47.090 --> 08:50.000
+We forgot the bracket over here; make sure we include that as well.
+
+08:59.800 --> 09:00.930
+Perfect.
+
+09:01.120 --> 09:03.250
+And we want to close off
+
+09:06.390 --> 09:12.220
+the bracket here, and we do receive some 'props' which was on 'route change'
+
+09:12.330 --> 09:23.130
+so we'll have to do 'this.props.onRouteChange()' and then 'this.props.onRouteChange()' or instead
+
+09:23.130 --> 09:24.130
+of doing that
+
+09:24.360 --> 09:33.860
+even nicer is to just do it here by destructuring 'onRouteChange'
+
+09:34.340 --> 09:40.100
+equals 'this.props'. So everything should be compiling fine.
+
+09:40.130 --> 09:43.040
+And we saw the Sign In page.
+
+09:43.310 --> 09:52.810
+Now in order to get the input values from these two we just create an 'onEmailChange()' function.
+
+09:56.160 --> 10:07.840
+And that will listen to the onchange event of the email and we'll say here that this event we will set
+
+10:07.830 --> 10:20.280
+state for – just so we know we're clear we're going to say 'signInEmail' and this will be 'event.target.value'
+
+10:20.390 --> 10:27.380
+and 'onPasswordChange()' we'll have again, another function
+
+10:34.150 --> 10:40.390
+we'll update a state that we'll call 'signInPassword'
+
+10:43.580 --> 10:45.140
+and we'll need to create this state.
+
+10:45.140 --> 10:59.470
+So we will do our 'constructor()' 'super()' and then 'this.state' equals 'signInEmail:' which will be an empty string
+
+10:59.470 --> 11:06.870
+for now when it initializes and 'signInPassword:' again an empty string.
+
+11:06.880 --> 11:17.050
+Now in order for us to use 'props' we also want to pass 'props' here.
+
+11:17.120 --> 11:17.660
+Let's save.
+
+11:21.880 --> 11:26.110
+And if this is working the way we expect it to
+
+11:26.120 --> 11:42.110
+we can now create an 'onSubmitSignIn' event which will now use this state to fetch – and for now we're
+
+11:42.110 --> 11:45.440
+not really sure what we're going to fetch yet.
+
+11:45.530 --> 11:49.110
+So let's just 'console.log'
+
+11:49.440 --> 11:54.720
+'this.state.signInPassword'
+
+11:55.350 --> 11:57.560
+Or actually let's just 'console.log'
+
+11:57.780 --> 11:59.220
+'this.state'.
+
+11:59.610 --> 12:07.280
+And if you're wondering can we really have more than two smart components in an app where this has state
+
+12:07.310 --> 12:08.920
+then app has state
+
+12:09.180 --> 12:10.600
+– well yeah, absolutely.
+
+12:10.650 --> 12:17.610
+You want to organize your app in a way that makes sense, for example 'Signin' is its own enclosed thing.
+
+12:17.610 --> 12:26.490
+So using 'Signin' even though it's a child of 'App' it can have its own state as long as this state is just
+
+12:26.490 --> 12:33.960
+concerned about 'Signin' then it is a good way to do this instead of constantly updating 'App.js'
+
+12:34.290 --> 12:38.280
+and making 'App.js' grow to many many lines.
+
+12:41.850 --> 12:43.540
+All right so we have 'console.log'
+
+12:43.580 --> 12:49.610
+let's see if 'onSubmitSignIn' works let's go to 'submit' button
+
+12:52.260 --> 12:58.120
+before we do the 'onClick' to change route to 'home'
+
+12:58.200 --> 13:12.200
+we are now going to instead do 'this.onSubmitSignIn' and within here we will run the 'onRouteChange'
+
+13:12.590 --> 13:17.240
+which is 'this.props.onRouteChange'
+
+13:20.590 --> 13:26.230
+and let's check that out. Let's save go back to our app.
+
+13:26.490 --> 13:33.260
+I will open up the Console here; I'll type in 'test@gmail.com'
+
+13:36.500 --> 13:46.640
+'test', sign in, and I see that I get 'signInPassword' empty, 'signInEmail' empty, and that is because we've created
+
+13:46.640 --> 13:50.130
+these but we haven't added the events onto the inputs.
+
+13:50.540 --> 13:53.300
+So let's do that – for the Email on the 'input'
+
+13:53.390 --> 13:57.530
+I'll say 'onChange'
+
+14:01.750 --> 14:13.560
+and you know what? Let's add these on new lines just so it's cleaner. Otherwise it can get pretty messy.
+
+14:13.560 --> 14:14.260
+There you go.
+
+14:14.430 --> 14:24.110
+And now I can say 'onChange' and 'onChange' will take 'this.onEmailChange' because this is the Email.
+
+14:24.320 --> 14:25.260
+And the next one
+
+14:29.200 --> 14:34.510
+will have a similar thing except instead of having
+
+14:37.260 --> 14:40.930
+'onEmailChange' we'll have 'onPasswordChange'.
+
+14:40.930 --> 14:42.300
+Let's try that out again.
+
+14:46.180 --> 14:48.110
+'test@gmail.com'
+
+14:49.000 --> 14:51.560
+'test' sign in.
+
+14:51.580 --> 14:54.010
+All right we have this information, which is great.
+
+14:54.040 --> 15:03.870
+Now we can send this to our server and we can do that by simply 'onSubmitSignIn' running
+
+15:04.760 --> 15:20.810
+a function – a 'fetch()', which we've seen before for HTTP our 'localhost' for '3000' and doing a '/signin'.
+
+15:21.140 --> 15:24.040
+Now fetch by default does a GET request
+
+15:24.110 --> 15:28.640
+but what we want to do here is a POST request as we remember.
+
+15:28.720 --> 15:35.810
+So the way we do that is in the second parameter we can pass an object here that describes what the
+
+15:35.810 --> 15:37.640
+request will be.
+
+15:37.640 --> 15:41.690
+In our case we'll have a 'method' of 'post'
+
+15:44.550 --> 15:49.950
+we'll have headers and headers accepts an object.
+
+15:49.960 --> 16:00.520
+In our case we want to see 'Content-Type' and because it has this line here we have to wrap it in quotes
+
+16:02.110 --> 16:04.880
+and we'll say that it is 'application/json'
+
+16:05.580 --> 16:06.110
+-
+
+16:09.450 --> 16:17.720
+and now we will say that the body will contain what we have in the state, but remember in order to send
+
+16:17.720 --> 16:20.530
+it to the back-end we can't just send a JavaScript object.
+
+16:20.600 --> 16:31.880
+We have to 'JSON.stringify' the object and the object is going to be 'email', which is 'this.state.email'
+
+16:31.930 --> 16:37.050
+or a 'signInEmail' and we copy that
+
+16:39.850 --> 16:47.900
+and 'password' which will be 'this.state.password ... –
+
+16:48.460 --> 16:52.630
+It'll be 'signInPassword'
+
+16:52.640 --> 16:52.970
+All right.
+
+16:53.000 --> 16:55.580
+Let's see if that works.
+
+16:55.640 --> 17:07.340
+I'm going to save and in here I'm going to say 'john@gmail.com' and 'cookies' if I click Sign In
+
+17:09.100 --> 17:11.330
+I get '404 (Not Found)'.
+
+17:11.800 --> 17:13.630
+Let's debug this and see what happened.
+
+17:17.100 --> 17:21.550
+Well first off I did not spell 'signin' right so let's try that again.
+
+17:27.180 --> 17:30.740
+And give that a go see if that works.
+
+17:32.970 --> 17:38.280
+And we want to say 'cookies' here, sign in.
+
+17:38.300 --> 17:44.050
+Right we have 'signin' 'Bad Request'. If we look over here
+
+17:44.280 --> 17:50.050
+we get a response "error logging in" and that's the error that we gave on the server.
+
+17:50.340 --> 17:54.540
+So looks like something in our request is not working.
+
+17:54.540 --> 17:55.380
+Let's take a look.
+
+17:56.300 --> 17:59.140
+And this had to be 'headers' not 'header'
+
+17:59.150 --> 18:00.830
+– that's a mistake on my part.
+
+18:00.890 --> 18:02.020
+Let's try that again.
+
+18:02.900 --> 18:06.180
+'john' – let me just Console it here
+
+18:06.190 --> 18:12.140
+'john@gmail.com' 'cookies' sign in.
+
+18:12.160 --> 18:20.530
+All right let's go to our Network tab and see what the 'signin' route responded with.
+
+18:20.530 --> 18:22.310
+It said "success".
+
+18:22.420 --> 18:30.670
+So we were able to sign in because well, we entered John – a user that we have according to our very simple
+
+18:30.670 --> 18:41.450
+sign in form. However if we want to change this to now say that response status is 400 'error logging in'
+
+18:41.730 --> 18:44.740
+and if that error's to not let us sign in
+
+18:45.210 --> 18:53.980
+well in here all we have to do is instead of doing 'onRouteChange' we can do a '.then'.
+
+18:54.400 --> 19:00.700
+And remember that this '.then' response will have to do 'response.json()' '.then()'
+
+19:04.410 --> 19:04.770
+-
+
+19:04.800 --> 19:15.050
+Then we'll say that the data that we receive – and we'll just keep this simple here – if we
+
+19:17.310 --> 19:31.270
+'if(data === 'success'), which is what we receive; in that case, well, we will do a route change. Let's save that.
+
+19:31.470 --> 19:32.650
+All right let's give that a go.
+
+19:33.880 --> 19:42.070
+If I don't enter anything here and click Sign In I get a 'POST' '(Bad Request)' and if we look at the message
+
+19:42.070 --> 19:46.450
+that we receive we have "error logging in".
+
+19:46.560 --> 19:53.460
+So using this information we can create maybe an error display here [on Sign In page] but it's not letting us log in.
+
+19:53.460 --> 19:55.040
+In order for us to log in
+
+19:55.140 --> 20:08.120
+we have to use our John example and make sure that our emails and passwords match. That works!
+
+20:11.270 --> 20:13.300
+Let's try that one more time.
+
+20:13.510 --> 20:13.940
+If I do
+
+20:13.940 --> 20:14.460
+'john ...'
+
+20:17.630 --> 20:26.120
+'cookies' sign in and everything is working we're getting no errors. Nice.
+
+20:26.130 --> 20:29.340
+This is working.
+
+20:29.420 --> 20:29.870
+All right.
+
+20:29.870 --> 20:35.660
+So we're only just using John for the users
+
+20:35.660 --> 20:41.930
+but ideally we can actually filter through everything and make sure that it exists.
+
+20:41.930 --> 20:47.540
+Now as I said before we're not going to be doing this here because this is something that databases
+
+20:47.540 --> 20:55.930
+are really really good at but I wanted to show you how this would work with emails and passwords matching.
+
+20:56.170 --> 20:56.480
+All right.
+
+20:56.480 --> 20:58.060
+So we have Sign In working.
+
+20:58.070 --> 21:04.420
+Let's also get Register to work, and Register is very very similar to Sign In.
+
+21:04.610 --> 21:06.450
+So in the next video we're going to tackle that.
