@@ -1,0 +1,227 @@
+WEBVTT
+
+00:01.430 --> 00:02.390
+Bine ai revenit.
+
+00:02.390 --> 00:08.880
+Am vrut să vă arăt un videoclip rapid despre un concept important numit variabile de mediu și pe care l-am creat
+
+00:08.880 --> 00:15.910
+un sondaj simplu pe care l-am făcut înainte de a folosi modulul http care vine cu nodul și avem un a
+
+00:15.910 --> 00:18.750
+server simplu care ascultă portul 3000.
+
+00:18.970 --> 00:28.470
+Dacă am rulat un punct de server nod pe care îl primim serverul ascultă pe portul 3000. Totuși, acest lucru nu este
+
+00:28.470 --> 00:30.060
+foarte realist.
+
+00:31.180 --> 00:36.890
+Uneori nu vrem să codificăm greu ce port ascultăm.
+
+00:37.150 --> 00:43.980
+De exemplu, atunci când desfășurăm ceva printr-un alt serviciu ca și cu Heroku, nu putem
+
+00:43.990 --> 00:46.960
+alegeți cu adevărat ce port vom asculta.
+
+00:47.020 --> 00:50.150
+Avem nevoie de ceva dinamic pentru a putea fi schimbat.
+
+00:51.490 --> 00:56.700
+Cum putem face asta? Ei bine, acest concept de variabile de mediu.
+
+00:56.850 --> 01:11.160
+este ideea că există variabile la fel cum avem un const A egal cu un const B egal cu două care sunt
+
+01:11.760 --> 01:13.950
+variabile în acest mediu.
+
+01:15.040 --> 01:22.330
+Există o idee despre o variabilă de mediu care este un mediu cum ar fi aici, un computer pe care să-l acoperiți
+
+01:22.330 --> 01:25.260
+aplicația rulează sau serverul rulează.
+
+01:25.510 --> 01:33.460
+Poate avea propriile variabile și suntem capabili să injectăm aceste variabile în locația specifică din
+
+01:33.460 --> 01:35.230
+un fișier.
+
+01:35.340 --> 01:38.550
+Și acest lucru nu este doar un nod sau un server specific.
+
+01:38.550 --> 01:42.090
+Este cu toate programele.
+
+01:42.090 --> 01:46.050
+Oriunde te uiți acolo vor fi variabile de mediu care sunt folosite.
+
+01:46.050 --> 01:47.640
+Este un concept.
+
+01:47.640 --> 01:58.080
+Cum putem face acest lucru în nod. Ei bine, în nod avem acces la - hai să facem un proces log de consolă dot env
+
+01:59.440 --> 02:00.450
+și cu dot env proces,
+
+02:00.520 --> 02:10.410
+dacă rularea serverului vedeți că îmi spune mediul înconjurător, de exemplu, de unde conduc
+
+02:10.770 --> 02:21.270
+la domiciliu, ne spune ce program terminal folosesc cu asta, care este iTerm, obținând o mulțime de informații.
+
+02:21.320 --> 02:23.900
+Să clarificăm asta. Și cu asta
+
+02:23.900 --> 02:29.150
+acum ne putem stabili propriile variabile. Dacă doriți să setați portul.
+
+02:29.150 --> 02:37.880
+De exemplu, putem spune procesul dot env dot port și acum ne schimbăm acest lucru
+
+02:41.310 --> 02:44.500
+proces dot env dot port.
+
+02:45.060 --> 02:55.990
+Și doar pentru a face acest curățitor putem avea doar PORT egal cu procesul dot env dot PORT.
+
+02:56.010 --> 03:01.240
+Deci, acum putem elimina același apel.
+
+03:05.980 --> 03:10.180
+Hai să consolezem doar log-ul aici, ca să ne asigurăm că îl vedem.
+
+03:10.220 --> 03:23.040
+Dacă rulez serverul de noduri, sunt nedefinit. Dar asta pentru că acest număr de port este ceva ce nu am făcut-o
+
+03:23.040 --> 03:24.190
+au inițial.
+
+03:24.270 --> 03:25.670
+Tocmai am făcut acest nume.
+
+03:25.710 --> 03:33.440
+Aș fi putut spune ABC. Nu există. Pentru a accesa sau a crea o variabilă de mediu
+
+03:33.530 --> 03:35.720
+în acest computer.
+
+03:35.720 --> 03:37.500
+Trebuie să-l injectăm.
+
+03:37.610 --> 03:42.620
+O să vă arăt cum să faceți cu peștele, care este coaja pe care o folosesc aici, care este puțin
+
+03:42.620 --> 03:46.700
+bit diferit de bash și cel mai frecvent veți vedea Bash.
+
+03:46.850 --> 04:00.570
+Așa că vă voi arăta mai întâi așa. Cu bash, pur și simplu facem PORT 3000 nod server point js
+
+04:00.790 --> 04:07.740
+Și uită-te la asta. Serverul asculta portul 3000. Dacă schimb acest lucru
+
+04:10.380 --> 04:17.670
+Serverul 3050 asculta 3050.
+
+04:17.930 --> 04:20.540
+Și acest lucru nu se limitează la port.
+
+04:20.750 --> 04:28.680
+Veți vedea în următoarele două videoclipuri în timpul producției putem configura ceva de genul unei adrese URL a bazei de date.
+
+04:32.890 --> 04:36.820
+Iar această adresă URL a bazei de date poate fi acum dinamică.
+
+04:36.820 --> 04:41.550
+Poate că nu vom ști unde va fi adresa URL a bazei de date. În acest caz.
+
+04:41.590 --> 04:44.890
+Pot să spun doar baza de date
+
+04:48.100 --> 04:56.990
+Adresa URL este egală cu 123 nod server point js
+
+04:57.020 --> 04:59.030
+Și vom obține porturi nu este definită.
+
+04:59.030 --> 05:07.020
+Pentru că nu o folosim aici, așa că hai să ne întoarcem înapoi la port trei mii și să conducem acea comandă
+
+05:07.020 --> 05:07.540
+din nou.
+
+05:09.100 --> 05:16.060
+Și uitați-vă la serverul respectiv, ascultând portul 1 2 3 deoarece aceasta este adresa URL a bazei de date și putem stabili orice
+
+05:16.060 --> 05:18.030
+variabilele de mediu pe care le dorim.
+
+05:19.140 --> 05:24.890
+Iar importanța acestora nu va intra în realitate decât până în ultima clipă în aceste videoclipuri.
+
+05:25.140 --> 05:31.410
+Dar ele sunt foarte importante pentru lucruri care ar trebui păstrate în secret sau dinamice.
+
+05:31.420 --> 05:37.570
+De exemplu, portul ar putea să nu știm la ce port se va executa serverul care va rula API-ul nostru
+
+05:37.570 --> 05:37.830
+pe.
+
+05:37.870 --> 05:45.110
+Deci, în acest fel, oricine îl rulează, poate seta portul fără să atingă codul de bază. Dar și pentru secrete
+
+05:45.120 --> 05:50.140
+de exemplu, cheile API pe care probabil că nu le-am dori să le avem în codul nostru.
+
+05:50.160 --> 05:58.830
+Putem să lansăm aplicația și să oferim chei API sau chiar parole pentru a vă conecta dinamic în baza de date
+
+05:58.860 --> 06:02.930
+prin mediul înconjurător, astfel încât să fie mai sigură.
+
+06:02.940 --> 06:05.820
+Permiteți-mi să vă arăt cum să faceți acest lucru în pește.
+
+06:05.820 --> 06:13.680
+Este un pic diferit și nu trebuie să vă îngrijorați prea mult pentru că este doar specific
+
+06:13.680 --> 06:19.730
+pentru a pescui este un fel de ciudat ciudat, dar puteți face baza de date de mediu
+
+06:23.380 --> 06:34.410
+URL-ul va spune hello node server dot js și avem servere de ascultare pe port Hello.
+
+06:34.440 --> 06:41.510
+Din nou, aceasta este doar specifică pentru pești, dar pentru a vă demonstra că există variabile de mediu
+
+06:41.810 --> 06:47.810
+mediul decide variabilele și pentru că mediul în care funcționează aceasta este o coajă de pește,
+
+06:47.830 --> 06:54.630
+Trebuie să folosesc modalitatea specifică a peștilor de a declara acest lucru.
+
+06:54.780 --> 06:56.250
+Scopul este însă același.
+
+06:56.250 --> 07:02.370
+Încercăm să injectăm aceste proprietăți și valori în nod, astfel încât să aibă acces la el.
+
+07:02.520 --> 07:09.240
+De aceea se numește dot env de proces pentru variabilele de mediu și le vom folosi în următorul
+
+07:09.240 --> 07:10.530
+câteva videoclipuri.
+
+07:11.400 --> 07:12.590
+Voi vedea în următorul.
+
+07:12.910 --> 07:13.200
+Pa! Pa.
+

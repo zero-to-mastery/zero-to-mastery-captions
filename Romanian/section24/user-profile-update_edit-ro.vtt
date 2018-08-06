@@ -1,0 +1,272 @@
+WEBVTT
+
+00:01.730 --> 00:10.480
+Acum, dacă ne uităm la "/ profile /:id", bine, acest lucru nu este cu adevărat util pentru a merge la "acasă" este? Pentru că o dată
+
+00:10.480 --> 00:23.150
+suntem siguri că avem informații despre utilizatori și că poate '/ profile /:id' va fi util pentru noi să ne apucăm
+
+00:23.150 --> 00:29.920
+profil și poate actualiza numele sau e-mailul nostru.
+
+00:30.010 --> 00:34.600
+Asta-i ceva ce putem încorpora în aplicația noastră în viitor.
+
+00:35.870 --> 00:45.110
+Dar cu adevărat vreau să mă concentrez asupra acestei ultime rute, care este "imaginea", care ne permite să creștem
+
+00:45.500 --> 00:48.400
+numărul de "intrări".
+
+00:48.460 --> 00:50.350
+Deci, hai să lucrăm la asta în acest videoclip.
+
+00:50.350 --> 00:59.290
+De fiecare dată când trimitem pe front-end dorim ca utilizatorul să atingă acest traseu, astfel încât să putem crește
+
+00:59.380 --> 01:03.750
+înregistrări conta. Să-ți dai drumul.
+
+01:04.010 --> 01:15.450
+Dacă ne întoarcem la aplicația noastră de reacție, putem intra în App.js și avem API-ul Clarifai.
+
+01:15.470 --> 01:16.320
+Atunci vom face asta
+
+01:16.330 --> 01:22.210
+'onButtonSubmit' și acest lucru este specific pentru ecranul de start al nostru.
+
+01:26.860 --> 01:35.860
+Privind la acest lucru, atunci ceea ce am vrea să facem este să clarificăm că ne oferă un răspuns în acest caz
+
+01:35.860 --> 01:41.970
+de afișare și de calcul, atâta timp cât avem un răspuns
+
+01:48.790 --> 01:59.370
+în acest caz dorim să preluăm traseul localhost la 3000.
+
+01:59.590 --> 02:02.570
+Și de data aceasta rulați "/ imagine".
+
+02:07.450 --> 02:09.380
+Aceasta este o cerere POST.
+
+02:09.490 --> 02:16.990
+Deci, pentru a face o cerere POST - și de fapt permite să faceți acest lucru ca o cerere PUT.
+
+02:17.050 --> 02:24.240
+Cred că asta este planificat inițial și pentru că actualizăm informațiile utilizatorului PUT
+
+02:24.250 --> 02:27.800
+fie o utilizare mai bună a acesteia, dar va funcționa în ambele sensuri.
+
+02:27.880 --> 02:34.390
+Este doar o modalitate pentru noi de a păstra cu standardele - că PUT este modul de a actualiza lucrurile.
+
+02:35.920 --> 02:39.760
+Și un PUT? cererea funcționează la fel cum am făcut înainte.
+
+02:39.760 --> 02:45.250
+În loc să punem metoda POST, vom avea de fapt
+
+02:48.610 --> 02:49.780
+metoda PUT.
+
+02:53.820 --> 02:54.850
+Din nou, același lucru
+
+02:54.850 --> 03:04.590
+'application / json ca' Content-Type 'și dorim să trimitem în interiorul corpului - bine, cerem orice informație?
+
+03:04.590 --> 03:09.460
+Singurul lucru pe care trebuie să-l primească este "id".
+
+03:09.750 --> 03:10.910
+Deci, să facem asta.
+
+03:10.950 --> 03:18.130
+Vom trimite doar "id", pe care îl avem de la utilizator când se conectează.
+
+03:18.390 --> 03:29.600
+Și asta este "this.state.user.id".
+
+03:29.740 --> 03:30.890
+Să vedem dacă funcționează.
+
+03:31.870 --> 03:32.870
+O să salvez
+
+03:37.710 --> 03:48.410
+du-te înapoi la aplicația noastră, intrați acum ca cel mai bun prieten al nostru, John. Voi faceți clic pe Conectați-vă și să găsim din nou o față.
+
+03:53.250 --> 03:57.390
+Faceți acest lucru acum.
+
+03:57.480 --> 04:02.050
+Vezi imaginea. Dacă merg la "aici" și fac clic pe Detect ...
+
+04:06.770 --> 04:08.570
+Primesc fața.
+
+04:08.570 --> 04:13.090
+Dar rangul nostru actual nu este actualizat.
+
+04:13.320 --> 04:15.840
+Și dacă vă aduceți aminte că rangul nostru este mai mult de "intrări".
+
+04:15.970 --> 04:18.590
+Deci, să schimbăm formularea acolo, astfel încât să nu ne confunde.
+
+04:20.670 --> 04:33.140
+"numărul dvs. de intrare curent este ..." și dorim să actualizăm "intrările". Dacă ne întoarcem aici, o să trimitem asta
+
+04:33.140 --> 04:38.440
+doriți să spuneți că din nou ".then ()" vom primi un răspuns.
+
+04:40.320 --> 04:45.080
+Și acest răspuns va trece prin mișcările de alergare
+
+04:45.210 --> 04:49.040
+'JSON'
+
+04:49.550 --> 05:02.640
+Și, în final, vom spune că "count" va trebui să fie actualizat prin utilizarea "utilizatorilor" "setState"
+
+05:05.700 --> 05:10.470
+"id" sau "intrări" până la numărul "contor".
+
+05:10.800 --> 05:14.720
+Să încercăm din nou asta.
+
+05:17.420 --> 05:18.970
+Voi înscrie ca John.
+
+05:22.560 --> 05:26.610
+„cookie-uri“. Să copiem și să lipim din nou fața aceea
+
+05:30.130 --> 05:30.700
+Detecta
+
+05:34.420 --> 05:35.750
+Să ne uităm la Consola.
+
+05:35.770 --> 05:39.340
+Hai să trecem prin rețea și să vedem ce avem.
+
+05:43.290 --> 05:44.520
+Văd că imaginea
+
+05:47.980 --> 05:52.160
+sarcina utilă pe care o primim este '123'.
+
+05:52.260 --> 05:57.990
+Când ne uităm la răspunsul pe care îl avem "2". Bine, așa se pare că totul funcționează.
+
+05:57.990 --> 06:01.240
+Am trimis acest mesaj de două ori, dar nu a fost actualizat.
+
+06:03.920 --> 06:15.530
+Să ne uităm la noi - și vrem să ne asigurăm că utilizatorii nu sunt "utilizatori".
+
+06:15.670 --> 06:17.250
+Și să încercăm din nou.
+
+06:17.800 --> 06:18.270
+Noi avem
+
+06:18.310 --> 06:26.740
+"john@gmail.com" și vor fi "cookie-uri". Dacă dau clic pe Conectare.
+
+06:27.180 --> 06:27.920
+In regula.
+
+06:27.960 --> 06:29.600
+"Numărul curent este de 3".
+
+06:29.610 --> 06:30.980
+Dacă adaug o altă fotografie
+
+06:34.200 --> 06:34.800
+Uită-te la asta.
+
+06:34.900 --> 06:38.090
+Obțineți "numărul dvs. de intrare curent este de 4".
+
+06:38.160 --> 06:46.570
+Ah, dar vezi cum se schimbă numele la "nedefinit"? Ei bine, pentru că așa am văzut aici
+
+06:46.570 --> 06:51.090
+cum "this.setState" schimbă doar obiectul întregului utilizator?
+
+06:52.300 --> 07:02.030
+Nu este bine? Pentru că trebuie să ne asigurăm că "utilizatorul" este în continuare același, dar doar ne actualizăm
+
+07:02.960 --> 07:05.030
+obiectul "utilizator".
+
+07:08.850 --> 07:15.420
+Acum, modul de a obține acest lucru - pentru că, așa cum am spus înainte, noi doar schimbăm obiectul utilizator
+
+07:15.660 --> 07:19.870
+Putem folosi ceva denumit 'Object.assign'.
+
+07:21.880 --> 07:23.210
+Și poți citi mai departe.
+
+07:23.210 --> 07:28.120
+Face parte din spec. JavaScript, dar obiectul obiect țintă.
+
+07:28.120 --> 07:32.560
+În cazul nostru, este 'this.state.user'.
+
+07:32.560 --> 07:36.670
+Și al doilea parametru este locul în care doriți să îl extindeți.
+
+07:36.820 --> 07:43.040
+În cazul nostru, "centrele" și "numărătoarea". Dacă o facem așa și o salvăm
+
+07:47.590 --> 07:57.900
+și să facem 'john@gmail.com' 'cookies' Sign In.
+
+07:58.050 --> 08:00.460
+A trebuit să reporniți serverul, astfel încât acesta este la zero.
+
+08:00.540 --> 08:04.200
+Dar dacă aș avea o fotografie ...
+
+08:08.350 --> 08:12.560
+Uită-te la asta. "John, numărul curent de intrare este 1".
+
+08:12.790 --> 08:14.600
+Și tu te duci.
+
+08:14.740 --> 08:18.690
+Numele nu se schimbă.
+
+08:18.810 --> 08:20.300
+Așa că putem ieși.
+
+08:20.490 --> 08:21.710
+Ne putem înregistra.
+
+08:21.870 --> 08:24.070
+Ne putem conecta.
+
+08:24.240 --> 08:33.270
+Avem punctele noastre finale și, folosind acest lucru, vă puteți imagina cum vă puteți extinde aplicația - puteți adăuga
+
+08:33.300 --> 08:39.810
+a DELETE, de exemplu, la '/ profile /:id' pentru a șterge contul.
+
+08:39.810 --> 08:44.410
+Puteți adăuga o metodă PUT pentru a vă actualiza contul.
+
+08:44.430 --> 08:51.420
+Există multe lucruri pe care le putem face, dar sper că ați văzut puterea serverului și a front-end-ului
+
+08:51.480 --> 08:55.750
+conectându-se în cele din urmă prin "preluare" pentru a crea anumite funcționalități reale.
+
+08:57.320 --> 08:58.860
+Ne vedem în următorul.
+

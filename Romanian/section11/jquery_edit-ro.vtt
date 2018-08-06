@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.510 --> 00:07.440
+Când îi predau studenților pentru prima dată manipularea DOM și evenimente, este întotdeauna copleșitoare.
+
+00:07.440 --> 00:10.230
+Este nevoie de câteva încercări pentru a obține cu adevărat.
+
+00:10.320 --> 00:16.620
+Și un lucru pe care l-ați observat în videoclipurile anterioare este că ați fost o mulțime de metode
+
+00:16.620 --> 00:23.990
+învățat și Dom are multe dintre ele, dar trebuie în mod constant să verifici și să vezi dacă era compatibil
+
+00:23.990 --> 00:26.450
+cu browserele pentru a vă asigura că funcționează.
+
+00:26.450 --> 00:33.860
+Așa că am folosit site-uri ca și cum aș putea să folosesc dot com pentru a verifica în permanență dacă putem folosi aceste proprietăți.
+
+00:33.860 --> 00:37.000
+A fost un proces obositor acum câțiva ani.
+
+00:37.010 --> 00:43.320
+Suportul selectorilor și tehnicile de manipulare DOM au fost și mai răi.
+
+00:43.400 --> 00:51.540
+De exemplu, selectorul de interogări acum este bun, dar cu câțiva ani în urmă doar câteva browsere le au.
+
+00:51.560 --> 00:56.510
+Deci, ce făceau oamenii dacă era chiar mai rău decât acum.
+
+00:56.970 --> 01:01.280
+Ei bine, a fost creată o bibliotecă care a rezolvat această problemă uriașă.
+
+01:02.600 --> 01:05.000
+Și asta a fost jQuery.
+
+01:05.060 --> 01:07.230
+S-ar putea să fi auzit de asta.
+
+01:07.290 --> 01:16.200
+Este una dintre cele mai populare biblioteci pentru JavaScript. În 2006, J.A.G. a fost introdus în dezvoltarea Web
+
+01:16.200 --> 01:17.010
+lume.
+
+01:17.040 --> 01:23.970
+A fost o bibliotecă care înseamnă că este doar JavaScript un fișier JavaScript condus de câțiva oameni care au adăugat a
+
+01:23.970 --> 01:27.660
+puțin mai mult pentru limba, astfel încât să puteți face mai multe lucruri.
+
+01:27.680 --> 01:31.140
+Aveți mai multe proprietăți mai multe funcții.
+
+01:31.140 --> 01:37.730
+Scopul său principal a fost să facă manipularea DOM mai ușoară și compatibilă cu toate browserele.
+
+01:37.960 --> 01:41.820
+Deci, ei au avut grijă de problemele legate de munca grea și de compatibilitatea browserului.
+
+01:41.830 --> 01:42.860
+Nu-i așa de drăguț din partea lor?
+
+01:43.940 --> 01:49.940
+Să verificăm acest exemplu W3C de jQuery.
+
+01:50.080 --> 01:59.860
+Puteți vedea aici că se încarcă o etichetă de script cu un CDN care este îndreptat spre un jQuery minified
+
+02:00.070 --> 02:05.860
+JavaScript și jQuery sunt doar acest fragment de cod.
+
+02:05.970 --> 02:16.180
+Ea are întotdeauna semnul documentului dolar semn gata, ceea ce înseamnă, atunci când documentul obiect DOM este gata
+
+02:16.230 --> 02:20.080
+rulați această funcție și în interiorul acesteia veți scrie toate acestea
+
+02:20.100 --> 02:20.940
+jQuery.
+
+02:21.150 --> 02:24.420
+Deci, în acest caz, puteți vedea că dorim să selectați P.
+
+02:24.420 --> 02:30.800
+Aceasta a fost o sintaxă specifică jQuery și pe clic executați această funcție.
+
+02:31.020 --> 02:34.940
+Deci a fost exact același lucru ca atunci când am făcut p
+
+02:34.950 --> 02:44.340
+Dot addEventListener și apoi vom face clic și apoi vom face un fel de funcție.
+
+02:44.560 --> 02:51.610
+Deci puteți vedea că a făcut lucrurile un pic mai curat pentru a face și puteți face lucruri ca acest punct ascunde.
+
+02:51.690 --> 02:54.630
+Deci, dacă fac clic pe aici, se ascunde.
+
+02:54.780 --> 02:57.150
+Îl ascunde ascunde.
+
+02:57.210 --> 02:58.360
+E frumos.
+
+02:58.770 --> 03:01.960
+Dar jQuery a avut o problemă.
+
+03:02.110 --> 03:04.690
+A făcut codul foarte imperativ.
+
+03:04.810 --> 03:06.600
+Și ce înseamnă asta?
+
+03:06.700 --> 03:09.670
+Este un cuvânt pe care îl veți auzi mult când veți deveni dezvoltator.
+
+03:09.760 --> 03:13.560
+Aceasta înseamnă că trebuie să spuneți programului exact ce să faceți.
+
+03:13.720 --> 03:21.160
+Unul câte unul acest lucru nu pare să fie o idee proastă, dar atunci când site-urile dvs. devin mari și complicate creează
+
+03:21.160 --> 03:22.550
+o mizerie imensă.
+
+03:23.150 --> 03:30.140
+O acțiune depinde de o acțiune care depinde de o altă acțiune care depinde de alta
+
+03:30.140 --> 03:30.830
+acțiune.
+
+03:30.860 --> 03:33.730
+Acum pierdeți urmărirea a ceea ce se întâmplă.
+
+03:34.570 --> 03:40.420
+Mai multe erori și mai multe bug-uri în baza dvs. de cod și devine foarte complicat.
+
+03:40.420 --> 03:41.490
+Permiteți-mi să vă arăt un exemplu.
+
+03:42.970 --> 03:50.320
+Avem aici un simplu cod jQuery, în care spunem din nou funcția de pregătire a documentelor și apoi selectăm
+
+03:51.070 --> 03:54.990
+articol stânga secțiune atunci când se întâmplă clic.
+
+03:55.000 --> 04:03.770
+Apoi, verificăm că aceasta are o clasă și eliminăm clasa și vreau să spun că nu arată așa de rău.
+
+04:04.660 --> 04:12.100
+Dar a ajuns într-un punct în care ați avut un cod de genul asta numit piramida Doom unde, dacă acest lucru se întâmplă tu
+
+04:12.100 --> 04:17.680
+faceți acest lucru și dacă se întâmplă acest lucru, faceți acest lucru și dacă se întâmplă acest lucru, faceți acest lucru și vă puteți imagina dacă există
+
+04:17.680 --> 04:24.130
+a fost un alt lucru care ascultase un alt eveniment care ar putea avea consecințe neașteptate, deoarece
+
+04:24.250 --> 04:29.760
+acest lucru se execută și utilizatorul interacționează în același timp cu site-ul web.
+
+04:29.830 --> 04:36.910
+Și puteți vedea aici cât de mult este o mizerie vreau să spun că acesta este doar un exemplu, dar puteți vedea
+
+04:37.150 --> 04:38.850
+că este foarte imperativ.
+
+04:38.860 --> 04:45.940
+Acest lucru se întâmplă și face acest lucru și în interiorul său, dacă se întâmplă atunci face acest lucru și așa mai departe și așa mai departe.
+
+04:46.210 --> 04:49.520
+Creează o mizerie mare atunci când aveți site-uri mari.
+
+04:49.620 --> 04:55.810
+jQuery a fost grozav la momentul în care a făcut JavaScript cu adevărat popular, deoarece a fost în cele din urmă ușor de făcut interactive
+
+04:55.840 --> 04:58.140
+site-uri web și a făcut o mulțime de lucruri minunate pentru industrie.
+
+04:58.140 --> 05:03.380
+Cu toate acestea, odată cu trecerea timpului, oamenii au găsit noi și mai bune modalități de a face lucrurile.
+
+05:03.550 --> 05:08.450
+Browserele web au adaptat lucruri noi precum querySelector.
+
+05:08.740 --> 05:19.330
+Și chiar avem un site web acum care compară ce puteți face cu JavaScript simplu și HTML și ce
+
+05:19.570 --> 05:23.860
+puteți face cu jQuery și cele mai multe dintre lucrurile pe care le puteți face și pe amândouă.
+
+05:23.860 --> 05:29.850
+Și nu este atât de diferit în timp ce oamenii progresează, găsind noi și mai bune modalități de a face lucrurile.
+
+05:30.730 --> 05:36.070
+Încă mai aveți jQuery folosit astăzi, dar există mai puțini și mai puțini oameni care încep proiecte care
+
+05:36.070 --> 05:38.010
+folosesc jQuery chiar acum.
+
+05:38.200 --> 05:43.300
+De fapt, numărul de postări cu jQuery ca cerință a scăzut într-adevăr
+
+05:43.300 --> 05:50.130
+și există mai degrabă o viziune negativă asupra dezvoltatorilor care știu doar că nu este vorba de bash-ul unei biblioteci.
+
+05:50.130 --> 05:52.380
+A fost o parte importantă a creșterii JavaScript.
+
+05:52.740 --> 05:56.340
+Dar, în 2018, nu este utilă o abilitate.
+
+05:56.340 --> 06:04.150
+De aceea, în acest curs învățăm React. React este o bibliotecă care rezolvă problema imensă a
+
+06:04.150 --> 06:04.960
+jQuery.
+
+06:04.990 --> 06:11.650
+În loc să fie imperativ, este declarativ. Vom primi mai multe beneficii și ce înseamnă asta
+
+06:12.130 --> 06:13.520
+când ajungem la secțiune.
+
+06:13.780 --> 06:21.000
+Dar având o perspectivă istorică asupra locului în care eram și unde suntem acum este important.
+
+06:21.340 --> 06:23.130
+Amintește-ți asta.
+
+06:23.470 --> 06:27.760
+Mai întâi am avut HTML, apoi CSS și JavaScript.
+
+06:28.030 --> 06:31.360
+Apoi a venit jQuery pentru a face JavaScript mai usor.
+
+06:31.360 --> 06:36.540
+Apoi au venit mai multe biblioteci care au făcut JavaScript chiar mai distractiv și ușor de a lucra cu.
+
+06:37.490 --> 06:42.320
+De acum înainte nu vom folosi tehnicile de manipulare DOM pe care le-am învățat în această secțiune.
+
+06:42.320 --> 06:46.250
+Păcat. Știu dar vă voi arăta ce putem face mai bine.
+
+06:46.310 --> 06:47.620
+Stați așa.
+
+06:47.620 --> 06:49.760
+Devine mai distractiv după asta.
+
+06:50.390 --> 06:52.280
+Ne vedem în următorul. Pa! Pa.

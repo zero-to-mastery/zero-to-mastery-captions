@@ -1,0 +1,265 @@
+WEBVTT
+
+00:00.480 --> 00:01.620
+Bine ai revenit.
+
+00:01.620 --> 00:08.720
+Să conectăm baza noastră de date la serverul nostru. Și pentru a face asta, există multe instrumente ca tine
+
+00:08.720 --> 00:09.540
+stiam.
+
+00:09.830 --> 00:16.090
+Da, folosim din nou NPM, un pachet de noduri care ne permite să ne conectăm la o bază de date.
+
+00:16.130 --> 00:17.180
+Există multe opțiuni.
+
+00:17.210 --> 00:21.170
+Și în acest videoclip vom lucra cu KNEX.js.
+
+00:21.210 --> 00:23.770
+Funcționează cu PostgreSQL, MSSQL,
+
+00:23.770 --> 00:25.770
+MySQL,
+
+00:25.790 --> 00:27.650
+MariaDB, SQLite,
+
+00:27.840 --> 00:33.620
+Oracle, aproape orice bază de date relațională KNEX funcționează și este foarte simplu de utilizat.
+
+00:33.860 --> 00:36.880
+Îmi place absolut și o să-l iubești și pe el.
+
+00:38.120 --> 00:42.220
+Doar pentru a vă arăta că există diferite opțiuni, există ceva de genul promisiune pg aici.
+
+00:42.380 --> 00:47.780
+Asta este din nou foarte popular și puteți vedea aici că este foarte ușor.
+
+00:47.780 --> 00:56.220
+Importați-o și faceți .any și faceți declarația dvs. SQL. Și puteți alege oricare dintre voi
+
+00:56.220 --> 00:57.120
+vrei.
+
+00:57.570 --> 01:05.970
+Deși promisiunea pg vă permite să scrieți simple interogări SQL, KNEX este doar un instrument foarte bun
+
+01:05.970 --> 01:11.130
+că dacă lucrezi vreodată la un proiect pe care aș recomanda, așa că o să folosesc KNEX.js
+
+01:11.130 --> 01:20.040
+aceasta. Și dacă intri în instalare și Node.js, desigur, au o bună documentație despre cum să instalezi
+
+01:20.040 --> 01:22.250
+aceasta. În cazul nostru
+
+01:22.380 --> 01:26.200
+Putem doar NPM instala KNEX.
+
+01:26.310 --> 01:32.630
+Am de gând să opresc serverul pentru moment și să execut NPM install.
+
+01:32.640 --> 01:34.770
+Să deschidem fișierul package.json.
+
+01:34.770 --> 01:36.790
+Asigurați-vă că funcționează. Există
+
+01:36.870 --> 01:43.400
+KNEX și, de asemenea, spun că trebuie să instalăm PostgreSQL sau baza de date dorită.
+
+01:43.440 --> 01:45.080
+În cazul nostru dorim PostgreSQL.
+
+01:45.270 --> 01:52.660
+Deci, vom merge la NPM să instalezi PG.
+
+01:52.850 --> 02:00.080
+În regulă avem și PostgreSQL instalat. Uimitor.
+
+02:00.160 --> 02:06.490
+Din nou motivul pentru care îmi place această bibliotecă este faptul că face lucruri atât de simple pe care le puteți vedea aici,
+
+02:06.480 --> 02:10.570
+documentul dvs. vă spune exact ce trebuie să faceți pentru a vă conecta la baza de date.
+
+02:10.630 --> 02:27.450
+Deci, să copiați acest lucru, mergeți la server.js noastre. Să importăm făcând const KNEX = necesită ('knex');
+
+02:29.020 --> 02:35.230
+și aici vom copia și lipi și putem elimina variabila
+
+02:37.870 --> 02:39.350
+și folosiți-o așa.
+
+02:40.460 --> 02:49.180
+Acum, această sintaxă ar putea fi confuză pentru tine, dar tot ceea ce face este (dacă am elimina acest lucru) face doar knex
+
+02:51.030 --> 02:54.330
+și executând funcția KNEX pe care tocmai am avut-o.
+
+02:54.330 --> 02:56.140
+Deci, să păstrăm așa, pentru că arată mai bine.
+
+02:56.950 --> 03:01.670
+Vrem să ne actualizăm clientul la PostgreSQL.
+
+03:01.720 --> 03:10.270
+Deci, din nou, dacă facem PostgreSQL, va fi PG pentru că asta am descărcat și apoi trebuie
+
+03:10.270 --> 03:18.390
+spune-i unde locuieste aceasta baza de date. Și am modifica acest lucru în funcție de locul în care am creat baza noastră de date
+
+03:18.620 --> 03:20.700
+pe o platformă găzduită.
+
+03:21.680 --> 03:29.110
+Dar pentru moment avem localhost și localhost același lucru ca și numărul 127.0.0.1
+
+03:29.110 --> 03:32.200
+ este acasa.
+
+03:32.230 --> 03:38.590
+Există un tricou amuzant pe care l-am văzut un dezvoltator purtând o dată, care spune că nu există nici un loc ca 127.0.0.1
+
+03:38.590 --> 03:44.020
+ pentru că înseamnă localhost și a fost un joc în care nu există nici un loc ca acasă.
+
+03:44.050 --> 03:45.200
+Am crezut că e amuzant.
+
+03:45.360 --> 03:53.180
+Oricum, acest lucru este același lucru cu gazda locală, așa că o să păstrăm așa și avem utilizatorul nostru în cazul nostru
+
+03:53.180 --> 03:59.340
+amintiți-vă și mergem la baza noastră de date, utilizatorul cred că mă va face așa că îmi voi face numele.
+
+04:02.040 --> 04:06.700
+Nu există nicio parolă în baza noastră de date, așa că putem lăsa necompletate.
+
+04:07.050 --> 04:08.290
+De fapt, nici un utilizator nu este.
+
+04:08.300 --> 04:10.170
+Dar pentru moment este bine.
+
+04:10.380 --> 04:12.150
+Și baza de date dacă îți amintești
+
+04:15.820 --> 04:21.690
+se numește "creier inteligent".
+
+04:21.690 --> 04:24.090
+Acum, dacă ieșesc de fapt
+
+04:26.840 --> 04:30.190
+și începeți să vedeți că este același lucru cu care intrăm aici.
+
+04:30.350 --> 04:34.460
+Spunem doar unde este gazda, parola de utilizator și baza de date.
+
+04:34.460 --> 04:41.120
+Și pentru că ne putem conecta aici fără utilizator și parolă. Ei bine, nu avem nevoie de acele informații.
+
+04:42.220 --> 04:43.300
+Să dăm asta.
+
+04:43.300 --> 04:50.300
+O să salvez. Începeți.
+
+04:50.340 --> 04:50.720
+In regula.
+
+04:50.730 --> 04:56.160
+Nu primesc vreo eroare aici, care este bună.
+
+04:56.210 --> 04:58.450
+Să ne întoarcem la pagina, aici
+
+05:03.310 --> 05:10.760
+și copiați și lipiți doar o simplă declarație, probabil pentru a vă asigura că totul funcționează.
+
+05:10.930 --> 05:14.750
+Dacă ne întoarcem la partea stângă, avem constructorul de interogări și selectăm.
+
+05:14.760 --> 05:18.360
+Deci, să luăm ceva din baza noastră de date.
+
+05:18.370 --> 05:26.470
+Chiar dacă nu avem nimic. Vedeți că avem doar knex.select și apoi orice
+
+05:26.470 --> 05:30.360
+dorim să selectăm din baza de date.
+
+05:30.370 --> 05:31.330
+Bine, să facem asta.
+
+05:31.510 --> 05:32.000
+Hai sa facem
+
+05:32.001 --> 05:44.000
+knex.select (*) de la ( 'utilizatori').;
+
+05:44.000 --> 05:46.310
+Bază de date.
+
+05:46.450 --> 05:50.400
+Am de gând să salvez și am o eroare care este bună.
+
+05:50.400 --> 05:57.950
+Citește aici, dar spune un jeton neașteptat deoarece, bine, trebuie să înfășoară acest lucru ca un șir. Sa incercam
+
+05:57.950 --> 05:58.570
+iarasi asta.
+
+05:59.820 --> 06:06.180
+Și vedeți aici cum am selecta conexiunea select nu este o funcție, pentru că aici trebuie să atribuie acest a
+
+06:06.180 --> 06:07.070
+variabil.
+
+06:07.530 --> 06:13.710
+Și modul în care procedăm este că putem spune că baza de date const este egală cu cea pe care o aveam înainte.
+
+06:13.800 --> 06:16.150
+KNEX.select.
+
+06:16.380 --> 06:27.320
+Dar hai să facem postgres. Salvați și schimbați acest lucru la Postgres cu salvare, iar acum nu există
+
+06:27.440 --> 06:29.150
+erori.
+
+06:29.240 --> 06:29.990
+Asta-i grozav.
+
+06:30.330 --> 06:33.200
+Dacă putem console.log
+
+06:33.870 --> 06:38.480
+acum și salvați.
+
+06:38.680 --> 06:42.460
+În regulă, avem o mulțime de informații aici.
+
+06:43.550 --> 06:46.630
+Dar se pare că reacționează cu ceva perfect.
+
+06:46.640 --> 06:54.380
+Se pare că suntem conectați la creierul inteligent, dar acest lucru nu este exact modul în care vom returna informațiile
+
+06:54.380 --> 06:57.390
+KNEX și vom intra în asta în următorul videoclip.
+
+06:57.680 --> 07:03.530
+Dar deocamdată am conectat serverul la baza noastră de date.
+
+07:03.590 --> 07:05.040
+Ne vedem în următorul.
+
+07:05.240 --> 07:05.520
+Pa! Pa.

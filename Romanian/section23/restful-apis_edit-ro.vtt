@@ -1,0 +1,349 @@
+WEBVTT
+
+00:01.010 --> 00:01.960
+Bine ai revenit.
+
+00:02.000 --> 00:07.130
+În acest videoclip vom vorbi despre API RESTful.
+
+00:07.250 --> 00:08.050
+Ce este asta?
+
+00:08.940 --> 00:16.290
+Un API REST definește un set de funcții pe care dezvoltatorii pot să le îndeplinească și să primească răspunsuri
+
+00:16.350 --> 00:25.310
+printr-un protocol HTTP, cum ar fi GET, POST, PUT, DELETE - ceva despre care am vorbit.
+
+00:25.310 --> 00:33.590
+Amintiți-vă cum am spus că un browser web trimite o cerere și speră doar că serverul returnează browserul
+
+00:33.620 --> 00:34.410
+a cerut.
+
+00:34.640 --> 00:37.590
+Un server Google ne poate trimite orice vrea.
+
+00:37.610 --> 00:46.040
+Nu trebuie să respecte regulile pe care le poate seta browserul web. Cu API RESTful suntem capabili să
+
+00:46.070 --> 00:52.670
+creați un API care este RESTful - ceva ce urmează regulile pe care toată lumea le poate conveni pentru ca noi
+
+00:52.670 --> 00:55.930
+au compatibilitate între diferite sisteme.
+
+00:57.350 --> 01:05.290
+Deci, un API RESTful este un stil arhitectural și este o abordare a comunicării; un set convenit
+
+01:05.290 --> 01:14.230
+de reguli, astfel încât toată lumea să joace frumos. Un utilizator de API RESTful GET pentru a primi o resursă, PUT pentru a schimba starea
+
+01:14.440 --> 01:22.990
+sau să actualizați o resursă, un POST care creează o resursă și o DELETE pentru ao elimina.
+
+01:23.390 --> 01:30.800
+Și asta este ceva despre care am vorbit deja și API RESTful este o modalitate de a ne defini serverul
+
+01:31.700 --> 01:35.610
+astfel încât să specifice ce poate oferi și cum să o folosească.
+
+01:37.580 --> 01:42.520
+Cu alte cuvinte parametrii URL ar trebui să aibă sens.
+
+01:42.550 --> 01:49.360
+De exemplu, dacă facem "/ profile" - bine, ne așteptăm ca, dacă este o cerere GET, o să mergem
+
+01:49.360 --> 01:50.920
+obțineți un profil.
+
+01:51.130 --> 01:55.270
+Dacă este o solicitare POST, vom adăuga un profil.
+
+01:55.270 --> 02:00.130
+Dacă este un PUT, probabil că actualizăm profilul, iar acest URL are sens.
+
+02:01.050 --> 02:08.140
+Și vă puteți gândi la acest lucru ca substantivul a ceea ce dorim să primim. Cererea HTTP
+
+02:08.210 --> 02:13.600
+este verbul și totul după slash [/] este substantivul.
+
+02:16.180 --> 02:23.800
+Acum, în cele din urmă REST APis sunt ceva numit "apatrid" - ceea ce înseamnă că apelurile pot fi făcute independent
+
+02:23.800 --> 02:32.040
+unul altuia și fiecare apel conține toate datele necesare pentru a se completa cu succes. Un server
+
+02:32.160 --> 02:34.560
+nu are nevoie să păstreze memorarea lucrurilor.
+
+02:34.560 --> 02:40.590
+Fiecare cerere care vine are suficiente informații pe care serverul poate să le răspundă, indiferent de cine
+
+02:40.590 --> 02:42.570
+acea persoană este.
+
+02:42.570 --> 02:53.080
+Deci, în acest exemplu să construim o mică aplicație mică care are un API RESTful.
+
+02:53.200 --> 02:55.740
+Să facem asta mult mai mic.
+
+02:56.900 --> 03:03.940
+Acolo mergeți - avem exemplul nostru precedent - vom începe serverul și vom vorbi despre unele dintre lucrurile pe care le facem
+
+03:04.540 --> 03:06.430
+putem face aici.
+
+03:06.700 --> 03:14.460
+Ei bine, atunci când ne uităm la o solicitare GET această cerere GET - să eliminăm de fapt, de asemenea, chiar așa este
+
+03:14.460 --> 03:16.400
+nu prea murdar.
+
+03:18.240 --> 03:23.900
+Această solicitare GET va avea un obiect de solicitare pe care îl primim.
+
+03:24.000 --> 03:27.690
+Acum, acest obiect de cerere poate avea câteva lucruri - putem avea
+
+03:27.690 --> 03:29.300
+cere interogare punct [req.query]
+
+03:32.580 --> 03:37.020
+putem sa cerem body dot [req.body], pe care am vazut-o in videoclipul anterior.
+
+03:37.020 --> 03:46.190
+De asemenea, am solicitat header header [req.header], din nou ceva pe care l-am văzut înainte și, de asemenea, solicită puncte params [req.params] și
+
+03:46.190 --> 03:50.700
+aceasta este probabil cea mai utilizată proprietate a cererii.
+
+03:50.790 --> 03:52.200
+Să trecem prin ea unul câte unul.
+
+03:54.100 --> 04:00.200
+"req.query" este ceea ce obținem atunci când facem o interogare GET.
+
+04:00.300 --> 04:08.660
+De exemplu, aici, dacă o fac
+
+04:11.390 --> 04:12.250
+'Console.log (req.query)'
+
+04:12.700 --> 04:24.850
+Ei bine, eu pot merge la localhost și aici - ceva despre care am vorbit deja - pot adăuga o întrebare
+
+04:24.850 --> 04:25.310
+marcă
+
+04:25.310 --> 04:35.160
+pentru a spune că acesta este un șir de interogare și spune "name = andrei & age = 31".
+
+04:36.200 --> 04:37.770
+Apăs pe Enter
+
+04:38.000 --> 04:44.240
+du-te înapoi și văd aici că eu "numele" este "andrei",
+
+04:44.280 --> 04:52.950
+"vârsta" este "31" deoarece am acces la șirul de interogare [console.log (req.query)].
+
+04:52.980 --> 05:01.020
+Avem, de asemenea, organismul de solicitare [req.body], despre care am vorbit din nou - folosind ceva asemănător cu codul dvs. "urlencoded" sau "JSON"
+
+05:01.430 --> 05:12.690
+body-parsers, putem adăuga că middleware-ul primește orice trimite cererea în organism.
+
+05:12.720 --> 05:15.530
+De asemenea, am solicitat titlul punctului [req.header].
+
+05:15.600 --> 05:30.900
+Deci, dacă console.log (req.header) "bine de data aceasta folosind Postman pot spune în antet - și
+
+05:30.900 --> 05:34.760
+are o filă Anteturi frumoase - vedeți că avem Content-Type
+
+05:34.760 --> 05:41.210
+"application / json", care o face automat deoarece ultima cerere a fost o cerere JSON.
+
+05:41.430 --> 05:50.130
+Dar pot pune ceva aici, pot spune că "numele" este "andrei" - sau de data asta doar pentru ao schimba, vom spune "sally"
+
+05:51.090 --> 05:56.510
+dacă trimit acest lucru - și aceasta este o metodă DELETE să ne asigurăm că este o metodă GET -
+
+05:56.620 --> 05:57.490
+Dacă trimit asta
+
+06:01.120 --> 06:09.180
+Vad ca acum (req.header) are toate aceste titluri, dar si - name:'sally'.
+
+06:09.250 --> 06:10.510
+Foarte tare.
+
+06:10.570 --> 06:16.460
+Și apoi, în sfârșit, avem și ceva numit (req.params)
+
+06:16.720 --> 06:28.050
+Și dacă 'console.log (req.params)' - aceasta este o sintaxă în care folosiți parametrii URL-ului.
+
+06:28.140 --> 06:39.620
+Dacă fac punct și virgulă și apoi spunem "id" ['/:id'] - salvez acest lucru și acum avem acces la orice parametru
+
+06:40.190 --> 06:41.330
+este de URL.
+
+06:41.390 --> 06:47.510
+Deci, să spunem doar "1234" și voi elimina antetul pentru moment.
+
+06:47.520 --> 06:54.080
+Dacă "Trimite", acum am {id:'1234'} drept.
+
+06:54.080 --> 06:54.570
+Minunat.
+
+06:54.740 --> 07:02.290
+Și puteți avea cât mai mulți parametri doriți și puteți să le cuibărați, dar avem acces la cererea noastră
+
+07:02.300 --> 07:05.340
+informații, care este fantastic.
+
+07:06.290 --> 07:15.700
+Acum, când trimitem un răspuns, dorim să avem și o opțiune în ceea ce privește ceea ce dorim să trimitem. Bine cu
+
+07:15.700 --> 07:20.840
+un răspuns putem spune că prin trimitere
+
+07:20.840 --> 07:32.510
+de asemenea, dorim să răspundem cu un statut, să spunem un statut de 404 și să putem spune că trimite ("nu a fost găsit")
+
+07:34.190 --> 07:45.440
+dacă am reîmprospăta și trimite acum, nu am găsit "cu un statut de 404.
+
+07:45.640 --> 07:48.460
+Din nou, dacă mă întorc la browserul meu și mă reîmprospătează
+
+07:51.350 --> 07:55.560
+Am în fila mea de rețea un statut 404.
+
+07:55.580 --> 07:56.720
+In regula.
+
+07:56.720 --> 07:57.900
+Perfect.
+
+07:57.980 --> 08:01.550
+Și din nou, personalizați - pentru a avea un API RESTful -
+
+08:01.820 --> 08:08.430
+GET, POST, PUT și DELETE pentru a respecta regulile pe care le așteaptă browserele web.
+
+08:08.460 --> 08:09.780
+Un ultim lucru.
+
+08:09.840 --> 08:12.270
+Până acum trimitem date înainte și înapoi.
+
+08:12.270 --> 08:20.130
+Dar dacă vrem să servească ceva numit active statice care este 'index.html', fișier CSS, fișier JavaScript
+
+08:20.130 --> 08:22.180
+- asta e mai realist?
+
+08:22.180 --> 08:30.210
+De obicei, vrem un fișier index și care să aibă rularea aplicației - este foarte ușor de făcut.
+
+08:30.270 --> 08:36.310
+Putem crea în cadrul acestui proiect - hai să facem un nou dosar numit public.
+
+08:36.780 --> 08:42.150
+Și acest nume ți-ar putea fi cunoscut, pentru că atunci când am făcut publicul "create-react-app", a fost acolo și acolo
+
+08:42.150 --> 08:44.650
+a ținut toate fișierele noastre statice.
+
+08:45.290 --> 08:50.980
+Deci, aici să facem un nou fișier - "index.html".
+
+08:51.020 --> 08:55.070
+Acum, în cadrul acestui dosar public, vom face o scurtă
+
+08:55.070 --> 08:57.340
+Document HTML care spune "hi".
+
+08:57.590 --> 09:01.940
+Și în interiorul meu voi spune că "funcționează".
+
+09:04.820 --> 09:10.910
+Pentru ca Express să trimită fișiere statice
+
+09:11.150 --> 09:13.370
+putem șterge acest lucru deocamdată
+
+09:13.460 --> 09:20.640
+doar pentru a păstra acest lucru curat și a face un alt middleware "app.use ()".
+
+09:20.830 --> 09:30.300
+Și acest lucru vine cu Express deja că facem "express.static ()" și aici îi dăm calea fișierului.
+
+09:30.410 --> 09:38.190
+În cazul nostru, știm că vrem să obținem "__dirname", pe care l-am văzut într-un videoclip anterior, care este
+
+09:38.190 --> 09:47.850
+directorul unde suntem; în cazul nostru nodul nostru și dorim să mergem în dosarul public, așa că facem public.
+
+09:53.680 --> 09:55.240
+Aceasta va imprima "nodul"
+
+09:58.010 --> 09:59.380
+apoi "public".
+
+09:59.630 --> 10:08.670
+Deci acum dacă salvez acest lucru și mă întorc la solicitarea noastră GET, mă înțeleg.
+
+10:08.780 --> 10:12.670
+Lasă-mă să mă fac atât de mare încât să poți vedea.
+
+10:12.840 --> 10:22.260
+Și dacă ne deschidem Consola și tab-ul nostru de rețea - am reîmprospătare I a lua - ooh, să facem o reîmprospătare greu - I a lua "200"
+
+10:25.100 --> 10:26.210
+Primesc text / html
+
+10:26.240 --> 10:29.400
+Iar răspunsul este fișierul meu HTML.
+
+10:29.570 --> 10:35.420
+Și dacă aș avea o legătură CSS aici, acesta va încărca CSS în dosarul meu public.
+
+10:35.540 --> 10:41.700
+Dacă am avea un fișier JavaScript, atunci se va încărca, deoarece în interiorul corpului putem adăuga o etichetă de script.
+
+10:42.110 --> 10:49.350
+Și acesta este un server pe care tocmai l-am construit, care servește active simple statice.
+
+10:49.580 --> 10:56.210
+Și de îndată ce vrem să avem ceva de genul unui API în care interacționăm cu el, facem GET, POST, PUT
+
+10:56.210 --> 10:56.930
+ȘTERGE
+
+10:56.990 --> 11:03.810
+atunci începem să folosim metodele pe care le-am învățat anterior.
+
+11:03.860 --> 11:04.880
+Foarte tare.
+
+11:05.000 --> 11:12.860
+Acum, că avem această fundație de bază, vom construi serverul pentru aplicația noastră - aplicația pe care o construim
+
+11:12.860 --> 11:16.230
+în proiectul nostru final, aplicația noastră de recunoaștere a imaginii?
+
+11:16.640 --> 11:19.240
+Ei bine, vom construi un back-end pentru asta.
+
+11:20.230 --> 11:21.870
+Voi vedea în următorul. Pa! Pa

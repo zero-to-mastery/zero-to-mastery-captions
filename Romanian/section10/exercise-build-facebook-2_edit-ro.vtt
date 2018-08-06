@@ -1,0 +1,275 @@
+WEBVTT
+
+00:00.990 --> 00:08.250
+Bine ai revenit! Folosind noile noastre cunoștințe de bucle, vom face puțin aplicația noastră Facebook
+
+00:08.250 --> 00:09.000
+mai bine.
+
+00:09.420 --> 00:13.270
+Vreau să spun pentru că Facebook are mai mulți utilizatori, nu?
+
+00:13.350 --> 00:16.660
+Nu este doar un utilizator, are milioane de oameni.
+
+00:16.950 --> 00:25.990
+Deci, cum putem verifica parola cuiva trecând prin nu doar un utilizator, dar mai multe?
+
+00:26.140 --> 00:30.510
+Ei bine, sună ca o soluție perfectă pentru bucle, așa că haideți să mergem.
+
+00:30.520 --> 00:33.650
+Voi adăuga alți utilizatori aici.
+
+00:33.740 --> 00:42.100
+Vom copia asta. Și avem "sally" cu parola "123".
+
+00:42.400 --> 00:49.600
+Și avem și "ingrid" cu parola "777".
+
+00:49.820 --> 00:51.700
+Deci, să o reîmprospătăm.
+
+00:51.700 --> 00:54.760
+O să fac asta pe o linie nouă, ca să vezi.
+
+00:54.890 --> 00:59.850
+Mă voi reîmprospăta și voi scrie în "ingrid".
+
+01:02.570 --> 01:06.960
+'777'. "Ne pare rău, numele de utilizator și parola greșite".
+
+01:07.210 --> 01:13.360
+Și asta are sens, nu? Pentru că atunci când am creat funcția noastră "signIn", ei bine, doar verificați
+
+01:13.360 --> 01:15.480
+primul element din baza de date.
+
+01:15.790 --> 01:17.260
+Dar vrem să le verificăm pe toți.
+
+01:17.260 --> 01:22.800
+Vrem să verificăm primul element din matrice, al doilea și al treilea.
+
+01:22.900 --> 01:25.510
+Se pare că trebuie să adăugăm un "buclă" aici.
+
+01:26.480 --> 01:28.050
+Cum putem face asta?
+
+01:28.430 --> 01:31.910
+Ar trebui să adăugăm o "buclă".
+
+01:31.940 --> 01:34.500
+Voi spune aici.
+
+01:34.730 --> 01:44.150
+Ei bine, de fapt voi comenta acest lucru în primul rând, și vom spune, că atunci când în "signIn" vrem să facem "pentru var
+
+01:44.150 --> 01:47.130
+i = 0 '.
+
+01:47.170 --> 01:56.210
+Ne amintim acest index din ultimul videoclip, vom spune că "eu este mai mic decât database.length".
+
+01:56.950 --> 02:09.410
+Deci, 'database.length' este '3'. Și vom crește de fiecare dată. Deschideți și închideți parantezele, apoi aici
+
+02:09.410 --> 02:14.320
+vrem să spunem "dacă (baza de date [i])".
+
+02:14.420 --> 02:15.280
+Deci, în loc de "0"
+
+02:15.290 --> 02:22.470
+acum putem spune "i", pentru că "i" va merge "0, 1, 2". Asa de
+
+02:22.510 --> 02:30.080
+"dacă baza de date [i] este egală" și ar trebui să avem și un "nume de utilizator" aici.
+
+02:30.180 --> 02:42.470
+Deci, dacă "numele de utilizator" este egal cu "username", pe care îl primim, care este intrarea "username". Și voi începe
+
+02:42.480 --> 02:56.600
+o linie nouă aici. "baza de date [i] .password" este egală cu "parola" pe care o primim de la "utilizator". Ei bine, dacă asta e
+
+02:56.810 --> 02:58.940
+cazul în care ar trebui să facem.
+
+02:59.270 --> 03:03.380
+Dacă este corect, vom face "console.log (newsfeed)".
+
+03:04.830 --> 03:05.610
+In caz contrar.
+
+03:05.910 --> 03:10.970
+În caz contrar, vom face "alertă".
+
+03:11.050 --> 03:17.780
+"Ne pare rău, numele de utilizator și parola greșite".
+
+03:17.920 --> 03:28.700
+Deci, acum o să salvez. Să încercăm asta. 'nume de utilizator'? - "ingrid", "parola"? - "777". "Ne pare rău, numele de utilizator și parola greșite".
+
+03:28.890 --> 03:33.550
+"Ne pare rău, numele de utilizator și parola greșite", dar apoi primesc "newsfeed".
+
+03:33.670 --> 03:34.630
+Ce s-a intamplat?
+
+03:35.920 --> 03:41.680
+Ei bine, ceea ce am făcut a fost, am făcut o "bucla", dar am fugit de 3 ori.
+
+03:41.680 --> 03:47.830
+Deci, prima dată când am primit "Ne pare rău, numele de utilizator greșit", a doua oară am primit "Ne pare rău, numele de utilizator greșit", pentru că este
+
+03:47.830 --> 03:56.080
+verificând "andrei" și "sally" și apoi verificați "ingrid", care în cele din urmă funcționează și mă dă înapoi "newsfeed".
+
+03:57.330 --> 04:04.110
+Deci logica noastră aici nu este corectă. Ce putem face pentru a rezolva asta?
+
+04:04.160 --> 04:08.390
+Am o idee. Să creăm o altă funcție.
+
+04:08.390 --> 04:16.910
+Voi suna această funcție 'isUserValid' și această funcție va primi 'username'
+
+04:20.330 --> 04:22.340
+și "parola".
+
+04:22.410 --> 04:28.550
+Și aici putem să copiem și să mutăm aici.
+
+04:28.550 --> 04:35.750
+Dar nu vrem cu adevărat să facem ceea ce sa întâmplat aici unde ne înregistrăm în mod constant, în schimb ar vrea să spunem
+
+04:36.290 --> 04:39.520
+'return true'.
+
+04:39.560 --> 04:50.180
+Deci, dacă utilizatorul este valid "return true", dacă utilizatorul nu este valid, atunci ar trebui să "întoarcem false", nu?
+
+04:50.210 --> 04:52.740
+Dar cum putem face asta?
+
+04:52.850 --> 04:58.060
+Ei bine, dacă mă întorc "aici" - să vedem logica.
+
+04:58.340 --> 05:00.320
+Mă străduiesc prin tot.
+
+05:00.620 --> 05:06.710
+Dacă în orice moment se potrivesc "numele de utilizator" și "parola", cu ceea ce avem în baza de date "return true".
+
+05:06.710 --> 05:11.630
+Și ne amintim că o funcție se oprește și iese atunci când vede "întoarcerea".
+
+05:11.630 --> 05:13.150
+Deci, se va întoarce "adevărat".
+
+05:13.580 --> 05:20.810
+Dar dacă face trecerea de 3 ori și această condiție "dacă" nu trece niciodată, va merge la următoarea
+
+05:20.810 --> 05:23.410
+linie care este "return false".
+
+05:25.590 --> 05:28.350
+Deci acum este'UserValid '.
+
+05:28.350 --> 05:30.420
+Ei bine, să testați asta!
+
+05:30.660 --> 05:40.820
+Voi spune "console.log (isUserValid)", iar noi îi vom da "username" și "password".
+
+05:41.310 --> 05:44.970
+Puteți vedea că "numele de utilizator" și "parola" vine de aici.
+
+05:45.000 --> 05:47.880
+Deci, să vedem. O să salvez și să reîmprospătesc
+
+05:50.500 --> 05:54.980
+"ingrid", "777".
+
+05:55.190 --> 05:55.870
+'Adevărat'.
+
+05:55.880 --> 05:56.540
+Asta e corect.
+
+05:56.660 --> 05:58.550
+Să încercăm ceva în care nu este bine.
+
+05:58.550 --> 06:03.280
+Voi spune "t" și "garblegarblegarble", "false".
+
+06:03.380 --> 06:03.610
+O.K.
+
+06:03.620 --> 06:07.160
+Se pare că funcția noastră "isUserValid" funcționează.
+
+06:08.810 --> 06:11.300
+Deci acum urmăriți acest lucru:06:11.540 --> 06:17.730
+Putem elimina jurnalul și ne-am dezmembra funcția originală.
+
+06:19.500 --> 06:33.610
+Și în loc să facem toate aceste verificări putem spune acum "if (isUserValid)", "username" și "password", care
+
+06:33.610 --> 06:40.070
+este din nou acest "nume de utilizator" și "parolă", pe care le primim aici de la "prompt".
+
+06:40.280 --> 06:45.230
+Dacă aceasta este "adevărată", rulați "newsfeed".
+
+06:45.350 --> 06:51.020
+Dacă este falsă, bine "altceva" spuneți "Ne pare rău, numele de utilizator și parola greșite".
+
+06:51.500 --> 06:54.280
+Să salvăm și să reîmprospătăm. O.K.
+
+06:54.360 --> 06:55.170
+Sa mergem.
+
+06:55.170 --> 07:05.760
+"ingrid", parola "777". Noi primim "newsfeed" și dacă introducem informații greșite,
+
+07:08.790 --> 07:13.290
+avem "Ne pare rău, numele de utilizator și parola greșite".
+
+07:13.300 --> 07:14.730
+Cat de tare e asta?
+
+07:14.770 --> 07:20.700
+Acum am creat doar 2 funcții și se citește destul de bine, nu? Și se spune "signIn".
+
+07:21.040 --> 07:24.040
+Iată "numele de utilizator". Iată "parola".
+
+07:24.040 --> 07:29.730
+Mergem la funcția "signIn", se spune:"Hei, dacă" esteUserValid "?"
+
+07:30.260 --> 07:36.140
+"Da, utilizatorul este valabil". "Than 'newsfeed log', altfel 'alertă' 'Ne pare rău, nume de utilizator și parolă greșite".
+
+07:36.360 --> 07:42.180
+Și acesta este un concept foarte important de numire a lucrurilor și de comandare a codurilor, astfel încât să puteți să le citiți
+
+07:42.180 --> 07:44.560
+cum ar fi limba engleză și are sens.
+
+07:44.660 --> 07:45.940
+Și acolo aveți.
+
+07:46.080 --> 07:48.780
+Avem aplicația noastră Facebook.
+
+07:48.780 --> 07:50.960
+Puteți vedea aici puterea JavaScript.
+
+07:51.000 --> 08:00.640
+Din nou, am creat aceste funcționalități care pot fi aplicate pe scară mai mare pe aplicațiile web reale.
+
+08:00.750 --> 08:02.670
+Ne vedem în următorul. Pa! Pa

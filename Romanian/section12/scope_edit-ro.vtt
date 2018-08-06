@@ -1,0 +1,350 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+Și bine ai venit înapoi.
+
+00:02.830 --> 00:10.710
+În acest videoclip vom vorbi despre un concept important în javascript numit "domeniul de aplicare".
+
+00:10.840 --> 00:20.890
+Acum ce este domeniul de aplicare? Domeniul de aplicare înseamnă acces variabil, la ce variabile am acces atunci când rulează un cod?
+
+00:21.710 --> 00:29.600
+Prin urmare, în mod implicit, în Javascript, vă aflați în "domeniul de acoperire" care este obiectul "fereastră".
+
+00:29.600 --> 00:30.410
+Lasă-mă să-ți arăt ce vorbesc.
+
+00:31.700 --> 00:36.560
+Dacă în consola mea fac ceva de tipul "funcția aa ()"
+
+00:39.820 --> 00:49.160
+'console.log ("test") și închidem această funcție.
+
+00:49.230 --> 00:58.530
+Ei bine, "funcția aa" face parte din "domeniul de aplicare al ferestrei".
+
+00:58.630 --> 01:09.120
+Dacă mă duc "fereastră" aici și deschideți "fereastra" veți vedea
+
+01:09.330 --> 01:11.250
+că funcția "aa" a fost adăugată la "domeniul de aplicare al ferestrei".
+
+01:11.290 --> 01:15.610
+Deci, atunci când lucrați într-un browser, acest lucru se numește "domeniul de acoperire".
+
+01:15.610 --> 01:19.600
+Deci, domeniul de aplicare al părintelui.
+
+01:19.760 --> 01:28.890
+Și dacă aș face așa ceva. Dacă mă duc "funcția bb".
+
+01:29.680 --> 01:33.930
+Și în cadrul acestei funcții vom face.
+
+01:34.180 --> 01:34.870
+variabila "a" este egală cu "hello"
+
+01:39.820 --> 01:47.050
+Va funcționa această funcție, dacă execut acest lucru în consola,
+
+01:47.230 --> 01:54.460
+Dacă acum fac "console.log (a)", aceasta va funcționa.
+
+01:54.550 --> 02:03.280
+Nu, deoarece "a" trăiește numai în cadrul funcției bb "domeniul de aplicare este în interiorul funcției.
+
+02:03.280 --> 02:12.330
+Deci, singura modalitate de a face "console.log (a)" este în cadrul funcției de adăugat, oops!
+
+02:12.460 --> 02:20.060
+Trebuie să încercați din nou, în cadrul funcției de adăugat "console.log (a)".
+
+02:20.070 --> 02:24.000
+Deci, dacă conduc această funcție,
+
+02:24.060 --> 02:24.930
+Am "salut".
+
+02:25.410 --> 02:32.850
+Acum, interesant este faptul că funcțiile au acces la
+
+02:32.850 --> 02:34.110
+orice variabilă în domeniul rădăcinilor.
+
+02:34.380 --> 02:51.080
+De exemplu, dacă fac variabila (var) b egală, pot accesa acest lucru? " Funcția "bb" va avea acces la aceasta?
+
+02:51.250 --> 03:05.920
+Deoarece stii ca 'window.bb' exista si variabila 'b' traieste pe obiect fereastra.
+
+03:05.960 --> 03:13.990
+Deci amândoi au același părinte. Permiteți-mi să vă arăt ce vreau să spun,
+
+03:13.990 --> 03:15.760
+prin copierea acestui lucru și punerea lui în consolă
+
+03:15.940 --> 03:22.180
+Acum în cadrul funcției bb 'dacă facem' console.log (b) '
+
+03:27.450 --> 03:39.780
+Avem acces la asta
+
+03:39.860 --> 03:40.170
+OK, dacă fac ceva de-a lungul liniilor variabilei (var) 'b', pot accesa acest lucru.
+
+03:40.170 --> 03:45.150
+Fac "b" egal cu "salut", dacă copiez acest lucru.
+
+03:45.280 --> 03:47.940
+Și acum o fac
+
+03:48.020 --> 03:50.230
+'console.log (b)' Ei bine,
+
+03:50.230 --> 03:56.840
+Pot accesa acest lucru pentru că nu am executat funcția, dar dacă execut funcția "bb ()".
+
+03:57.020 --> 03:57.890
+Acum, dacă o fac.
+
+03:57.890 --> 04:02.330
+'Console.log (b)'
+
+04:02.420 --> 04:03.190
+Îmi pare rău.
+
+04:03.470 --> 04:08.860
+Deoarece "b" este aceeași variabilă.
+
+04:09.290 --> 04:14.550
+Ok, să facem ceva mai complex.
+
+04:14.880 --> 04:23.540
+Deci, știind ce știm, știm că acesta este scopul principal al ferestrei noastre.
+
+04:23.540 --> 04:25.150
+Aici putem declara o variabilă.
+
+04:25.210 --> 04:27.480
+"distracție" vom spune egal cu cinci.
+
+04:28.280 --> 04:30.290
+Și vom declara și noi
+
+04:32.840 --> 04:35.550
+o funcție, o vom numi "funFunction".
+
+04:35.870 --> 04:41.940
+Și în cadrul acestei funcții, de îndată ce creăm aceste "{}" paranteze crete, am creat un scop pentru copii aici.
+
+04:46.280 --> 04:55.170
+Deci, în interiorul aici voi spune că variabila (var) 'fun' este egală cu 'hellooo' și va 'console.log (fun)' aici
+
+05:00.410 --> 05:07.650
+și vom crea o altă funcție, cu excepția faptului că se va numi funnerfunction.
+
+05:07.810 --> 05:15.030
+Și în cadrul acestuia se va spune "Byee" și se va consola acest jurnal.
+
+05:15.180 --> 05:24.110
+Și, în final, vom crea oa treia funcție și vom numi aceasta "funnestFunction".
+
+05:24.110 --> 05:32.670
+Și aici vom elimina variabila și vom spune "AHHHHHH".
+
+05:32.850 --> 05:40.370
+Și în partea de jos vom face și "console.log (fun)".
+
+05:40.400 --> 05:41.020
+In regula.
+
+05:41.160 --> 05:42.390
+Să trecem peste asta.
+
+05:42.390 --> 05:44.020
+Declarăm o variabilă
+
+05:44.130 --> 05:45.440
+Distracția este egală cu cinci.
+
+05:45.480 --> 05:51.800
+Am creat trei funcții și fiecare dintre aceste funcții își creează propriul scop
+
+05:54.770 --> 05:58.240
+și fiecare dintre aceste funcții "console.log (fun)".
+
+05:58.340 --> 06:06.580
+Dar ceea ce înseamnă "distracție" în fiecare dintre ele este diferit în funcție de domeniul lor de aplicare.
+
+06:07.430 --> 06:18.510
+Deci, primul îl va numi "1" doar așa că știm că al doilea va spune "2", "al treilea (3)" și apoi în sfârșit aici
+
+06:18.510 --> 06:22.590
+putem spune "fereastră".
+
+06:22.690 --> 06:24.880
+Deci, să conducem această funcție și să vedem ce se întâmplă.
+
+06:25.800 --> 06:28.730
+Vezi dacă poți ghici,
+
+06:29.000 --> 06:29.480
+ce urmează să se întâmple aici, OK.
+
+06:29.610 --> 06:34.970
+Deci avem o fereastră 5, ceea ce înseamnă că linia asta aici.
+
+06:35.200 --> 06:37.700
+Variabila distracție este '5'.
+
+06:37.720 --> 06:39.770
+Nimic nu a fost executat.
+
+06:39.810 --> 06:44.910
+Am citit prin scenariu și vedem că variabila distracție este egală cu 5, iar apoi vedem aceste funcții, dar
+
+06:44.910 --> 06:46.660
+niciunul dintre ei nu este condus.
+
+06:46.830 --> 06:55.400
+Și acum, dacă fac "FunFunction" pentru a rula efectiv aceste și vom face funnerFunction.
+
+06:55.650 --> 07:06.920
+Și în cele din urmă "funnestFunction". Am să copiez și să lipesc acest lucru și să repet acest lucru
+
+07:06.920 --> 07:09.650
+vedem că avem fereastra 5, linia 24 care a rulat care este variabilă 5.
+
+07:10.070 --> 07:18.350
+Acum, în cadrul primei funcții pe care o avem, variabila distracție este egală cu "hellooo", deoarece bine am creat
+
+07:19.710 --> 07:25.620
+un domeniu nou și în cadrul acestei funcții trăiește distracție variabilă care are "hellooo".
+
+07:25.640 --> 07:27.940
+Deci, asta devine suprasolicitat.
+
+07:28.190 --> 07:35.630
+Și apoi avem a doua funcție care are "Byee" din nou același lucru ca mai sus pentru că avem un nou domeniu de aplicare
+
+07:35.660 --> 07:36.880
+o nouă variabilă.
+
+07:37.050 --> 07:38.480
+Distracția este egală cu "Buyee".
+
+07:38.870 --> 07:44.410
+Și apoi al treilea ne vedem că ne distrăm egal cu "AHHHHHH".
+
+07:44.930 --> 07:47.330
+Și din nou, asta se schimbă.
+
+07:47.870 --> 07:50.550
+Și asta înseamnă distracția.
+
+07:50.690 --> 07:52.550
+Iată distracția.
+
+07:52.580 --> 07:56.330
+Dacă acum fac "console.log (fun)"
+
+07:59.610 --> 08:12.670
+acum este egal cu "AHHHHHH" deoarece pentru a treia funcție am modificat
+
+08:12.720 --> 08:13.550
+distracție care este această variabilă egală cu "AHHHHHH".
+
+08:14.000 --> 08:22.480
+Un lucru pe care vreau să-ți arăt este că în primele două funcții nu voi putea accesa variabila "distracție"
+
+08:22.480 --> 08:29.750
+în scopul rădăcinii pentru că le-am suprascris, în esență, în cadrul funfuncției și funnerfuncției,
+
+08:30.810 --> 08:35.010
+"distracție" înseamnă ceva care este propriul lor înțeles.
+
+08:35.010 --> 08:40.890
+Deci, în cadrul acestei funcții, distracția este egală cu "hellooo" în cadrul distracției funcției funner egale cu "Byee".
+
+08:41.190 --> 08:49.590
+Și indiferent de ce, nu vom avea acces la scopul rădăcinii și acest lucru se numește un conflict de numire,
+
+08:49.590 --> 08:56.610
+unde numim lucrurile în același mod, un lucru care trăiește să spunem în domeniul părintelui
+
+08:56.610 --> 08:57.120
+și vom pierde accesul la acesta.
+
+08:58.070 --> 09:04.710
+Deci, pentru a finaliza acest punct, hai să ștergem și să vedem ce se întâmplă aici.
+
+09:04.800 --> 09:08.640
+Deci, să ștergem și acest lucru și vom spune doar "console.log" aici.
+
+09:09.260 --> 09:16.090
+Când cineva execută "funnestFunction", rulați acest lucru și Javascript respira consola log distractiv.
+
+09:16.530 --> 09:18.660
+Distracție plăcută,
+
+09:18.660 --> 09:22.060
+O cunoaștem? și ne uităm la domeniul de aplicare aici.
+
+09:22.060 --> 09:22.830
+Te uiți la această funcție.
+
+09:22.840 --> 09:25.840
+Știți ce este "distractiv"?
+
+09:25.930 --> 09:32.840
+Iar funcția spune:Prietenul îmi pare rău că nu prea știu "distracție", dar întreabă-l pe părintele meu.
+
+09:33.070 --> 09:37.110
+Deci, acum mergem în afara funcției.
+
+09:37.210 --> 09:38.890
+În acest caz, domeniul rădăcinilor.
+
+09:38.890 --> 09:42.650
+Acum spunem că știi "distracție"?
+
+09:42.700 --> 09:44.830
+Și sunt ca, Yah! avem o distracție variabilă.
+
+09:44.830 --> 09:46.170
+Ea este egală cu cinci.
+
+09:46.570 --> 09:51.000
+Deci acum 'console.log' se poate loga 5.
+
+09:51.180 --> 09:59.760
+Dar dacă "distracția" nu există, am întrebat părinții și părintele spune:"Îmi pare rău că nu am idee ce este" distractiv ".
+
+09:59.810 --> 10:03.410
+Apoi, ajungem, avem o eroare.
+
+10:03.470 --> 10:07.060
+Deci, ultima verificare este întotdeauna domeniul de aplicare rădăcină,
+
+10:07.190 --> 10:09.410
+În cazul nostru, obiectul ferestrei, dacă nu îl găsim.
+
+10:09.410 --> 10:11.360
+Avem această eroare în consola.
+
+10:11.360 --> 10:12.630
+Întotdeauna vedem.
+
+10:12.830 --> 10:15.560
+Ne pare rău! variabila dvs. de prieten nu există.
+
+10:15.650 --> 10:19.340
+Cred că ai făcut-o și asta pentru scop.
+
+10:19.340 --> 10:22.390
+Am un exercițiu distractiv pentru dvs. imediat după acest videoclip.
+
+10:22.400 --> 10:25.030
+Încercați și vă voi vedea în următorul.
+

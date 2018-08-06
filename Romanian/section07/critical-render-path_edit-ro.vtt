@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.940 --> 00:06.610
+Bun venit înapoi, în această secțiune, vom vorbi despre câteva subiecte avansate în CSS și mă duc
+
+00:06.610 --> 00:09.930
+pentru a începe cu traiectoria critică.
+
+00:10.000 --> 00:10.800
+Ce este asta?
+
+00:11.720 --> 00:17.540
+Ei bine, întotdeauna trebuie să știm cum funcționează lucrurile sub capot, astfel încât să putem face site-urile noastre la fel de repede
+
+00:17.570 --> 00:19.950
+și fiabile cât mai mult posibil.
+
+00:19.970 --> 00:25.410
+Deci, pe baza a ceea ce am construit în secțiunea anterioară, să vedem ce se întâmplă sub capotă.
+
+00:25.520 --> 00:31.760
+Mergem la site-ul nostru și, în mod ideal, site-ul nostru va fi pe un server și vă voi arăta cum să faceți
+
+00:31.760 --> 00:33.500
+care mai târziu în curs.
+
+00:33.620 --> 00:41.660
+Deocamdată e doar calculatorul nostru. Dar să presupunem că avem un server, unde sunt găzduite fișierele noastre. Cand mergem
+
+00:41.660 --> 00:42.620
+pe site-ul nostru.
+
+00:42.650 --> 00:45.160
+O vom numi "coolwebsite.com".
+
+00:45.290 --> 00:54.150
+Vom cere fișierul HTML și browserul va vedea fișierul nostru HTML.
+
+00:54.270 --> 01:02.730
+Deci, ea citește prin acest document și, pe măsură ce se uită prin ea, observă că "Oh, am nevoie de un fișier CSS
+
+01:02.730 --> 01:03.230
+aici'.
+
+01:04.210 --> 01:11.040
+Așa că se întoarce, face o altă solicitare și spune:"Hei, puteți să vă dați și eu un fișier CSS?"
+
+01:11.850 --> 01:13.760
+Serverul spune:"Da, nici o problema.
+
+01:13.860 --> 01:15.690
+Lasă-mă să iau asta pentru tine.
+
+01:15.690 --> 01:27.560
+Grabs fișierul CSS și acum începe să se uite la ambele:HTML și CSS fișier pentru a încerca să dau seama
+
+01:27.620 --> 01:30.000
+modul în care ar trebui să pară pagina web.
+
+01:30.170 --> 01:34.000
+Dar apoi, de asemenea, observă că - "Stați o secundă.
+
+01:34.070 --> 01:36.090
+Și eu am nevoie de niște fonturi.
+
+01:36.320 --> 01:39.980
+Deci merge la această adresă și caută din nou fontul.
+
+01:40.430 --> 01:45.420
+Site-ul web cere acum site-ul pe care sunt găzduite fonturile.
+
+01:45.440 --> 01:53.950
+În cazul nostru este API-ul Google și apucă fișierul de fonturi. Acum e treaba.
+
+01:54.170 --> 02:02.110
+În timp ce apucă fișierul de fonturi, ar putea face pagina și mijloacele de redare afișând site-ul,
+
+02:03.590 --> 02:05.800
+astfel încât ar putea afișa site-ul web.
+
+02:05.810 --> 02:13.970
+Dacă are doar cod HTML sau CSS, dar este posibil ca textul să nu apară, deoarece textul caută
+
+02:13.970 --> 02:16.000
+font fișier.
+
+02:16.090 --> 02:22.930
+Atunci când vorbim despre calea critică de redare, ne place să menționăm că CSS este un fișier de blocare a redării
+
+02:22.930 --> 02:30.520
+astfel încât să nu puteți reda o pagină web până când nu primiți CSS și uneori, dacă aveți font
+
+02:30.520 --> 02:36.460
+fișiere, va trebui să așteptați ca textul să fie afișat pe pagină.
+
+02:36.630 --> 02:41.460
+Așa că țineți cont de asta când construiți site-urile dvs. web. Dar care sunt unele lucruri pe care le putem lua în considerare când
+
+02:41.670 --> 02:44.900
+face acest lucru, astfel încât site-urile noastre să se încarce mai repede?
+
+02:44.970 --> 02:47.580
+Una este să avem propriile fișiere de fonturi.
+
+02:47.700 --> 02:54.420
+Altcineva ar fi că nu vrei să-ți faci CSS prea mare dacă avem sute și sute
+
+02:54.420 --> 02:56.250
+de linii de cod de CSS.
+
+02:56.490 --> 03:01.620
+Ei bine, fișierul devine tot mai mare și mai mare și este tot mai mult că trebuie să treci peste fir.
+
+03:03.240 --> 03:09.950
+O metodă pe care oamenii au folosit-o și veți vedea adesea este ceva, numit "minifying" CSS. Și
+
+03:09.950 --> 03:12.080
+dacă deschidem browser-ul aici.
+
+03:12.300 --> 03:13.050
+"Buna dimineata!"
+
+03:13.070 --> 03:15.320
+Da, devreme dimineață filmam asta!
+
+03:16.730 --> 03:23.660
+Și Miniseria CSS. Ceea ce face este că puteți introduce CSS aici - puteți vedea un exemplu aici.
+
+03:23.660 --> 03:28.070
+Deci, introduceți acest lucru și faceți clic pe "Minify".
+
+03:28.310 --> 03:33.890
+Și ceea ce face Minify - elimină toate spațiile albe, astfel încât totul să fie pe o singură linie,
+
+03:33.890 --> 03:36.060
+doar foarte mici împreună.
+
+03:36.080 --> 03:43.040
+Deci, chiar dacă este același CSS, tehnic face fișierul un pic mai mic, astfel încât
+
+03:43.130 --> 03:50.030
+numărul de octeți pe care îl trimiteți prin Internet este mult mai mic și veți vedea că tehnica utilizată
+
+03:50.030 --> 03:51.350
+în Javascript, de asemenea.
+
+03:51.350 --> 03:57.620
+Și vom vorbi despre asta în acea secțiune. Aceasta este calea de render critică, o cale pe care un site web o are
+
+03:57.620 --> 04:03.300
+pentru a afișa ceva pentru utilizator. Ne vedem în următorul.
+
+04:03.330 --> 04:03.810
+Pa! Pa

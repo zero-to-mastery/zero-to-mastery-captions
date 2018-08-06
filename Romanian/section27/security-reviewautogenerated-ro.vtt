@@ -1,0 +1,563 @@
+WEBVTT
+
+00:01.070 --> 00:02.480
+Bine ai revenit.
+
+00:02.480 --> 00:10.100
+Vreau să fac o scurtă trecere în revistă a securității noastre și a modului în care aplicația noastră funcționează chiar acum, deoarece punerea în siguranță a acesteia
+
+00:10.310 --> 00:19.650
+aplicația online web este o responsabilitate foarte importantă a dezvoltatorului web. Să ne întoarcem la codul nostru.
+
+00:19.750 --> 00:24.250
+Există două probleme principale pe care le văd până acum.
+
+00:24.280 --> 00:28.870
+Primul lucru este că nu facem nimic numit validare.
+
+00:29.010 --> 00:39.820
+Dacă mă duc să mă semneze aici și mă duc la controlerul meu de conectare dacă un utilizator nu introduce e-mail-ul corect
+
+00:40.150 --> 00:45.460
+sau intră în ceva despre care nu ne așteptăm, poate că acel câmp e-mail gol sau câmpul de parolă este necompletat
+
+00:46.860 --> 00:51.310
+Ei bine, ce se întâmplă atunci? Și același lucru cu registrul.
+
+00:51.470 --> 01:00.800
+Dacă mergem să ne înregistrăm și un utilizator nu scrie în e-mail sau nume sau parolă, suntem tehnic
+
+01:00.800 --> 01:09.230
+înregistrați-le încă o dată, deoarece dacă lăsăm numele de e-mail gol, parola necompletată, acestea vor introduce doar un spațiu gol
+
+01:09.260 --> 01:10.810
+utilizator în baza de date.
+
+01:12.160 --> 01:14.670
+Să mergem la aplicație și să vă arătăm ce înseamnă asta.
+
+01:15.460 --> 01:23.480
+Dacă lăsăm acest lucru gol și faceți clic pe registru uita-te la faptul că am intrat în aplicație și dacă mă întorc la
+
+01:23.480 --> 01:24.170
+Bază de date
+
+01:26.910 --> 01:37.200
+și du-te la utilizatorii văd un utilizator gol. Și acest lucru nu este foarte dăunător, dar prezintă un subiect important
+
+01:37.200 --> 01:44.790
+că doriți cu adevărat să vă concentrați în aplicația dvs. și aceasta este validarea - asigurându-vă că atunci când comunicați
+
+01:44.790 --> 01:49.520
+între capătul din față și capătul din spate există câteva straturi de securitate.
+
+01:49.620 --> 01:54.420
+În primul rând Front-End își va face propriile validări.
+
+01:54.420 --> 02:03.670
+De exemplu, dacă mergem la pagina de sign-in sau la pagina de înregistrare din Front-End în cadrul reactului nostru
+
+02:03.670 --> 02:10.100
+app vom verifica de fapt, înainte de când vom face clic pe înregistrare va avea o pe buton de trimitere.
+
+02:10.330 --> 02:18.360
+Și la trimiterea va verifica pentru a vă asigura că numele nu este gol e-mailul are format e-mail propriu
+
+02:18.450 --> 02:26.830
+cum ar fi având un semn la un punct sau un com com la sfârșitul și apoi parola va avea un fel de validare pentru
+
+02:26.830 --> 02:33.690
+să spunem că trebuie să fie mai mult de șase caractere. Și acum partea frontală trimite informația validată
+
+02:34.320 --> 02:40.520
+la backend și un lucru important pe care doriți să îl asigurați cu serverul dvs. este că serverul
+
+02:40.520 --> 02:45.590
+niciodată nu are încredere în nimic primit de la front.
+
+02:45.640 --> 02:48.050
+Deci, ar trebui să-și facă singură validarea.
+
+02:48.070 --> 02:56.470
+Aceasta este de a verifica numele de e-mail și parola și asigurați-vă că există valori pe care vrea să le introduceți și să tranzacționați
+
+02:56.590 --> 02:58.030
+în baza de date.
+
+02:58.920 --> 03:14.470
+O modalitate prin care putem face acest lucru. Ei bine, putem spune pur și simplu că dacă e-mail sau nume sau parola și putem face doar
+
+03:14.800 --> 03:17.070
+nu așa că este opusul.
+
+03:17.320 --> 03:20.700
+Deci, dacă acest lucru este gol, ei vor deveni adevărați.
+
+03:20.740 --> 03:24.500
+Dacă acest lucru este gol, se va întoarce la adevărat, acesta este gol, ei vor deveni adevărați.
+
+03:24.580 --> 03:30.280
+Deci, dacă oricare dintre acestea sunt goale, putem răspunde doar statutului
+
+03:32.710 --> 03:33.370
+400
+
+03:36.330 --> 03:40.910
+și putem răspunde doar prin trimiterea incorectă a formularului.
+
+03:43.710 --> 03:45.420
+Să salvăm asta și să vedem ce se întâmplă.
+
+03:47.570 --> 03:53.500
+Voi salva. Singurul lucru pe care vreau să-l fac este de fapt să mă întorc la baza mea de date și să îmi pun PSQL-ul în funcțiune
+
+03:53.500 --> 03:53.850
+aici.
+
+03:53.890 --> 03:58.540
+Dacă mă duc la conectare sau la utilizatori vreau să șterg utilizatorul gol.
+
+03:58.540 --> 03:58.800
+Acum
+
+04:02.920 --> 04:07.130
+și aceasta este perfectă.
+
+04:07.350 --> 04:09.570
+Dacă mă întorc aici și încerc să fac clic pe înregistrare
+
+04:12.780 --> 04:15.470
+Încă înregistrez.
+
+04:15.490 --> 04:19.180
+Asta pentru că dacă mă întorc, văd că am o eroare aici
+
+04:23.080 --> 04:26.050
+și eu "nu pot seta anteturi după ce sunt trimise".
+
+04:26.590 --> 04:33.430
+Și asta e un mic truc, pentru că dacă te duci aici și deschide consola.
+
+04:33.660 --> 04:44.890
+În regulă, avem o cerere greșită de la server, dar această instrucțiune if se execută și apoi continuă
+
+04:44.890 --> 04:52.810
+și face acest lucru, de asemenea, deoarece amintesc pentru a pune capăt execuției în cadrul unei funcții pe care trebuie să o spunem
+
+04:53.050 --> 04:53.670
+întoarcere.
+
+04:53.920 --> 05:01.870
+În felul acesta, dacă aceasta se execută, se întoarce din această funcție și această parte nu se execută niciodată.
+
+05:03.480 --> 05:14.860
+Lasă-mă să salvez că se întorc la aplicația noastră acum să ne reîmprospătează aici. Vom face doar un utilizator gol.
+
+05:14.950 --> 05:21.100
+Din nou, suntem conectați, pentru că acum când ne îndreptăm spre front, dacă vă aduceți aminte în registrul nostru
+
+05:21.100 --> 05:26.030
+fișierul din capătul frontal când faceți clic pe înregistrare.
+
+05:28.890 --> 05:30.180
+Ei bine, noi suntem preiați
+
+05:32.690 --> 05:40.640
+și doar verificăm dacă utilizatorul și acest utilizator, deoarece răspundem aici cu trimitere incorectă a formularului
+
+05:41.060 --> 05:43.400
+utilizatorul va fi acela.
+
+05:43.400 --> 05:51.530
+Deci, hai să verificăm aici ID-ul. Salvăm și ne amintim, acesta este un lucru pe care l-am făcut cu semnarea noastră
+
+05:51.560 --> 06:00.310
+precum și în videoclipurile anterioare dacă ne întoarcem mergeți înapoi la înregistrare încercați să vă înregistrați.
+
+06:00.780 --> 06:06.430
+Nu mă lasă, pentru că dacă deschid consola, nu am reușit să introduc resurse.
+
+06:06.430 --> 06:17.400
+Dacă mă duc la rețea, încercați din nou să vă înregistrați că primesc "depunerea incorectă a formularului".
+
+06:17.520 --> 06:19.530
+Deci, este foarte important.
+
+06:19.560 --> 06:28.460
+Serverul și clientul trebuie să își facă singură validarea și să se asigure că gestionează toate posibilitățile.
+
+06:28.530 --> 06:35.610
+Dacă un atacator, de exemplu, intră într-o bucată de cod foarte rău în loc de un e-mail. Ei bine, avem nevoie
+
+06:35.610 --> 06:42.260
+pentru a valida acest lucru și pentru a ne asigura că luăm o acțiune adecvată în acest sens.
+
+06:42.430 --> 06:49.220
+Putem adăuga astfel de lucruri în alte părți ale aplicației noastre, în special în cazul în care acceptăm contribuția.
+
+06:49.510 --> 06:57.760
+Din fericire pentru noi asta e pentru registrul nostru și apoi avem și semnătura noastră.
+
+06:57.760 --> 07:05.430
+Și apoi pentru semnătura putem pur și simplu copiați și lipiți și aici folosim e-mail dot point dot body
+
+07:05.550 --> 07:10.740
+și parola, astfel încât să putem pur și simplu să o restructurăm din nou
+
+07:13.540 --> 07:17.310
+parola din corpul punctului de solicitare
+
+07:20.360 --> 07:21.390
+vom elimina numele
+
+07:25.190 --> 07:34.300
+și din nou și vom elimina doar corpul punctului de solicitare din acestea doar pentru ao face puțin mai curată.
+
+07:34.460 --> 07:37.270
+Și dacă salvez acest lucru ar trebui să funcționeze și așa.
+
+07:37.640 --> 07:40.610
+Să mergem să ne semănăm, să ne asigurăm că nu mă pot conecta.
+
+07:40.730 --> 07:41.260
+Perfect.
+
+07:41.270 --> 07:51.570
+Și dacă mă duc la Wes la gmail dot com Unu doi trei să mă înregistrez Sunt capabil să mă conectez.
+
+07:51.590 --> 07:54.550
+În regulă, asta e prima parte a securității pe care am vrut să o acopăr.
+
+07:54.890 --> 07:59.170
+Există în mod evident câteva lucruri pe care le putem face aici, dar cred că aveți ideea.
+
+08:00.570 --> 08:09.160
+Următorul lucru și un alt defect major în aplicația noastră este că, atunci când trimitem o imagine, să o luăm
+
+08:12.200 --> 08:14.880
+și să deschidem fila.
+
+08:15.320 --> 08:18.020
+Fila de rețea de aici detectează clicul
+
+08:20.930 --> 08:25.600
+și dacă vă uitați la capătul final al imaginii și că atunci când avem grijă de ea.
+
+08:25.610 --> 08:31.560
+Dar dacă vă uitați la ieșiri, acesta este locul în care cerem API să clarifice cererea.
+
+08:31.580 --> 08:43.650
+Dacă fac clic pe aceasta și uit la anteturi și mă uit la autorizare primesc cheia cu DCB17e ...
+
+08:43.690 --> 08:49.290
+Și dacă mă întorc la front-end și sub app dot js
+
+08:55.810 --> 08:58.170
+DCB17e ...
+
+08:58.180 --> 08:59.970
+Aceasta este cheia noastră API.
+
+09:00.390 --> 09:03.520
+Facem cheia noastră API care, în cazul meu, este una gratuită.
+
+09:03.520 --> 09:11.190
+Dar când utilizați un API care costă bani, cineva ar putea să fure aceste informații și să vă utilizeze API-ul
+
+09:11.350 --> 09:19.690
+doar pentru a încărca acel API cu solicitări și pentru a vă face să plătiți o mulțime de bani și niciodată nu doriți să faceți acest lucru când
+
+09:19.690 --> 09:22.090
+jucați ca dezvoltator pe propriul dvs. proiect.
+
+09:22.090 --> 09:23.230
+E in regula.
+
+09:23.590 --> 09:26.560
+Dar lucruri de genul asta nu ar trebui să se întâmple.
+
+09:26.560 --> 09:31.880
+Deci, un lucru pe care îl putem face pentru a evita acest lucru este, de fapt, mutați acest lucru în backend în loc de capătul din față.
+
+09:32.200 --> 09:33.510
+Permiteți-mi să vă arăt cum putem face asta.
+
+09:36.800 --> 09:44.390
+Ne vom întoarce la capătul din față și la capătul din față, de fapt, o să copiez clarifajul
+
+09:44.390 --> 09:49.440
+informații la Backend și scoateți-l din partea frontală.
+
+09:49.910 --> 09:56.490
+Deci, dacă vă amintiți că trebuie să instalați clarifai pe spate, așa că voi opri serverul și
+
+09:56.490 --> 10:02.370
+face NPM install clarifai astfel încât să avem pachetul dot json
+
+10:06.500 --> 10:14.230
+noi o vom importa de data aceasta folosind cere.
+
+10:14.250 --> 10:16.200
+Deci, hai să mergem la imaginea mânuitorului nostru
+
+10:19.250 --> 10:29.860
+și apoi imaginea mânerului vom importa și în loc de import vom face const clarifai egal necesită
+
+10:32.150 --> 10:41.550
+clarifai și vom copia exact ceea ce avem în aplicația noastră și doriți să eliminați acest lucru pentru a reduce
+
+10:41.550 --> 10:42.120
+asta afară
+
+10:46.840 --> 10:48.730
+utilizați cheia API aici.
+
+10:52.680 --> 11:01.940
+Apoi, derulând în jos, analizăm unde folosim cheia API în cazul nostru, aici sunt app.models.
+
+11:02.280 --> 11:08.940
+Și aici vrem să facem clarificările și apoi să ne luăm răspunsul.
+
+11:09.090 --> 11:11.210
+Deci, această parte de jos putem păstra.
+
+11:11.210 --> 11:19.620
+Avem nevoie doar de apelul clarificat de a veni de la backend, așa că vom copia asta.
+
+11:19.670 --> 11:20.900
+Du-te înapoi la spatele nostru
+
+11:24.110 --> 11:31.320
+hai să punem acest lucru în loc, deoarece avem aplicație acum din noua instanțiere a clarifai și acum vom
+
+11:31.320 --> 11:33.500
+nevoia de a apuca de intrare.
+
+11:33.570 --> 11:40.210
+Deci, sună ca și cum vom avea nevoie de un nou punct final. Să-l curățim puțin și să-l prezicem
+
+11:42.580 --> 11:43.380
+clarifai
+
+11:46.470 --> 11:49.950
+Hai să o facem aici, ca să vedem mai bine. O să reduc puțin acest lucru
+
+11:52.860 --> 12:03.780
+și modelele dot dot prezice că o vom anticipa cu ajutorul punctului nostru punct de intrare punct de intrare pe care noi în mod evident
+
+12:03.780 --> 12:04.470
+nu au.
+
+12:04.490 --> 12:09.980
+Dar acum știm că avem nevoie de intrare și putem împacheta acest lucru în jurul unei funcții la fel ca aceasta.
+
+12:10.140 --> 12:20.560
+Putem spune const handleApiCall și acesta va primi un răspuns de cerere
+
+12:25.280 --> 12:30.230
+și vom muta acest lucru aici.
+
+12:30.300 --> 12:39.550
+Deci, acum putem spune că sună API apel în partea de jos aici și pe serverul nostru putem crea un nou
+
+12:39.550 --> 12:48.710
+punct final pentru Imagine și putem face o solicitare de post, deoarece o vom adăuga în corpul nostru de puncte de solicitare și
+
+12:48.710 --> 12:50.540
+vom numi acel imagineurl
+
+12:50.570 --> 12:59.900
+și capătul final al lui imageurl va avea handleApiCall.
+
+13:00.040 --> 13:07.240
+Nu va avea nevoie de baza de date. În mod cert, va trebui să îl importăm, dar îl avem deja pe obiectul imaginii.
+
+13:07.240 --> 13:17.220
+OK, dacă salvez acest lucru, trebuie să ne asigurăm că vom primi corpul cu adresa URL, așa că mergem
+
+13:17.220 --> 13:18.940
+partea frontală.
+
+13:19.190 --> 13:28.980
+Vom spune că la depunere trebuie să preluăm și să copiem doar asta.
+
+13:28.980 --> 13:36.780
+Ce avem aici pentru moment. Vrem să preluăm imageurl.
+
+13:37.010 --> 13:49.310
+Va fi o metodă de post și vom avea un jon de intrare și că intrarea va fi pur și simplu că acest lucru
+
+13:49.310 --> 14:01.700
+intrarea DOT de stat. Asta ne va da un raspuns si ca raspunsul va continua sa curga in acest fel.
+
+14:01.810 --> 14:08.220
+Dar tineti minte ca pentru ca aceasta este o preluare va trebui sa facem raspunsul punct json.
+
+14:08.470 --> 14:16.550
+Deci, e destul de simplu ca să rezolvăm indentarea aici și vom face un punct atunci răspunsul este egal
+
+14:18.530 --> 14:19.760
+răspunsul Jason
+
+14:22.420 --> 14:28.510
+Vom salva și vom dori să ne întoarcem și să ne asigurăm că acest lucru funcționează.
+
+14:28.510 --> 14:41.660
+Deci, hai să mergem la serverul nostru du-te la imagine și asigurați-vă că suntem răspunde aici cu punct apoi date și
+
+14:41.660 --> 14:43.180
+aceste date vor avea un punct de răspuns json
+
+14:43.260 --> 14:51.470
+de date. Orice ne dă asta. Dacă există un fel de eroare, vom face o captură.
+
+14:54.470 --> 14:56.420
+Voi spune statutul de răspuns 400.
+
+14:59.050 --> 15:00.810
+Bine facut.
+
+15:00.810 --> 15:12.900
+json "nu poate funcționa cu API". Să salvăm. Vom vedea dacă funcționează pentru prima dată.
+
+15:12.920 --> 15:23.930
+De obicei, nu, dar dacă ne conectăm cu Wes la Gmail dot com 1 2 3 conectați, avem un pic de o problemă.
+
+15:25.420 --> 15:29.060
+Să mergem la consolă - nu a reușit să-i aducem
+
+15:32.090 --> 15:38.040
+Oh, avem nevoie ca NPM să înceapă serverul nostru.
+
+15:38.110 --> 15:39.510
+În regulă și acum avem câteva erori.
+
+15:39.520 --> 15:40.660
+In regula.
+
+15:40.660 --> 15:47.510
+Avem paranteze dispărute, așa că tocmai am făcut doar o eroare de sintaxă aici și asta pentru că
+
+15:47.510 --> 15:50.270
+Am uitat o perioadă aici.
+
+15:50.270 --> 15:51.390
+Să salvăm asta.
+
+15:51.920 --> 15:58.810
+Și dacă mergem la capetele din față, alergând, capătul din spate se mișcă. Să închidem acest lucru și să încercăm din nou acest lucru.
+
+16:00.170 --> 16:01.190
+În regulă, sunt semnat.
+
+16:01.250 --> 16:09.680
+Dacă copiez din nou această imagine. Momentul adevarului.
+
+16:09.790 --> 16:10.180
+In regula.
+
+16:10.180 --> 16:17.820
+Obținem imaginea, dar răspunsul - ceva nu funcționează. Nu am reușit să preluăm răspunsul serverului
+
+16:17.900 --> 16:20.390
+cu un statut de 500.
+
+16:20.390 --> 16:24.140
+Deci, avem o eroare în server și arată
+
+16:26.740 --> 16:29.620
+manipularea apelului API nu este o funcție.
+
+16:29.650 --> 16:39.010
+Deci, să mergem la server și greșeala mea de ortografie din nou. Acest lucru te face întotdeauna cu ortografia.
+
+16:39.040 --> 16:41.150
+Să încercăm din nou.
+
+16:41.340 --> 16:47.710
+Vom clarifica acest lucru și vom detecta. Nu există erori.
+
+16:47.750 --> 16:48.480
+In regula.
+
+16:48.570 --> 16:49.410
+Uită-te la asta.
+
+16:49.680 --> 16:51.120
+Asta merge.
+
+16:51.120 --> 16:52.100
+Uimitor.
+
+16:52.530 --> 16:59.340
+Nu văd nici o eroare în API-ul meu sau în partea frontală.
+
+16:59.420 --> 17:00.510
+Așa că nu a fost rău.
+
+17:00.590 --> 17:08.100
+Și dacă mă întorc de fapt la cerere, du-te la fila de rețea și să verificăm acest lucru pe care îl voi apăsa
+
+17:08.100 --> 17:12.810
+detectați dacă merg la imageurl.
+
+17:13.060 --> 17:15.560
+Nu văd nici una din cheile noastre.
+
+17:15.580 --> 17:21.780
+Singurul lucru pe care îl vedem este un răspuns care este răspunsul pe care îl primim de la clarifai, dar de la serverul nostru
+
+17:21.780 --> 17:25.850
+se desfășoară în mediul nostru și nimeni nu are acces la el.
+
+17:27.290 --> 17:30.110
+Deci, să trecem peste ceea ce am făcut.
+
+17:30.200 --> 17:39.720
+Am creat un nou punct final și pentru că avem acum controlerele noastre și este vorba de imaginea pe care o avem
+
+17:39.720 --> 17:46.500
+îl putem adăuga la controlerele de imagine și în cadrul controlorilor de imagine creăm o funcție nouă și doar
+
+17:46.500 --> 17:54.480
+copiați destul de mult și lipiți-o exact așa cum am avut în față și am răspuns cu date Json și
+
+17:54.480 --> 17:59.400
+aceste date Json sunt trimise acum ca răspuns Json.
+
+17:59.790 --> 18:09.920
+Așadar, la capătul frontal, am creat pur și simplu o solicitare de preluare care a trimis intrarea și am răspuns cu un răspuns.
+
+18:10.290 --> 18:14.630
+Deci, nu sa schimbat prea mult pe front, cu excepția faptului că acum ascundem cheia API.
+
+18:14.760 --> 18:21.030
+Și în loc să avem clarifai aici, o avem pe backend.
+
+18:21.280 --> 18:26.630
+Sper că au fost câteva sfaturi valoroase de securitate pentru dvs.
+
+18:26.650 --> 18:31.130
+Există o mulțime de lucruri atunci când vine vorba de securitate și cu siguranță este ceva ce trebuie să obțineți
+
+18:31.130 --> 18:35.190
+folosit pentru a avea mai multi ani de experienta.
+
+18:36.250 --> 18:43.900
+Dar având acea regulă generală de a vă asigura că mașina dvs. sau, în cazul nostru, codul dvs. de bază
+
+18:43.900 --> 18:49.210
+sfârșitul și înapoi și nu se bazează niciodată pe securitatea celuilalt întotdeauna se concentrează și să se asigure că orice
+
+18:49.220 --> 18:55.650
+intrările pe care le primește din alte locuri din afara ei este întotdeauna validată.
+
+18:55.780 --> 19:00.510
+Și protejăm toate secretele pe care le avem din lumea exterioară.
+
+19:00.610 --> 19:04.760
+Niciodată nu ai încredere în nimeni că este motto-ul în securitate.
+
+19:05.570 --> 19:08.680
+Așadar, sper că a fost vizibil și voi vedea în următorul videoclip.
+

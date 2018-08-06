@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.750 --> 00:01.320
+In regula.
+
+00:01.430 --> 00:10.700
+Deci, să creăm o masă. Dacă vă amintiți să mergeți la baza de date Postgres, pur și simplu scrieți psql
+
+00:10.700 --> 00:14.980
+apoi numele bazei noastre de date și vom intra în baza de date.
+
+00:15.130 --> 00:18.410
+Și acum putem comunica cu el folosind SQL.
+
+00:18.430 --> 00:19.950
+Acum să creăm un tabel.
+
+00:20.060 --> 00:21.060
+Cum putem face asta?
+
+00:21.940 --> 00:29.380
+Din nou, SQL vine cu o anumită limbă. Sintaxă de limbă pe care o putem folosi. Și pentru a crea o masă putem
+
+00:29.380 --> 00:30.840
+utilizați ceva de genul acesta.
+
+00:30.970 --> 00:34.580
+Spunem "CREATE TABLE", care este o comandă SQL.
+
+00:34.870 --> 00:43.780
+Introducem un nume de masă urmat de paranteze și apoi spunem ce vrem cu coloana_1 să spună
+
+00:43.780 --> 00:52.940
+tipul de date, column_2 cu tipul de date, column_3 cu tipul de date și apoi terminația cu punct și virgulă.
+
+00:52.940 --> 00:56.010
+Permiteți-mi să apăsați pe Enter și să vedeți ce se întâmplă aici.
+
+00:56.180 --> 01:05.030
+Am o eroare "tip" datatype "nu există" și că datarea se referă la ceea ce Postgres
+
+01:05.060 --> 01:12.000
+sau baza noastră de date relațională știe, trebuie să spunem în prealabil ce tip de date
+
+01:12.020 --> 01:14.400
+coloana_1, coloana2 și coloana3.
+
+01:15.590 --> 01:23.030
+Dacă ne întoarcem la browserul nostru Chrome, vedem că pentru Postgres avem câteva tipuri de date pe care le putem
+
+01:23.030 --> 01:29.240
+dețin. Tipuri de date de tip șir, tipuri de date numerice și date și date.
+
+01:29.360 --> 01:33.180
+Și fiecare dintre ele are lucruri diferite. Pentru un tip de date numerice
+
+01:33.230 --> 01:37.900
+Avem integer care este un număr întreg de 4 octeți.
+
+01:38.000 --> 01:43.980
+Avem bigint care permite un număr mai mare și toate aceste lucruri diferite,
+
+01:44.000 --> 01:49.870
+avem bani care sunt valori valutare și motivul pentru care trebuie să dăm acest datat este din cauza
+
+01:49.880 --> 01:57.080
+modul în care funcționează bazele de date. Sunt optimizate pentru a vă asigura că atâta timp cât totul este același în coloana lor
+
+01:57.410 --> 02:00.840
+sunt capabili să lucreze foarte repede pentru a efectua acțiuni.
+
+02:02.190 --> 02:10.550
+În cazul nostru, să folosim unele dintre cele mai des întâlnite. Putem folosi textul pentru prima coloană.
+
+02:10.620 --> 02:11.370
+Deci, să facem asta.
+
+02:11.370 --> 02:16.110
+Voi apăsa pe săgeata sus și veți crea tabelul.
+
+02:16.110 --> 02:21.300
+Voi numi, de asemenea, acest tabel, să îl numim utilizatori
+
+02:24.000 --> 02:39.550
+și column_1 va fi numele, datatype poate fi text, column_2 putem spune că este vârstă și datatype pentru un
+
+02:39.550 --> 02:40.390
+vârstă.
+
+02:40.390 --> 02:43.870
+Dacă privim aici, ne uităm la tipurile numerice.
+
+02:43.960 --> 02:49.920
+Vrem să folosim ceva de genul smallint, care este un număr întreg cu 2 octeți.
+
+02:50.080 --> 02:56.320
+Înseamnă că o valoare maximă pentru o mică notă, dacă merg la Smallint Max
+
+02:58.990 --> 03:04.820
+vedem că gama max este de 32.762. Ei bine, nimeni nu va fi așa
+
+03:04.820 --> 03:05.530
+vechi, nu?
+
+03:05.530 --> 03:14.160
+Așadar, putem folosi mici vopsea pentru că acum permitem să facem asta. Voi spune că vârsta este mică.
+
+03:14.300 --> 03:24.140
+Și în cele din urmă, a treia coloană va avea doar "ziua de naștere", iar ziua de naștere poate fi un tip dat dat și putem
+
+03:24.140 --> 03:32.460
+trebuie doar să apăsați data și să creați tabelul.
+
+03:32.610 --> 03:37.670
+Să ne uităm la PSequel-ul nostru aici. Și voi minimiza asta.
+
+03:37.900 --> 03:48.190
+Și dacă fac clic pe refresh aici, văd că avem utilizatori. Uită-te la asta și avem coloane pentru utilizatorii mesei
+
+03:48.220 --> 03:50.470
+care este numele, vârsta, ziua de naștere.
+
+03:50.520 --> 03:53.110
+Ea ne spune tipul și lungimea.
+
+03:53.110 --> 03:56.320
+Deci acum avem masa noastră. Minunat.
+
+03:56.560 --> 04:06.700
+Există, de asemenea, o modalitate de a face acest lucru aici dacă vom face lista de relații și să privim la asta
+
+04:06.700 --> 04:13.600
+au masa utilizatorilor noștri și proprietarul care sunt eu, foarte cool.
+
+04:13.600 --> 04:14.210
+Acolo te duci.
+
+04:14.290 --> 04:20.620
+Am creat primul nostru tabel. Acum, când avem acest lucru, putem începe să introducem niște informații.
+
+04:20.620 --> 04:24.800
+Și de modul în care s-ar putea să întrebi de câte ori executăm aceste comenzi.
+
+04:25.090 --> 04:30.490
+În mod ideal, odată ce vă creați baza de date și locuiți undeva pe un computer undeva în lume
+
+04:31.540 --> 04:33.740
+trebuie să fugi doar o dată, bine.
+
+04:33.910 --> 04:40.420
+Creați o tabelă a ceea ce doriți ca baza dvs. de date să arate și restul este doar completarea și inserarea
+
+04:40.420 --> 04:43.180
+informarea și citirea informațiilor în afara acestuia.
+
+04:43.180 --> 04:49.510
+Deci, aceasta este comanda pe care o vom înființa atunci când vom crea o bază de date proprie pentru a configura schemele noastre.
+
+04:49.510 --> 04:52.470
+Și după aceea se va executa singură.
+
+04:52.660 --> 04:55.530
+Și va fi capabil să comunice cu spatele.
+
+04:55.720 --> 04:57.370
+Va fi foarte distractiv.
+
+04:57.370 --> 05:00.560
+Apropo, înainte de a intra în următorul videoclip, vreau să vă arăt încă o comandă.
+
+05:00.580 --> 05:03.980
+Am aflat că '\ d' ne arată tabelele noastre.
+
+05:04.060 --> 05:12.480
+Dacă fac asta, plecăm de aici și ne întoarcem la terminal.
+
+05:12.490 --> 05:14.470
+Bine, te voi vedea în următoarea.
+
+05:14.860 --> 05:15.100
+Pa! Pa.

@@ -1,0 +1,305 @@
+WEBVTT
+
+00:01.100 --> 00:06.280
+Bine ai revenit. În această secțiune vom continua să lucrăm la proiectul nostru final:00:06.410 --> 00:12.620
+aplicația de recunoaștere a feței pe care am construit-o și avem front-end în cea mai mare parte făcut pentru ea, dar acum avem nevoie
+
+00:12.620 --> 00:16.720
+un server - ceva cu care frontalul poate comunica
+
+00:17.060 --> 00:23.910
+astfel încât această aplicație să poată trăi mai mult decât laptopul nostru - o putem implementa.
+
+00:24.120 --> 00:33.480
+Și dacă vă aduceți aminte de aplicația noastră, vă rugăm să vă conectați la un Registru pe care îl putem înregistra
+
+00:33.480 --> 00:35.270
+utilizatorilor.
+
+00:35.520 --> 00:40.130
+Și dacă tocmai am avut aplicația așa cum este acum, nu există nimic care să interacționeze cu ea.
+
+00:40.290 --> 00:47.830
+De fiecare dată când ne conectăm la aplicație, putem crea un nou utilizator cu o parolă nouă și nu putem semna nicio problemă.
+
+00:50.530 --> 00:57.140
+Dar dacă construim un back-end pentru el acum avem capacitatea de a interacționa cu el.
+
+00:57.250 --> 01:02.820
+Putem include chiar și o bază de date, astfel încât să existe memorie și putem avea utilizatori reali care vor fi back-end-ul nostru
+
+01:02.830 --> 01:07.450
+amintiți-vă și vom ajunge la baza de date în secțiunile următoare.
+
+01:07.540 --> 01:12.440
+Dar pentru moment am lucrat la Node and Express și ar trebui să fim familiarizați cu modul în care funcționează.
+
+01:13.330 --> 01:15.500
+Este destul de frumos și simplu, nu?
+
+01:15.520 --> 01:24.160
+Pur și simplu creăm adrese URL și puncte finale și oferim un răspuns la front-end.
+
+01:24.180 --> 01:26.360
+Așa vom lucra în această secțiune.
+
+01:27.730 --> 01:28.930
+Dacă ne întoarcem la aplicația noastră
+
+01:32.470 --> 01:37.080
+dacă ne uităm la această aplicație, ne putem da seama ce obiective am putea dori să avem.
+
+01:37.090 --> 01:46.370
+Cu siguranta dorim sa avem un punct final de semnare; dorim să avem un punct final "de înregistrare" și de fiecare dată când noi
+
+01:46.370 --> 01:50.480
+conectați-vă la această aplicație - bine, vom avea un fel de profil.
+
+01:50.480 --> 02:00.450
+Vrem ca numele nostru și rangul nostru să fie afișate și, în mod ideal, acest rang se va schimba în funcție de câte fețe sau
+
+02:00.450 --> 02:03.190
+câte adrese URL am trimis pentru profilul meu.
+
+02:05.870 --> 02:07.610
+Deci aici este partea distractivă.
+
+02:07.610 --> 02:13.850
+De fapt, nu ne vom atinge de partea front-end pentru primele două videoclipuri, pentru că așa
+
+02:13.850 --> 02:21.790
+doriți să construiți un server API doriți să dați seama care este funcționalitatea pe care o dorim și o testează
+
+02:21.790 --> 02:30.100
+afară despre ceva de genul Postman. Deci, în următoarele două videoclipuri vom folosi postmanul și
+
+02:30.100 --> 02:37.310
+doar creând serverul nostru, și cu Postman vom încerca serverul nostru la fel ca în precedentul
+
+02:37.310 --> 02:38.020
+secțiune,
+
+02:39.030 --> 02:43.060
+obțineți toate punctele noastre de lucru și apoi, în sfârșit, o vom conecta la front-end.
+
+02:44.360 --> 02:45.740
+Va fi foarte distractiv.
+
+02:45.920 --> 02:54.200
+Acum, aici am redenumit proiectul nostru de front-end la smart-brain, dar asta e aplicația React pe care o avem
+
+02:54.200 --> 03:03.050
+am lucrat și am creat și un folder numit "smart-brain-api" și nu are absolut nimic
+
+03:03.050 --> 03:07.090
+în acesta, cu excepția unui pachet.json.
+
+03:07.220 --> 03:10.040
+Așa că am fugit.
+
+03:10.040 --> 03:13.520
+Dar este ceva cu care eram deja familiarizați, așa că nu te voi plictisi cu asta.
+
+03:13.760 --> 03:19.560
+Apoi am instalat câteva pachete pe care le-am folosit în secțiunea anterioară.
+
+03:19.880 --> 03:26.870
+Cadrul Express - pentru a putea construi un server într-adevăr frumos, Nodemon - pentru a putea rula Nodemon în
+
+03:26.870 --> 03:36.100
+script-uri și asigurați-vă că serverul nostru rulează, și avem și parser de caractere pe care îl folosim pentru parsare și
+
+03:36.100 --> 03:40.120
+au acces la corpul punctului de cerere [req.body] pentru a citi JSON și a forma date.
+
+03:40.360 --> 03:43.610
+În afară de asta, nu există niciun fișier JavaScript.
+
+03:43.720 --> 03:53.760
+Deci, haideți să începem prin crearea unui "server.js" și acum că avem "server.js", în "scripturile" noi
+
+03:53.760 --> 04:02.280
+poate spune că NPM "începe" și din nou este JSON așa că trebuie să-l înfășoară în paranteze curl.
+
+04:03.280 --> 04:08.410
+Și acest "început" va spune doar "nodemon server.js"
+
+04:10.730 --> 04:12.800
+-
+
+04:12.800 --> 04:19.800
+Și acum de fiecare dată când rulați "npm start", serverul nostru va rula, dar nu avem încă nimic.
+
+04:19.810 --> 04:27.170
+Deci, hai să ne bazăm scheletul de bază al aplicației noastre Express, iar asta ar trebui să-ți fie cunoscut până acum.
+
+04:27.640 --> 04:38.470
+Vom avea doar un expres expres egal care necesită pachetul expres [const expres = necesită ('express')].
+
+04:38.620 --> 04:41.890
+Apoi vom crea aplicația noastră executând Express
+
+04:46.140 --> 04:55.710
+și apoi în final vom avea app dot asculta și vom folosi portul 3000 [app.listen (3000)] și în cadrul "asculta"
+
+04:55.710 --> 05:00.970
+putem trimite de fapt un al doilea parametru, care este o funcție în cadrul acestei funcții,
+
+05:03.610 --> 05:08.220
+acesta va rula imediat după ce "asculta" se întâmplă pe portul 3000.
+
+05:08.440 --> 05:19.990
+Și doar pentru a ne asigura că totul rulează fără probleme, vom spune că "aplicația rulează pe portul 3000"
+
+05:20.240 --> 05:28.110
+Nodemon face acest lucru pentru noi, dar îmi place să am aici, indiferent.
+
+05:28.120 --> 05:28.410
+In regula.
+
+05:28.420 --> 05:30.790
+Deci, doar pentru a testa acest lucru dacă nu "npm începe"
+
+05:35.330 --> 05:42.410
+am lansat Nodemon, aplicația rulează pe portul 3000 așa cum am spus-o aici [console.log ('app running on port 3000')].
+
+05:42.500 --> 05:48.830
+Așa că acum, când avem aplicații, să creăm o cale de bază pentru a ne asigura că totul
+
+05:48.830 --> 05:50.720
+funcționează frumos.
+
+05:50.750 --> 05:58.780
+Puteți crea doar o aplicație "app.get ()" la ruta rădăcină [('/')].
+
+05:59.080 --> 06:04.700
+Și din nou, așa cum am făcut deja, acest lucru va primi un răspuns la cerere.
+
+06:08.150 --> 06:19.240
+Și aici vom face doar un răspuns de răspuns send [res.send ('this is working')] Să salvăm și să ne întoarcem la postmanul nostru și
+
+06:19.250 --> 06:24.100
+facem localhost 3000 și vom face doar o rădăcină [/]
+
+06:27.270 --> 06:31.850
+și noi obținem "acest lucru funcționează perfect".
+
+06:31.870 --> 06:35.560
+Deci, acum că avem acest set, îmi place să planificăm API-ul nostru.
+
+06:35.590 --> 06:40.450
+Și acesta este un lucru ca un dezvoltator pe care chiar vrei să îl faci înainte de a începe codarea și vrei
+
+06:40.450 --> 06:44.900
+pentru a vă asigura că aveți o idee despre cum va arăta designul dvs. API.
+
+06:46.470 --> 06:47.850
+Să ne gândim la asta.
+
+06:47.940 --> 06:53.760
+Am de gând să-l împachetez în comentarii și putem lucra cu asta unul câte unul. Dacă doriți să aveți o rută rădăcină
+
+06:53.850 --> 07:00.280
+că poate pentru moment vom spune doar că răspunde
+
+07:00.510 --> 07:02.760
+"acest lucru este de lucru".
+
+07:02.820 --> 07:12.150
+De asemenea, dorim să avem un traseu "de conectare", deoarece bine vrem ca utilizatorii să se conecteze și acest lucru se va întâmpla cel mai mult
+
+07:12.150 --> 07:22.190
+ar putea fi o solicitare POST deoarece publicăm câteva date despre unele JSON, unele informații despre utilizatori și se întâmplă
+
+07:22.190 --> 07:24.530
+pentru a răspunde cu oricare dintre ele
+
+07:27.680 --> 07:29.640
+succes sau eșec.
+
+07:30.110 --> 07:30.710
+In regula.
+
+07:30.770 --> 07:39.200
+Avem, de asemenea, un "registru", iar registrul din nou va fi o cerere POST deoarece dorim să adăugăm datele
+
+07:39.230 --> 07:49.610
+la baza de date sau, în cazul nostru, o variabilă în serverul nostru și cu noile informații despre utilizator.
+
+07:49.620 --> 07:53.860
+Deci, poate că în loc să spui "succes / eșec", ne vom întoarce
+
+07:53.880 --> 07:57.620
+noul utilizator creat pentru a vă asigura că totul funcționează.
+
+07:57.930 --> 08:03.300
+Și vom spune că acesta este noul obiect de utilizator pe care îl vom întoarce. O.K.
+
+08:03.310 --> 08:11.190
+De asemenea, dorim ca în ecranul de start să aibă abilitatea de a accesa profilul utilizatorului.
+
+08:11.250 --> 08:19.890
+Deci, probabil că vom avea un profil cu un parametru opțional de "userId", astfel încât fiecare utilizator să aibă propriul său
+
+08:20.020 --> 08:21.110
+Ecranul de start.
+
+08:21.390 --> 08:25.230
+Și aceasta va fi probabil o cerere GET.
+
+08:25.230 --> 08:33.700
+Vrem doar să obținem informațiile despre utilizator și acest lucru ne va aduce utilizatorul. Și pentru că vrem să colaborăm
+
+08:33.700 --> 08:41.530
+clasamentul sau oricând un utilizator postarea unei fotografii noi vrem să ne asigurăm că numără numărul de fotografii
+
+08:41.530 --> 08:49.190
+pe care le-ați trimis în sus și poate aveți o modalitate de a păstra scorul - o variabilă care crește cu câte una
+
+08:49.190 --> 08:54.740
+timpul în care un utilizator trimite aceste fotografii și apoi verifică alți utilizatori pentru a vedea cine a trimis cel mai mult
+
+08:54.740 --> 08:56.170
+și le dau un rang.
+
+08:56.540 --> 09:09.080
+Poate că putem avea un punct final de imagine care va fi din nou un post sau poate în cazul nostru pentru că suntem
+
+09:09.080 --> 09:11.210
+actualizarea scorului ar trebui să fie un PUT.
+
+09:11.210 --> 09:17.520
+Întrucât utilizatorul există deja și vrem să ne asigurăm că există o actualizare a profilului utilizatorului.
+
+09:17.810 --> 09:26.470
+Iar acest lucru va returna obiectul actualizat al utilizatorului sau poate orice am actualizat - în cazul nostru a
+
+09:26.800 --> 09:28.130
+contează ceva.
+
+09:29.710 --> 09:37.660
+Și s-ar putea să te întrebi aici și cu "signin 'dacă nu creăm un utilizator nou de ce facem
+
+09:37.690 --> 09:40.110
+o postare?
+
+09:40.140 --> 09:46.680
+Și dacă vă amintiți în orice moment că trimitem o parolă, nu dorim cu adevărat să o trimitem ca un șir de interogare
+
+09:46.670 --> 09:56.030
+Putem sa? Vrem să-l trimitem în interiorul corpului în mod ideal prin HTTPS, astfel încât să fie ascuns de om-în-mijloc
+
+09:56.030 --> 10:00.250
+atacuri și este sigur. Privind la asta
+
+10:00.250 --> 10:06.860
+acest lucru s-ar putea schimba pe măsură ce trecem prin proiect, dar avem o idee despre ceea ce vrem să creăm.
+
+10:06.880 --> 10:14.070
+În următoarele videoclipuri vom începe să creăm aceste puncte finale și le vom testa cu Postman
+
+10:14.070 --> 10:16.950
+asigurați-vă că lucrează.
+
+10:17.040 --> 10:18.900
+Ne vedem în următorul. Pa! Pa

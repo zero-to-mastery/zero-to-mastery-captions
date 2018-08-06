@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00.930 --> 00:08.280
+Când am început să învăț javascript, modulele și acel subiect au fost cele mai confuze pentru mine
+
+00:08.280 --> 00:12.990
+Am avut un timp foarte greu să înțeleg conceptul.
+
+00:13.020 --> 00:21.800
+Mi-a trebuit un an să-l iau, dar am creat o imagine mentală în capul meu pentru a înțelege mai bine.
+
+00:21.820 --> 00:27.610
+Și, pe măsură ce facem acest curs, începem mai întâi cu problema, apoi mergem la soluția pe care o avem acum,
+
+00:27.640 --> 00:30.990
+pentru a vedea unde și unde suntem acum.
+
+00:31.150 --> 00:37.120
+Acesta este modelul mental pe care l-am creat și îl numesc urcând pe munte de module.
+
+00:37.150 --> 00:38.260
+Lasă-mă să explic.
+
+00:38.680 --> 00:47.090
+Când am început să scriem javascript și să creăm site-uri web cu javascript, am avut un fișier html
+
+00:48.450 --> 00:53.400
+și pentru prima dată când oamenii folosesc javascript,
+
+00:53.500 --> 01:02.520
+ați folosit o etichetă de script și ceea ce am numit un script inline. Un script inline este exact acest lucru,
+
+01:02.790 --> 01:07.780
+noi doar inline toate javascript noastre în fișierul html.
+
+01:07.850 --> 01:11.850
+Acum sunt probleme pe care le văd cu asta.
+
+01:11.940 --> 01:19.090
+Imaginați-vă că obțineți un fișier masiv, un javascript masiv, sute și mii de linii de cod.
+
+01:19.170 --> 01:25.180
+Una este lipsa de reutilizare a codului și veți auzi acest termen foarte mult.
+
+01:26.930 --> 01:36.170
+Dacă trebuie să adăugăm o altă pagină, poate și despre pagina.html, trebuie să copiați acest cod și să îl puneți
+
+01:36.170 --> 01:38.980
+în celălalt fișier html.
+
+01:39.210 --> 01:50.770
+Și a doua, a fost poluarea spațiilor de nume globale, și anume, odată ce folosesc "a" ca variabilă,
+
+01:50.770 --> 01:53.370
+în acest caz în obiectul ferestrei.
+
+01:53.380 --> 02:01.810
+Ei bine, nu mai pot folosi niciodată "a" și poate sute de linii în jos, din greșeală le atribuie o variabilă "a" și eu
+
+02:01.810 --> 02:03.300
+ștergeți funcția "a" mea.
+
+02:03.610 --> 02:05.340
+Ei bine, este o mare problemă.
+
+02:05.410 --> 02:07.190
+Și asta este o problemă mare, în general.
+
+02:07.210 --> 02:12.910
+Vrei să te asiguri că nu poluezi spațiul de nume global, care este obiectul ferestrei cu toate
+
+02:12.910 --> 02:18.520
+aceste nume, pentru că atunci aveți coliziuni, aveți diverși membri ai echipei care lucrează pe diferite piese
+
+02:18.520 --> 02:22.620
+de cod și dintr-o dată, amândoi mergem cu același nume.
+
+02:22.660 --> 02:23.460
+Este o mare problemă.
+
+02:24.470 --> 02:29.670
+Următoarea încercare a fost etichetele de script. Și cu asta ne-am familiarizat.
+
+02:29.990 --> 02:41.920
+În loc să avem în linie, am avut etichete de script și am jucat în jur cu bootstrap și j-query.
+
+02:42.000 --> 02:43.230
+Așa am făcut noi.
+
+02:43.560 --> 02:52.450
+Ne-am încărcat mai întâi fișierul j-query, apoi fișierul javascript încărcat pe locul doi, și după cum puteți vedea,
+
+02:52.450 --> 02:59.410
+putem avea un fișier de script și al doilea și al treilea, apoi al patrulea, așa ai făcut
+
+03:00.430 --> 03:04.270
+totul în afara html-ului. Rezolvă problema corectă?
+
+03:05.330 --> 03:10.010
+Ei bine, problema cu etichetele de script în măsura în care văd sunt trei lucruri.
+
+03:10.540 --> 03:18.400
+Dacă trebuie să adăugăm o altă pagină ca o pagină despre pagină, trebuie să copiem și să lipim aceste etichete de script.
+
+03:18.620 --> 03:21.630
+Și din nou, nu vrem să facem asta.
+
+03:21.670 --> 03:28.660
+A doua este lipsa de rezolvare a dependenței, și asta ești responsabil pentru a te asigura că
+
+03:29.470 --> 03:32.560
+scripturile sunt adăugate în ordinea corectă.
+
+03:32.560 --> 03:39.340
+De exemplu, dacă acest script accesează o funcție din fișierul 4.js, va eșua
+
+03:39.340 --> 03:43.210
+deoarece numărul fișierului 4.js nu a fost încărcat încă.
+
+03:43.420 --> 03:46.580
+Deci asta e lipsa de rezolvare a dependenței.
+
+03:46.830 --> 03:51.070
+Și în sfârșit o treime, acest lucru nu rezolvă cu adevărat problema spațiului de nume global?
+
+03:51.090 --> 03:57.690
+Controlează spațiile de nume globale toate funcțiile și variabilele care sunt declarate în fiecare dintre acestea
+
+03:57.690 --> 04:00.660
+fișierele vor fi pe obiectul ferestrei.
+
+04:01.040 --> 04:04.670
+OK, și ce a treia încercare.
+
+04:04.660 --> 04:10.700
+IIFE, care se referă la executarea imediată a funcțiilor.
+
+04:10.830 --> 04:14.700
+Știu că este o glumă, dar arată cam așa.
+
+04:16.600 --> 04:24.820
+Și IFFY este, de fapt, înfășoară o funcție în paranteze, așa că javascript citește acest lucru și spune:Oh! trebuie să
+
+04:25.150 --> 04:33.620
+evaluați acest lucru și executați acest lucru, iar apoi, aceste paranteze la sfârșitul spune, rulați funcția după dvs.
+
+04:33.620 --> 04:42.820
+evaluați acest lucru, executați această funcție. Și a fost o modalitate confuză de a vă asigura de un lucru și asta este,
+
+04:42.820 --> 04:47.230
+prin utilizarea acestei metode, nu poluezi spațiul de nume global.
+
+04:47.230 --> 04:55.030
+Acum, dacă în primul fișier aveți variabilă, 'myapp' care va fi pe obiectul ferestrei, dar orice altceva
+
+04:55.360 --> 04:59.080
+care este în interiorul unei funcții, după cum știm, creează un nou domeniu de aplicare.
+
+04:59.140 --> 05:06.520
+Deci, toate fișierele, deoarece sunt înfășurate în acest IFFY, aveau propriul scop și dacă doriți să adăugați
+
+05:06.820 --> 05:13.660
+la "myapp" tocmai ați adăugat totul ca pe o proprietate sau o metodă.
+
+05:15.060 --> 05:21.300
+Atât de minunat! care a redus spațiul nostru de nume la nivel mondial la doar unul.
+
+05:21.330 --> 05:25.510
+Vreau să spun că nu e zero, dar unul, asta e mult mai bine.
+
+05:25.600 --> 05:31.850
+Dar există încă o problemă în acest sens, ordinea dosarelor este încă importantă.
+
+05:32.120 --> 05:39.320
+Și am lucrat mai devreme pe aplicații în care folosim atât de multe scripturi, încât aceasta era aproape de 100 de etichete de script
+
+05:39.500 --> 05:44.660
+și de fiecare dată când adăugați un fișier, trebuia să vă asigurați că ați adăugat în locul potrivit pentru că
+
+05:44.660 --> 05:48.640
+fișierul ar putea fi dependent de un alt fișier, încărcat înaintea acestuia.
+
+05:48.650 --> 05:55.890
+Deci, după cum știm că este lipsa de rezolvare a dependenței și sincer acest lucru nu pare foarte frumos.
+
+05:55.910 --> 06:02.560
+Deci, atunci am avut browser-ul, acest frumos logo-ul.
+
+06:02.580 --> 06:04.810
+Acum, ce a făcut browserul.
+
+06:05.010 --> 06:08.660
+A folosit de fapt ceva numit JS comun.
+
+06:08.700 --> 06:17.310
+Deci, voi comenta IFFY și vă voi arăta ce a făcut browserul. A folosit comun JS care ne-a permis
+
+06:17.310 --> 06:18.780
+să folosiți o anumită sintaxă.
+
+06:19.170 --> 06:27.870
+Și se pare ceva de genul acesta, dacă vreau să aibă în prima mea fișier javascript o funcție "add", pot
+
+06:28.170 --> 06:39.700
+spuneți "module.exports" și acum, în cel de-al doilea fișier javascript, aș putea solicita "adăugați", remediați
+
+06:40.720 --> 06:42.560
+siruri de aici si acum,
+
+06:43.370 --> 06:53.940
+Pot adăuga funcția "adăugați" în fișierul "2" al javascriptului meu. Acum, navigați, utilizați această sintaxă JS comună.
+
+06:54.140 --> 06:57.570
+Dar este de fapt un pachet de module.
+
+06:57.680 --> 06:58.470
+Și ce înseamnă asta?
+
+06:58.490 --> 07:03.610
+Ei bine, se execută înainte de a pune site-ul online.
+
+07:03.620 --> 07:12.710
+Ce inseamna asta, citeste prin toate fisierele javascript citeste prin toata sintaxa si legalizeaza totul
+
+07:12.740 --> 07:15.320
+într-un singur fișier.
+
+07:15.410 --> 07:23.540
+Odată ce ați rulat, toate fișierele prin browser și din nou este doar un simplu instrument care ne-a permis să pur și simplu
+
+07:23.840 --> 07:25.440
+aruncați toate fișierele noastre secrete.
+
+07:25.490 --> 07:29.480
+Toate acestea în browser.
+
+07:29.730 --> 07:39.150
+Și atâta timp cât vom folosi sintaxa JS comună ca aceasta, ea va ști ce să facă și să creeze automat
+
+07:41.010 --> 07:45.000
+un fișier. Se va numi, de obicei, ceva de genul
+
+07:45.100 --> 07:45.970
+'bundle.js'
+
+07:45.970 --> 07:50.420
+Deci, toate scenariile noastre vor fi doar pe un dosar masiv.
+
+07:50.420 --> 07:56.470
+Și da, asta ar putea fi rău când vom evolua, dar când va ieși pe internet în
+
+07:56.470 --> 08:03.610
+lumea reală, nu ne pasă cum arată, pentru că facem doar asta pentru al trimite undeva la un server,
+
+08:03.610 --> 08:07.080
+astfel încât aplicația web să poată fi vizualizată de utilizatori.
+
+08:07.370 --> 08:10.800
+Aceasta nu este ceea ce va arăta de fapt când dezvoltatorii lucrează la ea.
+
+08:10.900 --> 08:14.040
+Când dezvoltatorii lucrează la el, avem doar fișiere separate.
+
+08:14.050 --> 08:22.110
+Tocmai am rula-o prin browser, chiar înainte de a ne instala, care este pusă la dispoziția publicului.
+
+08:22.120 --> 08:22.330
+In regula,
+
+08:22.330 --> 08:25.250
+așa că a fost destul de cool.
+
+08:25.250 --> 08:28.570
+Și ne apropiem de vârful muntelui.
+
+08:29.380 --> 08:36.610
+Acum, toate aceste probleme aici sunt toate pentru că javascript nu a avut ceea ce noi numim un sistem modul construit
+
+08:36.610 --> 08:44.110
+în limba. Și gândiți-vă la module ca blocuri de construcție, ca diferite bucăți de cod.
+
+08:44.270 --> 08:47.070
+Deci, în loc să aveți un lucru gigantic, aveți module.
+
+08:47.150 --> 08:50.460
+Fiecare piesă este într-adevăr foarte bună în a face un singur lucru.
+
+08:51.510 --> 08:57.990
+Și pentru că javascript nu a avut acest sistem de module, este motivul pentru care avem atât de multe moduri diferite
+
+08:57.990 --> 09:03.960
+a modulelor de import și export și de fapt există destul de multe altele pe care nu le-am arătat pentru că
+
+09:03.960 --> 09:07.410
+bine, sincer, va fi prea mult.
+
+09:07.440 --> 09:13.180
+Dar lucrurile s-au schimbat recent odată cu introducerea ES6,
+
+09:13.410 --> 09:18.310
+acum putem face ceva mult mai frumos.
+
+09:20.010 --> 09:25.760
+Și arată cam așa.
+
+09:25.940 --> 09:28.080
+Cu ES6, avem două lucruri noi.
+
+09:28.220 --> 09:30.600
+Export și import.
+
+09:30.710 --> 09:37.250
+De exemplu, în javascript un fișier, pot avea o funcție și le puteți vedea folosind funcțiile săgeată aici,
+
+09:37.990 --> 09:48.120
+o funcție de adăugare și o voi exporta pur și simplu sau chiar pot face "export default", în cel de-al doilea fișier, dacă aș vrea
+
+09:48.120 --> 09:49.770
+pentru a utiliza funcția de adăugare.
+
+09:49.770 --> 09:52.270
+Tot ce spun este "import".
+
+09:52.680 --> 09:54.810
+Și apoi vedem aici de-structurarea.
+
+09:54.810 --> 09:56.670
+Ați putea să vă amintiți acest lucru de la.
+
+09:56.700 --> 09:57.230
+ES5
+
+09:57.240 --> 09:59.410
+Video ES6.
+
+09:59.640 --> 10:09.280
+Și pur și simplu luăm doar "add", sau dacă exportul a fost implicit, ceea ce înseamnă că puteți exporta acest lucru
+
+10:09.280 --> 10:12.770
+multiple funcții în același fișier, versus aici,
+
+10:12.910 --> 10:17.710
+puteți exporta doar un singur lucru, astfel încât fișierul exportă numai un singur lucru.
+
+10:17.710 --> 10:23.210
+Ei bine, în acest caz, nu avem nevoie de brațele mai mici, putem doar să adăugăm din fișierul "adăugați".
+
+10:23.530 --> 10:24.950
+Foarte tare.
+
+10:25.060 --> 10:26.380
+Deci este frumos.
+
+10:26.380 --> 10:27.880
+Citește destul de bine.
+
+10:27.880 --> 10:33.640
+Tocmai am pus importurile în partea de sus, astfel încât fiecare fișier să știm exact ce are nevoie fiecare fișier și totul
+
+10:33.640 --> 10:37.980
+este curat, totul funcționează și nu trebuie să ne facem griji cu privire la chestiile astea.
+
+10:38.440 --> 10:41.120
+Ei bine, da.
+
+10:41.410 --> 10:48.430
+După cum știți până acum, și mă simt ca o înregistrare ruptă, browserele nu susțin totul încă pentru că
+
+10:48.430 --> 10:49.780
+este o caracteristică nouă.
+
+10:49.780 --> 10:56.030
+Din nou, încă așteptăm ca browserele să le pună în aplicare. Dar pentru asta este lucrul albastru.
+
+10:56.050 --> 11:04.900
+Se numește Webpack. Și Webpack, la fel ca browser-ul este un modulebundler care este pachetele de module
+
+11:04.930 --> 11:06.370
+care este pachete
+
+11:06.370 --> 11:15.900
+fișiere javascript. Și la fel ca și browser-ul, el traversează arborele de dependență care este acest export și
+
+11:16.290 --> 11:19.280
+tagurile de import într-un singur fișier,
+
+11:19.290 --> 11:28.350
+sau poate chiar să aibă mai multe fișiere, pe baza nevoilor dvs. și cu webpack, putem folosi de fapt ES6
+
+11:28.560 --> 11:29.750
+în toate browserele.
+
+11:30.520 --> 11:31.690
+Nu este minunat?
+
+11:32.080 --> 11:33.560
+Aici suntem acum,
+
+11:33.670 --> 11:39.220
+am urcat pe munte de module si avem un sistem cu adevarat foarte bun acum in javascript.
+
+11:39.220 --> 11:44.020
+Era foarte greu să ajung acolo, dar acum suntem într-un loc bun, așa că asta este ceea ce vom face
+
+11:44.020 --> 11:44.680
+utilizați.
+
+11:44.680 --> 11:48.590
+Și aceasta este ceea ce industria utilizează. Obișnuiți-vă cu sintaxa.
+
+11:48.680 --> 11:53.920
+Voi lăsa un link la sfârșitul acestui videoclip, astfel încât să puteți verifica mai multe, dar când vom reacționa,
+
+11:53.920 --> 11:58.840
+vom folosi foarte mult, și va fi o mulțime de distracție, va face lucrurile cu adevărat
+
+11:58.840 --> 12:00.430
+frumos și curat pentru noi.
+
+12:02.050 --> 12:03.490
+Un lucru pe care vroiam să-ți arăt.
+
+12:03.760 --> 12:07.270
+S-ar putea să credeți că acest lucru se pare că este destul de greu.
+
+12:07.270 --> 12:08.620
+Cum ar fi cum o face?
+
+12:08.620 --> 12:11.920
+Este foarte simplu, are doar un fișier de configurare, exact așa.
+
+12:12.010 --> 12:17.170
+După cum puteți vedea, avem doar o ieșire care este bundle.js,
+
+12:17.330 --> 12:19.390
+și nu trebuie să ne îngrijorăm prea mult.
+
+12:19.390 --> 12:26.830
+De obicei, atunci când cineva începe un proiect, este o persoană din echipa care configurează acest fișier și
+
+12:26.830 --> 12:28.570
+totul se face, restul,
+
+12:28.570 --> 12:32.290
+doar construiți pe partea de sus este foarte simplu pentru a începe.
+
+12:32.350 --> 12:35.610
+Nu cred că este foarte important pentru noi să abordăm acum.
+
+12:35.980 --> 12:41.130
+Dar, din nou, un instrument foarte util, și creează un frumos,
+
+12:41.360 --> 12:46.550
+fișierul bundled.js. Deci acum toate htmls noastre arata frumos si simplu.
+
+12:46.790 --> 12:48.330
+Și știi ce?
+
+12:48.480 --> 12:49.920
+Asta e.
+
+12:49.920 --> 12:55.920
+Am abordat câteva dintre cele mai importante subiecte din javascript și câteva subiecte foarte dificile.
+
+12:56.220 --> 13:01.230
+Și știu că creierul tău suferă de toate aceste informații, dar ai făcut-o.
+
+13:01.380 --> 13:08.340
+Am terminat această secțiune și secțiunile anterioare și acum putem construi de fapt, aplicații uimitoare cu
+
+13:08.340 --> 13:09.370
+instrumente pe care le avem.
+
+13:10.880 --> 13:15.600
+Nu vă pot aștepta să vă arăt cum se îmbină toate aceste piese pentru a construi ceva uimitor.
+
+13:17.060 --> 13:19.130
+Ne vedem în următorul videoclip. Buh-pa.

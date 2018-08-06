@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.450 --> 00:07.400
+Welcome back. In this video we're finally going to put our front end application on a server so that
+
+00:07.430 --> 00:15.780
+everything is now off of our computer online and we can share our project with the world to get started.
+
+00:15.780 --> 00:25.420
+We can go back to Heroku and in our dashboard we can simply see that we have our server but we want
+
+00:25.420 --> 00:36.220
+to create a new app and this new app we can call it smart brain. We'll choose region in us we'll click
+
+00:36.250 --> 00:45.370
+Create app and it gives us really really nice commands how to set up everything we can just do Heroku
+
+00:45.460 --> 00:47.530
+login.
+
+00:47.630 --> 00:51.250
+So let's do that from our smart brain front end.
+
+00:52.510 --> 00:57.140
+I'm going to say Heroku login
+
+01:04.060 --> 01:06.680
+log in with my email and my password
+
+01:09.510 --> 01:16.650
+and going back to the readme we see that we make sure that our git is set up which it is and we can add
+
+01:16.650 --> 01:25.320
+our remote to Heroku gid remote smart brain right.
+
+01:25.420 --> 01:31.630
+If we do get remote dash V and these are the same steps that we ran with our API server as well.
+
+01:31.690 --> 01:35.310
+We see that we have Heroku next.
+
+01:35.350 --> 01:40.720
+We want to do git add commit and then push Hiroku Master.
+
+01:40.740 --> 01:41.880
+All right.
+
+01:41.970 --> 01:47.580
+And a reminder here that even though we haven't changed anything on the front end we do have to run
+
+01:47.580 --> 01:51.870
+and git add and git commit.
+
+01:52.050 --> 01:55.140
+Otherwise the changes won't appear on Hiroku.
+
+01:55.140 --> 02:01.590
+So let's just say deploy for now and then we can just to git push Heroku master.
+
+02:05.850 --> 02:07.810
+Seems a little bit too easy right.
+
+02:07.920 --> 02:14.890
+Well let's let this run and see once it is deployed if it's all working. All right, our deployment's done.
+
+02:14.900 --> 02:17.130
+And look at that we have a new link.
+
+02:17.270 --> 02:20.050
+So let's run Heroku open
+
+02:23.840 --> 02:31.570
+All right, look at that we have a new link on our front end but let's see if it works if I sign in with
+
+02:31.580 --> 02:35.970
+Teddy at gmail dot com do one two three
+
+02:38.680 --> 02:42.760
+sign in.
+
+02:42.850 --> 02:43.270
+All right.
+
+02:43.270 --> 02:46.780
+And look at that. Teddy is loaded.
+
+02:46.810 --> 02:52.050
+He's already done a count before with the face. Let's do another one just to make sure it works.
+
+02:54.650 --> 02:57.150
+Click detect.
+
+02:57.200 --> 03:04.450
+No I don't want it to save Teddy's password but look at that everything is working.
+
+03:04.450 --> 03:06.290
+It seemed almost too easy right.
+
+03:06.300 --> 03:07.210
+So cool.
+
+03:07.270 --> 03:17.790
+Let's recap one more time what we just did. We've created three separate servers or three separate computers
+
+03:18.360 --> 03:26.980
+where each of these individual rectangles are running. We have a postgreSQL, a node server, and a front
+
+03:26.980 --> 03:32.200
+end and all of them are working exactly as they were on our computer.
+
+03:32.200 --> 03:39.280
+But this time in production. Live, into the world. And all we had to do, was just change some numbers to
+
+03:39.280 --> 03:44.770
+make sure that we're pointing these arrows so that the front end knows that this is where our server
+
+03:44.770 --> 03:52.570
+is and the server knows this is where our databases and these are just small configurations that is
+
+03:52.570 --> 03:54.660
+really dependent on each platform
+
+03:54.700 --> 03:59.100
+you work with, but the underlying concepts are the same.
+
+03:59.100 --> 04:02.250
+You're just pointing to the address to the location of these things.
+
+04:02.550 --> 04:03.880
+But oh boy.
+
+04:04.650 --> 04:08.880
+Well isn't that crazy how we've got all these things to work.
+
+04:08.880 --> 04:16.370
+I remember my first time in my career when I managed to connect the dots and actually build each one of these
+
+04:16.740 --> 04:18.200
+myself.
+
+04:18.240 --> 04:19.430
+It was an eye opener.
+
+04:19.440 --> 04:26.100
+It opened up a whole new world and it made me really understand how everything is connected and moving
+
+04:26.100 --> 04:27.380
+on from that point.
+
+04:27.480 --> 04:38.100
+I understood most things and every tool or new technology is just an addition to this pre-existing idea.
+
+04:38.340 --> 04:45.990
+And as long as you understand this underlying architecture, this underlying concept of different servers
+
+04:45.990 --> 04:53.640
+connecting to each other the rest is just extensions of this.
+
+04:53.650 --> 04:56.170
+So could we improve this app.
+
+04:56.200 --> 04:57.130
+Absolutely.
+
+04:57.190 --> 04:59.800
+You can do so many things with this app.
+
+04:59.950 --> 05:07.570
+We might want to be a little bit extra secure and perhaps not even have our API key in our code for
+
+05:07.570 --> 05:09.760
+our server.
+
+05:09.850 --> 05:12.910
+We can create something like environmental variables for this.
+
+05:12.910 --> 05:23.590
+For example on Heroku if we go to our smart brain app or let's go to our backend our radiant ocean now
+
+05:23.590 --> 05:31.460
+on here if we go to settings and go to reveal config VAR's we have our environmental variables here
+
+05:32.030 --> 05:33.120
+set for us.
+
+05:33.170 --> 05:35.820
+You remember postgres how we tried to connect to it.
+
+05:35.840 --> 05:40.180
+And we had a process dot env dot DATABASE_URL.
+
+05:40.190 --> 05:46.770
+Well we can add our own if we wanted to we can say API clarifai
+
+05:51.420 --> 06:05.250
+add the API key that we have in our backend into here click ADD and now we have this available to us
+
+06:05.940 --> 06:18.900
+as a process dot env dot API clarifai which is I believe what I call the and this is an extra layer of
+
+06:18.900 --> 06:26.900
+security you don't want anything sensitive like addresses or passwords or API keys in your codebase.
+
+06:26.940 --> 06:28.650
+So somebody can peek it.
+
+06:28.800 --> 06:34.800
+This is something that you'll get used to more and more and hopefully with what you know about environmental
+
+06:34.800 --> 06:35.820
+variables.
+
+06:35.820 --> 06:36.920
+This makes sense.
+
+06:38.000 --> 06:47.120
+But for now because this is a simple app we don't need to add any of this we'll revert the changes.
+
+06:50.740 --> 06:59.820
+And just be proud of ourselves for creating an awesome app and deploying it in real life.
+
+07:01.790 --> 07:08.850
+Now go share this link with all your friends and family and tell them how awesome of a dev you are. I'll see you
+
+07:08.870 --> 07:10.380
+in the next one.
+
+07:10.440 --> 07:10.860
+Bye-Bye.

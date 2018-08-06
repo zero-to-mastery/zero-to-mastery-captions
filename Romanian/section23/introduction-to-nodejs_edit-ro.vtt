@@ -1,0 +1,211 @@
+WEBVTT
+
+00:01.120 --> 00:02.140
+Bine ai revenit.
+
+00:02.140 --> 00:03.910
+E timpul să înveți Nod JS.
+
+00:04.030 --> 00:06.950
+Acum Nodul JS
+
+00:07.060 --> 00:11.920
+Am folosit-o în videoclipurile anterioare, dar nu am explicat-o.
+
+00:11.920 --> 00:18.070
+Deci, pe parcursul acestei secțiuni, vom învăța ce este și vom folosi în final pentru a construi un server.
+
+00:19.640 --> 00:27.180
+Acum am menționat deja acest lucru, dar nodul este JavaScript care rulează pe mașina dvs.
+
+00:27.180 --> 00:34.140
+Vedeți până când Nodul a fost creat, puteți rula numai JavaScript în browser deoarece browserele
+
+00:34.140 --> 00:43.990
+au fost singurele care au avut un motor JavaScript ca V8 și Node JS a fost creat cu motorul V8 în
+
+00:43.990 --> 00:51.400
+pentru a putea rula JavaScript oriunde, inclusiv pe computer, inclusiv pe roboți și oriunde
+
+00:51.430 --> 00:53.450
+atâta timp cât ai avut Nod JS.
+
+00:54.460 --> 01:00.970
+Și, de fapt, am folosit nodul tot timpul în Terminalul nostru când am pornit comenzi
+
+01:01.030 --> 01:05.420
+că NPM ne-a dat ca "create-react-app".
+
+01:05.410 --> 01:10.540
+Ei bine, a fost folosind Node; rulați JavaScript în afara browserului.
+
+01:12.010 --> 01:17.320
+Și Node JS este probabil cel mai popular pentru construirea de servere.
+
+01:17.320 --> 01:24.040
+Este într-adevăr foarte rapid și tot mai multe companii o folosesc acum ca un server back-end din cauza
+
+01:24.040 --> 01:26.760
+modul în care este construit.
+
+01:26.770 --> 01:27.110
+-
+
+01:27.170 --> 01:31.130
+Nodul JS este probabil serverul de alegere pentru orice aplicație web sau
+
+01:31.350 --> 01:35.230
+aplicații mobile acolo care doresc să creeze un API sau un server.
+
+01:35.470 --> 01:40.490
+Și este, de asemenea, într-adevăr foarte bun la construirea de aplicații de chat și de comunicare în timp real.
+
+01:41.060 --> 01:45.970
+Oricum, așa cum am menționat mai devreme, probabil că ar trebui să aveți acest lucru pe computerul dvs. până acum, dar dacă nu tu
+
+01:45.970 --> 01:47.080
+poate descărca
+
+01:47.110 --> 01:47.450
+-
+
+01:47.490 --> 01:47.880
+Nod JS.
+
+01:47.920 --> 01:50.170
+Îmi place să folosesc versiunea LTS.
+
+01:50.990 --> 01:56.540
+Dar atâta timp cât versiunea pe care o utilizați este mai mare decât 8.9.3, această demonstrație
+
+01:56.600 --> 01:58.070
+va lucra pentru dvs.
+
+01:58.070 --> 02:01.350
+Nodul este într-adevăr foarte bun pentru a vă asigura că totul este compatibil.
+
+02:01.430 --> 02:08.150
+Din nou, dacă utilizați un sistem de operare Windows, Nodul vă oferă acest lucru în secțiunea de descărcare
+
+02:08.150 --> 02:08.700
+de asemenea.
+
+02:09.850 --> 02:15.950
+Și din nou pentru a verifica Nodul, este foarte ușor să facem "nod -v" pentru a vedea că avem.
+
+02:16.180 --> 02:23.490
+Și dacă o ai, vei avea numărul de versiune tipărit pentru tine pe consola. Inca un lucru
+
+02:23.490 --> 02:30.940
+înainte de a vă arăta niște comenzi Nod:cum am spus înainte ca nodul să poată fi rulat oriunde.
+
+02:32.130 --> 02:38.250
+Și unul dintre lucrurile mele preferate de a face cu Nodul, altul decât a construi servere este de a crea de fapt roboți folosind
+
+02:38.250 --> 02:39.410
+JavaScript.
+
+02:39.400 --> 02:46.860
+Acest Johnny-5 este o bibliotecă JavaScript pe care o puteți utiliza cu Nodul și dacă aveți ceva de genul Zmeură
+
+02:46.860 --> 02:55.310
+Pi, vă ajută să creați funcții utilizând JavaScript pe care îl pot efectua roboții.
+
+02:55.740 --> 03:00.640
+Așadar, recomand foarte mult după acest curs dacă doriți să explorați mai mult.
+
+03:00.660 --> 03:08.370
+Johnny-5 este unul dintre lucrurile mele preferate și este surprinzător cât de ușor este să construiești un robot care să o facă
+
+03:08.370 --> 03:12.590
+indiferent de ce doriți să faceți doar folosind JavaScript.
+
+03:12.620 --> 03:18.670
+Dar oricum, să ne întoarcem la Node. În Terminalul dvs.,
+
+03:18.670 --> 03:27.550
+dacă tastați de fapt "nod" și apăsați Enter veți vedea că promptul se schimbă acum și pot rula nodul
+
+03:27.960 --> 03:31.530
+în terminal. Dacă fac "console.log ('hi') '
+
+03:35.250 --> 03:47.570
+Sunt "hi". Dacă fac "4 + 5" primesc 9 și dacă o fac "Boolaen (3)", eu am spus acest lucru greșit, "Boolean (3)"
+
+03:50.130 --> 03:51.930
+Sunt adevarat.
+
+03:52.380 --> 03:58.450
+După cum puteți vedea, noi suntem doar JavaScript, dar există un pic de diferență aici.
+
+03:58.570 --> 04:07.510
+Dacă scriu în "fereastră" primesc o "fereastră ReferenceError:fereastra nu este definită" și permiteți-mi să clar acest lucru un pic.
+
+04:07.510 --> 04:14.680
+Acest lucru se datorează faptului că atunci când executăm nodul nu avem obiectul ferestrei; obiectul ferestrei ne-a fost furnizat
+
+04:15.070 --> 04:16.570
+de browser.
+
+04:16.930 --> 04:20.800
+Și, după cum știți, Node, nu există niciun browser care să o ruleze.
+
+04:20.800 --> 04:25.020
+În schimb Nodul vine cu ceva numit "global".
+
+04:25.210 --> 04:31.780
+Și puteți vedea că acest "global" are la fel ca și obiectul ferestrei, o grămadă de lucruri pe care le putem folosi
+
+04:32.500 --> 04:35.490
+dar nu va avea lucruri specifice browserului.
+
+04:36.410 --> 04:48.260
+De exemplu, nu vom putea avea "global.fetch" - este nedefinit pentru că nu există.
+
+04:48.300 --> 04:51.090
+Acest lucru ne-a fost oferit de browser.
+
+04:51.090 --> 04:53.810
+De asemenea, nu avem obiectul "document"
+
+04:53.880 --> 05:00.120
+daca iti amintesti; dacă fac din nou "document", am o eroare de referință deoarece nu există niciun document; deci aia e
+
+05:00.120 --> 05:01.670
+ceva de retinut.
+
+05:01.770 --> 05:08.130
+Nodul vine cu propriile proprietăți și metode pe care le folosim, dar altele decât cele specifice browserului,
+
+05:08.130 --> 05:11.210
+putem face orice vrem cu Nodul.
+
+05:11.310 --> 05:16.100
+Unul dintre obiectele globale pe care le avem este ceva numit "proces".
+
+05:16.250 --> 05:24.680
+Dacă apăs din nou pe Enter, am o mulțime de lucruri, iar în Nod, "proces" înseamnă "acest proces" - ceea ce fac
+
+05:24.680 --> 05:28.890
+chiar acum în Terminal este procesul, ceea ce face computerul.
+
+05:30.330 --> 05:30.570
+In regula.
+
+05:30.580 --> 05:33.260
+Și să clarificăm asta.
+
+05:33.460 --> 05:43.490
+Acum, dacă fac "process.exit", părăsesc acest proces și acum mă întorc la Terminalul meu.
+
+05:43.680 --> 05:50.370
+Acum, când avem Nod în puterea noastră, vom începe să scriem niște scenarii și să vă arătăm cum putem
+
+05:50.370 --> 05:56.090
+începeți să scrieți JavaScript real, nu în Terminal, ci în Text Sublim.
+
+05:56.370 --> 05:58.110
+Voi vedea în următorul videoclip.
+
+05:58.110 --> 05:58.350
+Pa! Pa.

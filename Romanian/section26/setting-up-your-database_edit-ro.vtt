@@ -1,0 +1,289 @@
+WEBVTT
+
+00:00.770 --> 00:02.360
+Bine ai revenit.
+
+00:02.360 --> 00:09.110
+Sunt atât de încântat de această secțiune, deoarece în cele din urmă combinăm tot ceea ce știm într-un singur loc. De
+
+00:09.110 --> 00:17.680
+la sfârșitul acestui moment, vom avea o înțelegere unificată a modului în care funcționează totul, în lumea dezvoltării web.
+
+00:17.800 --> 00:28.830
+Avem aici "creierul inteligent" din Front-End cu pagina de sign in și avem aplicația noastră, construită în React. Noi Deasemenea
+
+00:28.830 --> 00:34.880
+aveți serverul nostru care rulează pe portul 3000, ascultând cererile.
+
+00:35.040 --> 00:37.700
+Dar acum nu mai avem nevoie de această bază de date.
+
+00:37.960 --> 00:46.240
+Putem crea propria noastră bază de date PostgreSQL acum și avem serverul care interacționează cu el prin SQL,
+
+00:46.330 --> 00:54.860
+actualizând totul și apoi răspunzând prin Express înapoi la front-end. Va fi așa
+
+00:54.860 --> 00:55.490
+multa distractie.
+
+00:55.550 --> 00:56.750
+Sunt atat de incantat.
+
+00:56.870 --> 01:03.690
+Dar, înainte de a începe să codificăm ceva, trebuie să proiectăm baza noastră de date.
+
+01:03.920 --> 01:09.050
+Să creăm o bază de date.
+
+01:11.470 --> 01:14.080
+Și o vom numi inteligent-creier.
+
+01:19.470 --> 01:19.830
+In regula.
+
+01:19.830 --> 01:20.800
+Perfect.
+
+01:20.940 --> 01:28.350
+Acum că am creat baza noastră de date, vreau să mă gândesc la aceste trei lucruri separate ca pe propriul lor individ
+
+01:28.350 --> 01:33.130
+computerele care, atunci când implementăm, vor fi părți diferite.
+
+01:33.220 --> 01:36.830
+Avem serverul nostru de viață pe un computer.
+
+01:36.940 --> 01:44.960
+Avem baza noastră de date care trăiește pe un calculator și putem să ne conectăm de aici.
+
+01:47.710 --> 01:52.110
+Și avem, de asemenea, aplicația noastră și într-un computer separat.
+
+01:55.860 --> 02:03.660
+Așa că haideți să închidem acest lucru rapid și să ne conectăm la baza noastră de date, la gazda noastră locală, și l-am numit creier inteligent.
+
+02:05.510 --> 02:08.640
+Faceți clic pe conectați și acolo mergeți.
+
+02:08.960 --> 02:12.390
+Dar, nu există mese încă. Pentru a incepe,
+
+02:12.710 --> 02:18.710
+așa cum am făcut atunci când am creat designul API pentru serverul nostru, într-adevăr ne dorim să ne gândim la modul în care baza noastră de date
+
+02:18.710 --> 02:26.230
+ar arăta și folosim baza de date relațională aici pentru că, în opinia mea, în 2018 și înainte
+
+02:26.680 --> 02:33.480
+bazele de date relaționale sunt într-adevăr foarte bune. Deși bazele de date precum MongoDB sunt foarte ușor de obținut
+
+02:33.480 --> 02:35.020
+au început cu și sunt dinamici.
+
+02:35.040 --> 02:38.250
+Nu trebuie să vă gândiți prea mult la momentul în care începeți.
+
+02:38.250 --> 02:45.660
+Cred că bazele de date relaționale oferă o modalitate foarte puternică de a vă gândi cum ar trebui structurat aplicația dvs.
+
+02:45.870 --> 02:49.780
+și cum se întâlnesc totul și toate piesele.
+
+02:50.380 --> 02:58.240
+Este un instrument cu adevărat foarte puternic în care văd că industria se schimbă din ce în ce mai mult în 2018. Fie că este vorba
+
+02:58.270 --> 03:06.180
+utilizați postgreSQL sau MySQL sau SQLite, toate aceste baze de date sunt aproape la fel.
+
+03:06.180 --> 03:12.510
+Sunt foarte puternice și vom face exact același lucru cu aplicația noastră, pentru că nu suntem neapărat
+
+03:12.510 --> 03:17.430
+stocând informații precum LinkedIn sau Facebook unde totul este un model de document.
+
+03:17.430 --> 03:20.600
+Avem utilizatori care interacționează între ei.
+
+03:20.610 --> 03:25.710
+Dar dacă în aplicația noastră putem avea lucruri diferite, putem avea informații de conectare, dacă ne extindem
+
+03:25.710 --> 03:30.820
+app pot avea informații despre tipul de imagini pe care le-au trimis.
+
+03:30.850 --> 03:34.690
+Privind acum la ceea ce am construit.
+
+03:34.690 --> 03:42.520
+Există cu siguranță câteva lucruri pe care vrem să le creăm. Dacă ne întoarcem la exemplul nostru de bază aici, noi
+
+03:42.520 --> 03:47.980
+au tabelul utilizatorilor pe care trebuie să-l creăm. Dar amintiți-vă ce am spus despre parole și
+
+03:47.980 --> 03:49.400
+modul în care stocăm parolele.
+
+03:50.300 --> 03:57.230
+Nu neapărat vrem să creăm un obiect utilizator sau un tabel de utilizator cu toate aceste coloane.
+
+03:57.230 --> 04:00.510
+Vrem să separăm lucrurile și să le conectăm prin chei străine.
+
+04:01.850 --> 04:10.440
+Așa că vom crea o tabelă de utilizatori și apoi o tabelă de conectare și vom avea acele tabele conectate
+
+04:10.680 --> 04:13.150
+poate câmpul de e-mail.
+
+04:13.410 --> 04:19.730
+Să ne întoarcem la GUI și să creăm aceste mese acum. Voi deschide interogarea, să eliminăm asta
+
+04:19.730 --> 04:25.160
+acum (vechea interogare) și să creăm tabelul utilizatorilor noștri.
+
+04:25.530 --> 04:36.460
+Pe măsură ce vă amintiți că este vorba de utilizatorii de tabele. Am paranteze aici, așa că e curat.
+
+04:36.610 --> 04:44.260
+Și aici, voi spune că ID-ul va fi serial și acesta va fi cheia noastră primară.
+
+04:47.260 --> 04:56.750
+Vom avea și numele și numele, îi vom da un caracter variabil (VARCHAR) de 100. Vom presupune
+
+04:56.750 --> 05:03.570
+că numele nimănui nu va fi mai mult de 100 de caractere care din nou nu cred că o vom face.
+
+05:03.620 --> 05:05.980
+În caz contrar, baza noastră de date ne va da o eroare.
+
+05:06.260 --> 05:11.180
+Putem crea, de asemenea, un câmp de e-mail și acesta va fi un text.
+
+05:11.300 --> 05:14.510
+De asemenea, dorim să ne asigurăm că acesta este un e-mail unic.
+
+05:14.510 --> 05:20.120
+În caz contrar, nu dorim să înregistrăm același utilizator, din nou și din nou, și nu poate fi ignorat.
+
+05:20.360 --> 05:30.030
+Trebuie să fie întotdeauna acolo, pentru că asta vom folosi în tabelul de conectare. Știm și noi că noi
+
+05:30.030 --> 05:38.860
+doriți înscrieri și intrările pot fi într-adevăr un număr destul de mare dacă avem un utilizator cu adevărat dedicat.
+
+05:39.170 --> 05:42.330
+Ei bine, acea persoană poate continua să trimită fotografiile.
+
+05:42.560 --> 05:45.260
+Deci, hai să facem o LARGEint aici.
+
+05:45.430 --> 05:45.680
+Hopa.
+
+05:45.680 --> 05:55.520
+Și în loc de mare e BIGINT acolo. cu BIGINT vom mai spune că dorim implicit.
+
+05:55.670 --> 06:04.250
+Și aceasta ar putea fi nouă pentru noi, dar valoarea implicită ar trebui să fie zero dacă nu introducem cumva cu intrări
+
+06:04.250 --> 06:11.790
+și un număr. Dacă nu specificăm în ce fel introduceți numărul cu el ar trebui să fie implicit zero.
+
+06:11.790 --> 06:20.250
+În cele din urmă, dorim să obținem și timpul în care s-au alăturat aplicației noastre și putem folosi un tip de date pentru timbre
+
+06:20.250 --> 06:20.820
+acea.
+
+06:21.180 --> 06:26.900
+Și din nou, vrem să ne asigurăm că acest lucru nu este NULL nici.
+
+06:26.910 --> 06:28.700
+Bine, să vedem asta și să vedem dacă funcționează.
+
+06:31.000 --> 06:36.140
+Și am o eroare la sau aproape de ")" Și asta pentru că am adăugat o virgulă la sfârșitul de aici.
+
+06:36.160 --> 06:37.040
+Să încercăm din nou asta.
+
+06:38.710 --> 06:39.350
+Acolo te duci.
+
+06:39.430 --> 06:40.770
+Dacă am reîmprospătare.
+
+06:40.870 --> 06:44.050
+Avem tabelul utilizatorilor noștri. Uimitor.
+
+06:44.500 --> 06:51.120
+Deci, avem tabelul de utilizatori în care vom stoca toate aceste informații.
+
+06:51.500 --> 06:58.310
+De asemenea, dorim să ne asigurăm că stocăm informațiile noastre de conectare, e-mail-urile și hash-urile pentru că
+
+06:58.310 --> 07:02.070
+rețineți că nu stocăm niciodată parole de text simplu.
+
+07:03.410 --> 07:06.430
+Să creăm asta. Mă voi întoarce la interogatoriu
+
+07:09.140 --> 07:13.380
+eliminați acest lucru și schimbați-l pentru a vă conecta.
+
+07:13.980 --> 07:17.500
+Și acest login va avea acum un ID.
+
+07:17.580 --> 07:25.800
+Încă o dată, seria și tipul de date seriale va crește doar cu o cheie primară
+
+07:29.260 --> 07:38.060
+și vom avea o rubrică hash care are un caracter variabil (VARCHAR) de 100 din nou pentru că știm asta
+
+07:38.070 --> 07:45.970
+bcrypt ne dă mereu un hash de lungime și nu va avea niciodată peste 100 de caractere. NU NULL - noi absolut
+
+07:45.970 --> 07:47.740
+nevoie de aceste informații.
+
+07:47.740 --> 07:55.520
+Și apoi, în final, e-mail, care va fi la fel ca tabelul utilizatorilor și acest e-mail ar fi un text
+
+07:55.680 --> 08:00.820
+trebuie să fie unic și cu siguranță NU NULL.
+
+08:03.950 --> 08:05.010
+Să rulați interogarea.
+
+08:06.550 --> 08:09.090
+Și reîmprospătați.
+
+08:09.220 --> 08:09.890
+In regula.
+
+08:09.910 --> 08:10.920
+Ne-am înșelat
+
+08:11.200 --> 08:13.380
+designul meselor noastre.
+
+08:13.600 --> 08:21.410
+Acum că avem aceste tabele, înțelegem cum vor arăta datele noastre.
+
+08:21.600 --> 08:27.960
+Aceasta va fi o bază de date care va persista indiferent dacă serverul coboară. O să facă
+
+08:27.960 --> 08:30.770
+sigur că aceste date rămân puse.
+
+08:31.910 --> 08:40.220
+Acum, când avem aceste trei piese, putem începe să lucrăm cu serverul, să eliminăm baza de date
+
+08:41.090 --> 08:45.320
+variabile și de fapt conectați la baza noastră de date.
+
+08:45.410 --> 08:45.990
+Sunt încântat
+
+08:45.990 --> 08:48.590
+să vă arătăm cum vom face acest lucru în următorul videoclip. Pa! Pa.

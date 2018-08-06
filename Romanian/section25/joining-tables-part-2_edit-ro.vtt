@@ -1,0 +1,175 @@
+WEBVTT
+
+00:00.570 --> 00:09.900
+Bine ați revenit în videoclipul anterior pe care l-am creat un tabel de conectare acum că avem împreună aceste două tabele.
+
+00:09.930 --> 00:12.900
+Vreau să vă arăt adevărata putere a bazelor de date relaționale.
+
+00:15.440 --> 00:22.200
+Revenind la desenul nostru cea mai importantă parte a bazelor de date relaționale este această idee de scheme, de
+
+00:22.200 --> 00:29.520
+având tabele care sunt doar preocupate de stocarea informațiilor specifice acestora, cum ar fi utilizatorii, tweet-urile
+
+00:29.580 --> 00:38.030
+urmând și conectându-le printr-o cheie primară și o cheie străină. O să vă arăt cum
+
+00:38.030 --> 00:39.250
+pentru a face asta.
+
+00:39.680 --> 00:41.170
+Ei bine, deja am făcut-o.
+
+00:41.180 --> 00:46.940
+Dar cum să luăm informații de aici. Dacă ne întoarcem la masa noastră
+
+00:47.080 --> 00:49.470
+ne amintim că ne-am purtat interogarea,
+
+00:54.920 --> 01:04.070
+am creat aici tabelul Creare de login și am creat o variabilă de nume pe care am planificat-o
+
+01:04.070 --> 01:10.680
+se va potrivi oricare ar fi masa de utilizatori și putem folosi ceva numit JOINs.
+
+01:10.720 --> 01:18.510
+acum cu întrebările noastre. Și acesta este un cuvânt nou în SQL și probabil unul dintre cele mai puternice, pentru că noi
+
+01:18.510 --> 01:24.890
+nu doriți neapărat să aveți o masă masivă cu sute de coloane, sute de rânduri.
+
+01:24.900 --> 01:31.350
+Bazele de date nu sunt concepute pentru a avea doar - la fel ca o foaie de Excel tone de rânduri și coloane și au toate
+
+01:31.350 --> 01:34.740
+că informațiile într-un singur loc, deoarece nu este eficient.
+
+01:34.770 --> 01:36.110
+Va fi mult mai lent,
+
+01:36.160 --> 01:37.670
+va fi cu adevărat greu de gestionat.
+
+01:37.680 --> 01:41.960
+Și tot mai mare și mai mare compania ta crește va fi într-adevăr, foarte greu.
+
+01:42.000 --> 01:48.150
+O modalitate buna de a proiecta o bază de date este să aveți aceste mese mici, care sunt doar preocupate, la fel
+
+01:48.150 --> 01:53.500
+separarea preocupărilor, preocuparea cu informațiile minime necesare.
+
+01:53.550 --> 02:00.180
+Și dacă este nevoie de altceva, putem să ne alăturăm împreună meselor pentru a atrage informații.
+
+02:00.180 --> 02:01.270
+Lasă-mă să-ți arăt ce vreau să spun.
+
+02:02.850 --> 02:09.830
+Avem aici baza noastră de date de testare și hai să vedem \ d.
+
+02:09.840 --> 02:12.230
+Bine, avem trei fișiere aici.
+
+02:12.420 --> 02:16.140
+Avem datele de conectare și utilizatorii pe care i-am creat.
+
+02:16.140 --> 02:20.130
+Dar care este secvența de identificare de autentificare.
+
+02:20.160 --> 02:26.480
+Amintiți-vă cum am creat o cheie primară. Modul în care funcționează bazele de date relaționale este atunci când creați un primar
+
+02:26.480 --> 02:35.320
+cheia creează un alt fișier care conține această cheie primară. Și puteți vedea că tipul este secvență.
+
+02:36.570 --> 02:44.280
+Acum, acesta este un fișier care cel mai probabil nu vom avea acces, dar intern Postgres se va asigura pentru că
+
+02:44.280 --> 02:50.330
+am stabilit această cheie primară va fi într-adevăr, foarte rapid pentru a apuca datele din tabelul de autentificare când noi
+
+02:50.330 --> 02:50.890
+cereți-l.
+
+02:51.100 --> 02:58.890
+Dar să spun că am vrut să obțin informații de la utilizatori și de la conectare. Poate că vreau să obțin informațiile lui Sally
+
+02:59.640 --> 03:08.320
+dar am nevoie de ziua ei de naștere, scor, vârstă, precum și secretul ei. Folosind JOINs putem face acest lucru.
+
+03:09.110 --> 03:11.850
+Pot spune starul SELECT,
+
+03:11.990 --> 03:15.370
+Deci totul de la utilizatori.
+
+03:15.690 --> 03:20.900
+Și acum dacă fac JOIN, pot spune un alt nume de tabel că vreau să mă alătur utilizatorilor.
+
+03:20.900 --> 03:27.580
+În cazul nostru, trebuie să ne conectăm și trebuie să spunem la ce vom participa sau nu.
+
+03:27.590 --> 03:33.370
+Cum se va afla ce se potrivește cu Conectarea.
+
+03:33.470 --> 03:41.400
+Pentru că dacă mă întorc aici, cum se știe baza de date că vreau să coincid cu prima linie
+
+03:41.400 --> 03:41.760
+Andrei,
+
+03:41.760 --> 03:48.690
+a doua linie cu Sally, a treia linie cu John. Cuvântul cheie ON permite să ne asigurăm că ne potrivim
+
+03:48.690 --> 03:49.280
+pe ceva.
+
+03:49.320 --> 03:56.360
+În cazul nostru, numele lor este cheia primară aici și cheia străină aici.
+
+03:56.470 --> 03:59.730
+Deci, să facem asta pe utilizatori
+
+03:59.920 --> 04:07.820
+.name este egal cu login.name
+
+04:10.500 --> 04:11.290
+punct şi virgulă.
+
+04:11.340 --> 04:12.080
+Hai să facem asta.
+
+04:13.230 --> 04:14.080
+Și uită-te la asta.
+
+04:14.280 --> 04:21.810
+Avem numele, vârsta, ziua de naștere, scorul, dar și ID-ul, secretul, numele cu totul.
+
+04:21.980 --> 04:29.750
+Ne-am alăturat acestor valori și se potrivesc tuturor pentru că am făcut login.name și users.name, și
+
+04:29.750 --> 04:30.810
+cu JOINs
+
+04:31.010 --> 04:40.170
+vine acum o mare putere, putem avea niște mese mici, bazate pe ceea ce avem de fapt nevoie și oricând ceva
+
+04:40.170 --> 04:46.710
+este necesar să ne alăturăm tabelelor și să facem mai multe tabele, mai multe JOIN-uri pentru a le selecta
+
+04:46.710 --> 04:48.720
+informațiile de care avem nevoie.
+
+04:48.720 --> 04:54.030
+Bine, cred că am făcut o foarte bună treabă de înțelegere SQL și puterea de relaționare
+
+04:54.030 --> 04:54.940
+baze de date.
+
+04:56.890 --> 04:57.890
+Ne vedem în următorul.
+
+04:57.940 --> 04:59.980
+Și treabă bună să-i dai drumul atât de departe, degeaba.

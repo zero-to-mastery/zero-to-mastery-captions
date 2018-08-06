@@ -1,0 +1,265 @@
+WEBVTT
+
+00:02.130 --> 00:02.840
+Bine ai revenit.
+
+00:02.910 --> 00:08.820
+Vom începe să instalăm Postgres pe computerul nostru, așa cum am făcut cu serverele din
+
+00:08.830 --> 00:16.050
+Front End vom avea un terminal care rulează capătul din față și un End Back care rulează
+
+00:16.050 --> 00:22.920
+serverul nostru, dar și un alt terminal care rulează o bază de date deoarece, după cum vă amintiți, acestea sunt doar
+
+00:22.920 --> 00:28.940
+calculatoare care rulează undeva. În același mod în care am rulat serverul nostru pe computerul nostru.
+
+00:28.940 --> 00:31.810
+De asemenea, putem rula baza de date pe computerul nostru.
+
+00:32.120 --> 00:36.060
+Și în acest videoclip ne vom ajuta să ne aranjăm cu Postgres. Acum
+
+00:36.260 --> 00:38.950
+MongoDB a devenit popular,
+
+00:39.040 --> 00:45.020
+cu toate acestea, nimic nu bate o bază de date relațională pentru dezvoltarea cu adevărat a cunoștințelor dvs. de baze de date.
+
+00:45.020 --> 00:52.130
+Odată ce ați înțeles bazele de date relaționale, vă oferă instrumente foarte bune și modele mintale
+
+00:52.130 --> 00:56.620
+lucrați cu MongoDB. MongoDB este foarte, foarte simplu.
+
+00:56.750 --> 01:02.720
+Puteți să vă gândiți la aceasta ca la o structură de date JSON unde avem doar JSON care arată ca un obiect
+
+01:03.080 --> 01:09.460
+și stocăm acele informații acolo. Cu SQL și baze de date relaționale
+
+01:09.470 --> 01:11.200
+este mai complexă decât asta.
+
+01:11.210 --> 01:17.150
+Deci, dacă înțelegeți acest lucru, sunteți la mila înainte când vine vorba de înțelegerea bazelor de date.
+
+01:17.150 --> 01:23.720
+Deci, ne vom concentra pe asta deoarece principiile sunt încă aceleași pentru MongoDB.
+
+01:23.750 --> 01:24.050
+In regula.
+
+01:24.100 --> 01:30.150
+Deci, să punem Postgres în computerul nostru.
+
+01:30.190 --> 01:34.890
+Primul lucru pe care dorim să-l facem este să descărcați ceva numit GUI.
+
+01:34.900 --> 01:42.630
+Deci, o interfață grafică de utilizator pentru Postgres. Și acest lucru există pentru aproape orice bază de date acolo.
+
+01:42.670 --> 01:44.960
+Îmi place PSequel pentru că este gratuit.
+
+01:45.040 --> 01:49.090
+Este într-adevăr, foarte bun pentru Mac și este foarte ușor și simplu.
+
+01:49.090 --> 01:55.580
+De asemenea, vă asigur că adăugați note despre cum să descărcați ceva de genul acesta și Postgres în general
+
+01:55.600 --> 02:02.360
+dacă utilizați o mașină Windows. În caz contrar, doar faceți clic pe link-ul de descărcare, acesta va fi complet
+
+02:02.360 --> 02:03.090
+rapid.
+
+02:03.110 --> 02:08.340
+Deschide-l și vei avea ceva de genul ăsta pe care o să-l folosesc de-a lungul cursului.
+
+02:08.570 --> 02:11.130
+Dar există multe, multe opțiuni și puteți să o căutați.
+
+02:11.330 --> 02:14.800
+Pur și simplu căutați PostgreSQL GUI.
+
+02:15.380 --> 02:23.440
+Iar odată ce ați instalat PSequel, îl veți găsi în dosarul aplicației dvs. și puteți urmări.
+
+02:23.440 --> 02:29.020
+Acum să ne întoarcem la terminal. Pentru a avea postgres instalat - există multe, multe moduri și
+
+02:29.020 --> 02:32.270
+din nou voi oferi câteva note despre cum poți să o faci.
+
+02:32.530 --> 02:37.570
+Dar cea mai bună modalitate, în special pe Mac, este de a folosi Brew despre care am vorbit deja.
+
+02:37.690 --> 02:44.290
+De fiecare dată când faci ceva cu homebrew - din nou, este o modalitate de a descărca pachete de pe Internet pe
+
+02:44.290 --> 02:45.360
+terminalul tău.
+
+02:45.370 --> 02:49.930
+Întotdeauna doriți să vă asigurați că faceți o actualizare pentru a vă asigura că totul este actualizat.
+
+02:53.420 --> 02:59.780
+Și, de asemenea, un medic de preparare care se asigură că totul funcționează pe sistemul dvs.
+
+03:03.840 --> 03:06.350
+Să clarificăm asta. Perfect.
+
+03:06.530 --> 03:12.530
+Odată ce ați pus acest lucru, vom spune doar să instalați Brew
+
+03:15.040 --> 03:19.490
+postgresql și acest lucru se va instala pentru noi
+
+03:19.670 --> 03:24.250
+Postgres. Și tu vezi că deja am instalat Postgres.
+
+03:24.400 --> 03:30.130
+Dar dacă este pentru prima oară, va trece prin comenzi și apoi de fapt, la sfârșitul să vă spun exact
+
+03:30.130 --> 03:31.650
+cum să începeți să o utilizați.
+
+03:33.080 --> 03:37.370
+Dar în cazul nostru vă spun doar. Va fi mult mai ușor. Pentru a porni Postgres.
+
+03:37.400 --> 03:46.890
+Trebuie să faci "servicii de băutură începe postgresql" și nu vă faceți griji că acest lucru nu este Postgres specifice. Orice bază de date
+
+03:46.920 --> 03:52.140
+că descărcați descărcați în esență software-ul și apoi doriți să porniți serviciul.
+
+03:52.250 --> 03:58.520
+Fiecare are propriile comenzi, dar este la fel de simplu ca Googling și imaginând cum să executați baza de date.
+
+03:58.520 --> 04:02.350
+Așa că am început postgresql.
+
+04:02.350 --> 04:02.940
+Arată ca
+
+04:02.940 --> 04:12.740
+Am început deja serviciul și doar pentru a vă arăta dacă mă opresc aici, va opri postgresele
+
+04:12.750 --> 04:13.380
+serviciu.
+
+04:16.080 --> 04:24.510
+Și vă permite să începeți din nou și puteți vedea că începe. Acum, pentru ca noi să folosim Postgres
+
+04:24.510 --> 04:26.380
+trebuie să creați o bază de date.
+
+04:26.660 --> 04:35.210
+Și modul în care facem asta este de a folosi comanda "Createdb" care a venit odată ce am instalat Postgres.
+
+04:35.420 --> 04:37.100
+Și aici îl putem numi ceea ce vrem.
+
+04:37.130 --> 04:40.790
+Asa ca sa o numim test.
+
+04:40.910 --> 04:42.390
+Va crea DB.
+
+04:42.680 --> 04:45.740
+Și tu te duci. Iată partea răcoroasă
+
+04:45.850 --> 04:53.060
+dacă mă întorc la PSequel, deschideți-o. Lasă-mă să închid asta.
+
+04:53.160 --> 04:55.310
+Am aici PSequel.
+
+04:55.680 --> 05:00.040
+Și solicită gazdei care este legătura cu locul unde este localizată baza de date.
+
+05:00.060 --> 05:04.230
+În cazul meu, e localizat la localnicul meu, bine.
+
+05:04.230 --> 05:07.740
+Se execută pe calculatorul meu.
+
+05:07.820 --> 05:10.790
+Vrei să fie localhost și numărul portului.
+
+05:10.790 --> 05:13.950
+Acesta este numărul implicit al portului de 5 4 3 2.
+
+05:14.030 --> 05:19.270
+Amintiți-vă cum am avut portul 3000 și 3001 pentru capătul frontal și spatele.
+
+05:19.340 --> 05:20.200
+Este similară cu asta.
+
+05:20.210 --> 05:22.950
+Se deschide un port pentru a asculta o bază de date.
+
+05:23.210 --> 05:27.720
+Și acesta este portul standard pentru Postgres, pe care îl veți vedea.
+
+05:28.100 --> 05:35.960
+Când am făcut "Start postgresql" și "createdb", setarea implicită a '5432' a fost deja stabilită.
+
+05:36.050 --> 05:38.830
+De fapt, pot seta porturile și le schimb.
+
+05:39.020 --> 05:41.940
+Dar vrem să păstrăm totul standard, așa că o vom păstra așa cum este.
+
+05:43.620 --> 05:52.310
+Dacă mă duc acum la baza de date și am numit-o "test" așa că din nou vom face baza de date de testare.
+
+05:52.330 --> 05:52.810
+In regula.
+
+05:52.810 --> 05:58.900
+Suntem conectați la baza de date, dar nu este prea mult aici.
+
+05:59.140 --> 06:03.110
+Dar cel puțin știm că suntem conectați la testul localhost.
+
+06:03.210 --> 06:08.610
+Și un alt mod de a vă conecta la acest lucru, amintiți-vă acest lucru este un GUI - o interfață grafică de utilizator și vă arăt
+
+06:08.610 --> 06:12.840
+acest lucru pentru că este foarte bun pentru scopuri demo, dar vreau să vă confecționați confortabil cu
+
+06:12.840 --> 06:17.990
+terminal, de asemenea. Pentru a face același lucru am făcut-o cu GUI,
+
+06:18.260 --> 06:25.060
+Putem introduce din nou "psql", ceea ce este o comandă pe care o vom obține când vom instala Postgres și vom
+
+06:25.110 --> 06:27.310
+spuneți la ce bază de date dorim să vă conectăm.
+
+06:27.390 --> 06:30.700
+În cazul nostru * acesta va fi "testul".
+
+06:30.890 --> 06:32.210
+Și tu te duci.
+
+06:32.390 --> 06:35.050
+La fel ca atunci când executăm nodul și schimbăm terminalele.
+
+06:35.060 --> 06:42.670
+Acum suntem în interiorul Postgres care rulează pe calculatorul nostru, dar nu știm încă comenzi, nu
+
+06:42.670 --> 06:43.930
+noi?
+
+06:43.930 --> 06:49.510
+Deci, în următorul videoclip vom învăța câteva comenzi SQL și, în final, vom crea niște tabele
+
+06:49.510 --> 06:51.100
+Postgres baze de date.
+
+06:51.130 --> 06:52.780
+O să văd în asta, de pa.

@@ -1,0 +1,299 @@
+WEBVTT
+
+00:00.920 --> 00:10.160
+Bine ai revenit. Să terminăm configurarea ultimelor două rute pe serverul nostru. Mai întâi avem "/ profile /:userId"
+
+00:10.160 --> 00:12.420
+care este o cerere GET.
+
+00:12.440 --> 00:18.960
+Asta este ceea ce dorim să obținem utilizatorul pentru pagina lor de pornire.
+
+00:19.190 --> 00:22.510
+Hai să facem asta. Voi adăuga un alt traseu.
+
+00:22.670 --> 00:32.030
+De data aceasta va fi doar o solicitare GET și va accepta '/ profile /' și 'id' - amintiți-vă că dacă facem
+
+00:32.030 --> 00:39.170
+aceasta cu această sintaxă [:id] înseamnă că putem introduce în browser-ul nostru orice și vom putea să luăm acest "id"
+
+00:39.650 --> 00:43.270
+prin drepturile de proprietate "req.params".
+
+00:43.280 --> 00:45.580
+Vom face din nou același lucru.
+
+00:45.590 --> 00:46.670
+Cere raspuns
+
+00:49.910 --> 00:52.460
+și să adăugăm un spațiu aici pentru a păstra lucrurile curate.
+
+00:54.150 --> 01:06.360
+Și în cadrul acestei solicitări, răspunsul pe care vrem să îl luăm în primul rând este parametrul "id", deci să facem "const", "id"
+
+01:06.840 --> 01:11.190
+vor veni din "req.params".
+
+01:11.450 --> 01:13.700
+Și ce ar trebui să facem aici?
+
+01:13.700 --> 01:21.380
+Ei bine, în scopul de a obține utilizatorii noștri vrem să bucle prin baza noastră de date de probă și de a găsi ID-ul de potrivire.
+
+01:21.710 --> 01:22.550
+Dacă se potrivește
+
+01:22.550 --> 01:27.930
+Vrem să-l întoarcem pe utilizator.
+
+01:27.940 --> 01:28.170
+In regula.
+
+01:28.170 --> 01:29.470
+Acum o putem evita.
+
+01:29.470 --> 01:36.370
+Trebuie să facem o buclă aici. Modul în care facem acest lucru este că putem face doar "database.users"
+
+01:40.180 --> 01:44.800
+- deși îmi place să folosesc "harta" pentru acest caz - pur și simplu ne confruntăm cu utilizatorii și nu avem nevoie
+
+01:44.800 --> 01:49.600
+pentru a crea o nouă matrice - este doar o bază de date și dorim să păstrăm acea constantă, astfel încât să spunem doar "forEach ()"
+
+01:51.240 --> 02:01.210
+și dacă vă amintiți "forEach ()" va rula prin utilizatori unul câte unul și vom spune că dacă 'user.id'
+
+02:02.670 --> 02:11.390
+ceea ce va obține din acea bază de date este egal cu "id" -ul pe care l-am primit de la "parami", dacă asta e
+
+02:11.390 --> 02:23.610
+în acest caz, vom răspunde cu JSON, acel utilizator [req.json (user)] - vom trimite doar utilizatorul id-ului de potrivire - altfel
+
+02:26.440 --> 02:34.180
+Vom răspunde cu "req.json (" niciun astfel de utilizator ")".
+
+02:38.140 --> 02:45.830
+Și putem spune chiar că statutul său de 404, ceea ce înseamnă "nu a fost găsit".
+
+02:45.840 --> 02:46.040
+In regula.
+
+02:46.050 --> 02:47.440
+Să vedem dacă funcționează.
+
+02:47.630 --> 02:57.700
+O să salvez reveniți la exemplul nostru. Ei bine, știm că avem "123" și "124"
+
+02:57.740 --> 03:01.410
+și deoarece serverul a fost repornit, nu vom avea Ann.
+
+03:01.810 --> 03:04.000
+Doriți să apăsați pe '/ profile / 123'.
+
+03:04.410 --> 03:09.830
+Dacă faceți clic pe Trimiteți "200 OK".
+
+03:09.840 --> 03:10.500
+-
+
+03:10.500 --> 03:11.710
+Bine, îl avem pe John.
+
+03:11.880 --> 03:20.060
+Dacă fac "124" nu primesc "un astfel de utilizator" dacă ne întoarcem aici
+
+03:22.780 --> 03:23.860
+- Sally ar trebui să fie aici.
+
+03:23.860 --> 03:25.220
+Cum de nu o luăm?
+
+03:28.240 --> 03:30.880
+Și vedem aici că avem o eroare aici:03:30.970 --> 03:32.890
+"Nu se pot seta anteturi după trimiterea acestora".
+
+03:32.890 --> 03:39.590
+Acest lucru se datorează faptului că ne confruntăm cu acest lucru și în loc să ne întoarcem din bucla - pentru că odată ce găsim
+
+03:39.590 --> 03:44.480
+id-ul de utilizator - nu avem nevoie să ne menținem cu buclă.
+
+03:44.520 --> 03:49.830
+Deci, aici ar trebui să trimitem un "return res.json ()"
+
+03:49.980 --> 03:57.180
+și dacă utilizatorul nu se găsește bine, nu vrei să faci asta în buclă, nu-i așa?
+
+03:57.390 --> 04:07.980
+Vrem să spunem că pentru fiecare dacă acest utilizator este găsit "return res.json ()" și vom spune că o variabilă
+
+04:09.270 --> 04:16.780
+"găsit", pe care l-am lăsat în mod implicit la "false", se va actualiza și cu "true"
+
+04:20.610 --> 04:26.610
+și va trebui să fie un "lăsa" pentru că îl reassignăm așa că "găsit" va fi egal cu "adevărat"
+
+04:26.620 --> 04:29.610
+dacă o găsim, și știu că există modalități mai bune de a face acest lucru.
+
+04:29.620 --> 04:32.250
+Dar din nou cred că acest lucru va ilustra un punct.
+
+04:32.290 --> 04:38.030
+De asemenea, am putea face o "hartă" sau un "filtru" pentru a vedea dacă găsim de fapt o persoană cu un "id".
+
+04:38.420 --> 04:42.670
+Dar pentru moment hai să facem doar "dacă nu este găsit" [dacă (! Găsit)]
+
+04:42.700 --> 04:48.000
+Deci, opusul "găsit" - în acest caz vom răspunde
+
+04:51.830 --> 05:00.090
+"res.status (400) .json (" nu a fost găsit ")"
+
+05:00.260 --> 05:01.210
+Să dăm asta.
+
+05:07.130 --> 05:07.470
+In regula.
+
+05:07.490 --> 05:19.150
+Îl aduc pe Sally. Dacă mă duc "123" îl iau pe John - perfect și doar pentru distracție să ne înregistrăm
+
+05:19.590 --> 05:25.080
+Ann din nou. Am de gând să lovesc trimite și ID-ul ei este '125'.
+
+05:25.200 --> 05:30.970
+Deci, dacă mă întorc la '/ profil /' și fac '125', primesc Ann.
+
+05:31.060 --> 05:32.470
+Și cât de cool e asta?
+
+05:34.600 --> 05:34.990
+Minunat.
+
+05:34.990 --> 05:42.610
+Așadar, acest punct final funcționează și avem unul ultima care este imaginea și cea pe care tocmai am vrut-o
+
+05:42.610 --> 05:47.020
+pentru a actualiza utilizatorul pentru a le crește
+
+05:49.890 --> 05:53.130
+numărarea "intrărilor". De fiecare dată când trimit o imagine
+
+05:53.130 --> 05:55.330
+vrem să le mărim "intrările".
+
+05:57.670 --> 06:03.580
+Să facem acest lucru prin crearea ultimului nostru punct final, care este 'app.post ()'
+
+06:06.930 --> 06:11.330
+și o vom numi "/ imagine".
+
+06:11.560 --> 06:19.510
+Vom primi o cerere, un răspuns.
+
+06:19.790 --> 06:26.200
+Și din nou, va trebui să găsim din nou ID-ul utilizatorului.
+
+06:27.800 --> 06:31.070
+Pentru a actualiza intrările lor.
+
+06:35.860 --> 06:43.080
+În acest caz, putem copia doar ceea ce am făcut înainte și oricând trebuie să copiem un fel de funcție
+
+06:44.140 --> 06:52.390
+bine este momentul potrivit pentru a trage afară și a crea propria funcție astfel încât să puteți folosi în ambele
+
+06:52.390 --> 06:53.770
+din acestea.
+
+06:53.900 --> 06:57.070
+Dar, pentru moment, să copiem și să lipim doar
+
+07:01.410 --> 07:09.960
+și în loc de a avea în realitate "paramuri" în cazul nostru, vom primi "id-ul" utilizatorului din corp.
+
+07:10.170 --> 07:15.340
+Și acum vrem să spunem asta - vrem să copiem și partea de jos
+
+07:19.010 --> 07:27.480
+- vom spune că dacă ID-ul utilizatorului se potrivește, atunci vom răspunde
+
+07:29.100 --> 07:38.450
+cu "user.entries" și cu "intrările" pe care dorim să le creștem efectiv.
+
+07:38.450 --> 07:48.070
+Deci, vom spune că "user.entries ++" - amintiți-vă că este scurtă formă de a mă face plus unul și reassigning
+
+07:48.070 --> 07:48.540
+aceasta.
+
+07:48.820 --> 07:54.010
+Deci, vom face doar '++' și acum înregistrările utilizatorului ar trebui să crească și apoi vom răspunde
+
+07:54.010 --> 07:59.490
+acea. Dacă aceasta nu funcționează, dacă utilizatorul nu a fost găsit
+
+08:00.360 --> 08:05.500
+- în acest caz o vom păstra așa cum este:utilizatorul nu a fost "găsit".
+
+08:06.780 --> 08:12.640
+Să spunem asta și să ne întoarcem la Postman. Vom spune "/ imagine".
+
+08:12.880 --> 08:23.010
+Și în cadrul acestei imagini vom avea o solicitare POST, ceea ce înseamnă un organism și putem trece doar utilizatorul
+
+08:23.450 --> 08:24.600
+"Id".
+
+08:25.080 --> 08:29.560
+În cazul nostru vom spune "Id":"123", care este id-ul lui Johns.
+
+08:32.240 --> 08:34.270
+Și vom da clic pe Trimiteți.
+
+08:35.750 --> 08:47.900
+Am primit "1" dacă dau din nou clic pe "2", "3", "4", "5" și dacă mă întorc la "rădăcina"
+
+08:47.900 --> 08:57.370
+returnează utilizatorii noștri și schimbă asta pentru a GET I a lua John cu cinci intrări și Sally cu intrări zero.
+
+09:00.090 --> 09:02.080
+Să ne asigurăm că funcționează și pentru Sally.
+
+09:02.120 --> 09:14.340
+Dacă fac "124" acum am înregistrări de "1" și mă întorc la utilizatorii GET primesc John cu cinci intrări
+
+09:14.370 --> 09:20.070
+și Sally cu o singură intrare. Uimitor!
+
+09:20.250 --> 09:24.200
+Ne-am dat un frumos server API.
+
+09:24.230 --> 09:25.430
+Se poate îmbunătăți cu siguranță.
+
+09:25.430 --> 09:32.600
+Există câteva lucruri pe care, evident, dorim să le schimbăm, cum ar fi "înscrierea" - nu doar pentru John.
+
+09:32.900 --> 09:40.040
+Avem câteva repetiții de cod care pot să le putem extrage într-o funcție.
+
+09:40.260 --> 09:47.970
+Dar am vrut ca noi să avem ceva de lucru pe care îl putem folosi pentru a putea să îl conectăm imediat
+
+09:47.970 --> 09:48.680
+cu front-ul nostru.
+
+09:51.680 --> 09:58.150
+În final, putem șterge secțiunea comentată, unde am planificat ce va arăta API-ul nostru.
+
+09:59.950 --> 10:01.710
+Bună treabă să ajungi atât de departe.
+
+10:01.810 --> 10:03.670
+Voi vedea în următorul videoclip. Pa! Pa

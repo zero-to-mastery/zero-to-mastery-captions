@@ -1,0 +1,253 @@
+WEBVTT
+
+00:00.960 --> 00:09.500
+Bine ai revenit. Să încercăm să obținem această cerere "postare" pentru a funcționa, încât nu am putut ajunge în videoclipul anterior.
+
+00:09.740 --> 00:16.100
+Acum, pentru ca noi să încercăm ceva mai mult decât GET, bine putem folosi Terminalul, dar există a
+
+00:16.100 --> 00:21.570
+foarte frumos instrument care ne permite să facem aceste cereri către un server și să vedem ce primim înapoi.
+
+00:21.920 --> 00:25.690
+Și se numește Postman.
+
+00:25.790 --> 00:33.620
+Dacă te duci la www.getpostman.com este unul dintre cele mai bune instrumente dacă lucrezi vreodată
+
+00:33.620 --> 00:34.310
+cu un server.
+
+00:34.310 --> 00:38.910
+Este gratuit și îl puteți descărca pentru sistemul dvs. de operare.
+
+00:39.080 --> 00:42.320
+Trebuie doar să faceți clic pe oricare doriți.
+
+00:42.320 --> 00:49.180
+Înscrieți-vă și, odată încărcată, o puteți deschide și veți avea ceva de genul acesta.
+
+00:50.330 --> 00:53.040
+Și nu vă faceți griji că este foarte simplu de utilizat.
+
+00:53.120 --> 00:58.150
+Pur și simplu avem aici cererile pe care vrem să le primim.
+
+00:58.190 --> 01:02.030
+Și veți vedea câteva pe care nu le-ați mai văzut până acum și nu vă faceți griji despre ele.
+
+01:02.030 --> 01:04.970
+Acestea sunt foarte rar folosite.
+
+01:04.970 --> 01:08.810
+Noi vedem pe cei cărora le pasă de DELETE, PUT, POST, GET chiar acolo
+
+01:11.640 --> 01:15.630
+și pur și simplu introduceți URL-ul pe care doriți să îl rulați.
+
+01:16.110 --> 01:19.130
+Deci, în exemplul nostru, să începem din nou.
+
+01:20.850 --> 01:25.370
+În timp ce serverul rulează, hai să mergem la "/ profile".
+
+01:25.620 --> 01:34.720
+Și apoi, aici vrem să spunem "localhost:3000" - acesta este portul pe care l-am dat - și vom spune
+
+01:34.760 --> 01:36.320
+'/profil'
+
+01:36.420 --> 01:38.460
+Vrem să facem o cerere GET aici.
+
+01:38.520 --> 01:50.500
+Dacă dau clic pe trimiteți, obțin un profil. Îmi dă Anteturile și Corpul, care este minunat, dar acum pentru că
+
+01:50.500 --> 01:54.110
+avem acest instrument putem face, de asemenea, o cerere POST.
+
+01:54.190 --> 01:59.250
+Deci, să spunem că nu mai trimitem "utilizatorul".
+
+01:59.740 --> 02:02.820
+Vrem să trimitem un răspuns [res].
+
+02:05.590 --> 02:10.790
+Și din acest răspuns vrem să returăm orice utilizator pe care îl trimitem '/ profile'.
+
+02:14.060 --> 02:14.960
+Deci, să începem mai întâi aici.
+
+02:14.960 --> 02:19.960
+Vom schimba acest lucru la un POST și la un POST
+
+02:20.090 --> 02:26.780
+amintiți-vă că putem adăuga lucruri la corp și vedeți aici că există câteva
+
+02:26.900 --> 02:37.800
+opțiuni:'form-data' 'x-www-form-urlencoded' avem 'raw' și apoi 'binary'.
+
+02:37.850 --> 02:39.160
+Nu lăsa asta să te sperie.
+
+02:39.170 --> 02:43.390
+Aceste două forme sunt prin HTML.
+
+02:43.460 --> 02:51.230
+Dacă de obicei faceți o etichetă de formular HTML și faceți o cerere GET sau POST puteți să faceți clic pe aceasta și pe dvs.
+
+02:51.230 --> 02:58.620
+pot vedea aici valoarea cheie, așa că pot spune că numele este egal cu 'andrei'.
+
+02:58.710 --> 03:09.330
+Și acum, când trimit acest lucru, primesc "Sally" și "soccer" bine, pentru că nu am reușit să salvez acest lucru
+
+03:09.330 --> 03:18.050
+mergeți înapoi la ceea ce am avut înainte și trimiteți din nou că vedem că cererea POST funcționează.
+
+03:18.150 --> 03:22.650
+Și dacă vreau să accesez aceste informații, pur și simplu fac asta
+
+03:27.150 --> 03:29.520
+'(Req.body)'
+
+03:29.860 --> 03:31.960
+Dar să vedem dacă funcționează.
+
+03:32.260 --> 03:33.190
+Dacă fac clic pe trimiteți
+
+03:37.590 --> 03:45.230
+Am primit "nedefinit" și asta pentru că Express vă oferă doar un pic.
+
+03:45.270 --> 03:48.470
+Mai aveți nevoie de câteva pachete dacă doriți ca acest lucru să funcționeze.
+
+03:48.630 --> 03:58.200
+Dacă doriți vreodată să accesați "(req.body)" bine, trebuie să utilizați un middleware și middleware-ul
+
+03:58.200 --> 04:03.900
+pe care o dorim, se numește parser de caroserie și o veți utiliza și cele mai multe servere Express, astfel încât să vă obișnuiți
+
+04:03.900 --> 04:04.470
+la el.
+
+04:04.470 --> 04:09.110
+Este 'npm install body-parser'.
+
+04:09.360 --> 04:14.970
+Și acum, acest parser-trup va face ceea ce va face este că va lua toate informațiile pe care le primim
+
+04:15.510 --> 04:26.440
+și analizăm-o la fel ca JSON sau forme în ceva ce putem folosi. Pentru a-l utiliza efectiv
+
+04:27.400 --> 04:32.080
+bine, știm cum funcționează middleware-ul, pur și simplu la început spune "app.use ()"
+
+04:35.320 --> 04:48.540
+și corp-parser va veni cu un "bodyParser" pe care îl vom cere doar cu pachetul pe care noi doar
+
+04:48.540 --> 04:48.960
+instalat.
+
+04:53.740 --> 04:59.010
+În "app.use ()" pur și simplu facem
+
+04:59.040 --> 05:01.040
+'BodyParser.urlencoded'
+
+05:02.450 --> 05:06.880
+Care este modul în care putem obține acest ['x-www-form-urlencoded'].
+
+05:07.040 --> 05:12.290
+Și trebuie să-i transmitem un parametru:{extended:false}.
+
+05:12.360 --> 05:13.150
+Să încercăm din nou asta.
+
+05:13.200 --> 05:13.970
+O să salvez
+
+05:17.200 --> 05:24.470
+vom face "npm start" dacă ne întoarcem și vom trimite din nou.
+
+05:24.640 --> 05:25.440
+Noi vedem asta.
+
+05:25.480 --> 05:26.940
+Acolo mergeți, funcționează.
+
+05:26.940 --> 05:33.940
+{name:'andrei'} deoarece am trimis "Valoarea-cheie" cu datele formularului.
+
+05:34.010 --> 05:40.620
+Deci, dacă construiți un server pentru un formular care este trimis, veți folosi acest lucru.
+
+05:40.770 --> 05:47.970
+Dar, după cum știți, există și JSON pe care îl putem folosi și modul în care folosim JSON este click pe "raw" și
+
+05:47.970 --> 05:57.000
+aici putem trimite ceea ce dorim; în cazul nostru, va fi JSON, iar cu JSON putem
+
+05:57.000 --> 06:06.590
+acum spuneți ce vrem să trimitem și dacă facem vreodată o sintaxă greșită, ne va spune că acest lucru este greșit JSON.
+
+06:06.780 --> 06:14.290
+Dar să spunem doar pentru '/ profilul' pe care vreau să îl adaug un nou utilizator și acest utilizator va fi numit - amintiți-vă
+
+06:14.290 --> 06:20.810
+ghilimele duble aici - vom avea "utilizator" și acest utilizator va fi numit "Jenny"
+
+06:24.540 --> 06:28.860
+și "Jenny" va avea un hobby de "tenis"
+
+06:36.550 --> 06:37.590
+Totul arată bine.
+
+06:37.600 --> 06:40.540
+Asta e JSON. Dacă aș trimite acum asta
+
+06:45.660 --> 06:54.600
+Am un obiect gol. Din nou, pentru că i-am spus doar să analizeze nevoile parserului "urlcodificat"
+
+06:54.600 --> 07:06.020
+să știi și despre JSON. Din nou, pentru a face acest lucru spunem "app.use (bodyParser.json ()) '
+
+07:06.020 --> 07:06.740
+Dacă o salvăm
+
+07:09.380 --> 07:18.510
+și trimiteți din nou - uitați-vă la asta - avem {user:'Jenny', hobby:'tennis'}.
+
+07:18.590 --> 07:28.590
+Deci, acum putem adăuga acel utilizator prin adăugarea lui în baza noastră de date și apoi trimiterea unui răspuns "Success"
+
+07:31.800 --> 07:33.500
+Să încercăm din nou asta.
+
+07:33.690 --> 07:41.340
+Avem un răspuns "Succes" pe care l-am postat "tenisul" "Jenny", astfel încât să putem face și PUT, care este foarte
+
+07:41.340 --> 07:48.180
+similar trimite doar datele, dar PUT este folosit pentru actualizare dacă vrem să actualizăm, poate, Jenny să aibă
+
+07:48.180 --> 07:56.420
+un alt hobby și DELETE pentru a șterge poate acel utilizator, ceva la care vom intra în următorul videoclip.
+
+07:56.490 --> 07:58.730
+Dar după cum puteți vedea poștașul este minunat.
+
+07:58.860 --> 08:03.810
+Este o modalitate excelentă de a vă testa serverul înainte să îl conectați la front-end, ceva ce vom face
+
+08:03.810 --> 08:08.600
+cu siguranță face acest curs în proiectul nostru final.
+
+08:08.600 --> 08:09.950
+Foarte tare.
+
+08:10.010 --> 08:11.510
+Ne vedem în următorul.
+
+08:11.520 --> 08:12.300
+Pa! Pa.

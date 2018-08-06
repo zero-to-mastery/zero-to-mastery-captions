@@ -1,0 +1,661 @@
+WEBVTT
+
+00:01.420 --> 00:02.820
+Bine ai revenit.
+
+00:02.860 --> 00:08.330
+Acum, ceea ce înveți în următoarele câteva videoclipuri este destul de avansat.
+
+00:08.350 --> 00:15.310
+Este nevoie de ceva timp pentru a înțelege cu adevărat conceptele și pentru a le înțelege și pentru cel mai bun mod de a face acest lucru
+
+00:15.310 --> 00:17.450
+este să faceți asta singuri.
+
+00:17.710 --> 00:22.830
+Deci, utilizați aceste videoclipuri ca o referință pentru a vă întoarce atunci când aveți întrebări.
+
+00:22.870 --> 00:28.000
+Voi acoperi principalele subiecte pe care le veți vedea în sălbăticie.
+
+00:28.180 --> 00:31.950
+Puteți reveni și consultați aceste videoclipuri ori de câte ori aveți întrebări.
+
+00:33.150 --> 00:38.110
+Și în acest videoclip ne vom ocupa de funcții avansate.
+
+00:38.310 --> 00:40.540
+Acum am o funcție de probă pentru tine aici.
+
+00:40.680 --> 00:46.680
+Dar știind ce am învățat despre noua sintaxă de javascript, vom trece mai întâi la modul în care procedează
+
+00:46.680 --> 00:50.010
+ar trebui să scriem javascript în 2018.
+
+00:50.520 --> 00:53.280
+Cuvântul funcțional este plecat acum.
+
+00:53.640 --> 00:58.490
+Putem spune doar "const primul este egal
+
+01:01.900 --> 01:02.950
+săgeată (=>) ".
+
+01:04.390 --> 01:14.080
+Și această funcție a săgeții are un "salut" care poate fi o constantă
+
+01:14.090 --> 01:18.570
+și o funcție care poate fi din nou "const a doua".
+
+01:18.800 --> 01:24.710
+Și în final, acest lucru poate fi și un "const".
+
+01:24.740 --> 01:32.210
+De asemenea, am aflat despre domeniul de aplicare, o proprietate importantă a funcției este aceea că variabilele create în interiorul
+
+01:32.210 --> 01:38.010
+acestea, inclusiv parametrii lor, sunt locali pentru această funcție.
+
+01:38.300 --> 01:47.090
+Deci, asta înseamnă că de fiecare dată când executați prima funcție, acest bloc de cod este executat și "salut"
+
+01:47.270 --> 01:50.740
+variabila este creată de fiecare dată.
+
+01:50.750 --> 01:58.100
+Acum, acest lucru este de fapt bun pentru noi pentru că ne asigurăm că, dacă programul nostru, de fiecare dată când executăm "prima"
+
+01:58.310 --> 02:04.980
+amintesc "salut", ei bine vor avea conflicte pentru că este o constantă și am reatribuit în mod constant
+
+02:05.000 --> 02:08.480
+același lucru cu o variabilă care există deja.
+
+02:08.480 --> 02:15.050
+În acest fel, într-o funcție, ne asigurăm că de fiecare dată când o executăm, este o artă curată.
+
+02:15.170 --> 02:21.550
+Puteți numi variabilele oricum doriți, deoarece nu există nimic altceva care să se ciocnească cu acesta.
+
+02:21.590 --> 02:28.850
+Cum am spus că acest comportament ajută la prevenirea interferențelor accidentale între funcții și dezvoltatori
+
+02:29.060 --> 02:33.020
+vrem să minimizăm numărul de erori sau erori din codul nostru.
+
+02:33.020 --> 02:39.710
+Dacă toate variabilele au fost partajate de întregul program, este nevoie de mult efort pentru a vă asigura că nici un nume nu este vreodată
+
+02:39.710 --> 02:42.500
+utilizate în două scopuri diferite.
+
+02:42.500 --> 02:48.820
+Imaginați-vă dacă "salut" a fost într-o altă funcție și nu am avut nici o idee și nu putem folosi.
+
+02:48.890 --> 02:56.960
+Din fericire, având propriul nostru domeniu de aplicare separat, suntem în măsură să ne asigurăm că putem folosi "salut" fără
+
+02:56.960 --> 02:59.070
+trebuie să verificați întreaga bază de coduri.
+
+03:00.220 --> 03:07.000
+Acum, prin tratarea funcției, variabilele locale ca fiind existente numai în cadrul funcției pe care limba o face posibilă
+
+03:07.000 --> 03:15.850
+să citească și să înțeleagă funcțiile ca universuri mici,
+
+03:16.060 --> 03:16.930
+unde tot ceea ce se întâmplă în acel univers nu contează decât pentru el însuși.
+
+03:18.340 --> 03:26.170
+Dar am vrut, de asemenea, să demonstrez un concept interesant cu javascript și care este "închiderea".
+
+03:26.380 --> 03:31.760
+Poți să te gândești la asta, la o funcție care rulează, la funcția executată.
+
+03:31.900 --> 03:34.080
+Acum nu va mai executa niciodata.
+
+03:34.120 --> 03:37.920
+Un fel de primă funcție pe care tocmai l-am executat aici.
+
+03:38.170 --> 03:45.970
+Și rezultatul pe care l-am pus în funcție nouă, va aminti că există referințe la acele variabile
+
+03:46.000 --> 03:48.640
+vii în memorie în primul rând.
+
+03:48.960 --> 03:51.270
+Cu toate acestea, vedem o problemă aici.
+
+03:52.210 --> 03:59.740
+Vedeți că atunci când încărcăm acest program pe site-ul nostru, motorul javascript va vedea acest lucru și
+
+03:59.740 --> 04:02.180
+Voi spune OK avem mai întâi o variabilă.
+
+04:02.230 --> 04:03.540
+Aceasta este o funcție.
+
+04:03.580 --> 04:04.660
+Grozav.
+
+04:04.690 --> 04:12.100
+Și apoi, în următoarea linie vedem, oh! dorim să atribui funcția variabilă nouă (newFunc) și dorim să obținem
+
+04:12.100 --> 04:13.460
+rezultatul "primei".
+
+04:13.510 --> 04:20.980
+Deci, programul rulează "primul", vede că vrem să creăm un "const greet", "HI" și apoi vedem și faptul că,
+
+04:21.760 --> 04:26.680
+avem o altă funcție numită "a doua" și ne întoarcem această funcție.
+
+04:27.040 --> 04:32.590
+Dar aici este o problemă corectă, "a doua" trebuie să-și amintească ce este "salut".
+
+04:32.830 --> 04:38.940
+Deși "prima" rulează și se întoarce "a doua".
+
+04:39.060 --> 04:45.140
+Deci, vă puteți gândi la acest lucru, odată ce facem acest lucru,
+
+04:48.480 --> 04:48.820
+vom avea doar funcția "a doua".
+
+04:48.850 --> 04:52.440
+Acum, și știu că este, acest lucru pare confuz, dar trebuie doar să vă uitați la cele evidențiate aici.
+
+04:52.690 --> 04:55.590
+Asta înseamnă "primul" apel.
+
+04:55.870 --> 04:58.640
+Dar vedeți aici variabila "salut".
+
+04:58.720 --> 04:59.990
+"A doua" nu.
+
+05:00.010 --> 05:07.180
+Ei bine, nu este în sfera de aplicare a "a doua" dreapta? ceea ce face "închiderea" și aceasta este regula în Javascript
+
+05:07.180 --> 05:14.870
+este că domeniul copilului are întotdeauna acces la domeniul de aplicare al părintelui.
+
+05:14.950 --> 05:17.430
+Deci este aproape ca și când își amintește.
+
+05:17.470 --> 05:21.720
+Ei își amintesc întotdeauna că există o referință la aceste variabile foarte mult.
+
+05:21.760 --> 05:28.890
+Deci, în interiorul browser-ului web, browser-ul web spune, ah! această a doua funcție are nevoie de "salut".
+
+05:28.900 --> 05:30.370
+Deci o să-mi amintesc.
+
+05:30.400 --> 05:31.710
+Lasă-mă să demonstrez asta pentru tine.
+
+05:31.990 --> 05:39.440
+Deci dacă fac "primul" aici și o voi copia în consola.
+
+05:39.660 --> 05:42.730
+Și acum avem noi funcții.
+
+05:42.810 --> 05:52.040
+Dacă alerg, o nouă funcție obțin, "HI", chiar dacă "prima" nu va mai fi rulată din nou.
+
+05:53.120 --> 05:59.730
+Singurul lucru pe care l-am lăsat este cea de-a doua funcție pe care browser-ul web o reamintește "salut".
+
+05:59.850 --> 06:04.200
+Din nou, acesta este un concept confuz când vă aflați aici pentru prima dată.
+
+06:04.350 --> 06:14.540
+Dar, așa cum am spus, amintiți-vă doar "închiderile" înseamnă doar o funcție a fugit,
+
+06:16.220 --> 06:16.910
+funcția executată
+
+06:19.740 --> 06:21.680
+niciodată nu va mai executa.
+
+06:26.590 --> 06:35.930
+Dar se va aminti că există referințe la acele variabile.
+
+06:36.130 --> 06:44.720
+Deci, domeniul de aplicare al copilului are întotdeauna acces la domeniul de aplicare parental.
+
+06:44.950 --> 06:58.320
+Acum puteți să vă întrebați dacă am auzit că "const name" este egal cu "Bobby",
+
+06:58.320 --> 07:00.660
+prima funcție va avea acces la "Bobby"?
+
+07:00.670 --> 07:01.780
+Nu, nu ar fi.
+
+07:01.780 --> 07:06.860
+Așa că gândiți-vă în acest fel, copiii au întotdeauna acces la domeniul părintelui lor.
+
+07:07.030 --> 07:11.150
+Însă părinții nu au acces la copiii lor.
+
+07:12.640 --> 07:16.690
+În regulă, hai să intrăm în mai multe lucruri.
+
+07:16.700 --> 07:25.270
+Apoi vom vorbi despre "Currying" și "Currying" este procesul de conversie a unei funcții care ia
+
+07:25.360 --> 07:30.290
+multiple argumente într-o funcție care le ia una câte una.
+
+07:30.310 --> 07:31.480
+Să vedem ce vreau să spun.
+
+07:31.660 --> 07:45.460
+Avem o funcție aici, o vom numi "multiplica" și "multiplica" acceptă doi parametri și din nou utilizăm
+
+07:45.460 --> 07:49.000
+noua noastră funcție de sintaxă va spune "un multiplicator b"
+
+07:51.840 --> 07:58.050
+acum "Currying" înseamnă că schimbăm această funcție pentru a accepta doar un parametru la un moment dat.
+
+07:58.470 --> 08:08.760
+Asta inseamna ca noi facem 'curriedMultiply' egal cu 'a', 'b'
+
+08:12.270 --> 08:20.260
+'a' ori 'b'. Woh! FS! FS! care! woh !, Ce facem?
+
+08:20.310 --> 08:25.570
+Din nou, acest lucru pare foarte confuz, dar gândiți-vă la aceste săgeți ca la funcții.
+
+08:25.590 --> 08:34.690
+Deci, chiar acum dacă fac "curriedMultiply" și voi spune doar trei (3).
+
+08:34.920 --> 08:39.390
+Veți vedea acest lucru în acțiune ce se întâmplă.
+
+08:39.570 --> 08:42.380
+Am o funcție care acceptă "b" înmulțit cu "a".
+
+08:42.510 --> 08:49.810
+Deci, prin a rula acest lucru, spune că "a" este "3".
+
+08:49.990 --> 08:58.780
+Și acum vom ști că atunci când multiplicăm "a" este "3", ci pentru că aceasta are o funcție și o altă funcție
+
+08:58.870 --> 09:09.040
+astfel încât o funcție în interiorul unei funcții, aceasta returnează doar această parte, astfel returnează o funcție,
+
+09:09.040 --> 09:10.370
+după cum puteți vedea aici.
+
+09:10.530 --> 09:12.710
+Deci, acum, pentru a face acest lucru.
+
+09:12.720 --> 09:17.090
+Permiteți-mi să o pun înapoi, pentru a face să funcționeze.
+
+09:17.090 --> 09:31.820
+Trebuie să spunem că "curriedMultiply" va spune "3" și apoi o altă bandă "4", iar eu primesc "12".
+
+09:31.990 --> 09:39.460
+Dacă ne uităm la această funcție în comparație cu cea de aici vedem exact ceea ce am făcut, am creat o variabilă
+
+09:39.460 --> 09:44.590
+'curriedMultiply' care acceptă un parametru.
+
+09:44.590 --> 09:47.360
+Deci este o funcție care acceptă "a".
+
+09:47.380 --> 09:52.920
+În acest caz este '3' și odată ce apelați această funcție,
+
+09:52.930 --> 10:02.590
+odată ce o executați, ea returnează o altă funcție, care acceptă "b", iar această funcție multiplică "a" și "b".
+
+10:02.590 --> 10:09.120
+Ceea ce fac aici este să spun că "curriedMultiplier" 'a' este 3 'b' este 4.
+
+10:09.440 --> 10:13.200
+Și acum multiplicați "a" ori "b".
+
+10:13.350 --> 10:19.960
+Și după cum puteți vedea cum am spus despre currying, este procesul de conversie a unei funcții care ia multiple
+
+10:19.960 --> 10:26.930
+argumentele cum am spus într-o funcție care le ia una câte una.
+
+10:26.930 --> 10:29.780
+De ce trebuie chiar să facem asta?
+
+10:30.500 --> 10:37.590
+Pentru că acum este mai extensibil, pot face ceva de genul 'const' multiplyBy5 '
+
+10:37.650 --> 10:41.550
+este egal și acum am acest lucru.
+
+10:41.820 --> 10:49.860
+Deci, oricând, vreau să înmulțesc cu cinci, aș putea spune, permiteți-mi să copiez acest lucru.
+
+10:50.250 --> 10:54.970
+Acum, ori de câte ori vreau să înmulțească un număr de cinci, cinci
+
+10:58.700 --> 11:09.480
+zece, iar acum am această funcție care a fost creată care întotdeauna înmulțește lucrurile cu 5, ceea ce este foarte cool.
+
+11:09.480 --> 11:09.990
+In regula.
+
+11:10.010 --> 11:16.260
+Vom intra într-un alt lucru și apoi vă promit că vă voi face să nu vă doare capul.
+
+11:16.260 --> 11:25.760
+Se numește "compune" și "compune" este actul de a pune două funcții împreună pentru a forma oa treia funcție
+
+11:26.210 --> 11:33.230
+unde ieșirea unei funcții este intrarea celuilalt, chiar dacă eu spun că sunt ca,
+
+11:33.230 --> 11:33.660
+ce am spus?
+
+11:33.800 --> 11:35.230
+Deci, să scriem asta.
+
+11:36.170 --> 11:40.910
+Un "compose" arată așa.
+
+11:41.130 --> 11:52.300
+Să presupunem că parametrii 'f' și 'g' 'f' și 'g' returnează o funcție care are parametrul 'a' care returnează o funcție
+
+11:53.200 --> 11:58.590
+care are acest lucru, sfânt mol.
+
+11:58.760 --> 12:03.830
+Și dacă te uiți la asta și nu ai idee ce se întâmplă,
+
+12:03.830 --> 12:04.710
+acest lucru este nevoie de ceva timp pentru unii.
+
+12:04.850 --> 12:06.650
+Este într-adevăr lucruri foarte avansate.
+
+12:06.800 --> 12:13.260
+Dar, dacă reușești să înțelegi funcționarea interioară a acestui lucru, poți să faci orice.
+
+12:13.260 --> 12:15.310
+Hai să o luăm.
+
+12:17.240 --> 12:18.590
+Ce se intampla aici?
+
+12:18.950 --> 12:23.480
+Se pare că, uitându-se la 'f' și 'g',
+
+12:23.730 --> 12:29.790
+se pare că "f" este o funcție deoarece, deși avem paranteze, se evidențiază chiar în albastru pentru dvs. și
+
+12:29.790 --> 12:33.450
+"g" este, de asemenea, o funcție.
+
+12:33.510 --> 12:41.580
+Dacă am avut o funcție sumă, să spunem că are un număr
+
+12:44.300 --> 12:49.960
+și doar adaugă 1.
+
+12:50.120 --> 12:58.860
+Ce putem face cu "compune" este că pot să spun "compune", din nou avem funcția aud, sumă "sumă".
+
+12:58.900 --> 13:03.730
+Deci atât "f", cât și "g" sunt "sumă".
+
+13:03.850 --> 13:06.890
+Și acum, pentru că este nevoie de un alt suport,
+
+13:11.230 --> 13:11.560
+Pot spune 5, în regulă,
+
+13:11.560 --> 13:16.040
+așa că haideți să conducem acest lucru și apoi putem merge pas cu pas pentru a vă arăta ce face.
+
+13:17.890 --> 13:19.550
+Am 7 ani.
+
+13:19.570 --> 13:20.640
+De ce este asta?
+
+13:20.890 --> 13:23.580
+Să o luăm unul câte unul.
+
+13:23.790 --> 13:33.590
+Dacă atât "f" cât și "g" sunt "sumă" și "a" este 5, ne uităm la ceea ce revine funcția.
+
+13:33.740 --> 13:39.300
+Și pentru că din nou avem două paranteze executăm prima parte a funcției care se întoarce
+
+13:39.300 --> 13:42.080
+noi în altă funcție care este aceasta.
+
+13:42.450 --> 13:44.600
+Și înăuntru îi dăm "a", 5.
+
+13:44.850 --> 13:49.460
+Deci, atunci când această funcție rulează, se spune că "a" este 5.
+
+13:49.670 --> 13:50.180
+O.K.
+
+13:50.460 --> 13:53.270
+Și apoi să executăm funcția interioară "g".
+
+13:53.370 --> 13:55.310
+În acest caz este suma.
+
+13:55.350 --> 14:02.220
+Deci, dacă vă amintiți suma este doar spuneți-mi dă-mi cinci și apoi cinci plus unul.
+
+14:02.220 --> 14:06.090
+Deci, acum se schimbă la șase.
+
+14:06.310 --> 14:11.180
+Apoi, în cele din urmă, funcționează funcția "f" care este din nou "sumă".
+
+14:11.730 --> 14:15.240
+Și asta spune că "suma" îmi dă șase.
+
+14:15.270 --> 14:19.270
+Deci șase plus unu sunt șapte.
+
+14:19.350 --> 14:27.000
+Și totul se întoarce pe șapte.
+
+14:27.230 --> 14:27.680
+Hooh! in regula.
+
+14:27.760 --> 14:37.310
+A fost o mulțime de lucruri, dar vreau să vă amintiți aceste trei cuvinte-cheie, pentru că atunci când ajungeți
+
+14:37.310 --> 14:43.450
+la funcțiile Javascript avansate, funcțiile sunt cu adevărat importante.
+
+14:43.460 --> 14:51.950
+Veți auzi multe cuvinte precum "Closures" și "Currying" și "Compose" și veți găsi instrumente și biblioteci
+
+14:51.950 --> 14:54.210
+care le folosesc foarte mult.
+
+14:54.290 --> 14:57.460
+Acum nu este nevoie să cunoașteți definiția acestora.
+
+14:57.500 --> 15:01.820
+Trebuie doar să puteți citi o bucată de cod și să înțelegeți ce se întâmplă.
+
+15:01.940 --> 15:11.180
+Și de aceea îmi place să-ți arăt acest lucru, deși e foarte avansat și foarte greu să înțelegi,
+
+15:11.180 --> 15:15.380
+prin înțelegerea procesului pas cu pas a modului în care funcționează o funcție.
+
+15:15.380 --> 15:21.470
+Acest lucru este cu adevărat util, deoarece acum, când întâlniți acest lucru în sălbăticie,
+
+15:21.860 --> 15:22.660
+veți înțelege cum funcționează totul.
+
+15:23.370 --> 15:29.640
+Acum, pentru a termina, această secțiune de funcții vreau să vă spun cel mai important lucru pe care îl puteți face
+
+15:29.640 --> 15:42.550
+ca un dezvoltator de web atunci când creați cod și care este ideea de a evita efectele secundare și puritatea funcțională.
+
+15:43.890 --> 15:44.630
+Ce inseamna asta.
+
+15:44.700 --> 15:48.500
+Ei bine, să ne întoarcem la diagrama mea aici.
+
+15:48.510 --> 15:55.620
+S-ar putea să vă amintiți acest lucru din prima parte în care am spus că o intrare este ceea ce ne dă o funcție de intrare
+
+15:55.620 --> 15:56.350
+un fel de.
+
+15:56.370 --> 16:04.110
+Ar putea fi o intrare goală sau ar putea avea parametri ca 5 și 10, o funcție face ceva ce noi definim,
+
+16:04.590 --> 16:05.740
+are propriul său domeniu de aplicare.
+
+16:05.760 --> 16:08.100
+Amintiți-vă că este propriul său univers.
+
+16:08.100 --> 16:14.410
+Ar putea avea "consola log", ar putea face o mulțime de lucruri și apoi se întreabă, Vă întorc ceva?
+
+16:14.970 --> 16:18.410
+Poți, Ooh! acest lucru ar trebui să fie nedefinit.
+
+16:19.570 --> 16:27.690
+Deci, puteți să vă întoarceți o valoare sau dacă nu vă întoarce nimic, nu este definită. Acum cele două cuvinte
+
+16:27.690 --> 16:38.680
+Tocmai am spus efecte secundare și puritate funcțională. Reacții adverse bune sunt oricare dintre aceste lucruri, orice acțiune
+
+16:39.310 --> 16:48.020
+care se întâmplă, în interiorul funcției despre care nu știm cu adevărat nimic. Dacă interacționează sau citește
+
+16:48.020 --> 16:54.440
+sau scrie, de exemplu, la o variabilă externă sau la "console logs"
+
+16:54.440 --> 16:56.750
+bine că este un efect secundar.
+
+16:57.140 --> 17:02.300
+Dacă schimbăm aici, o variabilă, 'a' este egală cu una
+
+17:05.330 --> 17:08.000
+și apoi am o funcție
+
+17:11.560 --> 17:15.920
+care se schimbă "a",
+
+17:16.020 --> 17:17.550
+Ei bine, asta e un efect secundar.
+
+17:17.670 --> 17:22.660
+Asta e ceva ce funcția face să afecteze lumea exterioară.
+
+17:22.680 --> 17:29.670
+Amintiți-vă că vrem să ne gândim la funcții ca la propriul său univers și dacă începe să afecteze lumea exterioară.
+
+17:29.850 --> 17:31.440
+Adică nu este sfârșitul lumii.
+
+17:31.440 --> 17:36.200
+Am făcut un "jurnal de consolă" înainte de a face, am făcut asta înainte.
+
+17:37.150 --> 17:45.460
+Dar este o practică bună de a evita efectele secundare și prin evitarea efectelor secundare, avem ceva
+
+17:45.460 --> 17:49.820
+numita puritate functionala si puritate functionala
+
+17:50.770 --> 17:58.420
+este un concept în care spunem, pentru ca noi să scriem cu adevărat programe foarte bune pe care vrem să le evităm
+
+17:58.420 --> 18:13.950
+efecte secundare și întotdeauna ne dorim o întoarcere, astfel încât acest lucru și acest lucru au dispărut și întotdeauna vom întoarce ceva.
+
+18:14.020 --> 18:21.460
+Și care este puterea în asta? Prin evitarea efectelor secundare și întotdeauna întoarcerea.
+
+18:21.570 --> 18:31.860
+Noi creăm ceva pe care noi îl numim "Determinist" și "Determinist" este un cuvânt pe care ați auzit-o.
+
+18:31.860 --> 18:40.280
+Înseamnă că, indiferent dacă intrarea mea, să spunem că cinci și zece trec prin această funcție.
+
+18:40.320 --> 18:46.630
+Acest mic univers, valoarea întoarcerii va fi întotdeauna aceeași.
+
+18:46.680 --> 18:54.450
+Permiteți-mi să spun din nou, ceea ce am introdus în parametrii
+
+18:54.450 --> 18:55.350
+fie că este gol, fie că are anumiți parametri.
+
+18:55.350 --> 18:57.990
+Se întoarce întotdeauna, dacă executăm asta de o mie de ori.
+
+18:57.990 --> 19:00.080
+Se întoarce întotdeauna aceeași valoare.
+
+19:01.430 --> 19:03.070
+Acesta este Determinismul.
+
+19:03.110 --> 19:10.580
+Este un concept foarte important și acesta este un principiu cheie în evitarea bug-urilor, deoarece dacă această funcție este întotdeauna
+
+19:10.580 --> 19:16.770
+face același lucru bine, atunci știți exact ce face și nu veți avea erori aleatorii
+
+19:16.770 --> 19:18.130
+ieșind aici și acolo.
+
+19:18.990 --> 19:29.010
+Cu asta vreau să te las cu tine. Deși aceasta nu este legea și veți găsi baze de cod
+
+19:29.010 --> 19:30.270
+care va avea multe efecte secundare.
+
+19:30.270 --> 19:35.250
+Vor fi multe lucruri care se întâmplă în interiorul funcțiilor care pot chiar afecta variabilele
+
+19:35.250 --> 19:36.940
+trăiesc în afara unei funcții.
+
+19:36.990 --> 19:43.950
+Este într-adevăr o practică bună de a fi un dezvoltator de top performanță pentru a avea în vedere acest lucru,
+
+19:43.950 --> 19:51.150
+de a crea funcții care minimizează efectele secundare și au o puritate funcțională.
+
+19:51.290 --> 19:57.630
+Ceea ce noi numim "Determinism", în cazul în care tot ceea ce puneți în funcție întoarce întotdeauna același lucru.
+
+19:59.430 --> 20:01.080
+Bine, asta e pentru moment.
+
+20:01.080 --> 20:02.810
+Încearcă câteva exerciții.
+
+20:02.940 --> 20:04.400
+Ne vedem în următorul.
+
+20:04.410 --> 20:04.900
+Buh-pa.

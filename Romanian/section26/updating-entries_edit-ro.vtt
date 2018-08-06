@@ -1,0 +1,178 @@
+WEBVTT
+
+00:01.300 --> 00:02.240
+Bine ai revenit.
+
+00:02.470 --> 00:04.980
+Să lucrăm la punctul final al imaginii aici.
+
+00:05.230 --> 00:11.840
+Și având în vedere ceea ce am făcut până acum, putem fi destul de siguri că nu vom avea nevoie de niciunul din aceste lucruri.
+
+00:11.860 --> 00:14.840
+O vom conecta la baza de date.
+
+00:14.950 --> 00:20.710
+Acum, punctul final al imaginii, dacă vă aduceți aminte, actualizează intrările și mărește numărarea.
+
+00:20.710 --> 00:28.560
+Deci, tot ce trebuie să faceți este să actualizați și să examinăm KNEX și să vedem dacă au funcția de actualizare
+
+00:32.790 --> 00:33.970
+Da, ei o fac.
+
+00:33.990 --> 00:37.540
+Și ne dau exemple bune despre cum să procedăm.
+
+00:39.760 --> 00:42.170
+Deci, să folosim acest lucru ca un exemplu.
+
+00:43.030 --> 00:45.220
+Pentru a crea funcția de actualizare
+
+00:48.310 --> 00:49.690
+o vom copia aici.
+
+00:52.530 --> 01:04.740
+Și știm că cu punctul nostru DB unde vrem să spunem că unde ID-ul este egal și nu este egal cu 3
+
+01:04.740 --> 01:14.740
+aceasta este SQL unde ID-ul este egal cu ID-ul pe care l-am primit în corpul pe care dorim să îl actualizăm
+
+01:16.090 --> 01:21.100
+să fie mai mare decât înregistrările care sunt în prezent acolo.
+
+01:21.140 --> 01:22.990
+Dar cum putem face asta?
+
+01:23.160 --> 01:26.660
+Cum putem să luăm intrările din baza de date și să le creștem.
+
+01:26.660 --> 01:34.230
+Din nou, aceasta este o problemă care este foarte comună și se spune despre selectarea ID-ului prinsând indiferent de intrări
+
+01:34.230 --> 01:35.890
+este și actualizarea acesteia.
+
+01:36.300 --> 01:46.080
+Ei bine, putem pur și simplu utiliza ceva numit increment și increment doar ne spune coloana și suma
+
+01:46.080 --> 01:49.110
+vrem să creștem. Foarte tare.
+
+01:49.230 --> 01:49.870
+S-o facem.
+
+01:50.160 --> 02:00.200
+Să presupunem că ID-ul de utilizator în loc de actualizare a fost doar pentru a incrementa și vom face intrări și noi doar vreau
+
+02:00.200 --> 02:01.140
+de unul.
+
+02:01.450 --> 02:06.280
+Și implicit este unul care sunt destul de sigur, dar îmi place întotdeauna să fiu explicit, astfel încât oamenii să știe ce se întâmplă
+
+02:06.280 --> 02:09.020
+când citesc codul și să facem asta.
+
+02:09.430 --> 02:22.110
+Așadar, creștem câte unul și apoi vrem să spunem întoarcerea intrărilor să facem un punct și apoi să vedem ce
+
+02:22.110 --> 02:22.470
+primim
+
+02:29.450 --> 02:30.530
+consolă punct log
+
+02:33.340 --> 02:44.790
+intrări și să salvăm. Du-te înapoi la poștaș. Să găsim punctul final al imaginii care are un corp de identificare și
+
+02:44.790 --> 02:47.940
+va trebui să-i dăm un ID care există deocamdată.
+
+02:47.950 --> 02:59.840
+Deci, hai să trimitem unul. Și întorcându-ne aici nu primim nimic, pentru că trebuie să facem o cerere.
+
+02:59.850 --> 03:07.380
+Amintiți-vă că am schimbat-o pentru a ne trimite din nou și este agățat pentru că nu i-am dat un răspuns
+
+03:07.380 --> 03:09.270
+așa că vom anula cererea de acum.
+
+03:09.410 --> 03:16.610
+Dar dacă ne întoarcem la server Ei bine, putem vedea că există un pic de eroare aici și cu siguranță
+
+03:16.610 --> 03:18.600
+a făcut o eroare proastă aici.
+
+03:18.620 --> 03:22.370
+Nu are nicio idee despre ce bază de date vorbim.
+
+03:22.370 --> 03:29.310
+Trebuie să spunem utilizatorilor aici. Erori SQL sunt uneori pot fi într-adevăr confuz.
+
+03:29.380 --> 03:33.720
+Dar, așa cum am spus, este destul de declarativ.
+
+03:33.720 --> 03:40.340
+Atâta timp cât o puteți citi și o puteți înțelege cu erorile KNEX sunt la minim, dacă nu sunteți
+
+03:40.340 --> 03:43.070
+și uitați să menționați masa.
+
+03:43.070 --> 03:43.970
+Să încercăm din nou asta.
+
+03:44.930 --> 03:45.600
+Trimis.
+
+03:45.720 --> 03:48.730
+Vom sfătui solicitările deoarece nu există răspuns.
+
+03:49.070 --> 03:52.440
+Dar acum am o întoarcere.
+
+03:52.580 --> 03:56.300
+Dacă îl trimit din nou, anulați solicitarea.
+
+03:56.370 --> 04:05.220
+Am doua. Dacă mă întorc la baza de date și selectez totul, văd că Ann are acum două intrări. Uimitor.
+
+04:07.740 --> 04:08.630
+Așa că ne putem întoarce aici
+
+04:08.640 --> 04:15.570
+acum, știind că aceasta funcționează. Să spunem că intrările, vrem să - revenim din nou la prima matrice, pentru că noi
+
+04:15.570 --> 04:22.670
+obțineți unul și în loc de consola de logare vom spune răspuns răspunsuri json punct.
+
+04:22.990 --> 04:32.170
+Dar dacă ceva nu reușește, atunci vom face un punct de captura, așa cum am reușit aici și putem spune asta
+
+04:32.350 --> 04:45.820
+starea de răspuns la starea de răspuns a erorii îi vom da încă 400, vom spune că Json nu poate primi numărul sau intrările
+
+04:48.180 --> 04:55.260
+Vom salva acest lucru și voi elimina acest lucru pentru a vă asigura că eroarea funcționează.
+
+04:55.260 --> 04:58.430
+Așa că ar trebui să mă întoarcă la 400.
+
+04:58.560 --> 05:00.030
+Să încercăm din nou asta.
+
+05:00.200 --> 05:04.590
+Trimite. Imposibil de obținut înregistrări. 400 de solicitare.
+
+05:04.840 --> 05:16.310
+Dar dacă rezolv acest lucru pentru utilizatori și selectez din nou Ann, am trei.
+
+05:16.390 --> 05:22.660
+În fine, am reușit să obținem punctul final al imaginii noastre și avem finalul final pentru a lucra la care se înregistrează
+
+05:24.340 --> 05:25.690
+asta e pentru următorul videoclip.
+
+05:25.960 --> 05:26.800
+Ne vedem pe asta. Pa! Pa.

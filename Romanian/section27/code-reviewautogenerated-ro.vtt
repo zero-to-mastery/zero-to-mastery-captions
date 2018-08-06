@@ -1,0 +1,685 @@
+WEBVTT
+
+00:01.000 --> 00:02.050
+Bine ai revenit.
+
+00:02.050 --> 00:09.070
+În acest videoclip, vreau să fac ceva numit revizuire a codului și în special pentru partea frontală a aplicației noastre
+
+00:09.610 --> 00:14.710
+o revizuire a codului este ceva ce vrei să faci din când în când când lucrezi cu codul tău
+
+00:14.950 --> 00:17.400
+deoarece poate fi întotdeauna îmbunătățită.
+
+00:17.410 --> 00:23.650
+Nu este niciodată perfectă și proiectul la care lucrăm este destul de bun, dar există ajustări minore
+
+00:23.890 --> 00:25.770
+pe care l-am putea face.
+
+00:25.780 --> 00:31.600
+Deci, în acest videoclip, vreau să trec printr-un proces simplu de revizuire a codului pentru a vă arăta cum putem îmbunătăți acest lucru
+
+00:31.600 --> 00:37.030
+aplicație, astfel încât să puteți lua această bază de cod și să-l extindeți, făcând-o chiar mai bună, pe cont propriu.
+
+00:38.900 --> 00:40.700
+Permiteți-mi să vă arăt un bug pe care îl avem.
+
+00:40.970 --> 00:50.520
+Dacă creez un nou utilizator, Mike și Mike au un e-mail și o parolă. Acum, dacă mă conectez la Mike și am un a
+
+00:50.520 --> 00:59.620
+eșantion se confruntă aici pe care le putem folosi. Dacă intru în această față, mă ridic la fața mea disecție, care este grozav, dar
+
+00:59.770 --> 01:05.590
+când mă deconectez acum și mă înregistrez cu un utilizator nou, să-l numim Wes
+
+01:11.440 --> 01:17.830
+Ei bine, nu știm niciodată starea aplicației frontale.
+
+01:17.840 --> 01:24.810
+Deci, acum Wes vede cumva ceea ce a prezentat Mike. Deci, să rezolvăm asta.
+
+01:24.810 --> 01:34.100
+Dacă mergem la aplicația noastră frontală și să deschidem app.js, avem onRouteChange că
+
+01:34.100 --> 01:36.040
+este chemat chiar aici
+
+01:36.200 --> 01:42.610
+când ne înscriem. Iar când ieșim, tot ceea ce facem este setat laSignedIn:false.
+
+01:42.610 --> 01:51.090
+Dar dacă ne uităm la starea noastră, nu reușim să clarificăm obiectul utilizatorului, nu-i așa?
+
+01:51.430 --> 01:55.060
+Obiectul utilizatorului care la început era Mike, rămâne același.
+
+01:55.270 --> 02:03.110
+Și când ne vom întoarce în Wes, asta va fi informația lui Mike.
+
+02:03.220 --> 02:07.080
+Așa că putem face ceva interesant aici, putem crea doar o stare inițială
+
+02:10.110 --> 02:20.330
+astfel că în afara aplicației îl vom numi starea inițială și această stare inițială va avea acest întreg obiect
+
+02:21.690 --> 02:32.080
+astfel încât această punct punct va fi starea inițială.
+
+02:32.090 --> 02:32.830
+In regula.
+
+02:32.960 --> 02:40.120
+Și acum putem folosi pur și simplu această variabilă pentru a schimba peRouteChange când ieșim.
+
+02:40.130 --> 02:42.340
+Vrem să eliminăm toate informațiile.
+
+02:42.380 --> 02:55.700
+Deci, în loc de a face setState este semnat la fals, putem spune că vrem să setăm statul la originalState.
+
+02:55.730 --> 02:56.750
+Să vedem dacă funcționează.
+
+02:57.620 --> 03:04.790
+Am de gând să salvez întoarce-te la cererea noastră și să ne logăm din nou ca Mike.
+
+03:12.250 --> 03:14.510
+Și o să luăm din nou această față.
+
+03:20.460 --> 03:21.540
+Fața este detectată.
+
+03:21.570 --> 03:26.100
+Dacă ieșim acum și intram ca Wes
+
+03:33.240 --> 03:37.700
+apare o eroare - o cerere greșită.
+
+03:37.740 --> 03:40.990
+Oh, și pentru că l-am înșelat numele.
+
+03:41.010 --> 03:44.430
+O să încercăm din nou. Conectați-vă. Bine!
+
+03:44.460 --> 03:45.170
+Acolo te duci.
+
+03:45.360 --> 03:47.550
+Acum avem Wes cu un profil clar.
+
+03:47.560 --> 03:51.410
+Nu știe la ce a făcut Mike.
+
+03:51.410 --> 03:51.690
+In regula.
+
+03:51.710 --> 03:56.610
+Am reușit să reparăm o eroare foarte bună.
+
+03:56.810 --> 04:00.220
+Ce altceva putem face cu această bază de cod.
+
+04:00.250 --> 04:08.320
+Există o mulțime de lucruri pe care cred că le putem curăța, de exemplu, este întotdeauna important să avem o capcană
+
+04:08.320 --> 04:12.490
+declarație de fiecare dată când faci un fel de fetch.
+
+04:12.580 --> 04:19.950
+Vedem că folosim fetch, dar nu ne prindem niciodată dacă, dintr-un motiv oarecare, acest răspuns va fi trimis la localhost
+
+04:20.010 --> 04:23.230
+imaginea nu reușește vreodată.
+
+04:24.500 --> 04:31.710
+Singurul lucru pe care îl prindem este că prindem dacă API-ul clarifai nu reușește.
+
+04:31.900 --> 04:36.310
+Dar o bună practică este să ai întotdeauna un punct de captură după ce faci vreun punct atunci.
+
+04:36.310 --> 04:45.480
+Apoi, putem face ceva simplu ca un consola de captură punct log pentru a deconecta orice erori avem.
+
+04:45.700 --> 04:52.210
+Și asta este ceva care ne va îmbunătăți ceea ce numim tratarea erorilor pentru a vă asigura că nu aveți
+
+04:52.240 --> 04:54.220
+erorile care se întâmplă fără ca noi să știm.
+
+04:55.640 --> 05:03.580
+Deci, este un lucru pe care îl putem îmbunătăți și avem registrul și componentele de conectare. Daca iti amintesti
+
+05:03.590 --> 05:07.350
+acestea sunt foarte foarte asemănătoare, am făcut o mulțime de copiere și lipire.
+
+05:07.490 --> 05:14.930
+Și singurul lucru care era cu adevărat diferit față de ei era aceste valori de intrare. Formularul de înregistrare are un extra
+
+05:15.200 --> 05:20.860
+câmp care este numele, și de conectare, bine doar a avut e-mail și parola.
+
+05:23.800 --> 05:24.820
+Și nu vom intra în ea
+
+05:24.820 --> 05:31.900
+în acest videoclip, deoarece este destul de simplu și există multe modalități de a face acest lucru. Dar ne putem imagina poate
+
+05:31.900 --> 05:39.810
+având o componentă partajată, poate o vom numi formă și această formă acceptă elemente de recuzită diferite ca intrările
+
+05:39.880 --> 05:47.080
+astfel încât să putem seta și distribui componenta respectivă între conectare și înregistrare, astfel încât să nu avem acest duplicat
+
+05:47.640 --> 05:52.510
+codebase.
+
+05:52.530 --> 05:52.990
+In regula.
+
+05:53.010 --> 05:53.780
+Minunat.
+
+05:53.800 --> 06:00.540
+Deci, asta e ceva ce putem face cu frontul nostru doar pentru a ne îmbunătăți unele dintre erorile noastre și câteva dintre ele
+
+06:00.540 --> 06:02.340
+duplicarea codului.
+
+06:02.790 --> 06:09.490
+Probabil putem chiar pune acest lucru într-o componentă a containerului, astfel încât App.js App.css și App.test.js
+
+06:09.650 --> 06:12.320
+sunt toate într-o componentă de container.
+
+06:12.510 --> 06:16.050
+Dar, în general, capătul din față arată destul de frumos și curat.
+
+06:16.080 --> 06:17.490
+Destul de simplu.
+
+06:17.760 --> 06:24.330
+Pe măsură ce extindem aplicația, putem muta mereu componentele și le putem face mai mici și mai mici, dacă vrem noi
+
+06:24.330 --> 06:25.490
+vor să le reutilizeze.
+
+06:26.380 --> 06:32.470
+Vedem că am discutat deja despre modul în care putem descompune componenta de înregistrare și înregistrare. Poate în interiorul
+
+06:32.470 --> 06:36.660
+formularul de imagine imagine dacă mergem la acea componentă.
+
+06:36.900 --> 06:42.360
+Putem împărți intrarea și butonul pentru a putea reutiliza undeva.
+
+06:42.360 --> 06:48.340
+Dar pentru o aplicație de această dimensiune cred că este un loc destul de bun pentru a părăsi această aplicație.
+
+06:48.570 --> 06:54.300
+Deci, hai să mergem la back-end și să vedem cum putem îmbunătăți back-end-ul.
+
+06:54.510 --> 07:04.900
+Vă amintiți aici API-ul nostru, care este conectat la o bază de date, și avem cele patru rute simple ale noastre
+
+07:04.900 --> 07:06.790
+a păstrat puțin dezordonat.
+
+07:08.240 --> 07:11.840
+Am avut totul într-un singur fișier server.js.
+
+07:11.930 --> 07:19.590
+Dar, în mod ideal, în orice proiect mare nu aveți un singur fișier care conține totul.
+
+07:19.800 --> 07:23.880
+Deși acest lucru este doar patru rute, vă puteți imagina acest lucru tot mai mare și mai mare.
+
+07:23.880 --> 07:31.280
+Deci, un lucru pe care îmi place să fac în back-end este să creez ceva numit director de controlori.
+
+07:34.630 --> 07:42.350
+Ce controlori fac controlorii sunt lucruri care controlează ceea ce se întâmplă atunci când un punct final este lovit.
+
+07:43.560 --> 07:44.770
+Lasă-mă să-ți arăt ce vreau să spun.
+
+07:44.840 --> 07:54.590
+Mă duc să creez un fișier nou și acest fișier va spune register.js și în register.js
+
+07:54.590 --> 08:01.980
+putem copia întreaga funcție, întreaga tranzacție pe care o folosim
+
+08:06.380 --> 08:15.340
+astfel incat acum avem registrul post apt dot si putem apela functia aici in loc sa avem acel intreg
+
+08:15.340 --> 08:16.930
+bloc.
+
+08:16.950 --> 08:26.670
+Deci, să spunem că o vom numi înregistrare punct handleRegister.
+
+08:26.700 --> 08:27.860
+Deci, cum va funcționa asta?
+
+08:28.020 --> 08:34.370
+Ei bine, să intrăm în fișierul de registru și voi copia funcția pe care tocmai am copiat-o
+
+08:34.410 --> 08:35.160
+de acolo.
+
+08:37.110 --> 08:45.270
+Privind la serverul point js vom vedea că Registrul dot handleRegister va primi răspunsul la cerere astfel
+
+08:45.270 --> 08:52.840
+că atunci când se înregistrează un punct final de înregistrare, voi primi cererea și răspunsul și voi fi chemat cu el.
+
+08:57.190 --> 09:00.820
+Deci tot ce vom face aici este
+
+09:03.710 --> 09:07.360
+exportul modulelor de puncte.
+
+09:07.630 --> 09:09.050
+Dacă vă amintiți această sintaxă
+
+09:13.740 --> 09:22.490
+și aici vom avea doar o funcție de înregistrare a mânerului pe care o vom crea.
+
+09:22.720 --> 09:28.770
+Și suntem doar exportatori și această funcție de înregistrare mâner va fi doar acest bloc de funcție
+
+09:28.770 --> 09:31.910
+pe care o creăm.
+
+09:31.950 --> 09:37.050
+Așa că o vom numi const.
+
+09:37.220 --> 09:44.310
+este egal cu acest bloc, dar puteți observa o problemă aici.
+
+09:45.800 --> 09:55.370
+Avem solicitarea și răspunsul, dar nu avem DB sau bcrypt.
+
+09:55.520 --> 10:01.940
+Dacă execut această funcție în acest fișier, voi primi o eroare spunând că nu am nici o idee despre ce este bcrypt și pe care îl am
+
+10:01.940 --> 10:05.510
+nici o idee despre ce este DB și avem două opțiuni.
+
+10:05.840 --> 10:08.780
+Putem fie în interiorul acestui fișier locul
+
+10:12.050 --> 10:20.690
+bcrypt și KNEX importă și se conectează la baza de date sau le putem transmite acestor funcții.
+
+10:20.690 --> 10:21.140
+Lasa-ma sa-ti arat.
+
+10:24.030 --> 10:30.420
+În registru, bine pot face doar un răspuns la cerere.
+
+10:33.080 --> 10:45.630
+Și acest răspuns de cerere va primi răspunsul la cerere, precum și baza de date se conectează și bcrypt.
+
+10:45.710 --> 10:51.760
+Așa că este disponibil. Acest lucru, numit injecție de dependență, injectăm orice dependență
+
+10:52.210 --> 10:56.310
+această funcție de înregistrare a mânerului are nevoie.
+
+10:56.350 --> 11:08.280
+Deci, dacă ne întoarcem și acum ne schimbăm parametrii pentru a include pe cei pe care i-am declarat și pentru a le salva bine.
+
+11:08.400 --> 11:11.050
+Să mergem să vedem asta.
+
+11:11.060 --> 11:11.240
+Da.
+
+11:11.280 --> 11:14.860
+Avem exporturi modulare, totul arată bine în acest scop.
+
+11:15.670 --> 11:27.220
+Dacă mă întorc la server și acum înăuntru aici fac un const cerând registrul și îl dăm a
+
+11:27.220 --> 11:28.000
+cale.
+
+11:28.060 --> 11:33.280
+În cazul nostru vor fi controlori și se vor înregistra.
+
+11:36.740 --> 11:50.890
+Deci, să vedem dacă funcționează. Du-te la Tim Tim la gmail dot com parola 1 2 3 se înregistrează și arată că sunt înregistrat.
+
+11:51.110 --> 12:01.120
+Dacă mă duc la baza mea de date și mă asigur că avem Tim acolo, pot selecta stea de la utilizatori.
+
+12:01.120 --> 12:04.090
+În regulă, am Tim acolo și dacă mă duc la masa de autentificare
+
+12:09.410 --> 12:12.780
+Am si e-mailul lui Tim.
+
+12:12.930 --> 12:15.390
+Deci nu ne-am schimbat nici o funcționalitate.
+
+12:15.390 --> 12:23.100
+Totul este inca in lucru, dar singura diferenta este ca acum am facut inregistreaza doar unul
+
+12:23.100 --> 12:32.280
+line și separați funcția de înregistrare pentru a fi doar în acest fișier. Așa că dacă vrem să avem mai mult
+
+12:32.280 --> 12:39.720
+lucrurile adăugate în mod specific pentru a înregistra noi separăm aceste preocupări ale logicii de registru să fie în acest fișier.
+
+12:40.870 --> 12:43.520
+Și acesta este un mod mai bun de a face lucrurile.
+
+12:43.660 --> 12:47.270
+Deci, să urmăm exemplul și să facem asta și pentru restul funcțiilor.
+
+12:48.380 --> 12:51.910
+Vom începe cu semnarea acum.
+
+12:51.960 --> 13:02.990
+Din nou, voi doar să copiați acest lucru și vom vedea că semnalul necesită și bcrypt și DB, de asemenea.
+
+13:07.970 --> 13:24.760
+Voi spune ca raspunsul la cerere va fi rulat cu o functie care este semnalizator pentru semn
+
+13:24.760 --> 13:27.160
+va avea un răspuns la cerere
+
+13:30.210 --> 13:32.890
+DB și bcrypt
+
+13:35.680 --> 13:42.340
+și fac acest lucru mai mic doar pentru a putea vedea mai bine.
+
+13:42.340 --> 13:42.640
+In regula.
+
+13:42.640 --> 13:56.660
+Și putem crea asta aici spunând că cerem să ne cerem și vom crea acel fișier imediat după asta.
+
+13:56.850 --> 13:58.640
+O să-l sunăm.
+
+14:03.900 --> 14:05.160
+Mergând la controlori.
+
+14:08.210 --> 14:10.450
+Se pare că am o eroare aici, să verificăm acest lucru -
+
+14:13.370 --> 14:15.860
+nu se poate găsi modulul pentru că îl creăm chiar acum.
+
+14:15.860 --> 14:35.000
+Voi spune noul fișier de înscriere punct JS copiați și lipiți funcția noastră și o vom numi handleSignin pe care o va primi
+
+14:35.030 --> 14:44.550
+baza de date și bcrypt prin injecția de dependență și o vom exporta
+
+14:50.110 --> 14:54.770
+mânerSignin ca handleSignin
+
+14:55.160 --> 15:06.690
+Să salvăm. Asigurați-vă că putem încă să vă conectați la aplicația noastră. Vom deconecta, vă conectați la Tim la gmail dot com
+
+15:07.050 --> 15:12.460
+și parola lui a fost 1 2 3 dreapta avem un pic de o eroare.
+
+15:12.460 --> 15:16.360
+Sa vedem. Cererea asta
+
+15:20.770 --> 15:25.970
+Vrem să ne asigurăm că vom spune acest drept - bcrypt. Asigurați-vă că avem acest lucru și pe server
+
+15:26.100 --> 15:27.290
+bcrypt.
+
+15:27.440 --> 15:29.510
+Încearcă să încercăm.
+
+15:29.510 --> 15:36.210
+Vom merge să semneze și avem Wes la parola gmail 1 2 3 suntem capabili să-l semneze.
+
+15:36.240 --> 15:36.930
+In regula.
+
+15:39.220 --> 15:41.900
+OK lucrurile incep sa arate putin mai curat.
+
+15:43.480 --> 15:45.540
+Să continuăm cu asta din nou.
+
+15:45.550 --> 15:48.000
+Și puteți vedea că există un pic de repetare aici.
+
+15:49.210 --> 15:52.600
+Dar sperăm că acest lucru are sens acum.
+
+15:52.600 --> 15:57.000
+Știm că aici nu folosim bcrypt, dar folosim DB.
+
+15:57.220 --> 16:01.790
+Așa că vom face răspunsul la cerere
+
+16:06.670 --> 16:07.920
+vom spune un profil
+
+16:11.810 --> 16:14.570
+handleProfile și vom spune să ajungeți aici.
+
+16:18.140 --> 16:27.670
+Și să fie răspunsul la cerere și DB. Din nou, vom crea un nou fișier numindu-l profilul dot js.
+
+16:30.920 --> 16:45.200
+const handleProfileGet care primește DB. Și bineînțeles că vom face exportul modulelor
+
+16:49.360 --> 16:53.540
+și vom face handleProfileGet și vă voi arăta din nou cu ES6
+
+16:53.540 --> 16:56.700
+de fapt, nu avem nevoie de valoare.
+
+16:57.050 --> 17:02.170
+Dacă fac asta, du-te la server
+
+17:04.900 --> 17:09.670
+faceți profilul aici și profilul.
+
+17:09.670 --> 17:19.710
+Și apoi, în cele din urmă, să facem punctul final al imaginii, care nu are nevoie de bcrypt, dar are nevoie de dependența DB.
+
+17:19.840 --> 17:22.100
+Așa că vom face un răspuns la cerere
+
+17:26.120 --> 17:32.280
+image.handleImage cere răspuns DB.
+
+17:35.410 --> 17:43.250
+Creați un fișier nou imagine dot js
+
+17:43.580 --> 17:45.170
+Copiați corect, așa că va trebui
+
+17:56.080 --> 17:58.300
+handleImage
+
+18:02.230 --> 18:04.030
+exportul modulelor de puncte
+
+18:06.640 --> 18:07.550
+handleImage
+
+18:10.590 --> 18:13.500
+și asigurați-vă că găsim acea bază de date și acolo.
+
+18:15.220 --> 18:20.370
+Du-te înapoi la serverele noastre și să ne asigurăm că acest punct final de imagine funcționează.
+
+18:20.660 --> 18:23.470
+Dacă mă întorc, semnul intră ca Wes
+
+18:30.610 --> 18:37.060
+și voi trimite o față aici.
+
+18:37.310 --> 18:41.250
+Și nu primesc punctul de intrare, așa că am făcut o greșeală să ne întoarcem aici
+
+18:47.030 --> 18:52.820
+imaginea nu este definită și asta se datorează faptului că este sus în partea de sus aici
+
+18:52.870 --> 18:55.630
+nu am importat încă
+
+19:00.790 --> 19:07.260
+controlere și imagine. In regula.
+
+19:07.290 --> 19:08.370
+Să dăm asta.
+
+19:08.490 --> 19:10.030
+Asigurați-vă că nu avem erori.
+
+19:12.520 --> 19:17.440
+Să încercăm din nou să detectăm că facem una.
+
+19:17.440 --> 19:20.740
+Și dacă detectăm din nou, suntem doi.
+
+19:20.740 --> 19:21.840
+Totul funcționează.
+
+19:22.830 --> 19:23.600
+Minunat.
+
+19:24.030 --> 19:33.000
+Așa că a fost un pic de repetare, dar uita cât de mult mai curat serverul nostru js arata acum.
+
+19:33.000 --> 19:44.290
+Noi avem doar fișiere foarte simple, foarte simple, o garnitură și cineva poate veni și să se uite la server
+
+19:44.320 --> 19:46.580
+și să știm exact care sunt punctele noastre finale.
+
+19:49.030 --> 19:53.850
+Și oricând vrem să adăugăm mai multe funcții pentru a trata imaginile, poate că nu dorim să facem o cerere de postare
+
+19:53.950 --> 19:59.310
+cu o imagine, poate cu profil, dorim, de asemenea, să facem o cerere de ștergere.
+
+19:59.500 --> 20:05.800
+Putem doar să ne extindem și să știm exact unde sunt preocupările noastre legate de profil și de import
+
+20:05.800 --> 20:09.230
+pe serverul nostru ca pe o modalitate de a manipula lucrurile.
+
+20:09.280 --> 20:12.760
+Ultimul lucru pe care vroiam să-ți arăt este cum putem să curățăm asta.
+
+20:12.790 --> 20:17.980
+Deci, acest lucru este foarte frumos pentru că puteți vedea exact ce depinde fiecare funcție.
+
+20:17.980 --> 20:24.790
+Dar puteți face și așa ceva în loc de a declara funcția
+
+20:28.640 --> 20:36.680
+și acum, din cauza modului în care facem acest lucru, executăm prima dată această funcție cu DB și bcrypt.
+
+20:36.830 --> 20:41.760
+Și apoi primește în mod automat cerere și răspuns.
+
+20:41.810 --> 20:43.980
+Deci, această funcție se execută.
+
+20:44.130 --> 20:51.370
+Apoi, se solicită și răspunsul la cerere.
+
+20:52.510 --> 20:57.430
+Și știu că este puțin confuz și este un pic mai avansat, dar dacă vă aduceți aminte de funcțiile noastre
+
+20:57.520 --> 21:04.480
+secțiune avansată secțiune funcție în javascript. Este similar cu faptul că ne putem întoarce la semnalul nostru
+
+21:05.110 --> 21:08.080
+și în interiorul nostru putem acum
+
+21:14.780 --> 21:18.240
+cere raspuns.
+
+21:18.270 --> 21:22.980
+Știu că asta pare cam înfricoșător, dar să vedem ce se întâmplă dacă salvez asta
+
+21:26.660 --> 21:35.330
+intrați ca Wes și funcționează bine adăugați o altă imagine aici.
+
+21:38.010 --> 21:41.220
+Totul funcționează încă.
+
+21:41.410 --> 21:47.670
+Și acesta este un pic mai avansat și ar putea dura ceva timp să-ți înfășeri capul în jurul lui.
+
+21:47.680 --> 21:55.580
+Avem o functie care returneaza o alta functie si apoi ruleaza aceasta.
+
+21:55.660 --> 22:00.060
+Dar dacă te uiți la ea pas cu pas, este destul de clar dreptate.
+
+22:00.160 --> 22:03.610
+Desfășurăm handleSignin cu DB și bcrypt.
+
+22:03.610 --> 22:13.720
+Dacă ne întoarcem la el - să ne conectăm din nou, noi trecem prin asta și apoi suntem și atunci când semnătura este lovită.
+
+22:13.840 --> 22:20.790
+Transmitem răspunsul la solicitare, astfel că executăm din nou funcția de răspuns.
+
+22:21.010 --> 22:30.160
+Așa că această ordine este exact aceeași ca și această ordine aici.
+
+22:30.330 --> 22:36.330
+Iar aceasta este o chestiune de preferință, dacă acest lucru este puțin cam confuz, puteți recurge la acest lucru
+
+22:36.330 --> 22:38.070
+alt mod de a face acest lucru.
+
+22:39.690 --> 22:45.180
+Nu cred că unul este mai bun decât celălalt este doar o chestiune de preferință care îmi place faptul că asta
+
+22:45.180 --> 22:50.220
+pare mult mai curat decât repetiția aici, dar ar putea fi mai confuz pentru unii membri ai echipei
+
+22:50.220 --> 22:51.870
+Am vrut să vă arăt amândouă.
+
+22:53.850 --> 22:54.470
+In regula.
+
+22:54.470 --> 22:57.320
+Cred că e suficient pentru o revizuire a codului.
+
+22:58.020 --> 23:01.500
+Am făcut acest server puțin mai curat.
+
+23:01.500 --> 23:05.880
+Serverul nostru dot js pare destul de frumos destul de curat.
+
+23:05.880 --> 23:14.280
+Avem doar 35 de linii de cod aici și știm exact unde să mergem să găsim controlorii noștri cum fiecare
+
+23:14.280 --> 23:17.400
+ruta este chemată.
+
+23:17.410 --> 23:19.090
+În regulă asta este pentru moment.
+
+23:19.090 --> 23:20.810
+Ne vedem în următorul videoclip.
+
+23:20.820 --> 23:21.330
+Pa! Pa.

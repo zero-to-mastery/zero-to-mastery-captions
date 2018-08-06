@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00.640 --> 00:01.750
+Bine ai revenit.
+
+00:01.870 --> 00:04.070
+Avem ultimul punct final.
+
+00:04.090 --> 00:09.010
+Conectați-vă unde reușim să vă conectați în sfârșit la utilizatori.
+
+00:09.120 --> 00:14.110
+Acum ar putea fi ceva pe care l-ați realizat atunci când lucrăm la înregistrare.
+
+00:14.490 --> 00:26.590
+Adică introducem utilizatorul cu e-mail, nume și s-au alăturat, dar nu ne actualizăm tabelul de conectare.
+
+00:26.800 --> 00:36.190
+Dacă fac un stelu de la conectare, nu avem nimic acolo.
+
+00:37.080 --> 00:38.010
+Nu e bine că este.
+
+00:38.010 --> 00:43.980
+Vrem să creăm ceva de fiecare dată când un nou utilizator se conectează și de fapt captează parolele sau
+
+00:43.980 --> 00:45.300
+hash de parolele lor.
+
+00:46.470 --> 00:51.810
+Deci, hai să lucrăm la asta în acest videoclip. Pentru ca noi să facem acest lucru.
+
+00:51.850 --> 00:58.300
+Mai întâi trebuie să înregistrăm un utilizator și să-i luăm parolele.
+
+00:59.650 --> 01:05.650
+Acum, pentru noi, trebuie să inserăm o altă bază de date.
+
+01:05.720 --> 01:10.000
+Dar mai întâi să folosim bcrypt pentru a elimina o parolă pe care o primim.
+
+01:10.200 --> 01:17.730
+Dacă vă aduceți aminte că deja am instalat bcrypt și este dintr-un videoclip anterior, ne putem întoarce la
+
+01:17.970 --> 01:24.540
+bcrypt Node.js și deși v-am arătat modul asincron de a face lucrurile pe care le vom face
+
+01:24.540 --> 01:27.970
+face sincron pentru că este mai simplu.
+
+01:28.200 --> 01:33.120
+Rețineți că, prin sincronizare, aceasta înseamnă că, pe măsură ce funcționează acest lucru, javascriptul nu va merge
+
+01:33.120 --> 01:39.120
+se execută pe linia următoare versus cu asincron dacă rulați hash-ul bcrypt,
+
+01:39.120 --> 01:41.080
+Javascript continuă executarea.
+
+01:41.220 --> 01:44.130
+Și atunci când se întoarce, se va întoarce aici.
+
+01:45.050 --> 01:48.200
+Acest mod este puțin mai curat pentru moment.
+
+01:48.200 --> 01:50.510
+Deci vom folosi acest exemplu de cod.
+
+01:51.080 --> 01:59.700
+Vom copia acest lucru, mergeți la registrul nostru și aici - nu vrem să comparăm încă.
+
+01:59.750 --> 02:10.250
+Vrem doar să stocăm, deci putem spune const hash pe care vrem să-l criptăm parola.
+
+02:10.280 --> 02:15.360
+Deci, să schimbăm această parolă.
+
+02:15.580 --> 02:22.780
+Și acum că avem hash de parolă, trebuie să ne asigurăm că actualizăm utilizatorii, precum și
+
+02:22.780 --> 02:28.480
+tabelul de conectare, astfel încât să nu avem o problemă
+
+02:32.880 --> 02:36.020
+ca în cazul în care avem acești utilizatori.
+
+02:36.240 --> 02:44.640
+Dar dacă mergem la logon Ei bine nu avem absolut nimic.
+
+02:44.640 --> 02:54.090
+Deci, pentru a evita acest lucru avem un concept important de tranzacții și tranzacții sunt aceste blocuri de cod
+
+02:54.180 --> 03:01.740
+pe care le putem adăuga pentru a ne asigura că atunci când facem mai multe operații într-o bază de date dacă nu reușim atunci
+
+03:01.740 --> 03:02.750
+toți nu reușesc.
+
+03:02.880 --> 03:09.600
+Dacă dintr-un motiv oarecare, nu pot intra în tabelul utilizatorilor, dar pot să mă autentific, atâta timp cât este înfășurat
+
+03:09.600 --> 03:14.410
+în jurul unei tranzacții, ambele eșuează, astfel încât nu am niciodată aceste inconsecvențe.
+
+03:14.670 --> 03:15.950
+Permiteți-mi să vă arăt cum să faceți asta.
+
+03:17.060 --> 03:25.390
+Cu tabelul utilizatorilor vreau să am această parte. Am de gând să-l indent un pic.
+
+03:25.450 --> 03:34.810
+Și înainte de a face utilizatorii, vreau să creez o tranzacție. Voi spune tranzacția DB și acum
+
+03:34.810 --> 03:42.940
+avem o tranzacție în KNEX și dacă mergem la KNEX ei au tranzacții și poți citi
+
+03:42.940 --> 03:46.230
+despre ei aici și SQL are tranzacție, de asemenea.
+
+03:49.450 --> 03:59.680
+Dacă ne întoarcem această tranzacție primește un parametru trx pe care îl putem folosi în loc de setul DB
+
+03:59.680 --> 04:09.460
+sigur că orice facem este o tranzacție. Prima tranzacție pe care dorim să o facem este să vrem să inserăm
+
+04:11.460 --> 04:24.960
+în utilizatori sau în login-ul hash-ului în e-mail, așa că putem spune e-mail hash sau hadh hash pe care noi
+
+04:24.960 --> 04:30.870
+doar primite de la bcrypt și apoi e-mail pe care tocmai l-am primit de la punctul punct de cerere.
+
+04:34.470 --> 04:37.530
+În loc de a face doar această sintaxă pe care o putem face și noi.
+
+04:37.800 --> 04:39.420
+Putem face
+
+04:42.950 --> 04:53.590
+conectați și apoi întoarceți în cele din urmă adresa de e-mail a utilizatorului.
+
+04:53.720 --> 05:01.650
+Acum, când am returnat acest lucru, putem spune punctul, apoi e-mailul, deoarece returnează e-mailul.
+
+05:03.590 --> 05:11.170
+Și doar pentru al păstra separat de solicitare sau de organism, vom spune că acesta este e-mailul de conectare și acest lucru
+
+05:11.170 --> 05:17.020
+mailul lung va fi folosit acum aici. Deci, putem copia și lipi acest lucru
+
+05:21.690 --> 05:22.620
+aici.
+
+05:24.510 --> 05:33.400
+Asigurați-vă că distanța este corectă. Și putem utiliza e-mailul de conectare după ce am actualizat jurnalul și
+
+05:33.400 --> 05:40.450
+tabel pentru a actualiza e-mailul de conectare, astfel încât să nu schimbăm cu adevărat nimic.
+
+05:40.450 --> 05:49.210
+Singurul lucru pe care l-am făcut a fost acest bloc pe care l-am mutat într-un punct, atunci ca să actualizăm mai întâi datele de conectare
+
+05:49.210 --> 05:58.430
+tabelul primim e-mailul de conectare și pentru a ne asigura că acestea fac parte din tranzacție
+
+05:58.830 --> 06:02.910
+în loc de a face DB aici, avem obiectul TRX.
+
+06:02.970 --> 06:08.820
+Așa că vom face TRX și să salvăm și să vedem ce se întâmplă.
+
+06:11.610 --> 06:16.860
+Și apoi mă întorc la exemplul nostru, NodeMon.
+
+06:16.860 --> 06:18.400
+Avem un registru cu John.
+
+06:18.480 --> 06:21.430
+Dacă fac clic pe trimiteți.
+
+06:21.550 --> 06:31.690
+Bine, îmi dau ID-ul. 11 John, primesc e-mail dacă intru în logon.
+
+06:31.960 --> 06:33.940
+Nu am aici autentificare.
+
+06:34.060 --> 06:37.030
+Dacă intru în utilizatori nu am nici John.
+
+06:37.060 --> 06:38.630
+Deci, ceva trebuie să fi greșit.
+
+06:39.880 --> 06:47.950
+Ultimul lucru pe care dorim să-l facem este la sfârșit, și puteți citi despre asta în secțiunea KNEX, putem face-
+
+06:48.240 --> 06:49.940
+punct atunci
+
+06:50.150 --> 06:57.520
+TRX se angajează, pentru că nu am reușit să le trimitem pentru că nu am spus că dacă toate acestea vor trece
+
+06:57.640 --> 07:00.310
+angajați trimiteți această tranzacție prin.
+
+07:00.820 --> 07:04.300
+Și dacă o să-l prind, o să fac
+
+07:04.300 --> 07:08.670
+TRX înapoi
+
+07:08.700 --> 07:11.800
+Deci, hai să facem asta.
+
+07:11.830 --> 07:19.770
+Am de gând să dau clic pe trimite, am un răspuns. Dacă mă duc la utilizatori.
+
+07:19.770 --> 07:28.000
+Am John și dacă mă duc să mă autentific, îl am pe John cu hash-ul.
+
+07:28.000 --> 07:35.010
+Singurul lucru greșit aici este că am această sintaxă pentru e-mail, ceea ce nu este ceea ce ne dorim.
+
+07:35.030 --> 07:38.590
+Aceasta este o rezolvare simplă, deoarece ne dăm e-mailul de conectare aici.
+
+07:38.590 --> 07:42.620
+Ține minte că întoarcem o matrice.
+
+07:42.670 --> 07:49.790
+Dacă mergem așa, să-l trimitem pe Ioan 1
+
+07:53.460 --> 07:55.170
+accesați exemplul de conectare.
+
+07:55.290 --> 07:56.270
+Arata bine.
+
+07:56.490 --> 08:01.670
+Și conectați utilizatorii noștri avem John1 la gmail dot com.
+
+08:01.770 --> 08:02.300
+Uimitor.
+
+08:04.020 --> 08:09.220
+Deci, această tranzacție este probabil cea mai dificilă parte pentru a vă obișnui.
+
+08:09.420 --> 08:11.300
+Și puteți vedea aici că este un pic.
+
+08:11.310 --> 08:14.800
+Dar odată ce obțineți sintaxa devine foarte ușoară.
+
+08:14.970 --> 08:22.440
+Creați o tranzacție atunci când trebuie să faceți mai mult de două lucruri simultan și utilizați acest obiect TRX
+
+08:22.620 --> 08:26.370
+în loc de DB acum, pentru a face aceste operațiuni.
+
+08:26.370 --> 08:36.570
+În cazul meu, l-am inserat în login, a returnat e-mailul și apoi am folosit e-mail-ul de conectare pentru a reveni
+
+08:36.570 --> 08:46.810
+o altă tranzacție TRX pentru a fi inserată în utilizatori și a răspuns cu Json și apoi pentru aceasta
+
+08:46.840 --> 08:54.610
+pentru a fi adăugat Trebuie să ne asigurăm că ne angajăm și apoi în cazul în care ceva nu reușește să reluăm modificările.
+
+08:54.880 --> 09:03.220
+Dacă intru în același utilizator din nou, nu reușesc să mă înregistrez. Dacă trimit informații greșite, nu voi reuși
+
+09:03.220 --> 09:04.390
+a înregistra. Perfect.
+
+09:07.610 --> 09:15.280
+Acum, când avem acest lucru, putem ajunge în cele din urmă la semnarea noastră. noi conținem hash-ul acum
+
+09:15.280 --> 09:20.290
+tabelul nostru și tot ce trebuie să facem acum este bine să eliminăm acest lucru.
+
+09:20.710 --> 09:38.950
+Și în acest semn putem face un DB vom face un select, vom selecta e-mail și hash de la login.
+
+09:38.980 --> 09:43.040
+Dot, atunci vom primi e-mail-ul și hash-ul.
+
+09:43.040 --> 09:46.820
+Deci, să primim răspuns sau, în acest caz, să facem doar date
+
+09:51.520 --> 09:53.950
+și să consolezem doar jurnalul pentru a vedea ce primim
+
+09:57.440 --> 10:06.400
+Am de gând să salvez să mă înscriu și să văd dacă mai avem ceva. Acolo te duci. Să facem corpul de înscriere
+
+10:06.610 --> 10:13.350
+Ioan cookies I-am dat seama asta. Nu răspund cu nimic, așa că se blochează.
+
+10:13.500 --> 10:21.630
+Dar dacă mă întorc văd că primesc e-mail și hash și primesc totul pentru că nu am ales-o
+
+10:21.990 --> 10:23.400
+orice criterii specifice.
+
+10:23.520 --> 10:33.220
+Putem spune că acum vrem să facem clauza WHERE unde e-mail
+
+10:37.440 --> 10:41.930
+este egal cu cererea
+
+10:42.000 --> 10:50.110
+dot bod body email. Dacă este cazul, hai să salvăm și să încercăm din nou, trimiteți.
+
+10:50.280 --> 10:55.060
+Avem o eroare de sintaxă deoarece nu avem nevoie de un obiect aici.
+
+10:55.060 --> 10:56.200
+Acolo te duci.
+
+10:56.530 --> 10:57.410
+Să încercăm din nou asta.
+
+10:57.410 --> 10:59.030
+Faceți clic pe trimiteți.
+
+10:59.250 --> 11:01.600
+Acest lucru se va închide, așa că vom anula.
+
+11:01.770 --> 11:02.700
+Și tu te duci.
+
+11:02.700 --> 11:05.840
+Avem e-mail-ul și hash-ul lui John.
+
+11:06.270 --> 11:11.760
+Și acum trebuie să verificăm dacă John a pus parola potrivită.
+
+11:12.040 --> 11:21.220
+Deci, în datele de aici, putem să luăm matricea care este prima.
+
+11:21.480 --> 11:31.140
+Și acum folosiți bcrypt. Și amintiți-vă cu bcrypt că am comparat sincronizarea.
+
+11:31.340 --> 11:37.040
+Putem spune pur și simplu că bcrypt dot compare sincronizarea cu orice utilizator introdus.
+
+11:37.030 --> 11:48.910
+În acest caz, cereți o parolă de puncte corporale cu hash, în cazul nostru putem spune doar date zero punct
+
+11:49.060 --> 11:50.040
+hash.
+
+11:50.230 --> 11:55.200
+Dacă aceasta se întoarce adevărat bine, să avem doar un const este valabil.
+
+11:59.110 --> 12:01.520
+În acest caz - să facem acest lucru puțin mai mic pentru a putea vedea
+
+12:05.960 --> 12:07.990
+vom spune daca este valabil
+
+12:10.910 --> 12:12.710
+acest lucru se va întoarce la adevărat sau la fals.
+
+12:12.740 --> 12:17.130
+Vom face un răspuns Json cu informațiile despre utilizator.
+
+12:17.210 --> 12:24.830
+Deci va trebui să facem un punct de selectare DB punct
+
+12:27.370 --> 12:30.520
+utilizatorii punct unde
+
+12:33.390 --> 12:46.220
+e-mail este egal pentru a solicita punct bod body e-mail atunci vom primi utilizatorul.
+
+12:46.300 --> 12:49.090
+Și în cele din urmă aici putem
+
+12:54.020 --> 13:02.740
+mutați-l în elementul de răspuns Json primul element al matricei de utilizator.
+
+13:03.150 --> 13:06.810
+Și dacă există o problemă care să ne ajungă în jos, vom spune că prindem
+
+13:11.070 --> 13:11.760
+răspunsul la eroare punct
+
+13:11.790 --> 13:26.370
+Json vom face statutul din nou 400 Json în imposibilitatea de a obține utilizator, și, de asemenea, aici, pentru că încă mai facem
+
+13:26.370 --> 13:29.090
+căutarea bazei de date chiar aici.
+
+13:29.250 --> 13:35.190
+Și asta nu trebuie să fie o tranzacție, pentru că, tocmai verificăm, nu modificăm nimic
+
+13:35.190 --> 13:37.950
+elementele bazei de date de aici. Putem spune punct de captură
+
+13:41.760 --> 13:42.990
+dacă există o eroare.
+
+13:43.290 --> 13:55.910
+Putem răspunde doar la starea punctelor 400 De data aceasta putem spune acreditări greșite.
+
+13:56.120 --> 13:57.130
+Bine, hai să mergem.
+
+13:57.140 --> 14:01.110
+Nu voi salva nici o eroare aici.
+
+14:01.110 --> 14:04.800
+Întoarceți-vă bine la poștaș și faceți clic pe.
+
+14:04.820 --> 14:08.360
+Ioan cookies trimite.
+
+14:08.550 --> 14:09.600
+Am 200.
+
+14:09.620 --> 14:15.320
+OK, dar nu am primit un utilizator, așa că hai să consolezem jurnalul aici.
+
+14:20.410 --> 14:22.780
+Și aceasta este o eroare simplă.
+
+14:22.930 --> 14:31.680
+Întotdeauna vrem să ne asigurăm că ne întoarcem astfel încât această bază de date să știe despre asta.
+
+14:31.680 --> 14:33.150
+Vrem întotdeauna să ne asigurăm că ne întoarcem.
+
+14:33.150 --> 14:34.800
+Să încercăm din nou asta.
+
+14:34.800 --> 14:40.780
+Voi trimite cu informațiile corecte cookie-urile de parolă.
+
+14:40.780 --> 14:42.850
+În regulă, am 200.
+
+14:43.000 --> 14:45.310
+Dar să facem un jurnal de console aici.
+
+14:46.710 --> 14:51.120
+Este valabil. Vom salva și vom vedea ce ajungem aici.
+
+14:51.120 --> 14:55.190
+Vom trimite OK.
+
+14:55.350 --> 14:59.820
+Este validă funcționează și apoi utilizatorii sunt zero.
+
+14:59.820 --> 15:03.750
+Deci, nu utilizăm corect utilizatorii.
+
+15:03.750 --> 15:04.420
+Să vedem de ce.
+
+15:07.060 --> 15:09.580
+Și asta pentru că e-mailul nostru pentru John.
+
+15:09.580 --> 15:14.410
+Amintiți-vă că am făcut o greșeală că nu o vom întoarce în mod corespunzător.
+
+15:14.410 --> 15:19.420
+Deci, să înregistrăm un nou utilizator și să ne asigurăm că are parola potrivită.
+
+15:19.900 --> 15:33.460
+Ne vom întoarce să ne înregistrăm când ne vom înregistra cu parola lui Eddy că va fi bine și numele lui va fi Andy
+
+15:33.490 --> 15:37.770
+Vom da clic pe trimiteți. Perfect.
+
+15:37.960 --> 15:40.810
+Și acum dacă ne vom conecta cu Eddy
+
+15:44.540 --> 15:47.870
+nu este necesar să trimiteți numele doar parola.
+
+15:48.390 --> 15:51.840
+Dacă faceți clic pe trimiteți.
+
+15:51.940 --> 15:54.770
+Bine, avem 200.
+
+15:54.820 --> 15:56.150
+Se pare că funcționează.
+
+15:57.510 --> 16:02.320
+Dar dacă Eddy intră într-o parolă greșită.
+
+16:02.390 --> 16:02.610
+In regula.
+
+16:02.630 --> 16:03.740
+Acest lucru este în continuare agățat.
+
+16:03.770 --> 16:08.420
+Pentru că nu am spus niciodată dacă este fals ceea ce ar trebui să se întâmple.
+
+16:09.550 --> 16:23.230
+În cazul nostru dorim să spunem răspunsul la statusul punctelor 400 punct Json și să ne asigurăm
+
+16:23.230 --> 16:26.330
+că fac altă declarație aici.
+
+16:27.420 --> 16:30.160
+Și pune-l aici.
+
+16:32.430 --> 16:33.000
+Să salvăm
+
+16:36.170 --> 16:40.080
+Faceți clic pe trimiteți. Coduri de acreditare greșite.
+
+16:40.180 --> 16:41.350
+Dar dacă fac clic pe salut
+
+16:45.190 --> 16:47.020
+Îl primesc pe Eddy.
+
+16:47.140 --> 16:48.240
+Asta e minunat.
+
+16:48.370 --> 16:52.060
+Avem întregul flux de semnal de lucru.
+
+16:52.210 --> 16:54.080
+Putem elimina aici jurnalele de consolă
+
+16:56.960 --> 17:04.380
+iar acum ca avem tot ce functioneaza utilizatorii nostri noul nostru utilizator Eddy si el este, de asemenea, parte din login
+
+17:04.380 --> 17:13.700
+cu hash cu stocarea totul în siguranță, deoarece în baza noastră de date nu vom păstra niciodată parola lui Eddy.
+
+17:13.740 --> 17:19.110
+Și în sfârșit avem jurnalele de lucru. În următorul videoclip, vom încerca în final să verificăm toate acestea
+
+17:19.110 --> 17:26.310
+Front-End și sperăm că totul funcționează bine și arată că nu mai avem nevoie de această bază de date.
+
+17:26.460 --> 17:27.630
+Bună treabă toată lumea.
+
+17:27.660 --> 17:29.150
+Ne vedem la următoarea.
+
+17:29.150 --> 17:29.630
+Pa! Pa.

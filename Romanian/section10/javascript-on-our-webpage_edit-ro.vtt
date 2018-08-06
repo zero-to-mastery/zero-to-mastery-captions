@@ -1,0 +1,341 @@
+WEBVTT
+
+00:00.840 --> 00:03.000
+Și bine ai venit înapoi!
+
+00:03.000 --> 00:10.830
+Vom face o scurtă pauză de la învățarea sintaxei JavaScript pentru a vă arăta cum se implementează JavaScript
+
+00:11.190 --> 00:12.170
+în browser.
+
+00:12.450 --> 00:15.730
+Vom reveni la această imagine pe care am văzut-o de mai multe ori
+
+00:15.780 --> 00:22.650
+în acest curs. Și avem o idee destul de bună despre ceea ce face HTML și CSS.
+
+00:22.650 --> 00:31.740
+Dacă vă aduceți aminte, HTML-ul va fi trimis la browser, apoi va fi afișat tag-ul "link" și CSS va fi trimis
+
+00:31.740 --> 00:32.570
+browser-ul.
+
+00:32.670 --> 00:36.270
+Dar cum rămâne cu noul nostru prieten JavaScript aici?
+
+00:36.300 --> 00:37.380
+Ce se întâmplă cu el?
+
+00:38.260 --> 00:43.350
+Ei bine, în acest videoclip vom afla exact acest lucru.
+
+00:43.390 --> 00:49.340
+Așa că am aici un fișier index.html. O voi deschide cu Google Chrome.
+
+00:49.450 --> 00:50.940
+E complet gol acum.
+
+00:51.250 --> 00:57.630
+Și eu o să o trag în textul meu Sublim, ca să putem adăuga ceva la el.
+
+01:00.370 --> 01:06.790
+Așa că am text sublim și browser și vom folosi comanda noastră scurtă pentru a crea o comandă rapidă
+
+01:06.790 --> 01:09.660
+fișier html - "Javascript".
+
+01:09.970 --> 01:21.600
+Și să avem doar un "antet" simplu care spune "Javascript în HTML". Salvați și actualizați.
+
+01:21.650 --> 01:22.260
+Perfect!
+
+01:22.280 --> 01:23.910
+Avem deja masterat.
+
+01:23.930 --> 01:25.760
+Știm cu toții ce se întâmplă.
+
+01:26.180 --> 01:29.830
+Deci, cum adăugăm JavaScript la asta?
+
+01:29.840 --> 01:41.620
+Vreau să spun:cu CSS aveam tag-ul "link", nu? Și am avut acest "href" unde îi spunem unde este. Ei bine dacă
+
+01:41.620 --> 01:49.910
+vă aduceți aminte, JavaScript din nou la fel ca HTML și CSS este doar un fișier.
+
+01:50.050 --> 01:54.550
+Deci, să creăm o premieră. În textul sublim
+
+01:54.550 --> 01:55.950
+Voi crea un nou dosar.
+
+01:56.100 --> 02:00.170
+O să salvez și o să spun "script.js".
+
+02:00.220 --> 02:01.160
+'script.js'.
+
+02:01.180 --> 02:02.860
+Vedeți "punctul js" la sfârșit?
+
+02:02.860 --> 02:04.550
+Asta înseamnă JavaScript.
+
+02:04.660 --> 02:10.050
+Observați ce se întâmplă când fac clic pe "salvați". În partea inferioară a textului sublim
+
+02:10.090 --> 02:13.780
+acum sintaxa convertită la JavaScript.
+
+02:13.850 --> 02:21.440
+Deci, acum pot scrie ceva de genul "4 + 3" și am culorile cool JavaScript ca, și pot scrie
+
+02:21.890 --> 02:35.850
+"dacă (4 + 3 === 7)", pot "alerta (" Ești inteligent! ").
+
+02:36.500 --> 02:38.800
+Deci puteți vedea că face sintaxa pentru mine.
+
+02:39.870 --> 02:40.450
+O.K.
+
+02:40.830 --> 02:42.220
+Perfect.
+
+02:42.330 --> 02:44.650
+Apoi salvez asta.
+
+02:44.760 --> 02:47.840
+Să vedem dacă putem adăuga asta la ... oops.
+
+02:47.880 --> 02:49.390
+Am uitat cu punct și virgulă aici.
+
+02:49.410 --> 02:51.080
+Am uitat mereu și eu.
+
+02:51.210 --> 02:53.210
+Să adăugăm acest lucru la codul nostru HTML.
+
+02:53.430 --> 02:58.720
+Dacă funcționează, vom primi o "alertă" spunând "Ești un om deștept!"
+
+02:58.920 --> 03:00.190
+Deci, cum putem face asta?
+
+03:01.240 --> 03:06.780
+Ei bine, există o etichetă HTML numită etichetă "script".
+
+03:07.150 --> 03:15.510
+Deci, tag-ul "link" - pentru stilul de stil, tag-ul "script" pentru - JavaScript. Și tot ce facem este acesta:03:15.680 --> 03:25.250
+Avem textul "type =" / javascript "'. Vedeți aici cum putem vedea cu CSS "text / css". Îi spunem
+
+03:25.250 --> 03:36.380
+aici că acesta este JavaScript. Și aici JavaScript poate fi scris chiar aici.
+
+03:37.280 --> 03:45.150
+Mă duc "alertă" ("salut") și ați putea să vă amintiți acest lucru deoarece este un fel de etichetă "stil" pentru CSS.
+
+03:45.310 --> 03:46.400
+Să vedem ce se întâmplă.
+
+03:47.380 --> 03:49.930
+Mă voi reîmprospăta și voi ajunge
+
+03:50.060 --> 03:50.790
+'buna'.
+
+03:51.140 --> 03:51.950
+Uită-te la asta!
+
+03:51.950 --> 04:01.520
+Tocmai am adăugat JavaScript în HTML. Dar chiar vreau să folosesc acest fișier. După cum știm cu CSS, noi
+
+04:01.520 --> 04:06.890
+nu neapărat doriți ca JavaScript să trăiască în HTML, vrem separarea preocupărilor, dorim
+
+04:06.890 --> 04:08.620
+JavaScript în fișierul JavaScript.
+
+04:09.180 --> 04:14.480
+Ei bine, modul în care facem asta este - printr-un fișier sursă.
+
+04:15.040 --> 04:20.830
+Deci tot ce facem este "src". S-ar putea să vă amintiți acest lucru din imagini.
+
+04:20.860 --> 04:27.690
+Deci, în loc de "href" și "link" avem "src" și spunem "script.js".
+
+04:28.660 --> 04:34.300
+Salvez și mă reîmprospătesc. Și eu înțeleg "Ești inteligent!".
+
+04:34.310 --> 04:41.980
+Acum, din nou, putem spune "script.js", pentru că, bine, este în același folder - este în dosarul desktop.
+
+04:42.050 --> 04:49.130
+Dacă nu, atunci să spunem că acest HTML nu era în dosarul desktop, ar trebui să facem ceva
+
+04:49.160 --> 04:51.350
+cum ar fi "desktop / script.js ...". O.K.
+
+04:59.150 --> 05:05.310
+Deci este foarte interesant. Dacă am mai multe fișiere JavaScript, s-ar putea să fi văzut asta
+
+05:05.330 --> 05:09.440
+în ... amintiți Bootstrap și Bootstrap avem trei etichete "script".
+
+05:09.810 --> 05:10.600
+Ei bine, da.
+
+05:10.700 --> 05:18.020
+Puteți, pur și simplu - la fel cum puteți și cu "link", aveți mai multe etichete "script" și puteți spune "script2",
+
+05:18.050 --> 05:24.490
+"script3" și din nou, fiecare se execută unul câte unul.
+
+05:25.660 --> 05:26.320
+O.K.
+
+05:26.730 --> 05:36.540
+Acum, o întrebare pe care ar trebui să o aveți este:"De ce am pus tag-ul" script "în partea de jos aici, în partea de jos
+
+05:36.540 --> 05:38.200
+a corpului?'
+
+05:38.260 --> 05:39.190
+De ce nu am ...
+
+05:39.220 --> 05:41.200
+și lasă-mă să elimin acum asta ...
+
+05:41.200 --> 05:47.550
+De ce nu am pus-o la vârf, ca și noi cu fișierul CSS?
+
+05:47.680 --> 05:49.140
+Ei bine, să vă arăt ceva.
+
+05:49.240 --> 05:50.560
+Să o punem aici.
+
+05:50.560 --> 05:51.690
+Să vedem ce se întâmplă.
+
+05:52.000 --> 05:59.350
+Mă voi reîmprospăta. O.K. Eu sunt "Ești inteligent!"
+
+05:59.390 --> 06:00.350
+Nu știu dacă ați văzut asta.
+
+06:00.350 --> 06:02.030
+Ați văzut că JavaScript merge?
+
+06:02.180 --> 06:03.300
+Să schimbăm asta rapid.
+
+06:03.320 --> 06:10.750
+Să presupunem că site-ul nostru este acum proaspăt și nou și voi spune "Aștept pentru Javascript".
+
+06:11.010 --> 06:15.080
+O să salvez. Observați ce se întâmplă cu antetul.
+
+06:15.380 --> 06:18.970
+Reîmprospătez. Nu sa schimbat încă.
+
+06:19.190 --> 06:22.500
+Trebuie să faceți clic pe "Ești inteligent!"
+
+06:22.550 --> 06:24.600
+Vedeți, a dispărut complet.
+
+06:24.610 --> 06:34.640
+Faceți clic pe "OK" și numai atunci se afișează, deoarece browserul citește fișierul, merge și primește fișierul CSS și
+
+06:34.640 --> 06:39.070
+apoi vede eticheta "script" și spune:"O, am să merg să citesc ce este aici!"
+
+06:39.140 --> 06:42.770
+Și aici este o "alertă" și ce înseamnă o "alertă" ...
+
+06:42.830 --> 06:50.090
+Se așteaptă să faceți clic pe "OK", astfel că browserul nu poate afișa (în timp ce) așteptarea JavaScript.
+
+06:50.090 --> 06:56.750
+Deci, veți vedea un site web mai vechi, care pune tag-urile "script" aici, dar asta întârzie ceea ce
+
+06:56.750 --> 06:58.470
+este văzut de utilizator.
+
+06:58.820 --> 07:11.270
+În schimb, dacă o punem aici și vom schimba din nou textul la "Nu așteptați" și o salvare. Vezi ce se intampla.
+
+07:13.260 --> 07:20.440
+"Nu aștepta Javascript" - care sa schimbat. Deci, în mod ideal, dorim să punem etichetele "scriptului" noastre în partea de jos
+
+07:20.440 --> 07:21.200
+a corpului.
+
+07:21.400 --> 07:31.270
+Ceea ce înseamnă că site-ul este afișat, devine redat și apoi trebuie să așteptăm încă
+
+07:31.270 --> 07:34.000
+JavaScript pentru încărcare - să presupunem că am avut o animație rece.
+
+07:34.000 --> 07:36.070
+Va trebui să aștept până se încarcă.
+
+07:36.220 --> 07:43.090
+Dar pentru un utilizator se pare că site-ul se încarcă mult mai repede, deoarece nu pot face clic pe o meniuri
+
+07:43.090 --> 07:48.790
+meniul sau vedeți imediat animația și observați că există un decalaj, dar vor observa o întârziere în cazul în care aceștia
+
+07:48.790 --> 07:50.310
+nu văd nimic pe pagină.
+
+07:50.350 --> 07:54.030
+Deci, etichetele "script" din partea de jos.
+
+07:54.110 --> 07:55.220
+Inca un lucru.
+
+07:56.370 --> 08:00.600
+Cum obținem acea consola pentru a tipări lucrurile?
+
+08:01.440 --> 08:05.760
+Ar fi frumos dacă, în loc de alertă tot timpul, pot să obțin ceva în consola.
+
+08:05.910 --> 08:14.060
+Ei bine, în JavaScript puteți face ceva, numit "console.log".
+
+08:14.140 --> 08:18.710
+Și aici pot spune "Helooooo".
+
+08:18.820 --> 08:20.640
+Deci, această sintaxă puțin ciudat.
+
+08:20.650 --> 08:29.580
+Voi explica mai târziu ce se întâmplă aici, dar "console.log" este o sintaxă specială mică pe care o putem folosi.
+
+08:29.590 --> 08:39.420
+Și dacă actualizăm pagina, mă înregistrez aici. Deci pot să scriu cât vreau aici.
+
+08:39.430 --> 08:46.130
+Un fel de "alertă", dar fără ca acel enervant să apară mereu și să se reîmprospăteze.
+
+08:46.310 --> 08:47.430
+Și eu primesc "Hellooooo".
+
+08:47.480 --> 08:51.800
+Și vom folosi foarte mult "console.log" în următoarele două videoclipuri.
+
+08:51.820 --> 08:59.170
+Puteți vedea aici că este o modalitate frumoasă de a imprima ceva la consola, înainte să învățăm cum să
+
+08:59.530 --> 09:01.210
+modificați codul HTML.
+
+09:02.420 --> 09:03.380
+Voi vedea în următorul. Pa! Pa

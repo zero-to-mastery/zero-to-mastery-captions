@@ -1,0 +1,598 @@
+WEBVTT
+
+00:01.240 --> 00:06.030
+Bine, să începem să construim câteva rute reale pentru aplicația noastră.
+
+00:06.100 --> 00:11.470
+Avem un plan bun și putem începe să le implementăm pe baza a ceea ce știm.
+
+00:13.040 --> 00:18.830
+Și din nou modul în care vom încerca aceste lucruri este folosind Postman, dar nu trebuie să ne îngrijorăm de front-end
+
+00:18.830 --> 00:27.060
+acum; vrem să construim serverul nostru pentru a funcționa corect și numai la sfârșit, odată ce totul funcționează,
+
+00:27.110 --> 00:34.230
+îl putem conecta la front-end și putem lăsa echipa front-end să știe:"Hei, acestea sunt obiectivele
+
+00:34.680 --> 00:36.510
+pe care ne așteptăm. "
+
+00:36.960 --> 00:41.610
+Și cu asta vom răspunde.
+
+00:41.680 --> 00:42.020
+In regula.
+
+00:42.040 --> 00:43.830
+Cred că este timpul să începem.
+
+00:45.980 --> 00:50.680
+Primul lucru pe care vrem să-l abordăm este "semnarea".
+
+00:50.770 --> 00:51.840
+Să ne gândim la asta.
+
+00:51.850 --> 01:02.280
+Am de gând să fac 'app.post ()' pentru conectare. Și când vom face calea de semnare, vom avea o cerere
+
+01:02.430 --> 01:03.230
+raspuns.
+
+01:06.470 --> 01:11.600
+Și aici, doar pentru a testa că totul funcționează vom face "res.send ('signing') '
+
+01:14.990 --> 01:24.690
+Să salvăm du-te la Postman, face localhost clic pe Trimitere.
+
+01:24.740 --> 01:29.690
+Îmi place întotdeauna să fac pași incrementali pentru a vă asigura că totul funcționează și pentru a obține acele mici
+
+01:29.690 --> 01:32.440
+câștigă de fiecare dată când lucrăm.
+
+01:32.480 --> 01:37.230
+Așa că o spun "lucrează".
+
+01:37.610 --> 01:46.160
+Ei bine, asta pentru că am făcut o solicitare GET la rădăcină în loc de a face 'signin' și apoi un POST.
+
+01:49.840 --> 01:58.380
+Și noi avem "Nu pot posta / sigina" pentru că aparent nu pot spune acolo mergeți - un pic de misspelling
+
+01:58.400 --> 01:59.470
+din partea mea.
+
+01:59.510 --> 02:00.440
+Acolo mergeți "semnând"
+
+02:03.380 --> 02:04.110
+perfect.
+
+02:04.160 --> 02:07.160
+Acum vreau să vă arăt ceva pe care îl vom folosi înainte.
+
+02:07.160 --> 02:14.910
+Până acum am făcut "trimite", care poate trimite și JSON, dar Express vine cu o metodă construită în JSON
+
+02:15.140 --> 02:21.040
+pe răspunsul pe care îl putem folosi și are un pic de caracteristici adăugate atunci când răspunde cu JSON
+
+02:21.040 --> 02:23.490
+și vrem să ne concentrăm pe folosirea acestui lucru.
+
+02:23.490 --> 02:30.480
+Deci, de acum înainte o să folosesc acest lucru și există o mică diferență în ceea ce primim.
+
+02:30.760 --> 02:33.080
+Primim un șir JSON în acest fel.
+
+02:35.230 --> 02:35.530
+In regula.
+
+02:35.570 --> 02:41.350
+Asa ca sa ne gandim la "signin" - nu vom incepe neaparat sa spunem "signin" si asta e.
+
+02:42.150 --> 02:47.820
+Vrem să verificăm ce utilizatori intră pe front-end - se va întoarce aici în răspuns
+
+02:47.850 --> 02:54.750
+sau în solicitare și dorim să o verificăm cu lista noastră actuală de utilizatori pentru a vă asigura că parolele acestora
+
+02:54.750 --> 02:56.300
+Meci.
+
+02:56.300 --> 03:02.300
+Așa că sună că avem nevoie de un fel de bază de date, dar pentru moment, pentru că nu am învățat despre ele
+
+03:02.300 --> 03:07.720
+totuși vom crea o variabilă și această variabilă va fi numită "bază de date"
+
+03:11.380 --> 03:21.930
+și va avea utilizatori și această proprietate a "utilizatorilor" va fi o serie de obiecte
+
+03:25.280 --> 03:28.510
+și această gamă de obiecte va avea id:'123'
+
+03:28.700 --> 03:32.690
+va avea nume:"john"
+
+03:33.230 --> 03:36.360
+va avea e-mail
+
+03:36.800 --> 03:39.040
+ca "john@gmail.com"
+
+03:39.190 --> 03:40.220
+-
+
+03:41.150 --> 03:45.780
+Vom avea de asemenea parola - vom spune "cookies"
+
+03:48.760 --> 03:57.670
+Vom avea "intrări", ceea ce vom folosi pentru a urmări scorurile, astfel încât înregistrările să însemne de câte ori
+
+03:58.090 --> 04:03.730
+John a trimis fotografii pentru detectarea feței și, în final, probabil că, de asemenea, dorim să urmărim
+
+04:03.970 --> 04:06.590
+când John sa alăturat aplicației noastre.
+
+04:06.640 --> 04:11.860
+Putem face acest lucru prin a face "noua Data ()", care vine cu JavaScript -
+
+04:11.860 --> 04:17.460
+acesta va crea doar o dată când această parte este executată.
+
+04:18.840 --> 04:21.300
+Și veți vedea mai târziu cum va fi afișat acest lucru.
+
+04:23.550 --> 04:23.800
+In regula.
+
+04:23.820 --> 04:28.110
+Și să creăm un alt utilizator deoarece suntem într-o matrice.
+
+04:29.660 --> 04:38.510
+Și acest utilizator va fi numit - bine vom avea un "id" de "124" - va fi "Sally", "sally@gmail.com"
+
+04:38.510 --> 04:42.670
+iar parola ei va fi "banane".
+
+04:45.950 --> 04:46.970
+Perfect.
+
+04:47.000 --> 04:51.620
+Dacă ne uităm la asta pentru "a semna", vom primi o cerere.
+
+04:51.680 --> 04:55.940
+Și în această solicitare vom avea - amintiți-vă cu "signin" vrem să ne asigurăm că vom folosi
+
+04:56.440 --> 04:57.070
+POST.
+
+04:57.140 --> 05:03.300
+Deci, vom avea acces la 'req.body ()' și sună ca o declarație condiționată, nu-i așa?
+
+05:03.300 --> 05:03.780
+-
+
+05:03.780 --> 05:10.970
+Dacă facem o declarație "if" și spunem "req.body ()" - bine ce vom avea pe corp - înainte de a face
+
+05:10.970 --> 05:17.940
+să ne întoarcem la Postman și să ne gândim unde vom trimite atunci când vom "intra"
+
+05:17.940 --> 05:21.610
+pentru a face o cerere POST în organism.
+
+05:21.990 --> 05:27.830
+Rețineți că vom trimite JSON pentru că nu folosim un formular HTML.
+
+05:28.040 --> 05:36.930
+Vom lovi "brut" și apoi JSON (aplicație / json) și acum că avem JSON aici avem acest
+
+05:36.930 --> 05:41.380
+unde putem introduce ceea ce dorim să trimitem cu corpul nostru.
+
+05:41.900 --> 05:49.130
+Din nou, vom face validarea pentru noi și vom spune că - așa cum a avut-o formularul de înscriere pe front-end - avem
+
+05:51.540 --> 05:58.590
+"e-mail", care va fi - să spunem că vom avea "john@gmail.com".
+
+05:58.630 --> 06:04.540
+Deci, vă puteți imagina că John intră pe site-ul nostru și utilizează ruta "signin", formularul Sign In
+
+06:05.800 --> 06:07.210
+și parola lui
+
+06:10.420 --> 06:14.050
+vor fi "cookie-uri".
+
+06:14.190 --> 06:19.680
+Vom trimite aceste informații de la front-end și ne prefacem că John se înregistrează
+
+06:19.680 --> 06:22.730
+în așa fel încât să avem acces la el aici.
+
+06:25.560 --> 06:29.640
+Deci, să adăugăm acea declarație 'if' dacă (req.body.email === [
+
+06:33.370 --> 06:33.770
+-
+
+06:37.100 --> 06:40.070
+indiferent de ce avem în baza de date])
+
+06:40.370 --> 06:48.080
+Deci, să spunem "database.users" și vom apuca doar lui John [0], deși ar trebui să ne batem prin asta,
+
+06:48.090 --> 06:54.920
+pentru că acum doar vrem să ne asigurăm că funcționează, vom apuca "John" și vom verifica intrarea prin e-mail
+
+06:55.040 --> 06:56.390
+în baza de date.
+
+06:57.340 --> 07:06.040
+Și "req.body.password === [orice avem în baza de date]"
+
+07:10.680 --> 07:20.000
+Dacă funcționează și este adevărat atunci vom răspunde cu un JSON care spune "succes"
+
+07:22.920 --> 07:32.860
+altfel putem spune că vom răspunde cu un "res.status (400)" și vom spune
+
+07:35.770 --> 07:41.470
+"eroare de conectare".
+
+07:41.470 --> 07:52.600
+Bine, să dăm asta în urmă - o să salvez, să mă întorc aici - '/ signin' - să faceți clic pe trimiteți și am un pic, un pic
+
+07:52.600 --> 07:58.670
+de eroare - "... citiți e-mailul de proprietate al undefined".
+
+07:58.730 --> 07:59.750
+Acest lucru este puțin complicat.
+
+07:59.750 --> 08:03.520
+De ce nu citește proprietatea de e-mail?
+
+08:03.740 --> 08:10.070
+Și vreau să vă arăt această eroare deoarece se întâmplă foarte mult și este ceva ce oamenii uită totul
+
+08:10.070 --> 08:10.760
+timpul.
+
+08:11.030 --> 08:19.160
+Amintiți-vă când trimitem date din front-end și folosim JSON, bine că trebuie să o analizăm deoarece
+
+08:19.160 --> 08:26.390
+Express nu știe ce am trimis; pentru a putea folosi "req.body ()" de care avem nevoie
+
+08:26.390 --> 08:29.590
+să folosim parserul de corp, nu-i așa?
+
+08:31.610 --> 08:32.560
+Deci, să facem asta.
+
+08:32.600 --> 08:43.660
+Voi importa analizor de caroserie și "o să-i cer".
+
+08:43.810 --> 08:47.640
+Și dacă nu aveți acest lucru în proiectul dvs., va trebui să "instalați" el.
+
+08:47.770 --> 08:55.810
+Dar în toate aplicațiile Express veți vedea acest lucru, astfel că este unul dintre acele pachete pe care nu ar trebui să le faceți niciodată
+
+08:55.810 --> 09:01.060
+uitați și aproape orice aplicație Express vine cu ea. Pentru a utiliza acest lucru dacă vă aduceți aminte de cele precedente
+
+09:01.060 --> 09:01.780
+lecţie,
+
+09:01.900 --> 09:12.180
+noi doar facem 'app.use ()' pentru că este un middleware și vom face 'body-parser.json'.
+
+09:12.410 --> 09:17.970
+Și noi ar trebui să facem acest lucru după ce aplicația a fost - aplicația variabilă - a fost creată.
+
+09:19.750 --> 09:23.080
+Să spunem asta și să încercăm din nou.
+
+09:24.030 --> 09:33.990
+Voi face clic pe Trimiteți și obținem "succes" - uitați-vă la asta - dacă schimba acest lucru acum, spuneți doar "cookie" | - dați clic pe Trimiteți
+
+09:35.230 --> 09:45.180
+Am primit o "solicitare greșită de 400" cu "înregistrare eroare". Să facem asta puțin mai mare, ca să poți vedea. Cum
+
+09:45.270 --> 09:46.470
+minunat este că?
+
+09:46.530 --> 09:49.070
+Am obținut serviciul nostru de conectare.
+
+09:51.970 --> 09:52.460
+In regula.
+
+09:52.460 --> 09:54.430
+Asta e destul de frumos.
+
+09:54.430 --> 09:59.620
+Am putea face o "bucla" aici - "pentru fiecare"
+
+09:59.650 --> 10:06.370
+poate - pentru a verifica în cazul în care Sally înregistrează, dar asta este un pic de hassle nu-i așa?
+
+10:06.370 --> 10:13.360
+Imaginați-vă dacă avem sute de utilizatori și folosim buclă pentru în Conectare pentru a verifica împotriva tuturor
+
+10:13.360 --> 10:15.380
+utilizatorii și toate parolele.
+
+10:15.670 --> 10:22.200
+Și acesta este exact motivul pentru care unul dintre motivele pentru care folosim bazele de date este că bazele de date sunt într-adevăr într-adevăr
+
+10:22.200 --> 10:30.390
+bun la captură și verificare împotriva diferitelor intrări în comparație cu o variabilă sau o matrice aici, în cazul în care avem
+
+10:30.390 --> 10:31.860
+să treacă prin toate.
+
+10:32.370 --> 10:35.200
+Deci, deocamdată, pentru că asta funcționează, hai să o păstrăm așa cum este.
+
+10:37.860 --> 10:39.340
+Să facem următoarea.
+
+10:39.420 --> 10:44.850
+Înregistrați-vă dacă vă aduceți aminte, înscrierea va fi o cerere POST
+
+10:49.170 --> 10:52.230
+și din nou vom primi o solicitare, un răspuns [(req.res)].
+
+10:54.760 --> 10:59.840
+Această solicitare, răspunsul / înregistrarea înseamnă că utilizatorul - un nou utilizator - va fi creat.
+
+11:03.200 --> 11:08.120
+Nu vom face astfel de verificări, deoarece utilizatorul nu există.
+
+11:08.120 --> 11:17.900
+Vrem să luăm "req.body" și să introduceți noile informații în baza noastră de date.
+
+11:17.930 --> 11:25.820
+În acest caz, avem un obiect bază de date care are utilizatori și o matrice, astfel încât să putem face 'database.users.push ()'
+
+11:26.780 --> 11:28.170
+pentru a adăuga la această matrice.
+
+11:28.250 --> 11:28.680
+Hai să facem asta.
+
+11:31.730 --> 11:35.060
+Îmi place mereu să încep cu ce va arăta cererea.
+
+11:35.710 --> 11:39.960
+Deci, întorcându-ne aici, vedem că atunci când creăm un nou utilizator -
+
+11:40.150 --> 11:50.280
+- dacă vă amintiți formularul de înregistrare - primim nume, e-mail și parolă. Să mergem la Postman și să le creăm.
+
+11:50.560 --> 11:52.240
+Voi spune.
+
+11:52.240 --> 11:54.450
+POST "/ înregistrare"
+
+11:55.060 --> 12:07.730
+iar aici primim "email", "parola" și, de asemenea, "nume" și vom spune că numele este "Ann" parola ei este "mere"
+
+12:08.210 --> 12:17.710
+iar e-mailul va fi "ann@gmail.com" și o să trimitem prin JSON - și să vedem cum dă
+
+12:17.710 --> 12:18.300
+o eroare?
+
+12:18.310 --> 12:21.860
+Asta pentru că am o virgulă - din nou,
+
+12:22.020 --> 12:25.240
+Postmanul este doar minunat pentru asta.
+
+12:25.420 --> 12:32.540
+Dacă ne întoarcem, vrem să creăm un astfel de utilizator, deci să copiem
+
+12:32.580 --> 12:33.680
+asta, ce avem aici
+
+12:38.130 --> 12:48.600
+și să spunem că dorim să creăm un nou utilizator prin a spune "database.users.push ()" pentru a adăuga la utilizator
+
+12:48.600 --> 12:49.370
+matrice.
+
+12:49.920 --> 12:54.120
+Și aici vom adăuga un obiect pe care tocmai l-am copiat,
+
+12:57.220 --> 13:01.680
+dar nu vrem să adăugăm John din nou utilizatorilor noi?
+
+13:01.720 --> 13:06.180
+Nu, vrem să luăm ceea ce obținem de la "req.body".
+
+13:06.280 --> 13:22.620
+În cazul nostru, folosind distrugerea, putem spune "{email, name, password} = req.body" și acum
+
+13:22.620 --> 13:29.600
+baza de date pe care o putem adăuga încă static "id" -ul "125".
+
+13:29.870 --> 13:36.840
+"numele" va fi numele pe care îl primim, "e-mail" va fi din nou pe e-mail pe care îl primim
+
+13:36.840 --> 13:45.390
+și apoi "parola" va fi cea pe care o primim și "intrările" vor fi zero, deoarece
+
+13:45.640 --> 13:51.640
+bine, Ann va fi un utilizator nou și va începe cu zero intrări și "alăturat" va fi o nouă dată pentru că
+
+13:51.640 --> 14:00.910
+va genera - ori de câte ori este rulat - va genera timestamp-ul acelei zile și ore.
+
+14:01.020 --> 14:04.040
+Să salvăm asta și să vedem dacă funcționează.
+
+14:05.130 --> 14:09.630
+Mă întorc aici, dă clic pe Trimiteți.
+
+14:09.740 --> 14:11.990
+Primesc o "încărcare" și doar se rotește.
+
+14:12.050 --> 14:16.320
+Mă duc să dau clic pe Cancel Request și știi de ce e asta?
+
+14:16.710 --> 14:19.500
+Ei bine, pentru că nu am trimis un răspuns.
+
+14:19.500 --> 14:25.210
+Expresul acum este doar atârnat acolo pentru că nu am returnat nimic pe care nu l-am răspuns. Asa de
+
+14:25.230 --> 14:26.730
+amintiți-vă întotdeauna să faceți asta.
+
+14:28.000 --> 14:38.780
+În cazul nostru vom spune că "res.json ()" va fi utilizatorul, noul utilizator care a fost creat.
+
+14:38.880 --> 14:44.730
+Poate că dacă se înregistrează, vrem să luăm aceste informații și să le afișăm pe pagina de profil.
+
+14:44.730 --> 14:52.140
+În cazul nostru vom spune că vrem să luăm "database.users" și vrem să luăm ultimul utilizator care
+
+14:52.140 --> 14:54.660
+tocmai am creat. E simplu de făcut.
+
+14:54.660 --> 14:57.080
+Noi doar facem 'database.users.length'
+
+14:57.120 --> 15:04.670
+care este lungimea matricei minus unu, din nou, se apucă ultima matrice sau ultimul element din matrice.
+
+15:07.030 --> 15:08.020
+Să salvăm aici.
+
+15:09.490 --> 15:13.540
+Și du-te înapoi faceți clic pe Trimiteți.
+
+15:13.550 --> 15:15.070
+Uită-te bine la asta.
+
+15:15.170 --> 15:19.900
+Avem Ann cu intrări zero.
+
+15:20.030 --> 15:23.690
+Un nou timbru pentru momentul înregistrării.
+
+15:24.080 --> 15:26.040
+Și acum avem un nou utilizator.
+
+15:26.270 --> 15:31.090
+Să ne întoarcem la ruta rădăcină aici.
+
+15:31.370 --> 15:33.390
+Și să ne întoarcem acum
+
+15:33.620 --> 15:40.720
+"database.users" pentru a ne asigura că vedem ce utilizatori avem.
+
+15:43.580 --> 15:50.500
+Am de gând să salvez aici, să mă întorc și să fac o cerere GET pe ruta rădăcină.
+
+15:50.540 --> 15:51.440
+Dacă dau clic pe Trimiteți
+
+15:55.160 --> 15:58.230
+Am facut un pic de eroare aici, nu pot sa scriu.
+
+15:58.460 --> 16:00.140
+Să încercăm din nou asta.
+
+16:00.140 --> 16:03.970
+Dacă mă întorc, dă clic pe Trimiteți.
+
+16:03.990 --> 16:10.360
+În regulă, l-am primit pe John și Sally dar unde e Ann?
+
+16:10.900 --> 16:17.110
+Să ne întoarcem la cererea noastră și Postman vă oferă istoricul cererii dvs., astfel încât să nu aveți
+
+16:17.110 --> 16:25.320
+pentru a continua să le scrieți, puteți să vă întoarceți să vă înregistrați uitați-vă la corp și să o trimiteți din nou pe Ann.
+
+16:25.320 --> 16:25.630
+In regula.
+
+16:25.630 --> 16:32.140
+Ne-am înregistrat. Acum, dacă ne întoarcem la cererea GET și dă clic pe Trimiteți.
+
+16:32.140 --> 16:32.610
+In regula.
+
+16:32.650 --> 16:36.190
+Ann e acolo; avem trei noi utilizatori.
+
+16:36.190 --> 16:44.100
+Dar ce sa întâmplat? Ei bine, acesta este un alt caz bun pentru motivul pentru care avem nevoie de o bază de date.
+
+16:44.130 --> 16:51.480
+Motivul pentru care Ann nu a fost adăugat pentru prima oară în jurul valorii este pentru că am schimbat ruta rădăcină pentru a include
+
+16:51.560 --> 16:58.680
+"database.users", ceea ce însemna că Nodemon a trebuit să repornească; serverul a trebuit să repornească și să înceapă.
+
+16:59.160 --> 17:06.810
+Și pentru că acestea sunt variabile JavaScript de fiecare dată când reporniți serverul, aceasta se execută din nou.
+
+17:07.110 --> 17:11.320
+Deci, baza de date inițiază doar cu cei doi utilizatori.
+
+17:11.500 --> 17:18.610
+Din nou, nu folosim într-adevăr variabile pentru a stoca informațiile de care avem nevoie la ceea ce numim "persistă"
+
+17:18.640 --> 17:28.040
+- care trebuie să dureze și să fie memorat de sistem. Bazele de date sunt într-adevăr foarte bune pentru că se desfășoară
+
+17:28.040 --> 17:36.050
+disc undeva în lume și sunt într-adevăr foarte bun la păstrarea acestor informații și
+
+17:36.140 --> 17:43.910
+nu merge în jos sau dacă se duc în jos că au copii de rezervă, astfel încât utilizatorii întotdeauna ajunge la ea și noi nu
+
+17:43.910 --> 17:45.220
+pierde orice informație.
+
+17:46.990 --> 17:51.380
+Vom ajunge la bazele de date și vom implementa acest lucru cu o bază de date.
+
+17:51.490 --> 17:54.960
+Dar vreau să vă arăt acum punctele de durere de a nu avea baze de date.
+
+17:55.060 --> 18:04.220
+A trebuit să ne bifăm sau ar trebui să ne bifăm prin acești utilizatori dacă trebuia să verificăm "signin" sau trebuie să ne întoarcem mereu
+
+18:04.640 --> 18:10.230
+rețineți că ori de câte ori serverul repornește, pierdem toate datele noastre.
+
+18:10.250 --> 18:13.380
+Bine, lucrurile arată bine.
+
+18:15.160 --> 18:21.110
+Există cu siguranță câteva lucruri pe care le putem îmbunătăți aici, dar vrem doar să construim scheletul.
+
+18:21.470 --> 18:27.180
+Avem încă două puncte finale și vom aborda cele din următorul videoclip.
+
+18:27.200 --> 18:28.570
+O să văd pe asta.
+
+18:28.640 --> 18:28.820
+Pa! Pa

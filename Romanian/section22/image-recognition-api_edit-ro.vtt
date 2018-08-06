@@ -1,0 +1,910 @@
+WEBVTT
+
+00:01.480 --> 00:05.110
+Bine ai revenit. Avem site-ul nostru frumos înființat.
+
+00:05.110 --> 00:14.440
+Este timpul să creați o anumită funcționalitate, unde introducem o adresă URL, apăsați pe 'Detect' și apare o imagine cu
+
+00:14.920 --> 00:16.440
+o casetă de detectare a feței,
+
+00:16.540 --> 00:21.980
+dacă există o imagine în imagine. Cum o să facem asta?
+
+00:24.100 --> 00:28.900
+Ei bine, primul lucru pe care dorim să-l facem, vrem să ne asigurăm că există o anumită funcționalitate aici
+
+00:29.260 --> 00:36.730
+putem detecta ceea ce intră utilizatorul. Și este ceva ce am făcut înainte cu reacție, când am avut
+
+00:36.730 --> 00:37.710
+aplicația noastră pentru prieteni roboți.
+
+00:37.720 --> 00:41.440
+Am avut contribuția noastră care a fost filtrată prin roboți.
+
+00:41.520 --> 00:50.930
+Din nou, folosind o tehnică similară, folosind "ImageLinkForm", putem crea această funcție.
+
+00:50.950 --> 00:56.620
+Deci, primul lucru pe care ți-ai putea da seama este că, da! avem cu siguranță "stat", trebuie să creăm un "stat"
+
+00:56.650 --> 01:05.020
+astfel încât aplicația noastră să știe care este valoarea pe care utilizatorul o introduce, o memorează și o actualizează oricând
+
+01:05.020 --> 01:06.340
+se schimbă.
+
+01:06.340 --> 01:10.360
+Așa cum vă amintiți, pentru a face acest lucru, vom defini un "constructor"
+
+01:13.770 --> 01:19.800
+și în cadrul acestui "constructor", trebuie să numim "super" pentru a putea folosi acest lucru.
+
+01:19.850 --> 01:21.500
+Și aici, putem face "acest"
+
+01:21.500 --> 01:25.310
+"state" este egal și o vom numi,
+
+01:25.310 --> 01:28.890
+"intrare", asta va introduce utilizatorul.
+
+01:30.940 --> 01:43.630
+Și această intrare va avea un "onChange" sau "onInputChange", pe care îl vom folosi cu funcțiile săgeată,
+
+01:44.430 --> 01:49.230
+astfel încât să nu primim eroarea pe care am văzut-o anterior.
+
+01:49.230 --> 01:56.710
+Și după cum știți oricând există un fel de ascultător de evenimente pe o pagină web, primim un eveniment și
+
+01:56.710 --> 01:57.760
+Vrem să facem ceva aici.
+
+01:57.760 --> 02:07.130
+Deci, vom face un "consolă punct log", "eveniment" pentru a ne asigura că îl putem detecta și pe "inputChange" în
+
+02:07.130 --> 02:11.020
+"imageLinkForm" îl putem transmite ca o propunere.
+
+02:15.310 --> 02:17.860
+Și vom obține eroarea 'onInputChange' nu este definită.
+
+02:17.860 --> 02:25.930
+Amintiți-vă că pentru că este o parte din această clasă pentru a accesa aceasta, trebuie să salvați 'this dot onInputChange'
+
+02:25.960 --> 02:32.150
+deoarece "onInputChange" este o proprietate a aplicației.
+
+02:32.150 --> 02:34.510
+Să salvăm asta, chiar acum,
+
+02:34.520 --> 02:37.910
+bine nu face nimic pentru că trebuie să declanșăm asta.
+
+02:38.090 --> 02:42.440
+Ne întoarcem la "imageLinkForm", care este imaginea css 'imageLinkForm.js'.
+
+02:42.470 --> 02:47.990
+Putem distruge "onInputChange" pe care îl primim.
+
+02:48.020 --> 02:58.080
+Deci, în loc să facem 'recuzită' dot 'onInputChange' jos aici, îl distrugem din "recuzită" și noi
+
+02:58.080 --> 03:01.500
+pot spune despre "intrare" aici "despre schimbare",
+
+03:05.090 --> 03:13.220
+astfel încât "onChange" este un eveniment tehnic de reacție care imită ceea ce face html cu fiecare intrare
+
+03:13.220 --> 03:14.480
+schimbări.
+
+03:14.480 --> 03:22.750
+Și aici "schimbarea", ce va face, dacă facem doar "onInputChange" aici,
+
+03:22.800 --> 03:23.910
+Să vedem ce se întâmplă?
+
+03:26.860 --> 03:37.640
+Voi deschide consola, apasa sau apasa ceva, oop! mergeți la intrare și apăsați ceva.
+
+03:37.660 --> 03:37.940
+In regula.
+
+03:37.950 --> 03:42.790
+Și arată că am ceva, un eveniment proxy.
+
+03:42.810 --> 03:43.050
+In regula.
+
+03:43.050 --> 03:45.170
+Dacă mă întorc în mine
+
+03:45.190 --> 03:51.660
+app dot js? și dacă vă aduceți aminte că modul în care obținem valoarea de la intrare este valoarea "target" dot 'dot'.
+
+03:51.840 --> 03:59.710
+Dacă o salvez și o să mă întorc acolo, du-te, ne primim contribuția.
+
+03:59.790 --> 04:03.390
+Frumoasă și ușoară, la fel ca înainte cu aplicația noastră inițială de reacție.
+
+04:05.560 --> 04:12.730
+Corect, deci primim "onInputChange" si dorim si ca atunci cand facem click pe "Detect" ca in timp ce noi
+
+04:12.970 --> 04:16.100
+a detecta o imagine, cum vom face asta?
+
+04:17.030 --> 04:23.660
+Deocamdată, doar pentru că îmi place să păstrez lucrurile simple, să construiesc lucrurile cu un pas la un moment dat, putem doar să ne consoleze
+
+04:23.660 --> 04:28.320
+log "și vom spune" onSubmit "și nu va mai avea parametri pentru moment.
+
+04:29.420 --> 04:40.880
+Vom spune doar "consolă punct log", faceți clic pe, iar acum "onSubmit", putem trece din nou la "imageLinkForm".
+
+04:46.250 --> 04:51.000
+Vom numi "onButtonSubmit" aici, doar pentru a clarifica.
+
+04:52.680 --> 04:57.520
+Și din nou, o vom trece cu "acest" punct pe butonul "ButtonSubmit".
+
+04:59.660 --> 05:02.810
+Salvăm asta, o să o pun din nou pe o linie nouă pentru a putea vedea,
+
+05:08.200 --> 05:13.480
+acum "imageLinkForm" va primi "onButton"
+
+05:13.780 --> 05:32.150
+Trimiteți "și putem spune că, în afară de" className ", vor fi un eveniment" onClick "care ascultă" pe
+
+05:33.700 --> 05:34.530
+ButtonSubmit“.
+
+05:35.240 --> 05:39.750
+Să salvăm, să ne întoarcem la exemplul nostru,
+
+05:39.750 --> 05:42.730
+faceți clic, uitați-vă la asta, funcționează.
+
+05:44.280 --> 05:44.620
+In regula.
+
+05:44.650 --> 05:48.850
+Deci, există puțină funcționalitate, dar partea dificilă începe doar.
+
+05:48.880 --> 05:54.850
+Cum să afișăm o imagine aici și să o detecteze? Bine,
+
+05:54.870 --> 06:03.200
+din fericire pentru noi, putem folosi un API, și acest API cred că este unul dintre cei mai buni acolo.
+
+06:03.200 --> 06:11.320
+Se numește "clarifai" și, după cum puteți vedea din sloganul "înțelegeți imaginile și datele video". Poti
+
+06:11.320 --> 06:15.400
+utilizați acest instrument gratuit, până la un anumit punct.
+
+06:15.490 --> 06:24.520
+Dacă te uiți la prețurile de aici pentru dezvoltatori ai 5000 liber operațiuni pe lună.
+
+06:24.720 --> 06:28.620
+Deci, puteți trimite 5000 de fotografii și vă va ghici pentru dvs.
+
+06:28.710 --> 06:31.160
+Odată ce aplicația devine populară, puteți începe să plătiți pentru aceasta.
+
+06:31.170 --> 06:39.600
+Dar vom folosi un API gratuit. Și vreau să te înscrii pentru asta, dacă vrei să o folosești pentru că
+
+06:39.900 --> 06:43.840
+cheia API pe care o voi folosi în acest exemplu, o voi șterge după aceea,
+
+06:43.870 --> 06:47.190
+bine, astfel încât ceilalți oameni nu ah! nu o folosiți
+
+06:47.190 --> 06:50.570
+și apoi am ajuns la limita mea și nu voi mai putea să o folosesc.
+
+06:51.250 --> 06:52.830
+Dar este foarte simplu să vă înscrieți.
+
+06:52.900 --> 06:54.190
+Trebuie doar să te autentifici.
+
+06:54.190 --> 07:00.400
+Și odată ce vă creați contul aici, veți fi luați în profilul dvs.
+
+07:02.630 --> 07:05.860
+Și ar putea avea deja prima mea cerere pentru tine.
+
+07:05.990 --> 07:10.880
+Dacă nu este nimic aici, trebuie doar să faceți clic pe "CREATE NEW APPLICATION" și aici,
+
+07:13.620 --> 07:17.890
+și aplicația dvs., puteți să îl titluți oricare doriți, dar nu trebuie să atingeți nimic.
+
+07:18.150 --> 07:28.890
+Dacă accesați cheile API, această cheie este modul dvs. de accesare a API-ului "clarifai".
+
+07:30.500 --> 07:40.680
+Deci, dacă aici intru într-un url, apăs pe detect, pot trimite acea url cu cheia mea API pe care ți-o oferă
+
+07:42.280 --> 07:51.280
+la serviciul lor și folosind cheia API pe care o vor spune, oh! asta e Andre, e sub planul liber.
+
+07:51.490 --> 07:54.120
+El nu și-a lovit încă limita de 5000 pentru luna.
+
+07:54.340 --> 07:54.680
+Da.
+
+07:54.700 --> 07:55.710
+Să răspundem.
+
+07:57.260 --> 08:04.330
+Și dacă vă întrebați ce pot să facă, dacă mergeți la modelele pe care le vedeți aici
+
+08:04.780 --> 08:09.370
+ei folosesc învățarea mașinilor pentru a instrui ceva numit "Modele".
+
+08:09.610 --> 08:19.090
+Asta este că antrenează un calculator, oferindu-i multe imagini, multe imagini, pentru a memora celebritatea
+
+08:19.090 --> 08:30.240
+se confruntă, detectează "Apparel" ca aici, și știe că acestea sunt ochelari de soare cu o probabilitate de 100% pentru că
+
+08:30.270 --> 08:37.470
+au fost instruiți, probabil, milioane de imagini de ochelari de soare pentru a ști ce sunt ochelarii de soare. Deci tu
+
+08:37.470 --> 08:39.960
+pot juca în jur cu multe lucruri pe care le au aici.
+
+08:39.960 --> 08:42.780
+Este foarte frumos ce au ei.
+
+08:42.780 --> 08:48.540
+Vom folosi API-ul pentru detectarea feței. Și API-ul lor de detectare a feței,
+
+08:48.540 --> 08:49.560
+noi pur și simplu,
+
+08:52.280 --> 09:04.350
+dacă mergem la js (javascript), rulați pur și simplu această funcție, pe serverele "clarifai" folosind API-ul propriu și dă
+
+09:04.350 --> 09:07.490
+un răspuns sau o eroare.
+
+09:07.550 --> 09:16.610
+Acum este întotdeauna mult mai ușor, să demonstrăm decât să vorbim de fapt, așa că să o punem în aplicare.
+
+09:16.640 --> 09:19.600
+Îmi folosesc recunoașterea față.
+
+09:19.740 --> 09:25.770
+Așa că o să copiez și să lipesc asta. Reveniți la aplicația mea și în aplicația punct
+
+09:25.910 --> 09:30.320
+js (app.js), voi spune că "onButtonSubmit",
+
+09:30.420 --> 09:41.170
+Vreau să fug, funcția pe care tocmai mi-a spus să o folosesc. Dar, după cum puteți vedea aici, are aplicație
+
+09:41.460 --> 09:45.100
+dot dot dot predict ".
+
+09:45.480 --> 09:52.330
+Ei bine, cum este programul meu să știe ce "modele dot punct dot prezice" este?
+
+09:52.520 --> 09:59.790
+Ei bine, dacă accesați ghidul API, aceștia vă vor arăta exact cum să începeți și cum să utilizați API-ul.
+
+09:59.960 --> 10:05.720
+Dar puteți vedea aici și ei sunt "Noțiuni de bază", "clienți API" dacă mergem la javascript, ei vor spune
+
+10:05.920 --> 10:08.140
+instalați clientul de la npm.
+
+10:08.180 --> 10:16.640
+Deci, haideți să urmăm și să instalăm "clarifai" și acesta este un pachet pe care l-au construit astfel încât să poată
+
+10:17.000 --> 10:25.340
+lucrați cu javascript, în timp ce încărcarea se face, putem vedea că putem importa "clarifica".
+
+10:25.460 --> 10:30.010
+Putem vedea aici că folosesc metoda JS comună, "necesită" importul,
+
+10:30.020 --> 10:36.160
+dar din moment ce folosim aplicația "create react", putem folosi aici "import" și apoi pur și simplu inițializăm API-ul
+
+10:36.160 --> 10:44.630
+cheie cu asta. Așa că acum vom putea avea obiectul aplicației. După cum puteți vedea aici, folosim aplicația
+
+10:44.630 --> 10:45.220
+.models'.
+
+10:45.230 --> 10:53.980
+Dar dacă execut asta, nu am idee ce înseamnă "aplicație". Doar pentru a demonstra pentru tine, dacă mă întorc la consola
+
+10:53.980 --> 10:54.320
+aici,
+
+10:57.940 --> 11:05.050
+'run npm start', primesc 'aplicația nu este definită', bine.
+
+11:05.050 --> 11:15.350
+Deci, copiați din nou, ceea ce vedem aici va copia acest lucru, a pus-o în configurația noastră în partea de sus a dosarului.
+
+11:17.910 --> 11:20.650
+Se solicită cheia API.
+
+11:20.730 --> 11:24.070
+În cazul meu, o să folosesc pe cel pe care mi l-au dat.
+
+11:27.670 --> 11:29.670
+Permiteți-mi să deschid această legătură într-un nou dosar.
+
+11:30.620 --> 11:34.220
+Mă duc la "prima mea cerere", "chei API".
+
+11:34.560 --> 11:38.920
+Voi copia și lipi cheia API. Pune-l aici.
+
+11:40.640 --> 11:46.730
+După cum am vorbit în secțiunea API, cele mai utile API-uri au nevoie de o setare ca aceasta, unde ai
+
+11:46.730 --> 11:55.190
+pentru a adăuga o cheie API. Deci, deși aceste documente sunt în mod specific pentru a clarifica cele mai multe API-uri pe care le utilizați
+
+11:55.190 --> 11:58.560
+va fi foarte asemănătoare cu asta.
+
+11:58.570 --> 12:01.060
+În regulă, deci avem asta, trebuie să importăm,
+
+12:01.090 --> 12:07.140
+dacă vă aduceți aminte, reveniți aici, pot doar
+
+12:10.090 --> 12:18.460
+import "clarifai" și pentru că putem folosi noul mod javascript de import.
+
+12:18.750 --> 12:22.430
+Vom face asta doar pentru că arată mult mai bine.
+
+12:23.280 --> 12:25.140
+Să salvăm și să vedem ce se întâmplă.
+
+12:26.100 --> 12:26.560
+In regula.
+
+12:26.760 --> 12:29.420
+Se pare că funcționează.
+
+12:29.440 --> 12:35.250
+Vedem că doar obținem o, e doar o mostră de imagine pe care o primim.
+
+12:36.940 --> 12:45.550
+Deci, folosim cheia noastră API și apoi trimitem o imagine url și apoi având acest punct apoi apare Let's
+
+12:45.550 --> 12:50.220
+consolă punct log raspunsul, și a vedea ce avem.
+
+12:53.580 --> 12:59.590
+Voi face clic pe trimite (Detect), și voi obține statutul,
+
+12:59.590 --> 12:59.950
+in regula.
+
+12:59.950 --> 13:03.420
+Se pare că răspunde cu ceva, e bine.
+
+13:04.810 --> 13:09.960
+Foarte bine.
+
+13:09.960 --> 13:14.520
+Bine, deocamdată, se pare că funcționează.
+
+13:14.520 --> 13:20.370
+Avem o imagine pe care o primim când o pun pe o linie nouă pentru a putea vedea.
+
+13:28.540 --> 13:28.920
+Dreapta.
+
+13:28.960 --> 13:35.950
+Deci, pentru moment, să o avem, pentru a putea afișa imaginea pe care tocmai ne-au dat-o în exemplul nostru. Să copiem
+
+13:35.950 --> 13:42.420
+și vezi ce este această imagine.
+
+13:42.440 --> 13:47.030
+Vrem ca aceasta să fie afișată în partea de jos.
+
+13:47.100 --> 13:48.700
+Cum putem face asta?
+
+13:49.470 --> 14:03.640
+Putem începe să creăm ultima noastră componentă "FaceRecognition". Deci, putem muta parantezele sau comentariile.
+
+14:03.800 --> 14:13.790
+Și acum, vom importa această nouă componentă, pe care nu o avem încă și aceasta se numește "Fața
+
+14:13.790 --> 14:16.730
+Recunoaștere ".
+
+14:21.900 --> 14:27.540
+Și din nou vom crea un nou dosar, care va spune "FaceRecognition".
+
+14:28.560 --> 14:33.650
+Și în acest nou dosar (acolo) va fi un fișier nou 'FaceRecognition dot
+
+14:33.860 --> 14:40.380
+js ", folosind instrumentul nostru foarte bun,
+
+14:40.380 --> 14:45.240
+copiați și lipiți, copiind și inserați componenta "Navigare"
+
+14:48.160 --> 14:53.410
+și acum schimbați numele acestei opțiuni la "FaceRecognition"
+
+14:54.390 --> 14:56.870
+componentă și ce ar trebui să afișeze acest lucru?
+
+14:57.090 --> 15:00.930
+Ei bine, acum vrem doar să afișăm o imagine statică pentru a ne asigura că funcționează.
+
+15:02.230 --> 15:03.580
+Așa că voi crea
+
+15:07.730 --> 15:14.620
+un "div" cu "className" de bine, "centru" pe care am definit-o deja,
+
+15:14.660 --> 15:23.760
+dacă vă amintiți în app.css-ul nostru. Și va avea o imagine, cu o sursă (src)
+
+15:28.930 --> 15:32.010
+închideți eticheta și am putea salva asta.
+
+15:32.380 --> 15:33.380
+Să vedem dacă funcționează.
+
+15:35.500 --> 15:36.280
+In regula.
+
+15:36.280 --> 15:37.620
+Arată destul de bine de fapt.
+
+15:37.630 --> 15:40.040
+Avem imaginea noastră chiar în partea de jos.
+
+15:41.430 --> 15:44.190
+Am o eroare spunând că avem nevoie de o etichetă "alt".
+
+15:44.250 --> 15:45.920
+Deci, vom spune "alt"
+
+15:49.290 --> 15:50.770
+și o să lăsăm acum necompletate.
+
+15:50.880 --> 15:53.100
+Doar așa avem ceva.
+
+15:53.220 --> 15:53.600
+In regula.
+
+15:53.640 --> 16:03.240
+Așadar, avem imaginea de bază a imaginii și asta funcționează, dar nu este într-adevăr conectată la API.
+
+16:03.250 --> 16:08.820
+Când fac clic pe Detect, e doar codificat greu.
+
+16:08.970 --> 16:16.050
+Deci, haideți să ne uităm mai întâi la API și să vedem cum putem trimite, de fapt, url-uri de imagine, dacă te întorci la ei
+
+16:16.050 --> 16:17.350
+documente.
+
+16:17.650 --> 16:20.870
+Din nou, sunt foarte buni cu asta.
+
+16:20.940 --> 16:22.020
+Dacă parcurgeți în jos,
+
+16:25.960 --> 16:29.660
+sub "prezice", vedeți că au imagini și clipuri video.
+
+16:29.830 --> 16:37.720
+Deci, putem folosi "Imagini", "prin URL" și vedem că avem javascript și seamănă cu "Predict"
+
+16:38.500 --> 16:43.690
+funcția "clarifică" un model pe care îl au.
+
+16:43.690 --> 16:50.830
+Deci, în acest caz trimit modelul general și url. Așa că este foarte asemănător cu ceea ce
+
+16:50.830 --> 16:51.740
+am văzut înainte.
+
+16:52.640 --> 16:59.070
+Prin urmare, datorită faptului că am definit deja cheia API, nu mai avem nevoie de acest lucru.
+
+16:59.450 --> 17:05.020
+Tot ce avem nevoie este să-i spunem, ce model vrem să folosim.
+
+17:05.040 --> 17:11.040
+Dar dacă vă amintiți că au o mulțime de modele. Și chiar vreau să vă arăt un mod inteligent de a privi
+
+17:11.040 --> 17:11.310
+acest.
+
+17:11.310 --> 17:17.910
+Aceștia au această informație în docs, dar o altă modalitate bună de a face acest lucru este dacă vă aduceți aminte că a fost
+
+17:17.910 --> 17:30.740
+un pachet 'clarifai' npm și acest pachet npm are o legătură github și de obicei toate pachetele npm. Aici,
+
+17:31.020 --> 17:40.620
+dacă mergi să-ți vizitezi codul, dacă mergi în sursă, așa cum ți-ai aminti, și index.js, asta
+
+17:40.620 --> 17:50.360
+este ceea ce ne dau accesul, iar tu vezi că au "export global dot clarifai" și aici
+
+17:50.380 --> 17:55.360
+toate modelele pe care le putem folosi. Deci ne dau "GENERAL_MODEL".
+
+17:55.690 --> 17:58.910
+Dar puteți vedea, dacă putem obține "FOOD_MODEL", "COLOR_MODEL".
+
+17:59.050 --> 18:04.570
+Deci, să folosim acum "COLOR_MODEL" și aici, vom spune
+
+18:08.850 --> 18:13.050
+'COLOR_MODEL'.
+
+18:13.240 --> 18:21.270
+Și pentru a avea acces la asta, trebuie să facem 'clarifai' dot 'COLOR_MODEL'.
+
+18:21.580 --> 18:30.490
+Deci, haideți să salvăm asta, și noi (vom) încercați acest lucru prin deschiderea consolei făcând clic pe detectați,
+
+18:30.730 --> 18:44.570
+Am un răspuns și în răspunsul lor, dacă mă duc la "ieșiri", "zero (0)", "date", obțin "culori"
+
+18:44.570 --> 18:51.090
+sunt toate predicțiile culorilor hexagonale și îl vezi pe cel cu cea mai mare probabilitate, să vedem ce
+
+18:51.090 --> 18:52.090
+culoarea care este.
+
+18:55.660 --> 19:02.480
+Au fost aproape negre și dacă te uiți la această imagine, da, e cam negru.
+
+19:02.480 --> 19:05.680
+În regulă, așa că funcționează.
+
+19:05.740 --> 19:11.150
+Iar motivul pentru care am reușit să găsesc acest lucru este din nou în documentația API, care vă spune dacă este vorba
+
+19:11.200 --> 19:15.190
+o ieșire și o ieșire returnează o matrice cu date din interiorul acesteia.
+
+19:15.220 --> 19:23.130
+Și pentru că am selectat modelul de culori obținem culori. Bine, deci, pentru moment, folosind modelul de culori,
+
+19:23.280 --> 19:26.760
+hai să o construim.
+
+19:27.130 --> 19:39.660
+Vrem să avem o stare "imageUrl" și va fi gol pentru moment și acest "imageUrl" ar trebui să fie
+
+19:39.810 --> 19:51.500
+se afișează atunci când dăm clic pe trimite, astfel încât să putem spune că "onButtonSubmit", vrem să "acest" punct "setState" să
+
+19:51.530 --> 19:58.920
+egal, să aibă url de imagine actualizat cu orice este "intrare".
+
+19:58.920 --> 20:06.100
+În felul acesta, putem trece "imageUrl" până la "FaceRecognition".
+
+20:06.120 --> 20:15.960
+Deci, dacă fac "imageUrl" egal cu "acest" punct 'state' dot 'imageUrl', acum pot folosi 'imageUrl' în
+
+20:15.960 --> 20:25.670
+componenta "FaceRecognition" ca sursă (src).
+
+20:25.670 --> 20:32.180
+Acum, evident, trebuie să primim acest lucru, așa că o voi distruge și îl voi folosi ca parametri.
+
+20:32.180 --> 20:33.800
+Și am primit "intrarea nu este definită",
+
+20:33.800 --> 20:47.850
+Asta pentru că aici am folosit input și bine, trebuie să fie "intrarea" punctului "punct" "punct". Du-te înapoi să hai ah !, haideți
+
+20:47.870 --> 20:49.500
+găsiți de fapt o față nouă. Hai sa facem,
+
+20:49.520 --> 20:50.150
+hai sa facem o culoare.
+
+20:50.160 --> 20:58.110
+Să facem un peisaj, să facem unul cu o culoare definitorie.
+
+20:58.110 --> 21:08.070
+E bine, să vedem imaginea, să copiezi asta, dacă facem asta și nu obținem nimic pentru că bine, dacă
+
+21:08.070 --> 21:13.080
+vă amintiți 'onInputChange', nu am actualizat niciodată componenta de intrare.
+
+21:13.080 --> 21:15.510
+Am consola doar logat totul.
+
+21:15.530 --> 21:19.950
+Deci, acum că știm că putem spune doar, "acest punct" set
+
+21:19.960 --> 21:20.510
+Stat'
+
+21:23.440 --> 21:23.950
+'intrare'
+
+21:26.740 --> 21:30.060
+este "evenimentul" "valoare țintă" "punct".
+
+21:30.200 --> 21:31.460
+Să vedem dacă funcționează.
+
+21:32.340 --> 21:36.370
+Și mă întorc, încercați și,
+
+21:36.430 --> 21:39.420
+Oh boy, asta eo poză mare pe care o vom avea nevoie să o rezolvăm,
+
+21:39.430 --> 21:45.620
+dar am afisat imaginea. Folosind aceste informații,
+
+21:45.620 --> 21:51.390
+înseamnă că, putem da adresa noastră URL ca intrare aici.
+
+21:51.620 --> 21:54.960
+Putem pune doar "acest" punct "state" punct "intrare"
+
+22:03.150 --> 22:08.530
+și deschideți consola.
+
+22:08.550 --> 22:08.760
+In regula,
+
+22:08.760 --> 22:10.730
+se pare că avem un răspuns.
+
+22:10.770 --> 22:13.540
+Obținem date despre culori.
+
+22:13.790 --> 22:17.930
+Avem acest lucru cu o șansă de 40% din această culoare.
+
+22:17.930 --> 22:19.400
+Să vedem ce culoare este.
+
+22:22.040 --> 22:23.150
+Bine, asta e verde.
+
+22:23.210 --> 22:24.650
+E foarte cool.
+
+22:24.650 --> 22:26.870
+Deci, lucrează în mod clar.
+
+22:26.870 --> 22:28.970
+Ajungem, voi termina câteva dintre acestea.
+
+22:36.160 --> 22:40.210
+Bine, lucrurile lucrează în mod clar acum, ceea ce este minunat.
+
+22:40.210 --> 22:45.950
+Acum, un singur truc pe care vreau să-ți arăt, din cauza felului în care reacționează,
+
+22:46.240 --> 22:55.320
+dacă aș fi făcut aici, "imageUrl", aș avea de fapt o eroare,
+
+22:55.540 --> 22:59.980
+Deci, dacă copiem și lipiți, să facem o imagine "Apple"
+
+23:12.590 --> 23:32.790
+Primesc o "solicitare greșită" și asta din cauza modului în care funcționează "statul stabilit".
+
+23:32.870 --> 23:33.170
+In regula.
+
+23:33.200 --> 23:44.700
+Așadar, deși vrem să folosim este "FACE_DETECT_MODEL", folosindu-ne astfel ceea ce avem acum,
+
+23:46.050 --> 23:52.960
+Să vedem dacă putem obține un răspuns și dacă mergem la API, ne putem uita la modele,
+
+23:58.830 --> 24:06.100
+și de fapt, dacă mergem la vârf, mergeți la "Modele" și mergem la "Detectarea feței",
+
+24:09.320 --> 24:15.280
+vedem că vom avea un răspuns care arată cam așa.
+
+24:15.310 --> 24:22.600
+Ceea ce ne interesează este de la ieșiri, pentru a obține date și apoi regiuni care ne dau regiunile sau
+
+24:22.600 --> 24:28.200
+cutia de legare a feței. Vom vedea dacă putem face asta.
+
+24:28.670 --> 24:33.470
+Am pus "FACE_DETECTION_MODEL" și nu știm care va fi răspunsul, așa că sunt doar
+
+24:33.470 --> 24:34.820
+să o lași la asta.
+
+24:35.800 --> 24:39.390
+Voi găsi o imagine a feței,
+
+24:44.050 --> 24:47.060
+hai sa facem aceasta poza,
+
+24:47.060 --> 24:47.980
+copiați și lipiți, detectați,
+
+24:53.400 --> 24:55.450
+Oh baiete! trebuie să reparăm acea față.
+
+24:55.550 --> 25:00.510
+Dar, vedem că vom ieși la ieșire.
+
+25:02.700 --> 25:06.240
+În prima matrice, obținem "date", "regiuni"
+
+25:10.500 --> 25:12.340
+și avem un "bounding_box".
+
+25:12.340 --> 25:14.290
+Deci e puțin îmbrăcată aici.
+
+25:14.320 --> 25:21.190
+Folosind aceste informații, hai să o curățăm puțin și apoi să obținem de fapt ceea ce avem nevoie de aici.
+
+25:25.030 --> 25:29.670
+În cazul nostru, se pare că va trebui să obținem răspunsul "
+
+25:29.930 --> 25:33.150
+puncte "ieșiri".
+
+25:36.110 --> 25:46.190
+Și apoi "zero (0)" prima matrice, atunci au fost "date", "regiuni", "zero (0)", "regiune info", apoi "caseta delimitare".
+
+25:46.400 --> 25:47.700
+Bine, să facem asta.
+
+25:47.720 --> 25:56.550
+Astfel, "regiuni de date" accesează prima matrice,
+
+25:57.530 --> 26:01.020
+"region_info" și cred că ultima a fost "caseta de limitare".
+
+26:01.100 --> 26:01.860
+Să încercăm asta.
+
+26:05.370 --> 26:05.630
+In regula.
+
+26:05.640 --> 26:07.050
+Să dăm asta.
+
+26:07.930 --> 26:09.260
+Și vezi dacă asta funcționează.
+
+26:11.190 --> 26:11.760
+Detecta
+
+26:14.710 --> 26:20.230
+Uită-te la asta. Avem "rândul de jos", "coloana stângă", "coloana din dreapta", "rândul de sus".
+
+26:20.500 --> 26:22.760
+Încă nu știm cu adevărat ce înseamnă aceste numere.
+
+26:22.810 --> 26:27.370
+Va trebui să ne dăm seama de fapt, deoarece, după cum vedeți, nu se adaugă nimic în față.
+
+26:27.370 --> 26:29.030
+E ceva ce trebuie să facem.
+
+26:29.830 --> 26:33.270
+Dar funcționează și am obținut conexiunea API.
+
+26:33.370 --> 26:36.050
+De fapt, facem ceva pe care îl afișăm.
+
+26:36.070 --> 26:41.860
+Asa ca inainte de a intra in urmatorul film sa rezolvam aceasta problema pentru a ne asigura ca totul arata,
+
+26:42.340 --> 26:44.470
+arată mai bine decât asta.
+
+26:44.470 --> 26:50.310
+Deci, dacă mergem la "FaceRecognition" aici, există câteva lucruri pe care va trebui să le rezolvăm.
+
+26:50.350 --> 26:52.740
+Voi scoate această "consolă".
+
+26:52.880 --> 27:02.650
+Vom face "ma", care este o clasă "tachion" și apoi vom împacheta acest lucru într-un "div" și există multe moduri
+
+27:02.650 --> 27:03.220
+pentru a face acest lucru.
+
+27:03.220 --> 27:07.990
+Cum am spus mai înainte cu stilul, vă voi arăta principala cale de a face acest lucru.
+
+27:08.140 --> 27:17.640
+Voi spune "marginea absolută top doi", așa că există un pic de spațiu între intrare și imagine.
+
+27:17.770 --> 27:25.330
+Și acum, în cadrul imaginii, dorim să ne asigurăm că "lățimea" este întotdeauna aceeași, indiferent de mărimea acesteia
+
+27:25.330 --> 27:27.770
+fotografia.
+
+27:27.960 --> 27:34.890
+Vom face "500 de pixeli", dar de asemenea nu vrem să fie cioplite sau au proporții ciudate.
+
+27:34.890 --> 27:42.490
+Deci, modul de a rezolva asta este de a face "auto". Astfel, înălțimea va fi ajustată în mod automat pe baza lățimii.
+
+27:42.530 --> 27:44.060
+Deci, să salvăm și să vedem ce se întâmplă
+
+27:44.070 --> 27:44.470
+acum.
+
+27:47.570 --> 27:48.140
+In regula.
+
+27:48.140 --> 27:50.740
+Asta e mult mai bine.
+
+27:50.760 --> 27:51.840
+Așa că a fost destul de rapid.
+
+27:51.840 --> 27:55.300
+Acesta a fost principalul lucru care la fixat cu adevărat.
+
+27:56.630 --> 27:57.320
+In regula.
+
+27:57.350 --> 27:57.850
+Minunat.
+
+27:57.860 --> 28:03.830
+Așa că am obținut o aplicație de lucru care aduce rezultate reale.
+
+28:04.040 --> 28:12.400
+Și acum putem lucra la a avea o cutie afișată în jurul feței, dacă se detectează ceva. Doar din
+
+28:12.400 --> 28:13.200
+curiozitate.
+
+28:13.210 --> 28:25.230
+Dacă fac din nou peisaj.
+
+28:25.280 --> 28:25.760
+In regula.
+
+28:25.760 --> 28:26.450
+Totul merge bine.
+
+28:26.460 --> 28:30.980
+Huh! care a fost unul lung, dar lucrurile încep să funcționeze.
+
+28:30.980 --> 28:32.370
+Ne vedem în următorul videoclip.
+
+28:32.830 --> 28:33.130
+Buh-pa

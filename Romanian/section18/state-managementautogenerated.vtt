@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Welcome back.
+
+00:03.570 --> 00:10.610
+Before we start learning about redox we need to talk about something called state management.
+
+00:10.640 --> 00:12.440
+We've heard this war before state.
+
+00:12.530 --> 00:13.050
+Right.
+
+00:13.190 --> 00:14.690
+When building a reactor.
+
+00:14.720 --> 00:24.300
+We had this state and state described what our app should look like if we remember this
+
+00:27.630 --> 00:36.750
+re-act is simply a group of components that are rendered in a tree like structure.
+
+00:36.840 --> 00:41.420
+So this would be the app dodginess for example.
+
+00:41.560 --> 00:48.390
+And each one of these components would have state for example the red dots over here.
+
+00:48.700 --> 00:49.750
+They have state.
+
+00:49.750 --> 00:57.730
+So for example this app component will have a state of signed in as and let's say the state is user
+
+00:57.730 --> 01:06.340
+in that case this user component might have a state of user match or if signed in as is.
+
+01:06.340 --> 01:14.200
+And men it might render the admin component and any time you see the blue dot that means there was a
+
+01:14.200 --> 01:21.340
+change so if there's a change here it can update something into this component and we render.
+
+01:21.640 --> 01:31.380
+And we did this in re-act and I want you to think of State as memory an app needs to remember things
+
+01:31.440 --> 01:40.240
+in order to work otherwise we would just have simple a shemale web pages like before.
+
+01:40.320 --> 01:43.340
+Remember this Kaikohe core Web site.
+
+01:43.490 --> 01:46.940
+This really doesn't have any state does it.
+
+01:48.050 --> 01:57.230
+Each time we show the exact same web page to whoever is using it the speech has no idea of who the user
+
+01:57.230 --> 02:03.740
+is or any interactions that I'm having it's mainly just text.
+
+02:03.810 --> 02:07.530
+Now the robo friends app that's different.
+
+02:07.680 --> 02:08.880
+It has.
+
+02:09.330 --> 02:14.880
+Well mostly because we wrote it and we had the dot state but we can interact with it.
+
+02:14.940 --> 02:16.450
+I can type in here.
+
+02:17.400 --> 02:25.360
+Liane and I have a state of the search box having LPA in it.
+
+02:25.560 --> 02:36.650
+And the robots being filter with just Leeanne state describes how our app should look our app our robo
+
+02:36.650 --> 02:46.520
+friends app right now should look like this with just one robot card because the state is of a search
+
+02:46.520 --> 02:50.540
+box having the letters LPA inside of it.
+
+02:51.570 --> 03:00.660
+Now with a simple app like the robo friends app state it was pretty easy to understand but state management
+
+03:00.900 --> 03:02.780
+is a really hard problem.
+
+03:02.880 --> 03:10.340
+As our apps get bigger and bigger and bigger and you'll actually seen the later part of the course when
+
+03:10.340 --> 03:15.180
+we start working on the smart brain app which does the image recognition.
+
+03:16.720 --> 03:24.430
+You'll notice how the state gets more and more complicated and your head starts to hurt because you
+
+03:24.430 --> 03:26.770
+have to keep track of all these things happening.
+
+03:28.180 --> 03:35.380
+So again with a simple re-act app we can have nice views and maybe have different states and different
+
+03:35.380 --> 03:39.680
+components but eventually Azara app gets bigger.
+
+03:39.760 --> 03:49.150
+We end up with something like this where we have more and more components more and more state within
+
+03:49.150 --> 03:55.540
+that component or we can have one massive state at the very top here which also gets pretty hard and
+
+03:55.960 --> 03:59.090
+all these blue dots as the update.
+
+03:59.110 --> 04:04.180
+They also have to update the state and then re render.
+
+04:04.380 --> 04:11.070
+And this example here is just a little diagram but you can see with all these arrows how confusing it's
+
+04:11.070 --> 04:17.520
+going to get and keeping track of all this state is really really hard.
+
+04:17.550 --> 04:23.060
+So we need some form of a state management and redux.
+
+04:23.060 --> 04:25.070
+Solve this problem for us.
+
+04:25.070 --> 04:32.210
+How could we make this diagram simpler and make things easier to understand in our heads as developers
+
+04:32.870 --> 04:35.060
+redux came up with a novel concept.
+
+04:36.470 --> 04:39.750
+What if we just remove all the state.
+
+04:39.980 --> 04:43.050
+So this state from all the components.
+
+04:43.220 --> 04:45.390
+What if we just have props.
+
+04:45.620 --> 04:49.650
+So all these components just left props being passed down.
+
+04:50.000 --> 05:00.150
+And now the state we keep it in a store and a store is simply just the state which is this dot state
+
+05:00.180 --> 05:01.700
+that re-act had.
+
+05:01.860 --> 05:05.960
+But in one massive object just like you see here.
+
+05:06.120 --> 05:14.940
+So one single object that describes how our app should look and all we do is just pass down that state
+
+05:15.300 --> 05:18.840
+to whichever component needs it as props.
+
+05:19.750 --> 05:30.070
+So our diagram from looking like this with just react can go to looking like this with redux where none
+
+05:30.070 --> 05:32.690
+of the components need to hold state anymore.
+
+05:32.860 --> 05:41.020
+And we can have one massive object that describes our entire app and whichever component needs that
+
+05:41.020 --> 05:43.440
+prop can just be passed down to it.
+
+05:44.320 --> 05:51.670
+And any updates that happen go through the state the state gets modified and then we pass down that
+
+05:51.670 --> 05:59.800
+information to the component this diagram might be confusing without actually coding anything.
+
+05:59.900 --> 06:01.010
+And we'll come back to that.
+
+06:01.010 --> 06:02.780
+So this makes sense.
+
+06:02.990 --> 06:11.230
+But even just visually you can see that this diagram looks a lot simpler than the diagram before it.
+
+06:11.240 --> 06:15.630
+We have a lot less arrows and everything just flows nicer.
+
+06:15.680 --> 06:20.910
+So as we go through the videos you're going to get more and more familiar with this idea of state management.
+
+06:20.930 --> 06:28.430
+But I wanted to keep in mind that that is what redux is solving redux is a library that makes Stape
+
+06:28.430 --> 06:34.100
+management easier not only for reac but for any tools that we use.
+
+06:34.220 --> 06:36.810
+It just happens to work really really well with.
+
+06:37.400 --> 06:44.870
+And redux actually got inspiration from database design from things such as events sourcing or CQ agress
+
+06:45.230 --> 06:49.400
+which you can read up more on databases had the same problem.
+
+06:49.520 --> 06:57.530
+All these updates and all these changes happened but we needed a way to make sure that all these changes
+
+06:57.890 --> 07:00.950
+are organized in a nice cohesive way.
+
+07:02.120 --> 07:02.730
+All right.
+
+07:02.860 --> 07:08.580
+Well let's get into the next video and get a little bit deeper with redox.
+
+07:08.690 --> 07:09.680
+I'll see you in the next one.

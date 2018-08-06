@@ -1,0 +1,805 @@
+WEBVTT
+
+00:01.210 --> 00:06.990
+Bine ai revenit. Să analizăm ce avem până acum în aplicația noastră.
+
+00:07.160 --> 00:14.430
+Am creat componenta noastră de aplicații care conține câteva componente personalizate de reacție,
+
+00:14.450 --> 00:24.240
+pe care l-am construit. Și în ultimul videoclip am reușit în cele din urmă să obținem răspunsul nostru din partea API-ului "Clarifai". Dacă noi
+
+00:24.240 --> 00:32.400
+du-te înapoi la "Clarifai", vedem că detectarea feței lor are o cutie mică pătrată pe care o detectează.
+
+00:32.640 --> 00:40.010
+Dar dacă te uiți la API și la răspunsul pe care îl primim, de fapt, nu avem acea cutie pătrată.
+
+00:40.080 --> 00:48.300
+Tot ce primim sunt această cutie de legare. Și pe baza chipului și a numărului de fețe pe care le detectează,
+
+00:48.500 --> 00:50.390
+vă oferă aceste cutii delimitare.
+
+00:53.100 --> 00:56.370
+Și poți citi prin ea, aici.
+
+00:56.580 --> 01:05.570
+Dar acestea spun doar că rândul de sus este la 22% din imagine.
+
+01:05.580 --> 01:12.080
+Deci acestea sunt procente pe care le putem folosi. Dar pentru ca noi să putem crea o cutie asemănătoare,
+
+01:12.330 --> 01:19.070
+bine, trebuie să vedem doar ce stiluri folosesc, ci să "inspectezi".
+
+01:19.110 --> 01:24.100
+După cum vă amintiți, putem vedea că au o clauză de "limitare" aici.
+
+01:24.360 --> 01:30.030
+Deci, în aplicația noastră putem face ceva similar și atunci vom fi nevoiți să calculam pe baza răspunsului unde
+
+01:30.270 --> 01:37.260
+putem crea aceste casete, deoarece, având doar numărul de afișare pentru utilizatorii noștri nu înseamnă prea mult,
+
+01:37.260 --> 01:38.760
+este frumos să ai această căsuță.
+
+01:38.940 --> 01:41.660
+Deci, hai să lucrăm la asta în acest videoclip.
+
+01:41.890 --> 01:48.700
+Dacă ne întoarcem la aplicația noastră, mai întâi dorim să spunem asta bine, cu siguranță vom adăuga un nou "stat" și
+
+01:48.700 --> 01:56.240
+o vom numi "cutie". Și această "casetă" va fi doar un obiect gol pentru a începe cu.
+
+01:56.370 --> 02:00.710
+Și această "casetă" va conține valorile pe care le primim.
+
+02:01.580 --> 02:05.120
+În cazul unui răspuns,
+
+02:07.980 --> 02:13.510
+acesta va fi "rândul de sus", "coloana din stânga", "rândul de jos" și apoi "coloana din dreapta".
+
+02:14.310 --> 02:16.680
+Deci, cum putem face asta?
+
+02:16.680 --> 02:23.980
+Acest lucru necesită un pic de gândire din partea noastră, dar putem începe cu crearea unei funcții. Și această funcție
+
+02:23.980 --> 02:29.460
+poate spune 'calculateFaceLocation'
+
+02:32.260 --> 02:38.010
+iar această "calculFaceLocation" va primi unele "date".
+
+02:39.330 --> 02:44.280
+Și pentru moment, o vom păstra doar ca o funcție goală.
+
+02:44.510 --> 02:51.620
+Dar știm că, vrem să numim această funcție 'calculateFaceLocation' pe baza datelor pe care le primim
+
+02:51.620 --> 02:54.910
+de la "Clarifai".
+
+02:54.930 --> 03:06.750
+Deci, în cazul nostru, cu răspunsul pe care ni l-au dat, vrem să folosim acest răspuns și să sunăm
+
+03:06.750 --> 03:15.910
+'calculateFaceLocation' cu datele de răspuns.
+
+03:16.040 --> 03:20.030
+Și din nou pentru că folosim clase aici, va trebui să o facă,
+
+03:23.120 --> 03:27.030
+"acest punct".
+
+03:27.110 --> 03:30.110
+De asemenea, cred că această funcție pare puțin dezordonată acum.
+
+03:31.200 --> 03:33.250
+Deci o să mut câteva lucruri în jur.
+
+03:33.420 --> 03:38.420
+În primul rând, folosind ES6, putem face doar funcțiile săgeată aici.
+
+03:44.830 --> 03:45.600
+Asta-i mult mai bine.
+
+03:49.250 --> 03:55.580
+Și în loc să folosim această "eroare" (err) ", putem de fapt cu o" promisiune "ori de câte ori aveți un punct" atunci "puteți face
+
+03:55.580 --> 03:56.730
+un punct de "captură".
+
+03:56.900 --> 04:01.370
+Și acesta este un "err" (eroare) în cazul în care ceva nu reușește.
+
+04:01.370 --> 04:05.600
+În cazul nostru, putem doar "consola punct log".
+
+04:05.850 --> 04:12.330
+Acest "eroare" (eroare).
+
+04:12.500 --> 04:14.680
+Deci, asta pare deja puțin mai curat.
+
+04:15.640 --> 04:16.900
+Dar trebuie să definim, oop!
+
+04:20.330 --> 04:26.730
+și am uitat o coadă aici, și acum și noi nu avem nevoie de asta. O.K.
+
+04:27.020 --> 04:31.890
+Deci, știm că acest lucru va primi un "răspuns" care este caseta delimitată.
+
+04:33.330 --> 04:41.610
+Dar acest "răspuns" va fi primit în timp ce consola trecută logat ultima dată, care primește "caseta de legare".
+
+04:41.610 --> 04:45.660
+Deocamdată nu ne vom face griji că avem mai multe fețe în fotografia pe care o vom apuca
+
+04:45.990 --> 04:55.650
+prima "casetă de legare". Din nou, dacă revenim la API-ul "Clarify", vedem că, în funcție de regiuni, noi
+
+04:55.650 --> 04:56.960
+de fapt, obțineți o matrice.
+
+04:56.960 --> 05:03.580
+Deci, am avut mai mulți oameni în imagine vor avea mai multe fețe.
+
+05:03.670 --> 05:10.990
+În cazul nostru, ne îngrijorează doar unul, încercând doar să luăm o "cutie de legătură" în jurul unei fețe.
+
+05:10.990 --> 05:19.560
+Așadar, vrem să schimbăm acest "răspuns" pentru a spune acum "date" și putem avea doar o constantă chemată
+
+05:22.840 --> 05:24.570
+"clarifaFace" este egal
+
+05:27.400 --> 05:34.570
+acest "date", voi face acest lucru un pic mai mic pentru a putea vedea. Acum, în interiorul nostru, ce vrem
+
+05:34.570 --> 05:35.480
+pentru a face mai întâi.
+
+05:35.680 --> 05:38.490
+Vom dori să facem o manipulare DOM.
+
+05:38.620 --> 05:51.700
+Cel mai bun lucru pe care îl putem face este să spuneți că "const image" este egal cu 'document' dot 'getElementById' și putem crea
+
+05:51.700 --> 06:00.370
+un element sau putem crea un id numit "inputimage" și acest "imputimage" pe care îl luăm va
+
+06:01.790 --> 06:02.520
+fi aici.
+
+06:03.270 --> 06:09.660
+Această imagine care leagă "imageUrl". Deci, imaginea care apare în aplicația noastră. Așa că putem crea
+
+06:09.660 --> 06:19.720
+un "id" aici și vom spune "imagine" sau "inputimage".
+
+06:19.730 --> 06:27.410
+Deci, acum acest "inputimage" este chiar aici, am luat-o și vrem să, așa cum vă amintiți de această "casetă de limitare"
+
+06:27.410 --> 06:32.180
+este un procent din imagine.
+
+06:32.180 --> 06:41.390
+Deci, dacă este punctul doi doi (.22), înseamnă că este la 20%, indiferent de înălțimea sau lățimea imaginilor.
+
+06:42.050 --> 06:52.980
+În cazul nostru, putem spune că cu siguranță dorim să avem lățimea imaginii noastre spunând "lățimea" imaginii "punct".
+
+06:53.150 --> 06:57.600
+Și pentru că acesta va fi un șir și vrem să facem niște calcule pe el, îl vom împacheta
+
+06:57.600 --> 06:58.470
+un număr.
+
+06:58.470 --> 07:04.650
+În acest fel, ne asigurăm că este un număr, iar apoi vom face și "înălțimea" imaginii pe care tocmai am făcut-o
+
+07:04.650 --> 07:06.320
+apucat.
+
+07:09.020 --> 07:15.060
+Și știi, putem consola consola acum pentru a vedea că am făcut totul drept, "lățime" și "înălțime".
+
+07:16.480 --> 07:27.550
+Așa că hai să încercăm asta. Am de gând să salvez, să mă întorc la imagine sau la aplicație, să iau această mostră de imagine, să o pun
+
+07:27.550 --> 07:32.800
+în, apăsați "Detect" și să ne uităm la consola.
+
+07:35.450 --> 07:37.610
+"getelement", oh! Am spus asta greșit.
+
+07:39.330 --> 07:40.450
+Mulțumesc lui Dumnezeu pentru consola.
+
+07:40.480 --> 07:42.210
+Recunosc, nu pot spune astăzi.
+
+07:42.330 --> 07:43.120
+Acolo te duci.
+
+07:43.380 --> 07:44.390
+Să încercăm din nou asta.
+
+07:48.950 --> 07:50.510
+Deschide-l și vom vedea,
+
+07:50.510 --> 07:52.740
+cinci sute patru sute nouăzeci și șapte.
+
+07:52.850 --> 07:53.080
+In regula.
+
+07:53.090 --> 07:57.270
+Suntem capabili de înălțimea și lățimea imaginii, care este perfectă.
+
+07:57.470 --> 08:04.720
+Și, după cum știți, este 500 deoarece am spus 500, amintiți-vă dacă mergem la "Recunoașterea feței" și noi avem
+
+08:04.710 --> 08:06.950
+cu 500 de pixeli.
+
+08:06.950 --> 08:12.470
+Și motivul pentru care nu fac doar 500 aici este că, dacă vine cineva de-a lungul unui proiectant și
+
+08:12.530 --> 08:16.270
+decide să schimbe acest lucru, nu va fi afectat aici.
+
+08:16.280 --> 08:17.850
+Va fi mereu calculul.
+
+08:18.820 --> 08:19.370
+In regula.
+
+08:19.430 --> 08:22.320
+Deci avem lățimea și înălțimea.
+
+08:22.340 --> 08:29.410
+Avem, de asemenea, caseta delimitată de "Clarifai" care este chiar aici.
+
+08:29.480 --> 08:33.590
+Așa că vom primi acest lucru și trebuie să facem un pic de calcul.
+
+08:35.500 --> 08:36.880
+Și nu o să mint.
+
+08:36.910 --> 08:42.790
+Acest lucru mi-a luat aproximativ o oră și am decis să nu-l includ în acest videoclip, pentru că doar mă bateam
+
+08:42.790 --> 08:45.420
+creierul meu cu un pic de matematica.
+
+08:45.580 --> 08:53.740
+Așadar, îmi tai să încerc să-mi dau seama de matematică. Dar voi explica exact cum
+
+08:53.740 --> 08:55.260
+functioneaza.
+
+08:55.300 --> 09:05.010
+Vrem să ne întoarcem aici, un obiect, și acest obiect va fi ceea ce va umple statul "cutie".
+
+09:06.650 --> 09:16.100
+Acum, acest obiect va trebui mai întâi să dau seama de primul punct, al doilea punct, al treilea punct și
+
+09:16.100 --> 09:24.780
+al patrulea punct, în jurul feței și apoi o vom împacheta doar într-o graniță. Din nou, dacă ne întoarcem la
+
+09:24.790 --> 09:28.130
+"Clarifai" API și inspecta,
+
+09:31.170 --> 09:35.900
+vedem că "caseta de legare" face ceva similar.
+
+09:35.910 --> 09:37.640
+Și vom folosi unele dintre aceste stiluri.
+
+09:40.870 --> 09:52.270
+Vom spune că coloana din stânga, stânga (lectCol) va fi clarificatorul pe care îl primim chiar aici.
+
+09:52.350 --> 10:02.070
+Și după cum vă amintiți, aceasta are o proprietate a coloanei "stânga" și acum coloana din stânga (left_col) este procentul din
+
+10:02.070 --> 10:02.570
+lăţime.
+
+10:02.700 --> 10:05.710
+Deci, dacă ne multiplicăm prin "lățimea" pe care o avem aici,
+
+10:06.000 --> 10:12.630
+bine, care este de 500, vom obține lățimea imaginii afișate și în cazul în care stânga
+
+10:12.630 --> 10:14.260
+coloana ar trebui să fie.
+
+10:14.280 --> 10:20.250
+Așa că "lățimea" și următoarea linie vor fi "topRow"
+
+10:23.070 --> 10:31.530
+și rândul de sus va avea coloana "top_row" sau îmi pare rău "top_row" nu coloana și se va întâmpla
+
+10:31.610 --> 10:43.480
+au "înălțimea". Din nou rândul de sus va spune că înălțimea lui este procentul înălțimii imaginii noastre.
+
+10:44.050 --> 10:58.830
+Acum, "coloana corectă" va fi scăderea "lățimii" de la punctul "clarifaiFace" "right_column" 'dot' width '
+
+10:59.780 --> 11:03.720
+sau înmulțit cu "lățimea".
+
+11:03.750 --> 11:12.240
+Din nou, deoarece coloana din dreapta este pe această parte, vrem să obținem numărul care reprezintă procentul total
+
+11:12.810 --> 11:15.760
+minus lățimea care începe din partea stângă.
+
+11:19.130 --> 11:28.150
+Și în cele din urmă cu "bottomRow", va face ceva similar, dar în schimb cu înălțime și va fi
+
+11:28.160 --> 11:30.390
+'clarifaiFace' 'bottom_row'
+
+11:34.380 --> 11:38.170
+înmulțit cu "înălțime".
+
+11:38.200 --> 11:38.690
+In regula.
+
+11:38.800 --> 11:45.130
+Huh! care a fost o mulțime de matematică, este o, este la fel de nebun ca vom ajunge cu matematica noastră. Și vă voi arăta
+
+11:45.130 --> 11:49.720
+cum am venit cu aceste numere, un pic mai târziu odată ce avem casetele de margine și le pot arăta
+
+11:49.720 --> 11:53.190
+cum poți să te joci în consola.
+
+11:53.200 --> 12:00.200
+Deci, acum că avem aceste lucruri, vrem să umplem statul "cutie" cu aceste valori.
+
+12:00.330 --> 12:12.440
+Deci, poate, pot crea o altă funcție, o altă metodă din această clasă care spune "displayFacebox". Nu
+
+12:12.450 --> 12:16.190
+cel mai mare nume pentru o funcție, dar este acela cu care tocmai am venit.
+
+12:16.680 --> 12:20.460
+Și aceasta va primi această valoare de retur.
+
+12:24.900 --> 12:37.230
+Și va spune "acest" punct "setState" la egal "casetă", "casetă". Și doar un memento cu ES6, tu
+
+12:37.230 --> 12:38.730
+poate de fapt face acest lucru.
+
+12:38.730 --> 12:42.920
+Dar doar pentru că este clar că acum o vom păstra așa.
+
+12:42.930 --> 12:43.700
+In regula.
+
+12:43.800 --> 12:49.760
+Deci, avem aici câteva erori, deci hai să le verificăm.
+
+12:49.950 --> 12:52.570
+Oh! și e, pentru că am făcut punct și virgulă aici,
+
+12:52.890 --> 12:57.190
+sigur că unii dintre voi ați urmărit acest videoclip și ați spus, de ce pune punct și virgulă acolo?
+
+12:57.270 --> 13:01.990
+Nu-mi place să pun ultima. Mult mai bine.
+
+13:01.990 --> 13:02.350
+In regula.
+
+13:02.350 --> 13:09.170
+Deci, "statul" este setat acum cu "caseta".
+
+13:09.410 --> 13:12.720
+Hmmm! dar pentru a vedea până acum totul funcționează.
+
+13:12.800 --> 13:19.610
+Revenind la "onButtonSubmit", atunci cand apasam pe buton, dorim sa calculam locatia cu fata
+
+13:19.610 --> 13:28.360
+răspunsul, această "calculFaceLocation" va executa această funcție, va reveni la un obiect
+
+13:30.450 --> 13:34.170
+iar acest obiect este necesar prin metoda 'displayFaceBox'.
+
+13:35.220 --> 13:43.450
+Deci, sună ca și cum, orice se întoarce, este acest parametru "cutie".
+
+13:43.630 --> 13:56.010
+Deci, pentru a face lucrurile curate, putem doar să tipărim chiar aici spunând "acest ecran FaceBox" și să înfășurați această funcție
+
+13:58.270 --> 13:58.950
+în jurul.
+
+13:58.990 --> 14:02.710
+Deci, acest "calculFaceLocation" are un răspuns,
+
+14:03.950 --> 14:11.770
+returnează acest obiect și că obiectul returnat intră acum în 'displayFacebox'.
+
+14:12.140 --> 14:17.900
+Din nou, frumusețea javascript-ului este că putem folosi funcții ca acestea și le citește frumos.
+
+14:17.960 --> 14:23.750
+Odată ce primim răspunsul, calculăm funcția internă care este 'calculateFaceLocation' și apoi
+
+14:23.870 --> 14:25.910
+'DisplayFacebox'.
+
+14:25.960 --> 14:26.880
+Dumnezeu! este un nume teribil,
+
+14:26.890 --> 14:28.970
+dar cum am spus deja că este bine.
+
+14:29.330 --> 14:29.670
+In regula.
+
+14:29.710 --> 14:30.410
+Au fost multe.
+
+14:30.430 --> 14:33.730
+Să încercăm codul nostru pentru a ne asigura că suntem pe drumul cel bun.
+
+14:33.790 --> 14:38.980
+Mă duc să "consolez jurnal" aici obiectul "cutie".
+
+14:39.230 --> 14:44.550
+Și dacă ne întoarcem din nou în față, lipiți aici
+
+14:47.600 --> 14:49.780
+dați clic și deschideți consola.
+
+14:49.850 --> 14:52.490
+Avem un obiect.
+
+14:52.820 --> 14:55.100
+În regulă, avem niște numere.
+
+14:55.340 --> 14:56.330
+Asta e bine.
+
+14:56.330 --> 15:04.340
+Să încercăm să adăugăm niște CSS, astfel încât aceste numere să apară pe față. Ar trebui să corespundă cu lățimea.
+
+15:04.400 --> 15:14.610
+Dar uitandu-te la aceste cifre, nu arata prea rau. Dacă vă aduceți aminte că lățimea imaginii este de 500 de pixeli și dacă
+
+15:14.610 --> 15:22.120
+coloana din stânga este la 131 de pixeli, care probabil este în jur de aici.
+
+15:22.130 --> 15:23.600
+Și nu pare prea rău.
+
+15:23.700 --> 15:29.790
+Din nou, să avem unele CSS pentru a verifica asta. Calculăm lucrurile potrivite.
+
+15:29.800 --> 15:37.420
+Acum, ceea ce dorim să facem este că vom dori în mod categoric să trecem această "casetă de stat" în componenta noastră "faceRecognition".
+
+15:38.140 --> 15:47.640
+Deci, putem face doar "cutie", va avea "această" punct "punct" cutie "punct".
+
+15:47.810 --> 15:49.500
+Și acum, în cadrul "FaceRecognition"
+
+15:52.840 --> 16:01.910
+acum avem o propunere nouă pe care o putem folosi și această propunere poate fi utilizată prin crearea unui nou "div".
+
+16:02.420 --> 16:07.010
+Și acest "div" va fi de fapt complet gol, pentru că nu afișăm altceva decât
+
+16:07.010 --> 16:09.030
+o frontieră în jurul acestui "div".
+
+16:09.350 --> 16:17.870
+Deci, ceea ce am de gând să fac în realitate este, voi copia ceea ce "clarifai" are, prin apelarea unei clase de "limită"
+
+16:18.650 --> 16:21.410
+și vom crea un nou fișier CSS
+
+16:24.370 --> 16:32.490
+"FaceRecognition.css" și nu uitați, o să importați acum.
+
+16:37.140 --> 16:42.030
+Și această clasă care are "caseta de margine"
+
+16:48.790 --> 16:49.410
+vom avea
+
+16:49.420 --> 16:52.540
+să vedem ce au aici.
+
+16:52.940 --> 16:54.740
+O să copiez de fapt asta,
+
+16:58.590 --> 16:59.880
+lipiți-l aici.
+
+17:02.800 --> 17:06.910
+Și sunt câteva lucruri pe care le vedeți deoarece vedeți că acestea nu sunt în realitate
+
+17:06.910 --> 17:07.490
+folosit.
+
+17:07.510 --> 17:10.020
+Așa că putem, putem să le eliminăm.
+
+17:10.030 --> 17:16.270
+De asemenea, vedeți că, pentru moment, au auzi prefixele browserului, nu suntem prea îngrijorați de folosirea altora
+
+17:16.270 --> 17:20.880
+browsere, pentru a le putea șterge. Dacă vrei să-i păstrezi și pe cei de acolo.
+
+17:25.550 --> 17:27.380
+Acum că avem asta, să vedem ce se întâmplă.
+
+17:27.380 --> 17:29.870
+Am adăugat "caseta de legare" în jurul "div"
+
+17:32.650 --> 17:40.270
+iar acum, dacă vă uitați la clasa "div", veți vedea că au adăugat un stil, ceea ce am dori
+
+17:40.270 --> 17:46.650
+pentru a face, cu proprietățile noastre "de sus", "dreapta", "de jos", "stânga" pe care tocmai am calculat.
+
+17:46.690 --> 17:48.100
+Deci, să facem asta.
+
+17:48.100 --> 17:53.780
+Voi spune "stil" este egal, din nou,
+
+17:53.970 --> 18:00.950
+vom reveni la un obiect și acesta va avea "top" ca "cutie"
+
+18:03.590 --> 18:07.690
+și nu-mi amintesc numele, așa că să ne întoarcem aici.
+
+18:09.150 --> 18:12.430
+Rândul din stânga sus, coloana din stânga, rândul de sus,
+
+18:12.440 --> 18:13.640
+coloana din dreapta, rândul de jos.
+
+18:13.940 --> 18:16.810
+Să vedem dacă îmi amintesc asta. Coloana din stânga,
+
+18:17.910 --> 18:18.730
+Dreapta
+
+18:18.780 --> 18:22.000
+va fi punct de "cutie"
+
+18:22.110 --> 18:22.300
+O.K.
+
+18:22.320 --> 18:33.370
+Cu siguranta nu-mi amintesc asta. "topRow" și apoi va fi "partea de jos", care va avea coloana din dreapta
+
+18:34.170 --> 18:38.530
+și stânga care va avea rândul de jos.
+
+18:42.930 --> 18:49.470
+Când voi adăuga "caseta" deoarece acestea sunt proprietățile obiectului casetei.
+
+18:49.710 --> 18:54.220
+Și ai văzut deja că am făcut greșeala, de aici vedeți că, în stânga am partea de jos.
+
+18:54.280 --> 18:56.000
+Deci, să rezolvăm asta.
+
+18:56.140 --> 19:03.210
+Vrem ca rangul de sus să fie "topRow" aici.
+
+19:04.590 --> 19:09.500
+Vrem ca coloana din dreapta să fie "coloana din dreapta (rightCol)".
+
+19:09.640 --> 19:14.820
+Și rândul de jos pentru a fi "bottomRow"
+
+19:18.180 --> 19:25.480
+și apoi a lăsat în final coloana (leftcol). Să salvăm și să vedem ce se întâmplă.
+
+19:25.500 --> 19:29.600
+Vrei să ne întoarcem la fața noastră.
+
+19:29.610 --> 19:31.910
+Să vedem dacă încă mai am, nu am legătură.
+
+19:31.920 --> 19:39.080
+Permiteți-mi să o copiez și să o lipesc.
+
+19:39.080 --> 19:40.430
+Uită-te la asta.
+
+19:40.430 --> 19:43.170
+Functioneaza.
+
+19:43.260 --> 19:46.020
+Să inspectăm asta,
+
+19:49.060 --> 19:54.570
+și, în primul rând, cât de cool este faptul că am reușit să lucrăm.
+
+19:54.880 --> 19:57.520
+Și este înfășurat perfect în jurul feței.
+
+19:58.060 --> 20:00.590
+Dar vreau să vă arăt cum m-am gândit la asta.
+
+20:01.820 --> 20:07.940
+Acum, când am făcut prima dată acest lucru și din nou, eu te economisesc o oră de mine încercând să-mi dau seama de matematică
+
+20:07.940 --> 20:16.550
+în spatele acestui lucru, am avut inițial ceva în care caseta a fost puțină oprit și tot ce am făcut a fost merge în sus
+
+20:16.550 --> 20:22.210
+și în jos în acest fel, și imaginind în cazul în care caseta ar trebui să fie.
+
+20:22.210 --> 20:27.180
+Și pe baza căutării la matematică și a spus, hmm! O.K,
+
+20:27.220 --> 20:33.610
+astfel încât are sens că coloana din stânga ar trebui să fie coloana din stânga procentual ori de lățime, pentru că acum
+
+20:33.610 --> 20:40.320
+se calculează lățimea totală ori procentul unde ar trebui să fie coloana din stânga.
+
+20:40.420 --> 20:42.900
+Și apoi să spunem de exemplu rândul de jos,
+
+20:43.090 --> 20:49.810
+Știu că rândul de jos ar trebui să înceapă în partea de jos. Deci, procentul pe care-l iau de jos
+
+20:49.810 --> 20:56.300
+rând, înmulțesc cu înălțimea și apoi trebuie să-l scot din înălțimea totală pentru calcul
+
+20:56.300 --> 20:58.430
+pornește din partea de sus nu din partea de jos.
+
+21:00.500 --> 21:06.740
+Dar poți să te joci cu asta și după cum poți vedea prin apăsarea săgeților în sus și în jos poți ajusta aceste.
+
+21:06.920 --> 21:10.380
+Sunt foarte încântat că am reușit să lucrăm în primul domeniu.
+
+21:10.480 --> 21:12.320
+Acest lucru pare uimitor doar pentru a testa acest lucru,
+
+21:12.330 --> 21:22.640
+hai să aruncăm o altă imagine pentru a vedea dacă această cutie se mișcă cu imaginea.
+
+21:22.670 --> 21:27.480
+Să facem ceva ca Brad Pitt.
+
+21:27.660 --> 21:29.050
+Și i-am spus lui Brad Pitt,
+
+21:29.190 --> 21:30.340
+există un Brat Pitt?
+
+21:30.340 --> 21:30.800
+In regula.
+
+21:30.870 --> 21:35.290
+Deci, o imagine a lui unde nu se uită, nu e mort.
+
+21:36.080 --> 21:37.360
+Ce zici de această imagine.
+
+21:37.390 --> 21:38.950
+Acest lucru arată ca unul bun.
+
+21:39.420 --> 21:40.450
+Să o selectăm,
+
+21:40.450 --> 21:45.270
+accesați aplicația, introduceți-o, detectați.
+
+21:45.340 --> 21:46.430
+Ce bine e asta?
+
+21:46.480 --> 21:48.280
+Detectează fața.
+
+21:48.280 --> 21:48.550
+In regula.
+
+21:48.550 --> 21:53.510
+Doar pentru că o mulțime de distracție, am de gând să alegeți încă o dată. Hai să facem un excursionist.
+
+21:59.280 --> 22:05.180
+Poate o să fac un alpinist și să vedem dacă pot detecta această față.
+
+22:05.520 --> 22:06.890
+Asta va fi destul de dur.
+
+22:06.900 --> 22:07.880
+Aceasta este o imagine destul de mare. Sa vedem.
+
+22:12.220 --> 22:12.950
+Uită-te la asta.
+
+22:12.970 --> 22:17.180
+Detectează o față chiar dacă fața este foarte mică,
+
+22:17.200 --> 22:18.540
+o detectează.
+
+22:18.580 --> 22:20.020
+Acest lucru este foarte cool.
+
+22:23.400 --> 22:28.820
+In regula. Vreau să subliniez aici că am făcut-o foarte ușor.
+
+22:28.980 --> 22:35.820
+Și unul dintre miturile pe care chiar vreau să le fac aici este acela ca un dezvoltator sau doar pentru că am experiență
+
+22:35.820 --> 22:41.580
+nu înseamnă că pot face acest lucru repede. Am practicat cu siguranță acest lucru și m-am asigurat că nu-ți pierd timpul
+
+22:41.580 --> 22:47.970
+în timp ce urmăriți acest videoclip. Și că păstrez erorile și dacă fac ceva din greșeală, o fac intenționat
+
+22:47.970 --> 22:48.920
+pentru a vă arăta un punct.
+
+22:50.560 --> 22:56.140
+Dar, așa cum am spus, mi-a luat ceva timp să-mi dau seama cum funcționează această cutie, mai ales pentru că trebuia să fac ceva
+
+22:56.140 --> 22:59.750
+de matematică și uită-te la modul în care "clarifai" o face.
+
+22:59.900 --> 23:06.800
+Dar puterea vine doar cu răspunsul pe care îl obținem de la ea. Prin utilizarea acestui răspuns,
+
+23:07.310 --> 23:08.800
+Acum pot adăuga ceva aici.
+
+23:08.870 --> 23:12.640
+Poate că am vrut să înlocuiesc acest lucru cu un emoji ca un emoji față de zâmbet.
+
+23:12.680 --> 23:13.660
+E ușor de făcut.
+
+23:13.670 --> 23:17.320
+Este pur și simplu adăugarea unui stil CSS.
+
+23:17.530 --> 23:19.840
+Și doar pentru a vă asigura că acest lucru este receptiv.
+
+23:20.030 --> 23:20.400
+Da.
+
+23:20.510 --> 23:23.060
+Totul funcționează frumos.
+
+23:24.870 --> 23:30.330
+Acum aveți o aplicație pe care o puteți exprima prietenilor. Dar sunt câteva alte lucruri pe care vreau să le reparăm
+
+23:30.750 --> 23:34.500
+înainte de a începe să lucrăm la spate.
+
+23:34.660 --> 23:41.350
+Și asta este, vreau să fiu sigur că funcția de "ieșire" funcționează și avem o formă de sign in.
+
+23:41.490 --> 23:44.820
+Deci, în următoarea înregistrare, vom face exact asta.
+
+23:44.820 --> 23:45.650
+Ne vedem în acel.

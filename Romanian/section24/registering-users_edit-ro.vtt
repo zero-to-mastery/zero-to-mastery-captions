@@ -1,0 +1,358 @@
+WEBVTT
+
+00:00.570 --> 00:01.290
+Bine ai revenit.
+
+00:01.410 --> 00:05.160
+Să implementăm mai multe rute în aplicația noastră front-end.
+
+00:05.230 --> 00:09.430
+Tocmai am făcut Conectarea la front-end.
+
+00:09.580 --> 00:18.320
+Deci, acum să lucrăm și la Registru, și avem deja un cadru frumos de ceea ce vrem să facem pe baza
+
+00:18.320 --> 00:34.290
+despre ce am făcut cu Sign In. Putem converti din nou aceasta într-o clasă care extinde "React.Component".
+
+00:34.520 --> 00:37.340
+Și asta va face
+
+00:42.370 --> 00:49.870
+această declarație de returnare.
+
+00:50.100 --> 00:57.520
+De asemenea, dorim să avem câteva rute pe care, deocamdată, vom copia complet de la Conectare.
+
+01:05.120 --> 01:09.140
+Și aici o să avem - pentru înregistrare
+
+01:09.180 --> 01:09.830
+putem spune
+
+01:12.330 --> 01:16.000
+'email' 'parola'
+
+01:16.270 --> 01:18.190
+Și apoi, în final, și "numele"
+
+01:21.840 --> 01:25.750
+și va trebui să adăugăm o altă metodă aici.
+
+01:26.960 --> 01:35.460
+Aceasta va fi doar pentru numele și acest lucru va fi numit "onNameChange" și va trebui să schimbăm
+
+01:35.460 --> 01:43.680
+valori pentru "nume", "e-mail" și "parolă". Minunat.
+
+01:48.230 --> 01:55.680
+Vom salva acest lucru și va trebui de fapt să începem să le adăugăm componentei noastre.
+
+01:55.680 --> 02:02.700
+Primul lucru pe care dorim să-l facem este că vrem să folosim distrugerea pentru a obține componenta noastră sau "onRouteChange"
+
+02:03.600 --> 02:12.820
+din 'this.props' și să adăugăm 'onPasswordChange' pe toate celelalte intrări; creând din nou acestea
+
+02:12.820 --> 02:36.860
+pe o linie nouă.
+
+02:37.030 --> 02:38.830
+Whoo! In regula.
+
+02:38.990 --> 02:41.720
+Și din nou, vrem să creăm o metodă "fetch" aici.
+
+02:41.720 --> 02:48.910
+Deci, uitandu-ne la Sign In, cu siguranta dorim sa facem un POST, astfel incat sa putem copia asta pentru moment.
+
+02:48.910 --> 02:55.700
+Din nou, nu un mare fan al copierii și repetării codului, dar sper că acest lucru vă oferă o idee despre unele
+
+02:55.700 --> 03:00.410
+lucruri pe care le putem îmbunătăți pe măsură ce îmbunătățim ulterior aplicația noastră.
+
+03:00.830 --> 03:10.680
+Acum, din nou, 'submitSignIn' vom dori să facem acest lucru în loc de 'onRouteChange', așa că hai să facem '
+
+03:11.350 --> 03:16.600
+și va trebui să facem "this.onSubmitSignIn".
+
+03:16.740 --> 03:21.260
+Și am uitat acest cuvânt cheie și în toate astea.
+
+03:25.070 --> 03:30.600
+În regulă, acum - văd că lipsesc e-mailul de aici.
+
+03:30.620 --> 03:31.480
+Nu ar trebui să fie acolo.
+
+03:31.500 --> 03:32.340
+In regula.
+
+03:32.460 --> 03:38.010
+Și vom dori să ne asigurăm că trimitem e-mailul la "this.state.email"
+
+03:38.540 --> 03:39.700
+-
+
+03:43.070 --> 03:50.020
+Vom face "parola"
+
+03:50.120 --> 03:54.260
+Și în final vom face "this.state.name".
+
+03:58.580 --> 04:05.430
+Și "onRouteChange" - nu mai avem nevoie de asta aici? 'OnRouteChange'
+
+04:05.620 --> 04:12.610
+- vrem să mergem la "acasă" odată ce ne-am înregistrat, dar amintiți-vă dacă mergem la serverul nostru "/ registrul" se întoarce
+
+04:12.610 --> 04:13.940
+ultimul utilizator
+
+04:13.960 --> 04:19.840
+astfel încât utilizatorul nostru curent. Aceste date vor fi utilizatorii.
+
+04:19.850 --> 04:26.130
+Deci, să spunem doar utilizator.
+
+04:26.230 --> 04:36.640
+Deci, dacă vom primi un utilizator înapoi, vom schimba ruta la "acasă" și, probabil, dorim să actualizăm profilul utilizatorului
+
+04:37.330 --> 04:38.250
+pe front-end.
+
+04:39.630 --> 04:44.720
+Dar dacă te uiți la front-end, nu avem încă un profil de utilizator, dar poate că ar trebui.
+
+04:44.720 --> 04:52.430
+Deci, să adăugăm asta. Voi spune utilizator și va fi un obiect care conține "e-mail", care este
+
+04:52.430 --> 04:53.480
+un șir gol.
+
+04:54.910 --> 04:59.680
+Și putem copia tot ce vom primi din baza noastră de date
+
+05:04.180 --> 05:05.060
+în cazul nostru
+
+05:05.140 --> 05:12.580
+vor fi toate aceste valori - nu avem nevoie de e-mail, pentru că îl avem acolo - cu excepția faptului că totul va fi
+
+05:13.760 --> 05:17.690
+goale pentru a începe, și nu avem nevoie să returnăm parola.
+
+05:22.400 --> 05:30.850
+"e-mail" este eliminat. "înregistrările" vor fi zero pentru moment, și "alăturat" va fi doar un șir gol.
+
+05:30.860 --> 05:34.690
+În mod ideal, când ne înregistrăm, putem să le actualizăm.
+
+05:34.760 --> 05:42.650
+Deci, ce putem face cu Registrul este că vom avea o schimbare de traseu, dar poate, de asemenea, numim o funcție
+
+05:42.650 --> 05:51.830
+apel:"updateUser" sau "loadUser", pe care încă nu avem.
+
+05:51.830 --> 05:55.370
+Și putem trece probabil obiectul utilizatorului la acest lucru.
+
+05:55.680 --> 06:01.840
+Și pentru că asta este ceva pe care întreaga aplicație are nevoie, cred că ar trebui să o construim în componenta App.
+
+06:01.970 --> 06:11.460
+Așa că vom salva "this.props.loadUser (utilizator)" și vom reveni la "App.js" și vom crea această funcție
+
+06:12.400 --> 06:28.370
+Vom spune "loadUser", "user" și va actualiza starea cu utilizatorul pe care l-am primit.
+
+06:30.570 --> 06:33.030
+În cazul nostru vor fi aceste valori.
+
+06:46.030 --> 06:54.100
+Toate aceste valori vor veni din parametrul "utilizator". Și să schimbăm numele aici doar așa
+
+06:54.100 --> 06:57.350
+nu te confunda - cu "date" pentru moment.
+
+07:02.120 --> 07:03.260
+'Data.id'
+
+07:06.890 --> 07:11.110
+Vom avea "nume" aici; vom avea "e-mail"
+
+07:15.360 --> 07:16.210
+„intrări“
+
+07:16.530 --> 07:17.490
+Și apoi în cele din urmă
+
+07:23.520 --> 07:33.950
+„Alăturat“. Am o sintaxă aici puțin cam oprită. Acolo te duci.
+
+07:34.080 --> 07:41.130
+Bine, dacă ne întoarcem la "Register.js", avem "onRouteChange" salvat cu succes. Deci, încărcăm utilizatorul
+
+07:41.670 --> 07:46.020
+și apoi, de asemenea, schimbarea rutei. A fost o mulțime de lucruri fără a testa codul
+
+07:46.020 --> 07:47.300
+așa că haideți să verificăm.
+
+07:47.400 --> 07:48.570
+Să vedem dacă funcționează.
+
+07:49.440 --> 08:02.890
+Mă duc să mă înregistrez. Mă îndoiesc că funcționează prima dată, dar să vedem. 'Wes@gmail.com'
+
+08:03.230 --> 08:03.920
+Acesta este numele.
+
+08:03.950 --> 08:12.370
+Deci, vom spune 'wes', 'wes@gmail.com', parola noastră este '123'. Voi deschide consola aici doar pentru a vedea
+
+08:12.370 --> 08:13.710
+ce fel de erori avem.
+
+08:15.860 --> 08:17.810
+Mă îndoiesc că funcționează pentru prima dată, dar vom vedea.
+
+08:17.810 --> 08:19.930
+Inregistreaza-te. In regula.
+
+08:19.930 --> 08:29.590
+Avem două erori aici. "loadUser nu este o funcție" și asta pentru că dacă mergem la 'App.js'
+
+08:29.630 --> 08:34.450
+"loadUser" nu este trecut niciodată în "Register".
+
+08:34.530 --> 08:35.190
+Deci, să facem asta.
+
+08:38.110 --> 08:42.730
+"Register" va primi și "loadUser"
+
+08:46.810 --> 08:47.200
+asa.
+
+08:50.720 --> 08:52.130
+Și va trebui să fie 'this.loadUser'.
+
+08:52.220 --> 08:52.780
+-
+
+08:53.300 --> 08:53.830
+In regula.
+
+08:53.870 --> 08:54.520
+Runda doi.
+
+08:54.620 --> 08:55.960
+Să vedem dacă funcționează.
+
+09:03.250 --> 09:08.190
+Unu doi trei.
+
+09:08.190 --> 09:08.710
+In regula.
+
+09:08.730 --> 09:17.160
+Putem să ne conectăm, dar avem o cerere greșită.
+
+09:17.190 --> 09:21.210
+Să vedem că informațiile noastre arată bine.
+
+09:21.210 --> 09:23.210
+"e-mail", "nume", "parolă".
+
+09:23.630 --> 09:26.830
+Iar răspunsul pe care l-am primit a fost "înregistrarea erorilor".
+
+09:27.110 --> 09:31.580
+Și asta pentru că dacă ne întoarcem la pagina noastră de înregistrare.
+
+09:31.610 --> 09:34.390
+Ei bine, nu am schimbat doar acest lucru pentru a '/ register'?
+
+09:34.400 --> 09:35.680
+Asta e prost de noi.
+
+09:36.580 --> 09:39.190
+Schimbați acest lucru pentru a "înregistra", salvați
+
+09:42.670 --> 09:42.910
+Mă duc
+
+09:42.920 --> 09:45.420
+obosit să scrie informațiile lui Wes aici.
+
+09:50.000 --> 09:54.700
+Și înregistrează-te. In regula.
+
+09:54.720 --> 10:00.990
+Nu există erori. Să vedem ce a fost răspunsul la "înregistrare".
+
+10:01.180 --> 10:11.340
+Avem răspunsul; Wes este utilizator '125'; "parola" este "123"; "intrările" sunt 0 "și" s-au alăturat "- în această zi.
+
+10:11.470 --> 10:13.590
+Din nou, nu vrem parola.
+
+10:13.630 --> 10:22.250
+Nu ar trebui să ne întoarcem cu adevărat parola, dar este o rezolvare ușoară și pur și simplu o eliminăm
+
+10:22.250 --> 10:24.490
+"server.js".
+
+10:24.500 --> 10:25.420
+Cat de tare e asta?
+
+10:25.430 --> 10:27.700
+Avem o înregistrare.
+
+10:28.130 --> 10:35.260
+Și dacă ne întoarcem la un traseu rădăcină sau dacă mergem la localhost, hai să mergem pe această parte
+
+10:35.270 --> 10:35.730
+aici.
+
+10:36.940 --> 10:44.470
+Și du-te la traseul rădăcinii; am reînviorat din nou, astfel încât Wes nu este acolo, dar dacă vă înregistrați din nou ...
+
+10:48.050 --> 10:53.020
+Din nou, acesta este exact motivul pentru care nu putem aștepta să avem o bază de date.
+
+10:53.060 --> 10:55.630
+Să încercăm din nou și să ne uităm la asta.
+
+10:55.670 --> 10:59.230
+Avem Wes ca utilizator al nostru.
+
+10:59.290 --> 11:00.520
+Foarte tare.
+
+11:00.520 --> 11:06.760
+Și acum este un pic de repetare corect? Suntem destul de mult pentru a ne conecta cu serverul nostru
+
+11:07.060 --> 11:12.910
+și ambele părți doresc să se asigure că trimit datele potrivite, iar serverul răspunde cu dreptate
+
+11:12.910 --> 11:13.480
+date.
+
+11:13.480 --> 11:18.190
+Există cu siguranță o mulțime de curățare pe care o putem face - o mulțime de erori care se pot întâmpla - de exemplu dacă eu
+
+11:18.190 --> 11:23.210
+introduceți un email și o parolă sau un nume de utilizator nevalid.
+
+11:23.430 --> 11:26.280
+Dar cred că începi să înțelegi.
+
+11:26.290 --> 11:26.650
+In regula.
+
+11:26.740 --> 11:28.040
+Ne vedem în următorul. Pa! Pa

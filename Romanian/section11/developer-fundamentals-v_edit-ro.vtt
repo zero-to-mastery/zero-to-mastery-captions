@@ -1,0 +1,175 @@
+WEBVTT
+
+00:01.110 --> 00:07.120
+Bine ați venit la cel de-al cincilea dezvoltator fundamental. Încă mai ești puternic și sunt mândru de tine.
+
+00:07.170 --> 00:10.770
+Tocmai ați trecut prin cea mai dificilă secțiune care este manipularea DOM.
+
+00:10.800 --> 00:17.760
+Dar înainte de a merge, vreau să vorbesc cu dvs. despre un alt dezvoltator fundamental, pe care îl accesează
+
+00:17.970 --> 00:25.330
+DOM. Javascript și oh îmi pare rău Cred că l-am primit pe John. Cum merge John? - Tu și ce armată?
+
+00:25.490 --> 00:26.110
+In regula.
+
+00:26.180 --> 00:32.270
+Înapoi la ceea ce vorbim - Javascript în HTML face lucrurile pe Web foarte interesante cu toți
+
+00:32.270 --> 00:33.230
+lucrurile pe care le puteți face.
+
+00:33.440 --> 00:36.530
+Dar a introdus, de asemenea, o mulțime de probleme.
+
+00:36.710 --> 00:39.110
+Unul a fost interiorHTML aici.
+
+00:39.620 --> 00:45.820
+De fiecare dată când este setat innerHTML, HTML-ul trebuie analizat,
+
+00:46.100 --> 00:51.000
+un DOM construit și introdus în document.
+
+00:51.020 --> 00:52.420
+Ce înseamnă asta?
+
+00:52.430 --> 01:01.740
+Trebuie să recreăm acest copac și apoi să îl adăugăm în browserul Web și apoi să avem totul aici
+
+01:01.750 --> 01:03.660
+apărea pe pagina Web.
+
+01:03.910 --> 01:08.110
+Vreau să spun că browserele Web sunt rapide, dar încă mai trebuie să facă treabă.
+
+01:08.200 --> 01:09.620
+Acest lucru necesită timp.
+
+01:09.640 --> 01:17.200
+De exemplu, dacă elementul să spunem că acesta are eticheta "a",
+
+01:17.290 --> 01:26.190
+și există mii de acestea în arborele DOM, dacă numiți acest punct interiorHTML, merge
+
+01:26.190 --> 01:30.870
+pentru a determina Parserul să reevalueze totul peste tot.
+
+01:31.230 --> 01:37.450
+Și acest lucru ar putea rupe referințele la eventualele clicuri și poate provoca alte haosuri.
+
+01:37.470 --> 01:42.760
+În realitate, tot ce vrei să faci este să atașezi un singur element nou la sfârșit.
+
+01:43.950 --> 01:51.070
+Și innerHTML este susceptibilă și la unele atacuri numite scripting cross-site, care reprezintă o problemă de securitate.
+
+01:52.260 --> 01:58.680
+Acum, pe măsură ce mai multe site-uri web încearcă să facă pagina Web să facă mai mult decât să arate o pagină, gândiți-vă la un Web
+
+01:58.680 --> 02:01.170
+app, ca Udemy aici.
+
+02:01.560 --> 02:06.570
+Evident, se întâmplă mult mai mult decât text și stil.
+
+02:06.700 --> 02:13.050
+Accesează DOM și schimbă lucrurile destul de mult, dar aceasta este o problemă de performanță imensă.
+
+02:13.300 --> 02:19.060
+În videoclipurile anterioare am aflat că vrem să facem site-uri performante și rapide în această zi și
+
+02:19.060 --> 02:23.500
+vârstă prin minimizarea cantității cererilor de backend pe care le facem.
+
+02:23.500 --> 02:32.070
+Deci, dacă vă aduceți aminte că am aflat că locația serverelor este importantă, câte excursii facem să le luăm
+
+02:32.280 --> 02:36.560
+toate fișierele sunt importante, iar dimensiunea fișierelor contează.
+
+02:36.560 --> 02:44.980
+Acum, în această lecție dorim să minimizăm cantitatea de manipulare DOM pe care o facem. Dacă ne schimbăm, să spunem unul
+
+02:44.980 --> 02:45.750
+scapă jos,
+
+02:45.810 --> 02:48.340
+nu vrem ca reevaluarea întregii pagini să se facă.
+
+02:48.540 --> 02:55.200
+Vrem să avem un site interactiv, dar nu neapărat să facem ca browserul Web să funcționeze pentru că suntem
+
+02:55.200 --> 03:00.400
+schimbând mereu lucrurile către obiectul documentului.
+
+03:00.410 --> 03:01.700
+Să vedem despre ce vorbesc
+
+03:01.700 --> 03:03.650
+arătându-vă un exemplu.
+
+03:03.650 --> 03:11.450
+Dacă deschid consola aici și de fapt, pot apăsa de evacuare și veți vedea că comută o bară nouă
+
+03:12.770 --> 03:18.380
+și s-ar putea să nu vedeți redarea ar putea fi necesar să faceți clic aici și selectați randarea pe care o veți putea
+
+03:18.380 --> 03:21.340
+pentru a face ceva numit Paint vopsite.
+
+03:21.520 --> 03:33.430
+Iar dacă reduc acest lucru, de fiecare dată când acest lucru devine verde înseamnă că ceva este reprodus pe pagina Web
+
+03:34.150 --> 03:37.450
+și puteți vedea aici, pe măsură ce defilez totul,
+
+03:40.410 --> 03:43.080
+toate acțiunile verzi se întâmplă.
+
+03:43.350 --> 03:46.590
+Și asta e mult, de multe lucruri.
+
+03:46.600 --> 03:53.320
+Și Udemy face o treabă bună să se asigure că atunci când fac acest lucru doar această secțiune care sunt de fapt
+
+03:53.320 --> 04:01.830
+atingerea devine ... devine pictată. Deci jucați cu el dacă doriți și verificați câteva site-uri diferite. niste
+
+04:01.830 --> 04:04.040
+site-uri pe care le veți observa când parcurgeți ...
+
+04:04.270 --> 04:08.330
+va re-face totul în loc de bar, după cum puteți vedea aici.
+
+04:09.780 --> 04:12.170
+Dar aceasta este lecția ta.
+
+04:12.540 --> 04:17.870
+Vrei să reduci la minimum cantitatea de manipulare DOM și evenimente.
+
+04:17.920 --> 04:24.160
+Este un concept foarte important în construirea aplicațiilor Web și doriți să fiți inteligenți și să utilizați cele mai bune metode
+
+04:24.580 --> 04:27.190
+pentru a minimiza acest lucru. Acum,
+
+04:27.280 --> 04:32.350
+din fericire pentru tine, de aceea a fost creat REACT.
+
+04:32.350 --> 04:36.220
+Veți afla mai multe despre el în acea secțiune, dar vă veți bucura.
+
+04:36.220 --> 04:40.340
+Va face lucrurile într-adevăr foarte rapid și foarte simplu de construit.
+
+04:41.650 --> 04:42.220
+O.K.
+
+04:42.520 --> 04:43.750
+Atât deocamdată.
+
+04:44.020 --> 04:44.710
+Pana data viitoare. Pa! Pa

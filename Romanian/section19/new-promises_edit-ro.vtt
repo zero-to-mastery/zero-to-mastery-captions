@@ -1,0 +1,832 @@
+WEBVTT
+
+00:01.390 --> 00:09.650
+Promisiunile sunt o caracteristică nouă în JavaScript ca și ES6. Dar asta înseamnă că sunt cu adevărat utile să le ai
+
+00:09.650 --> 00:11.590
+introduceți ca parte a limbii.
+
+00:11.630 --> 00:12.410
+Dreapta?
+
+00:12.660 --> 00:14.490
+Ei bine, ai absolut dreptate.
+
+00:14.510 --> 00:16.350
+Promisiunile sunt peste tot.
+
+00:16.400 --> 00:21.680
+Și în acest videoclip îți voi arăta ce sunt, cum funcționează și, sperăm, vom înțelege de ce
+
+00:21.710 --> 00:25.970
+ar trebui să ne sărim de bucurie că le avem în loc de apeluri.
+
+00:25.970 --> 00:29.260
+Acum, pentru a înțelege promisiunile, să o definim.
+
+00:29.660 --> 00:36.650
+O promisiune este un obiect care poate produce o singură valoare cândva în viitor. Fie o valoare rezolvată,
+
+00:37.160 --> 00:39.920
+sau un motiv că nu este rezolvat sau respins.
+
+00:40.910 --> 00:46.890
+O promisiune poate într-una din cele trei stări posibile îndeplinite, respinse sau în așteptare.
+
+00:47.010 --> 00:47.750
+Huh.
+
+00:48.150 --> 00:53.730
+Să ne dăm seama ce înseamnă asta în acest videoclip, astfel încât până la sfârșitul acestuia toate acestea să aibă sens
+
+00:53.730 --> 00:54.340
+pentru tine.
+
+00:54.450 --> 01:00.840
+Acum, pentru a înțelege pe deplin conceptul, trebuie să vorbim mai întâi despre ceea ce am avut înainte de promisiuni și care este
+
+01:01.050 --> 01:02.050
+callback.
+
+01:03.340 --> 01:04.430
+Ceva de genul.
+
+01:04.570 --> 01:11.170
+Când se face ceva, executați această bucată de cod. Comenzile de returnare în javascript sunt exact așa.
+
+01:11.170 --> 01:17.360
+I-am scris prietenului meu Bob și i-am spus lui Hey Bob care este acel cântec foarte bun de către Backstreet Boys.
+
+01:18.130 --> 01:23.020
+Când Bob are timp, ma sunat înapoi și spune că da - da,
+
+01:23.090 --> 01:23.370
+este
+
+01:23.380 --> 01:24.460
+O vreau asa.
+
+01:24.670 --> 01:27.590
+Și exact așa se întâmplă aici.
+
+01:27.820 --> 01:30.940
+Avem un element pe care îl adăugăm unui ascultător al evenimentului.
+
+01:31.120 --> 01:38.320
+Iar când un utilizator dă clic, vom primi formularul de trimitere a apelului. Odată ce utilizatorul face clic, suntem
+
+01:38.320 --> 01:42.100
+va răspunde cu formularul de trimitere.
+
+01:42.140 --> 01:43.750
+Să ne gândim la un alt exemplu.
+
+01:44.000 --> 01:50.480
+Să presupunem că creăm un joc și avem această funcție a jucătorului care are distanța de mișcare
+
+01:50.480 --> 01:52.230
+jucătorul și direcția.
+
+01:52.640 --> 01:59.330
+Dacă aș fi vrut să mut jucătorul 100 în stânga, aș face asta. Odată ce sa terminat
+
+01:59.360 --> 02:07.070
+Vreau să ruleze o funcție de apel invers, care va muta jucătorul 400 din nou în stânga și apoi un alt apel invers
+
+02:07.070 --> 02:12.740
+funcția imediat după ce se face pentru a muta playerul 10 spre dreapta și o altă opțiune de apel invers pentru a vă deplasa
+
+02:12.740 --> 02:15.200
+jucătorul 330 în stânga.
+
+02:15.350 --> 02:19.950
+Și avem ceva numit piramida de doom.
+
+02:20.030 --> 02:23.060
+Acesta este, evident, un exemplu simplu.
+
+02:23.240 --> 02:30.290
+Dar, cu apeluri de apel veți obține această funcție imbricată și creați această piramidă de adevărat
+
+02:30.290 --> 02:35.930
+cod complicat al acestui lucru se întâmplă, atunci acest lucru se întâmplă și acest lucru se întâmplă și acest lucru se întâmplă și este într-adevăr
+
+02:35.930 --> 02:37.460
+foarte greu de citit.
+
+02:37.550 --> 02:39.460
+Permiteți-mi să vă arăt un exemplu mai realist.
+
+02:42.640 --> 02:50.380
+Să presupunem că avem un fel de aplicație care folosește Twitter și permiteți-mi să fac acest lucru mai mare, astfel încât să puteți vedea noi
+
+02:50.380 --> 02:51.350
+au un grabTweets
+
+02:51.360 --> 02:56.410
+funcția în care primul parametru are adresa URL
+
+02:56.410 --> 02:57.740
+Pentru moment am simplificat-o.
+
+02:57.760 --> 03:00.430
+Tocmai am trecut Twitter și mânerul Twitter.
+
+03:00.640 --> 03:05.780
+Și apoi funcția de apel invers după ce ați apucat mesajele tweets care au o eroare.
+
+03:05.830 --> 03:07.330
+Și tweets.
+
+03:07.750 --> 03:11.040
+Și dacă există o eroare, aruncăm o eroare.
+
+03:11.050 --> 03:13.620
+Deci, doar creează o eroare în javascript.
+
+03:13.810 --> 03:15.870
+În caz contrar, vom afișa tweet-urile.
+
+03:16.180 --> 03:21.740
+Dar apoi, dacă tweeturile lui andrei au avut succes, atunci dorim să luăm din nou tweet-urile.
+
+03:22.000 --> 03:24.840
+Să facem Elon Musk de data asta și din nou, dacă e greșit
+
+03:24.880 --> 03:25.830
+Vom arunca eroare.
+
+03:25.930 --> 03:28.270
+În caz contrar, vom afișa tweets-ul.
+
+03:28.450 --> 03:33.880
+Și dacă acest lucru reușește, atunci vom lua de asemenea și tweeturile lui Vitalik Buterin.
+
+03:34.000 --> 03:42.520
+Și din nou, dacă eroare, aruncați eroare altfel afișați tweet-uri. Și asta nu arată foarte drăguț?
+
+03:43.340 --> 03:46.840
+Adică trebuie să facem același lucru pe care trebuie să-l verificăm pentru eroare.
+
+03:46.880 --> 03:54.310
+Și de fiecare dată când o avem imbrăcată și, în general, avem o mulțime de repetări a codului.
+
+03:55.820 --> 04:01.330
+Acum promisiunile servesc aceluiași scop ca callback-urile.
+
+04:01.450 --> 04:03.520
+Deci, de ce avem două lucruri.
+
+04:03.520 --> 04:08.080
+Ei bine, promisiunile sunt noi în ES6 și sunt puțin mai puternice.
+
+04:08.080 --> 04:10.490
+Lasă-mă să-ți arăt cum arată o promisiune.
+
+04:12.190 --> 04:14.830
+Îți amintești acest cod de jucător.
+
+04:14.970 --> 04:21.690
+Ei bine, asta cu o promisiune va arata cam asa.
+
+04:21.690 --> 04:29.010
+Nu arata mult mai bine, dar este foarte greu sa intelegi ce se intampla aici, fara sa fie
+
+04:29.010 --> 04:30.900
+știind cum să creeze o promisiune.
+
+04:30.930 --> 04:32.420
+Deci, haideți să începem cu asta.
+
+04:32.760 --> 04:44.150
+Voi elimina acest lucru și voi crea prima noastră promisiune. Vom spune equ equals -
+
+04:44.320 --> 04:47.240
+și aceasta este o nouă sintaxă pe care trebuie să o obișnuiți.
+
+04:47.440 --> 04:49.900
+"Promisiunea nouă ()"
+
+04:49.900 --> 04:59.940
+Deci, creăm o nouă promisiune și această promisiune are un parametru care fie rezolvă, fie respinge.
+
+05:00.080 --> 05:08.560
+Și aici - în această funcție avem opțiunea de a spune doar fie să rezolve.
+
+05:08.670 --> 05:23.570
+Să facem doar "lucruri lucrate" sau respingere și în acest caz avem o "Eroare, a rupt".
+
+05:23.610 --> 05:29.160
+Acum, evident, dorim să avem o afirmație condiționată aici, vom spune dacă este condiție în cazul nostru
+
+05:29.160 --> 05:30.720
+să fie adevărat deocamdată.
+
+05:31.850 --> 05:32.850
+daca e adevarat-
+
+05:33.050 --> 05:42.520
+Deci, dacă promisiunea a revenit, o vom rezolva.
+
+05:42.600 --> 05:50.510
+În caz contrar, vom respinge.
+
+05:50.590 --> 05:51.330
+Și iată ce e.
+
+05:51.340 --> 05:54.530
+Acest lucru pare confuz, fără a cunoaște aplicația.
+
+05:54.580 --> 05:58.780
+Dar vreau să aveți doar aici, pentru a putea să vă uitați la ea, pe măsură ce progresăm prin aceasta
+
+05:58.780 --> 06:01.310
+video, acest lucru va face din ce în ce mai mult sens.
+
+06:01.360 --> 06:10.360
+Acum că avem o promisiune dacă aș pune asta în consola mea, browserul meu Chrome.
+
+06:11.180 --> 06:11.470
+In regula
+
+06:11.480 --> 06:12.820
+Am promisiunea acum.
+
+06:12.830 --> 06:16.850
+Dar cum putem face ca această promisiune să se încheie acum.
+
+06:17.090 --> 06:21.240
+Ei bine, pot doar promise.then
+
+06:21.370 --> 06:32.650
+Deci, odată ce promisiunea este rezolvată sau respinsă. Atunci vreau să obțin rezultatele și apoi dorim
+
+06:32.650 --> 06:38.590
+console.log "rezultatul".
+
+06:38.740 --> 06:39.250
+Asta e.
+
+06:39.270 --> 06:41.260
+Să vedem ce se întâmplă aici.
+
+06:41.260 --> 06:43.850
+Am de gând să o copiez aici.
+
+06:44.650 --> 06:45.800
+"Lucru lucrat".
+
+06:46.120 --> 06:46.560
+In regula.
+
+06:46.600 --> 06:57.000
+Așa că am respectat promisiunea că a pornit această parte și pentru că tocmai am făcut-o dacă e egală cu cea reală
+
+06:57.000 --> 06:58.310
+executați rezolvarea.
+
+06:59.150 --> 07:05.760
+Și rezolvarea va trimite "rezultatul lucrat" în rezultatul și vom merge la console.log "Stuff
+
+07:05.770 --> 07:06.350
+A lucrat."
+
+07:06.560 --> 07:10.750
+Și mai vedem și aici că promisiunea este rezolvată.
+
+07:11.200 --> 07:21.520
+Din nou, dacă văd doar "promisiunea" aici, văd că avem promisiunea cu "Stuff Worked" minunat.
+
+07:21.690 --> 07:21.880
+bine
+
+07:21.890 --> 07:28.110
+Deci, bazându-ne pe ceea ce știm acum, să aruncăm o privire la ceea ce putem face cu promisiunile.
+
+07:28.160 --> 07:33.710
+Să spunem că acum, cu "Lucru activ" vreau să iau rezultatul.
+
+07:37.880 --> 07:48.380
+Și adăugați un semn de exclamare și apoi - și acest lucru se numește înlănțuire în promisiuni.
+
+07:48.380 --> 07:55.250
+Apoi, după ce fac asta, va reveni la rezultatul cu semnul exclamării și în cazul nostru
+
+07:55.310 --> 07:59.220
+Vreau doar să obțin "rezultatul2".
+
+07:59.330 --> 08:06.370
+Și vom console.log doar "result2".
+
+08:06.520 --> 08:07.120
+In regula.
+
+08:07.170 --> 08:08.660
+Să vedem ce se întâmplă acum.
+
+08:08.780 --> 08:13.340
+Așa că am promisiunea mea doar ca să fiu sigur că o avem aici.
+
+08:13.340 --> 08:14.250
+Perfect.
+
+08:15.300 --> 08:25.070
+Și vom executa chestiile făgăduindu-se cu semnul exclamării foarte cool.
+
+08:25.180 --> 08:30.970
+Dar ce se întâmplă dacă se întâmplă ceva între noi, avem doar un console.log, dar
+
+08:30.970 --> 08:36.300
+să presupunem că avem o eroare și că această eroare ne face să aruncăm o eroare.
+
+08:37.500 --> 08:44.290
+Ce se întâmplă acum? Cu promisiuni puteți face ceva numit ".catch ()"
+
+08:44.710 --> 08:48.880
+Și asta va prinde orice eroare pe care promisiunea o poate avea.
+
+08:48.880 --> 08:51.700
+În cazul nostru, dorim doar un console.log
+
+08:52.390 --> 08:54.460
+Și acum dacă voi conduce asta
+
+08:57.770 --> 09:00.170
+consolăm logul erorii.
+
+09:00.210 --> 09:02.250
+Să facem asta puțin mai curat.
+
+09:02.660 --> 09:06.620
+Ca să vedeți exact ce se întâmplă.
+
+09:09.700 --> 09:14.480
+Deci, copiați și lipiți din nou.
+
+09:14.560 --> 09:16.220
+Acolo te duci noi primim eroarea.
+
+09:16.390 --> 09:20.760
+Dacă eroarea de aruncare se întâmplă înainte, să spunem că se întâmplă
+
+09:23.430 --> 09:24.150
+de mai sus
+
+09:28.170 --> 09:29.610
+și vrem să întoarcem acest lucru
+
+09:32.990 --> 09:43.310
+Ei bine, dacă mișc eroarea de aruncare la partea de sus aici. Salvați și copiați din nou și lipiți. Să curățăm asta a
+
+09:43.310 --> 09:46.300
+bit și să vedem că încă mai avem eroarea.
+
+09:46.370 --> 09:56.300
+Prin urmare, captura captează orice eroare care se poate întâmpla între lanțuri. Atunci care este foarte foarte rece.
+
+09:56.290 --> 09:57.990
+Bine, așa că am o mică întrebare pentru tine.
+
+09:58.100 --> 10:05.060
+Ce se întâmplă dacă facem ceva de-a lungul acestei linii - permiteți-mi să mă întorc la ceea ce am avut înainte. Nu o facem
+
+10:05.060 --> 10:06.690
+Mai aveți o eroare.
+
+10:07.910 --> 10:17.900
+Dar de data aceasta avem rezultatul2 plus semnul întrebării.
+
+10:18.060 --> 10:20.920
+Așa că vom adăuga un semn de întrebare.
+
+10:20.950 --> 10:22.360
+Vom reveni la asta.
+
+10:22.390 --> 10:27.450
+Vom prinde o eroare Console.log.
+
+10:27.620 --> 10:33.160
+Și după aceea o să avem un
+
+10:33.950 --> 10:39.270
+rezultat3 și apoi result3 va avea a
+
+10:40.610 --> 10:41.180
+result3
+
+10:42.200 --> 10:43.800
+la care se adauga
+
+10:44.780 --> 10:47.190
+hai să facem un alt semn de exclamare.
+
+10:47.540 --> 10:50.820
+Și noi vrem să consoleză să înregistrăm acest lucru din nou.
+
+10:50.900 --> 10:51.440
+Hopa.
+
+10:52.260 --> 10:55.900
+Mergem la console.log
+
+10:57.840 --> 10:59.680
+toate astea.
+
+10:59.690 --> 11:00.860
+Ce crezi că se va întâmpla?
+
+11:00.860 --> 11:02.780
+Sa vedem.
+
+11:03.010 --> 11:09.530
+Salvăm, copiem și lipim și ne uităm la asta.
+
+11:09.540 --> 11:12.790
+Avem "umplute lucrate" - sau "Lucru Lucru!"! - Haha
+
+11:12.870 --> 11:15.280
+Exclamarea exclamatorie exclamație.
+
+11:15.420 --> 11:20.450
+Deci ".catch" rulează numai dacă ceva nu reușește între aici.
+
+11:20.490 --> 11:25.840
+Dar pentru că l-am pus înainte de asta, dacă acest lucru nu reușește
+
+11:33.210 --> 11:42.140
+- Ei bine, nu primesc consola de eroare. Am o eroare în consola noastră pentru că am aruncat o eroare, dar
+
+11:42.170 --> 11:44.100
+declarația de captură nu se execută niciodată.
+
+11:44.480 --> 11:53.750
+Deci, unde ați pus declarația de captură este - va verifica și va rula dacă ceva înainte să nu reușească.
+
+11:54.140 --> 11:54.800
+In regula.
+
+11:54.800 --> 11:55.440
+Minunat.
+
+11:55.730 --> 11:58.250
+Așa facem o promisiune.
+
+11:58.340 --> 12:01.130
+O promisiune are o hotărâre și o respingere.
+
+12:01.190 --> 12:03.770
+Și până acum a fost rezolvată numai.
+
+12:03.770 --> 12:05.330
+Doar a fost rezolvată.
+
+12:05.360 --> 12:06.950
+Nu am derulat niciodată respingerea.
+
+12:06.950 --> 12:08.320
+O vom face mai târziu.
+
+12:08.570 --> 12:19.060
+Dar vedem că, cu o promisiune, putem să o dăm unei variabile și să o executăm și să facem ceva cu ea în mod asincron.
+
+12:19.280 --> 12:25.730
+Cand vom rula. Atunci vom obtine rezultatul si vom face tot ceea ce doriti cu ea, vom putea sa o pastram si sa o legam
+
+12:25.730 --> 12:27.890
+ne putem prinde și erorile.
+
+12:27.920 --> 12:32.840
+O promisiune este ceva ce aveți acum pe care îl puteți folosi în jurul codului, chiar dacă nu aveți
+
+12:32.840 --> 12:34.450
+valoarea încă.
+
+12:34.610 --> 12:39.230
+Puteți să o atribuiți unei variabile, așa cum am făcut-o aici, pentru o promisiune constantă.
+
+12:39.240 --> 12:43.250
+"Acum, când ar fi un lucru bun?"
+
+12:43.670 --> 12:48.380
+Promisiunile sunt bune pentru programarea asincronă. Dacă nu-ți amintești ce înseamnă asta
+
+12:48.380 --> 12:52.790
+Asigurați-vă că ați verificat videoclipul meu cu privire la "cum funcționează javascript" pentru a înțelege conceptul.
+
+12:53.030 --> 12:58.940
+Când nu doriți ca javascript să blocheze executarea codului dvs., cum ar fi efectuarea de apeluri API, prindeți date
+
+12:58.940 --> 13:04.960
+dintr-o bază de date sau optimizând o imagine pe care o utilizați o promisiune, astfel încât sarcina să se întâmple în spate
+
+13:05.690 --> 13:12.800
+când promisiunea va fi rezolvată sau respinsă, veți primi răspunsul.
+
+13:12.800 --> 13:16.610
+Acum, să vă arătăm altceva ce pot face promisiunile.
+
+13:16.610 --> 13:18.750
+Acest lucru le face cu adevărat puternice.
+
+13:18.890 --> 13:30.840
+Să spunem că în interiorul nostru am avut o altă promisiune o promisiune constantă2 și această promisiune are din nou
+
+13:30.840 --> 13:33.080
+o hotărâre.
+
+13:34.810 --> 13:35.380
+respinge
+
+13:41.960 --> 13:50.170
+Voi face acest lucru un pic mai mic și această "rezolvare, respingere" va avea un setTimeout. Deci setTimeout
+
+13:50.180 --> 13:56.470
+este un API web pe care ne permite să ieșim din timp și să rulez ceva după câteva secunde.
+
+13:56.570 --> 13:58.150
+Deci 'setTimeout ()'
+
+13:58.190 --> 14:07.690
+Vom spune "rezolvați în 100 de secunde" sau "100 milisecunde" textul "HIII"
+
+14:10.490 --> 14:11.070
+Bine.
+
+14:11.150 --> 14:12.910
+Nu vă faceți griji prea mult despre sintaxa.
+
+14:12.950 --> 14:19.100
+În esență, acest lucru spune:"Rulați acest lucru și reveniți rezolvați" HIII "în 100 de milisecunde."
+
+14:19.100 --> 14:21.970
+Să mai avem și o altă promisiune.
+
+14:22.870 --> 14:23.740
+Să spunem promisiune3
+
+14:23.740 --> 14:28.610
+iar aceasta se rezolvă într-o secundă.
+
+14:28.730 --> 14:33.010
+Și asta va spune "POOKIE".
+
+14:33.080 --> 14:40.250
+Și apoi, în sfârșit, o a patra promisiune și această a patra promisiune va rezolva
+
+14:40.310 --> 14:42.630
+în trei secunde.
+
+14:42.770 --> 14:49.280
+Și o să spună:"Eu sunt căutător?".
+
+14:54.240 --> 14:54.860
+In regula.
+
+14:55.030 --> 14:56.650
+Deci avem aceste promisiuni.
+
+14:56.650 --> 15:05.470
+Din nou, o caracteristică pe care o avem este ceva numit "Promise.all ()" și promisiunea
+
+15:05.470 --> 15:07.480
+o serie de promisiuni.
+
+15:07.480 --> 15:20.330
+În cazul nostru "promite" (unul), "promise2", "promise3" și apoi permite să "promise4", aceasta este o mulțime de promisiuni
+
+15:21.460 --> 15:24.550
+și aici putem face o
+
+15:24.930 --> 15:31.160
+Valorile vor fi returnate ca o matrice în ordinea în care au fost scrise.
+
+15:32.080 --> 15:37.910
+Și aici putem doar valori console.log să salvăm.
+
+15:38.310 --> 15:43.420
+Și o voi copia în consola noastră.
+
+15:43.650 --> 15:45.560
+De fapt, să copiem și să lipim.
+
+15:45.570 --> 15:51.600
+Toate acestea, urmăriți partea de jos a ecranului aici când apăs pe Enter.
+
+15:53.190 --> 15:59.540
+Unu, doi, trei, patru, cinci și avem rezultatul nostru
+
+15:59.700 --> 16:06.870
+Cinci secunde mai târziu. Vedeți aici că, deși aceștia au luat mult mai puțin pentru că am promis.
+
+16:06.870 --> 16:15.250
+a așteptat până când toate promisiunile au fost rezolvate și apoi au ieșit din valorile foarte cool.
+
+16:15.960 --> 16:29.060
+Apropo, motivul pentru care dacă fac acest lucru:unde atribuie mai întâi variabilele și apoi execută "promise.all"
+
+16:29.140 --> 16:32.610
+rezultatul este instantaneu.
+
+16:32.800 --> 16:36.300
+Și asta pentru că am făcut deja aceste promisiuni dreptate.
+
+16:36.310 --> 16:43.570
+Am atribuit-o unei variabile și între momentul în care am copiat și am lipit-o aici în aceste promisiuni
+
+16:43.600 --> 16:46.390
+în fundal au fost rezolvate.
+
+16:46.600 --> 16:47.170
+In regula.
+
+16:47.170 --> 16:53.410
+Să terminăm cu exemplul final care are câteva aplicații din lumea reală, astfel încât să aveți o idee
+
+16:53.410 --> 16:55.710
+când vrem să folosim promisiunile
+
+17:01.840 --> 17:04.710
+Voi șterge acest lucru, reîmprospătați.
+
+17:04.790 --> 17:11.680
+Acum am o listă de adrese URL și aceste adrese URL provin dintr-un simplu API.
+
+17:11.750 --> 17:12.860
+Lasa-ma sa-ti arat.
+
+17:17.500 --> 17:23.120
+Numit placeholder JSON și ne dau doar câteva puncte finale pe care le putem folosi, cum ar fi utilizatorii care se întorc
+
+17:23.120 --> 17:25.310
+ni niște date JSON.
+
+17:25.540 --> 17:28.410
+Deci, am aici utilizatori, posturi și albume.
+
+17:29.670 --> 17:34.310
+Și aceasta este foarte asemănătoare cu ceea ce faceți pe un site unde doriți să apucați câteva informații
+
+17:34.320 --> 17:44.390
+de pe serverul dvs. din baza de date cu utilizatori, postări și albume și să spunem că toate acestea sunt importante
+
+17:44.390 --> 17:47.440
+pentru noi pentru pagina pentru pagina de profil a utilizatorului.
+
+17:47.480 --> 17:54.450
+"Cum putem să le luăm pe toți?" Ei bine, folosind din nou promisiunile putem doar să promisem
+
+17:54.450 --> 17:59.330
+și putem să luăm doar URL-urile.
+
+17:59.930 --> 18:03.730
+Și în acest caz, putem doar să aruncăm o privire asupra acestui lucru, deci este o matrice.
+
+18:05.770 --> 18:18.980
+Și cu fiecare adresă URL pe care o luăm. Vrem să ... vrem să aducem din nou un API web pentru a apuca URL-urile
+
+18:18.980 --> 18:24.250
+un apel AJAX la adresa URL
+
+18:24.330 --> 18:32.730
+. atunci dorim să executăm din nou răspunsul prin answer.json
+
+18:32.800 --> 18:34.520
+Asta vine doar cu fetch
+
+18:34.550 --> 18:35.470
+pe care trebuie să o faceți
+
+18:38.320 --> 18:43.350
+și apoi de aici putem face un
+
+18:43.580 --> 18:48.320
+Și asta ne va duce să ne aducem aminte de o matrice, pentru că primim o promisiune.
+
+18:48.330 --> 18:55.110
+Toate aceste preluări vor reveni la rezultatele acestor rezultate.
+
+18:55.150 --> 18:57.720
+Ei bine, acum să console.log
+
+18:57.720 --> 19:01.250
+ei și vom face rezultate.
+
+19:01.630 --> 19:02.350
+Primul
+
+19:05.850 --> 19:16.170
+a doua și a treia. Să vedem dacă funcționează. Am să copiez toate astea.
+
+19:16.590 --> 19:18.710
+Să ne întoarcem la pagina noastră.
+
+19:19.500 --> 19:23.130
+Copiați și lipiți codul nostru așteptând un pic.
+
+19:23.130 --> 19:24.760
+Și tu te duci.
+
+19:24.840 --> 19:26.490
+E răspunsul nostru.
+
+19:26.580 --> 19:35.120
+Vedem că avem undefine aici pentru că am pus trei aici în loc de două. Hai să facem asta. Noi copiem și
+
+19:35.120 --> 19:40.760
+lipiți din nou acest lucru pentru a reîmprospăta pagina și acolo mergeți.
+
+19:40.790 --> 19:48.680
+Avem utilizatorii noștri, avem postările noastre și apoi avem și albumele noastre.
+
+19:48.690 --> 19:49.730
+Foarte tare.
+
+19:50.920 --> 19:56.320
+Să spunem că ceva nu reușește aici, poate că am scris greșit unul dintre adresele URL.
+
+19:56.350 --> 19:58.990
+Deci API-ul utilizatorilor nu va funcționa.
+
+19:59.290 --> 20:03.490
+Să adăugăm un .catch și console.log
+
+20:09.910 --> 20:22.170
+eroare. Dacă copiați și inserați această reîmprospătare și executați din nou acest lucru prin vizualizarea consolei la care primim o eroare. Cu
+
+20:22.170 --> 20:28.320
+promised.all dacă totul eșuează deoarece avem nevoie de utilizatori, postări și albume pentru întreaga noastră pagină
+
+20:28.320 --> 20:29.420
+siteul nostru.
+
+20:29.490 --> 20:37.980
+Avem o "respingere" din promisiune și o putem prinde și putem face tot ce vrem cu această eroare.
+
+20:38.010 --> 20:39.040
+Foarte tare.
+
+20:39.180 --> 20:40.810
+Bine, deci să rezolvăm asta.
+
+20:40.830 --> 20:42.460
+Deci funcționează din nou.
+
+20:42.800 --> 20:43.550
+Și tu te duci.
+
+20:43.590 --> 20:47.100
+De aceea promisiunile sunt atât de benefice.
+
+20:47.100 --> 20:50.750
+Suntem capabili să facem așa ceva într-un mod foarte curat.
+
+20:50.760 --> 20:56.060
+Amintiți-vă că întoarcerea pur și simplu se întoarce
+
+20:56.200 --> 21:00.970
+O promisiune. Dacă alerg doar aici
+
+21:01.000 --> 21:04.100
+Vedeți că primesc o promisiune în așteptare.
+
+21:04.180 --> 21:12.370
+Și prin adăugarea unui răspuns, atunci răspundem la orice promisiune se întoarce dacă este rezolvată
+
+21:12.370 --> 21:13.260
+sau respinge.
+
+21:13.390 --> 21:16.500
+Și pentru a manipula datoria.
+
+21:16.900 --> 21:24.130
+Deci, la promisiunile lor cele mai de bază sunt un pic de ascultare a evenimentului, cu excepția unei promisiuni pot avea succes sau numai
+
+21:24.130 --> 21:27.850
+eșuează odată ce nu reușește sau nu reușește de două ori.
+
+21:27.940 --> 21:31.860
+Și acest lucru este extrem de util pentru lucruri care sunt asincrone
+
+21:31.870 --> 21:39.580
+Succesul și eșecul, cum ar fi apelurile API, pentru că suntem mai puțin interesați de momentul exact în care a devenit ceva
+
+21:39.580 --> 21:43.490
+disponibil și mai interesat de reacția la rezultat.
+
+21:43.600 --> 21:48.130
+Deci, reacționăm la ceva care se întâmplă asincron.
+
+21:48.150 --> 21:56.700
+Deci, din nou, să ne amintim ce am început cu o promisiune este un obiect care poate produce o singură valoare
+
+21:56.790 --> 22:06.020
+uneori în viitor fie rezolvat, fie respins cu un motiv pentru care a fost respins și poate o promisiune
+
+22:06.120 --> 22:18.590
+într-una din cele trei stări posibile, poate fi îndeplinită, respinsă sau în așteptare. Vezi că nu era atât de rău acum
+
+22:18.590 --> 22:23.970
+plecați și faceți niște promisiuni și vedeți toată puterea lor.
+
+22:24.190 --> 22:25.950
+Ne vedem în următorul. Pa! Pa.

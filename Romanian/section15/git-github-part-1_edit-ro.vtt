@@ -1,0 +1,664 @@
+WEBVTT
+
+00:01.450 --> 00:08.180
+În acest videoclip vom vorbi despre git și github și despre controlul sursei.
+
+00:08.220 --> 00:14.580
+Acum vă puteți aminti de github din secțiunea anterioară în care am folosit site-ul Web pentru a plasa online, dar nu
+
+00:14.580 --> 00:18.040
+Vă voi arăta că este mult mai mult decât atât.
+
+00:18.060 --> 00:24.750
+Mai important, obținerea github este folosită de majoritatea companiilor profesionale și este o abilitate care este așteptată
+
+00:24.750 --> 00:27.180
+să fie cunoscute de toți dezvoltatorii acum.
+
+00:27.300 --> 00:29.880
+Deci aceasta este o secțiune importantă.
+
+00:30.030 --> 00:36.000
+Unul dintre primele lucruri pe care majoritatea dezvoltatorilor trebuie să le facă în prima zi la serviciu este să întâlnească ceva
+
+00:36.000 --> 00:40.100
+numită solicitare de tragere care utilizează git și github.
+
+00:40.320 --> 00:42.600
+Vom trece prin asta în această secțiune.
+
+00:42.600 --> 00:47.320
+Nu vă faceți griji că veți învăța toate astea și va avea sens.
+
+00:47.670 --> 00:49.510
+Să începem prima dată cu controlul sursei.
+
+00:49.680 --> 00:53.230
+Până acum am lucrat numai pe fișiere mici.
+
+00:53.340 --> 00:55.930
+Nici un membru al echipei nu e doar noi.
+
+00:56.340 --> 00:58.380
+Doar câteva dosare.
+
+00:58.740 --> 01:02.630
+Dar în viața reală probabil că nu sunteți singurul dezvoltator dintr-o echipă.
+
+01:03.450 --> 01:04.950
+Cel mai probabil, proiectele sunt uriașe.
+
+01:04.950 --> 01:07.010
+Sunt multe fișiere.
+
+01:07.110 --> 01:12.720
+Sursa de control ne permite să ne asigurăm că mai multe persoane pot lucra la același fișier de la diferite
+
+01:12.720 --> 01:13.570
+locații.
+
+01:14.400 --> 01:21.750
+Gândiți-vă la aceasta ca Google Docs, care permite oamenilor să colaboreze pe un singur document, dar să vorbească suficient.
+
+01:21.750 --> 01:23.500
+Să verificăm de fapt.
+
+01:23.520 --> 01:33.440
+Am pus aici două dosare Unul e pentru mine, Andrei, care tocmai a început un nou loc de muncă la compania X și
+
+01:33.470 --> 01:40.830
+Am aici Marcy care lucrează la companie pentru un timp și are dosare de proiect aici.
+
+01:40.830 --> 01:46.610
+De fapt, folosesc fișierele de la generatorul video de fundal acum, fără git sau github.
+
+01:46.610 --> 01:53.900
+Ce pot face este să copiați și să lipiți aceste fișiere, așa că am ceea ce are Marcy și putem începe să lucrăm
+
+01:53.900 --> 01:54.890
+pe aceste fișiere.
+
+01:54.950 --> 02:02.510
+Pot să am aici mediul dezvoltatorului meu cu terminalul și textul meu sublim și pot lucra la orice
+
+02:02.510 --> 02:09.610
+modificările care trebuie făcute pe aplicație, iar Marcy aici are și propria versiune în care poate lucra
+
+02:09.610 --> 02:13.480
+pe el și amândoi lucrăm la același proiect.
+
+02:13.480 --> 02:20.200
+Dar să spunem că atât Marcy, cât și cu mine lucrăm la acest proiect și decide să schimbe proiectul
+
+02:20.200 --> 02:28.510
+numele de la fundal Gradient la Fundal Super și, în același timp, în proiectul meu, am decis să sun
+
+02:28.510 --> 02:31.130
+acest fundal cool.
+
+02:31.490 --> 02:39.820
+Ei bine, acum va trebui să stabiliți o întâlnire între mine și Marcy și să decidem cum ar trebui să schimbăm
+
+02:39.820 --> 02:41.230
+cod.
+
+02:41.230 --> 02:46.520
+Și acesta este un mic exemplu, dar vă puteți imagina că, deoarece diferiții programatori au lucrat împreună, există
+
+02:46.540 --> 02:51.670
+întotdeauna va fi această problemă a unei persoane schimbând un lucru și a unei alte persoane schimbând alt lucru.
+
+02:51.670 --> 02:58.360
+Aici a venit Controlul surselor și controlul social controlează o modalitate de a controla acest lucru în cazul în care avem
+
+02:58.930 --> 03:02.260
+un loc în locul calculatoarelor noastre.
+
+03:02.380 --> 03:08.740
+În acest caz este reprezentat doar de dosarul pe care îl am aici. În loc să fie fiecare dintre noi
+
+03:09.070 --> 03:12.640
+copie a proiectului cu control sursă.
+
+03:12.640 --> 03:14.660
+Avem o copie a fișierului proiectului.
+
+03:14.740 --> 03:20.950
+Există o locație centralizată undeva, poate deținută de companie sau undeva pe internet
+
+03:21.190 --> 03:28.300
+care are versiunea finală pe care am discutat-o ​​pentru a ne asigura că fiecare dintre noi are aceeași versiune
+
+03:29.120 --> 03:35.110
+Obținerea github este o modalitate de a face acest lucru pentru a putea utiliza controlul sursei.
+
+03:35.170 --> 03:39.030
+Și, de fapt, este modalitatea de facto de a face acest lucru.
+
+03:39.070 --> 03:46.080
+Asa cum am spus inainte, acest lucru este cel mai probabil instrumentul pe care il veti folosi in fiecare zi la locul de munca.
+
+03:46.250 --> 03:54.200
+Deci, dacă mă duc la site-ul github aici, ceea ce ne permite să facem este un loc central
+
+03:54.230 --> 03:58.240
+atât Andrei cât și Marcy pot vorbi.
+
+03:58.280 --> 04:07.110
+Deci, chiar dacă lucrăm la aceleași fișiere același proiect, pot să întreb această locație centrală, cum ar fi.
+
+04:07.110 --> 04:07.680
+GitHub.
+
+04:07.800 --> 04:11.020
+Hey, Marcy a făcut orice schimbare?
+
+04:11.460 --> 04:14.410
+Și Marcy poate cere-i lui Andrei să facă schimbări?
+
+04:16.410 --> 04:22.050
+Și, din când în când, veți obține ceva de genul ăsta, în cazul în care avem fond de fundal și fundal Super
+
+04:22.320 --> 04:25.880
+unde avem ceva numit conflict de fuziune.
+
+04:26.460 --> 04:33.320
+Ce github ne permite să facem este să spunem hei, observ că există un conflict de fuziune.
+
+04:33.360 --> 04:35.940
+Văd că amândoi v-ați schimbat fundalul.
+
+04:35.940 --> 04:41.090
+Nu stiu cine are dreptate, dar iata informatia Andrei si Marcy,
+
+04:41.340 --> 04:43.920
+Puteți să vorbiți între voi și să vă dați seama.
+
+04:45.220 --> 04:46.180
+Pentru asta lucrați foarte mult.
+
+04:46.180 --> 04:48.950
+Deci, să vedem cum arată acest lucru.
+
+04:50.080 --> 04:53.390
+Primul lucru pe care dorim să-l facem este crearea unui cont github.
+
+04:53.680 --> 04:59.400
+Dacă nu ați făcut-o în exercițiile anterioare, trebuie să începeți în mod absolut un cont Github.
+
+04:59.410 --> 05:00.600
+Este gratis.
+
+05:00.670 --> 05:06.870
+Și cum am spus mai înainte, dacă ești un dezvoltator, trebuie doar să ai locul unde își pun toate proiectele.
+
+05:06.880 --> 05:12.640
+Acolo unde lucrezi vei petrece mult timp pe acest site.
+
+05:12.710 --> 05:15.690
+S-ar putea să vă amintiți că atunci când am avut proiectul github,
+
+05:15.860 --> 05:18.590
+De asemenea, v-am spus să obțineți github pentru Desktop
+
+05:21.390 --> 05:24.620
+deși ne folosim pentru a face lucrurile mai simple în timpul acelui videoclip.
+
+05:24.630 --> 05:27.560
+Acesta nu este de fapt modul recomandat de a face acest lucru.
+
+05:27.570 --> 05:34.680
+Vă permite să vizualizați vizual și să interacționați cu github, dar este cam privit de către angajatori
+
+05:34.680 --> 05:39.420
+și majoritatea oamenilor folosesc terminalul sau promptul de comandă pentru ao face efectiv.
+
+05:39.420 --> 05:44.790
+Deci, nu vă voi învăța în acest fel doar pentru că cred că este o practică proastă și că mă obișnuiesc cu terminalul
+
+05:44.880 --> 05:46.450
+este important.
+
+05:46.470 --> 05:51.360
+Am de gând să închid asta și vom începe. Primul lucru pe care îl vom face este că suntem
+
+05:51.360 --> 05:57.850
+dând clic pe pornirea unui proiect. Și aici o să numim tot ceea ce vrem, o vom numi
+
+05:58.070 --> 06:01.260
+fundal generator.
+
+06:01.600 --> 06:08.020
+Și doriți, de asemenea, să lăsați-l ca public și vrem să faceți clic pe inițializa acest lucru cu un citit și eu
+
+06:08.020 --> 06:09.910
+vom face clic pe Creare magazie.
+
+06:10.030 --> 06:10.920
+Și ce face asta.
+
+06:10.930 --> 06:13.730
+Ei bine, am creat un nou proiect pe github.
+
+06:14.230 --> 06:18.950
+Și aici citiți-mă care este doar un fișier care descrie proiectul dvs.
+
+06:18.970 --> 06:24.910
+Puteți vedea că este aici, putem introduce în citirea noastră orice ne dorim și voi descrie proiectul nostru.
+
+06:25.270 --> 06:32.350
+Dar să ne întoarcem. Dacă Marcy să zicem că Marcy lucrează mult timp la această companie.
+
+06:32.380 --> 06:34.410
+De fapt, îmi voi scoate dosarele aici.
+
+06:36.860 --> 06:42.770
+Marcy lucrează de mult timp la această companie, iar angajatorul a decis în cele din urmă că avem nevoie de el
+
+06:42.770 --> 06:46.290
+pentru a folosi github vom angaja acest tip nou Andrei.
+
+06:46.490 --> 06:51.270
+Vrem să vă asigurați că amândoi puteți lucra împreună la proiect împreună fără probleme.
+
+06:51.290 --> 06:53.560
+Puteți pune proiectul pe github.
+
+06:54.020 --> 07:01.610
+Deci, o Marcy va face este ea va merge la github, a crea generator de fundal și apoi ea va merge
+
+07:01.610 --> 07:04.510
+faceți clic dreapta pe aici pentru a clona sau descărca.
+
+07:04.580 --> 07:08.370
+Și se va asigura că spune că folosește HTTPS.
+
+07:08.660 --> 07:13.510
+Și de aici, faceți clic pe acest buton, care copiază acest link la tastatură.
+
+07:15.000 --> 07:24.570
+Apoi Marcy merge la terminalul ei și chiar acum suntem în Documente, vrem să avem proiectul în
+
+07:24.570 --> 07:25.400
+Dosarul Marcy.
+
+07:25.440 --> 07:28.320
+Așa că voi intra în Marcy. Dacă dau clic pe ls
+
+07:28.320 --> 07:29.330
+Vad asta,
+
+07:29.340 --> 07:31.630
+Da, am dosarele mele.
+
+07:31.710 --> 07:42.840
+Acum, prima comandă pe care o vom învăța este clona git și apoi copiați și lipiți ceea ce am copiat
+
+07:42.840 --> 07:43.800
+de pe site-ul Web.
+
+07:43.890 --> 07:49.430
+Spunem doar că clona acest proiect de la github.com
+
+07:49.860 --> 07:52.930
+Deci apăs pe Enter și acolo te duci.
+
+07:53.040 --> 07:55.320
+Totul este descărcat.
+
+07:55.380 --> 08:01.740
+Dacă mă întorc la dosar, acum văd că am un generator de fundal. Dacă dau dublu clic pe asta, vei face asta
+
+08:01.740 --> 08:05.000
+vezi că am aici un dosar .git care este de fapt ascuns.
+
+08:05.010 --> 08:09.870
+S-ar putea să nu-l vedeți chiar și pe laptop dacă nu aveți această caracteristică pe computerul dvs. activat.
+
+08:09.960 --> 08:15.060
+Dar acest lucru îmi permite acum să comunic cu github.
+
+08:15.120 --> 08:16.290
+Deci, ce putem face acum.
+
+08:16.350 --> 08:23.970
+Marcy poate copia și lipi aceste fișiere și pune-o în generatorul de fundal.
+
+08:23.970 --> 08:26.860
+Acum permiteți-mi să vă arăt următoarea comandă git.
+
+08:27.210 --> 08:27.840
+Marcy chiar acum,
+
+08:27.840 --> 08:34.200
+Dacă vedem, e în dosarul ei, dar acum trebuie să mergem în generatorul de fundal, pentru că dacă facem ceva
+
+08:34.740 --> 08:36.090
+git comenzi aici,
+
+08:36.420 --> 08:39.840
+bine, nu va funcționa pentru că nu este un proiect git.
+
+08:39.840 --> 08:43.510
+Trebuie să intrăm în interiorul proiectului care a fost creat pe github.
+
+08:43.800 --> 08:45.980
+Așa că voi intra în acel director.
+
+08:46.170 --> 08:52.650
+Observați aici că terminalul meu este setat astfel încât să-mi arate de fapt ce locație github sunt înăuntru
+
+08:52.650 --> 08:54.600
+și îți voi explica ce înseamnă maestru mai târziu.
+
+08:54.600 --> 08:58.520
+Acum că suntem aici ne putem uita la toate fișierele noastre.
+
+08:58.620 --> 08:59.850
+Da, văd asta.
+
+08:59.850 --> 09:02.810
+Acum am README-ul pe care l-am creat pe github.
+
+09:03.090 --> 09:12.250
+Plus fișierele pe care le-am copiat și le-am lipit. Trebuie să sincronizăm acest lucru astfel încât, dacă intru în generatorul meu de fundal,
+
+09:12.250 --> 09:20.890
+în loc de fișierele README, Marcy își poate pune fișierele în github așa cum procedăm, aceasta este a doua noastră comandă
+
+09:21.610 --> 09:32.320
+git status. Ea ne spune că avem fișiere netracked. Asta este că avem index.html, script.js,
+
+09:32.360 --> 09:40.140
+și stilul care nu este tratat. Și se spune că folosiți git adăugați fișierul pentru a include ceea ce va fi angajat.
+
+09:40.490 --> 09:48.680
+Deci, acum că vedem statutul nostru de ceea ce avem în dosarul nostru nu putem spune git add și numele fișierului așa
+
+09:48.680 --> 10:01.970
+Pot să index.html, git adăugați script.js și git adăugați stil.css
+
+10:02.030 --> 10:06.460
+Să clarificăm acest lucru pentru a putea fi văzut.
+
+10:06.570 --> 10:11.100
+Și acum pot face din nou statutul de Git doar pentru a vedea care este statutul nostru.
+
+10:11.480 --> 10:16.680
+Și acum am sucursala ta actualizată, schimbările vor fi făcute.
+
+10:16.700 --> 10:21.380
+Vedeți că acum cu adăugarea am spus că vrem să adăugăm aceste modificări.
+
+10:21.470 --> 10:27.080
+Avem fișiere noi pe care le-am adăugat și le spun că sunt angajate.
+
+10:27.110 --> 10:35.710
+Deci, al doilea pas este sa faci ceva numit git commit si git commit spune ca fac asta
+
+10:35.720 --> 10:39.670
+acestea sunt schimbările pe care vreau să le fac la github.
+
+10:39.890 --> 10:45.920
+Și vă permite să transmiteți un mesaj astfel încât pe github să se afișeze mesajul când Andrei revine
+
+10:45.920 --> 10:49.760
+în el poate spune Oh Marcy a adăugat aceste fișiere și acesta este mesajul.
+
+10:49.790 --> 10:52.600
+Și facem asta făcând asta.
+
+10:52.880 --> 11:02.750
+Și în interiorul aici, în cadrul citatelor duble pot spune, adăugând începerea proiectului închideți consola (% citate)
+
+11:02.750 --> 11:03.760
+apasa Enter.
+
+11:04.490 --> 11:05.830
+Am de gând să clar asta.
+
+11:05.960 --> 11:09.280
+Acum este un ultim pas. Am adăugat.
+
+11:09.470 --> 11:16.470
+Am adăugat adăugarea pentru a adăuga modificările noastre, apoi ne-am angajat să ne angajăm și să spunem că ne blocăm în aceste schimbări.
+
+11:16.550 --> 11:22.600
+Și apoi, în cele din urmă, trebuie să lăsăm github.com să știe că acestea sunt schimbările.
+
+11:22.610 --> 11:25.190
+Așa că facem git push
+
+11:28.440 --> 11:38.900
+și acolo mergeți, acum a fost împins în acest depozit. Dacă mă întorc și mă reîmprospătesc, uitați-vă la asta
+
+11:39.260 --> 11:42.850
+este același lucru pe care l-am făcut și atunci când am pus primul nostru site web online.
+
+11:43.130 --> 11:49.310
+Dar, în loc să folosim versiunea desktop a github, folosim linia de comandă și acum avem proiectul nostru
+
+11:49.610 --> 11:51.860
+care este foarte bun.
+
+11:51.860 --> 11:53.650
+Acum să ne întoarcem la exemplul nostru.
+
+11:53.720 --> 11:55.890
+Deci, Marcy a lucrat la acest proiect.
+
+11:55.910 --> 12:02.950
+Există un depozit git și tocmai am intrat în companie și acum trebuie să încep să lucrez la asta.
+
+12:03.190 --> 12:09.020
+Ce fac? Acum trebuie să accesez github și să obțin copia generatorului de fundal.
+
+12:09.140 --> 12:11.870
+Felul în care fac bine merg în dosarul meu
+
+12:15.570 --> 12:16.880
+și eu fac același lucru.
+
+12:16.890 --> 12:30.110
+Fac clona git și apoi copiem și lipiți depozitul ca și înainte. git clona și clona repo.
+
+12:30.540 --> 12:31.280
+Și tu te duci.
+
+12:31.560 --> 12:36.860
+Dacă mă întorc la dosarul meu, uită-te la asta, am generatorul de fundal.
+
+12:37.020 --> 12:43.800
+Deci, amândoi lucrăm acum pe generatorul de fundal, dar nu pe dosarul celuilalt cu care lucrăm
+
+12:44.010 --> 12:46.810
+orice versiune este pe github.
+
+12:46.920 --> 12:47.210
+In regula.
+
+12:47.280 --> 12:50.040
+Deci acum mai realist.
+
+12:50.040 --> 12:56.460
+Ne întoarcem la lucru și în prima zi a slujbei mele, spun, voi schimba fundalul Gradientului
+
+12:56.700 --> 12:57.240
+titlu, de fapt, eticheta h1
+
+12:57.240 --> 13:02.900
+la Generatorul de răcire.
+
+13:03.390 --> 13:10.070
+Dacă văd acest lucru și fac un statut
+
+13:10.380 --> 13:18.260
+Ei bine, eu nu sunt într-un depozit git chiar acum dacă îți amintești că trebuie să merg în generatorul de fundal.
+
+13:18.450 --> 13:21.210
+Permiteți-mi să vă deschid puțin pentru a vedea.
+
+13:21.220 --> 13:22.910
+Acolo te duci
+
+13:22.960 --> 13:28.240
+Din nou, aceste comenzi git nu vor funcționa dacă nu vă aflați într-un director care are folderul .git.
+
+13:28.450 --> 13:32.310
+Așa că lasă-mă să fac asta, cd în generatorul de fundal.
+
+13:32.430 --> 13:37.270
+Am de gând să clar acest lucru și mă duc să spun starea de git.
+
+13:37.480 --> 13:38.010
+Și uită-te la asta.
+
+13:38.040 --> 13:40.990
+Îmi spune că am modificat fișierul index.html.
+
+13:41.520 --> 13:47.360
+Și dacă vă aduceți aminte, voi spune, adăugați, că am un singur dosar pe care îl pot face
+
+13:47.350 --> 13:48.550
+index.html
+
+13:48.690 --> 13:53.670
+Dar dacă aș vrea, dacă aș avea mai multe fișiere și aș vrea să-i dau imediat pe toate, pot să fac
+
+13:53.820 --> 14:00.060
+perioada. Așa că voi face asta și apoi voi comite și voi scrie un mesaj.
+
+14:00.060 --> 14:05.910
+Schimbarea titlului. Eu apăs pe Enter
+
+14:06.560 --> 14:08.320
+Am clarificat acest lucru OK.
+
+14:08.350 --> 14:15.850
+Și din nou, eu fac git împinge și se pare că totul a trecut prin.
+
+14:15.850 --> 14:18.430
+Deci, să ne deschidem web-ul și să-l verificăm.
+
+14:18.460 --> 14:19.690
+Acum revigorez aici,
+
+14:22.950 --> 14:31.350
+și nu am văzut nicio schimbare, dar acum vedem că avem trei comitete. Avem comiterea inițială,
+
+14:31.350 --> 14:39.770
+proiectul de fundal adăugat de Marcy și vă arată toate fișierele pe care le-am adăugat.
+
+14:39.990 --> 14:49.560
+Și dacă mă întorc am schimbat titlul comite și acum văd că da, Andrei tocmai a schimbat fundalul
+
+14:49.560 --> 14:54.670
+generator care este în roșu la generatorul Cool.
+
+14:54.750 --> 15:00.180
+Așa cum puteți vedea că avem o istorie a tuturor schimbărilor și ne putem întoarce întotdeauna dacă există greșeli
+
+15:00.810 --> 15:03.600
+dar există o problemă chiar acum.
+
+15:03.780 --> 15:10.390
+Dacă mă întorc la cod și mă duc la computerul lui Marcy, văd asta
+
+15:10.420 --> 15:15.170
+bine, ea are în continuare generatorul de fundal aici.
+
+15:15.190 --> 15:15.960
+De ce este asta?
+
+15:16.090 --> 15:21.260
+Ei bine, pentru că calculatorul ei nu știe că github a fost actualizat.
+
+15:21.430 --> 15:28.150
+Următoarea comandă pe care o voi arăta este ultima pe care o voi arăta în acest videoclip
+
+15:28.320 --> 15:29.000
+git trageți
+
+15:29.380 --> 15:38.520
+Deci, amintiți-vă git push? pentru a împinge modificările la gethub.com și git trage pentru a trage ceea ce este mai târziu.
+
+15:38.530 --> 15:42.680
+Așa că fac git trageți și acolo mergeți.
+
+15:42.730 --> 15:48.470
+Vedeți aici că îmi arată că fișierul index.html a fost modificat.
+
+15:48.490 --> 15:54.290
+Acum vedeți că titlul meu a fost schimbat la generator răcoros.
+
+15:54.540 --> 16:00.190
+Să spunem că un Marcy a văzut prima mea schimbare și îi place cu adevărat un generator rece.
+
+16:00.300 --> 16:03.930
+Dar cred că vrea să o facă capitalizată,
+
+16:03.940 --> 16:05.780
+Din nou, o va salva.
+
+16:06.100 --> 16:09.090
+Ea va spune statutul de git.
+
+16:09.150 --> 16:09.450
+In regula.
+
+16:09.450 --> 16:22.980
+Am fisierul index.html, voi adauga git commit si voi adauga mesajul, capitalizez titlul
+
+16:25.190 --> 16:29.560
+apoi împingeți git.
+
+16:29.570 --> 16:35.120
+Acolo te duci. Din nou, mă întorc, mă reîmprospătesc.
+
+16:35.590 --> 16:43.020
+Și acum există patru comitete și vedem că capitalizarea titlurilor este noile schimbări.
+
+16:43.140 --> 16:44.830
+Prima zi de lucru se face.
+
+16:44.910 --> 16:53.370
+Vin în ziua următoare la lucru și bine, vreau să încep cu tot ce este ultimul proiect
+
+16:53.370 --> 16:59.700
+generator de fundal. Și să spunem că Marcy a lucrat toată noaptea pentru a schimba acest titlu pentru a se răcească, pentru a-și valorifica
+
+16:59.700 --> 17:02.200
+Vreau să mă asigur că am cea mai actualizată versiune.
+
+17:02.220 --> 17:07.700
+Deci, ceea ce fac este când mă duc la lucru dimineața, o să spun, bine, vreau să mă asigur că dacă există
+
+17:07.740 --> 17:12.170
+orice schimbări pe care Marcy le-a făcut, știu despre ele, așa că am de gând să-i spun
+
+17:12.270 --> 17:20.010
+Și observați aici cum se vor schimba titlurile după ce fac tragerea și acum fac clic pe acest text sublim
+
+17:20.040 --> 17:22.210
+și acolo te duci.
+
+17:22.260 --> 17:25.040
+Generator răcoros.
+
+17:25.070 --> 17:25.480
+In regula.
+
+17:25.490 --> 17:33.080
+Și următorul videoclip pe care o vom extinde și vom arăta ce se întâmplă dacă Marcy și Andrei fac asta
+
+17:33.140 --> 17:35.480
+aceleași schimbări.
+
+17:35.900 --> 17:37.640
+Ce face Github?
+
+17:37.700 --> 17:38.980
+Ne vedem în acel.
+
+17:39.050 --> 17:39.320
+Pa! Pa

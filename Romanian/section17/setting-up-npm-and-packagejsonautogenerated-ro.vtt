@@ -1,0 +1,263 @@
+WEBVTT
+
+00:01.020 --> 00:06.600
+Să vorbim despre modul în care putem configura NPM pe computerele noastre pentru a putea începe să o folosim. Dacă vrem să
+
+00:06.600 --> 00:08.740
+învăța să reacționezi, bine,
+
+00:08.790 --> 00:13.990
+React este de fapt un pachet creat de Facebook pe care îl vom folosi în secțiunea următoare.
+
+00:14.010 --> 00:16.830
+Trebuie să ajungem și apoi cum să facem asta.
+
+00:16.890 --> 00:25.320
+Primul lucru de care avem nevoie este acest lucru. Trebuie să descărcați Node.js care vine cu NPM puteți vedea aici
+
+00:25.320 --> 00:31.830
+ultima LTS, ceea ce înseamnă Suport pe termen lung versiunea 8.9.1 include NPM și
+
+00:31.830 --> 00:33.670
+aveți numerele de versiune aici, de asemenea.
+
+00:33.690 --> 00:37.130
+Deci, pentru Windows puteți instala aici, Mac aici,
+
+00:37.170 --> 00:40.100
+Orice altceva puteți folosi și codul sursă.
+
+00:40.170 --> 00:46.710
+Pur și simplu faceți clic pe sistemul de operare ales și veți instala pachetul nodului
+
+00:46.800 --> 00:52.510
+Pur și simplu faceți clic și se va instala totul pentru tine și vă va duce prin întregul proces.
+
+00:52.560 --> 00:53.550
+Ar trebui să fie foarte rapid.
+
+00:53.550 --> 00:55.140
+Puteți face acest lucru în mai puțin de un minut.
+
+00:55.350 --> 00:57.400
+De ce avem nevoie de nod
+
+00:57.420 --> 01:01.360
+Și ceea ce este nodul este probabil ceea ce trece prin capul tău chiar acum.
+
+01:01.470 --> 01:03.470
+Și nu-ți face griji că o să trecem prin asta.
+
+01:03.480 --> 01:10.560
+Versiunea simplă a acestuia este că Nodul ne permite să rulați JavaScript în afara browserului.
+
+01:10.560 --> 01:17.400
+Vreau să spun până în acest moment de fiecare dată când am vrut să folosim JavaScript, fie l-am scris aici în consola
+
+01:17.910 --> 01:24.090
+sau am atașat un fișier script la HTML și încărcat fișierul HTML în browser.
+
+01:24.360 --> 01:32.460
+După cum știți, fiecare browser are un motor JavaScript, cum ar fi motorul V8 pe care Chrome îl are. Dar asta a fost
+
+01:32.460 --> 01:36.350
+singurul lucru care a fost capabil să citească JavaScript. În afara unui browser,
+
+01:36.360 --> 01:43.800
+avem nevoie să citim ceva pentru a înțelege acest lucru și Node.js a fost creat folosind motorul V8
+
+01:44.190 --> 01:51.720
+pe care browserul Google Chrome le utilizează pentru a citi JavaScript și pentru a rula JavaScript în afara browserului.
+
+01:52.730 --> 01:55.290
+Dar, așa cum am spus, vom intra mai târziu în asta.
+
+01:55.310 --> 01:58.690
+Acum, să descărcăm
+
+01:58.740 --> 01:59.370
+Node.js
+
+01:59.630 --> 02:02.890
+care instalează automat NPM pentru dvs.
+
+02:03.110 --> 02:10.070
+Și nu vă faceți griji în următoarea secțiune Am resurse pentru tine să treci prin această linie pas cu linie atât
+
+02:10.070 --> 02:14.710
+pentru Windows și Mac și, de asemenea, unele depanare în cazul în care vă confruntați cu erori.
+
+02:14.750 --> 02:19.280
+Acum, după ce ați instalat totul, există o modalitate simplă de a verifica dacă totul funcționează.
+
+02:20.340 --> 02:31.170
+Mergeți la terminalul dvs. și tastați "npm -v" și acest lucru vă va oferi un număr de versiune.
+
+02:31.290 --> 02:36.510
+Dacă acest lucru nu a funcționat, atunci treceți prin pașii pe care i-am enumerat pentru dvs. și ar trebui să puteți
+
+02:36.510 --> 02:37.570
+ia-l.
+
+02:37.590 --> 02:42.240
+Deci, vrei să te asiguri că dacă urmărești acest videoclip și mergi în restul cursului
+
+02:42.240 --> 02:47.290
+când ne construim proiectele, doriți să vă asigurați că NPM versiunea noastră este mai mare decât
+
+02:47.320 --> 02:49.350
+5.5.1
+
+02:49.560 --> 02:51.720
+În caz contrar, s-ar putea să nu funcționeze.
+
+02:51.870 --> 02:58.650
+Și, de asemenea, vrem să ne asigurăm că avem nod și pur și simplu facem 'node -v'
+
+02:58.830 --> 03:04.540
+Și din nou, vrem să ne asigurăm că versiunea Nodului nostru este mai mare decât 8.9.1
+
+03:04.540 --> 03:07.950
+Acum să spunem că, din anumite motive, acestea sunt mai mici.
+
+03:07.970 --> 03:13.030
+Ei bine, Node - pur și simplu du-te la site-ul Web și vor avea cea mai recentă versiune pentru tine care ar trebui să fie
+
+03:13.120 --> 03:14.920
+bine cu asta.
+
+03:14.950 --> 03:24.780
+Cu NPM, dacă din anumite motive acest lucru este mai mic, puteți rula pur și simplu 'npm install npm @ latest -g'
+
+03:25.000 --> 03:28.630
+Nu cred că vei intra acolo, ca să fii bun.
+
+03:28.660 --> 03:34.690
+În cele din urmă, în timp ce alergăm prin comenzile NPM, de aceea vom folosi descărcarea de lucruri și vă voi arăta
+
+03:34.690 --> 03:36.410
+cum să faceți acest lucru în videoclipul următor.
+
+03:36.490 --> 03:43.200
+S-ar putea să întâmpinați niște erori de permisiune în care executați o comandă precum 'npm install react', de exemplu.
+
+03:43.210 --> 03:49.540
+Când apăsați pe Enter, este posibil să primiți unele erori de permisiune. În acest caz,
+
+03:49.540 --> 03:56.770
+înseamnă că utilizatorul dvs., indiferent dacă sunteți conectat la computerul dvs., nu are drepturi de permisiune.
+
+03:56.770 --> 04:02.520
+Poate că nu sunt administratorul întregului computer, caz în care trebuie să executați aceste comenzi
+
+04:02.530 --> 04:12.910
+ca administrator care pur și simplu înseamnă să rulați "sudo npm install react" și va cere numele dvs. de utilizator
+
+04:12.910 --> 04:13.770
+și parola.
+
+04:13.930 --> 04:15.220
+veți avea legături la acest videoclip după acest videoclip.
+
+04:15.220 --> 04:20.950
+Dacă sunteți pe Windows, există o comandă diferită, iar sudo din nou găsită și
+
+04:20.970 --> 04:23.990
+resurse după acest videoclip.
+
+04:24.000 --> 04:24.230
+In regula.
+
+04:24.240 --> 04:27.840
+Așa că avem NPM și Nod instalat.
+
+04:27.840 --> 04:29.410
+Totul arată bine.
+
+04:29.460 --> 04:34.590
+Cum putem începe să folosim NPM și chiar să obținem fișierul package.json pe care continuă să vorbesc.
+
+04:34.620 --> 04:44.390
+Este foarte ușor tot ce faceți este 'npm init' și oricând începeți un proiect pe care doriți să-l faceți 'npm init'
+
+04:44.420 --> 04:49.490
+Și această comandă creează un fișier package.json în directorul dvs.
+
+04:49.520 --> 04:51.530
+Deci avem generatorul de fundal aici.
+
+04:51.620 --> 04:57.280
+Veți vedea că după ce execut această comandă, o să-mi pun câteva întrebări și apoi un fișier package.json
+
+04:57.320 --> 04:59.070
+va apărea aici.
+
+04:59.090 --> 05:02.970
+Să trecem prin asta. Și tu poți vedea aici că mă va duce prin configurare.
+
+05:03.110 --> 05:05.530
+Îmi pot numi pachetul dacă vreau.
+
+05:05.570 --> 05:11.050
+În acest caz, voi continua să apăsați pe tasta Enter, deoarece dacă nu publicați un pachet NPM.
+
+05:11.270 --> 05:14.380
+Nu trebuie să vă faceți griji despre asta, așa că voi continua să apăsați pe Enter.
+
+05:14.390 --> 05:19.640
+Dar puteți vedea că pot adăuga câteva lucruri despre autorul licenței proiectului.
+
+05:21.200 --> 05:28.610
+Eu doar apăs doar pe Enter. Și nu știu dacă ați observat, dar dacă clar eu aici și pe stânga,
+
+05:28.610 --> 05:33.520
+Uită-te la asta, avem dosarul package.json.
+
+05:33.570 --> 05:35.140
+Să-l deschidem.
+
+05:35.250 --> 05:42.190
+Am de gând să minimizez acest lucru un pic, astfel încât să putem vedea clar și avem pachet.json.
+
+05:42.200 --> 05:43.400
+Acolo te duci.
+
+05:43.520 --> 05:45.650
+Avem numele nostru "generator de fundal"
+
+05:45.830 --> 05:50.790
+Este versiunea 1.0.1, principala este "script.js"
+
+05:51.190 --> 05:56.320
+De fapt, ea află unde este fișierul nostru principal JavaScript și avem și alte câteva lucruri pe care le vom face
+
+05:56.320 --> 05:58.280
+treceți în restul secțiunii.
+
+05:58.390 --> 06:02.880
+Dar o întrebare pe care ar trebui să o aveți este "Ce este .json?"
+
+06:02.880 --> 06:05.410
+Până în acest moment, am avut
+
+06:05.570 --> 06:07.600
+.html .js .css
+
+06:07.630 --> 06:11.190
+Ei bine, json este un format de fișier.
+
+06:11.230 --> 06:19.150
+Puteți vedea aici în partea dreaptă a fundului textul Sublime Text, care spune că acesta este un fișier JSON (NPM).
+
+06:20.700 --> 06:28.770
+este doar un format și arată cam ca un obiect JavaScript, cu excepția faptului că are dublu
+
+06:28.770 --> 06:31.350
+citate pentru proprietăți.
+
+06:31.350 --> 06:37.580
+Bine, cu asta vine o mulțime de putere, așa că mă încântă să vă arăt ce putem face cu asta.
+
+06:37.610 --> 06:38.750
+Ne vedem în următorul.
+

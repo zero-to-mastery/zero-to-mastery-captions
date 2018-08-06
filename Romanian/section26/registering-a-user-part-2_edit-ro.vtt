@@ -1,0 +1,175 @@
+WEBVTT
+
+00:00.480 --> 00:07.860
+Să ne uităm la ceea ce am făcut în videoclipul precedent. Am făcut baza noastră de date să comunice cu serverul,
+
+00:07.950 --> 00:11.300
+și am înregistrat primul nostru utilizator care a fost Ann.
+
+00:11.660 --> 00:16.440
+Dar acum vrem să răspundem la Front-End cu acest nou utilizator,
+
+00:16.440 --> 00:18.340
+Ann. Deci, cum putem face asta?
+
+00:18.660 --> 00:25.320
+Ei bine, dacă acest lucru este de succes, caz în care vrem să facem un punct atunci, pe care îl avem aici.
+
+00:29.080 --> 00:34.590
+Dacă avem un răspuns, în acest caz dorim
+
+00:37.360 --> 00:45.070
+trimite un raspuns la Json si acest punct de răspuns json va raspunde cu ...
+
+00:45.270 --> 00:48.100
+Cu ce ​​ar trebui să răspundă?
+
+00:48.140 --> 00:56.570
+Din fericire pentru noi KNEX din nou este construit cu acest lucru în minte, și are o caracteristică care este - sau o metodă care
+
+00:56.570 --> 01:00.300
+se numește returnare.
+
+01:00.640 --> 01:07.230
+Deci, în loc să facem o altă declarație selectată și să o luăm pe Ann, putem spune să ne întoarcem totul.
+
+01:07.540 --> 01:14.890
+Deci, acest lucru spune că utilizatorii introduc Ann și returnează toate coloanele.
+
+01:14.890 --> 01:16.210
+Să vedem dacă funcționează.
+
+01:16.420 --> 01:22.730
+În cazul în care funcționează, pot plasa răspunsul aici.
+
+01:22.910 --> 01:23.550
+Hai să verificăm.
+
+01:25.800 --> 01:28.960
+Du-te în salvare. Deschideți poștașul nostru.
+
+01:29.390 --> 01:42.290
+Voi adăuga un nou utilizator, o să-i spunem pe Anne cu un e. Hit send, așa. Am o matrice care este Anne.
+
+01:44.290 --> 01:44.800
+Uimitor.
+
+01:44.830 --> 01:45.810
+Se pare că funcționează.
+
+01:45.820 --> 01:54.950
+Dacă mă întorc la baza de date și selectez stea de la utilizatori, sunt doi utilizatori, dar cel pe care l-am primit
+
+01:55.280 --> 02:02.360
+este doar Anne. Să creăm un nou utilizator. Voi crea John, cookie-uri.
+
+02:02.390 --> 02:09.610
+Ne amintim de tipul ăsta. Faceți clic pe trimiteți. Îl luăm pe John.
+
+02:09.620 --> 02:10.310
+Uimitor.
+
+02:10.310 --> 02:13.950
+Să verificăm cu partea din față pentru a vedea că funcționează de fapt.
+
+02:14.120 --> 02:20.840
+Dacă mă întorc aici - hai să schimbăm acest lucru în utilizator doar ca să fie mai descriptiv.
+
+02:20.840 --> 02:28.440
+Așadar, returnează utilizatorul, dar vrem să ne asigurăm că nu este un matrice și că ne întoarcem
+
+02:28.440 --> 02:29.010
+obiectul.
+
+02:29.010 --> 02:30.360
+Așa că o vom face doar utilizator.
+
+02:30.420 --> 02:35.730
+Prima, deoarece atunci când înregistrați un utilizator, acestea ar trebui să fie doar una.
+
+02:35.780 --> 02:41.090
+De asemenea, dorim să ne asigurăm că, dacă există o eroare, răspundem.
+
+02:41.890 --> 02:57.220
+Cu o eroare de răspuns Json Json sau poate chiar să faci un statut 400. Să dăm asta un du-te - și asta
+
+02:57.220 --> 02:57.740
+ar trebui să fie
+
+02:57.760 --> 02:58.410
+Scuze.
+
+02:58.420 --> 02:59.250
+Captură.
+
+02:59.260 --> 03:02.560
+Să spunem asta din nou - să prindem orice eroare care s-ar fi întâmplat aici.
+
+03:03.110 --> 03:10.760
+Dacă mă întorc aici și încerc să mă înregistrez cu același Ioan primesc - uită-te la asta - o eroare.
+
+03:13.010 --> 03:16.430
+Și vedem că e-mail-ul cheie deja există.
+
+03:16.520 --> 03:18.600
+Acesta este un punct important aici.
+
+03:18.800 --> 03:25.110
+Avem o eroare de 400, dar returnează informații despre baza noastră de date.
+
+03:25.170 --> 03:29.960
+Acum stim ca in aceasta baza de date exista deja John.
+
+03:30.190 --> 03:36.550
+Și unul dintre marile principii de securitate este că vrei să te asiguri că nu dai clientului
+
+03:36.670 --> 03:38.510
+orice informații despre sistemul dvs.
+
+03:39.530 --> 03:41.430
+Și nu este bine.
+
+03:41.480 --> 03:53.410
+Deci, poate, în loc să ne întoarcem eroarea, putem spune doar "nu se poate alătura" sau "nu se poate înregistra". Dacă noi
+
+03:53.410 --> 04:04.490
+salvați, trimiteți din nou. Imposibil de înregistrat - 400 - cerere necorespunzătoare. Uimitor.
+
+04:04.500 --> 04:07.370
+Să vedem dacă funcționează acum cu frontul nostru.
+
+04:07.390 --> 04:16.290
+Mă întorc la aplicația mea faceți clic pe înregistrare și să ne înregistrăm cu un utilizator complet nou va face Amy
+
+04:16.680 --> 04:28.610
+e-mail va fi TheAmy@gmail.com parola 1 2 3 - oops - parola 1 2 3. Înregistrați-vă. Amy intrarea dvs. curentă
+
+04:28.610 --> 04:30.400
+numărul este zero.
+
+04:30.420 --> 04:32.700
+Cat de tare e asta.
+
+04:32.730 --> 04:34.650
+Și doar pentru a te asigura că Amy sa înregistrat.
+
+04:34.650 --> 04:42.300
+Dacă ne întoarcem la baza noastră de date și eu selectez sau pot apăsa doar pentru că am făcut asta înainte
+
+04:43.320 --> 04:51.090
+Am Amy în baza mea de date. Atât de cool.
+
+04:51.310 --> 04:53.360
+Așa că am făcut registrul.
+
+04:53.710 --> 04:55.080
+Totul pare destul de frumos.
+
+04:55.090 --> 04:58.390
+Mai sunt câteva obiective finale pentru a rezolva deci să facem asta.
+
+04:58.390 --> 04:59.440
+Ne vedem în următorul.
+
+04:59.840 --> 05:00.070
+Pa! Pa.

@@ -1,0 +1,878 @@
+WEBVTT
+
+00:01.650 --> 00:08.220
+Dacă există un lucru pe care l-am învățat tot timpul și acest curs este că nu există nimic static
+
+00:08.220 --> 00:10.190
+despre a fi un dezvoltator web.
+
+00:10.380 --> 00:19.700
+Îmbunătățirile sunt făcute constant în toate timpurile în HTML, CSS și Javascript și chiar browserele,
+
+00:19.910 --> 00:21.450
+actualizați în permanență.
+
+00:22.680 --> 00:25.480
+Bibliotecile sunt, de asemenea, în curs de creare.
+
+00:25.560 --> 00:31.140
+Dacă vă amintiți că bibliotecile sunt doar bucăți de cod, ar putea fi CSS, acestea ar putea fi HTML pe care le-ar putea
+
+00:31.140 --> 00:36.630
+fi Javascript. Piesele de cod scrise de altcineva pentru ca noi să le putem folosi.
+
+00:36.630 --> 00:38.240
+Deci nu trebuie să începem de la zero.
+
+00:40.090 --> 00:43.790
+Acum este natura umană să dorească să se îmbunătățească în mod constant.
+
+00:43.890 --> 00:51.200
+Și în acest videoclip vom învăța noile caracteristici pe care toată lumea le va folosi în 2018.
+
+00:52.190 --> 01:00.310
+Dar, mai întâi, să recapitulăm ceva din videoclipurile noastre anterioare. Dacă vă amintiți că javascript a fost creat de
+
+01:00.310 --> 01:06.600
+Browserul Netscape și toți ceilalți browsere au început să utilizeze javascript.
+
+01:06.640 --> 01:13.950
+Deci, Netscape a trimis javascript la ceva numit ECMA International.
+
+01:14.200 --> 01:20.620
+Așa că javascriptul ar putea fi standardizat și ar putea spune, hei, toată lumea folosește această versiune de javascript
+
+01:20.890 --> 01:23.090
+pe toate browserele.
+
+01:23.270 --> 01:29.640
+Asta e ceea ce ECMA Script este ECMA Script este bine, e javascript
+
+01:29.690 --> 01:36.590
+ Dar este doar modul standard de ao numi, astfel încât atunci când browserele să pună în aplicare ceea ce
+
+01:36.590 --> 01:43.670
+javascript ar trebui să facă și cum se citesc javascript Ei bine, toată lumea este de acord cu privire la standard.
+
+01:43.680 --> 01:52.390
+Acum, de fiecare dată când vedeți ceva de genul ES6 și veți vedea destul de mult, ES6 doar stă
+
+01:52.390 --> 01:59.150
+pentru versiunea ECMAscript 6.
+
+01:59.200 --> 02:08.500
+Deci da, a fost Ecmascript versiunea 1 pana la 6 si suntem in prezent la Versiunea 7 dar
+
+02:08.740 --> 02:13.470
+este încă nou, așa că acum învățăm doar versiunea 5 și versiunea 6.
+
+02:13.870 --> 02:21.040
+Dar versiunea 5 și versiunea 6 introduc câteva noi caracteristici care sunt într-adevăr foarte puternice și fac codificare
+
+02:21.040 --> 02:23.190
+în javascript într-adevăr foarte frumos.
+
+02:23.380 --> 02:29.090
+Și cele mai multe baze de cod pe care le veți vedea în 2018 vor utiliza aceste caracteristici.
+
+02:29.530 --> 02:36.370
+Este un subiect foarte interesant pentru mine este una dintre părțile mele preferate de javascript acum și sunt încântat
+
+02:36.370 --> 02:42.350
+pentru a vă arăta câteva dintre aceste caracteristici noi care vă vor face viața mult mai ușoară.
+
+02:42.370 --> 02:48.640
+Un lucru pe care ar putea să-l gândiți este, Ah! Andre Nu vreau să învăț ceva dacă browserele nu o fac
+
+02:48.640 --> 02:51.350
+să le sprijine și nu le pot folosi de fapt.
+
+02:51.880 --> 02:54.170
+Dar uh! nu-ți fă griji prietenul meu.
+
+02:54.250 --> 02:58.950
+Acestea sunt toate caracteristicile care sunt suportate, știi de ce?
+
+02:59.330 --> 03:03.080
+Ei bine, mai ales din cauza a ceva numit BABEL.
+
+03:03.340 --> 03:10.120
+Vedeți câțiva ani în urmă, programatorul a creat BABEL astfel încât dezvoltatorii să poată începe să utilizeze noi funcții de javascript
+
+03:10.780 --> 03:11.650
+așa cum vin ei.
+
+03:11.650 --> 03:18.130
+Amintiți-vă de versiunile ECMAScript versiuni tot timpul, acum, fără a mai trebui să așteptați implementarea de browsere
+
+03:18.130 --> 03:19.330
+aceste caracteristici.
+
+03:19.330 --> 03:24.440
+BABEL, ne-a permis, bine să le folosim imediat.
+
+03:24.510 --> 03:26.330
+Acum cum fac asta?
+
+03:26.340 --> 03:28.120
+Hai să aruncăm o privire,
+
+03:28.160 --> 03:37.140
+Dacă intru pentru a încerca aici, veți vedea că BABEL îmi arată ceva ce pot scrie și voi învăța
+
+03:37.140 --> 03:42.720
+sintaxa destul de curând nu vă faceți griji, nu pot scrie ceva de genul acesta, care este noul mod de a scrie
+
+03:42.720 --> 03:50.550
+javascript cu ECMAScript 6 și se compilează în aceasta.
+
+03:50.550 --> 03:51.750
+Ce înseamnă asta?
+
+03:51.750 --> 04:00.630
+Înseamnă că citește o linie de fișier după linie, apoi o transformă într-o versiune de javascript pe care o utilizează toate browserele
+
+04:00.630 --> 04:03.480
+știu și funcționează pe toate browserele.
+
+04:03.480 --> 04:10.650
+Când implementăm aplicația sau site-ul nostru, ceea ce înseamnă că îl punem online, după ce terminăm cu ea,
+
+04:10.650 --> 04:18.780
+putem folosi BABEL pentru a spune că a citit fișierul javascript și a transformat-o în acesta, așa că funcționează
+
+04:18.780 --> 04:20.410
+toate browserele.
+
+04:20.520 --> 04:26.670
+Deci, fără să te gândești la asta, poți scrie
+
+04:26.670 --> 04:26.790
+codul dvs. cel mai nou și cel mai bun mod de a scrie.
+
+04:26.790 --> 04:34.470
+Puteți vedea cât de curat este acest lucru și BABEL va avea grijă să schimbe totul pentru tine
+
+04:34.470 --> 04:35.480
+astfel încât browserele să o poată citi.
+
+04:36.560 --> 04:38.400
+Nu este minunat? Destul de atât.
+
+04:38.420 --> 04:40.280
+Să învățăm câteva sintaxe noi.
+
+04:40.430 --> 04:41.320
+Și nu-ți fie frică.
+
+04:41.330 --> 04:48.410
+ES5 și ES6 au făcut javascriptul mai ușor și mai distractiv de scris. De acum încolo vom lua ce
+
+04:48.410 --> 04:54.140
+învățăm în acest videoclip să scriem codul nostru, deoarece acesta este ceea ce industria utilizează acum.
+
+04:54.170 --> 04:57.320
+Și de aceea veți fi întrebat în timpul interviurilor.
+
+04:57.320 --> 04:59.200
+Asadar, haideti sa începem.
+
+05:04.760 --> 05:09.850
+Prima caracteristică pe care o voi arăta este "permiteți" și "const".
+
+05:10.020 --> 05:13.500
+Acestea sunt de fapt foarte simple.
+
+05:13.530 --> 05:17.090
+Acestea sunt modalități noi de declarare a variabilelor.
+
+05:17.220 --> 05:25.230
+Deci, dacă vedeți aici în secțiunea noastră out-line, vedeți că variabilele javascript au acum două noi căi
+
+05:25.380 --> 05:33.370
+de a declara o variabilă și de fapt o variabilă pe care am folosit-o până acum, nu o facem
+
+05:33.370 --> 05:35.010
+într-adevăr trebuie să o folosiți din nou.
+
+05:36.080 --> 05:40.530
+Acum avem ceva numit "let", pentru a vă arăta cum funcționează amândouă.
+
+05:40.790 --> 05:42.340
+Să facem un mic exemplu.
+
+05:42.350 --> 05:53.970
+Voi spune "jucătorul const" și "const" înseamnă constant, va spune "bobby" și va spune
+
+05:54.170 --> 05:59.420
+"experiența să fie egală cu sute" și va spune
+
+05:59.830 --> 06:15.260
+'wizardLevel să fie egal cu false'. Acum, dacă fac ceva, cum ar fi "dacă experiența este mai mare de 90 atunci
+
+06:18.630 --> 06:21.850
+(let wizardLevel) este egal cu true '.
+
+06:21.980 --> 06:26.500
+OK, astfel încât acestea arata ca variabile nimic nu este diferit.
+
+06:26.650 --> 06:30.010
+Să conducem asta prin consola și să vedem ce se întâmplă.
+
+06:31.450 --> 06:32.020
+O.K.
+
+06:32.080 --> 06:34.000
+Dacă verific acum "wizardLevel", obțin "fals"
+
+06:39.820 --> 06:46.510
+Hmmm! asta e, este cam ciudat, pentru că în videoclipul precedent unde am vorbit despre domeniul de aplicare
+
+06:46.510 --> 06:51.430
+dacă "wizardLevel" are o variabilă, aș fi fost "adevărat" aici.
+
+06:51.470 --> 06:59.450
+Deci, dacă aceasta era variabilă și aceasta era variabilă "wizardLevel" în loc să fie "fals" va fi "adevărat".
+
+06:59.590 --> 07:02.810
+Acum e drept confuz.
+
+07:02.810 --> 07:05.860
+Asta pentru că nu este în interiorul unei funcții.
+
+07:05.870 --> 07:13.430
+Acest lucru este puțin complicat, dar cu variabilă am reușit doar să creăm un domeniu de aplicare, în interiorul unei funcții,
+
+07:13.880 --> 07:16.720
+dar niciodată dacă ar avea o paranteză curată.
+
+07:16.790 --> 07:22.110
+Dar în interiorul "dacă".
+
+07:22.290 --> 07:27.230
+Cu "lasa", cand spun "lasa" si "lasa", bine,
+
+07:27.420 --> 07:37.230
+acum am creat o variabilă 'wizardLevel' în interiorul 'if' astfel încât singura modalitate prin care pot accesa acest lucru este înăuntru
+
+07:37.230 --> 07:38.430
+"dacă".
+
+07:38.430 --> 07:42.220
+Dacă fac "console.log (wizardLevel)" aici
+
+07:44.930 --> 07:53.880
+și "console.log (wizardLevel)" în afară și apoi să punem "înăuntru"
+
+07:56.350 --> 08:08.430
+și "afară". Dacă copiez acest lucru, lipiți-l în, "înăuntru", obțin "adevărat", "afară",
+
+08:08.680 --> 08:17.890
+Eu sunt "fals", pentru că acum cu "lăsați", ori de câte ori este înfășurat în jurul unui braț curbat, bine creează un nou
+
+08:18.130 --> 08:21.610
+domeniul de aplicare, versus cu o variabilă,
+
+08:22.000 --> 08:23.500
+dacă schimb acest lucru într-o variabilă (var)
+
+08:27.420 --> 08:29.910
+și o copiez din nou și reîmprospătez,
+
+08:32.970 --> 08:46.010
+dacă copiez acest lucru, am "înăuntru", este egal cu "adevărat" și "în afara" este egal cu "adevărat", deoarece "wizardLevel" are deja
+
+08:46.010 --> 08:46.660
+fost schimbat.
+
+08:46.730 --> 08:55.550
+Nu se creează niciun scop nou în interiorul parantezelor curbate, deoarece aceasta nu este o funcție.
+
+08:55.550 --> 08:56.940
+Acum știu că este foarte confuz.
+
+08:56.960 --> 09:03.690
+Dar cea mai mare iaeaway de la acest lucru este, pur și simplu nu mai folosiți variabila (var). variabilele (var) sunt destul de confuze.
+
+09:03.710 --> 09:08.870
+Acum gândiți-vă la "permiteți" ca la noua variabilă.
+
+09:08.960 --> 09:14.980
+Deci, de acum încolo vom folosi "lăsați" pentru variabile, dar ceea ce este "const".
+
+09:15.380 --> 09:19.130
+Ei bine, "const" este chiar mai rece.
+
+09:19.220 --> 09:20.240
+Uita-te la asta.
+
+09:20.570 --> 09:28.720
+Dacă vreau să schimb nivelul de experiență, pot spune că "experiența este egală cu 80".
+
+09:28.930 --> 09:31.040
+Și acum, dacă mă uit la "experiență"
+
+09:31.300 --> 09:32.940
+Ei bine, "experiența" este egală cu 80.
+
+09:32.980 --> 09:44.050
+Dar dacă vreau să schimb jucătorul "Bobby" la un nou nume, este egal cu "Sally", am o eroare,
+
+09:44.050 --> 09:44.960
+"Atribuirea variabilei constante".
+
+09:44.960 --> 09:47.040
+Ceea ce înseamnă asta este, ca o constantă,
+
+09:47.070 --> 09:54.870
+nu puteți redistribui la variabila. Deci nu poate fi actualizat.
+
+09:54.870 --> 09:56.820
+De ce ar fi util acest lucru?
+
+09:56.820 --> 10:02.820
+Este foarte util pentru că se produc multe bug-uri atunci când lucrați într-o echipă de oameni.
+
+10:02.910 --> 10:07.920
+Dacă ai ceva de genul "jucător" și cineva schimbă numele jucătorului în timp ce lucrezi
+
+10:07.920 --> 10:13.200
+un program și încă mai crezi că este "Bobby" și tot ai greșeli
+
+10:13.200 --> 10:13.510
+pentru că cineva la atins.
+
+10:13.620 --> 10:15.970
+Ei bine, asta e un pic de problemă, nu-i așa?
+
+10:15.990 --> 10:23.930
+Dar folosind "const", asigurați-vă că această variabilă a jucătorului va avea întotdeauna aceeași valoare.
+
+10:23.970 --> 10:30.960
+Deci, acest lucru este de fapt foarte foarte util și recomandarea mea este că dacă aveți ceva care nu este
+
+10:30.960 --> 10:33.630
+schimbarea ar trebui să fie o constantă.
+
+10:33.720 --> 10:43.740
+Deci, o funcție ar putea fi o constantă pentru că bine dacă această funcție sau dacă atribuirea "a" nu merge
+
+10:43.740 --> 10:51.990
+să ne schimbăm, atunci ne simțim mult mai siguri folosind "const" decât să spunem "lăsați" pentru că ne asigurăm că nimeni nu
+
+10:51.990 --> 10:56.000
+alocă altceva unui "a".
+
+10:56.080 --> 11:00.110
+Deci regula de acum încolo este utilizarea "const",
+
+11:00.370 --> 11:07.060
+Dacă utilizați o variabilă care nu se modifică, de cele mai multe ori veți folosi aceasta și utilizați o variabilă
+
+11:07.060 --> 11:12.720
+mori re-atribuiți ceva de genul Wizard nivel în cazul în care se schimbă de la "adevărat" la "fals"
+
+11:12.730 --> 11:13.470
+"fals" la "adevărat".
+
+11:13.810 --> 11:16.470
+Ei bine, folosiți "lăsați".
+
+11:16.690 --> 11:28.490
+Un lucru cu 'const' pe care trebuie să-l țineți cont este că dacă faceți un obiect 'const' (obj) este egal cu 'player'
+
+11:29.950 --> 11:37.760
+"bobby", "experiență", "unul hundered" și
+
+11:37.970 --> 11:39.220
+'WizardLevel' la 'false'.
+
+11:39.410 --> 11:50.470
+Dacă copiez acest obiect și încerc să îl realocalizez pentru a spune un număr, primesc o eroare deoarece
+
+11:50.470 --> 11:51.610
+este o constantă.
+
+11:51.610 --> 11:55.780
+Dar! dacă încerc să schimb o proprietate
+
+12:00.060 --> 12:04.750
+acum "wizardLevel" mea este "adevărat".
+
+12:04.750 --> 12:15.370
+Deci, un lucru cu constanta este, poti schimba proprietatile obiectelor,
+
+12:16.860 --> 12:18.480
+totuși nu poți realoca variabila.
+
+12:18.520 --> 12:20.520
+În regulă, la lucruri mai distractive.
+
+12:23.310 --> 12:26.410
+Să facem distrugerea.
+
+12:26.950 --> 12:30.510
+Și asta o să vă arăt că vă veți face viața mult mai ușoară.
+
+12:32.050 --> 12:41.780
+Din nou, dacă de fapt avem "obiectul (obj)" aici, să spunem că vrem să luăm aceste obiecte, așa că vom avea
+
+12:41.780 --> 12:49.460
+pentru a face 'const jucător egal obiect (obj) .player' va face,
+
+12:49.470 --> 13:03.590
+'experienta const este egal cu obiectul (obj) .experience' si apoi cu 'let wizardLevel'
+
+13:03.980 --> 13:05.620
+este egal cu 'object (obj) .wizardLevel'.
+
+13:05.870 --> 13:08.710
+Și a fost o mulțime de tastare pentru a accesa aceste proprietăți.
+
+13:08.750 --> 13:18.530
+Ei bine, cu distrugerea, puteți face acest lucru, puteți spune "jucător const" și "experiență"
+
+13:21.890 --> 13:23.560
+de la obiect.
+
+13:23.570 --> 13:31.970
+Deci, cu această sintaxă, face exact același lucru ca primele două linii de aici, doar selectați
+
+13:31.970 --> 13:35.440
+proprietățile pe care le doriți de la un obiect.
+
+13:35.690 --> 13:45.290
+Și acum aveți "const" player "și" experiență "la dispoziția dvs., astfel încât să puteți folosi" jucătorul "oriunde doriți
+
+13:45.290 --> 13:56.520
+în codul dvs. de bază și apoi pentru 'permite' putem face 'wizardLevel' equals 'object (obj)', mult mai curat.
+
+13:56.570 --> 14:00.500
+Trebuie doar să te obișnuiești cu asta, dar e mult mai plăcut să te uiți.
+
+14:00.510 --> 14:09.370
+Încă un lucru minunat ce poți face cu obiectele. Numele "const" este egal cu "john snow".
+
+14:10.680 --> 14:26.600
+Putem doar să începem un nou obiect aici și putem spune acum că "numele" este "salut"
+
+14:26.730 --> 14:27.980
+și putem face "ray", "smith"
+
+14:28.110 --> 14:29.600
+'Salut salut'.
+
+14:29.770 --> 14:30.000
+In regula.
+
+14:30.010 --> 14:36.730
+Deci, acesta este un obiect prostie, dar am vrut să vă arăt câteva modalități noi de declarare a proprietăților obiectului
+
+14:41.320 --> 14:42.280
+Acum, în ES6 puteți avea,
+
+14:42.320 --> 14:50.980
+în loc de vechiul mod de a avea doar "jucător" sau "experiență" sau "wizardLevel"
+
+14:51.250 --> 15:00.160
+putem avea ceva dinamic pe care îl putem asocia ca "zăpada john" sau putem face "ray" plus "smith" sau putem
+
+15:00.160 --> 15:07.450
+face "unul" plus "doi" și au aceste valori ale proprietății dinamice.
+
+15:07.450 --> 15:11.660
+Permiteți-mi să vă arăt cum funcționează.
+
+15:11.960 --> 15:16.240
+Dacă am acces la obiect (obj) acum, am trei egali.
+
+15:16.240 --> 15:16.660
+'Salut salut'.
+
+15:16.670 --> 15:18.040
+Și "john snow" este egală cu "salut"
+
+15:18.080 --> 15:25.400
+Din nou noi modalități de declarare a proprietăților, foarte utile dacă trebuie să calculați ceva pentru
+
+15:25.400 --> 15:26.530
+Valoarea proprietății.
+
+15:27.290 --> 15:34.630
+Dar chiar și mai rece este capabil să facă ceva de genul asta.
+
+15:34.640 --> 15:37.210
+Imaginează-ți că ai avut
+
+15:37.250 --> 15:38.620
+'const a' este egal cu
+
+15:38.670 --> 15:39.390
+'Simon'
+
+15:43.450 --> 15:46.560
+'const b' este egal cu 'adevărat'.
+
+15:47.890 --> 15:52.920
+Și "const c" este un obiect gol.
+
+15:53.130 --> 16:06.540
+Și dacă vrem să le adăugăm unui obiect, ar fi trebuit să facem "a" este a, "b" este b, și "c" este c, și uneori
+
+16:06.540 --> 16:09.820
+ați dorit ca proprietatea să corespundă valorii.
+
+16:09.820 --> 16:12.150
+Din nou cu noul javascript.
+
+16:12.150 --> 16:23.760
+Dacă proprietatea și valoarea sunt aceleași în acel caz, putem spune doar a, b, c pentru a putea elimina, putem elimina
+
+16:23.760 --> 16:29.700
+declarație pe care o avem cu proprietatea și valoarea dacă sunt aceleași și păstrați-o așa.
+
+16:29.700 --> 16:34.330
+Din nou, acest lucru este ceva care, atunci când ajungem la secțiunea Riact, va deveni foarte util.
+
+16:35.450 --> 16:45.950
+În regulă, ceva și mai distractiv și de data aceasta șirul de șabloane este "șir de șablon".
+
+16:46.060 --> 16:52.030
+Acum, amintiți-vă când avem, să zicem un salut, cât de enervant a fost că trebuia să facem.
+
+16:52.120 --> 16:53.050
+"Buna "
+
+16:55.580 --> 16:56.590
+'Nume'
+
+16:56.690 --> 17:09.520
+plus "par să faci" plus "salut" și apoi să spui că ai avut un semn de exclamare și de asemenea ai trebuit
+
+17:09.520 --> 17:12.460
+vă faceți griji dacă ați avut un apostrof.
+
+17:12.460 --> 17:15.550
+A fost foarte obositor și enervant.
+
+17:15.550 --> 17:20.460
+Acum, dacă ați fi știut ceva foarte distractiv, în loc să o faceți așa.
+
+17:22.500 --> 17:24.930
+Poți să ai "GreetingBest"
+
+17:24.950 --> 17:30.800
+este egal cu ceva numit siruri de caractere șabloane și acestea sunt spate căpușe.
+
+17:31.020 --> 17:34.270
+Deci, căpușele din spate sunt exact deasupra tastei Tab.
+
+17:34.290 --> 17:43.650
+Dacă sunteți pe un Mac în loc să utilizați ghilimele duble sau ghilimele simple, aceasta înseamnă șiruri șablon și acum
+
+17:43.680 --> 17:50.920
+puteți utiliza ghilimele duble sau ghilimele simple oriunde doriți și va fi un șir.
+
+17:51.420 --> 18:02.020
+Dar chiar și mai rece dacă ai "nume" este egal cu "Sally" și "age" este egal cu "34".
+
+18:02.060 --> 18:06.350
+"animal" este "cal".
+
+18:06.390 --> 18:07.550
+Acum putem face,
+
+18:07.560 --> 18:08.250
+'Buna'
+
+18:10.980 --> 18:12.050
+'Nume'
+
+18:12.240 --> 18:18.430
+"pari a fi", observați sintaxa și culoarea.
+
+18:18.430 --> 18:20.920
+"vârstă" minus 10
+
+18:23.750 --> 18:25.520
+"Ce minunat animal de companie (animal de companie)
+
+18:27.780 --> 18:29.310
+'tu ai'
+
+18:32.570 --> 18:34.240
+observați ce am făcut aici.
+
+18:34.450 --> 18:39.350
+Am de gând să copiez acest lucru doar așa am avut-o, când am comentat acest lucru.
+
+18:39.380 --> 18:43.880
+Acum, dacă mă uit în consolă, voi reîmprospăta.
+
+18:43.880 --> 18:53.390
+Vedeți că acum, în loc să faci toate acele ghilimele duble și plus și să vă îngrijorați de distanțele dintre aceste căpușe înapoi,
+
+18:53.420 --> 19:02.360
+Pot să spun o bucată de șir și apoi să adaug dinamic utilizând semnul dolarului, apoi
+
+19:02.360 --> 19:05.220
+parantezele curbate sunt o valoare pe care o dorim.
+
+19:05.400 --> 19:08.640
+Putem din nou să facem orice fel de expresie.
+
+19:08.640 --> 19:10.560
+Deci "vârstă" minus 10.
+
+19:10.560 --> 19:12.070
+"Ce un animal de companie minunat (animal de companie) ai"
+
+19:12.090 --> 19:13.620
+Să vedem ce se întâmplă, dacă o fac,
+
+19:13.620 --> 19:17.470
+'GreetingBest'. Uită-te la asta,
+
+19:17.690 --> 19:18.460
+"Bună ziua Sally.
+
+19:18.470 --> 19:20.570
+Se pare că ești 24 ".
+
+19:20.720 --> 19:22.590
+"Ce cal frumos aveți".
+
+19:23.720 --> 19:24.430
+Foarte tare.
+
+19:24.470 --> 19:29.060
+Deci, acest lucru este foarte foarte util va fi cu siguranta folosind acest lucru, târziu în curs.
+
+19:30.150 --> 19:38.440
+Un alt lucru pe care vreau să-l arăt este "argumentele implicite", care pot face ceva de genul "salut" vom spune "nume"
+
+19:38.450 --> 19:46.790
+este egal cu șir gol, "vârsta" este egală cu "30" și vom spune.
+
+19:46.800 --> 19:51.760
+"animalul de companie" este o "pisică".
+
+19:52.130 --> 19:54.450
+Să copiem doar ceea ce am avut înainte.
+
+19:55.520 --> 19:58.880
+Cu salutul, voi comenta acest lucru
+
+20:01.810 --> 20:03.410
+și va returna acest lucru.
+
+20:03.790 --> 20:05.790
+Deci nimic nu sa schimbat.
+
+20:05.800 --> 20:08.570
+Avem doar o funcție care întoarce un salut.
+
+20:09.590 --> 20:14.740
+Singurul lucru nou este acest lucru, permiteți-mi să vă arăt ce face.
+
+20:15.700 --> 20:26.210
+Dacă am să fac acest lucru, am să-l copiez și să-l pun în consola, și acum alerg "salut", "Bună ziua, tu par 20."
+
+20:26.230 --> 20:27.870
+"Ce pisică minunată ai".
+
+20:29.560 --> 20:35.470
+Ați prins acest lucru, chiar dacă browserul nostru, și permiteți-mi doar să reîmprospătați, astfel încât să știți sigur că browser-ul nostru are
+
+20:35.470 --> 20:39.150
+nici o idee despre vârsta sau animalele de companie.
+
+20:39.250 --> 20:41.800
+Dar dacă conduc această funcție
+
+20:46.250 --> 20:53.870
+din cauza modului în care am făcut parametrii, le-am dat argumente implicite care spun că, dacă nu le ofer
+
+20:53.870 --> 20:58.640
+o valoare pentru nume pe care nu am, nu am dat nici un argument.
+
+20:58.910 --> 20:59.810
+Atunci face bine.
+
+20:59.810 --> 21:14.490
+"nume", șir gol, faceți "vârsta" de 30 de ani și faceți "pet", "pisică", dacă facem acum, "salut", "John", "50" și vom face "maimuță".
+
+21:14.490 --> 21:15.260
+Acum,
+
+21:15.270 --> 21:16.940
+"Bună John, tu pari 40."
+
+21:16.950 --> 21:24.990
+"Ce maimuță minunată ai". Acest lucru este ignorat deoarece am trecut parametrii, dar altfel pot trece
+
+21:24.990 --> 21:31.410
+un parametru implicit, astfel încât atunci când cineva numește această funcție și nu furnizează aceste argumente
+
+21:32.640 --> 21:38.210
+funcția mea nu va eșua, deoarece bine am argumente implicite.
+
+21:38.410 --> 21:39.610
+Foarte tare.
+
+21:39.680 --> 21:40.000
+In regula.
+
+21:40.010 --> 21:42.060
+Ce altceva avem.
+
+21:42.500 --> 21:50.880
+Să reîmprospăteazăm aici, dacă vă amintiți că am mai avut încă un tip de "JAVASCRIPT TYPES" și acesta este un "simbol".
+
+21:50.900 --> 21:56.720
+De fapt, nu este folosit foarte des, dar am vrut să vă arăt doar pentru că în timp ce este un tip de, vrem să
+
+21:56.720 --> 22:09.000
+completează cele șapte tipuri de javascript, iar un simbol este special, deoarece dacă am simbolul unu (sym1), creez un simbol
+
+22:09.000 --> 22:18.600
+făcând acest indice și aș putea avea un al doilea simbol (sym2) care este "simbol ()".
+
+22:18.760 --> 22:32.110
+Și aici putem pune orice, putem pune "foo" și simbolul variabil (var) 3 (sym3) este egal cu "Simbol ()" și vom
+
+22:32.110 --> 22:34.490
+spune "foo", de asemenea.
+
+22:34.540 --> 22:37.540
+Ce este atât de unic despre simboluri,
+
+22:37.870 --> 22:40.310
+ooh! ar trebui să folosim "lăsați" aici.
+
+22:41.560 --> 22:54.580
+Dacă copiez acest lucru și accesez 'sym1', obțin simbol () "acces" sym2 ", obțin" foo "și" sym3 "primesc" foo ".
+
+22:54.790 --> 23:05.240
+Dar lucrul unic este că dacă fac "sym2" egal cu "sym3", devin fals.
+
+23:05.290 --> 23:12.430
+Chiar dacă, ei arătau ca și cum ar fi aceleași lucruri și simbolurile sunt folosite pentru că ele creează
+
+23:12.430 --> 23:20.630
+aceste tipuri complet unice. Ca să vă asigurați că nu va exista vreodată vreun conflict.
+
+23:20.740 --> 23:26.410
+Iar valoarea simbolului este folosită ca indentifier în cea mai mare parte pentru proprietățile obiectului.
+
+23:26.410 --> 23:32.080
+Este vorba de un singur scop, deoarece, uneori, nu doriți proprietăți obiect dacă sunteți
+
+23:32.080 --> 23:37.660
+au mii dintre ei să se ciocnească și să fie aceleași, pentru că atunci vor avea bug-uri.
+
+23:37.780 --> 23:42.550
+Nu o vom vedea prea mult și bineînțeles că nu veți vedea prea mult în sălbăticie, dar am vrut să arăt
+
+23:42.550 --> 23:48.820
+aceasta este pentru că, deși vrem să cunoaștem toate tipurile de javascript.
+
+23:48.930 --> 23:49.470
+In regula.
+
+23:49.590 --> 23:55.980
+Un ultimul, știu că am acoperit foarte mult, dar acesta este cel mai bun și acesta este "funcțiile săgeții".
+
+23:57.910 --> 24:09.140
+Până în acest moment, dacă vrem să facem ceva de adăugat, trebuia să facem "a", "b" și "a reveni" plus "b".
+
+24:09.700 --> 24:17.500
+Și s-ar putea să te îmbolnăvești și să te obosiți să scrieți în mod constant funcții peste și peste și peste.
+
+24:17.660 --> 24:19.330
+Ei bine, acum aveți funcții de săgeată.
+
+24:19.370 --> 24:21.590
+Deci, cu o funcție de săgeată puteți face, Uită-te la asta,
+
+24:32.020 --> 24:35.090
+de fiecare dată când vedeți această sintaxă.
+
+24:35.220 --> 24:37.530
+Oop! și trebuia să trec aici și "a" și "b"
+
+24:37.540 --> 24:44.440
+ori de câte ori vedeți această sintaxă, este același lucru cu a spune funcția, dar acum este doar forma scurtă
+
+24:44.440 --> 24:47.180
+astfel încât să nu trebuie să scrieți în mod constant o funcție.
+
+24:47.410 --> 24:56.680
+Și frumusețea ei este că ați fi putut face "întoarcerea a" și "b" și asta funcționează complet.
+
+24:56.680 --> 25:04.180
+Deci, singura diferență este că avem, o expresie a funcției care acceptă un parametru și avem acest lucru
+
+25:04.180 --> 25:08.620
+săgeată de grăsime, dar cu o funcție de săgeată.
+
+25:08.990 --> 25:11.240
+Dacă aveți un singur return,
+
+25:13.870 --> 25:18.100
+bine, puteți să-l puneți pe o singură linie și presupune că doriți să returnați acest lucru.
+
+25:18.190 --> 25:27.440
+Dacă salvez asta și o copiez aici, oop! Nu am nevoie de această sintaxă.
+
+25:27.560 --> 25:33.530
+Să copiem încă o dată "adăugați 4 și 2".
+
+25:33.700 --> 25:37.060
+Aceasta este prima funcție și apoi noua cale cu funcția săgeată.
+
+25:37.080 --> 25:41.440
+'add2', '4' '2'.
+
+25:41.680 --> 25:43.060
+Din nou, am același lucru.
+
+25:43.060 --> 25:48.240
+Se întoarce automat pentru că totul, bine, e pe o linie.
+
+25:48.250 --> 25:51.900
+Arată foarte foarte frumos, mult mai ușor de scris decât cele de mai sus.
+
+25:53.220 --> 25:55.360
+Și acolo aveți.
+
+25:55.620 --> 25:58.370
+Știu că a fost o mulțime de informații.
+
+25:58.380 --> 26:04.380
+Asigurați-vă că faceți exercițiile după acest videoclip pentru a vă familiariza cu sintaxa,
+
+26:04.380 --> 26:05.770
+sunt doar noi modalități de a face lucrurile.
+
+26:05.790 --> 26:10.480
+Acestea vă vor ajuta să scrieți un cod mai bun, mai curat.
+
+26:11.330 --> 26:19.050
+Și doar pentru a vă arăta ce am acoperit, bine ați reușit să terminați totul și conturul secțiunii.
+
+26:20.090 --> 26:25.530
+De la variabile la condiționalități, până la funcția săgeată.
+
+26:25.610 --> 26:30.760
+Am acoperit tot ceea ce am vrut pentru javascript și am continuat.
+
+26:30.890 --> 26:37.600
+Vom folosi aceste noi sintaxe pentru a scrie codul nostru.
+
+26:37.610 --> 26:40.430
+Sper că sunteți entuziasmat, pentru că voi începe să le folosiți.
+
+26:40.670 --> 26:42.630
+Ne vedem în următorul.
+Buh-pa.

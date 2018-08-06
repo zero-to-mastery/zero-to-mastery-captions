@@ -1,0 +1,364 @@
+WEBVTT
+
+00:01.910 --> 00:10.340
+Toate companiile stochează date. De la o carte simplă a unei mici afaceri, poate chiar și într-un jurnal sau într-un
+
+00:10.340 --> 00:11.580
+bucata de hartie,
+
+00:11.690 --> 00:17.810
+la companii masive precum Amazon care au nevoie de computere pentru a stoca Petabytes de date.
+
+00:17.810 --> 00:26.000
+Acum, pentru a stoca aceste informații aproape orice companie și uneori indivizii prea au nevoie de ceva
+
+00:26.000 --> 00:27.940
+numită o bază de date.
+
+00:28.070 --> 00:35.060
+Am văzut în ultima secțiune cât de greu a fost ca serverul nostru să-și amintească un nou utilizator. De fiecare dată când serverul
+
+00:35.060 --> 00:35.810
+prăbușit
+
+00:35.810 --> 00:40.030
+Variabila s-ar reinițializa și apoi va începe peste tot.
+
+00:40.460 --> 00:48.400
+Sau dacă vrem să facem un login sau un control de conectare și să repetăm ​​prin e-mailuri și parole, făcând
+
+00:48.470 --> 00:52.160
+o buclă prin javascript, care este ineficientă.
+
+00:52.160 --> 00:54.240
+Aici găsiți baza de date pentru salvare.
+
+00:54.990 --> 00:58.850
+Deci, să ne întrebăm ce este o bază de date.
+
+00:58.890 --> 01:01.960
+O bază de date este o colecție de date.
+
+01:02.050 --> 01:03.540
+Și ceea ce înțelegem prin date -
+
+01:03.850 --> 01:05.730
+Există multe forme de dreptate.
+
+01:05.770 --> 01:10.360
+Pot exista numere, pot exista date, s-ar putea să existe parole,
+
+01:10.360 --> 01:17.440
+ar putea exista informații despre utilizator. Bazele de date ne permit să organizăm aceste date într-un mod util
+
+01:17.440 --> 01:24.340
+ne și face gestionarea datelor ușor și ceva a ieșit din asta.
+
+01:24.650 --> 01:29.930
+Și se numește sistem de gestionare a bazelor de date sau DBMS pe scurt.
+
+01:29.990 --> 01:35.120
+Este o colecție de programe care ne permite să accesăm baze de date și să lucrăm cu date.
+
+01:35.450 --> 01:39.740
+De asemenea, permite accesul controlat la utilizatorii bazei de date.
+
+01:41.600 --> 01:50.820
+Deci, un DBMS este ceva în această casetă ceva care ne permite un instrument sau o bucată de software care permite
+
+01:50.820 --> 01:59.420
+să comunicăm cu baza de date, să stocăm informații utile pentru noi și să ne permitem să actualizăm,
+
+02:00.050 --> 02:05.780
+inserați, ștergeți, căutați orice este în baza de date.
+
+02:05.840 --> 02:12.980
+Și această idee a unui DBMS a început într-adevăr să se contureze în anii 1960 și acum este în fruntea multora
+
+02:12.980 --> 02:14.130
+lucruri interesante.
+
+02:14.150 --> 02:19.850
+Există o întreagă industrie de ingineri care lucrează doar cu bazele de date, deoarece este atât de importantă.
+
+02:21.100 --> 02:27.130
+Acum există două tipuri de DBMS care sunt foarte populare acum și despre care vom vorbi
+
+02:27.130 --> 02:27.980
+în acest curs.
+
+02:29.820 --> 02:36.310
+Iar aceste două tipuri sunt reprezentate foarte bine de Postgres și MongoDB.
+
+02:36.450 --> 02:43.230
+Să vorbim despre prima, care este baza de date relațională. Și acesta este probabil cel mai popular. La fel de
+
+02:43.230 --> 02:44.600
+puteți vedea pe partea dreaptă.
+
+02:44.610 --> 02:49.410
+Vedeți că toate acestea sunt baze de date relaționale.
+
+02:49.630 --> 02:56.890
+Postgres, Oracle, server SQL, este posibil să fi auzit de MySQL, SQLite.
+
+02:57.230 --> 03:03.840
+Acestea sunt toate tipurile de baze de date care au această etichetă de bază de date relațională.
+
+03:04.100 --> 03:06.770
+Iar frumusețea cu ei este că sunt aproape asemănătoare.
+
+03:06.770 --> 03:10.630
+Toate acestea urmează același format standard.
+
+03:10.640 --> 03:19.510
+Bazele de date relaționale constau din două sau mai multe tabele cu coloane și rânduri.
+
+03:19.530 --> 03:27.180
+Deci, în acest caz, utilizatorii sunt un tabel și numele complet, numele de utilizator, textul, create_at sunt coloanele și orice
+
+03:27.180 --> 03:30.900
+valorile pe care le au aici sunt rânduri.
+
+03:31.230 --> 03:34.690
+Fiecare rând reprezintă o intrare și fiecare coloană stochează
+
+03:34.700 --> 03:39.710
+un tip foarte specific de informații cum ar fi numele, adresa sau numerele de telefon.
+
+03:39.930 --> 03:48.050
+Și apoi relația dintre tabele și câmp se numește o schemă. Într-o bază de date relațională
+
+03:48.170 --> 03:55.480
+schema trebuie să fie clar definită înainte de adăugarea oricăror informații. Și dacă acest lucru este confuz corect
+
+03:55.480 --> 03:59.230
+acum nu vă faceți griji că vom crea, de fapt, aceste baze de date, astfel încât are sens pentru tine.
+
+03:59.500 --> 04:05.470
+Dacă am avea Twitter, de exemplu, puteți vedea aici tipurile de tabele pe care le-am avea și cum am
+
+04:05.470 --> 04:07.130
+ar organiza.
+
+04:07.240 --> 04:15.400
+Am avea un tabel de utilizatori, un tabel de tweets, un tabel următor și putem conecta toate aceste informații.
+
+04:15.420 --> 04:23.220
+De exemplu, prin conectarea diferitelor bucăți ale mesei. De exemplu, numele de utilizator va fi același în
+
+04:23.220 --> 04:27.560
+tabela utilizatorilor, așa cum este în tabelul de tweets.
+
+04:27.570 --> 04:37.530
+În acest fel, putem spune că numele de utilizator din tabelul tweets este cheia externă a numelui de utilizator din
+
+04:37.530 --> 04:46.090
+utilizatorilor. Și apoi from_user va fi cheia străină a utilizatorului de utilizator în tabelul următor.
+
+04:46.110 --> 04:56.400
+Acum, lucruri precum numele complet sau idul, ceva care identifică fiecare rând într-un tabel, se numește cheie primară
+
+04:57.060 --> 05:01.940
+și vom trece prin asta mai târziu în această secțiune.
+
+05:01.940 --> 05:07.130
+În regulă, toate aceste baze de date - vom învăța despre SQL Postgres, dar toate sunt frumoase
+
+05:07.130 --> 05:07.670
+aproape la fel.
+
+05:07.670 --> 05:14.810
+Deci, odată ce știți unul, este destul de ușor să le luați pe ceilalți - cum de fapt ei comunică
+
+05:15.660 --> 05:22.230
+serverul cu Backend. Ei bine, toate bazele de date relaționale utilizează ceva numit SQL.
+
+05:26.510 --> 05:34.960
+Și SQL ne permite să comunicăm la fel ca HTTP între frontend și backend. Cu SQL
+
+05:34.960 --> 05:42.410
+suntem capabili să comunicăm cu baza de date și să modificăm sau să obținem sau să actualizăm orice dorim.
+
+05:43.040 --> 05:45.620
+Și vom avea un videoclip despre acest subiect.
+
+05:45.620 --> 05:49.820
+Bine, deci sunt bazele de date relaționale.
+
+05:49.820 --> 05:51.740
+Cum rămâne cu al doilea tip.
+
+05:51.800 --> 05:58.870
+Al doilea tip este numit o bază de date non-relațională sau o bază de date NoSQL.
+
+05:59.000 --> 06:05.000
+Și încă o dată există multe tipuri diferite de baze de date cu câteva nume reci, cum ar fi CouchDB și
+
+06:05.000 --> 06:06.680
+HYPERTABLE.
+
+06:06.810 --> 06:12.810
+Acum, o bază de date mongoDB sau o bază de date non-relațională vă permite să construiți o aplicație fără a fi nevoie să definiți
+
+06:12.810 --> 06:14.900
+schema în primul rând
+
+06:14.970 --> 06:26.400
+spre deosebire de o bază de date relațională. Dacă ne întoarcem la baza de date relațională această schemă sau aceste tabele trebuie să
+
+06:26.490 --> 06:27.750
+un fel de drepturi predefinite.
+
+06:27.750 --> 06:35.930
+Trebuie să știm cum va arăta aplicația noastră, să facă aceste mese, astfel încât, odată ce aplicația să fie publică, putem
+
+06:35.940 --> 06:45.030
+începeți să introduceți informații de utilizator și tweet-uri și adepți. Cu o bază de date NoSQL sau non relațională
+
+06:45.030 --> 06:47.050
+Putem doar să o definim pe măsură ce mergem.
+
+06:47.340 --> 06:53.410
+Și toți au modalități diferite de a stoca această informație, astfel încât fiecare să fie foarte, foarte diferită.
+
+06:53.490 --> 06:58.650
+Și acesta este un alt motiv puternic pentru a utiliza o bază de date non-relațională este că, dacă cerințele dvs. de date
+
+06:58.650 --> 07:05.790
+nu sunt clare la începutul proiectului dvs. și poate aveți o cantitate masivă de date nestructurate. Tu
+
+07:05.790 --> 07:11.390
+poate să nu aibă luxul de a dezvolta o bază de date relațională cu o schemă clar definită.
+
+07:11.480 --> 07:18.390
+Ele oferă în schimb o flexibilitate mai mare în faptul că o bază de date non-relațională este mai degrabă ca foldere, doar
+
+07:18.390 --> 07:21.510
+asamblarea informațiilor aferente de toate tipurile.
+
+07:22.340 --> 07:26.560
+Acum, MongoDB este ceva numit document orientat.
+
+07:26.600 --> 07:31.740
+Stochează informații ca documente.
+
+07:31.750 --> 07:33.700
+Permiteți-mi să vă ilustrez acest punct.
+
+07:33.700 --> 07:37.170
+Am biroul meu aici cu două dosare.
+
+07:37.540 --> 07:40.330
+Una este o bază de date relațională.
+
+07:40.330 --> 07:48.920
+Și aici am utilizatori, tweets, profil, urmând. Și vă puteți gândi la baze de date relaționale cu acest tip
+
+07:48.920 --> 07:56.540
+de stocare unde acest dosar locuiește undeva pe un computer care stochează aceste informații. Și oricând
+
+07:56.540 --> 08:02.600
+trebuie să punem o bază de date pentru ceva, ei bine luăm utilizatorii și dacă dorim să le luăm și pe ei
+
+08:02.600 --> 08:09.680
+tweets utilizatorului. Găsim utilizatorul care ne interesează. Apoi găsim tweets-ul utilizatorului care suntem
+
+08:09.680 --> 08:17.510
+de asemenea, interesat de cheia externă care se leagă de utilizatori și putem, de asemenea, găsi totuși mulți adepți
+
+08:17.540 --> 08:18.680
+acel utilizator are.
+
+08:18.680 --> 08:22.780
+Am apucat aceste informații și le afișăm pe aplicația noastră web.
+
+08:25.480 --> 08:27.360
+MongoDB pe de altă parte
+
+08:28.240 --> 08:37.100
+va avea de fapt fiecare utilizator ca document. Deci, dacă aș vrea să-l prind pe primul utilizator.
+
+08:37.420 --> 08:43.740
+Ei bine, am luat acest document și are toți urmașii, tweet-urile, profilul este totul
+
+08:43.740 --> 08:51.590
+în acest document. Și s-ar putea să vă gândiți că "MongoDB arata ca o alegere mai bună decât să aibă acest lucru
+
+08:53.100 --> 08:54.390
+mod de a face lucrurile bine? "
+
+08:55.560 --> 09:00.000
+Ei bine, depinde de nevoia dvs. și de aceea baza de date este un subiect atât de complex.
+
+09:00.030 --> 09:02.460
+De fapt, într-adevăr depinde de situația dvs.
+
+09:02.490 --> 09:08.760
+Puteți vedea acest mod MongoDB fiind foarte util dacă aveți ceva de genul un profil, poate un linkin
+
+09:08.760 --> 09:09.410
+profil.
+
+09:09.630 --> 09:15.390
+Dar dacă aveați nevoie de ceva în care lucrați doar urmând datele sau pur și simplu tweet datele, poate cu
+
+09:15.430 --> 09:19.020
+tweets pe care doriți să vedeți care este dimensiunea medie tweet.
+
+09:19.140 --> 09:25.530
+Ei bine, este foarte ușor să apucați acest fișier și să calculați acest lucru în comparație cu modul în care ați putea avea
+
+09:25.530 --> 09:28.810
+pentru a le extrage de la fiecare utilizator.
+
+09:29.010 --> 09:31.900
+Deci depinde de nevoile tale.
+
+09:32.050 --> 09:40.990
+Permiteți-mi să vă arăt o altă diagramă care ar putea fi utilă. Când ne uităm la relațional versus non relațional
+
+09:40.990 --> 09:42.000
+baze de date.
+
+09:42.220 --> 09:44.950
+Vă puteți gândi la relațional
+
+09:45.040 --> 09:54.250
+Fiecare tabel are un Mesaj Blog, un Tag Blog, un Blog Comentarii și leagă aceste tabele pentru a vă oferi informațiile despre blog
+
+09:55.030 --> 10:02.170
+versus un non-relațional care stochează întreaga postare bloc într-o intrare și are comentarii, etichete, categorii
+
+10:02.590 --> 10:04.200
+și toate celelalte date conexe
+
+10:04.210 --> 10:05.920
+Doar într-un singur loc.
+
+10:05.950 --> 10:08.890
+Deci, ce folosește MongoDB pentru a comunica.
+
+10:09.420 --> 10:16.130
+Dacă ne întoarcem la exemplul nostru aici, am avut SQL pentru baze de date relaționale, cum ar fi Postgres.
+
+10:16.200 --> 10:26.760
+Ei bine, MongoDB are propria sa limbă de interogare și este doar limba de interogare MongoDB.
+
+10:31.690 --> 10:33.690
+Dar ambii doresc să facă același lucru.
+
+10:33.700 --> 10:40.060
+Aceasta este de a comunica cu baza de date, oferă o modalitate ușoară pentru server să comunice cu
+
+10:40.060 --> 10:41.690
+Bază de date.
+
+10:41.810 --> 10:46.280
+Și în această secțiune vom vorbi despre asta și vom conecta în cele din urmă punctele
+
+10:46.850 --> 10:51.510
+și vă va arăta puterea bazelor de date odată ce acestea sunt conectate la un server.
+
+10:51.560 --> 10:53.600
+Voi vedea în următorul. Pa! Pa.

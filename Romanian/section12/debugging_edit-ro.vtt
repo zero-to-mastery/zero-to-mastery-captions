@@ -1,0 +1,283 @@
+WEBVTT
+
+00:01.100 --> 00:02.330
+Bine ai revenit.
+
+00:02.330 --> 00:10.550
+Vreau să vă vorbesc repede cu privire la un subiect foarte important pentru un dezvoltator, și asta este depanarea.
+
+00:10.610 --> 00:14.810
+Depistarea este actul căutării peste cod,
+
+00:14.810 --> 00:22.870
+înțelegerea a ceea ce face și imaginind de ce nu acționează așa cum era de așteptat sau poate că nu este chiar așa
+
+00:22.880 --> 00:28.610
+rulează, poate că primiți erori sau poate ceva ce utilizatorul face pe un site web
+
+00:28.730 --> 00:30.570
+declanșând un comportament ciudat.
+
+00:30.860 --> 00:36.100
+Asta e ceea ce este depanarea. Aflând de ce programul nu se comportă așa cum este.
+
+00:36.440 --> 00:42.190
+Și atunci când lucrați ca dezvoltator, o mare parte din timpul dvs. este cheltuit în depanare.
+
+00:42.230 --> 00:48.130
+Deci, este un subiect foarte important și vreau să vorbesc despre câteva dintre strategiile pe care le putem folosi pentru depanare.
+
+00:48.170 --> 00:56.090
+Am aici o funcție destul de complexă și sinceră, dacă nu ați avut o mulțime de experiență cu javascript
+
+00:56.720 --> 00:59.360
+aceasta este o funcție destul de greu de înțeles.
+
+00:59.510 --> 01:08.740
+Să spunem că te duci să lucrezi și cineva spune, hei! Eu nu,
+
+01:08.740 --> 01:09.870
+Nu știu ce se întâmplă cu această funcție,
+
+01:10.240 --> 01:17.600
+te poți uita în ea? și trebuie să dai seama, ce face și dacă funcționează bine sau nu.
+
+01:18.070 --> 01:23.490
+Așadar, vă voi face pașii pe care i-aș folosi pentru a depana acest cod.
+
+01:23.530 --> 01:29.970
+Poate că funcționează bine, poate că nu este, dar vreau să înțeleg ce face acest cod de cod.
+
+01:30.880 --> 01:39.410
+Deci, primul lucru pe care l-aș face este doar să-l citesc, spun OK, atribuim o variabilă și arată
+
+01:39.410 --> 01:41.140
+avem o matrice.
+
+01:41.270 --> 01:46.070
+Este o matrice imbricata, deci exista o matrice in interiorul unei matrice.
+
+01:47.410 --> 01:51.800
+Și se pare că acest cod dorește să facă ceva numit aplatizat.
+
+01:51.870 --> 01:52.570
+O.K.
+
+01:52.840 --> 02:00.790
+Știm că "reduce" de ceea ce am învățat înainte, "a" este "acumulatorul".
+
+02:00.790 --> 02:01.690
+Pot schimba numele,
+
+02:01.720 --> 02:03.070
+așa că mă face mai multă sens.
+
+02:03.070 --> 02:05.730
+OK, acumulatorul este perfect.
+
+02:05.800 --> 02:08.790
+Și "b" este bine ce este "b"?
+
+02:09.280 --> 02:20.320
+"b" este acest drept, pentru că suntem iterați și ne confruntăm cu prima matrice, ceea ce ne oferă trei tablouri.
+
+02:20.510 --> 02:23.240
+Așa că pot să spun doar aici. O.K.
+
+02:28.620 --> 02:38.250
+Acum, de asemenea, văd că în această reducere, am "acumulatorul", am matricea și vreau "acumulatorul" să
+
+02:38.370 --> 02:40.490
+porniți cu o matrice goală.
+
+02:40.680 --> 02:42.170
+Asta are sens până acum.
+
+02:42.270 --> 02:45.470
+Așadar, "acumulatorul" va fi o matrice goală atunci când începeți.
+
+02:45.720 --> 02:48.080
+Și ceea ce vom face este că vom face,
+
+02:48.090 --> 02:50.410
+spațiu gol mat.
+
+02:50.430 --> 02:58.580
+Și dacă vă amintiți, "concat" atașează conținutul unui matrice în ceea ce este concat.
+
+02:58.580 --> 03:06.590
+Un lucru pe care pot să-l fac este să deschid această funcție, astfel încât acum, în loc să am doar o singură linie, pot să spun
+
+03:06.590 --> 03:18.120
+'console.log' și vom afla ce array este și va spune și 'console.log' 'acumulator', se va spune "acumulator".
+
+03:18.170 --> 03:24.050
+Așa că am deschis consola și, de asemenea, dorim să ne asigurăm că ne întoarcem pentru că am eliminat
+
+03:24.080 --> 03:29.160
+dintr-o singură linie care implică deja implicit întoarcerea, de a face două linii.
+
+03:29.410 --> 03:29.620
+O.K.
+
+03:29.630 --> 03:36.320
+Deci, hai să reîmprospătăm și să adăugăm această funcție și să vedem dacă putem obține niște jurnale de consolă care să ne dăm seama
+
+03:36.320 --> 03:37.300
+ce face.
+
+03:37.410 --> 03:44.390
+Vor fi trei looping-uri pe care le vedem și în prima buclă arată cum ar fi, se spune în matrice
+
+03:44.390 --> 03:48.050
+este [0, 1] și "acumulatorul" este matricea goală.
+
+03:48.140 --> 03:49.670
+Ok, asta are sens.
+
+03:49.670 --> 03:58.430
+Apoi vedem cea de-a doua buclă în jurul matricei 2 și 3 care este aici, se învârte în jurul valorii de "acumulator"
+
+03:58.760 --> 04:01.940
+acum are 0 și 1.
+
+04:01.940 --> 04:08.270
+Deci, se pare că după prima buclă, am adăugat zero și unul din matrice în
+
+04:08.270 --> 04:11.870
+gama neagră care este acumulatorul. O.K.
+
+04:12.050 --> 04:15.690
+Și apoi ultima trecere prin care sunt patru și cinci.
+
+04:15.740 --> 04:23.260
+Am atașat acum matricele de 4 și 5 în "acumulator" care adaugă 0, 1, 2, 3.
+
+04:23.300 --> 04:33.110
+Se pare că, ceea ce facem este că luăm fiecare matrice și îl adăugăm în acumulator.
+
+04:33.150 --> 04:37.190
+Și pentru că arată așa.
+
+04:37.260 --> 04:44.530
+Asa ar arata cum ar arata prima trecere, doar folosim functia concat
+
+04:44.530 --> 04:53.560
+[0, 1], pentru a ne alinia matricea, astfel incat aceasta inseamna in loc sa avem o matrice
+
+04:53.590 --> 04:58.360
+în interiorul unei matrice, putem să-l lămurim totul complet.
+
+04:58.360 --> 05:08.570
+Asta inseamna ca, cu "aplatizat", daca ma uit la ceea ce face, ei bine gaseste doar matrice [0, 1, 2, 3, 4, 5]. Minunat.
+
+05:08.720 --> 05:14.420
+Există un alt truc pe care vreau să-ți arăt, și asta este în loc să folosești un jurnal de console, poți folosi ceva
+
+05:14.420 --> 05:22.610
+numit debugger. Și observați că culoarea a devenit roșie ceea ce înseamnă Da! este un cuvânt cheie javascript.
+
+05:22.850 --> 05:24.460
+Și ce vă permite acest lucru?
+
+05:24.560 --> 05:32.060
+Să vedem ce se întâmplă când rulez din nou această funcție pentru a reîmprospăta aici și vreau să o execut,
+
+05:32.570 --> 05:33.430
+Whoa! ce s-a intamplat.
+
+05:34.800 --> 05:43.350
+Când motorul javascript și browserul se execută în programul de depanare a cuvintelor, acesta se oprește.
+
+05:43.430 --> 05:49.720
+E un cuvânt care spune ce citește fișierul ăsta, hei! opriți orice faceți doar înghețați,
+
+05:50.840 --> 05:55.120
+și ne deschide fereastra exact unde sa oprit.
+
+05:55.400 --> 05:58.190
+Deci, lasă-mă să fac acest ecran complet și să-ți arăt.
+
+05:58.390 --> 06:07.330
+Se oprește în mijlocul execuției sale. Dar vedem că aici "acumulatorul" este o matrice goală pentru că în timp ce
+
+06:07.330 --> 06:17.700
+am pornit-o și matricea este 0 și 1, acum am câteva opțiuni.
+
+06:17.850 --> 06:21.600
+Pot lovi jocul care reia întregul lucru sau pot lovi Pasul peste
+
+06:21.600 --> 06:26.750
+și să vedem ce se întâmplă cu pas înainte, merge la linia următoare.
+
+06:27.780 --> 06:31.460
+Și dacă dau din nou clic, se duce la linia următoare.
+
+06:32.400 --> 06:40.980
+Și acum văd că "acumulatorul" este 0 și 1, iar matricea este acum 2 și 3.
+
+06:41.020 --> 06:48.130
+Așa că știu că în următoarea linie, "acumulatorul", bine am schimbat acest lucru la o matrice din greșeală, dar asta va
+
+06:48.130 --> 06:59.550
+fie "acumulatorul" va fi 0 și 1 punct concat, 2 și 3. Și pot continua să trec prin asta și să văd
+
+06:59.550 --> 07:06.260
+modul în care parametrii se schimbă și parcurg literalmente întreaga funcție.
+
+07:06.720 --> 07:07.950
+Să închidem asta.
+
+07:08.260 --> 07:13.070
+Dacă aș aduce acest lucru înapoi la modul în care a fost ceea ce este "acumulatorul"
+
+07:18.470 --> 07:19.910
+face acest ecran complet.
+
+07:19.910 --> 07:20.720
+In regula.
+
+07:20.720 --> 07:24.950
+Deci, matricea este [0, 1] "acumulator" este o matrice goala, voi trece prin,
+
+07:28.260 --> 07:34.470
+care a schimbat "acumulator" este acum [0, 1] matrice [2, 3] și eu păstrez pasul prin și am observat exact ce se întâmplă
+
+07:34.470 --> 07:40.460
+în cod și când se execută, se întoarce și se uită la asta.
+
+07:40.620 --> 07:46.370
+Avem consola noastră înapoi.
+
+07:46.420 --> 07:47.500
+Nu este așa de cool?
+
+07:47.500 --> 07:53.080
+Debuggerul ne permite să mergem literalmente în funcție și să vedem ce se întâmplă pas cu pas. În timp ce returnez asta
+
+07:53.080 --> 07:57.050
+la modul în care a fost.
+
+07:57.160 --> 08:01.780
+Vreau să luați acest lucru cu dvs. și să înțelegeți că, deși, când vedeți pentru prima dată așa ceva,
+
+08:01.780 --> 08:02.800
+este copleșitoare,
+
+08:02.800 --> 08:09.070
+cu suficient timp și folosind consola și depanatorul sunteți în stare să înțelegeți ce face o funcție și dacă
+
+08:09.070 --> 08:14.140
+face ceva ce nu vă așteptați să faceți sau faceți ceva greșit,
+
+08:14.710 --> 08:17.390
+puteți utiliza aceste tehnici pentru ao repara.
+
+08:17.400 --> 08:20.410
+Este o abilitate foarte utilă pe care o veți folosi foarte mult.
+
+08:20.730 --> 08:21.540
+Deci noroc.
+
+08:21.660 --> 08:23.270
+Distrează-te acolo. Buh-pa

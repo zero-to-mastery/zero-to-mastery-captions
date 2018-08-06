@@ -1,0 +1,605 @@
+WEBVTT
+
+00:01.360 --> 00:02.340
+Bine ai revenit.
+
+00:02.560 --> 00:10.030
+Este timpul să ne integrăm în cele din urmă serverul pe care tocmai l-am creat folosind Node și Express la front-end,
+
+00:11.180 --> 00:17.830
+care a fost construit cu JavaScript și React. Să începem ambele servere și vreau să vă gândiți
+
+00:17.830 --> 00:24.520
+dintre acestea fiind două computere separate deoarece, în viața reală, probabil vor fi două computere separate
+
+00:24.520 --> 00:32.380
+undeva care rulează separat și comunică - bine, prin HTTP. Voi fugi
+'npm începe' aici.
+
+00:32.390 --> 00:33.260
+-
+
+00:35.050 --> 00:38.920
+Și cu aplicația React voi rula și "npm start".
+
+00:39.780 --> 00:46.470
+Și veți observa că probabil îmi va da un avertisment sau o sugestie care spune că ceva este deja în desfășurare
+
+00:46.470 --> 00:52.110
+pe portul 3000 și chiar îmi spune exact ce rulează acolo.
+
+00:52.110 --> 00:58.440
+Și pentru că ambele încearcă să ruleze pe același port, putem să le executăm pe altele diferite, așa că eu
+
+00:58.440 --> 01:05.930
+poate schimba serverul meu pentru a rula pe ceva diferit de 3000, care este implicit pentru aplicația create-react-app.
+
+01:06.120 --> 01:14.160
+Sau pot spune doar "Vrei să rulați aplicația într-un alt port?" - Voi face clic pe "Y" și acum va
+
+01:14.670 --> 01:23.610
+creați "localhost:3001" ca front-end. Minunat.
+
+01:23.610 --> 01:25.340
+Așa că avem aplicația noastră aici.
+
+01:26.010 --> 01:34.850
+Dacă ne întoarcem, aplicația și serverul rulează în ambele cazuri și dorim să le conectăm în cele din urmă. Daca iti amintesti
+
+01:37.260 --> 01:38.700
+diagrama noastră aici.
+
+01:38.700 --> 01:41.660
+În sfârșit, depășim distanța dintre cele două.
+
+01:41.850 --> 01:47.180
+Două instanțe separate care comunică împreună.
+
+01:47.230 --> 01:48.010
+Să începem.
+
+01:51.820 --> 02:00.250
+După cum știm cu aplicația noastră React, pentru a comunica cu lumea din spate sau cu lumea exterioară, putem folosi
+
+02:00.310 --> 02:01.280
+„Aducă“.
+
+02:01.510 --> 02:07.350
+În cazul nostru, putem spune "componenta ..." și să facem acest lucru în partea de sus.
+
+02:07.360 --> 02:15.280
+Acolo te duci. 'componentDidMount' - un cârlig de viață care vine cu React, deci nu trebuie să facem funcții săgeată
+
+02:16.090 --> 02:27.450
+- și vom spune că aici vrem să "luăm" și să facem "localhost" pentru că acesta este computerul nostru și
+
+02:27.980 --> 02:30.250
+pot "3000" va trebui să facă
+
+02:30.260 --> 02:34.870
+HTTP aici 'localhost:3000'
+
+02:35.280 --> 02:38.730
+Și amintiți-vă că această sintaxă se face
+
+02:38.840 --> 02:43.860
+'. atunci ()' vom primi un răspuns
+
+02:46.480 --> 02:48.860
+și va trebui să fugim
+
+02:48.940 --> 02:58.230
+'answer.json ()' pe care îl putem citi și apoi vom obține date. Și o cale scurtă de a face acest lucru este dacă tu
+
+02:58.260 --> 03:05.530
+de fapt, faceți "console.log" datele vor intra în mod automat aici.
+
+03:05.580 --> 03:07.480
+Așa că nu trebuie să fac
+
+03:07.660 --> 03:10.980
+'. atunci (data => console.log (data))'
+
+03:11.010 --> 03:15.640
+E același lucru.
+
+03:15.650 --> 03:20.330
+Deci, să încercăm acest lucru și să vedem dacă funcționează.
+
+03:20.450 --> 03:31.110
+Dacă vă amintiți dacă facem ruta rădăcină de bază [/] pe serverul nostru - și rădăcina este doar obtinerea de utilizatori
+
+03:31.110 --> 03:38.870
+din baza de date. Să dăm asta. Voi salva; nu primesc nici o eroare, ceea ce este bun.
+
+03:40.580 --> 03:53.720
+Dacă mă duc la "localhost" și reîmprospătesc și deschid Consola am "Nu am putut încărca http:// localhost:3000 / '
+
+03:53.720 --> 03:59.450
+"Nu există" antet-control-permite-origine "antetul este prezent" blah blah blah blah blah.
+
+03:59.810 --> 04:06.710
+Și aceasta este o eroare care este într-adevăr o caracteristică de securitate.
+
+04:06.900 --> 04:13.770
+Veți obține această eroare deoarece, cu Google, ceea ce încercăm să facem acum este că încercăm să comunicăm
+
+04:14.040 --> 04:23.920
+cu lumea exterioară folosind HTTP, dar Chrome nu are încredere în ceea ce accesăm aici.
+
+04:24.100 --> 04:28.160
+Nu au cum să știe că serverul nostru este sigur.
+
+04:28.210 --> 04:35.680
+Poate că este vorba de un hacker care încearcă în secret să facă o cerere din pagina dvs. web pe site-ul lor
+
+04:35.710 --> 04:39.680
+care descarcă unele software rău pe pagina ta.
+
+04:41.380 --> 04:46.640
+Și asta se numește "controlul accesului permite originea" și pentru noi să testați acest lucru pe "localhost"
+
+04:46.810 --> 04:54.110
+trebuie să facem ceva numit CORS, și puteți vedea aici în mesajul de eroare - "setați cererea
+
+04:54.110 --> 04:58.780
+mode to no-cors "și voi lega de informații despre CORS aici.
+
+04:58.790 --> 05:06.830
+Dar ceea ce vrem aici este că vrem ca un pachet npm să fie numit din nou cors și exact așa cum este parserul corporal
+
+05:06.830 --> 05:09.090
+unul dintre acele comune pe care le veți vedea peste tot.
+
+05:09.110 --> 05:11.060
+Vă voi arăta exact cum să o utilizați.
+
+05:11.090 --> 05:17.180
+Vedeți că este un middleware pe care tocmai îl purtăm "app.use (cors)". Deci, să instalăm asta.
+
+05:17.540 --> 05:20.120
+Mă duc să "instalez cors"
+
+05:25.820 --> 05:27.620
+și acum că o avem, putem doar
+
+05:31.450 --> 05:40.530
+'const cors = cere (' cors ')' și pur și simplu faceți 'app.use (cors ())'.
+
+05:44.700 --> 05:48.170
+Să salvăm, rulați "npm start" din nou.
+
+05:52.370 --> 05:59.190
+Să ne întoarcem la aplicația noastră, să reîmprospătăm, dacă deschid Consola
+
+05:59.320 --> 06:04.710
+Am o serie de doi utilizatori. Cât de minunat este asta?
+
+06:05.610 --> 06:06.570
+Functioneaza.
+
+06:07.020 --> 06:14.640
+Să lucrăm la semn. Vom trimite informațiile de conectare de la front-end la
+
+06:14.670 --> 06:15.060
+back-end
+
+06:18.470 --> 06:23.530
+și modul în care ne-am înființat acum este doar o verificare pentru John.
+
+06:23.540 --> 06:25.940
+Am minimizat acest lucru, deci este puțin mai curat.
+
+06:26.000 --> 06:34.650
+O să verifice pentru John și să punem parola pentru acum, la "cookie-uri".
+
+06:36.690 --> 06:43.710
+Și parola lui Sally la "bananele".
+
+06:43.890 --> 06:48.210
+Am de gând să salvez și acum lucrez pe ruta "Signing".
+
+06:49.410 --> 06:52.110
+Chiar acum, deși știm că fetch-ul funcționează.
+
+06:52.110 --> 06:56.240
+Vom încerca de fapt să obținem punctul final de "înscriere" pentru a funcționa.
+
+06:56.250 --> 07:06.780
+Deci, să ne gândim la acest lucru dacă ne întoarcem la pagina noastră de sign-in, dar această componentă are două intrări:adresa de e-mail
+
+07:06.820 --> 07:14.810
+și parola că atunci când facem clic pe Sign In, va trebui să trimitem prin intermediul "organismului de solicitare".
+
+07:14.900 --> 07:18.500
+Va trebui să trimitem acest mesaj serverului.
+
+07:18.500 --> 07:23.490
+Serverul va verifica dacă utilizatorul există și apoi ne va da un răspuns.
+
+07:23.690 --> 07:24.450
+Deci, să facem asta.
+
+07:28.090 --> 07:33.180
+Vrem să eliminăm componentDidMount din aplicație pentru că nu mai avem nevoie de ea.
+
+07:35.430 --> 07:45.540
+Și, deși putem crea funcția noastră de preluare aici - în app.js - pentru că "Signin" este propriul pic
+
+07:45.540 --> 07:51.650
+componenta și restul aplicației, după ce "Signin" nu are mare grijă dacă a reușit sau a eșuat
+
+07:51.660 --> 07:57.680
+- Îmi place să păstrez funcționalitatea Signin în cadrul componentei.
+
+07:57.680 --> 08:05.000
+Acum, ceea ce înseamnă acest lucru este că vrem să transformăm acest lucru într-o componentă inteligentă, astfel încât să o afirme acest lucru
+
+08:05.000 --> 08:09.370
+este starea de intrare a "e-mail" și "parola".
+
+08:09.860 --> 08:23.030
+Așa că hai să facem asta să transformăm acest lucru într-o clasă 'Signin' care extinde React.Component
+
+08:29.270 --> 08:33.290
+și aceasta va avea o metodă "render ()"
+
+08:36.050 --> 08:37.280
+care primește
+
+08:41.940 --> 08:47.060
+tot acest [cod] - o să minimalizez acest lucru doar ca să îl puteți vedea.
+
+08:47.090 --> 08:50.000
+Am uitat fundul de aici; asigurați-vă că includem și asta.
+
+08:59.800 --> 09:00.930
+Perfect.
+
+09:01.120 --> 09:03.250
+Și vrem să închidem
+
+09:06.390 --> 09:12.220
+de aici, și primim câteva "recuzită" care se afla pe "schimbarea rutei"
+
+09:12.330 --> 09:23.130
+așa că va trebui să facem "this.props.onRouteChange ()" și apoi "this.props.onRouteChange ()" sau în loc
+
+09:23.130 --> 09:24.130
+de a face asta
+
+09:24.360 --> 09:33.860
+chiar mai frumos este de a face doar aici prin distrugerea "onRouteChange"
+
+09:34.340 --> 09:40.100
+este egal cu "this.props". Deci totul ar trebui să se compileze bine.
+
+09:40.130 --> 09:43.040
+Și am văzut pagina de conectare.
+
+09:43.310 --> 09:52.810
+Acum, pentru a obține valorile de intrare din cele două, noi creăm doar o funcție onEmailChange ().
+
+09:56.160 --> 10:07.840
+Și asta va asculta evenimentul onchange al e-mailului și vom spune aici că acest eveniment vom stabili
+
+10:07.830 --> 10:20.280
+pentru că știm că suntem siguri că vom spune "signInEmail" și acesta va fi "event.target.value"
+
+10:20.390 --> 10:27.380
+și 'onPasswordChange ()' vom avea din nou, o altă funcție
+
+10:34.150 --> 10:40.390
+vom actualiza o stare pe care o vom numi "signInPassword"
+
+10:43.580 --> 10:45.140
+și va trebui să creăm această stare.
+
+10:45.140 --> 10:59.470
+Deci vom face "constructorul () '' super () 'și apoi' this.state 'este egal cu' signInEmail:'care va fi un șir gol
+
+10:59.470 --> 11:06.870
+pentru moment când inițializează și "signInPassword:" din nou un șir gol.
+
+11:06.880 --> 11:17.050
+Acum, pentru ca noi să folosim "recuzită", dorim să trecem și noi aici.
+
+11:17.120 --> 11:17.660
+Să salvăm.
+
+11:21.880 --> 11:26.110
+Și dacă lucrează așa cum ne așteptăm
+
+11:26.120 --> 11:42.110
+putem crea acum un eveniment "onSubmitSignIn" care va folosi acum această stare pentru a prelua - și pentru moment suntem
+
+11:42.110 --> 11:45.440
+nu stii sigur ce vom incerca inca.
+
+11:45.530 --> 11:49.110
+Deci, haideți doar "console.log"
+
+11:49.440 --> 11:54.720
+'This.state.signInPassword'
+
+11:55.350 --> 11:57.560
+Sau, de fapt, hai doar "console.log"
+
+11:57.780 --> 11:59.220
+'This.state'.
+
+11:59.610 --> 12:07.280
+Și dacă vă întrebați dacă putem avea mai mult de două componente inteligente într-o aplicație în care acest lucru are stat
+
+12:07.310 --> 12:08.920
+Aplicația are stat
+
+12:09.180 --> 12:10.600
+- Da, absolut.
+
+12:10.650 --> 12:17.610
+Doriți să vă organizați aplicația într-un mod care are sens, de exemplu, "Signin" este propriul lucru închis.
+
+12:17.610 --> 12:26.490
+Deci, folosind "Signin", chiar dacă este un copil al "App", poate avea propria sa stare atâta timp cât această stare este justă
+
+12:26.490 --> 12:33.960
+preocupat de "Înscrieți-vă", atunci este o modalitate bună de a face acest lucru în loc să actualizați în mod constant "App.js"
+
+12:34.290 --> 12:38.280
+și de a face 'App.js' să crească la multe multe linii.
+
+12:41.850 --> 12:43.540
+În regulă, avem "console.log"
+
+12:43.580 --> 12:49.610
+să vedem dacă funcționează "onSubmitSignIn", să mergem la butonul "trimite"
+
+12:52.260 --> 12:58.120
+înainte de a face "onClick" pentru a schimba ruta la "home"
+
+12:58.200 --> 13:12.200
+acum vom face "this.onSubmitSignIn" și aici vom rula "onRouteChange"
+
+13:12.590 --> 13:17.240
+care este "this.props.onRouteChange"
+
+13:20.590 --> 13:26.230
+și să verificăm asta. Să salvăm întoarcerea în aplicația noastră.
+
+13:26.490 --> 13:33.260
+Voi deschide Consola aici; Voi tasta 'test@gmail.com'
+
+13:36.500 --> 13:46.640
+"test", conectați-vă și văd că primesc "signInPassword" goală, "signInEmail" goală și asta pentru că am creat
+
+13:46.640 --> 13:50.130
+acestea, dar nu am adăugat evenimentele pe intrări.
+
+13:50.540 --> 13:53.300
+Deci, haideți să facem asta - pentru e-mailul cu privire la "intrare"
+
+13:53.390 --> 13:57.530
+Voi spune "pe schimb"
+
+14:01.750 --> 14:13.560
+și știi ce? Să le adăugăm pe linii noi, așa că este mai curată. În caz contrar, poate deveni destul de murdar.
+
+14:13.560 --> 14:14.260
+Acolo te duci.
+
+14:14.430 --> 14:24.110
+Iar acum pot spune "onChange" și "onChange" va lua "this.onEmailChange" pentru că acesta este e-mailul.
+
+14:24.320 --> 14:25.260
+Și următoarea
+
+14:29.200 --> 14:34.510
+va avea un lucru similar, cu excepția locului de a avea
+
+14:37.260 --> 14:40.930
+'onEmailChange' vom avea 'onPasswordChange'.
+
+14:40.930 --> 14:42.300
+Să încercăm din nou asta.
+
+14:46.180 --> 14:48.110
+'Test@gmail.com'
+
+14:49.000 --> 14:51.560
+"test" semnați.
+
+14:51.580 --> 14:54.010
+Bine, avem aceste informații, ceea ce este minunat.
+
+14:54.040 --> 15:03.870
+Acum putem trimite acest lucru serverului nostru și putem face acest lucru prin simpla "onSubmitSignIn" rulează
+
+15:04.760 --> 15:20.810
+o functie - 'fetch ()', pe care am vazut-o inainte pentru HTTP 'localhost' pentru '3000' si facem '/ signin'.
+
+15:21.140 --> 15:24.040
+Acum, preluarea în mod implicit face o solicitare GET
+
+15:24.110 --> 15:28.640
+dar ceea ce vrem să facem aici este o cerere POST pe măsură ce ne amintim.
+
+15:28.720 --> 15:35.810
+Deci, modul în care facem acest lucru este în al doilea parametru, putem trece un obiect aici, care descrie ceea ce
+
+15:35.810 --> 15:37.640
+cererea va fi.
+
+15:37.640 --> 15:41.690
+În cazul nostru, vom avea o "metodă" de "postare"
+
+15:44.550 --> 15:49.950
+vom avea anteturi și anteturi acceptă un obiect.
+
+15:49.960 --> 16:00.520
+În cazul nostru dorim să vedem "Content-Type" și pentru că are această linie aici trebuie să-l înfășurăm în ghilimele
+
+16:02.110 --> 16:04.880
+și vom spune că este "application / json"
+
+16:05.580 --> 16:06.110
+-
+
+16:09.450 --> 16:17.720
+și acum vom spune că trupul va conține ceea ce avem în stat, dar amintim pentru a trimite
+
+16:17.720 --> 16:20.530
+la back-end nu putem trimite doar un obiect JavaScript.
+
+16:20.600 --> 16:31.880
+Trebuie să "JSON.stringify" obiectul și obiectul va fi "e-mail", care este "this.state.email"
+
+16:31.930 --> 16:37.050
+sau un "signInEmail" și îl copiem
+
+16:39.850 --> 16:47.900
+și "parola" care va fi "this.state.password ... -
+
+16:48.460 --> 16:52.630
+Va fi 'signInPassword'
+
+16:52.640 --> 16:52.970
+In regula.
+
+16:53.000 --> 16:55.580
+Să vedem dacă funcționează.
+
+16:55.640 --> 17:07.340
+Am de gând să salvez și aici o să spun "john@gmail.com" și "cookies" dacă fac clic pe Sign In
+
+17:09.100 --> 17:11.330
+Am primit "404 (Nu a fost găsit)".
+
+17:11.800 --> 17:13.630
+Să depanem acest lucru și să vedem ce sa întâmplat.
+
+17:17.100 --> 17:21.550
+Ei bine, mai intai n-am spus ca trebuie sa incerc asta din nou.
+
+17:27.180 --> 17:30.740
+Și dați-i drumul să vedeți dacă funcționează.
+
+17:32.970 --> 17:38.280
+Și vrem să spunem "cookie-uri" aici, să te conectezi.
+
+17:38.300 --> 17:44.050
+Chiar avem "semnat" "Bad Request". Dacă privim aici
+
+17:44.280 --> 17:50.050
+avem un răspuns "eroare de logare" și asta e eroarea pe care am dat-o pe server.
+
+17:50.340 --> 17:54.540
+Se pare că ceva în cererea noastră nu funcționează.
+
+17:54.540 --> 17:55.380
+Hai să aruncăm o privire.
+
+17:56.300 --> 17:59.140
+Și aceasta trebuia să fie "anteturi", nu "antet"
+
+17:59.150 --> 18:00.830
+- E o greșeală din partea mea.
+
+18:00.890 --> 18:02.020
+Să încercăm din nou asta.
+
+18:02.900 --> 18:06.180
+"John" - lasă-mă să mă consolez aici
+
+18:06.190 --> 18:12.140
+"john@gmail.com" se conectează "cookie-urile".
+
+18:12.160 --> 18:20.530
+Bine, hai să mergem la fila noastră de rețea și să vedem ce a răspuns cu rută "de conectare".
+
+18:20.530 --> 18:22.310
+A spus "succes".
+
+18:22.420 --> 18:30.670
+Așa că am reușit să ne conectăm pentru că bine, am intrat în John - un utilizator pe care îl avem în conformitate cu foarte simplu
+
+18:30.670 --> 18:41.450
+introduceți formularul. Cu toate acestea, dacă vrem să schimbăm acest lucru, spunem acum că starea răspunsului este o eroare de 400 '
+
+18:41.730 --> 18:44.740
+și dacă această eroare nu ne va permite să ne conectăm
+
+18:45.210 --> 18:53.980
+bine aici tot ceea ce trebuie sa facem este sa nu facem "peRouteChange" putem face un ".then".
+
+18:54.400 --> 19:00.700
+Și rețineți că răspunsul ".then" va trebui să facă "response.json () '' .then () '
+
+19:04.410 --> 19:04.770
+-
+
+19:04.800 --> 19:15.050
+Apoi vom spune că datele pe care le primim - și o vom păstra simplu aici - dacă noi
+
+19:17.310 --> 19:31.270
+"dacă (date ===" succes "), ceea ce primim; în acest caz, bine, vom face o schimbare a traseului. Să salvăm asta.
+
+19:31.470 --> 19:32.650
+Bine, hai să mergem.
+
+19:33.880 --> 19:42.070
+Dacă nu introduc nimic aici și dau clic pe Sign In I get a 'POST' '(Bad Request)' și dacă ne uităm la mesaj
+
+19:42.070 --> 19:46.450
+pe care le primim noi avem "eroare logare".
+
+19:46.560 --> 19:53.460
+Prin utilizarea acestor informații, putem crea un afișaj de eroare aici [la pagina de conectare], dar nu ne permite să ne logăm.
+
+19:53.460 --> 19:55.040
+Pentru ca noi să ne logăm
+
+19:55.140 --> 20:08.120
+trebuie să folosim exemplul nostru John și să ne asigurăm că e-mailurile și parolele se potrivesc. Asta merge!
+
+20:11.270 --> 20:13.300
+Să încercăm încă o dată.
+
+20:13.510 --> 20:13.940
+Daca eu fac
+
+20:13.940 --> 20:14.460
+"John ..."
+
+20:17.630 --> 20:26.120
+"cookie-urile" se conectează și totul funcționează, nu primim erori. Frumos.
+
+20:26.130 --> 20:29.340
+Acest lucru funcționează.
+
+20:29.420 --> 20:29.870
+In regula.
+
+20:29.870 --> 20:35.660
+Deci, doar utilizăm John pentru utilizatori
+
+20:35.660 --> 20:41.930
+dar în mod ideal putem să filtrăm prin toate lucrurile și să ne asigurăm că există.
+
+20:41.930 --> 20:47.540
+Acum, după cum am spus, nu vom face acest lucru aici, pentru că este vorba despre baze de date
+
+20:47.540 --> 20:55.930
+sunt într-adevăr foarte bune, dar am vrut să vă arăt cum ar funcționa acest lucru cu e-mailurile și parolele potrivite.
+
+20:56.170 --> 20:56.480
+In regula.
+
+20:56.480 --> 20:58.060
+Deci, avem Sign In working.
+
+20:58.070 --> 21:04.420
+Să facem, de asemenea, să ne înscriem la serviciu, iar înregistrarea este foarte asemănătoare cu cea de la Sign In.
+
+21:04.610 --> 21:06.450
+Așa că în următorul film vom aborda acest lucru.

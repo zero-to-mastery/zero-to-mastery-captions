@@ -1,0 +1,586 @@
+WEBVTT
+
+00:01.490 --> 00:08.000
+Și bine ai venit înapoi! Sperăm că aceste exerciții nu erau prea dure și că te-ai bătut chiar prin ele.
+
+00:09.110 --> 00:12.800
+Vom vorbi despre ceva numit "Control Flow".
+
+00:12.890 --> 00:17.640
+Până acum am făcut acest lucru:această mică "săgeată".
+
+00:17.900 --> 00:23.750
+Vom scrie o linie de cod, apoi o altă linie de cod, apoi o altă linie de cod, apoi o altă linie de cod
+
+00:24.080 --> 00:27.130
+și totul se execută într-o singură linie.
+
+00:27.150 --> 00:29.740
+Doar curge, doar ca apa
+
+00:29.750 --> 00:33.520
+Dacă vărsați apă. Doar merge direct.
+
+00:33.950 --> 00:37.210
+Dar dacă am avea condiții?
+
+00:37.250 --> 00:43.040
+Dacă vrem să spunem ceva de genul "Dacă numele de utilizator este" Bob "-
+
+00:43.460 --> 00:44.340
+spuneți "Bună, Bob" ".
+
+00:44.360 --> 00:54.230
+Dacă nu - spune "Nu te cunosc". Poate că "Conectați din nou" sau "Nu avem acest utilizator". Asta se numește "condiționată
+
+00:54.230 --> 01:02.150
+execuție "și arată cam așa, unde ajungem la un punct din program și avem două opțiuni,
+
+01:02.330 --> 01:07.960
+unde vrem să mergem într-un fel sau altul și apoi să continuăm să executăm.
+
+01:07.970 --> 01:13.470
+Deci, în această lecție vom vorbi exact despre asta - "executare condiționată".
+
+01:14.350 --> 01:15.270
+Să încercăm ceva.
+
+01:19.340 --> 01:21.780
+Deci, JavaScript "conditionals",
+
+01:21.780 --> 01:22.810
+așa se numește,
+
+01:22.920 --> 01:27.090
+vom începe cu ceea ce se numește o declarație "dacă".
+
+01:28.130 --> 01:34.000
+Și o declarație "dacă" se citește, cum ar fi limba engleză. Putem face ceva similar cu acesta:01:34.010 --> 01:42.920
+Eu spun "dacă numele" este egal, amintiți-vă semnele aici, pentru că nu atribuim variabila, suntem
+
+01:42.920 --> 01:51.020
+compararea. [dacă (nume === "Billy")] - închideți brațul.
+
+01:51.040 --> 01:56.050
+Și asta e doar o notație pe care trebuie să o obișnuiești. Din nou, este la fel ca învățarea unei limbi,
+
+01:56.200 --> 02:01.870
+trebuie doar să știți că atunci când faceți o declarație "if", trebuie să aveți aceste paranteze, închideți
+
+02:01.870 --> 02:05.530
+paranteze, și apoi faceți bracket "{".
+
+02:05.530 --> 02:12.310
+Țineți apăsată tasta "Shift" și apăsați "Enter", astfel încât programul să nu fie executat. Și vom spune că am adăugat o filă doar ca să puteți
+
+02:12.310 --> 02:13.930
+vezi pentru indentare.
+
+02:14.200 --> 02:19.360
+Pot spune "alertă (" hi Billy! ")
+
+02:23.990 --> 02:33.270
+Și închid brațul. Și din nou, așa cum am spus, fiecare expresie - ceva care produce o valoare, are nevoie
+
+02:33.490 --> 02:34.920
+pentru a avea un punct și virgulă.
+
+02:35.140 --> 02:40.930
+Și ați putea crede că aveți nevoie de un punct și virgulă aici, dar din nou, cu o declarație "dacă" nu adăugați una.
+
+02:41.230 --> 02:42.230
+Dar "alertă".
+
+02:42.250 --> 02:45.180
+E o expresie, am avut un punct și virgulă aici.
+
+02:45.190 --> 02:51.490
+Acum s-ar putea să vă întrebați:"Ei bine, nu am atribuit încă o variabilă pentru a" numi "încă". Deci, să facem asta!
+
+02:51.700 --> 03:04.990
+Voi spune numele - "var name" este egal. Vom spune "Billy". Și voi apăsa pe "Enter".
+
+03:04.990 --> 03:05.800
+Să vedem ce se întâmplă.
+
+03:07.430 --> 03:08.780
+Bună!
+
+03:08.860 --> 03:09.150
+O.K.
+
+03:09.160 --> 03:13.070
+Deci, se pare că funcționează doar pentru a verifica dublu.
+
+03:13.070 --> 03:15.800
+Ce se întâmplă dacă schimb "numele" în "Susy"?
+
+03:19.430 --> 03:20.550
+oops - "punct și virgulă", nu "colon".
+
+03:21.800 --> 03:22.260
+O.K.
+
+03:22.520 --> 03:26.780
+Și acum, dacă reușim din nou acest program. O să o copiez.
+
+03:28.430 --> 03:34.580
+Dacă "numele" este egal cu "Billy" - "alert (" hi Billy! "). Nimic nu se intampla.
+
+03:34.700 --> 03:35.960
+Eu doar primesc "nedefinit".
+
+03:36.770 --> 03:40.010
+Și nici o alertă.
+
+03:40.060 --> 03:41.820
+Deci, asta eo "declarație condiționată".
+
+03:42.220 --> 03:44.160
+Dar să fim realiste aici.
+
+03:44.200 --> 03:50.350
+Adesea nu veți avea doar cod, care se execută atunci când o condiție deține "adevărat", dar și codul care se ocupă
+
+03:50.770 --> 03:57.610
+alte cazuri, cum ar fi atunci când "numele" nu este "Billy". Poate când "numele" este "Susy".
+
+03:57.660 --> 04:02.490
+Deci, această cale alternativă este arătată,
+
+04:02.490 --> 04:10.080
+dacă vă aduceți aminte, în diagrama de săgeata alternativă, unde trebuie să aveți o rută alternativă în caz
+
+04:10.140 --> 04:12.620
+numele nu este egal cu "Billy".
+
+04:12.620 --> 04:16.640
+Deci, să ne întoarcem și să vedem ce putem face.
+
+04:16.640 --> 04:21.880
+Cel de-al doilea cuvânt cheie pe care o vom învăța este "altceva".
+
+04:21.950 --> 04:34.360
+Deci, poți să faci ceva de genul "dacă (nume ===" Billy ")" și eu doar apăs pe săgeata dreapta aici, și aici din nou. Google Chrome
+
+04:34.360 --> 04:42.360
+este suficient de inteligent pentru a ști că ați introdus acest lucru înainte. Și acum, în loc să o las așa, acum
+
+04:42.360 --> 04:44.420
+apăsați "Spațiu", "Altceva".
+
+04:44.460 --> 04:51.360
+Deci "dacă numele" este egal cu "Billy", "alert (" hi Billy! "); "Altceva" - se spune ca engleza, nu?
+
+04:51.480 --> 05:05.520
+Și apoi din nou "altceva", deschizând suportul curat, închizând suportul creț și înăuntru aici o să spun,
+
+05:05.530 --> 05:09.910
+'alertă ("hmmm nu te cunosc");'.
+
+05:09.930 --> 05:12.190
+Deci, acum să vedem ce se întâmplă.
+
+05:14.980 --> 05:16.200
+"Nu te cunosc" și de ce?
+
+05:16.200 --> 05:23.030
+Pentru că dacă îți amintești "numele" este egal cu "Susy". Dacă schimb "numele" la
+
+05:26.590 --> 05:27.000
+'Billy'
+
+05:30.020 --> 05:32.630
+Ei bine, și reluați programul pe care îl veți primi:05:32.960 --> 05:33.970
+"Bună Billy".
+
+05:34.340 --> 05:37.670
+Deci, asta se numește o declarație "dacă-altcineva".
+
+05:37.670 --> 05:40.960
+Scrieți o condiție "dacă" ceva este egal cu "adevărat",
+
+05:42.270 --> 05:46.140
+Apoi faceți ceva. "altceva" - faceți altceva.
+
+05:46.620 --> 05:49.180
+Și aceasta este doar o sintaxă pe care va trebui să o învățați.
+
+05:49.200 --> 05:53.850
+Dar, după cum puteți vedea, este destul de ușor, scrieți-l de câteva ori și veți fi încurcați.
+
+05:55.380 --> 05:58.920
+O.K. Dar acum ai putea avea o altă întrebare.
+
+06:00.370 --> 06:10.300
+Ce se întâmplă dacă, dacă ai ceva de genul ăsta, ceva, ceva mai complicat, așa, unde
+
+06:10.300 --> 06:13.440
+aveți mai multe condiții.
+
+06:13.450 --> 06:16.780
+Să vedem despre ce am vorbit, arătându-ți un alt exemplu.
+
+06:19.160 --> 06:23.890
+În acest caz, vom folosi ceva numit "altceva".
+
+06:24.050 --> 06:33.360
+Așa că din nou voi spune "dacă numele" este egal cu "Billy". Din nou, voi apăsa aici tasta "dreapta (săgeată)" și este
+
+06:33.360 --> 06:34.960
+încărcați ceea ce am scris mai devreme.
+
+06:35.130 --> 06:38.080
+Deci "dacă numele" este egal cu "Billy" - "alertă".
+
+06:38.280 --> 06:41.980
+"Bună Billy!", "altceva" - "alertă".
+
+06:42.030 --> 06:43.200
+"nu știu" -
+
+06:43.560 --> 06:44.060
+"Nu te cunosc".
+
+06:44.130 --> 06:47.240
+Dar, dacă vrem să verificăm numele "Susy"?
+
+06:47.460 --> 06:49.960
+Pot să fac ceva de genul ăsta.
+
+06:50.040 --> 06:52.470
+"altfel dacă"
+
+06:53.160 --> 07:00.040
+"nume" este egal cu "Susy", bracket close '}'.
+
+07:00.040 --> 07:00.760
+Voi spune
+
+07:04.060 --> 07:06.890
+'hi Susy!'.
+
+07:07.060 --> 07:09.930
+Și la sfârșit puteți să lăsați așa cum este
+
+07:10.030 --> 07:12.880
+sau din nou putem adăuga o declarație "altceva".
+
+07:12.880 --> 07:18.380
+Deci, cu ambele eșecuri - ambele comparații nu reușesc
+
+07:18.450 --> 07:24.450
+Pot spune "altceva", "alertă"
+
+07:24.540 --> 07:25.230
+'Nu te cunosc'.
+
+07:29.030 --> 07:29.990
+Închideți brațul "}".
+
+07:30.020 --> 07:32.390
+Din nou, nu uitați să închideți brațul.
+
+07:32.390 --> 07:42.450
+Apăsați pe "Enter" și vedeți "Bună Billy", pentru că amintiți-mi numele meu este "Billy", dar dacă eu "numele" este egal cu "Susy"
+
+07:45.560 --> 07:50.960
+și reluat programul. Apăsați din nou tasta "săgeată" și apăsați din nou tasta "Enter".
+
+07:51.110 --> 07:53.040
+'hi Susy!'.
+
+07:53.130 --> 07:54.750
+E foarte cool, nu?
+
+07:54.750 --> 07:58.400
+Vă puteți gândi la asta cum funcționează parolele, nu?
+
+07:58.410 --> 08:04.800
+Acestea sunt formele care se fac acolo, verificarea e-mailului și verificarea parolei, folosind logica simplă
+
+08:04.800 --> 08:05.820
+asa.
+
+08:06.700 --> 08:13.960
+Acum vreau să vă arăt, de asemenea, cu condiționalități, ceea ce este foarte util și este ceva numit "logic"
+
+08:14.230 --> 08:15.760
+operatori.
+
+08:15.820 --> 08:20.340
+Îți voi arăta cei trei. Dacă pot să vă dezamăgesc asta.
+
+08:20.350 --> 08:21.010
+Poftim!
+
+08:21.250 --> 08:33.900
+Și acestea sunt cele trei, așa că haideți să ne curățăm și să încercăm ceva. Pot merge "dacă (nume === Billy") ".
+
+08:37.390 --> 08:41.820
+"sau" - aceste două rânduri "||", așa că este exact deasupra cheii "Enter".
+
+08:43.750 --> 08:50.660
+Aceasta înseamnă "sau" în JavaScript. sau "|| numele "===" Ann "),
+
+08:54.410 --> 09:01.240
+apoi "alertă"
+
+09:01.510 --> 09:04.120
+"Salut Billy sau Ann!"
+
+09:07.200 --> 09:08.630
+Închideți consola dvs. "}".
+
+09:08.730 --> 09:10.070
+Ce crezi că se va întâmpla aici?
+
+09:10.170 --> 09:13.960
+Sa vedem! "nume" este egal
+
+09:20.420 --> 09:20.970
+'Billy'.
+
+09:21.020 --> 09:24.280
+Executăm programul, apasă "Enter".
+
+09:25.650 --> 09:29.950
+Am "Bună Billy sau Ann!" dar dacă acum este "numele"
+
+09:32.770 --> 09:37.080
+'Ann' și re-execut programul, apăsați 'Enter' din nou.
+
+09:37.150 --> 09:41.140
+"Salut Billy sau Ann!". Asta e destul de cool.
+
+09:41.140 --> 09:44.050
+Pot face "sau" comparație.
+
+09:45.020 --> 09:46.670
+Ce mai putem face?
+
+09:46.700 --> 09:48.110
+Putem, de asemenea, facem:09:51.760 --> 10:00.980
+"și", care este două dintre aceste semne (ampersand) și acest lucru înseamnă că, dacă "numele" este egal cu "Billy" și "name" este egal cu "Ann". Hmm, să vedem dacă funcționează.
+
+10:02.000 --> 10:09.740
+Acum, să "numim" înseamnă "Ann" și noi facem programul. Hmmm, și nu primesc nimic. Dacă fac "Billy"
+
+10:14.310 --> 10:15.280
+și să execute.
+
+10:15.460 --> 10:16.880
+Nu, nimic.
+
+10:16.890 --> 10:17.580
+De ce este asta?
+
+10:17.580 --> 10:20.850
+Ei bine, asta nu are sens, nu?
+
+10:20.850 --> 10:23.750
+Adică "nume" este egal cu "Billy" și "name"
+
+10:23.760 --> 10:24.730
+este egal cu "Ann".
+
+10:24.750 --> 10:30.750
+Dar, după cum am discutat despre o variabilă, ea are o valoare.
+
+10:30.780 --> 10:36.480
+Este un sertar în birou și are un anumit tip de aspect.
+
+10:36.480 --> 10:44.940
+Fie că are un stilou sau o grămadă de fișiere, nu poate avea atât Billy, cât și Ann - cel puțin acum cu ceea ce am învățat
+
+10:44.940 --> 10:46.170
+pana acum.
+
+10:46.260 --> 10:54.790
+Deci acest lucru nu are sens. Unde ați folosi "și" - este poate pentru a verifica numele cuiva. Deci pot face:10:54.930 --> 11:01.050
+'if firstName', amintiți-vă că folosesc cazul de cămilă aici.
+
+11:01.270 --> 11:14.920
+"Bob și NumeNu" sunt egale cu "Smith", închideți paranteza '}', paranteze curbate.
+
+11:14.920 --> 11:16.610
+Și voi spune "alertă".
+
+11:16.870 --> 11:18.850
+"Bună Bob Smith".
+
+11:20.980 --> 11:28.380
+Închideți parantezele, parantezele curbate, apăsați "Enter" și se pare că am făcut o greșeală aici și se spune:11:28.380 --> 11:30.380
+"primul nume nu este definit" și
+
+11:30.420 --> 11:35.760
+Asta e adevarat pentru ca nu am spus niciodata ce este 'FirstName' si 'lastName' este. Înainte să fi definit deja
+
+11:35.820 --> 11:42.550
+ce "nume" a fost, dar trebuie să știe care sunt aceste variabile altfel spune "Hei, sunt JavaScript
+
+11:42.550 --> 11:46.390
+și nu am întâlnit niciodată aceste cuvinte. Despre ce vorbesti?"
+
+11:46.390 --> 11:54.140
+Deci, înainte să facem asta. Trebuie să spunem "var firstName =" Bob ";"
+
+11:56.740 --> 12:00.320
+și "var lastName" este egal
+
+12:05.820 --> 12:06.370
+'Smith'. O.K.
+
+12:06.790 --> 12:11.980
+Vreau să-ți atrag atenția înapoi la eroare - vei obține atât de mult și când începi
+
+12:11.980 --> 12:15.430
+opțiunea "ReferenceError:primul nume nu este definit".
+
+12:15.430 --> 12:16.700
+E o eroare destul de bună.
+
+12:16.710 --> 12:22.930
+Dar păstrați-o în minte:"ReferenceError" înseamnă doar "Nu știu ce este această valoare. Nu este o referință
+
+12:22.930 --> 12:24.490
+orice'.
+
+12:24.500 --> 12:30.960
+O.K. Deci, acum, când avem "firstName" și "lastName" definite, apăsăm din nou pentru a ajunge la piesa noastră de execuție aici.
+
+
+12:30.970 --> 12:41.800
+Și mă duc apăsând pe "Enter" și am "Bună Bob Smith". Dacă schimbe numele "firstName" sau "lastName" pentru a spune "Jones", apăsați
+
+12:41.860 --> 12:47.350
+'Enter' și să reanalizăm această bucată de cod.
+
+12:48.490 --> 12:54.950
+Nu primesc nimic, pentru că "firstName" și "lastName" trebuie să se potrivească. O.K.
+
+12:55.010 --> 13:01.180
+Am un ultimul pe aici și asta nu înseamnă "punctul de exclamare" sau "semnul exclamării".
+
+13:02.250 --> 13:03.550
+Um, să vedem ce face.
+
+13:03.600 --> 13:07.190
+Acest lucru este un pic dificil, dar vezi dacă poți urma aici.
+
+13:07.410 --> 13:30.510
+dacă {! (nume === "Bob")), deschiderea parantezelor {',' alert ("Hi Bob"); și închideți-l "}", apăsați "Enter" și eu
+
+13:30.510 --> 13:32.680
+obțineți "Bună Bob".
+
+13:32.930 --> 13:36.220
+O.K. Să ne amintim ce nume era.
+
+13:36.290 --> 13:37.440
+Este "Billy".
+
+13:37.440 --> 13:48.750
+De ce primesc "High Bob" când "Billy" este "numele". În mod clar "numele" nu este egal cu "Bob". Din cauza asta '!'.
+
+13:48.860 --> 13:54.710
+Acesta este operatorul "nu". Deci este invers.
+
+13:54.770 --> 14:03.740
+Deci, această expresie care este "nume" este egală cu "Bob", care este "fals" ca "adevărat".
+
+14:03.740 --> 14:10.260
+Deci, doar pentru a vă arăta dacă merg și apoi "fals" [! False], am "adevărat".
+
+14:10.450 --> 14:14.710
+Și dacă mă duc acest "adevărat" [! Adevărat], eu devin "fals".
+
+14:14.780 --> 14:17.250
+De aceea folosesc parantezele aici.
+
+14:17.270 --> 14:25.970
+Spun:"Evaluați acest lucru și, odată ce faceți acest lucru, adăugați opusul nu".
+
+14:26.590 --> 14:31.240
+Și se pare că "de ce aș vrea vreodată să fac asta?
+
+14:31.240 --> 14:32.850
+Când aș folosi vreodată asta?
+
+14:32.950 --> 14:40.270
+Și acesta este un lucru bun de utilizat ori de câte ori, să spunem, doriți să opriți un comutator.
+
+14:40.270 --> 14:48.980
+Deci, așa cum ți-am arătat dacă nu merg "adevărat" pot să spun că acum este oprit, "nu este fals" - lumina se aprinde.
+
+14:49.510 --> 14:55.700
+Deci, veți vedea cazuri în care vom folosi acest lucru și vă promit că este foarte - foarte - foarte important că avem
+
+14:55.700 --> 14:57.310
+în limba.
+
+14:57.490 --> 15:01.380
+Deci, să revizuim doar ceea ce am învățat până acum.
+
+15:01.450 --> 15:08.090
+Așa că în următorul film avem un sentiment de unde am fost și unde mergem.
+
+15:08.240 --> 15:10.130
+Am vorbit despre tipurile de JavaScript.
+
+15:10.340 --> 15:16.540
+Am aflat despre "Numere", "String", "Booleans" și "Undefined".
+
+15:16.590 --> 15:23.520
+De asemenea, am învățat despre comparațiile JavaScript pe care le folosim uneori în declarații condiționale, cum ar fi
+
+15:23.520 --> 15:30.910
+"dacă" declarații. Am aflat despre variabilele JavaScript, am aflat despre condiționalitățile JavaScript,
+
+15:30.960 --> 15:40.090
+"if", "else", "else if" și am aflat despre operatorii logici JavaScript:'și', 'sau', și
+
+15:40.100 --> 15:44.950
+'semne de exclamare'. Și mai sunt încă câteva lucruri pe care nu le-am acoperit încă și nu vă faceți griji, o vom face.
+
+15:45.040 --> 15:46.370
+Știu că este confuz.
+
+15:46.370 --> 15:53.880
+Aceasta este noua sintaxă este învățarea unei noi limbi, dar nu este prea rău.
+
+15:53.940 --> 15:57.690
+Cu siguranță, nu are atât de multe cuvinte ca o limbă reală.
+
+15:57.690 --> 16:03.020
+Trebuie doar să te obișnuiești cu asta și să practici tastarea în consola și să practice cu problemele
+
+16:03.090 --> 16:10.200
+și să vă familiarizați cu rularea acestor sintaxe și va face clic și va deveni a doua natură.
+
+16:10.200 --> 16:12.570
+Cum am spus, toată lumea trece prin asta.
+
+16:12.720 --> 16:13.840
+O vei primi!
+
+16:13.860 --> 16:19.510
+Promit, știu că tot spun asta, dar eu spun doar pentru că știu, când am început să învăț chestiile astea.
+
+16:19.800 --> 16:21.030
+Așa m-am simțit.
+
+16:21.270 --> 16:22.760
+Și așa simte ceilalți.
+
+16:22.780 --> 16:26.850
+Vreau doar să vă asigur că nu vă faceți griji, veți ajunge acolo.
+
+16:26.850 --> 16:32.040
+Vei fi un maestru al JavaScript la sfârșitul acestui curs, așa că te voi vedea în următorul.
+
+16:32.040 --> 16:35.140
+Nu pot aștepta să vă arăt mai multe. O sa vorbesc cu tine atunci.
+
+16:35.400 --> 16:35.710
+Pa! Pa

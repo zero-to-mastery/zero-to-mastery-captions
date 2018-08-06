@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.900 --> 00:06.940
+Bine ați venit înapoi, există o piesă lipsă cu diagrama creată în videoclipul precedent
+
+00:06.980 --> 00:08.620
+HTTP.
+
+00:08.790 --> 00:16.860
+Am vorbit despre parametrii URL, cum ar fi parametrii "google.com/about" și șirul de interogări noi
+
+00:16.860 --> 00:20.480
+poate face cu GET, dar despre date
+
+00:20.490 --> 00:23.960
+când postez ceva. Putem posta ceva?
+
+00:24.000 --> 00:31.970
+Nu chiar. Atunci când faceți schimb de date între un browser și un server, datele pot fi numai text.
+
+00:32.070 --> 00:40.940
+Deci, nu putem trimite doar un obiect javascript, cum ar fi un utilizator cu prenumele John și numele de doe.
+
+00:41.010 --> 00:44.070
+Unul pentru că HTTP nu o va înțelege.
+
+00:44.460 --> 00:49.070
+Dar, de asemenea, dacă trimiteam aceste date serverelor Google -
+
+00:49.220 --> 00:56.700
+Ei bine spre deosebire de Front-end browser-ul web unde HTML, CSS și Javascript este standard atunci când trimit
+
+00:56.700 --> 00:58.980
+un obiect de utilizator către server.
+
+00:59.190 --> 01:02.500
+Un server poate folosi orice tip de limbaj, cum ar fi Python,
+
+01:02.640 --> 01:13.010
+Du-te, PHP. Dacă le trimitem un tip de java script, ca un obiect, vor fi într-adevăr confundate pentru că ele
+
+01:13.010 --> 01:14.890
+nu ar avea nici o idee ce este.
+
+01:15.260 --> 01:16.790
+Aceasta nu este limba lor.
+
+01:17.820 --> 01:22.410
+Textul pe de altă parte poate fi înțeles de toți.
+
+01:22.440 --> 01:28.050
+Așadar, avem nevoie de o modalitate de a avea un mod standard de a trimite date prin fire și de a le primi.
+
+01:28.050 --> 01:32.360
+Asta este ceea ce este JSON și ce vom vorbi despre el în acest videoclip.
+
+01:32.580 --> 01:40.620
+JSON înseamnă notație de obiect javascript. Este o sintaxă pentru stocarea și schimbul de date și este text
+
+01:40.800 --> 01:43.540
+scris cu notație de obiect javascript.
+
+01:43.650 --> 01:45.180
+Să ne uităm la al doilea punct aici.
+
+01:45.270 --> 01:49.320
+JSON este o sintaxă pentru stocarea și schimbul de date.
+
+01:49.320 --> 01:52.530
+Se utilizează pentru a trimite date între mașină.
+
+01:52.650 --> 02:05.800
+Este singura cale? Nu, există și XML. Atât XML cât și JSON pot fi folosite pentru a primi date de la
+
+02:05.860 --> 02:06.760
+un server web.
+
+02:07.920 --> 02:10.020
+Și puteți vedea diferențele dintre cele două.
+
+02:10.020 --> 02:12.630
+Acestea sunt aceleași date.
+
+02:12.630 --> 02:16.970
+Doar primele nume și nume de angajați și utilizările XML
+
+02:16.980 --> 02:25.740
+această sintaxă HTML, în timp ce JSON folosește bine un obiect - obiect javascript ca sintaxa. Cu exceptia
+
+02:25.740 --> 02:31.740
+standardul este acum mai mult spre JSON deoarece atunci când scrieți codul frontal în Javascript obținerea unui
+
+02:31.740 --> 02:37.560
+Analiza datelor JSON facilitează încărcarea acestor date într-un arbore obiect deoarece este similară
+
+02:37.560 --> 02:40.130
+un obiect javascript decât un XML.
+
+02:40.880 --> 02:48.500
+Și formatul JSON este un mod mai succint care salvează lățimea de bandă și îmbunătățește timpul de răspuns atunci când trimiteți
+
+02:48.740 --> 02:51.590
+mesaje înainte și înapoi între client și server.
+
+02:53.030 --> 03:00.810
+Și XML nu este foarte eficient. Deci, acum JSON este mai mult un standard pe care îl veți vedea în continuare XML, dar acesta
+
+03:00.810 --> 03:04.300
+este depășită, așa că nu vom vorbi despre asta în acest videoclip.
+
+03:04.470 --> 03:13.770
+Dar ambele sunt utilizate pentru a transfera date între două mașini care ar putea să nu vorbească în aceeași limbă.
+
+03:14.190 --> 03:20.330
+JSON totuși, deși pare similar cu Javascript, este ceva diferit.
+
+03:20.340 --> 03:24.210
+Are aceste citate duble pentru proprietăți chiar.
+
+03:24.210 --> 03:28.440
+Totul trebuie să fie un șir și să fie înfășurat în jurul unor ghilimele duble.
+
+03:28.920 --> 03:38.120
+Și se pare că este o sintaxă obiect. Dar JSON poate fi citit de orice limbă.
+
+03:39.100 --> 03:45.250
+Dacă serverele Google rulează o altă limbă, vor înțelege JSON pe care le vor putea modifica
+
+03:45.760 --> 03:50.550
+că JSON care este doar text în propria lor versiune.
+
+03:50.560 --> 03:59.100
+Deci, acum putem converti acest lucru într-un obiect JSON, îl trimitem prin HTTP.
+
+04:00.390 --> 04:06.780
+Apoi, serverele Google sau orice altceva se vor schimba în propria lor limbă vor înțelege și vor
+
+04:06.780 --> 04:08.010
+apoi trimiteți un răspuns.
+
+04:08.010 --> 04:13.270
+Din nou, să spunem că, de exemplu, se întoarce - utilizatorul are bani de 345 de dolari.
+
+04:13.620 --> 04:22.330
+Ei bine, atunci va modifica acest lucru la JSON-l trimite pe fir și apoi browser-ul web-l va schimba
+
+04:22.330 --> 04:25.080
+de la JSON la javascript.
+
+04:25.270 --> 04:26.540
+Dar cum putem face asta?
+
+04:26.590 --> 04:31.550
+Din fericire pentru noi javascript vine cu propria sa funcție JSON.
+
+04:33.350 --> 04:39.440
+Avem JSON.parse și JSON.stringify cu JSON.parse
+
+04:39.440 --> 04:50.150
+dacă am avea din nou acest formular JSON, îl înfășurăm pur și simplu ca parametru de analiză și va reveni la un obiect.
+
+04:50.210 --> 04:53.100
+În sens contrar, cu stringify
+
+04:53.270 --> 04:58.750
+putem da un obiect cum ar fi cel pe care tocmai l-am creat si-l va returna pe JSON.
+
+04:59.300 --> 05:09.490
+Deci, această variabilă myJSON poate fi acum introdusă în cererea HTTP pentru ao trimite pe fir sau pe server
+
+05:09.490 --> 05:11.410
+pot răspunde cu myJSON.
+
+05:11.410 --> 05:20.380
+Deci, să revizuiască JSON este text și putem converti orice obiect javascript în JSON și trimite JSON la
+
+05:20.380 --> 05:21.060
+server-ul.
+
+05:21.070 --> 05:29.080
+De asemenea, putem converti orice JSON primit de la server în obiecte javascript. În acest fel putem lucra
+
+05:29.080 --> 05:36.940
+cu date ca obiecte javascript fără traducere complicată și acest text poate fi folosit ca format de date
+
+05:36.940 --> 05:38.640
+pentru orice limbaj de programare.
+
+05:38.770 --> 05:40.620
+Așadar, permiteți-i să treacă mai departe
+
+05:40.620 --> 05:48.530
+acum cu acest lucru complet. Obiect utilizator înainte de a-l trimite cu HTTP voi face
+
+05:48.610 --> 05:51.030
+"JSON.stringify (user);"
+
+05:51.070 --> 06:02.210
+Deci acum convertitul său într-un șir JSON și acest șir JSON vor fi trimise prin HTTP către Google
+
+06:02.210 --> 06:02.940
+servere.
+
+06:03.080 --> 06:08.840
+Se va spune apoi JSON.parse acest utilizator astfel incat sa il inteleaga.
+
+06:08.870 --> 06:11.620
+Să spunem că rulează Javascript sau Node.
+
+06:11.930 --> 06:19.790
+Acum va înțelege utilizatorul. Vor să spună - vrea o sumă de bani pentru acest utilizator.
+
+06:19.990 --> 06:29.860
+Deci acum primesc bani din cont. Aceasta este o variabilă a banilor. Trimite-o cu o stare
+
+06:29.860 --> 06:32.070
+cod de 200
+
+06:32.240 --> 06:42.880
+Și acum browserul web poate parsa acest șir pe care la primit și a văzut că oh da, am o variabilă
+
+06:42.880 --> 06:52.060
+bani de 345 de dolari. Și nu vă faceți griji când ajungem la secțiunea de backend în câteva videoclipuri pe care le vom arăta
+
+06:52.060 --> 07:01.000
+exact cum să faceți acest lucru în cod. Cum se fac cereri HTTP, utilizați JSON, folosiți GET, POST, PUT, DELETE
+
+07:01.000 --> 07:03.540
+și vă voi arăta cum să faceți acest lucru
+
+07:03.640 --> 07:05.720
+în proiectul nostru final.
+
+07:05.860 --> 07:11.830
+Dar acum această diagramă, deși puțin dezordonată, ar trebui să facă un pic mai mult sens și ar trebui
+
+07:11.830 --> 07:14.930
+înțelegeți acum cum funcționează lucrurile.
+
+07:16.290 --> 07:23.120
+În următorul videoclip vă voi prezenta ceva care a schimbat navigarea pe Internet în 2006.
+
+07:23.410 --> 07:25.060
+Ne vedem în acel. Pa! Pa.
