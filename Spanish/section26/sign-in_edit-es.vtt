@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00.640 --> 00:01.750
+Dar una buena acogida.
+
+00:01.870 --> 00:04.070
+Tenemos nuestro punto final final.
+
+00:04.090 --> 00:09.010
+Inicia sesión donde finalmente podamos iniciar sesión con los usuarios.
+
+00:09.120 --> 00:14.110
+Ahora puede haber algo de lo que se haya dado cuenta cuando estábamos trabajando en el registro.
+
+00:14.490 --> 00:26.590
+Es decir, estamos insertando al usuario con el correo electrónico, el nombre y uniéndonos, pero nunca estamos actualizando nuestra tabla de inicio de sesión.
+
+00:26.800 --> 00:36.190
+Si selecciono la estrella desde el inicio de sesión, no tenemos nada allí.
+
+00:37.080 --> 00:38.010
+Eso no es bueno es eso.
+
+00:38.010 --> 00:43.980
+Queremos crear algo cada vez que un nuevo usuario inicie sesión y capture sus contraseñas o el
+
+00:43.980 --> 00:45.300
+hash de sus contraseñas.
+
+00:46.470 --> 00:51.810
+Así que vamos a trabajar en eso en este video. Para que podamos hacer esto.
+
+00:51.850 --> 00:58.300
+Primero tenemos que registrar un usuario y tomar sus contraseñas.
+
+00:59.650 --> 01:05.650
+Ahora, para que lo hagamos, debemos insertarlo en otra base de datos.
+
+01:05.720 --> 01:10.000
+Pero primero usemos bcrypt para descifrar la contraseña que obtenemos.
+
+01:10.200 --> 01:17.730
+Si recuerda que ya tenemos bcrypt instalado y es de un video anterior, podemos volver al
+
+01:17.970 --> 01:24.540
+paquete bcrypt Node.js y aunque te he mostrado la forma asíncrona de hacer las cosas, vamos a
+
+01:24.540 --> 01:27.970
+hacer el sincrónico porque es más simple.
+
+01:28.200 --> 01:33.120
+Solo tenga en cuenta que con synchronous significa que como esto está funcionando, javascript no va a
+
+01:33.120 --> 01:39.120
+ejecutar en la siguiente línea en lugar de asincrónico si ejecuta hash bcrypt,
+
+01:39.120 --> 01:41.080
+Javascript sigue ejecutándose.
+
+01:41.220 --> 01:44.130
+Y luego, cuando esto vuelva, volverá aquí.
+
+01:45.050 --> 01:48.200
+De esta forma, es un poco más limpio por ahora.
+
+01:48.200 --> 01:50.510
+Entonces usaremos este ejemplo de código.
+
+01:51.080 --> 01:59.700
+Copiaremos esto, vaya a nuestro registro, y aquí, no queremos comparar todavía.
+
+01:59.750 --> 02:10.250
+Solo queremos almacenar, por lo que podemos decir const hash, queremos cifrar la contraseña.
+
+02:10.280 --> 02:15.360
+Cambiemos esto a la contraseña.
+
+02:15.580 --> 02:22.780
+Y ahora que tenemos el hash de la contraseña, debemos asegurarnos de que actualizamos tanto a los usuarios como a
+
+02:22.780 --> 02:28.480
+inicie sesión para que no tengamos problemas
+
+02:32.880 --> 02:36.020
+como este donde tenemos estos usuarios.
+
+02:36.240 --> 02:44.640
+Pero si vamos al inicio de sesión Bueno, no tenemos absolutamente nada.
+
+02:44.640 --> 02:54.090
+Para evitar esto, tenemos un concepto importante de las transacciones y las transacciones son estos bloques de código
+
+02:54.180 --> 03:01.740
+que podemos agregar para asegurarnos de que cuando estamos haciendo operaciones múltiples en una base de datos si uno falla entonces
+
+03:01.740 --> 03:02.750
+todos fallan
+
+03:02.880 --> 03:09.600
+Si por alguna razón no puedo ingresar algo en la tabla de usuarios, puedo iniciar sesión, siempre que esté envuelto
+
+03:09.600 --> 03:14.410
+alrededor de una transacción que ambos fallan para que yo nunca tenga estas incoherencias.
+
+03:14.670 --> 03:15.950
+Déjame mostrarte cómo hacer eso.
+
+03:17.060 --> 03:25.390
+Con la tabla de usuarios, quiero tener esta parte. Voy a sangrarlo un poco.
+
+03:25.450 --> 03:34.810
+Y antes de hacer los usuarios, quiero crear una transacción. Voy a decir la transacción DB dot y ahora
+
+03:34.810 --> 03:42.940
+tenemos una transacción en KNEX y si vamos al KNEX tienen transacciones y usted puede leer
+
+03:42.940 --> 03:46.230
+sobre ellos aquí y SQL también tiene transacción.
+
+03:49.450 --> 03:59.680
+Si volvemos atrás, esta transacción obtiene un parámetro trx que ahora podemos usar en lugar del conjunto de DB para hacer
+
+03:59.680 --> 04:09.460
+Seguro que lo que hagamos es una transacción. La primera transacción que queremos hacer es que queremos insertar
+
+04:11.460 --> 04:24.960
+en los usuarios o en el inicio de sesión el hash en el correo electrónico, por lo que podemos decir hash o hash hash de correo electrónico que
+
+04:24.960 --> 04:30.870
+Acabo de recibir de bcrypt, y luego el correo electrónico que acabamos de obtener del cuerpo de punto de solicitud.
+
+04:34.470 --> 04:37.530
+En lugar de simplemente hacer esta sintaxis que podemos hacer también.
+
+04:37.800 --> 04:39.420
+Podemos hacerlo
+
+04:42.950 --> 04:53.590
+iniciar sesión y, finalmente, devolver el correo electrónico del usuario.
+
+04:53.720 --> 05:01.650
+Ahora que hemos devuelto esto, podemos decir punto y luego correo electrónico porque estamos devolviendo el correo electrónico.
+
+05:03.590 --> 05:11.170
+Y solo para mantenerlo separado de la solicitud o el cuerpo diremos que este es el correo electrónico de inicio de sesión y esto
+
+05:11.170 --> 05:17.020
+el correo largo se usará ahora aquí. Así que podemos copiar y pegar esto
+
+05:21.690 --> 05:22.620
+aquí.
+
+05:24.510 --> 05:33.400
+Solo asegúrate de que el espacio sea el correcto. Y podemos usar el correo electrónico de inicio de sesión después de que hayamos actualizado el registro y
+
+05:33.400 --> 05:40.450
+tabla para actualizar el correo electrónico de inicio de sesión, por lo que realmente no cambiamos nada.
+
+05:40.450 --> 05:49.210
+Lo único que hicimos fue bloquearlo dentro de un punto para que primero actualicemos el inicio de sesión
+
+05:49.210 --> 05:58.430
+tabla obtenemos el correo electrónico de inicio de sesión y para asegurarnos de que ambos son parte de la transacción
+
+05:58.830 --> 06:02.910
+en lugar de hacer DB aquí tenemos el objeto TRX.
+
+06:02.970 --> 06:08.820
+Entonces haremos TRX y ahorremos y veremos qué pasa.
+
+06:11.610 --> 06:16.860
+Y luego vuelvo a nuestro ejemplo aquí, nuestro NodeMon.
+
+06:16.860 --> 06:18.400
+Tenemos un registro con John.
+
+06:18.480 --> 06:21.430
+Si hago clic en enviar.
+
+06:21.550 --> 06:31.690
+Está bien, recibo la identificación 11 John. Recibo un correo electrónico si ingreso al inicio de sesión.
+
+06:31.960 --> 06:33.940
+No tengo login aquí
+
+06:34.060 --> 06:37.030
+Si entro en usuarios, tampoco tengo a John.
+
+06:37.060 --> 06:38.630
+Entonces algo debe haber salido mal.
+
+06:39.880 --> 06:47.950
+Lo último que queremos hacer es al final, y puede leer sobre esto en la sección de KNEX, podemos hacer-
+
+06:48.240 --> 06:49.940
+punto entonces
+
+06:50.150 --> 06:57.520
+TRX commit, porque no pudimos enviar estos porque no dijimos que si todos estos pasan, entonces
+
+06:57.640 --> 07:00.310
+commit enviar esta transacción a través de.
+
+07:00.820 --> 07:04.300
+Y si atrapo puntos, lo haré
+
+07:04.300 --> 07:08.670
+TRX retrocede
+
+07:08.700 --> 07:11.800
+Así que ahora vamos a intentarlo.
+
+07:11.830 --> 07:19.770
+Voy a hacer clic en enviar, obtengo una respuesta. Si voy a los usuarios.
+
+07:19.770 --> 07:28.000
+Tengo a John y si voy a iniciar sesión, tengo a John con el hash.
+
+07:28.000 --> 07:35.010
+Lo único que está mal aquí es que tengo esta sintaxis para el correo electrónico, que no es lo que queremos.
+
+07:35.030 --> 07:38.590
+Esa es una solución simple porque estamos dando el correo electrónico de inicio de sesión aquí.
+
+07:38.590 --> 07:42.620
+Recuerde que estamos devolviendo una matriz.
+
+07:42.670 --> 07:49.790
+Entonces, si voy así, hagamos John 1 envíe
+
+07:53.460 --> 07:55.170
+ve a nuestro ejemplo de inicio de sesión.
+
+07:55.290 --> 07:56.270
+Eso se ve bien.
+
+07:56.490 --> 08:01.670
+E inicie sesión en nuestros usuarios tenemos John1 en gmail dot com.
+
+08:01.770 --> 08:02.300
+Asombroso.
+
+08:04.020 --> 08:09.220
+Entonces, esta transacción es probablemente la parte más difícil de acostumbrarse.
+
+08:09.420 --> 08:11.300
+Y puedes ver aquí, es un poco.
+
+08:11.310 --> 08:14.800
+Pero una vez que obtienes la sintaxis, se vuelve muy fácil.
+
+08:14.970 --> 08:22.440
+Crea una transacción cuando tiene que hacer más de dos cosas a la vez, y usa este objeto TRX
+
+08:22.620 --> 08:26.370
+en lugar de DB ahora, para hacer estas operaciones.
+
+08:26.370 --> 08:36.570
+En mi caso, lo inserté en el inicio de sesión, devolvió el correo electrónico y luego usamos el correo electrónico de inicio de sesión para devolver también
+
+08:36.570 --> 08:46.810
+otra transacción TRX para insertar en los usuarios y respondió con Json y luego para que esto ocurra
+
+08:46.840 --> 08:54.610
+para ser agregado Tenemos que asegurarnos de comprometernos y luego, en caso de que algo falle, revertimos los cambios.
+
+08:54.880 --> 09:03.220
+Si vuelvo a ingresar al mismo usuario, no puedo registrarme. Si envío la información incorrecta, no podré
+
+09:03.220 --> 09:04.390
+para registrarse Perfecto.
+
+09:07.610 --> 09:15.280
+Ahora que tenemos esto funcionando podemos finalmente ir a nuestro inicio de sesión. estamos conteniendo el hash ahora en
+
+09:15.280 --> 09:20.290
+nuestra mesa y todo lo que tenemos que hacer ahora es, bueno, eliminemos esto.
+
+09:20.710 --> 09:38.950
+Y en este inicio de sesión podemos hacer un DB. Haremos una selección, seleccionaremos correo electrónico y hash desde el inicio de sesión.
+
+09:38.980 --> 09:43.040
+Entonces, recibiremos el correo electrónico y el hash.
+
+09:43.040 --> 09:46.820
+Así que vamos a obtener una respuesta o, en este caso, simplemente hagamos los datos
+
+09:51.520 --> 09:53.950
+y vamos a consolar el registro para ver lo que recibimos
+
+09:57.440 --> 10:06.400
+Voy a guardar ir a iniciar sesión y ver si todavía tenemos algo. Ahí tienes. Hagámoslo en el cuerpo
+
+10:06.610 --> 10:13.350
+Galletas de John, te dije esto. No respondo con nada, así que se bloquea.
+
+10:13.500 --> 10:21.630
+Pero si vuelvo, veo que recibo correo electrónico y hash y recibo todo porque bueno, no he seleccionado
+
+10:21.990 --> 10:23.400
+cualquier criterio específico.
+
+10:23.520 --> 10:33.220
+Podemos decir que ahora queremos hacer la cláusula WHERE donde el correo electrónico
+
+10:37.440 --> 10:41.930
+es igual a la solicitud
+
+10:42.000 --> 10:50.110
+dot dot dot email. Si ese es el caso, guardemos e intentemos de nuevo, enviar.
+
+10:50.280 --> 10:55.060
+Tenemos un error de sintaxis porque no necesitamos un objeto aquí.
+
+10:55.060 --> 10:56.200
+Ahí tienes.
+
+10:56.530 --> 10:57.410
+Probemos eso de nuevo.
+
+10:57.410 --> 10:59.030
+Haga clic en enviar.
+
+10:59.250 --> 11:01.600
+Esto se bloqueará, así que cancelaremos.
+
+11:01.770 --> 11:02.700
+Y ahí tienes.
+
+11:02.700 --> 11:05.840
+Tenemos el correo electrónico y el hash de John.
+
+11:06.270 --> 11:11.760
+Y ahora debemos verificar si John ingresó la contraseña correcta.
+
+11:12.040 --> 11:21.220
+Entonces, dentro de los datos aquí podemos tomar la matriz que es la primera.
+
+11:21.480 --> 11:31.140
+Y ahora usa bcrypt. Y recuerda con bcrypt que hemos comparado la sincronización.
+
+11:31.340 --> 11:37.040
+Simplemente podemos decir que bcrypt dot compara la sincronización con lo que el usuario ingresó.
+
+11:37.030 --> 11:48.910
+En este caso, solicite una contraseña de cuerpo de punto con el hash, en nuestro caso podemos decir simplemente datos de punto cero
+
+11:49.060 --> 11:50.040
+picadillo.
+
+11:50.230 --> 11:55.200
+Si esto vuelve bien, solo tengamos una const válida.
+
+11:59.110 --> 12:01.520
+En ese caso, hagamos esto un poco más pequeño para que pueda ver
+
+12:05.960 --> 12:07.990
+diremos si es válido
+
+12:10.910 --> 12:12.710
+esto devolverá verdadero o falso.
+
+12:12.740 --> 12:17.130
+Haremos una respuesta dot Json con la información del usuario.
+
+12:17.210 --> 12:24.830
+Así que tendremos que hacer una estrella de selección de punto DB de
+
+12:27.370 --> 12:30.520
+los usuarios puntean donde
+
+12:33.390 --> 12:46.220
+el correo electrónico es igual a solicitar el correo del punto del cuerpo del punto, entonces lo conseguiremos.
+
+12:46.300 --> 12:49.090
+Y finalmente aquí dentro podemos
+
+12:54.020 --> 13:02.740
+mover esto al punto de respuesta Json user array first item.
+
+13:03.150 --> 13:06.810
+Y si hay algún problema al respecto, diremos captura
+
+13:11.070 --> 13:11.760
+punto de respuesta de error
+
+13:11.790 --> 13:26.370
+Json vamos a hacer el estado de nuevo 400 Json incapaz de obtener usuario, y también aquí porque todavía estamos haciendo
+
+13:26.370 --> 13:29.090
+la búsqueda de la base de datos aquí.
+
+13:29.250 --> 13:35.190
+Y esto no necesita ser una transacción porque, bueno, solo estamos comprobando, no estamos modificando ninguno de
+
+13:35.190 --> 13:37.950
+los elementos de la base de datos aquí. Podemos decir atrapar puntos
+
+13:41.760 --> 13:42.990
+si hay un error
+
+13:43.290 --> 13:55.910
+Solo podemos responder al estado de punto 400 Esta vez podemos decir las credenciales incorrectas.
+
+13:56.120 --> 13:57.130
+Está bien, demos una oportunidad.
+
+13:57.140 --> 14:01.110
+No voy a guardar ningún error aquí.
+
+14:01.110 --> 14:04.800
+Bien, vuelve al cartero y haz clic.
+
+14:04.820 --> 14:08.360
+Las galletas de John envían.
+
+14:08.550 --> 14:09.600
+Lo entiendo 200.
+
+14:09.620 --> 14:15.320
+OK, pero no recibí un usuario, así que vamos a iniciar sesión aquí.
+
+14:20.410 --> 14:22.780
+Y este es un error simple.
+
+14:22.930 --> 14:31.680
+Siempre queremos asegurarnos de que estamos devolviendo esto para que esta base de datos lo sepa.
+
+14:31.680 --> 14:33.150
+Siempre queremos asegurarnos de que volvemos.
+
+14:33.150 --> 14:34.800
+Probemos eso de nuevo.
+
+14:34.800 --> 14:40.780
+Voy a enviar la información correcta con las cookies de contraseña.
+
+14:40.780 --> 14:42.850
+De acuerdo, tengo 200.
+
+14:43.000 --> 14:45.310
+Pero hagamos un registro de la consola aquí.
+
+14:46.710 --> 14:51.120
+Es válida. Guardaremos y veremos qué obtenemos aquí.
+
+14:51.120 --> 14:55.190
+Vamos a enviar OK.
+
+14:55.350 --> 14:59.820
+Es válido se está ejecutando y luego los usuarios son cero.
+
+14:59.820 --> 15:03.750
+Así que no estamos agarrando a los usuarios correctamente.
+
+15:03.750 --> 15:04.420
+Veamos por qué.
+
+15:07.060 --> 15:09.580
+Y eso es porque nuestro correo electrónico para John.
+
+15:09.580 --> 15:14.410
+Recuerde que cometimos un error al no devolverlo correctamente.
+
+15:14.410 --> 15:19.420
+Registremos un nuevo usuario y asegúrese de que tengan la contraseña correcta.
+
+15:19.900 --> 15:33.460
+Volveremos a registrarnos y nos registraremos con la contraseña de Eddy. Será hola y su nombre será Andy.
+
+15:33.490 --> 15:37.770
+Haremos clic en enviar. Perfecto.
+
+15:37.960 --> 15:40.810
+Y ahora si iniciamos sesión con Eddy
+
+15:44.540 --> 15:47.870
+no es necesario que envíe el nombre solo la contraseña.
+
+15:48.390 --> 15:51.840
+Si hacemos clic en enviar.
+
+15:51.940 --> 15:54.770
+Está bien, tenemos 200.
+
+15:54.820 --> 15:56.150
+Parece que está funcionando.
+
+15:57.510 --> 16:02.320
+Pero si Eddy ingresa la contraseña incorrecta.
+
+16:02.390 --> 16:02.610
+Todo bien.
+
+16:02.630 --> 16:03.740
+Esto todavía está colgando.
+
+16:03.770 --> 16:08.420
+Porque nunca dijimos si esto es falso, lo que debería suceder.
+
+16:09.550 --> 16:23.230
+En nuestro caso, queremos decir el estado del punto de respuesta 400 punto Json credenciales incorrectas y asegurarnos
+
+16:23.230 --> 16:26.330
+que hago una declaración else aquí.
+
+16:27.420 --> 16:30.160
+Y pon eso aquí.
+
+16:32.430 --> 16:33.000
+Vamos a guardar
+
+16:36.170 --> 16:40.080
+Haga clic en enviar. Credenciales incorrectas.
+
+16:40.180 --> 16:41.350
+Pero si hago clic en hola
+
+16:45.190 --> 16:47.020
+Entiendo a Eddy.
+
+16:47.140 --> 16:48.240
+Eso es asombroso
+
+16:48.370 --> 16:52.060
+Tenemos todo nuestro flujo de inicio de sesión funcionando.
+
+16:52.210 --> 16:54.080
+Podemos eliminar los registros de la consola aquí
+
+16:56.960 --> 17:04.380
+y ahora que tenemos todo funcionando, tenemos a nuestros usuarios como nuestro nuevo usuario de Eddy y él también es parte del inicio de sesión
+
+17:04.380 --> 17:13.700
+con el hash para almacenar todo de forma segura porque en nuestra base de datos nunca almacenamos la contraseña de Eddy.
+
+17:13.740 --> 17:19.110
+Y finalmente tenemos nuestros registros funcionando. En el próximo video finalmente vamos a probar todo esto con
+
+17:19.110 --> 17:26.310
+nuestro Front-End y esperamos que todo funcione bien y parece que ya no necesitamos esta base de datos.
+
+17:26.460 --> 17:27.630
+Buen trabajo a todos.
+
+17:27.660 --> 17:29.150
+Te veré en el próximo.
+
+17:29.150 --> 17:29.630
+Adiós.

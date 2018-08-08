@@ -1,0 +1,265 @@
+WEBVTT
+
+00:01.620 --> 00:03.020
+Hey you're still around.
+
+00:03.060 --> 00:04.880
+Good to see you again.
+
+00:04.890 --> 00:05.290
+All right.
+
+00:05.340 --> 00:11.550
+So we just Konsole logged these action types and also did that.
+
+00:11.550 --> 00:12.690
+Where do we do that.
+
+00:12.690 --> 00:16.260
+We also did that the action part as well.
+
+00:16.420 --> 00:23.660
+But I mean this is nice to see but we don't want to console log every where in our redux app for all
+
+00:23.660 --> 00:24.580
+of our actions.
+
+00:24.800 --> 00:29.300
+So let's remove this and go back to the way we have things.
+
+00:29.390 --> 00:35.010
+Let me say that and also in the reducer remove our console lock.
+
+00:35.340 --> 00:44.010
+Now wouldn't it be cool if there was a way for us to come back to our app and still monitor our actions
+
+00:44.910 --> 00:52.760
+and debugger applications by just seeing which action got triggered which reduced or got triggered.
+
+00:53.220 --> 00:56.500
+Luckily for us there's a way to do that.
+
+00:57.320 --> 00:58.790
+Now I'm going to show you how it is.
+
+00:58.790 --> 01:03.250
+But first I have to admit something I may have lied a little bit to you.
+
+01:03.530 --> 01:13.180
+You see there's actually another part to this diagram that shows you and that's something called middleware.
+
+01:13.490 --> 01:14.360
+And don't get scared.
+
+01:14.360 --> 01:20.690
+It's quite simple and works similarly to how middleware an express dodgiest works.
+
+01:21.210 --> 01:31.680
+It simply listens for actions and it's a tunnel that actions go through and depending on what the middleware
+
+01:31.680 --> 01:36.660
+is it can modify the action or trigger another action.
+
+01:36.660 --> 01:44.790
+So they're like triggers that actions go through and something happens within this blue box before it
+
+01:44.790 --> 01:46.860
+hits the reducer.
+
+01:46.890 --> 01:50.020
+So why might that be useful for us.
+
+01:50.970 --> 01:57.820
+I'm going to show you one thing that it's really really great for if we go back to index stargaze file
+
+01:59.250 --> 02:05.580
+we can install something that is a middleware and it's called redox logger.
+
+02:05.580 --> 02:13.140
+So let's do that NPM install redux longer.
+
+02:13.140 --> 02:13.840
+All right perfect.
+
+02:13.950 --> 02:20.850
+And the way we use this longer which helps with logging in the console so that we can debug or app really
+
+02:20.850 --> 02:32.010
+easily we can just in here import something called create logger that comes from the package we just
+
+02:32.010 --> 02:40.020
+installed which is the we Dock's logger package and it's very very simple to use.
+
+02:40.290 --> 02:49.780
+All we need to do is say Konst logger calls to create logger.
+
+02:50.000 --> 03:01.270
+And now that we have this longer function which is a middleware we can apply that to our redox app.
+
+03:01.660 --> 03:10.450
+And the way we do that is through the redux package that comes with something called apply middleware
+
+03:13.990 --> 03:19.380
+and we apply middleware says hey we want to apply some middleware to this flow that we have going on
+
+03:21.010 --> 03:28.870
+so we can simply in the create store function have a second parameter that says apply middleware and
+
+03:28.870 --> 03:31.160
+give it whatever middleware we're interested in.
+
+03:31.240 --> 03:39.050
+In our case the longer So let's say that I'm going to NPM start here.
+
+03:47.660 --> 03:55.330
+And the way we create the logger because this is a function we need to run the function.
+
+03:55.400 --> 03:59.900
+Let's save go back we have no console log errors.
+
+04:00.360 --> 04:11.900
+But now if I type something into the box you see that I just typed L and the logger the middleware caught
+
+04:12.050 --> 04:19.670
+my action and said On top of this action that is going to go into the reducer I want to also console
+
+04:19.670 --> 04:23.000
+log this and that's the action.
+
+04:23.030 --> 04:29.600
+So I get previous state search field was blank and then the action that we took was change search field
+
+04:29.960 --> 04:31.820
+with the payload of hell.
+
+04:32.180 --> 04:35.220
+And the next state was search field with an now.
+
+04:35.450 --> 04:36.750
+How cool is that.
+
+04:36.770 --> 04:47.400
+We have instant logging in our application and this logger helps us work with our code better.
+
+04:47.410 --> 04:55.100
+Here's the exciting part about this because right now it's hard to really say why this is useful other
+
+04:55.100 --> 04:58.620
+than just getting some long.
+
+04:58.780 --> 05:07.420
+But the beauty with redux is the fact that it made it so simple for you to reason about your app and
+
+05:07.420 --> 05:09.290
+monitor why your app is going.
+
+05:09.570 --> 05:15.540
+You see now we have a clean system for us to monitor.
+
+05:15.670 --> 05:26.020
+Each one of our actions so that no matter how many actions we have we can always predict what they're
+
+05:26.020 --> 05:26.890
+going to do.
+
+05:26.920 --> 05:34.110
+We can listen to what logging output each one of these actions happened because reducer is a pure function.
+
+05:34.210 --> 05:39.910
+We always know it's going to return the same state and again because of the way of react works we also
+
+05:39.910 --> 05:48.660
+know that as soon as the state changes it's going to make the predictable changes to our view and with
+
+05:48.660 --> 05:54.090
+the middleware we're able to log these actions.
+
+05:54.090 --> 06:01.330
+And theoretically we can even go back in time and play out different actions that our users play.
+
+06:02.450 --> 06:07.840
+Because we have a list a chronological list of all these actions.
+
+06:07.840 --> 06:11.840
+Now this is why I like teaching redux.
+
+06:11.980 --> 06:15.920
+It's not because the library will be around for all eternity.
+
+06:16.000 --> 06:21.970
+No it will most likely get replaced by something new by other tools and libraries.
+
+06:22.900 --> 06:31.210
+But it's a really important library that changes the way we think about building applications instead
+
+06:31.210 --> 06:37.720
+of just having messy actions everywhere and just thinking of code or something that we just keep tacking
+
+06:37.720 --> 06:43.320
+on and keep building upon and keep adding different features to redux.
+
+06:43.330 --> 06:52.810
+Makes you think in a way of hey how can I make an app that is able to scale in a way where we have thousands
+
+06:52.810 --> 06:55.590
+of user interactions millions of user interactions.
+
+06:55.660 --> 07:03.190
+How can we make it so that the information flows from one to another into a predictable view into a
+
+07:03.190 --> 07:05.480
+system that is predictable.
+
+07:05.810 --> 07:12.970
+And as a senior developer you really want to think about this how are you building systems that work
+
+07:12.970 --> 07:17.300
+really really well together and are logical and flow nicely.
+
+07:17.350 --> 07:22.660
+And that's why redox got its inspiration from database design because databases are similar right.
+
+07:22.660 --> 07:24.670
+They are always costly acted upon.
+
+07:24.670 --> 07:32.590
+There's reads there was rights and they need a way to make sure that they manage all these people dipping
+
+07:32.590 --> 07:39.160
+their hands in the database and doing things but also avoiding bugs and errors and all these things
+
+07:39.160 --> 07:41.080
+at the same time.
+
+07:41.170 --> 07:47.920
+This is a bit of a side note but I think it's important to understand this and this is a good way to
+
+07:48.190 --> 07:53.890
+think about things and flow diagrams how data flows through your app and how you should structure your
+
+07:53.890 --> 07:56.450
+app so that it flows smoothly.
+
+07:58.170 --> 08:06.270
+Finally I want to show you another tool I like the redox logger because it's simple but redux def tools
+
+08:06.290 --> 08:14.000
+is really really good and it uses this idea of middleware to listen in on actions and laga for you a
+
+08:14.000 --> 08:19.400
+ton of interesting things you can even play back histories and why you did and the app.
+
+08:19.400 --> 08:23.510
+It's a really really good tool that you can play around with for now.
+
+08:24.410 --> 08:27.130
+We've learned about middleware.
+
+08:27.280 --> 08:34.840
+We've created our store and we have a complete picture or do we.
+
+08:34.840 --> 08:39.230
+There's another part of our app that we need to turn into redux.
+
+08:39.260 --> 08:42.860
+So with that said I'll see in the next one.

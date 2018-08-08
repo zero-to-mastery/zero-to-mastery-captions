@@ -1,0 +1,178 @@
+WEBVTT
+
+00:01.300 --> 00:02.240
+Dar una buena acogida.
+
+00:02.470 --> 00:04.980
+Trabajemos en el punto final de la imagen aquí.
+
+00:05.230 --> 00:11.840
+Y dado lo que hemos hecho hasta ahora, podemos estar seguros de que no necesitaremos nada de esto.
+
+00:11.860 --> 00:14.840
+Vamos a conectarlo a la base de datos.
+
+00:14.950 --> 00:20.710
+Ahora, si recuerda, el punto final de la imagen actualiza las entradas y aumenta el conteo.
+
+00:20.710 --> 00:28.560
+Entonces, todo lo que tenemos que hacer es actualizar y echemos un vistazo a KNEX y veamos si tienen la función de actualización
+
+00:32.790 --> 00:33.970
+Sí lo hacen.
+
+00:33.990 --> 00:37.540
+Y nos dan buenos ejemplos de cómo hacerlo.
+
+00:39.760 --> 00:42.170
+Entonces usemos esto como un ejemplo.
+
+00:43.030 --> 00:45.220
+Para crear nuestra función de actualización
+
+00:48.310 --> 00:49.690
+lo copiaremos aquí.
+
+00:52.530 --> 01:04.740
+Y lo sabemos con nuestro punto DB donde queremos decir que donde ID es igual y no es 3 igual porque
+
+01:04.740 --> 01:14.740
+este es SQL donde la ID es igual a la ID que recibimos en el cuerpo que queremos actualizar las entradas
+
+01:16.090 --> 01:21.100
+ser más alto que las entradas que están actualmente allí.
+
+01:21.140 --> 01:22.990
+Pero, ¿cómo podemos hacer eso?
+
+01:23.160 --> 01:26.660
+¿Cómo podemos tomar las entradas de la base de datos y aumentarla?
+
+01:26.660 --> 01:34.230
+De nuevo, este es un problema que es muy común y se dice que al seleccionar el ID, independientemente de las entradas
+
+01:34.230 --> 01:35.890
+es y actualizarlo.
+
+01:36.300 --> 01:46.080
+Bueno, podemos simplemente usar algo llamado incremento e incremento solo nos dice la columna y la cantidad
+
+01:46.080 --> 01:49.110
+Queremos incrementar por. Muy genial.
+
+01:49.230 --> 01:49.870
+Vamos a hacerlo.
+
+01:50.160 --> 02:00.200
+Digamos que el ID de usuario en lugar de la actualización solo se incrementó y haremos las entradas y solo queremos
+
+02:00.200 --> 02:01.140
+por uno.
+
+02:01.450 --> 02:06.280
+Y el predeterminado es uno, estoy bastante seguro, pero siempre me gusta ser explícito para que la gente sepa lo que está pasando
+
+02:06.280 --> 02:09.020
+en cuando leen el código y hagámoslo.
+
+02:09.430 --> 02:22.110
+Así que aumentamos en uno y luego queremos decir devolver las entradas vamos a hacer un punto y luego ver qué
+
+02:22.110 --> 02:22.470
+obtenemos
+
+02:29.450 --> 02:30.530
+registro de punto de consola
+
+02:33.340 --> 02:44.790
+entradas y ahorremos. Regresa al cartero. Vamos a encontrar nuestro punto final de imagen que tiene un cuerpo de ID y
+
+02:44.790 --> 02:47.940
+tendremos que darle una identificación que realmente existe por el momento.
+
+02:47.950 --> 02:59.840
+Así que solo hagamos un envío. Y volviendo aquí, no obtenemos nada porque debemos hacer una solicitud de venta.
+
+02:59.850 --> 03:07.380
+Recuerda que lo cambiamos para ponerlo de nuevo y está colgando porque no le hemos dado una respuesta
+
+03:07.380 --> 03:09.270
+así que simplemente cancelaremos la solicitud por ahora.
+
+03:09.410 --> 03:16.610
+Pero si volvemos al servidor Bueno, podemos ver que hay un error aquí y definitivamente
+
+03:16.610 --> 03:18.600
+cometió un error tonto aquí.
+
+03:18.620 --> 03:22.370
+No tiene idea de qué base de datos estamos hablando.
+
+03:22.370 --> 03:29.310
+Necesitamos decir realmente usuarios aquí. Los errores de SQL a veces pueden ser realmente confusos.
+
+03:29.380 --> 03:33.720
+Pero como dije, es bastante declarativo.
+
+03:33.720 --> 03:40.340
+Así que mientras puedas leerlo y entenderlo con KNEX, los errores son mínimos a menos que seas como
+
+03:40.340 --> 03:43.070
+yo y te olvidas de mencionar la mesa.
+
+03:43.070 --> 03:43.970
+Probemos eso de nuevo.
+
+03:44.930 --> 03:45.600
+Expedido.
+
+03:45.720 --> 03:48.730
+Vamos a asesorar a las solicitudes porque no hay respuesta.
+
+03:49.070 --> 03:52.440
+Pero ahora tengo una vuelta.
+
+03:52.580 --> 03:56.300
+Si lo envío nuevamente, cancele la solicitud.
+
+03:56.370 --> 04:05.220
+Tengo dos. Si vuelvo a la base de datos y selecciono todo, veo que Ann ahora tiene entradas de dos. Asombroso.
+
+04:07.740 --> 04:08.630
+Entonces podemos volver aquí
+
+04:08.640 --> 04:15.570
+ahora, sabiendo que esto funciona Digamos que las entradas, queremos, de nuevo, devolver la primera matriz, porque
+
+04:15.570 --> 04:22.670
+obtener uno y en lugar del registro de la consola diremos las entradas del punto de respuesta json.
+
+04:22.990 --> 04:32.170
+Pero si algo falla, haremos una captura de puntos tal como fallamos aquí y podemos decir que
+
+04:32.350 --> 04:45.820
+estado de punto de respuesta de error le daremos otro 400, diremos que Json no puede obtener el recuento o las entradas
+
+04:48.180 --> 04:55.260
+Guardaremos eso y lo eliminaré para asegurarme de que el error esté funcionando.
+
+04:55.260 --> 04:58.430
+Entonces debería devolverme un 400.
+
+04:58.560 --> 05:00.030
+Probemos eso de nuevo.
+
+05:00.200 --> 05:04.590
+Enviar. No se pueden obtener entradas. 400 solicitud.
+
+05:04.840 --> 05:16.310
+Pero si arreglo esto para los usuarios y selecciono Ann nuevamente, obtengo tres.
+
+05:16.390 --> 05:22.660
+Está bien, nuestro punto final de la imagen funciona y tenemos nuestro punto final para trabajar, que es iniciar sesión
+
+05:24.340 --> 05:25.690
+eso es para el próximo video.
+
+05:25.960 --> 05:26.800
+Te veré en eso. Adiós.

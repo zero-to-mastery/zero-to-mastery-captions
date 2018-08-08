@@ -1,0 +1,289 @@
+WEBVTT
+
+00:00.770 --> 00:02.360
+Dar una buena acogida.
+
+00:02.360 --> 00:09.110
+Estoy muy emocionado por esta sección porque finalmente estamos combinando todo lo que conocemos en un solo lugar. Por
+
+00:09.110 --> 00:17.680
+Al final de esto, tendremos una comprensión unificada de cómo funciona todo, en el mundo del desarrollo web.
+
+00:17.800 --> 00:28.830
+Tenemos nuestro "cerebro inteligente" Front-End aquí con la página de inicio de sesión y tenemos nuestra aplicación, construida en React. Nosotros también
+
+00:28.830 --> 00:34.880
+tener nuestro servidor ejecutándose en el puerto 3000, escuchando las solicitudes.
+
+00:35.040 --> 00:37.700
+Pero ahora ya no necesitamos esta base de datos.
+
+00:37.960 --> 00:46.240
+Ahora podemos crear nuestra propia base de datos PostgreSQL y hacer que el servidor interactúe con ella a través de SQL.
+
+00:46.330 --> 00:54.860
+actualizando todo y luego respondiendo a través de Express al front-end. Va a ser tan
+
+00:54.860 --> 00:55.490
+mucha diversión.
+
+00:55.550 --> 00:56.750
+Estoy muy emocionado.
+
+00:56.870 --> 01:03.690
+Pero antes de que comencemos a codificar nada, tenemos que diseñar nuestra base de datos.
+
+01:03.920 --> 01:09.050
+Vamos a crear una base de datos.
+
+01:11.470 --> 01:14.080
+Y lo llamaremos "cerebro inteligente".
+
+01:19.470 --> 01:19.830
+Todo bien.
+
+01:19.830 --> 01:20.800
+Perfecto.
+
+01:20.940 --> 01:28.350
+Ahora que tenemos nuestra base de datos creada, quiero pensar en estas tres cosas separadas como su propio individuo
+
+01:28.350 --> 01:33.130
+computadoras que cuando implementamos van a ser partes diferentes.
+
+01:33.220 --> 01:36.830
+Tenemos nuestro servidor viviendo en una computadora.
+
+01:36.940 --> 01:44.960
+Tenemos nuestra base de datos viviendo en una computadora y podemos conectarnos aquí.
+
+01:47.710 --> 01:52.110
+Y también tenemos nuestra aplicación en una computadora separada también.
+
+01:55.860 --> 02:03.660
+Así que cerremos esto rápidamente y conéctese a nuestra base de datos, a nuestro host local, y lo llamamos cerebro inteligente.
+
+02:05.510 --> 02:08.640
+Haga clic en Conectar y listo.
+
+02:08.960 --> 02:12.390
+Pero, todavía no hay tablas. Para empezar,
+
+02:12.710 --> 02:18.710
+como lo hicimos cuando creamos nuestro diseño de API para nuestro servidor, realmente queremos pensar cómo nuestra base de datos
+
+02:18.710 --> 02:26.230
+se vería y estamos usando una base de datos relacional aquí porque en mi opinión en 2018 y seguir adelante
+
+02:26.680 --> 02:33.480
+las bases de datos relacionales son realmente realmente buenas. Aunque las bases de datos como MongoDB son realmente fáciles de conseguir
+
+02:33.480 --> 02:35.020
+comenzó con y son dinámicos.
+
+02:35.040 --> 02:38.250
+No tienes que pensar demasiado sobre cuándo estás empezando.
+
+02:38.250 --> 02:45.660
+Creo que las bases de datos relacionales ofrecen una forma realmente sólida de pensar cómo debe estructurarse su aplicación
+
+02:45.870 --> 02:49.780
+y cómo todo y todas las piezas se unen.
+
+02:50.380 --> 02:58.240
+Es una herramienta muy poderosa que veo que la industria volverá a ser cada vez más en 2018. Ya sea
+
+02:58.270 --> 03:06.180
+Usas postgreSQL o MySQL o SQLite, todas estas bases de datos son prácticamente iguales.
+
+03:06.180 --> 03:12.510
+Son súper potentes y vamos a hacer exactamente lo mismo con nuestra aplicación porque no somos necesariamente
+
+03:12.510 --> 03:17.430
+almacenando información como LinkedIn o Facebook, donde todo es un modelo de documento.
+
+03:17.430 --> 03:20.600
+Tenemos usuarios que interactúan entre ellos.
+
+03:20.610 --> 03:25.710
+Pero si dentro de nuestra aplicación podemos tener diferentes cosas, podemos tener información de inicio de sesión, si expandimos nuestro
+
+03:25.710 --> 03:30.820
+aplicación podemos tener quizás información sobre el tipo de imágenes que han enviado.
+
+03:30.850 --> 03:34.690
+Ahora mirando lo que hemos construido.
+
+03:34.690 --> 03:42.520
+Definitivamente hay algunas cosas que queremos crear. Si volvemos a nuestro ejemplo de base de datos aquí,
+
+03:42.520 --> 03:47.980
+tener nuestra tabla de usuarios que vamos a tener que crear. Pero recuerda lo que dije sobre contraseñas y
+
+03:47.980 --> 03:49.400
+la forma en que almacenamos las contraseñas.
+
+03:50.300 --> 03:57.230
+No necesariamente queremos crear un objeto de usuario o una tabla de usuario con todas estas columnas.
+
+03:57.230 --> 04:00.510
+Queremos separar las cosas y conectarlas a través de claves externas.
+
+04:01.850 --> 04:10.440
+Así que vamos a crear una tabla de usuarios y luego una tabla de inicio de sesión y tener esas tablas conectadas a través de
+
+04:10.680 --> 04:13.150
+tal vez el campo de correo electrónico.
+
+04:13.410 --> 04:19.730
+Regresemos a nuestra GUI y creemos estas tablas ahora. Voy a abrir la consulta, vamos a eliminar esto para
+
+04:19.730 --> 04:25.160
+ahora (nuestra consulta anterior) y creemos nuestra tabla de usuarios.
+
+04:25.530 --> 04:36.460
+Como recuerdas, es crear usuarios de tablas. Tengo corchetes por aquí, solo para que esté limpio.
+
+04:36.610 --> 04:44.260
+Y aquí diré que la identificación será en serie y esta será nuestra clave principal.
+
+04:47.260 --> 04:56.750
+También tendremos el nombre y el nombre, le daremos un carácter variable (VARCHAR) de 100. Simplemente asumiremos
+
+04:56.750 --> 05:03.570
+que el nombre de nadie va a ser de más de 100 caracteres, lo cual, una vez más, no creo que lo hagamos.
+
+05:03.620 --> 05:05.980
+De lo contrario, nuestra base de datos nos dará un error.
+
+05:06.260 --> 05:11.180
+También podemos crear un campo de correo electrónico y este será un texto.
+
+05:11.300 --> 05:14.510
+También queremos asegurarnos de que este sea un correo electrónico único.
+
+05:14.510 --> 05:20.120
+De lo contrario, no queremos registrar el mismo usuario una y otra vez y no puede ignorarse.
+
+05:20.360 --> 05:30.030
+Siempre debe estar allí, porque esto es lo que vamos a usar en nuestra tabla de inicio de sesión. También sabemos que
+
+05:30.030 --> 05:38.860
+quiere entradas y las entradas realmente pueden ser un número bastante grande si tenemos un usuario realmente dedicado.
+
+05:39.170 --> 05:42.330
+Bueno, esa persona puede seguir enviando esas fotos.
+
+05:42.560 --> 05:45.260
+Así que hagamos un LARGEint aquí.
+
+05:45.430 --> 05:45.680
+Whoops.
+
+05:45.680 --> 05:55.520
+Y en lugar de grande es BIGINT allí tienes. con BIGINT también diremos que queremos el valor predeterminado.
+
+05:55.670 --> 06:04.250
+Y esto podría ser nuevo para nosotros, pero el valor predeterminado debería ser cero a menos que de alguna manera se inserte con entradas
+
+06:04.250 --> 06:11.790
+y un número. Si no especificamos dónde estamos insertando el número, debe ser cero por defecto.
+
+06:11.790 --> 06:20.250
+Finalmente, también queremos obtener el tiempo en que se unieron a nuestra aplicación y podemos usar un tipo de datos de marca de tiempo para
+
+06:20.250 --> 06:20.820
+ese.
+
+06:21.180 --> 06:26.900
+Y de nuevo queremos asegurarnos de que esto NO sea NULO tampoco.
+
+06:26.910 --> 06:28.700
+De acuerdo, ejecutemos esto y veamos si funciona.
+
+06:31.000 --> 06:36.140
+Y obtengo un error en o cerca de ")" Y eso es porque agregué una coma al final aquí.
+
+06:36.160 --> 06:37.040
+Probemos eso de nuevo.
+
+06:38.710 --> 06:39.350
+Ahí tienes.
+
+06:39.430 --> 06:40.770
+Si me actualizo
+
+06:40.870 --> 06:44.050
+Tenemos nuestra tabla de usuarios. Asombroso.
+
+06:44.500 --> 06:51.120
+Entonces, tenemos la tabla de usuarios en la que vamos a almacenar toda esta información.
+
+06:51.500 --> 06:58.310
+Y también queremos asegurarnos de que almacenamos nuestra información de inicio de sesión, ese correo electrónico y los hashes porque
+
+06:58.310 --> 07:02.070
+recuerda que nunca almacenamos contraseñas de texto sin formato.
+
+07:03.410 --> 07:06.430
+Vamos a crear eso. Voy a volver a la consulta
+
+07:09.140 --> 07:13.380
+eliminar esto y cambiarlo para iniciar sesión.
+
+07:13.980 --> 07:17.500
+Y este inicio de sesión ahora tendrá una ID.
+
+07:17.580 --> 07:25.800
+Una vez más de serie y el tipo de datos en serie simplemente aumentará será la clave principal
+
+07:29.260 --> 07:38.060
+y tendremos un hash de columna que tiene un carácter variable (VARCHAR) de 100 una vez más porque sabemos que
+
+07:38.070 --> 07:45.970
+bcrypt siempre nos da un hash de cierta longitud y nunca tendrá más de 100 caracteres. NO NULO - estamos absolutamente
+
+07:45.970 --> 07:47.740
+necesita esta información
+
+07:47.740 --> 07:55.520
+Y finalmente, el correo electrónico que será el mismo que la tabla de usuarios y este correo electrónico sería un texto que
+
+07:55.680 --> 08:00.820
+debe ser único y definitivamente NO NULO.
+
+08:03.950 --> 08:05.010
+Vamos a ejecutar la consulta.
+
+08:06.550 --> 08:09.090
+Y refresca.
+
+08:09.220 --> 08:09.890
+Todo bien.
+
+08:09.910 --> 08:10.920
+Nos tenemos a nosotros mismos
+
+08:11.200 --> 08:13.380
+nuestro diseño de mesas
+
+08:13.600 --> 08:21.410
+Entonces, ahora que tenemos estas tablas, comprendemos cómo se verán nuestros datos.
+
+08:21.600 --> 08:27.960
+Esta va a ser una base de datos que persistirá sin importar si el servidor falla. Va a hacer
+
+08:27.960 --> 08:30.770
+Seguro que esta información se mantiene.
+
+08:31.910 --> 08:40.220
+Ahora que tenemos estas tres piezas en ejecución, podemos comenzar a trabajar con el servidor, eliminar la base de datos
+
+08:41.090 --> 08:45.320
+variable y de hecho se conectan a nuestra base de datos.
+
+08:45.410 --> 08:45.990
+Estoy emocionado de
+
+08:45.990 --> 08:48.590
+le mostraremos cómo vamos a hacer eso en el próximo video. Adiós.

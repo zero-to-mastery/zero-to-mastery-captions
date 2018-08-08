@@ -1,0 +1,910 @@
+WEBVTT
+
+00:00.900 --> 00:02.410
+Welcome back.
+
+00:02.420 --> 00:10.380
+There's one final piece of the puzzle that we need with redux and something that we've been avoiding
+
+00:10.710 --> 00:12.600
+up until this point.
+
+00:12.750 --> 00:14.620
+You see if we go to opt out.
+
+00:14.730 --> 00:15.620
+Yes.
+
+00:16.130 --> 00:21.840
+You remember that we do this component did mount fetch request.
+
+00:22.000 --> 00:23.890
+We have an asynchronous request.
+
+00:23.890 --> 00:34.690
+We're making a request to an API grabbing their users and then finally setting that state to robots.
+
+00:34.730 --> 00:39.890
+But how would that work in redux.
+
+00:39.970 --> 00:49.070
+Because remember up until this point everything we've done has been synchronous because if we do the
+
+00:49.070 --> 00:57.850
+same thing like we did with the search field it wouldn't work with fetching robots because we're sending
+
+00:57.850 --> 01:05.860
+an action of let's say fetching robots but because that's asynchronous it's going to go off in another
+
+01:05.860 --> 01:07.810
+world into the API.
+
+01:08.700 --> 01:17.720
+And try and get the robots in the meantime the reducer is just going to check the robots and say there's
+
+01:17.730 --> 01:18.310
+no robots.
+
+01:18.310 --> 01:22.770
+Yeah because an API plant that hasn't returned yet.
+
+01:22.890 --> 01:24.050
+Just like a promise.
+
+01:24.090 --> 01:29.070
+So the research keeps going and doesn't make any changes because the state hasn't changed.
+
+01:29.100 --> 01:36.690
+So how can we create actions that are asynchronous that still go through the reducer the store and then
+
+01:36.690 --> 01:37.860
+make changes.
+
+01:39.640 --> 01:44.180
+And this is where we use apply middleware again.
+
+01:45.500 --> 01:54.400
+We can use something called redux phunk to handle asynchronous actions like AJAX calls.
+
+01:54.560 --> 02:04.170
+It's a middleware that provides a get state and dispatch functions that are passed on you're able to
+
+02:04.170 --> 02:08.840
+handle something called side effects like AJAX calls.
+
+02:09.000 --> 02:10.440
+With this package.
+
+02:10.440 --> 02:12.020
+So we're going to show you how that works.
+
+02:13.520 --> 02:18.050
+First thing we want to do is install the package redux thung.
+
+02:18.130 --> 02:22.690
+So I'm going to say NPM install redux thunk.
+
+02:22.940 --> 02:29.380
+And by the way just like with anything there's tons of other ways to handle asynchronous action and
+
+02:29.400 --> 02:34.190
+redux is just not built out of the gate so you need some packages.
+
+02:34.190 --> 02:42.450
+There is other options but Redus redux thunk is the best and simplest to start off with.
+
+02:45.140 --> 02:45.820
+All right.
+
+02:45.980 --> 02:52.320
+We have a redux thunk now and we can't simply start using it by going to index.
+
+02:52.390 --> 03:07.230
+Yes and with thing here we can say that we want to import something called a thunk middleware from redux.
+
+03:07.760 --> 03:13.920
+Again you can read all about this and there are documentation on get HTTP thunk middleware.
+
+03:13.970 --> 03:18.780
+We already know how to apply middleware to our redox app right.
+
+03:18.800 --> 03:23.330
+We have our apply middleware function.
+
+03:23.510 --> 03:31.480
+We can simply add the applied or not applied the phunk middleware.
+
+03:31.690 --> 03:35.200
+And let me just put this on a new line so you can see it better.
+
+03:36.000 --> 03:40.500
+Thank middleware to our apply middleware.
+
+03:40.500 --> 03:41.360
+And this is order.
+
+03:41.370 --> 03:48.630
+So it's going to go through the thunked middleware and then the logger middleware perfect.
+
+03:48.840 --> 03:54.980
+So let's run NPM start.
+
+03:55.250 --> 04:00.820
+And I'm also going to say this all right looks like everything is running smoothly.
+
+04:02.330 --> 04:05.280
+We have this matter where implemented now.
+
+04:05.840 --> 04:11.850
+But how do we actually use Well let's start with the very first steps.
+
+04:11.970 --> 04:21.310
+The first thing we want to do is create a constant so a constant for requesting our robots.
+
+04:21.450 --> 04:28.160
+Remember in the app dodgiest file we have this robot's array that gets populated after component did
+
+04:28.160 --> 04:34.980
+mount with after we do the fetch call and we step state with the new users.
+
+04:35.040 --> 04:39.460
+So the constant we can do something similar to above.
+
+04:39.470 --> 04:49.990
+We can export Konst request robots now.
+
+04:50.840 --> 04:53.780
+Because this is going to be a promise.
+
+04:53.900 --> 04:58.030
+It's going to have three states.
+
+04:58.190 --> 05:06.490
+So the first one is going to be Pandang which is the very first time that we send that request it's
+
+05:06.490 --> 05:09.470
+going to be pending we're waiting for the promise to return.
+
+05:09.790 --> 05:22.130
+So we'll again use the same strength here and we're also going to have two states after the pending
+
+05:22.340 --> 05:25.150
+returns which is success
+
+05:30.250 --> 05:31.240
+and also
+
+05:39.690 --> 05:45.860
+this request has three actions pending success failed.
+
+05:45.930 --> 05:47.250
+We want to keep track of.
+
+05:47.730 --> 05:53.280
+And again this is pretty much standard with all asynchronous actions like AJAX calls.
+
+05:53.520 --> 06:01.670
+So let's say that and the next step as we know is to create the actions using these things.
+
+06:01.710 --> 06:10.080
+So let's go back to actions and this time instead of just importing change search field let's import
+
+06:10.080 --> 06:11.260
+a few more things.
+
+06:17.720 --> 06:22.770
+I'm going to import let's just copy and paste here because that's a lot of typing.
+
+06:23.030 --> 06:27.920
+Let's go to Constance.
+
+06:28.180 --> 06:29.590
+We're going to import pending
+
+06:32.400 --> 06:38.150
+six SAS success and then finally
+
+06:42.720 --> 06:45.140
+let's save.
+
+06:45.380 --> 06:48.320
+And when you get a warning that we're not being we're not using them.
+
+06:48.590 --> 06:57.790
+So let's create these actions now just like we did above we're going to export Konst and we'll name
+
+06:57.790 --> 07:06.340
+this request robots and this action takes.
+
+07:06.380 --> 07:08.830
+Hmm what's it going to take.
+
+07:08.830 --> 07:17.810
+Well this is a little tricky but it's going to take the dispatch and dispatch.
+
+07:17.840 --> 07:19.530
+If you remember and we go to APT.
+
+07:19.580 --> 07:20.650
+Yes.
+
+07:20.720 --> 07:30.580
+Is something that we use in MAP dispatch to prop's that we get from redux to dispatch the actions to
+
+07:30.670 --> 07:32.150
+reduce our.
+
+07:32.380 --> 07:39.100
+And when we come back here you'll see that we're going to actually pass this to our action.
+
+07:39.100 --> 07:40.780
+So we have access to it.
+
+07:40.960 --> 07:50.030
+But again for now just know that we're going to have dispatch and we think here we're going to do a
+
+07:50.030 --> 07:53.540
+few things that's a little bit different than the above.
+
+07:53.540 --> 08:03.820
+The very first thing when we request robots Well we want to dispatch the pending action so again we
+
+08:03.820 --> 08:12.430
+can just do the standard syntax of dispatching an object that is of type request robot's pending
+
+08:15.020 --> 08:16.700
+and the payload.
+
+08:17.060 --> 08:19.390
+Well there's no real payload.
+
+08:19.460 --> 08:26.780
+We just have a request pending so we can just leave it the way it is right now without a payload.
+
+08:28.340 --> 08:35.220
+Next we have something that is a synchronous.
+
+08:35.220 --> 08:38.230
+We need to do a fetch call.
+
+08:38.340 --> 08:41.710
+So we have our fetch function.
+
+08:42.060 --> 08:43.870
+And if you remember we go to APT.
+
+08:43.980 --> 08:44.690
+Yes.
+
+08:44.730 --> 08:52.650
+We have this API that we need to call but you also need to do the response response to Jaison all over
+
+08:52.650 --> 08:52.950
+again.
+
+08:52.950 --> 09:02.580
+So I'm just going to copy all of that go to actions and just copy and paste this.
+
+09:02.830 --> 09:12.600
+So we're fetching the users we're doing the DOD then and Jaison using that Jaisalmer method on the response.
+
+09:12.600 --> 09:17.750
+And then finally in here we have two options.
+
+09:17.880 --> 09:23.920
+We have the DOD then and DOD catch in case there's an error or something fails.
+
+09:25.060 --> 09:30.800
+In the DOD then we receive some sort of data which will be users.
+
+09:31.300 --> 09:38.530
+And once we've received that we can't say dispatch we're going to dispatch what do you think we're going
+
+09:38.530 --> 09:40.050
+to dispatch.
+
+09:40.060 --> 09:47.870
+Well the object that is of type request robots accessed
+
+09:50.660 --> 09:53.360
+and this time the payload for this is going to be
+
+09:56.160 --> 10:04.310
+the data that we receive from the API and with the catch very similar.
+
+10:04.310 --> 10:11.120
+We'll get some sort of an error and this error is going to once again dispatch
+
+10:14.800 --> 10:18.330
+and old have a type of requests.
+
+10:18.340 --> 10:19.610
+Robots fail
+
+10:22.460 --> 10:30.500
+with a payload of let's give it the air that we receive.
+
+10:30.500 --> 10:30.950
+All right.
+
+10:30.950 --> 10:39.260
+Let me make this a little smaller so you can see so we save that and now we have our actions and this
+
+10:39.260 --> 10:43.220
+action is a lot more complicated than the set search field.
+
+10:43.220 --> 10:50.240
+We have a right of way when we call this action a dispatch that requests robot's pending and then we
+
+10:50.330 --> 10:58.490
+fetch the users we receive the users and then we either have a success with the payload of the users
+
+10:59.000 --> 11:04.180
+or us an error with the payload of air.
+
+11:04.230 --> 11:12.480
+Finally we go into the reducers and in the redo search we know that we want to import from the contents
+
+11:12.780 --> 11:14.270
+the same actions that we had.
+
+11:14.270 --> 11:21.870
+So let's just go to Constance or let's go to actions and copy exactly what we have here as well.
+
+11:24.720 --> 11:27.080
+Because we're going to need all those constants.
+
+11:28.020 --> 11:35.640
+And now down here we're going to create a new reducer because instead of combining all these reducers
+
+11:35.640 --> 11:39.280
+we want to make them each specific to their use case.
+
+11:39.480 --> 11:48.490
+This reduce our worries about search robot the new reducer is going to worry about the request.
+
+11:48.630 --> 11:57.660
+Robots and once again with the same syntax we have state that's going to Aiko equaled the initial state
+
+11:58.560 --> 12:06.220
+and then the action that is going to have default empty object.
+
+12:06.430 --> 12:14.390
+And within here an object or within here will have once again a switch statement that listens to action
+
+12:14.390 --> 12:22.070
+duck type and this action that type is going to have three possible states.
+
+12:22.100 --> 12:32.590
+One is that case is a request robot's pending in which case we return object.
+
+12:32.680 --> 12:38.080
+Assign Again an empty object.
+
+12:38.180 --> 12:39.770
+The state.
+
+12:39.980 --> 12:47.000
+And then finally we're going to create a new state called is pending.
+
+12:47.330 --> 12:50.240
+And this is pending is going to be set to
+
+12:53.840 --> 13:00.600
+because the request robots is pending currently.
+
+13:00.600 --> 13:01.350
+All right.
+
+13:01.680 --> 13:08.850
+The next thing we're going to do again we're going to have a case for this time.
+
+13:09.240 --> 13:19.130
+The success and this is going to return object to assign an empty object a state.
+
+13:19.600 --> 13:34.310
+And this new property robots that is action that payload and also we want to change the state is spending
+
+13:34.700 --> 13:36.440
+to now be false
+
+13:39.550 --> 13:43.270
+because we've gotten the response from the promise
+
+13:50.350 --> 13:56.470
+and then the third case is when there's an error.
+
+13:57.040 --> 14:00.670
+And in that case we're going to return object to sign
+
+14:04.180 --> 14:16.550
+state and we'll just have an air state that will create that has the action dot payload.
+
+14:16.690 --> 14:23.260
+And once again we're going to want to change the is pending to be equal to false
+
+14:26.050 --> 14:34.010
+and close the object and remember always with a reducer.
+
+14:34.420 --> 14:43.810
+We want to have the variant always return the state if it doesn't match any of the criteria.
+
+14:43.810 --> 14:49.250
+So again return state awesome.
+
+14:49.620 --> 14:53.860
+Now you might be thinking to yourself initial state.
+
+14:54.020 --> 14:59.990
+We have this bought requests robots doesn't care about search field.
+
+14:59.990 --> 15:06.860
+And in this case we want to create two different initial states one for the search robots and one for
+
+15:06.860 --> 15:08.460
+their request robots.
+
+15:08.600 --> 15:14.560
+So let's rename this to initial state search
+
+15:17.420 --> 15:29.000
+and create a new state in initial state robots that now has these three states that we mentioned here
+
+15:29.570 --> 15:43.360
+that is is pending of false to start off with a robot's array that is currently empty and an error string
+
+15:43.570 --> 15:45.350
+that is also empty.
+
+15:49.020 --> 15:50.010
+So let's say that
+
+15:52.910 --> 15:58.810
+and let's see some errors that we get here and we just have a little bit of a syntax error.
+
+16:02.360 --> 16:04.970
+Because we don't need this curly bracket.
+
+16:04.970 --> 16:08.220
+There you go.
+
+16:08.280 --> 16:11.060
+And again we want to change the initial state.
+
+16:11.080 --> 16:16.050
+Robots in the function to this one.
+
+16:18.250 --> 16:21.420
+We save and everything looks good.
+
+16:21.430 --> 16:26.770
+Let me make this a little bit smaller.
+
+16:26.830 --> 16:28.920
+Now we have a problem.
+
+16:29.410 --> 16:32.970
+We have to redo Sir's now and if we go to indexed.
+
+16:33.060 --> 16:40.360
+J.S. we see that in the create store function we're just using the search robots we do sir.
+
+16:40.780 --> 16:42.760
+So let's import now.
+
+16:42.790 --> 16:52.640
+The other read you say that we have which is request robots and now add this into the store as well.
+
+16:53.020 --> 16:55.740
+But how do we do that.
+
+16:58.080 --> 17:08.180
+Well we have a function that again comes with three docs that's called combine reducers and this combined
+
+17:08.180 --> 17:15.160
+reducers pretty self-explanatory combines all the reducers into a root reducer.
+
+17:15.290 --> 17:16.380
+So let's do that.
+
+17:16.400 --> 17:23.380
+I'm going to say Konst root reducer is going to equal the combined reducer.
+
+17:23.750 --> 17:32.120
+And this is going to and accept the in an object form all the reducers.
+
+17:32.240 --> 17:38.180
+In my case it's the search robots and request robots.
+
+17:38.390 --> 17:44.630
+And now this Ruby douceur can be used in the store to include both reducers
+
+17:47.720 --> 17:51.880
+that's safe.
+
+17:51.880 --> 17:53.110
+All right.
+
+17:53.110 --> 17:54.040
+We're almost there.
+
+17:55.720 --> 17:58.930
+Now because we just used combined reducers.
+
+17:58.930 --> 18:03.180
+It's something that we've mentioned before and that is if I go into apt.
+
+18:03.340 --> 18:14.950
+Yes and scroll all the way up to map state to prop's our state now no longer has a search field as part
+
+18:14.950 --> 18:16.200
+of its property.
+
+18:16.240 --> 18:25.780
+Instead it's going to have two properties search robots and request robots which each have their own
+
+18:25.780 --> 18:26.920
+properties.
+
+18:26.920 --> 18:29.680
+So now we have to update the search robots
+
+18:33.370 --> 18:40.190
+like this which has the property of search field.
+
+18:40.250 --> 18:50.460
+So this is why you're most likely going to see when you're working an redox and map state to prop's.
+
+18:50.490 --> 18:58.270
+Now the final piece of the puzzle redux thunk how does this work.
+
+18:58.680 --> 19:10.740
+Well redux thunk is a middleware that waits and sees sees if any actions return a function instead of
+
+19:10.740 --> 19:12.050
+an object.
+
+19:12.440 --> 19:13.360
+What does that mean.
+
+19:13.740 --> 19:25.740
+If we go to actions we see that this is returning an object but right here we're not returning an object
+
+19:26.100 --> 19:33.930
+are we as a matter of fact we're not really returning anything right now.
+
+19:34.070 --> 19:36.820
+Thunked middleware is waiting for a function.
+
+19:36.920 --> 19:43.880
+And if ever an action that goes through it remember a middleware is just a tunnel that actions go through
+
+19:44.660 --> 19:49.050
+and it notices a function it's going to act upon it.
+
+19:49.100 --> 19:53.130
+So let's do that first and I'll explain in details how it works.
+
+19:54.030 --> 19:56.000
+We first need to go to APT.
+
+19:56.070 --> 19:57.350
+Yes.
+
+19:57.420 --> 20:01.850
+And with thaim here we want to update a few things.
+
+20:01.900 --> 20:15.460
+First we want to update the state to now also include the robots to have state DOT request robots dot
+
+20:15.500 --> 20:16.610
+robots.
+
+20:16.640 --> 20:19.960
+Again this is the state from the reducer.
+
+20:20.010 --> 20:29.630
+There is also the is pending state again through their request robot that is pending.
+
+20:30.050 --> 20:43.030
+And then finally the air state from once again state requests robots.
+
+20:43.060 --> 20:51.510
+The second part and the most important part is the request robot action.
+
+20:51.680 --> 20:58.240
+Again something that replaces this component did mount request.
+
+20:58.390 --> 21:05.650
+The way we can do that is within here add another property that we're going to pass on and we can name
+
+21:05.650 --> 21:09.350
+it whatever we want we'll say on request.
+
+21:09.520 --> 21:17.820
+Robots and this is going to be a function and this function.
+
+21:17.950 --> 21:23.320
+Remember we don't want to necessarily just dispatch.
+
+21:23.670 --> 21:28.670
+We want to retain and return a function from it.
+
+21:28.740 --> 21:43.410
+In our case is the request robots reduce our and this request robots reduce their or action has the
+
+21:43.980 --> 21:47.480
+dispatch method.
+
+21:47.510 --> 21:48.090
+All right.
+
+21:48.090 --> 21:49.000
+I know that's a lot.
+
+21:48.990 --> 21:51.480
+So let's just go through this one more time.
+
+21:52.800 --> 21:55.150
+Right now we need that request.
+
+21:55.220 --> 21:55.770
+Robots
+
+21:59.230 --> 22:10.620
+action and this request robots action needs a dispatch method to actually dispatch these actions.
+
+22:10.920 --> 22:22.120
+So in Abdulle Yes we first need to import our action which is request robots from the actions file and
+
+22:22.120 --> 22:30.750
+this request robots needs to have the dispatch method.
+
+22:30.760 --> 22:42.580
+This is the same as doing this.
+
+22:43.190 --> 22:54.870
+And now this dispatch is going to work as long as we use redux Thankx because it's going to catch the
+
+22:54.870 --> 23:00.140
+fact that this is going to return a function.
+
+23:00.170 --> 23:07.390
+So if we go back to our actions we can now do this
+
+23:13.770 --> 23:25.280
+all right what just happened well we've created a higher order function a function that returns a function.
+
+23:25.280 --> 23:28.810
+And I know this can get a little bit confusing but a thunk.
+
+23:28.880 --> 23:34.950
+Because now request robots is going to return again because of their functions.
+
+23:35.000 --> 23:42.800
+This is going to imply that it's returning this it's going to provide the dispatch function to this
+
+23:42.950 --> 23:47.040
+second layer function so that we can use it here.
+
+23:47.420 --> 23:55.430
+Again this is something that you just have to get used to but in the end if we save this let's see if
+
+23:55.430 --> 23:56.120
+it works.
+
+23:56.140 --> 24:01.530
+Now I know it's the first time around so we've probably messed something up but let's shake it up.
+
+24:04.000 --> 24:07.490
+I refresh and everything works.
+
+24:07.490 --> 24:08.890
+We're not getting any errors.
+
+24:09.020 --> 24:19.380
+But remember we actually need to connected to our app if we go back we can now go to abduct us and we
+
+24:19.380 --> 24:21.690
+have all these props that we can use now.
+
+24:21.960 --> 24:31.530
+So the component did MT no longer needs to have the fecche call all he needs is this top prop's dot
+
+24:32.760 --> 24:38.940
+and the action that we have our requests robots on request robots
+
+24:41.590 --> 24:42.200
+perfect.
+
+24:42.430 --> 24:46.670
+And we also don't need the constructor anymore do we.
+
+24:46.750 --> 24:53.110
+Because there's no more states these robots are now going to be returned as part of the props from on
+
+24:53.380 --> 24:53.980
+request.
+
+24:54.070 --> 24:56.930
+Robots.
+
+24:57.040 --> 25:01.100
+So again we're going to change this state to
+
+25:03.790 --> 25:15.540
+robots and we can also get is pending to check if is pending is true.
+
+25:19.140 --> 25:25.770
+To render if this is true then we want to render loading.
+
+25:25.950 --> 25:30.950
+If not we want to just render our robo friends.
+
+25:30.970 --> 25:33.660
+So those are coming from our.
+
+25:34.780 --> 25:39.230
+And now we only have component did mount in our app.
+
+25:39.440 --> 25:45.360
+Let's save and go back to our app.
+
+25:45.380 --> 25:47.490
+All right look at that.
+
+25:47.780 --> 25:53.990
+That doesn't happen very often but I somehow managed to code without any making without making any errors.
+
+25:53.990 --> 25:55.250
+Again that's a rarity.
+
+25:55.250 --> 25:56.210
+Enjoy this moment.
+
+25:56.210 --> 25:57.780
+I'm definitely enjoying it.
+
+25:57.800 --> 26:05.090
+We see over here that we have request robots pending being fired and then success being fired again.
+
+26:06.760 --> 26:09.070
+Let's refresh quickly.
+
+26:09.070 --> 26:09.400
+All right.
+
+26:09.400 --> 26:11.300
+What happens if the request fails.
+
+26:11.320 --> 26:13.820
+Let's go back here and go to our action.
+
+26:13.920 --> 26:14.500
+Yes.
+
+26:14.560 --> 26:18.280
+And let's just type something wrong here we'll say like that.
+
+26:18.280 --> 26:19.510
+Save it.
+
+26:19.510 --> 26:23.020
+Go back and there you go.
+
+26:23.120 --> 26:27.170
+We have request robots failed.
+
+26:27.190 --> 26:31.560
+Very cool.
+
+26:31.730 --> 26:32.640
+Let's fix that.
+
+26:33.620 --> 26:37.040
+And save.
+
+26:37.090 --> 26:37.780
+All right.
+
+26:37.960 --> 26:44.020
+We have our app that does the exact same thing as before.
+
+26:45.220 --> 26:51.080
+Nothing too crazy just filtering our robots.
+
+26:51.310 --> 27:02.760
+But the only difference is that we have this amazing logging ability and it's using redux.
+
+27:02.850 --> 27:07.340
+Very cool.
+
+27:07.350 --> 27:10.180
+I want to go over this one more time.
+
+27:11.850 --> 27:16.450
+And this is because it is a bit of a sticking point for most people.
+
+27:18.640 --> 27:25.720
+Remember this request robots how it has this two functions.
+
+27:25.930 --> 27:29.210
+The request robot right now redux.
+
+27:29.220 --> 27:36.160
+Out of the box wouldn't understand this because we're not returning an object as it expects for an action.
+
+27:36.220 --> 27:45.210
+We're returning a function and this function is it going to mean anything to it by adding redux thunk
+
+27:45.300 --> 27:46.090
+middleware.
+
+27:46.240 --> 27:47.980
+We're now listening to actions.
+
+27:48.040 --> 27:54.490
+And any time the request robot's action gets triggered it's going to return a function and trigger redux
+
+27:54.490 --> 28:00.780
+thunk and redux thunk is going to say oh this is a function I'm going to give you here is the dispatch
+
+28:00.790 --> 28:08.350
+so you can actually call some actions and we can finally run our actions like this.
+
+28:08.350 --> 28:15.240
+So we go back to our diagram we've created a system where the actions are being triggered.
+
+28:15.390 --> 28:17.310
+They go through any middleware.
+
+28:17.370 --> 28:24.030
+If it's a search term change it's just going to go straight to the reducer run through a nice function
+
+28:24.450 --> 28:32.730
+update the store and make changes to our view if we request robots it's going to notice that it's a
+
+28:32.730 --> 28:39.120
+function it's going to go into the middleware and redux thunk is gonna say.
+
+28:39.140 --> 28:47.250
+All right first just dispatch pending to the reducer and I'll let you know when I'm done with the promise
+
+28:48.000 --> 28:50.490
+and I'll let you know if I got any robots.
+
+28:50.740 --> 28:59.080
+And when it returns it's going to dispatch the success go through the reducer update the store and make
+
+28:59.230 --> 29:00.010
+changes.
+
+29:01.410 --> 29:03.570
+Who the hell was a lot.
+
+29:03.630 --> 29:09.550
+But if you got this far and you understand it you've pretty much gotten redux.
+
+29:09.600 --> 29:10.440
+That's it.
+
+29:10.440 --> 29:13.730
+That's the whole redux library.
+
+29:13.980 --> 29:15.230
+It's very very simple.
+
+29:15.240 --> 29:20.340
+And once you start using it a couple times and you get comfortable with it it's really really beautiful
+
+29:20.370 --> 29:21.850
+the way everything works.
+
+29:21.870 --> 29:24.150
+But for now let's all take a break.
+
+29:24.150 --> 29:26.240
+Thanks for watching and I'll see you in the next one.
+
+29:26.550 --> 29:27.000
+Bye bye.

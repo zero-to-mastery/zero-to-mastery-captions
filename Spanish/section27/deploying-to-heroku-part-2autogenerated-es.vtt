@@ -1,0 +1,367 @@
+WEBVTT
+
+00:01.460 --> 00:02.480
+Dar una buena acogida.
+
+00:02.480 --> 00:09.380
+Nos fuimos con Todd incapaz de registrarse en nuestra aplicación porque nuestro servidor de back-end no está conectado a ninguna
+
+00:09.380 --> 00:10.420
+base de datos.
+
+00:10.910 --> 00:15.200
+Afortunadamente para nosotros, Heroku también tiene postgreSQL.
+
+00:15.230 --> 00:27.120
+Si voy a mi panel aquí y vamos a lo personal y en esta esquina tenemos datos. Hacemos clic en los datos
+
+00:29.420 --> 00:36.470
+y dice que parece que todavía no tienes ninguna tienda de datos y tenemos Heroku postgres Redis
+
+00:36.500 --> 00:40.010
+y Kafka, pero postgres es lo que necesitamos.
+
+00:40.980 --> 00:51.820
+Así que vamos a crear uno y podemos iniciar sesión con las mismas credenciales, lo mismo que teníamos para
+
+00:51.820 --> 01:02.480
+nuestro servidor y simplemente podemos instalar postgres Heroku y mirar eso.
+
+01:02.520 --> 01:13.580
+Ya sabe en qué aplicación queremos instalarlo. Hagamos clic en ese clic, continuemos.
+
+01:13.690 --> 01:17.420
+Y ahora solo elegimos el hobby dev, que es gratis.
+
+01:17.590 --> 01:19.430
+Hacemos clic en provisión.
+
+01:19.450 --> 01:19.840
+Ahí tienes.
+
+01:19.840 --> 01:24.840
+Dice que el complemento Heroku postgres se ha instalado con éxito.
+
+01:24.870 --> 01:29.560
+Consulte la documentación para comenzar.
+
+01:29.610 --> 01:31.090
+Eso es increíble de escuchar
+
+01:31.230 --> 01:42.650
+Vamos a abrirlo y una vez más tienen una documentación increíble de cómo podemos configurar todo.
+
+01:42.700 --> 01:47.440
+Mirando aquí, lo primero que queremos ejecutar son los complementos de Heroku para asegurarnos de que realmente tenemos
+
+01:47.440 --> 01:47.820
+eso.
+
+01:48.220 --> 01:49.780
+Regresemos a nuestro servidor.
+
+01:49.810 --> 01:57.420
+Voy a aclarar esto y ejecutar los complementos de Heroku y hacer esto un poco más grande.
+
+01:58.530 --> 02:01.060
+De acuerdo, tenemos postgres de Heroku.
+
+02:01.200 --> 02:01.950
+Eso es genial.
+
+02:05.030 --> 02:15.800
+Si nos desplazamos hacia abajo vemos que podemos ejecutar la CLI con Heroku PG info.
+
+02:15.850 --> 02:16.520
+Así que hagámoslo.
+
+02:16.540 --> 02:30.910
+Quiero decir Heroku PG info y voy a mostrar que sí, este es nuestro postgres y podemos conectarnos a
+
+02:30.910 --> 02:38.970
+ejecutando PG psql como lo hicimos en nuestra computadora portátil.
+
+02:39.190 --> 02:39.980
+Vamos a hacer eso.
+
+02:40.300 --> 02:45.170
+Voy a decir Heroku PG PSQL
+
+02:48.900 --> 02:51.840
+y mira eso - estamos en nuestra base de datos.
+
+02:52.710 --> 02:56.120
+Así que recrearemos la base de datos que teníamos originalmente.
+
+02:56.310 --> 03:06.680
+Simplemente podemos volver a nuestro PSQL porque PSQL es lo suficientemente inteligente como para recordar nuestros comandos.
+
+03:06.930 --> 03:14.330
+Y si vamos a Query. Aquí tienes nuestros comandos de crear tabla listos.
+
+03:14.510 --> 03:18.330
+Entonces, creemos una tabla de inicio de sesión.
+
+03:22.840 --> 03:35.800
+Perfecto y creemos bien las tablas de usuario o una tabla de usuarios Copiaré esto volver a Heroku y
+
+03:35.800 --> 03:41.470
+crear tabla, hagamos una barra invertida d para asegurarnos de que las tablas estén ahí.
+
+03:41.470 --> 03:41.890
+Todo bien.
+
+03:41.950 --> 03:47.980
+Tenemos nuestras tablas y ves que el propietario es algo completamente diferente a mi computadora portátil.
+
+03:47.980 --> 03:49.960
+Pero hay una cosa más clave que debemos corregir.
+
+03:49.960 --> 03:51.210
+Ahora tenemos nuestras tablas
+
+03:54.060 --> 04:01.130
+pero mi conexión en mi servidor todavía se refiere a mi host local.
+
+04:01.380 --> 04:02.860
+Cómo puedo cambiar esto.
+
+04:04.350 --> 04:12.490
+Si salimos de esto haciendo una barra invertida Q Y lo hacemos de nuevo Heroku PG info
+
+04:17.760 --> 04:23.520
+tenemos el complemento que podría ser la URL, pero una mejor manera de hacerlo es en realidad
+
+04:23.520 --> 04:27.160
+ejecutar complementos de Heroku.
+
+04:27.160 --> 04:28.800
+Sí, es exactamente el mismo.
+
+04:28.860 --> 04:34.260
+Esta es la URL que nos proporcionan.
+
+04:34.260 --> 04:35.090
+Así que probemos esto.
+
+04:35.100 --> 04:42.960
+Si hago este postgres dentro de esta URL esta base de datos URL aquí.
+
+04:42.960 --> 04:46.080
+¿Funcionará? Vamos a averiguar.
+
+04:46.410 --> 04:49.310
+Una vez más voy a agregar a Git.
+
+04:49.350 --> 04:51.370
+Entonces tenemos que comprometer los cambios.
+
+04:53.690 --> 04:58.490
+Y diré actualizar la base de datos
+
+05:01.400 --> 05:08.080
+git empujar a Hiroko maestro.
+
+05:08.110 --> 05:08.480
+Todo bien.
+
+05:08.560 --> 05:09.770
+Está desplegado.
+
+05:10.090 --> 05:12.970
+Volvamos a nuestra aplicación y veamos si funciona ahora.
+
+05:12.970 --> 05:15.990
+Tenemos a Todd en gmail dot com.
+
+05:16.030 --> 05:19.950
+Hago clic en registrar
+
+05:20.240 --> 05:27.300
+Todavía recibimos un error aquí si vamos a una consola aquí y en realidad hacemos una red y hacemos clic en registrar nuevamente.
+
+05:27.300 --> 05:30.570
+400 solicitud incorrecta no puede registrarse.
+
+05:30.570 --> 05:32.110
+Así que echemos un vistazo a los registros.
+
+05:33.490 --> 05:39.970
+Si hacemos registros de Heroku dash dash colas
+
+05:42.630 --> 05:45.490
+mira el error KNEX advertencia de error de conexión.
+
+05:45.600 --> 05:50.140
+Entonces no es encontrar el anfitrión que queremos.
+
+05:50.250 --> 06:01.240
+Así que vamos a nuestra documentación para conectarnos al punto js del nodo y vemos aquí que con el cliente postgres
+
+06:01.250 --> 06:03.970
+en realidad solo nos da una URL de base de datos aquí.
+
+06:03.980 --> 06:11.600
+Y también necesitamos tener SSL verdadero aquí y podemos leer un poco más sobre él, pero podemos simplemente copiar
+
+06:11.600 --> 06:11.990
+esta
+
+06:15.100 --> 06:33.000
+eliminar toda la información de la base de datos y dentro del host podemos decir process dot dot dot DATABASE_URL
+
+06:33.140 --> 06:35.440
+Ahorremos
+
+06:35.640 --> 06:38.630
+Tendremos que volver a agregar esto de nuevo.
+
+06:39.360 --> 06:44.710
+Git se compromete a agregar base de datos
+
+06:47.290 --> 06:53.250
+conexión y todos vamos a empujar a Heroku a Maestro
+
+06:53.490 --> 06:57.930
+Y mientras esto se está cargando, realmente quiero pasar por el hecho de que esta es una de esas cosas que
+
+06:57.930 --> 07:04.530
+solo tienes que leer y es tan específico de la plataforma que solo porque aprendes de esta manera en Heroku
+
+07:04.530 --> 07:09.690
+no significa que funcione en los demás, sino que solo se trata de leer la documentación y sentirse cómodo
+
+07:09.690 --> 07:10.160
+con ese.
+
+07:11.030 --> 07:16.670
+Hagamos registros de Heroku aquí para vigilar que todo esté funcionando.
+
+07:16.670 --> 07:20.590
+Está bien, tenemos un puerto, así que regresemos a nuestra aplicación.
+
+07:20.610 --> 07:22.910
+Voy a cerrar la consola por ahora.
+
+07:22.950 --> 07:28.180
+Haga clic en Registrarse y parece que todavía no está funcionando.
+
+07:28.190 --> 07:32.980
+Si abrimos la red, haga clic en registrar, tenemos la solicitud incorrecta.
+
+07:33.090 --> 07:38.630
+Si volvemos a los registros, tenemos una advertencia KNEX de nuevo error de conexión.
+
+07:38.630 --> 07:42.980
+Este es un buen momento para usar otro comando que es la configuración de Heroku
+
+07:45.930 --> 07:53.270
+y la configuración de Heroku en realidad nos da la base de datos de su URL real y de esta base de datos.
+
+07:53.270 --> 08:00.670
+Bueno, ya ves que están usando Amazon AWS Pero ves aquí en la advertencia de KNEX que en realidad estamos
+
+08:00.670 --> 08:08.530
+obtener ese enlace parece que tenemos que usar la cadena de conexión exactamente como lo han hecho
+
+08:08.530 --> 08:09.480
+nos dijo.
+
+08:09.820 --> 08:12.370
+Así que nos olvidamos de hacer eso, hagamos una cadena de conexión aquí.
+
+08:12.370 --> 08:13.100
+Whoops.
+
+08:13.150 --> 08:16.330
+Copiemos esta cadena de conexión.
+
+08:17.160 --> 08:20.660
+Y ahora se está volviendo repetitivo.
+
+08:20.680 --> 08:25.890
+Pero así es como funciona una sesión de depuración.
+
+08:25.890 --> 08:28.830
+Voy a hacer un compromiso rápido aquí.
+
+08:29.000 --> 08:30.700
+Git empuja a Heroku maestro.
+
+08:30.720 --> 08:31.100
+Todo bien.
+
+08:31.110 --> 08:32.320
+Y demos otra oportunidad.
+
+08:32.320 --> 08:35.170
+De hecho, intentemos registrarnos ahora.
+
+08:35.260 --> 08:36.070
+Entonces haremos Jenny
+
+08:40.820 --> 08:49.580
+Jenny at gmail dot com haremos un registro de dos dos tres y Jenny ha iniciado sesión.
+
+08:49.760 --> 08:50.290
+Increíble.
+
+08:50.310 --> 08:51.000
+Esta funcionando.
+
+08:51.030 --> 08:57.660
+Si vamos a los registros aquí vemos que lo que estamos haciendo post solicitud de registro y podemos verificar
+
+08:57.660 --> 09:17.170
+los registros e incluso podemos ir a nuestro postgres Heroku PG PSQL hacer una estrella selecta de los usuarios y nosotros
+
+09:17.170 --> 09:20.570
+tienen Jenny y Todd ambos registrados.
+
+09:20.830 --> 09:21.530
+Increíble.
+
+09:21.730 --> 09:24.980
+Solo para comprobar que la tabla de inicio de sesión también funciona.
+
+09:26.110 --> 09:27.910
+Tengo un registro en la tabla.
+
+09:27.910 --> 09:28.700
+Bonito.
+
+09:28.720 --> 09:33.270
+Y finalmente, para obtener una cara
+
+09:35.850 --> 09:41.240
+agarraremos otra cara. Vamos a ver la imagen.
+
+09:41.410 --> 09:42.710
+Esa es una gran.
+
+09:42.710 --> 09:45.010
+Veremos si funciona bien.
+
+09:45.020 --> 09:50.830
+Presiono Detectar y veo que está funcionando.
+
+09:50.870 --> 09:57.090
+Pero las entradas de Jennies no se están actualizando.
+
+09:57.140 --> 10:02.640
+Volvamos al perfil de Jenny y asegurémonos de que su información sea correcta.
+
+10:02.660 --> 10:07.200
+Si voy a los usuarios, parece que las entradas no se están actualizando.
+
+10:10.120 --> 10:19.160
+Si buscamos en los registros de la consola obtenemos recursos fallidos en el punto final de la imagen
+
+10:22.190 --> 10:31.570
+y si vamos a la red y enviamos esto de nuevo, vemos que el punto final de la imagen está fallando y esto
+
+10:31.570 --> 10:37.680
+es algo que nuevamente vamos a abordar en el próximo video.
+
+10:37.760 --> 10:38.440
+Te veré en eso. Adiós

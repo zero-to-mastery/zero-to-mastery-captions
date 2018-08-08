@@ -1,0 +1,274 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Welcome back.
+
+00:02.210 --> 00:08.780
+Now that we have our actions Constance and reducers Let's start connecting this redux part of our application
+
+00:09.170 --> 00:11.540
+to our re-act application.
+
+00:13.290 --> 00:16.630
+Now the way we can do that is quite simple.
+
+00:17.520 --> 00:25.260
+If you remember we downloaded a package called re-act redux and this package let's import it over here
+
+00:26.910 --> 00:32.840
+comes with nice and easy API of just two things.
+
+00:32.920 --> 00:40.540
+One is a provider and the other one is connect and using these two things we're going to be able to
+
+00:40.780 --> 00:42.900
+connect these two parts of their application.
+
+00:43.570 --> 00:52.660
+So I'm going to say import from re-act.
+
+00:52.870 --> 00:58.520
+Now in this video we're going to talk about the provider and in the next video talk about connect.
+
+00:58.540 --> 01:04.560
+So for now let's just have the provider import it.
+
+01:04.780 --> 01:13.300
+Now within here there's a few things we need to do first is to create the store if we go back to our
+
+01:13.300 --> 01:23.510
+diagram we remember that there's something called a store and redox which is the source of all truth.
+
+01:23.800 --> 01:32.530
+That is it's a big object javascript object that describes the state overlap so that re-act can render
+
+01:32.530 --> 01:36.010
+it make changes and display it to the user.
+
+01:36.010 --> 01:43.330
+So we've created an action we've created and reduce a reducer and we also need a store.
+
+01:43.510 --> 01:45.900
+So let's do that first.
+
+01:46.020 --> 01:53.600
+We can use the redux package for this and say import and it has a function called create store.
+
+01:53.670 --> 01:54.920
+Nice and easy name.
+
+01:55.170 --> 02:00.620
+And we're going to import that from the redox package.
+
+02:00.660 --> 02:06.570
+Now the way we create a store is quite easy and we can say Konst store equals
+
+02:09.780 --> 02:19.940
+create store and within here we put the what we call a root REDUCE-IT that is the reducer of our app
+
+02:20.570 --> 02:22.390
+now in real life.
+
+02:22.460 --> 02:25.420
+We have many many reducers.
+
+02:25.730 --> 02:34.230
+If we go back to our producer right now we only have one the search robots reduce our.
+
+02:34.430 --> 02:41.240
+But as I said before applications get more and more complex and you're going to have more and more actions
+
+02:41.360 --> 02:42.450
+that need to be taken.
+
+02:42.890 --> 02:50.420
+And we can keep listing actions related to search robots right in here but later on in the video we
+
+02:50.420 --> 02:54.840
+also need to get robots from the API.
+
+02:55.280 --> 03:05.870
+If you remember now because of that we're going to have many many many reducers and in the store we
+
+03:05.870 --> 03:15.820
+want to combine all these reducers to create one root reducer which we're going to do later on.
+
+03:16.650 --> 03:25.080
+But for now because we only have one producer let's just use the search robots reduce her to create
+
+03:25.080 --> 03:25.480
+the store
+
+03:29.650 --> 03:31.580
+and we need to import this.
+
+03:31.600 --> 03:32.880
+So let's go ahead and do that.
+
+03:33.680 --> 03:34.920
+And I say import
+
+03:38.010 --> 03:44.470
+search robots from our reduce Rafal.
+
+03:44.480 --> 03:44.970
+All right.
+
+03:45.020 --> 03:51.930
+So I have search robots here to create the store with and that's it.
+
+03:51.950 --> 04:00.560
+We have a store Now this store can now be accessed and passed down into our app.
+
+04:00.650 --> 04:08.110
+Remember with redux hypothetically we can remove all state from our re-act up and keep it inside of
+
+04:08.110 --> 04:11.850
+the store and pass down the store as a prop.
+
+04:11.890 --> 04:21.590
+So let's see what happens if I do that if I go store equals to the store that we have and I save.
+
+04:21.740 --> 04:23.670
+And let's also open up apt.
+
+04:23.760 --> 04:24.460
+Yes.
+
+04:25.360 --> 04:26.780
+And indie.
+
+04:26.810 --> 04:27.690
+Did mount.
+
+04:27.890 --> 04:29.240
+Let's just console log
+
+04:32.000 --> 04:40.060
+this dot prop's dot.
+
+04:40.100 --> 04:41.460
+All right let's run NPM
+
+04:48.270 --> 04:49.630
+going to open up the console
+
+04:52.820 --> 04:57.800
+and we have a bit of an narrow here that's just a syntax error in our case then statements so let's
+
+04:57.800 --> 04:58.550
+fix that.
+
+05:01.540 --> 05:03.150
+Go to reduce yours.
+
+05:03.240 --> 05:09.420
+We don't need the double quotes here for the semicolon here because we have it over here.
+
+05:09.500 --> 05:17.770
+Let's save that and we get an error saying that search field is not defined in our reducers file.
+
+05:17.840 --> 05:20.720
+And again a small little error here.
+
+05:20.720 --> 05:30.370
+The way we want to pass the third parameter to an object design is as an object so we want to go like
+
+05:30.370 --> 05:31.020
+this.
+
+05:32.880 --> 05:39.790
+And forgot to constant small little error here to save all right.
+
+05:39.840 --> 05:40.950
+So everything is working.
+
+05:40.950 --> 05:46.700
+We have a warning saying that provider is defined but never used that's fine.
+
+05:47.570 --> 05:49.180
+Because while we're not using yet.
+
+05:49.250 --> 05:51.390
+But let's go to console log and see what happens.
+
+05:52.750 --> 06:01.570
+All right we see that our store over here has logged code and we have a few functions that we can use
+
+06:01.870 --> 06:05.860
+including get state lets use it and see what happens.
+
+06:05.890 --> 06:15.750
+Again going to my index file I'm going to say or in our apt O.J.'s file I'm going to say get state one
+
+06:15.760 --> 06:20.490
+to save go back and look at that.
+
+06:20.550 --> 06:27.190
+We have our state which just has the search field right now.
+
+06:27.190 --> 06:27.620
+All right.
+
+06:27.760 --> 06:36.910
+So we're pressing down our store as a prop and we can use get state very well let's remove this console
+
+06:36.910 --> 06:37.750
+log.
+
+06:37.750 --> 06:43.120
+Since we don't need it we understand what's going on now and the index file we need to pass down the
+
+06:43.120 --> 06:45.820
+store to the app.
+
+06:45.920 --> 06:52.900
+Now we don't really want to pass down the store all the way down our componentry to the smaller components
+
+06:53.200 --> 07:01.170
+over and over again and react redox gives us a nice component that we can use to do this very easily.
+
+07:01.280 --> 07:06.770
+We can simply wrap our app component in this provider component.
+
+07:06.770 --> 07:07.770
+Let me show you.
+
+07:08.300 --> 07:24.180
+We're going to have a provider component and this app component is going to be inside of it just like
+
+07:24.180 --> 07:27.150
+that.
+
+07:27.160 --> 07:31.540
+Now the format of taking here is a little bit off but it's fine for now.
+
+07:31.540 --> 07:39.220
+I just wanna see that the provider is wrapping the app and now instead of passing down the store to
+
+07:39.220 --> 07:47.440
+the app we can just include it into the provider component and the provider component is going to take
+
+07:47.440 --> 07:56.410
+care of passing down the store to all the components down the componentry from the app and we use something
+
+07:56.410 --> 08:02.730
+called Connect which we talked about to finish this connection.
+
+08:02.750 --> 08:04.530
+So there you have it.
+
+08:04.610 --> 08:14.000
+We've created the provider component that passes down the store and the store uses the reducer or whatever
+
+08:14.000 --> 08:19.660
+reducers that we have to create the store and create that object tree of our state.
+
+08:20.820 --> 08:28.950
+So in the next video let me save this in the next video we're going to use the other part of Riak redux
+
+08:29.100 --> 08:31.520
+to finally connect everything together.
+
+08:32.270 --> 08:34.070
+I'll see that one Babai.

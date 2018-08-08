@@ -1,0 +1,184 @@
+WEBVTT
+
+00:01.120 --> 00:01.800
+Are right.
+
+00:01.810 --> 00:06.000
+So we got redox working nicely with our app.
+
+00:06.100 --> 00:09.160
+We've just learned an awesome library.
+
+00:09.580 --> 00:12.510
+I hope everybody is feeling good now.
+
+00:13.030 --> 00:15.890
+I do want to add a few things.
+
+00:15.940 --> 00:23.530
+Obviously this is a simple example but the fundamentals are there using these principles that you can
+
+00:23.530 --> 00:27.560
+go off then build larger and larger applications.
+
+00:27.970 --> 00:32.090
+But as I've been writing this you may have noticed a few things.
+
+00:32.230 --> 00:32.850
+One.
+
+00:33.100 --> 00:42.170
+Well let's look over here at our folder structure we can imagine as our app grows that is going to get
+
+00:42.410 --> 00:44.540
+bigger and bigger and bigger.
+
+00:44.690 --> 00:49.460
+And this is actually something I want to demonstrate to you later on in the course when we work on the
+
+00:49.460 --> 00:57.920
+smart brain app where we start loading our app yes with a ton of functions.
+
+00:57.920 --> 01:00.100
+And we're not using redux for it.
+
+01:00.200 --> 01:06.660
+So this fall gets longer and longer with new methods and new methods and new methods.
+
+01:06.690 --> 01:16.350
+Now having one container component that is having one connected component component that knows that
+
+01:16.410 --> 01:22.790
+the redux store exists and listens to props and dispatch actions from it.
+
+01:22.830 --> 01:26.100
+Well having just won is not really realistic.
+
+01:26.130 --> 01:33.570
+Most likely you're going to have multiple containers but because of the way redux works that's fairly
+
+01:33.570 --> 01:34.570
+easy to do.
+
+01:34.620 --> 01:42.300
+We can just use connect and pick and choose which components we want to connect to the redux store.
+
+01:42.660 --> 01:46.960
+And if we want two containers to speak to each other.
+
+01:47.280 --> 01:50.670
+Well very simple we just connect them.
+
+01:50.850 --> 01:58.030
+And because the store is up above everything else we're able to get that state information.
+
+01:58.950 --> 02:01.420
+So it makes communication very very easy.
+
+02:01.770 --> 02:08.790
+So we obviously want to have containers like this and simple presentational components that are just
+
+02:08.790 --> 02:13.940
+pure functions that just receive props and render.
+
+02:14.050 --> 02:20.650
+However as we grow more and more components and more and more containers it starts to make sense to
+
+02:20.650 --> 02:26.710
+not have just one Constans for one actions fall and one reducers fall.
+
+02:27.010 --> 02:33.670
+You can imagine these getting bigger and bigger and bigger and you'll see projects that have a actions
+
+02:33.670 --> 02:37.470
+folder a Constans folder and a reducers folder.
+
+02:37.630 --> 02:41.820
+But I personally like the components way of doing things.
+
+02:42.160 --> 02:46.260
+That is group everything according to the component.
+
+02:46.420 --> 02:53.630
+For example create an app dodginess or let's say there's a smart search field component.
+
+02:54.010 --> 02:59.920
+We're going to create a folder called search field and that search field folder is going to have all
+
+02:59.920 --> 03:03.670
+the DOM presentational components that it needs.
+
+03:03.670 --> 03:06.730
+It's going to have all the actions that it needs an action.
+
+03:06.790 --> 03:10.060
+Yes it's going to have all the reducer that it needs.
+
+03:10.180 --> 03:12.780
+And it's also going to have all the content that.
+
+03:13.000 --> 03:19.810
+So each folder is going to represents a component a chunk of our website and it's all coupled together
+
+03:20.080 --> 03:21.760
+in one little folder.
+
+03:21.760 --> 03:26.400
+So if we ever want to share code it's going to be fairly easy to do.
+
+03:26.410 --> 03:32.850
+It's also really nice to think about it that way instead of having these massive general folder names.
+
+03:33.020 --> 03:35.840
+And that's what you'll see with most big projects.
+
+03:35.840 --> 03:43.190
+This idea of components that have their own folders these containers that again have their own folders
+
+03:43.190 --> 03:45.950
+as well as reducers non-actions.
+
+03:46.100 --> 03:52.130
+And this way you can read through the folder structure and decide where you want to go to fix a bog
+
+03:52.130 --> 03:53.670
+or create a new feature.
+
+03:55.690 --> 03:59.010
+You also want to avoid repeating code as much.
+
+03:59.170 --> 04:03.940
+For example in most applications we're going to have a lot of fetch.
+
+04:04.210 --> 04:11.800
+So wouldn't it be great if we had an API folder here that does the fast call maybe we'll call it API
+
+04:11.920 --> 04:20.740
+get API and all we need to do is pass a function and that function is going to pass that you are l into
+
+04:20.740 --> 04:24.130
+the FS function and it's also going to do this.
+
+04:24.160 --> 04:27.120
+Jason for us so is just going to return the data.
+
+04:27.130 --> 04:36.170
+So we keep prepay so we stop repeating all this fast dog then dog can catch So thinking in terms of
+
+04:36.230 --> 04:40.550
+organizing your folders to something that makes sense something that can scale.
+
+04:40.760 --> 04:47.270
+And if somebody comes on to the project it makes it easy for them to follow and read is a good way of
+
+04:47.270 --> 04:50.030
+doing things.
+
+04:50.050 --> 04:52.390
+All right that's enough for now.
+
+04:52.390 --> 04:53.900
+I'll see you in the next video.
+
+04:53.910 --> 04:54.380
+Bye bye.

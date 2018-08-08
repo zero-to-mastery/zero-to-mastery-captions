@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.940 --> 00:06.610
+Bienvenido, en esta sección, vamos a hablar de algunos temas avanzados en CSS y voy a
+
+00:06.610 --> 00:09.930
+para comenzar con la ruta de renderizado crítica.
+
+00:10.000 --> 00:10.800
+¿Que es eso?
+
+00:11.720 --> 00:17.540
+Bueno, siempre debemos saber cómo funcionan las cosas debajo del capó para que podamos hacer que nuestros sitios web sean tan rápidos
+
+00:17.570 --> 00:19.950
+y confiable como sea posible.
+
+00:19.970 --> 00:25.410
+Entonces, basándonos en lo que hemos construido en la sección anterior, veamos lo que sucede debajo del capó.
+
+00:25.520 --> 00:31.760
+Vamos a ir a nuestro sitio web e, idealmente, nuestro sitio web estará en un servidor y te mostraré cómo hacerlo
+
+00:31.760 --> 00:33.500
+eso más adelante en el curso.
+
+00:33.620 --> 00:41.660
+Por ahora solo es nuestra computadora. Pero imaginemos que tenemos un servidor, donde están alojados nuestros archivos. Cuando vamos
+
+00:41.660 --> 00:42.620
+a nuestro sitio web
+
+00:42.650 --> 00:45.160
+Lo llamaremos "coolwebsite.com".
+
+00:45.290 --> 00:54.150
+Solicitaremos el archivo HTML y el navegador ahora verá nuestro archivo HTML.
+
+00:54.270 --> 01:02.730
+Por lo tanto, se lee a través de este documento y mientras lo mira se da cuenta de que 'Oh, necesito un archivo CSS
+
+01:02.730 --> 01:03.230
+aquí'.
+
+01:04.210 --> 01:11.040
+Entonces vuelve, hace otra solicitud y dice 'Oye, ¿puedes darme un archivo CSS también?'
+
+01:11.850 --> 01:13.760
+El servidor dice 'Sí, no hay problema.
+
+01:13.860 --> 01:15.690
+Déjame agarrarte eso por ti.
+
+01:15.690 --> 01:27.560
+Toma el archivo CSS y ahora comienza a mirar ambos:el HTML y el archivo CSS para intentar descubrir
+
+01:27.620 --> 01:30.000
+cómo debería verse la página web
+
+01:30.170 --> 01:34.000
+Pero luego también se da cuenta de que 'Espera un segundo.
+
+01:34.070 --> 01:36.090
+Necesito algunas fuentes también.
+
+01:36.320 --> 01:39.980
+Entonces va a esta dirección y busca la fuente de nuevo.
+
+01:40.430 --> 01:45.420
+El sitio web ahora le pregunta al sitio web en que están alojados los tipos de letra.
+
+01:45.440 --> 01:53.950
+En nuestro caso, es la API de Google y toma el archivo de fuente. Ahora aquí está la cosa.
+
+01:54.170 --> 02:02.110
+Mientras está tomando el archivo de fuente, podría representar la página y la representación significa mostrar el sitio web,
+
+02:03.590 --> 02:05.800
+para que pueda mostrar el sitio web.
+
+02:05.810 --> 02:13.970
+Si solo tiene el HTML o CSS pero puede que no aparezca el texto, porque el texto está buscando el
+
+02:13.970 --> 02:16.000
+archivo de fuente
+
+02:16.090 --> 02:22.930
+Entonces, cuando hablamos de la ruta de renderización crítica, nos gusta mencionar que CSS es un archivo de bloqueo de renderizado
+
+02:22.930 --> 02:30.520
+por lo que no podrá renderizar una página web hasta que reciba su CSS y, a veces, si tiene fuente
+
+02:30.520 --> 02:36.460
+archivos, también tendrá que esperar a que el texto se represente en la página.
+
+02:36.630 --> 02:41.460
+Así que tenlo en cuenta cuando construyas tus sitios web. Pero, ¿cuáles son algunas cosas que podemos considerar cuando
+
+02:41.670 --> 02:44.900
+haciendo esto, para que nuestros sitios web se carguen más rápido?
+
+02:44.970 --> 02:47.580
+Una es tal vez tener nuestros propios archivos de fuentes.
+
+02:47.700 --> 02:54.420
+Otro podría ser, que no quieres hacer tu CSS demasiado grande si tuviéramos cientos y cientos
+
+02:54.420 --> 02:56.250
+de líneas de código de CSS.
+
+02:56.490 --> 03:01.620
+Bueno, el archivo se hace cada vez más grande y es más y más que tienes que transferir a través del cable.
+
+03:03.240 --> 03:09.950
+Un método que la gente ha usado y que verá a menudo es algo llamado "minificación" de su CSS. Y
+
+03:09.950 --> 03:12.080
+si abrimos el navegador aquí.
+
+03:12.300 --> 03:13.050
+"¡Buenos días!"
+
+03:13.070 --> 03:15.320
+Sí, es temprano en la mañana que estoy filmando esto!
+
+03:16.730 --> 03:23.660
+Y CSS Minificador. Lo que hace es, puede ingresar su CSS aquí - puede ver un ejemplo aquí.
+
+03:23.660 --> 03:28.070
+Entonces ingresa esto y hace clic en 'Minificar'.
+
+03:28.310 --> 03:33.890
+Y lo que hace Minify:elimina todos los espacios en blanco para que todo esté en una línea,
+
+03:33.890 --> 03:36.060
+simplemente muy juntos.
+
+03:36.080 --> 03:43.040
+Entonces, aunque es el mismo CSS, técnicamente hace que el archivo sea un poco más pequeño para que el
+
+03:43.130 --> 03:50.030
+número de bytes que está enviando a través de Internet es mucho menor y verá esa técnica utilizada
+
+03:50.030 --> 03:51.350
+en Javascript también.
+
+03:51.350 --> 03:57.620
+Y hablaremos de eso en esa sección. Esa es la ruta de renderización crítica, una ruta que un sitio web
+
+03:57.620 --> 04:03.300
+lleva a mostrar algo al usuario. Te veré en el próximo.
+
+04:03.330 --> 04:03.810
+Adiós

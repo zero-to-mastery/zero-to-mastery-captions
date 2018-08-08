@@ -1,0 +1,316 @@
+WEBVTT
+
+00:01.470 --> 00:07.810
+I want to add one final thing that we've kind of overlooked up until this point because well I don't
+
+00:07.810 --> 00:10.300
+want to bog you down with too many things.
+
+00:10.300 --> 00:21.520
+If we take a look at our project Well it's it's a lot of false even though it's a simple app you can
+
+00:21.520 --> 00:26.380
+imagine how bigger and bigger and bigger this source file can get.
+
+00:26.530 --> 00:31.010
+An organization is a big part of working on projects.
+
+00:31.030 --> 00:36.940
+Most applications will be way bigger than the ones that we've built and we need a good way to organize
+
+00:36.940 --> 00:40.640
+these and folder structure is one of the most important things.
+
+00:40.660 --> 00:42.520
+So let's clean up this code.
+
+00:42.580 --> 00:48.780
+I'll show you what I would do if I was working on this application and I want to make it more accessible
+
+00:48.790 --> 00:52.660
+that is cleaner so when other people come on the team they understand it.
+
+00:52.660 --> 00:56.110
+And also I can keep growing this codebase
+
+00:59.270 --> 01:09.350
+first thing I will do is I'll create a few folders one is going to be called components and these are
+
+01:09.350 --> 01:14.240
+the components that we've built such as Carlist search box and scroll.
+
+01:14.300 --> 01:20.560
+The second one is going to be called containers and containers.
+
+01:20.990 --> 01:29.030
+Are these smart components the containing components that have state in them that have lifecycle hooks
+
+01:29.120 --> 01:31.880
+that have the class syntax.
+
+01:31.880 --> 01:35.660
+You see these components or these containers.
+
+01:35.660 --> 01:39.680
+We can't use a pure function with them because technically they're not pure.
+
+01:39.740 --> 01:45.630
+They have state that they modify within these functions and that's OK.
+
+01:45.680 --> 01:52.700
+It's impossible to have just pure functions because most of the time while we may need to make requests
+
+01:52.820 --> 01:58.600
+to the outside world but these components are special and we're going to call them containers they contain
+
+01:58.600 --> 02:03.560
+things and they just pass down state to components.
+
+02:03.570 --> 02:14.920
+Now we can just say that we're going to move at Nazi SS to now be in containers.
+
+02:14.920 --> 02:21.800
+We're also going to say yes we're going to move it to be an containers as well.
+
+02:25.440 --> 02:30.030
+And then the components the simple functions pure functions that we've created.
+
+02:30.090 --> 02:33.370
+Search Box scroll and cardless.
+
+02:33.390 --> 02:42.370
+Well these can be in components let's just open up the folder and make this simpler point to close the
+
+02:42.370 --> 02:54.740
+tab open up robo friends and let's open up source will say that scroll search box card and card lists
+
+02:54.790 --> 02:58.350
+which are just pure functions are inside of components.
+
+02:59.420 --> 03:05.420
+Now if you remember our Funt is also part of the app Dotsie SS file.
+
+03:05.450 --> 03:11.550
+So we'll move that in there as well because it's defined in their With that let's go back to our app
+
+03:12.650 --> 03:20.290
+and well now we have a lot of fails because these now refer to different parts we don't.
+
+03:20.300 --> 03:27.590
+App Well lives in a different folder than Carlist and search box and scroll the way we do that is we
+
+03:27.590 --> 03:37.940
+use dot dot which means leave the folder or go to the folder and then from there go into the containers
+
+03:40.390 --> 03:44.140
+or sorry go into the containers.
+
+03:44.200 --> 03:48.950
+So where app WSS I'm going to leave which is dot dot.
+
+03:49.210 --> 03:57.070
+And then once somewhat here at the folder level I'm going to say component's and I can do the same for
+
+03:57.610 --> 03:58.660
+the rest of them as well.
+
+04:05.410 --> 04:11.300
+Save and we also have index that.
+
+04:11.640 --> 04:15.360
+That now is referring to our lives and containers.
+
+04:15.360 --> 04:21.540
+So again because we're now leaving a folder we're in the same neighborhood while we can just to Daut
+
+04:22.350 --> 04:25.390
+containers.
+
+04:25.610 --> 04:30.220
+Let's save and I spelled out wrong.
+
+04:30.220 --> 04:31.630
+Good spelling by me.
+
+04:31.760 --> 04:32.920
+Everything looks fine.
+
+04:33.080 --> 04:36.090
+Let's go back to our Web site.
+
+04:36.090 --> 04:36.840
+There you go.
+
+04:36.840 --> 04:38.670
+Everything is crawling nicely.
+
+04:39.880 --> 04:40.090
+OK.
+
+04:40.100 --> 04:43.640
+So we have a nice folder structure here.
+
+04:43.650 --> 04:45.360
+Things have cleaned up.
+
+04:45.370 --> 04:47.750
+And we also have scrolled.
+
+04:47.850 --> 04:48.390
+Yes.
+
+04:48.470 --> 04:55.500
+And I think we just have an extra copy of it so we can just might have made a copy of that.
+
+04:55.770 --> 04:57.730
+Make sure everything still works.
+
+04:57.990 --> 04:59.160
+Everything still works.
+
+05:01.650 --> 05:05.440
+We want to remove a couple of spaces here that we've done.
+
+05:05.460 --> 05:10.120
+We also notice a few errors so not necessarily errors but stylistic things.
+
+05:10.140 --> 05:16.710
+For example with the filter I say filter the robots and iterate through the robot doesn't really make
+
+05:16.710 --> 05:18.270
+sense does it it should be.
+
+05:18.270 --> 05:23.470
+Each item is a robot user that we get.
+
+05:23.610 --> 05:28.380
+So I save that still the same no errors.
+
+05:28.410 --> 05:35.690
+I also see a bit of cleaning that can be done with with using this start state a lot.
+
+05:35.770 --> 05:39.490
+We can just say again using destructuring we get say Konst
+
+05:42.100 --> 05:44.320
+robots and search field.
+
+05:44.350 --> 05:45.610
+We're doing destructuring.
+
+05:45.700 --> 05:50.810
+He calls this dot state.
+
+05:51.000 --> 05:54.780
+And now I can remove this state from here.
+
+05:54.780 --> 06:04.140
+I can remove this dusty from here and from all the other places that we're using this stuff state and
+
+06:04.140 --> 06:08.630
+the render by save everything still works.
+
+06:08.750 --> 06:11.680
+But the code is much cleaner.
+
+06:11.700 --> 06:19.050
+We also noticed that within here robots talent equals zero there's actually an easier way of doing this.
+
+06:19.050 --> 06:21.150
+And again it's just stylistic.
+
+06:21.150 --> 06:23.930
+This is going to be called zero.
+
+06:23.970 --> 06:29.070
+So if this is zero that's going to evaluate in javascript to false.
+
+06:29.070 --> 06:31.250
+So we can just say the opposite.
+
+06:31.300 --> 06:36.470
+Remember the syntax so if this is zero which is going to be false.
+
+06:36.480 --> 06:45.390
+Turn it into true so that if there's no robots we're loading safe and that should still work.
+
+06:45.390 --> 06:56.220
+And then finally if you CNF if else statement well we can do a turn or we can we we can't say we turn
+
+06:56.470 --> 06:58.960
+robots if there's robots
+
+07:02.540 --> 07:07.060
+Rochebrune this let's see if that still works.
+
+07:09.040 --> 07:10.180
+We don't need that X or back
+
+07:14.200 --> 07:15.630
+but that still works.
+
+07:15.970 --> 07:19.210
+And you can see now that things are much cleaner.
+
+07:19.210 --> 07:26.670
+We have an app that renders all our things for us.
+
+07:26.670 --> 07:34.800
+And to finish off we remember packaged Jason how we had some pre-built scripts and we had this build
+
+07:35.510 --> 07:36.130
+command.
+
+07:36.300 --> 07:48.700
+If I stop this now and I do NPM built or NPM fibrin they'll check this at while this is building.
+
+07:48.910 --> 07:57.200
+They've created a new folder called built and within here we have all our files.
+
+07:57.400 --> 08:00.090
+But this time optimized What does that mean.
+
+08:00.100 --> 08:10.420
+Well if we go to static and go to J.S. look at that everything is Minah fight for us our CSSA is optimized
+
+08:11.320 --> 08:19.540
+and everything that we need to deploy the Web site is in this folder so we can now take this built folder
+
+08:19.840 --> 08:21.060
+and put it anywhere.
+
+08:21.070 --> 08:24.540
+So it's on the internet and it even gives you some good information.
+
+08:24.700 --> 08:28.780
+So now we have this optimized built we don't have to minimize it.
+
+08:28.810 --> 08:31.420
+We don't have to do all these optimization.
+
+08:31.510 --> 08:35.240
+A ghost should be able so that we can use import statements in the browsers.
+
+08:35.290 --> 08:40.370
+And now this bill fall there can now be deployed anywhere.
+
+08:40.410 --> 08:44.670
+Like I said create re-act up takes away all the pain of the setup.
+
+08:44.820 --> 08:51.120
+Everything is done for you you can just write code use Briac components from around the web to build
+
+08:51.360 --> 08:55.250
+beautiful Web sites.
+
+08:55.280 --> 08:57.560
+I hope you're excited about react as I am.
+
+08:57.560 --> 09:02.680
+This is why it's such a popular tool and this is why so many companies now are using it.
+
+09:03.710 --> 09:04.760
+I'll see in the next one.
+
+09:04.970 --> 09:05.350
+But by.

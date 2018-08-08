@@ -1,0 +1,283 @@
+WEBVTT
+
+00:01.100 --> 00:02.330
+Dar una buena acogida.
+
+00:02.330 --> 00:10.550
+Quiero hablar con usted rápidamente sobre un tema muy importante para un desarrollador, y eso es la depuración.
+
+00:10.610 --> 00:14.810
+La depuración es el acto de mirar el código,
+
+00:14.810 --> 00:22.870
+entendiendo lo que está haciendo y averiguando por qué no está actuando como se esperaba o tal vez ni siquiera es
+
+00:22.880 --> 00:28.610
+en ejecución, tal vez esté recibiendo errores o tal vez algo que el usuario hace en un sitio web es
+
+00:28.730 --> 00:30.570
+desencadenando un comportamiento extraño.
+
+00:30.860 --> 00:36.100
+Eso es lo que es la depuración. Averiguar por qué el programa no está actuando de la manera que es.
+
+00:36.440 --> 00:42.190
+Y cuando trabajas como desarrollador, pasas mucho tiempo depurando.
+
+00:42.230 --> 00:48.130
+Entonces, es un tema muy importante y quiero hablar sobre algunas de las estrategias que podemos usar para la depuración.
+
+00:48.170 --> 00:56.090
+Tengo aquí una función bastante compleja y francamente, a menos que tengas mucha experiencia con javascript
+
+00:56.720 --> 00:59.360
+esta es una función bastante difícil de entender.
+
+00:59.510 --> 01:08.740
+Digamos que te pones a trabajar y alguien dice, ¡oye! Yo no,
+
+01:08.740 --> 01:09.870
+No sé qué está pasando con esta función,
+
+01:10.240 --> 01:17.600
+¿Puedes mirarlo? y debes averiguar qué hace y si funciona bien o no.
+
+01:18.070 --> 01:23.490
+Así que los guiaré por los pasos que usaría para depurar este código.
+
+01:23.530 --> 01:29.970
+Tal vez está funcionando bien, tal vez no, pero quiero entender lo que hace este fragmento de código.
+
+01:30.880 --> 01:39.410
+Entonces, lo primero que haría es leerlo, digo OK, estamos asignando una variable y parece
+
+01:39.410 --> 01:41.140
+tenemos una matriz
+
+01:41.270 --> 01:46.070
+Es una matriz anidada, por lo que hay una matriz dentro de una matriz.
+
+01:47.410 --> 01:51.800
+Y parece que este código quiere hacer algo llamado aplanado.
+
+01:51.870 --> 01:52.570
+DE ACUERDO.
+
+01:52.840 --> 02:00.790
+Sabemos que 'reducir' de lo que hemos aprendido antes, 'a' es el 'acumulador'.
+
+02:00.790 --> 02:01.690
+Puedo cambiar el nombre,
+
+02:01.720 --> 02:03.070
+entonces tiene más sentido para mí.
+
+02:03.070 --> 02:05.730
+OK, 'acumulador' perfecto.
+
+02:05.800 --> 02:08.790
+Y 'b' está bien, ¿qué es 'b'?
+
+02:09.280 --> 02:20.320
+'b' es esto correcto, porque estamos iterando, pasando por encima de la primera matriz, por lo que nos da tres matrices.
+
+02:20.510 --> 02:23.240
+Así que puedo decir, arreglos aquí. DE ACUERDO.
+
+02:28.620 --> 02:38.250
+Ahora, también veo que dentro de esta reducción, tengo el 'acumulador', tengo la matriz y quiero el 'acumulador' para
+
+02:38.370 --> 02:40.490
+comenzar con una matriz vacía
+
+02:40.680 --> 02:42.170
+Eso tiene sentido hasta ahora.
+
+02:42.270 --> 02:45.470
+Entonces el 'acumulador' va a ser una matriz vacía cuando comiences.
+
+02:45.720 --> 02:48.080
+Y lo que vamos a hacer es que vamos a hacer,
+
+02:48.090 --> 02:50.410
+matriz vacía dot concat.
+
+02:50.430 --> 02:58.580
+Y si lo recuerdas, 'concat' une los contenidos de una matriz a lo que se está concatenando.
+
+02:58.580 --> 03:06.590
+Una cosa que puedo hacer es abrir esta función, de modo que ahora, en lugar de tener solo una línea, pueda decir
+
+03:06.590 --> 03:18.120
+'console.log' array y descubriremos qué matriz es y también diremos 'console.log' 'accumulator', dirá 'accumulator'.
+
+03:18.170 --> 03:24.050
+Así que tenemos la consola abierta y también queremos asegurarnos de que estamos devolviendo esto porque eliminamos
+
+03:24.080 --> 03:29.160
+desde una sola línea que ya implícitamente significa retorno, hasta hacer dos líneas.
+
+03:29.410 --> 03:29.620
+DE ACUERDO.
+
+03:29.630 --> 03:36.320
+Actualicemos y agreguemos esta función y veamos si podemos obtener algunos registros de la consola para averiguar
+
+03:36.320 --> 03:37.300
+lo que está haciendo
+
+03:37.410 --> 03:44.390
+Habrá tres bucles que vemos y en el primer bucle se ve, dice que la matriz
+
+03:44.390 --> 03:48.050
+es [0, 1] y el 'acumulador' es la matriz vacía.
+
+03:48.140 --> 03:49.670
+Ok eso tiene sentido.
+
+03:49.670 --> 03:58.430
+Y luego vemos el segundo ciclo alrededor de la matriz 2 y 3 que está aquí, se enrolla y el 'acumulador'
+
+03:58.760 --> 04:01.940
+ahora tiene 0 y 1.
+
+04:01.940 --> 04:08.270
+Así que parece que después del primer ciclo, agregué el cero y uno de la matriz en el
+
+04:08.270 --> 04:11.870
+matriz vacía que es el acumulador. DE ACUERDO.
+
+04:12.050 --> 04:15.690
+Y luego, el último pase, que es cuatro y cinco.
+
+04:15.740 --> 04:23.260
+Ahora adjunto la matriz de 4 y 5 en el 'acumulador' que agrega 0, 1, 2, 3.
+
+04:23.300 --> 04:33.110
+Entonces, parece que lo que estamos haciendo es que estamos agarrando cada matriz y la estamos agregando al acumulador.
+
+04:33.150 --> 04:37.190
+Y porque se ve algo como esto.
+
+04:37.260 --> 04:44.530
+Así que esto es lo que se vería en el primer paso, solo estamos usando la función concat para
+
+04:44.530 --> 04:53.560
+únete a las matrices, [0, 1], de modo que aplanamos la matriz, lo que significa que en lugar de tener una matriz
+
+04:53.590 --> 04:58.360
+dentro de una matriz, podemos aplanar completamente todo.
+
+04:58.360 --> 05:08.570
+Eso significa que con 'aplanado', si miro lo que hace, bueno, simplemente encuentra array [0, 1, 2, 3, 4, 5]. Increíble.
+
+05:08.720 --> 05:14.420
+Hay otro truco que quiero mostrarte, y es que en lugar de usar el registro de la consola puedes usar algo
+
+05:14.420 --> 05:22.610
+llamado depurador. Y notas que el color se volvió rojo, lo que significa ¡Sí! es una palabra clave javascript.
+
+05:22.850 --> 05:24.460
+¿Y qué te permite hacer esto?
+
+05:24.560 --> 05:32.060
+Bien, veamos qué pasa cuando ejecuto esta función de nuevo para actualizar aquí y quiero ejecutarla,
+
+05:32.570 --> 05:33.430
+¡Whoa! lo que acaba de suceder.
+
+05:34.800 --> 05:43.350
+Cuando el motor de JavaScript y el navegador se topan con el depurador de palabras, se detiene.
+
+05:43.430 --> 05:49.720
+Es una, es una palabra que dice lo que sea que esté leyendo este archivo, ¡oye! deja de hacer lo que sea que hagas solo congela,
+
+05:50.840 --> 05:55.120
+y nos abre la ventana exactamente donde está parado.
+
+05:55.400 --> 05:58.190
+Así que déjame hacer esta pantalla completa y mostrarte.
+
+05:58.390 --> 06:07.330
+Se detiene en el medio de su ejecución. Pero vemos que aquí 'acumulador' es una matriz vacía porque mientras
+
+06:07.330 --> 06:17.700
+lo comenzamos y el conjunto es 0 y 1, ahora tengo un par de opciones.
+
+06:17.850 --> 06:21.600
+Puedo golpear el juego que reanude todo o puedo golpearlo.
+
+06:21.600 --> 06:26.750
+y veamos qué pasa con el paso, pasa a la siguiente línea.
+
+06:27.780 --> 06:31.460
+Y si vuelvo a hacer clic, pasa a la siguiente línea.
+
+06:32.400 --> 06:40.980
+Y ahora veo que el 'acumulador' es 0 y 1 y la matriz ahora es 2 y 3.
+
+06:41.020 --> 06:48.130
+Entonces sé que en la línea siguiente, el 'acumulador', bueno, lo cambio a una matriz por error, pero esto
+
+06:48.130 --> 06:59.550
+ser el 'acumulador' será 0 y 1 punto concat, 2 y 3. Y puedo seguir caminando a través de esto y ver
+
+06:59.550 --> 07:06.260
+cómo cambian los parámetros y pasan literalmente por toda la función.
+
+07:06.720 --> 07:07.950
+Vamos a cerrar eso.
+
+07:08.260 --> 07:13.070
+Si traigo esto a la forma en que era el 'acumulador',
+
+07:18.470 --> 07:19.910
+hacer esta pantalla completa.
+
+07:19.910 --> 07:20.720
+Todo bien.
+
+07:20.720 --> 07:24.950
+Entonces array es [0, 1] 'accumulator' es un array vacío, voy a pasar,
+
+07:28.260 --> 07:34.470
+eso cambió 'accumulator' ahora es [0, 1] array [2, 3] y sigo caminando y noto exactamente lo que está sucediendo
+
+07:34.470 --> 07:40.460
+en el código y cuando termina de ejecutarse, vuelve y mira eso.
+
+07:40.620 --> 07:46.370
+Tenemos nuestra consola de vuelta.
+
+07:46.420 --> 07:47.500
+¿No es genial?
+
+07:47.500 --> 07:53.080
+El depurador nos permite acceder literalmente a la función y ver qué sucede paso a paso. Cuando regreso esto
+
+07:53.080 --> 07:57.050
+a la manera en que fue
+
+07:57.160 --> 08:01.780
+Quiero que te lleves esto contigo y entiendas que, aunque la primera vez que veas algo como esto,
+
+08:01.780 --> 08:02.800
+es abrumador
+
+08:02.800 --> 08:09.070
+con el tiempo suficiente y el uso de la consola y el depurador, puede comprender lo que hace una función, y si
+
+08:09.070 --> 08:14.140
+está haciendo algo que no esperas hacer o está haciendo algo mal,
+
+08:14.710 --> 08:17.390
+puedes usar estas técnicas para arreglarlo.
+
+08:17.400 --> 08:20.410
+Es una habilidad muy útil que vas a utilizar mucho.
+
+08:20.730 --> 08:21.540
+Buena suerte.
+
+08:21.660 --> 08:23.270
+Diviértete ahí afuera. A-Dios

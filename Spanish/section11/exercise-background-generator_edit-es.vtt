@@ -1,0 +1,598 @@
+WEBVTT
+
+00:01.070 --> 00:11.070
+Dar una buena acogida. Hasta ahora hemos echado un vistazo a cómo Javascript interactúa con HTML y CSS y hemos
+
+00:11.070 --> 00:18.390
+visto que hemos sido capaces de cambiar texto, cambiar estilos e interactuar con nuestra página web.
+
+00:18.620 --> 00:21.350
+En este video vamos a intentar algo divertido.
+
+00:21.410 --> 00:26.780
+Vamos a tener un ejercicio donde vamos a crear un generador de fondo para que nuestro futuro
+
+00:26.780 --> 00:34.660
+proyectos podemos tener un degradado impresionante para nuestros fondos.
+
+00:34.770 --> 00:39.670
+Vamos a usar unas pocas líneas de Javascript para crear esto.
+
+00:39.790 --> 00:40.830
+Entonces empecemos.
+
+00:42.760 --> 00:46.460
+De acuerdo, tenemos un hermoso lienzo en blanco aquí.
+
+00:46.540 --> 00:53.080
+Abra la consola para que a medida que escribimos el código nos aseguremos de no cometer ningún error y comencemos
+
+00:53.080 --> 00:55.420
+apagado con un simple archivo HTML.
+
+00:56.690 --> 01:05.780
+Lo llamaremos fondo degradado y dentro del cuerpo tendremos algunas cosas que tendremos en cada uno
+
+01:06.410 --> 01:18.560
+eso dirá generador de fondo y también tendremos un H2 que dirá el fondo actual de CSS
+
+01:22.020 --> 01:29.790
+y tendremos un H3 que estará en blanco por el momento porque vamos a poner el estilo CSS de manera
+
+01:29.790 --> 01:34.250
+que la gente puede copiar y pegar ese degradado de fondo desde aquí.
+
+01:34.410 --> 01:42.630
+Y, obviamente, necesitamos Javascript, por lo que agregaremos una etiqueta de script y haremos que source sea igual al script dot JS.
+
+01:42.810 --> 01:50.000
+Sí, vamos a actualizar Ahora quiero mostrarte dos cosas geniales que vienen con HTML y CSS.
+
+01:51.080 --> 01:53.780
+El primero es el color del tipo de entrada.
+
+01:57.690 --> 02:02.630
+Y el segundo es el gradiente lineal de CSS.
+
+02:08.430 --> 02:13.330
+Entonces, CSS3 tiene estos fondos de degradado geniales que podemos hacer.
+
+02:13.390 --> 02:21.640
+Entonces usaremos esta sintaxis para crear nuestro degradado y para el selector de color usaremos el tipo de HTML
+
+02:22.030 --> 02:27.850
+color para la entrada para obtener un selector de color para que podamos hacerlo con bastante rapidez.
+
+02:27.850 --> 02:40.500
+Vamos justo debajo del H2 y crearemos una entrada y el tipo será el nombre del color será el color
+
+02:40.600 --> 02:48.180
+1 y también podemos darle un valor predeterminado así que haremos un valor y lo pondremos de forma aleatoria
+
+02:49.050 --> 02:51.030
+El color HEX hará
+
+02:51.040 --> 02:57.720
+00ff00. Y queremos tener dos selectores de color porque la forma en que los degradados funcionan
+
+02:57.720 --> 03:00.490
+va de un color a otro.
+
+03:00.510 --> 03:05.070
+Entonces pondremos otro selector de color que guardará.
+
+03:05.240 --> 03:16.510
+Cambia el nombre a color2 esta vez este color tendrá más rojo y refresca y listo.
+
+03:16.540 --> 03:19.400
+Tenemos nuestros selectores de color.
+
+03:20.580 --> 03:21.840
+Ahora la única cosa que quiero mostrarte.
+
+03:21.840 --> 03:27.940
+Creé una hoja de estilo que proporcionaré para ti que tendrá un estilo predeterminado para que se vea realmente
+
+03:27.940 --> 03:28.950
+realmente bueno.
+
+03:29.380 --> 03:38.080
+Y podemos incluir eso en nuestro archivo HTML dirá estilo de enlace
+
+03:38.210 --> 03:41.610
+CSS y si me actualizo
+
+03:42.210 --> 03:51.390
+Bueno, tenemos un fondo impresionante con nuestra fuente genial y todo centrado solo le mostramos rápidamente qué
+
+03:51.390 --> 03:54.330
+hizo que el fondo tenga este degradado.
+
+03:54.330 --> 04:03.390
+Todo lo que hice fue tener el degradado lineal de fondo y vas a él y luego le doy la dirección que queremos
+
+04:03.390 --> 04:08.510
+para ir a la derecha y le damos el color inicial y el final.
+
+04:08.820 --> 04:11.620
+Entonces ese es el color predeterminado que tenemos.
+
+04:11.670 --> 04:15.750
+El resto es solo alineación de fuente y texto.
+
+04:15.750 --> 04:22.290
+Así que nada demasiado loco, nada que no puedas hacer por ti mismo, pero lo único que necesitamos es que esto
+
+04:22.290 --> 04:23.410
+ser interactivo.
+
+04:23.430 --> 04:30.080
+Si escojo un color aquí, quiero cambiarlo por este.
+
+04:30.680 --> 04:37.940
+E idealmente, si encuentro un fondo que sea realmente liviano para mi aplicación, puedo imprimirlo aquí
+
+04:37.940 --> 04:43.000
+entonces puedo simplemente copiar y pegar el degradado lineal y usar eso.
+
+04:43.010 --> 04:43.840
+Así que trabajemos en eso.
+
+04:48.030 --> 04:49.640
+¿Qué sabemos hasta ahora?
+
+04:49.640 --> 04:55.630
+Sabemos que Javascript puede leer del DOM y puede afectarlo.
+
+04:55.880 --> 05:02.890
+Entonces queremos leer cuál es el valor de los colores de ambas entradas.
+
+05:04.030 --> 05:10.840
+Y queremos poner una pieza de texto en la parte inferior aquí con esos valores en el formato CSS.
+
+05:11.050 --> 05:21.620
+Entonces parece que tendremos que seleccionar dos entradas y luego también seleccionar el H3 para poder ingresar texto
+
+05:21.620 --> 05:32.610
+aquí. Vayamos al archivo JS del script y lo primero que queremos hacer es desear seleccionar el H3.
+
+05:33.100 --> 05:43.670
+Entonces, todos nuestros CSS son igual a document dot querySelector y porque solo hay un H3 que podemos
+
+05:43.670 --> 05:47.510
+solo selecciona H3. DE ACUERDO.
+
+05:47.510 --> 05:56.490
+También queremos seleccionar los colores y debemos darle una clase para que podamos distinguirlos.
+
+05:56.530 --> 06:12.270
+Así que voy a decir que una clase es igual a color1 y la otra tendrá clase color2.
+
+06:12.280 --> 06:15.040
+Entonces ahora podemos hacer color variable1
+
+06:15.190 --> 06:24.790
+es igual a document querySelector y haremos color1.
+
+06:24.870 --> 06:32.880
+De nuevo, es un querySelector. Así que hacemos classSelector como lo hacemos en CSS y para color2 hacemos el
+
+06:32.880 --> 06:33.820
+la misma cosa.
+
+06:41.850 --> 06:43.040
+Esto se ve bien por ahora.
+
+06:44.030 --> 06:45.890
+Idealmente tomamos todos estos
+
+06:46.010 --> 06:48.650
+y nuestro fondo debería cambiar
+
+06:48.650 --> 06:53.210
+Revisemos todo y nos aseguramos de estar en lo correcto.
+
+06:53.720 --> 06:55.050
+Y qué has hecho hasta ahora.
+
+07:03.170 --> 07:05.810
+Vamos a actualizar la página y listo.
+
+07:05.810 --> 07:12.420
+Tenemos nuestro H3 que es donde vamos a querer tener nuestro texto CSS para nuestro fondo.
+
+07:12.500 --> 07:13.920
+Tenemos nuestras entradas.
+
+07:14.270 --> 07:16.150
+El primero y el segundo.
+
+07:16.610 --> 07:18.750
+OK, parece que estamos haciendo todo bien.
+
+07:19.690 --> 07:22.220
+Ahora, ¿qué queremos que suceda?
+
+07:22.240 --> 07:30.090
+Queremos escuchar un evento donde notamos las acciones del usuario aquí.
+
+07:30.210 --> 07:38.370
+Aprendimos sobre el centro del clic y el mouse y presionamos la tecla.
+
+07:38.370 --> 07:41.810
+Pero esto no es realmente ninguno de esos ¿verdad?
+
+07:41.830 --> 07:49.610
+Bueno, hay un evento realmente bueno para las entradas y se llama entrada.
+
+07:49.680 --> 07:55.700
+De modo que cada vez que cambia el valor de entrada que hace cada vez que cambiamos el color, podemos detectarlo.
+
+07:57.630 --> 08:00.810
+Entonces, pensemos en cómo haríamos esto.
+
+08:00.810 --> 08:07.580
+Queremos que color1 tenga un detector de eventos.
+
+08:11.110 --> 08:20.020
+Eso tendrá entrada y tendrá una función que por ahora podemos simplemente consolar el registro de puntos
+
+08:20.030 --> 08:22.980
+color1 valor de punto
+
+08:23.040 --> 08:27.290
+Ahora también queremos que el segundo color tenga la misma cosa.
+
+08:28.510 --> 08:34.530
+Pero para color2. Actualicemos y verifiquemos aquí que eliminamos los registros de la consola porque no necesitamos
+
+08:34.530 --> 08:39.460
+más actualización y veamos. Mira eso.
+
+08:39.550 --> 08:41.320
+Usted los ve en la consola.
+
+08:41.440 --> 08:42.940
+Esto se está actualizando.
+
+08:42.940 --> 08:44.290
+Eso es muy bonito.
+
+08:44.290 --> 08:45.730
+Está bien así que el primero está funcionando.
+
+08:45.730 --> 08:51.260
+El segundo ahora también está funcionando. Increíble.
+
+08:51.290 --> 08:54.480
+Así que estamos agarrando los colores, el color del valor.
+
+08:54.530 --> 08:57.680
+¿Qué queremos hacer a continuación con este valor?
+
+08:59.570 --> 09:02.780
+Bueno, queremos cambiar el color de fondo.
+
+09:03.720 --> 09:12.400
+¿Y cómo podemos hacer eso? Bueno, el fondo si hacemos clic derecho y lo inspeccionamos.
+
+09:12.570 --> 09:17.340
+Haces esto más grande así de grande.
+
+09:17.470 --> 09:25.230
+Vemos que el fondo está en la etiqueta del cuerpo por lo que idealmente cambiamos esto.
+
+09:28.240 --> 09:29.830
+Regresemos a la consola.
+
+09:30.010 --> 09:35.170
+Minimice esto y probemos cambiar el fondo ahora con la información que tenemos.
+
+09:35.250 --> 09:39.700
+Cada vez que cambie el color1, queremos tomar la etiqueta del fondo.
+
+09:39.750 --> 09:46.560
+Bueno, de nuevo podemos decir que el cuerpo es igual a document dot get ...
+
+09:49.230 --> 09:52.390
+getElementBy y vamos a tener una identificación aquí.
+
+09:52.770 --> 09:53.820
+Bueno, di Id
+
+09:56.750 --> 10:07.150
+gradiente y podemos decir get elementById y diremos gradiente.
+
+10:07.350 --> 10:10.310
+De nuevo, queremos asegurarnos de que realmente lo estamos seleccionando.
+
+10:10.320 --> 10:11.180
+Entonces intentemos
+
+10:15.320 --> 10:17.430
+cuerpo y refresco
+
+10:17.860 --> 10:25.750
+Está bien, estamos recibiendo la etiqueta corporal y si recordamos que podemos cambiar el estilo del cuerpo haciendo
+
+10:27.310 --> 10:30.350
+Fondo de punto de estilo. Eso es
+
+10:30.620 --> 10:34.620
+una propiedad CSS y podemos simplemente decir rojo. ver si eso funciona
+
+10:35.630 --> 10:36.030
+Estupendo.
+
+10:36.030 --> 10:42.000
+Estamos cambiando el color a rojo, pero eso no se ve tan bien como genial, pero al menos ahora sabemos cómo
+
+10:42.000 --> 10:53.340
+para cambiar esto, así podemos decir cuándo cambia la primera entrada, fondo del punto del cuerpo o fondo del punto del estilo
+
+10:56.320 --> 11:03.270
+es igual a un gradiente lineal a la derecha.
+
+11:04.210 --> 11:06.740
+Y solo hay una sintaxis a la que tendrás que acostumbrarte.
+
+11:08.040 --> 11:14.520
+Y diremos que el primer color será el valor del punto color1 y necesitaremos una coma para eso.
+
+11:14.760 --> 11:23.080
+Y el segundo valor estará dentro de un espacio aquí color2 value.
+
+11:23.250 --> 11:32.650
+Así que ese es el segundo selector de color y diremos más cerca del corchete y el CSS, y debería ser bueno
+
+11:32.650 --> 11:33.360
+ir.
+
+11:33.360 --> 11:35.550
+Y puse esto en una nueva línea para que puedas verlo.
+
+11:42.390 --> 11:48.080
+Perfecto y de nuevo javascript no ve el punto y coma aquí, así que sigue leyendo línea por línea.
+
+11:48.120 --> 11:50.850
+De acuerdo, guardemos y veamos si lo hicimos bien.
+
+11:50.850 --> 11:54.730
+Voy a actualizar y en realidad no necesitas un punto y coma aquí.
+
+11:54.810 --> 11:56.510
+Entonces, veamos si eso funciona.
+
+11:56.640 --> 12:05.160
+Voy a actualizar seleccione el primero y mire eso y obtenga el degradado trabajando.
+
+12:05.440 --> 12:10.760
+Pero obviamente también tenemos que hacer el segundo porque en este momento es solo el registro de la consola.
+
+12:11.150 --> 12:23.620
+De nuevo, hagamos lo mismo en el segundo selector de color que guardo y actualizo. Escogió el primero.
+
+12:25.510 --> 12:28.390
+y elegimos el siguiente.
+
+12:28.410 --> 12:29.560
+Mira eso.
+
+12:29.640 --> 12:31.510
+Eso es realmente bonito.
+
+12:31.660 --> 12:33.710
+Pero eso debería haber desencadenado algo.
+
+12:33.760 --> 12:37.090
+Copiamos y pegamos las mismas líneas de código.
+
+12:37.210 --> 12:43.790
+Y si recordamos que es un gran problema porque está seco. No te repitas a ti mismo.
+
+12:44.080 --> 12:49.750
+Entonces, ¿cómo podemos extraer esta función para que esté mucho más limpio?
+
+12:49.940 --> 13:01.800
+Muy fácil, podemos crear una función y diremos establecer el degradado y establecer bien el degradado, como el nombre
+
+13:01.800 --> 13:06.780
+sugiere establecer nuestro hermoso degradado.
+
+13:06.790 --> 13:17.590
+Entonces ahora esta función solo se puede llamar setGradient y la misma para el segundo color.
+
+13:17.680 --> 13:23.550
+Puedo decir setGradient mira cuánto más limpia se ve.
+
+13:23.700 --> 13:25.850
+Bueno, veamos si todo sigue funcionando.
+
+13:25.910 --> 13:28.590
+Voy a actualizar
+
+13:28.840 --> 13:30.210
+Voy a seleccionar.
+
+13:30.520 --> 13:32.190
+Y parece que rompimos algo.
+
+13:33.630 --> 13:34.810
+Mira lo que hicimos aquí.
+
+13:35.680 --> 13:40.570
+Este evento de entrada se activa automáticamente y ejecuta una función.
+
+13:41.550 --> 13:51.210
+No necesitamos llamar a la función porque este evento de entrada se dispara automáticamente y el segundo
+
+13:51.210 --> 13:55.680
+parámetro se ejecuta automáticamente con el evento.
+
+13:55.680 --> 14:06.610
+Así que ahora si guardo esto, seleccione todo, todo funciona nuevamente para reiterarlo. Si hubiéramos llamado a las funciones
+
+14:06.610 --> 14:07.360
+como estas.
+
+14:07.570 --> 14:15.400
+El primer paso cuando cargan los documentos HTML lee el archivo de script y pasa por el
+
+14:15.400 --> 14:16.230
+líneas.
+
+14:16.640 --> 14:23.480
+Y cuando tenemos el detector de eventos, también configuramos el degradado.
+
+14:23.760 --> 14:29.930
+Pero queremos que se llame a esto cada vez que se selecciona la entrada.
+
+14:29.940 --> 14:37.840
+Entonces, de nuevo, nuestra función ahora es así y nosotros mismos
+
+14:40.620 --> 14:42.950
+generador de fondo hermoso.
+
+14:43.190 --> 14:48.800
+De hecho, vamos a usar esto cuando diseñemos nuestro proyecto final porque, bueno, creo que los fondos
+
+14:48.800 --> 14:50.270
+se ve muy bien con esto.
+
+14:51.910 --> 14:52.760
+Muy genial.
+
+14:53.080 --> 14:57.250
+Y ves lo fácil que fue bastante rápido
+
+14:57.250 --> 14:59.060
+Solo unas pocas líneas de código.
+
+14:59.350 --> 15:07.180
+Quiero mostrarte una última cosa y es que hemos estado usando addEventListener que es el recomendado
+
+15:07.180 --> 15:14.440
+forma de hacer las cosas porque mantenemos el Javascript y el archivo Javascript, pero también podríamos tener
+
+15:14.440 --> 15:24.560
+hecho dentro de la entrada un atributo onclick o un atributo oninput.
+
+15:26.330 --> 15:35.250
+Así que dentro de aquí podría haber dicho, porque tenemos esto disponible para nosotros setGradient podría haber dicho
+
+15:37.290 --> 15:47.390
+setGradient y también en el segundo haríamos setGradient
+
+15:50.360 --> 15:51.730
+entonces veremos si esto funciona
+
+15:51.760 --> 15:57.520
+Si comento esto, nunca tuve el detector de eventos y me actualicé
+
+16:00.130 --> 16:01.510
+mira que todavía cambia
+
+16:05.570 --> 16:11.850
+¿Cuál es la diferencia entre hacer esto y hacerlo de esta manera?
+
+16:13.510 --> 16:21.320
+Bueno, la diferencia es que aquí estamos agregando Javascript a HTML en contra de la separación de preocupaciones.
+
+16:21.490 --> 16:28.550
+Y también puede ver aquí que solo podemos agregar setGradient.
+
+16:28.630 --> 16:40.150
+De modo que esta entrada solo puede tener un atributo oninput frente a aquí donde podemos seguir agregando diferentes funciones
+
+16:40.160 --> 16:41.250
+diferentes eventos
+
+16:41.480 --> 16:49.010
+Así que esto es mucho más extensible, pero quería mostrarte que puedes hacer eso y puedes hacer un
+
+16:49.010 --> 16:52.350
+La función onclick es solo una especificación HTML.
+
+16:52.550 --> 16:59.360
+Cuando lleguemos a la sección React verás que tiene su propia forma de hacer este tipo de eventos.
+
+17:01.170 --> 17:08.030
+Así que de nuevo voy a restaurar esa actualización de nuevo a nuestro hermoso sitio web.
+
+17:08.060 --> 17:14.550
+Hay otra cosa que tenemos que hacer y es que tenemos que tener el CSS en la parte inferior aquí.
+
+17:14.910 --> 17:16.460
+Eso es muy fácil de hacer.
+
+17:16.500 --> 17:24.630
+Solo podemos decir CSS dot textContent que es nuevo.
+
+17:24.630 --> 17:33.110
+No lo has visto antes Pero puedes decir body dot style dot background y agregaremos el
+
+17:33.160 --> 17:34.070
+punto y coma
+
+17:35.190 --> 17:36.570
+Si guardo y renuevo
+
+17:40.360 --> 17:43.410
+mira eso. Como elegimos el gradiente
+
+17:46.060 --> 17:54.060
+tenemos esta actualización
+
+17:54.240 --> 17:56.350
+Ahora algunas preguntas, puede que tengas una.
+
+17:56.520 --> 17:58.450
+¿Qué es esta cosa de contenido de texto?
+
+17:58.500 --> 18:03.310
+Hasta ahora te he mostrado innerHTML.
+
+18:03.800 --> 18:18.070
+También te mostré CreateTextNode y ahora tenemos textContent como si hubiera tantas cosas para recordar.
+
+18:18.480 --> 18:19.960
+¿Qué es?
+
+18:19.990 --> 18:28.870
+Agrega un contenido de texto, ya que puede ver que hay muchas maneras de agregar cosas al DOM.
+
+18:29.440 --> 18:35.950
+Y la razón por la que hice esto es porque quería mostrarles la frustración de que mucha gente tenía una
+
+18:36.340 --> 18:39.330
+principios de la década de 2000 cuando se trabaja con el DOM.
+
+18:39.390 --> 18:47.080
+Y en el próximo video voy a hablar sobre algunos de esos problemas y lo que hicimos para resolverlo. Y
+
+18:47.110 --> 18:52.210
+eventualmente cuando entramos en React veremos que en realidad no usaremos ninguno de estos porque
+
+18:52.660 --> 19:00.580
+React nos ha extraído todo esto para que sea mucho más simple que descubrir cómo ingresar
+
+19:00.580 --> 19:09.780
+contenido de texto que agrega oyentes de eventos y todo esto que puede ser francamente frustrante a veces.
+
+19:09.780 --> 19:10.830
+Eso es todo por ahora.
+
+19:11.770 --> 19:14.690
+Veamos qué más puedes agregar a este fondo.
+
+19:14.710 --> 19:21.400
+Dejaré el código en la siguiente sección para que puedas jugar con él y hacerlo aún mejor
+
+19:21.400 --> 19:23.230
+de lo que es ahora
+
+19:23.230 --> 19:24.460
+Te veré en el próximo.
+
+19:24.610 --> 19:25.090
+Adiós.
