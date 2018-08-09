@@ -1,0 +1,598 @@
+WEBVTT
+
+00:01.240 --> 00:06.030
+Tudo bem, vamos começar a construir algumas rotas reais para o nosso aplicativo.
+
+00:06.100 --> 00:11.470
+Temos um bom plano e podemos começar a implementá-los com base no que sabemos.
+
+00:13.040 --> 00:18.830
+E, novamente, a maneira como vamos testar isso é usar o Postman, não precisamos nos preocupar com o front-end
+
+00:18.830 --> 00:27.060
+agora; queremos construir nosso servidor para funcionar corretamente e somente no final, quando tudo estiver funcionando,
+
+00:27.110 --> 00:34.230
+podemos conectá-lo ao front-end e também podemos deixar a equipe de front-end saber:"Ei, esses são os pontos de extremidade
+
+00:34.680 --> 00:36.510
+que esperamos ".
+
+00:36.960 --> 00:41.610
+E é com isso que vamos responder.
+
+00:41.680 --> 00:42.020
+Tudo bem.
+
+00:42.040 --> 00:43.830
+Então eu acho que é hora de começar.
+
+00:45.980 --> 00:50.680
+A primeira coisa que queremos abordar é o "login".
+
+00:50.770 --> 00:51.840
+Então vamos pensar sobre isso.
+
+00:51.850 --> 01:02.280
+Eu vou fazer 'app.post ()' para o login. E quando fizermos a rota de login, teremos uma solicitação
+
+01:02.430 --> 01:03.230
+resposta.
+
+01:06.470 --> 01:11.600
+E aqui apenas para testar se tudo está funcionando, faremos 'res.send (' signing ')'
+
+01:14.990 --> 01:24.690
+Vamos salvar vá para Postman, faça o host local clique em Enviar.
+
+01:24.740 --> 01:29.690
+Eu sempre gosto de fazer etapas incrementais para ter certeza de que tudo está funcionando e obter as pequenas
+
+01:29.690 --> 01:32.440
+ganha todas as vezes enquanto trabalhamos.
+
+01:32.480 --> 01:37.230
+Então eu tenho que dizer "isso está funcionando".
+
+01:37.610 --> 01:46.160
+Bem, isso é porque fizemos uma solicitação GET para a raiz, em vez de fazer um login e, em seguida, um POST.
+
+01:49.840 --> 01:58.380
+E nós temos 'Não POST / sigin' porque aparentemente eu não posso soletrar lá você vai - um pouco de erro ortográfico
+
+01:58.400 --> 01:59.470
+na minha parte.
+
+01:59.510 --> 02:00.440
+Lá você vai 'assinar'
+
+02:03.380 --> 02:04.110
+perfeito.
+
+02:04.160 --> 02:07.160
+Agora quero mostrar-lhe algo que vamos usar daqui para frente.
+
+02:07.160 --> 02:14.910
+Até agora fizemos 'enviar', que também pode enviar JSON, mas o Express vem com um método JSON integrado
+
+02:15.140 --> 02:21.040
+na resposta que podemos usar e tem um pouco de recursos adicionais ao responder com JSON
+
+02:21.040 --> 02:23.490
+e queremos nos concentrar em usar isso.
+
+02:23.490 --> 02:30.480
+Então, a partir de agora, vou usar isso e há uma pequena diferença no que recebemos.
+
+02:30.760 --> 02:33.080
+Recebemos uma string JSON dessa maneira.
+
+02:35.230 --> 02:35.530
+Tudo bem.
+
+02:35.570 --> 02:41.350
+Então, vamos pensar em "assinar" - não vamos necessariamente apenas dizer "assinar" e é isso.
+
+02:42.150 --> 02:47.820
+Queremos verificar o que o usuário digitar no front-end - ele vai voltar aqui na resposta
+
+02:47.850 --> 02:54.750
+ou no pedido e queremos verificar com a nossa lista atual de usuários para se certificar de que suas senhas
+
+02:54.750 --> 02:56.300
+partida.
+
+02:56.300 --> 03:02.300
+Então parece que precisamos de algum tipo de banco de dados, mas por enquanto não aprendemos sobre eles
+
+03:02.300 --> 03:07.720
+ainda vamos criar uma variável e essa variável vai ser chamado de 'banco de dados'
+
+03:11.380 --> 03:21.930
+e terá usuários e essa propriedade 'users' será uma matriz de objetos
+
+03:25.280 --> 03:28.510
+e essa matriz de objetos terá id:'123'
+
+03:28.700 --> 03:32.690
+terá nome:'john'
+
+03:33.230 --> 03:36.360
+terá e-mail
+
+03:36.800 --> 03:39.040
+como 'joao@gmail.com'
+
+03:39.190 --> 03:40.220
+-
+
+03:41.150 --> 03:45.780
+Nós também vamos ter senha - vamos dizer "cookies"
+
+03:48.760 --> 03:57.670
+Teremos 'entradas', que é o que vamos usar para rastrear as pontuações, de modo que as entradas signifiquem quantas vezes
+
+03:58.090 --> 04:03.730
+John enviou fotos para detecção de rosto e, finalmente, também queremos acompanhar
+
+04:03.970 --> 04:06.590
+quando John se juntou ao nosso aplicativo.
+
+04:06.640 --> 04:11.860
+Podemos fazer isso fazendo 'new Date ()', que vem com JavaScript -
+
+04:11.860 --> 04:17.460
+apenas criará uma data quando esta parte for executada.
+
+04:18.840 --> 04:21.300
+E você verá mais tarde como isso será exibido.
+
+04:23.550 --> 04:23.800
+Tudo bem.
+
+04:23.820 --> 04:28.110
+E vamos criar outro usuário porque estamos em uma matriz depois de tudo.
+
+04:29.660 --> 04:38.510
+E esse usuário será chamado - bem, teremos um 'id' de '124' - será 'Sally', 'sally@gmail.com'
+
+04:38.510 --> 04:42.670
+e sua senha será "bananas".
+
+04:45.950 --> 04:46.970
+Perfeito.
+
+04:47.000 --> 04:51.620
+Agora olhando para isso para 'assinar', vamos receber um pedido.
+
+04:51.680 --> 04:55.940
+E dentro desse pedido, vamos ter - lembre-se de "assinar", queremos ter certeza de que usaremos
+
+04:56.440 --> 04:57.070
+POSTAR.
+
+04:57.140 --> 05:03.300
+Então, vamos ter acesso a 'req.body ()' e soa como uma declaração condicional, não é?
+
+05:03.300 --> 05:03.780
+-
+
+05:03.780 --> 05:10.970
+Se fizermos uma declaração 'se' e dissermos 'req.body ()' - bem, o que vamos ter no corpo - antes de fazermos
+
+05:10.970 --> 05:17.940
+isso, vamos voltar ao Postman e pensar sobre para onde vamos enviar quando fizermos o sinal de que vamos
+
+05:17.940 --> 05:21.610
+para fazer uma solicitação POST no corpo.
+
+05:21.990 --> 05:27.830
+Lembre-se de que enviaremos JSON porque não estamos usando um formulário HTML.
+
+05:28.040 --> 05:36.930
+Nós vamos bater 'raw' e depois JSON (application / json) e agora que temos JSON aqui temos esse
+
+05:36.930 --> 05:41.380
+caixa onde podemos entrar o que queremos enviar com o nosso corpo.
+
+05:41.900 --> 05:49.130
+Novamente, valerá a validação para nós e diremos que - como o formulário de login em nosso front-end teve - temos
+
+05:51.540 --> 05:58.590
+'email' que será - digamos que teremos 'john@gmail.com'.
+
+05:58.630 --> 06:04.540
+Então você pode imaginar que John está entrando em nosso site e usando a rota de 'login', o formulário de Login
+
+06:05.800 --> 06:07.210
+e sua senha
+
+06:10.420 --> 06:14.050
+serão 'cookies'.
+
+06:14.190 --> 06:19.680
+Nós vamos enviar essa informação do front-end e estamos apenas fingindo que John está registrando
+
+06:19.680 --> 06:22.730
+de modo que tenhamos acesso a ele aqui.
+
+06:25.560 --> 06:29.640
+Então vamos adicionar que 'if' statement 'if (req.body.email === [
+
+06:33.370 --> 06:33.770
+-
+
+06:37.100 --> 06:40.070
+tudo o que temos no banco de dados])
+
+06:40.370 --> 06:48.080
+Então, vamos dizer 'database.users' e nós vamos pegar o John's [0], embora devamos estar passando por isso,
+
+06:48.090 --> 06:54.920
+por enquanto só queremos ter certeza de que funciona, vamos pegar 'John' e vamos checar a entrada do email
+
+06:55.040 --> 06:56.390
+no banco de dados.
+
+06:57.340 --> 07:06.040
+E 'req.body.password === [tudo o que temos no banco de dados]'
+
+07:10.680 --> 07:20.000
+Se isso funcionar e isso for verdade, então responderemos com um JSON que diz "sucesso"
+
+07:22.920 --> 07:32.860
+caso contrário, podemos dizer que responderemos com um 'res.status (400)' e diremos
+
+07:35.770 --> 07:41.470
+'log de erro'.
+
+07:41.470 --> 07:52.600
+Tudo bem, vamos dar isso atrás - eu vou salvar, voltar aqui - '/ signin' - vamos clicar em enviar e eu fico um pouco, um pouco
+
+07:52.600 --> 07:58.670
+de um erro - '... ler e-mail da propriedade de indefinido'.
+
+07:58.730 --> 07:59.750
+Isso é um pouco complicado.
+
+07:59.750 --> 08:03.520
+Por que não está lendo a propriedade de email?
+
+08:03.740 --> 08:10.070
+E eu quero te mostrar esse erro porque isso acontece muito e é algo que as pessoas esquecem
+
+08:10.070 --> 08:10.760
+A Hora.
+
+08:11.030 --> 08:19.160
+Lembre-se de quando estamos enviando dados do front-end e usando JSON, bem, precisamos analisá-los porque
+
+08:19.160 --> 08:26.390
+Express não sabe o que acabamos de enviar; a fim de poder usar 'req.body ()' bem precisamos
+
+08:26.390 --> 08:29.590
+usar body-parser, não é?
+
+08:31.610 --> 08:32.560
+Então vamos fazer isso.
+
+08:32.600 --> 08:43.660
+Eu vou importar body-parser e 'require'.
+
+08:43.810 --> 08:47.640
+E se você não tem isso em seu projeto, então você terá que 'npm instalá-lo'.
+
+08:47.770 --> 08:55.810
+Mas em todos os aplicativos Express você vai ver isso, então é um daqueles pacotes que você nunca deve
+
+08:55.810 --> 09:01.060
+esquecer e praticamente todos os aplicativos Express vem com ele. Para usar isso, se você se lembrar da nossa anterior
+
+09:01.060 --> 09:01.780
+lição,
+
+09:01.900 --> 09:12.180
+nós apenas fazemos 'app.use ()' porque é um middleware e faremos 'body-parser.json'.
+
+09:12.410 --> 09:17.970
+E devemos fazer isso depois que o aplicativo foi - variável de aplicativo - foi criado.
+
+09:19.750 --> 09:23.080
+Vamos dizer isso e tentar novamente.
+
+09:24.030 --> 09:33.990
+Eu vou clicar em Enviar e temos "sucesso" - olha isso - se eu mudar isso para agora basta dizer "cookie" | - clique em Enviar
+
+09:35.230 --> 09:45.180
+Recebo um '400 pedido incorreto' com "registro de erros". Vamos tornar isso um pouco maior para que você possa ver. Como
+
+09:45.270 --> 09:46.470
+incrível é isso?
+
+09:46.530 --> 09:49.070
+Nós temos nosso Sign In trabalhando muito bem.
+
+09:51.970 --> 09:52.460
+Tudo bem.
+
+09:52.460 --> 09:54.430
+Isso é muito legal.
+
+09:54.430 --> 09:59.620
+Nós poderíamos fazer um loop 'for' aqui - 'for each'
+
+09:59.650 --> 10:06.370
+talvez - para verificar no caso de Sally registra, mas isso é um pouco incômodo, não é?
+
+10:06.370 --> 10:13.360
+Imagine se tivéssemos centenas de usuários e utilizássemos o loop for no Sign In para verificar todos os
+
+10:13.360 --> 10:15.380
+usuários e todas as senhas.
+
+10:15.670 --> 10:22.200
+E é exatamente por isso que uma das razões pelas quais usamos bancos de dados é que bancos de dados são realmente
+
+10:22.200 --> 10:30.390
+bom em pegar e verificar contra entradas diferentes contra uma variável ou uma matriz aqui onde temos
+
+10:30.390 --> 10:31.860
+percorrer tudo.
+
+10:32.370 --> 10:35.200
+Então, por enquanto, porque isso está funcionando, vamos mantê-lo como está.
+
+10:37.860 --> 10:39.340
+Vamos fazer o próximo.
+
+10:39.420 --> 10:44.850
+Registre-se, se você se lembrar, o registro será uma solicitação POST
+
+10:49.170 --> 10:52.230
+e novamente receberemos uma solicitação, resposta [(req.res)].
+
+10:54.760 --> 10:59.840
+Esta solicitação, resposta '/ registrar' significa que o usuário - um novo usuário - será criado.
+
+11:03.200 --> 11:08.120
+Então, não vamos fazer nenhuma verificação como essa porque o usuário não existe.
+
+11:08.120 --> 11:17.900
+Queremos pegar o 'req.body' e inserir as novas informações em nosso banco de dados.
+
+11:17.930 --> 11:25.820
+Neste caso, temos um objeto de banco de dados que tem usuários e uma matriz para que possamos fazer 'database.users.push ()'
+
+11:26.780 --> 11:28.170
+para adicionar a este array.
+
+11:28.250 --> 11:28.680
+Vamos fazer isso.
+
+11:31.730 --> 11:35.060
+Eu sempre adoro começar com o que o pedido vai se parecer.
+
+11:35.710 --> 11:39.960
+Então, voltando aqui, vemos que quando criamos um novo usuário -
+
+11:40.150 --> 11:50.280
+- se você se lembra do formulário de inscrição - recebemos nome, email e senha. Vamos ao carteiro e criá-los.
+
+11:50.560 --> 11:52.240
+Eu vou dizer.
+
+11:52.240 --> 11:54.450
+POST '/ register'
+
+11:55.060 --> 12:07.730
+e aqui temos "email", "password" e também "name" e vamos dizer que o nome é "Ann", a senha dela é "apples"
+
+12:08.210 --> 12:17.710
+e o e-mail será "ann@gmail.com" e nós enviaremos isso por meio do JSON - e veja como ele funciona
+
+12:17.710 --> 12:18.300
+me um erro?
+
+12:18.310 --> 12:21.860
+Isso é porque eu tenho uma vírgula - de novo,
+
+12:22.020 --> 12:25.240
+O carteiro é incrível para isso.
+
+12:25.420 --> 12:32.540
+Voltando queremos criar um usuário como este, então vamos apenas copiar
+
+12:32.580 --> 12:33.680
+isso, o que temos aqui
+
+12:38.130 --> 12:48.600
+e dizer que queremos criar um novo usuário dizendo 'database.users.push ()' para adicionar ao usuário
+
+12:48.600 --> 12:49.370
+array.
+
+12:49.920 --> 12:54.120
+E aqui dentro vamos adicionar um objeto que é o que acabamos de copiar,
+
+12:57.220 --> 13:01.680
+mas não queremos adicionar o John novamente aos usuários?
+
+13:01.720 --> 13:06.180
+Não, queremos pegar tudo o que recebemos de 'req.body'.
+
+13:06.280 --> 13:22.620
+No nosso caso, usando a desestruturação, podemos apenas dizer '{email, nome, senha} = req.body' e agora
+
+13:22.620 --> 13:29.600
+o banco de dados, por enquanto, apenas estaticamente pode adicionar o 'id' de '125'.
+
+13:29.870 --> 13:36.840
+'name' será o nome que recebemos, 'email' será email novamente
+
+13:36.840 --> 13:45.390
+e então finalmente 'senha' será o que recebemos e 'entradas' serão zero porque
+
+13:45.640 --> 13:51.640
+bem, Ann será um novo usuário e ela vai começar com zero entradas e 'juntou' será uma nova data porque
+
+13:51.640 --> 14:00.910
+ele irá gerar - sempre que isso for executado - ele irá gerar o timestamp daquele dia e hora.
+
+14:01.020 --> 14:04.040
+Vamos salvar isso e ver se isso funciona.
+
+14:05.030 --> 14:09.630
+Eu volto aqui, clique em Enviar.
+
+14:09.740 --> 14:11.990
+Eu recebo um 'carregamento' e está apenas girando.
+
+14:12.050 --> 14:16.320
+Vou clicar em Cancelar solicitação e você sabe por que isso acontece?
+
+14:16.710 --> 14:19.500
+Bem, porque não enviamos uma resposta.
+
+14:19.500 --> 14:25.210
+O Express agora está pendurado lá porque não retornamos nada que não tenhamos respondido. assim
+
+14:25.230 --> 14:26.730
+lembre-se sempre de fazer isso.
+
+14:28.000 --> 14:38.780
+Em nosso caso, diremos que 'res.json ()' será o usuário, o novo usuário que foi criado.
+
+14:38.880 --> 14:44.730
+Talvez se eles estão se registrando, queremos pegar essa informação e exibi-lo na página de perfil.
+
+14:44.730 --> 14:52.140
+No nosso caso, vamos dizer que queremos pegar 'database.users' e queremos pegar o último usuário que
+
+14:52.140 --> 14:54.660
+nós acabamos de criar. Isso é simples de fazer.
+
+14:54.660 --> 14:57.080
+Nós apenas fazemos 'database.users.length'
+
+14:57.120 --> 15:04.670
+que é o comprimento da matriz menos um, novamente ele pega a última matriz ou último item na matriz.
+
+15:07.030 --> 15h:08.020
+Vamos salvar aqui.
+
+15:09.490 --> 15:13.540
+E volte clique em enviar.
+
+15:13.550 --> 15:15.070
+Tudo bem, olhe para isso.
+
+15:15.170 --> 15:19.900
+Nós temos Ann com zero entradas.
+
+15:20.030 --> 15:23.690
+Um novo timestamp para quando ela se registrou.
+
+15:24.080 --> 15:26.040
+E agora temos um novo usuário.
+
+15:26.270 --> 15:31.090
+Vamos voltar para a rota raiz aqui.
+
+15:31.370 --> 15:33.390
+E vamos voltar agora
+
+15:33.620 --> 15:40.720
+o 'database.users' para se certificar de que vemos os usuários que temos.
+
+15:43.580 --> 15:50.500
+Vou salvar aqui, voltar e fazer uma solicitação GET na rota raiz.
+
+15:50.540 --> 15:51.440
+Se eu clicar em Enviar
+
+15:55.160 --> 15:58.230
+Eu cometi um erro aqui, não consigo soletrar.
+
+15:58.460 --> 16:00.140
+Vamos tentar de novo.
+
+16:00.140 --> 16:03.970
+Se eu voltar clique em Enviar.
+
+16:03.990 --> 16:10.360
+Tudo bem, eu tenho John e Sally, mas onde está Ann?
+
+16:10.900 --> 16:17.110
+Vamos voltar ao nosso pedido novamente e Postman lhe dá a história do seu pedido para que você não tenha
+
+16:17.110 --> 16:25.320
+para continuar a escrevê-los você pode voltar a registrar o olhar para o corpo e vamos mandar Ann novamente.
+
+16:25.320 --> 16:25.630
+Tudo bem.
+
+16:25.630 --> 16:32.140
+Nós nos registramos. Agora, se voltarmos ao nosso pedido GET e clique em Enviar.
+
+16:32.140 --> 16:32.610
+Tudo bem.
+
+16:32.650 --> 16:36.190
+Ann está lá; nós temos três novos usuários.
+
+16:36.190 --> 16:44.100
+Mas o que acabou de acontecer? Bem, este é outro bom exemplo de por que precisamos de um banco de dados.
+
+16:44.130 --> 16:51.480
+A razão pela qual Ann não foi adicionada na primeira vez é porque eu mudei a rota raiz para incluir
+
+16:51.560 --> 16:58.680
+'database.users', o que significa que o Nodemon teve que reiniciar; o servidor teve que reiniciar e começar de novo.
+
+16:59.160 --> 17:06.810
+E como essas variáveis ​​JavaScript são todas as vezes que reiniciamos o servidor, isso é executado novamente.
+
+17:07.110 --> 17:11.320
+Portanto, o banco de dados é iniciado apenas com os dois usuários.
+
+17:11.500 --> 17:18.610
+Novamente, nós realmente não usamos variáveis ​​para armazenar informações que precisamos para o que chamamos de 'persistir'
+
+17:18.640 --> 17:28.040
+- isso é para durar e ser memorizado pelo sistema. Bancos de dados são realmente muito bons porque eles são executados
+
+17:28.040 --> 17:36.050
+disco em algum lugar lá fora no mundo e eles são realmente muito bons em manter esta informação e
+
+17:36.140 --> 17:43.910
+não indo para baixo ou se eles vão para baixo que eles têm backups para que os usuários sempre chegar a ele e nós não
+
+17:43.910 --> 17:45.220
+perder qualquer informação.
+
+17:46.990 --> 17:51.380
+Nós vamos chegar aos bancos de dados e vamos realmente implementar isso com um banco de dados.
+
+17:51.490 --> 17:54.960
+Mas quero mostrar-lhe agora os pontos problemáticos de não ter bancos de dados.
+
+17:55.060 --> 18:04.220
+Nós tivemos que fazer um loop ou teríamos que passar por esses usuários se tivéssemos que checar o 'login' ou nós tínhamos que sempre
+
+18:04.640 --> 18:10.230
+Tenha em mente que sempre que o servidor for reiniciado, perderemos todos os nossos dados.
+
+18:10.250 --> 18:13.380
+Tudo bem, as coisas estão bem.
+
+18:15.160 --> 18:21.110
+Há definitivamente algumas coisas que podemos melhorar aqui, mas queremos apenas construir o esqueleto.
+
+18:21.470 --> 18:27.180
+Temos mais dois endpoints restantes e vamos abordar esses no próximo vídeo.
+
+18:27.200 --> 18:28.570
+Eu vou ver isso.
+
+18:28.640 --> 18:28.820
+Tchau tchau

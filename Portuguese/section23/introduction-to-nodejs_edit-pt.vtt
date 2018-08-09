@@ -1,0 +1,211 @@
+WEBVTT
+
+00:01.120 --> 00:02.140
+Bem vindo de volta.
+
+00:02.140 --> 00:03.910
+É hora de aprender o Node JS.
+
+00:04.030 --> 00:06.950
+Agora nó JS
+
+00:07.060 --> 00:11.920
+Nós meio que usamos isso em vídeos anteriores, mas não explicamos isso.
+
+00:11.920 --> 00:18.070
+Então, ao longo desta seção, vamos aprender o que é e, finalmente, usá-lo para construir um servidor.
+
+00:19.640 --> 00:27.180
+Agora eu posso ter mencionado isso antes, mas o Node é JavaScript que é executado em sua máquina.
+
+00:27.180 --> 00:34.140
+Você vê até o Node ser criado, você só pode executar JavaScript no navegador porque os navegadores
+
+00:34.140 --> 00:43.990
+foram os únicos que tinham um motor de JavaScript como V8 e Nó JS foi criado com o motor V8 em
+
+00:43.990 --> 00:51.400
+Para poder executar JavaScript em qualquer lugar, incluindo o seu computador, incluindo robôs e em qualquer lugar
+
+00:51.430 --> 00:53.450
+contanto que você tivesse o nó JS.
+
+00:54.460 --> 01:00.970
+E, na verdade, estamos usando o Node todo esse tempo em nosso Terminal quando executamos comandos
+
+01:01.030 --> 01:05.420
+que o NPM nos deu como 'criar-reagir-app'.
+
+01:05.410 --> 01:10.540
+Bem, isso estava usando o Node; Estávamos executando JavaScript fora do navegador.
+
+01:12.010 --> 01:17.320
+E o nó JS é provavelmente o mais popular para construir servidores.
+
+01:17.320 --> 01:24.040
+É realmente muito rápido e mais e mais empresas estão usando agora como um servidor de back-end por causa de
+
+01:24.040 --> 01:26.760
+o jeito que é construído.
+
+01:26.770 --> 01:27.110
+-
+
+01:27.170 --> 01:31.130
+O nó JS é provavelmente o servidor de escolha para qualquer aplicativo da Web ou
+
+01:31.350 --> 01:35.230
+aplicativos para celular que querem criar uma API ou um servidor.
+
+01:35.470 --> 01:40.490
+E também é muito bom em criar aplicativos de bate-papo e comunicação em tempo real.
+
+01:41.060 --> 01:45.970
+De qualquer forma, como já mencionamos antes, você provavelmente deveria ter isso no seu computador até agora, mas se não você
+
+01:45.970 --> 01:47.080
+pode baixar
+
+01:47.110 --> 01:47.450
+-
+
+01:47.490 --> 01:47.880
+Nó JS.
+
+01:47.920 --> 01:50.170
+Eu gosto de usar a versão LTS.
+
+01:50.990 --> 01:56.540
+Mas enquanto a versão que você está usando for maior que 8.9.3, esta demonstração
+
+01:56.600 --> 01:58.070
+vai trabalhar para você.
+
+01:58.070 --> 02:01.350
+O nó é realmente muito bom em garantir que tudo seja compatível.
+
+02:01.430 --> 02:08.150
+Novamente, se você estiver usando um sistema operacional Windows, o Node fornece isso para você na seção de download
+
+02:08.150 --> 02:08.700
+também.
+
+02:09.850 --> 02:15.950
+E, novamente, para verificar o Node, é muito fácil fazer o 'nó -v' para ver que o temos.
+
+02:16.180 --> 02:23.490
+E se você tiver, você terá o número da versão impresso para você no console. Uma última coisa
+
+02:23.490 --> 02:30.940
+antes de mostrar alguns comandos do Node:como eu disse antes, o Node pode ser executado em qualquer lugar.
+
+02:32.130 --> 02:38.250
+E uma das minhas coisas favoritas para fazer com o Node, além de construir servidores, é criar robôs usando
+
+02:38.250 --> 02:39.410
+JavaScript.
+
+02:39.400 --> 02:46.860
+Este Johnny-5 é uma biblioteca JavaScript que você pode usar com o Node e se você tem algo parecido com um Raspberry
+
+02:46.860 --> 02:55.310
+Pi, ajuda você a criar funções usando JavaScript que os robôs podem executar.
+
+02:55.740 --> 03:00.640
+Por isso, recomendo muito depois deste curso se você quiser explorar mais.
+
+03:00.660 --> 03:08.370
+Johnny-5 é uma das minhas coisas favoritas e é surpreendente como é fácil construir um robô que faz
+
+03:08.370 --> 03:12.590
+o que você quiser fazer apenas usando JavaScript.
+
+03:12.620 --> 03:18.670
+Mas de qualquer maneira, vamos voltar ao Node. No seu terminal,
+
+03:18.670 --> 03:27.550
+se você realmente digitar 'node' e pressionar Enter, verá que o prompt muda agora e eu posso executar o Node
+
+03:27.960 --> 03:31.530
+no terminal. Se eu fizer 'console.log (' hi ')'
+
+03:35.250 --> 03:47.570
+Eu recebo 'oi'. Se eu fizer '4 + 5' eu recebo 9 e se eu fizer 'Boolaen (3)' ops falo errado, 'Booleano (3)'
+
+03:50.130 --> 03:51.930
+Eu sou verdadeiro
+
+03:52.380 --> 03:58.450
+Como você pode ver, estamos apenas executando o JavaScript, mas há uma pequena diferença aqui.
+
+03:58.570 --> 04:07.510
+Se eu digitar 'window', recebo uma 'ReferenceError:window is not defined' e deixe-me esclarecer isso um pouco.
+
+04:07.510 --> 04:14.680
+Isso porque, quando executamos o Node, não temos o objeto window; o objeto da janela nos foi fornecido
+
+04:15.070 --> 04:16.570
+pelo navegador.
+
+04:16.930 --> 04:20.800
+E como você sabe, o Node, bem, não há nenhum navegador que esteja rodando.
+
+04:20.800 --> 04:25.020
+Em vez disso, o Node vem com algo chamado "global".
+
+04:25.210 --> 04:31.780
+E você pode ver que esse 'global' tem exatamente o mesmo objeto de janela, um monte de coisas que podemos usar
+
+04:32.500 --> 04:35.490
+mas não terá coisas específicas do navegador.
+
+04:36.410 --> 04:48.260
+Por exemplo, não poderemos ter 'global.fetch' - é indefinido porque não existe.
+
+04:48.300 --> 04:51.090
+Isso nos foi fornecido pelo navegador.
+
+04:51.090 --> 04:53.810
+Nós também não temos o objeto 'document',
+
+04:53.880 --> 05:00.120
+se você lembrar; se eu 'documentar' novamente, recebo um erro de referência porque não há documento; então isso é
+
+05:00.120 --> 05:01.670
+algo para se manter em mente.
+
+05:01.770 --> 05:08.130
+O nó vem com suas próprias propriedades e métodos que usamos, mas que não são específicos do navegador,
+
+05:08.130 --> 05:11.210
+podemos fazer o que quisermos com o Node.
+
+05:11.310 --> 05:16.100
+Um dos objetos globais que temos é algo chamado 'processo'.
+
+05:16.250 --> 05:24.680
+Se eu pressionar Enter novamente, tenho uma tonelada de coisas, e no Node, 'processo' significa 'este processo' - o que estou executando
+
+05:24.680 --> 05:28.890
+agora no Terminal é o processo, o que o computador está fazendo.
+
+05:30.330 --> 05:30.570
+Tudo bem.
+
+05:30.580 --> 05:33.260
+E vamos apenas esclarecer isso.
+
+05:33.460 --> 05:43.490
+Agora, se eu 'process.exit' eu sair desse processo e agora estou de volta ao meu terminal.
+
+05:43.680 --> 05:50.370
+Agora que temos Node em nosso poder, vamos começar a escrever um roteiro e mostrar como podemos
+
+05:50.370 --> 05:56.090
+comece a escrever JavaScript real, não no Terminal, mas no Texto Sublime.
+
+05:56.370 --> 05:58.110
+Eu vou ver no próximo vídeo.
+
+05:58.110 --> 05:58.350
+Tchau tchau.

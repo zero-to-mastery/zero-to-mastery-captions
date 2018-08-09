@@ -1,0 +1,605 @@
+WEBVTT
+
+00:01.360 --> 00:02.340
+Bem vindo de volta.
+
+00:02.560 --> 00:10.030
+É hora de finalmente integrar nosso servidor que acabamos de criar usando o Node e o Express em nosso front-end,
+
+00:11.180 --> 00:17.830
+que foi construído com JavaScript e React. Vamos começar ambos os servidores e eu quero que você pense
+
+00:17.830 --> 00:24.520
+destes como dois computadores separados, porque na vida real, provavelmente, estes serão dois computadores separados
+
+00:24.520 --> 00:32.380
+em algum lugar que está sendo executado separadamente e eles estão se comunicando - bem, através de HTTP. eu estou indo correr
+'npm start' aqui.
+
+00:32.390 --> 00:33.260
+-
+
+00:35.050 --> 00:38.920
+E com o aplicativo React, também executarei o 'npm start'.
+
+00:39.780 --> 00:46.470
+E você notará que provavelmente vai me dar um aviso ou uma sugestão que diz que algo já está em execução
+
+00:46.470 --> 00:52.110
+na porta 3000 e até me diz exatamente o que está acontecendo lá.
+
+00:52.110 --> 00:58.440
+E como ambos estão tentando rodar na mesma porta, podemos executá-los em diferentes, então eu
+
+00:58.440 --> 01:05.930
+pode mudar meu servidor para rodar em algo diferente de 3000, que é o padrão para create-react-app.
+
+01:06.120 --> 01:14.160
+Ou posso apenas dizer "Gostaria de executar o aplicativo em outra porta?" - Eu clico em 'Y' e agora vai
+
+01:14.670 --> 01:23.610
+crie 'localhost:3001' como meu front-end. Impressionante.
+
+01:23.610 --> 01:25.340
+Então, temos nosso aplicativo aqui.
+
+01:26.010 --> 01:34.850
+Se voltarmos, temos o aplicativo e o servidor em execução e queremos finalmente conectá-los. Se você lembrar
+
+01:37.260 --> 01:38.700
+nosso diagrama aqui.
+
+01:38.700 --> 01:41.660
+Estamos finalmente colmatar o fosso entre os dois.
+
+01:41.850 --> 01:47.180
+Duas instâncias separadas se comunicando juntas.
+
+01:47.230 --> 01:48.010
+Vamos começar.
+
+01:51.820 --> 02:00.250
+Como sabemos com o nosso aplicativo React, para se comunicar com o back-end ou o mundo exterior, podemos usar
+
+02:00.310 --> 02:01.280
+'buscar'.
+
+02:01.510 --> 02:07.350
+No nosso caso, podemos dizer "componente ..." e vamos fazer isso no topo.
+
+02:07.360 --> 02:15.280
+Ai está. 'componentDidMount' - um gancho de ciclo de vida que vem com o React, portanto, não precisamos fazer funções de seta
+
+02:16.090 --> 02:27.450
+- e vamos dizer que aqui queremos "buscar" e vamos fazer "localhost" porque este é o nosso computador e
+
+02:27.980 --> 02:30.250
+pote '3000' terá que fazer
+
+02:30.260 --> 02:34.870
+HTTP aqui 'localhost:3000'
+
+02:35.280 --> 02:38.730
+E lembre-se esta sintaxe está fazendo
+
+02:38.840 --> 02:43.860
+'. then ()' vamos obter uma resposta
+
+02:46.480 --> 02:48.860
+e nós vamos ter que correr
+
+02:48.940 --> 02:58.230
+'response.json ()' para que possamos lê-lo e depois obteremos dados. E uma maneira abreviada de fazer isso é se você
+
+02:58.260 --> 03:05.530
+na verdade, 'console.log' os dados serão automaticamente inseridos aqui.
+
+03:05.580 --> 03:07.480
+Então eu não tenho que fazer
+
+03:07.660 --> 03:10.980
+'. then (data => console.log (dados))'
+
+03:11.010 --> 03:15.640
+É a mesma coisa.
+
+03:15.650 --> 03:20.330
+Então vamos tentar e ver se funciona.
+
+03:20.450 --> 03:31.110
+Se você se lembra se nós fazemos a rota raiz base [/] em nosso servidor - bem, a raiz é apenas pegar os usuários
+
+03:31.110 --> 03:38.870
+do banco de dados. Vamos dar uma chance. Eu vou salvar; não recebendo erros, o que é bom.
+
+03:40.580 --> 03:53.720
+Se eu for para 'localhost' e atualizar e abrir o console eu recebo 'Falha ao carregar http:// localhost:3000 /'
+
+03:53.720 --> 03:59.450
+"Nenhum cabeçalho 'Access-Control-Allow-Origin' está presente" blah blah blah blah blah.
+
+03:59.810 --> 04:06.710
+E esse é um erro que é realmente um recurso de segurança.
+
+04:06.900 --> 04:13.770
+Você receberá esse erro porque, com o Google, o que estamos tentando fazer agora é que estamos tentando nos comunicar
+
+04:14.040 --> 04:23.920
+com o mundo exterior usando HTTP, mas o Chrome não confia realmente no que estamos acessando aqui.
+
+04:24.100 --> 04:28.160
+Eles não têm como saber que nosso servidor está seguro.
+
+04:28.210 --> 04:35.680
+Talvez seja algum hacker que está secretamente tentando fazer um pedido da sua página para o site deles
+
+04:35.710 --> 04:39.680
+que baixa algum software ruim na sua página.
+
+04:41.380 --> 04:46.640
+E isso é chamado de 'Access Control Allow Origin' e para nós testarmos isso em 'localhost'
+
+04:46.810 --> 04:54.110
+precisamos fazer algo chamado CORS, e você pode ver aqui na mensagem de erro - "definir o pedido
+
+04:54.110 --> 04:58.780
+mode para no-cors "e eu vou vincular as informações sobre o CORS aqui.
+
+04:58.790 --> 05:06.830
+Mas o que queremos aqui é que queremos um pacote npm, mais uma vez chamado cors e assim como o body-parser é
+
+05:06.830 --> 05:09.090
+uma daquelas comuns que você verá em toda parte.
+
+05:09.110 --> 05:11.060
+Eu vou te mostrar exatamente como usá-lo.
+
+05:11.090 --> 05:17.180
+Você vê que é um middleware que simplesmente fazemos 'app.use (cors)'. Então vamos instalar isso.
+
+05:17.540 --> 05:20.120
+Eu vou 'npm instalar cors'
+
+05:25.820 --> 05:27.620
+e agora que temos, podemos apenas
+
+05:31.450 --> 05:40.530
+'const cors = require (' cors ')' e simplesmente 'app.use (cors ())'.
+
+05:44.700 --> 05:48.170
+Vamos salvar, execute 'npm start' novamente.
+
+05:52.370 --> 05:59.190
+Vamos voltar ao nosso aplicativo, atualizar, se eu abrir o console
+
+05:59.320 --> 06:04.710
+Eu recebo uma matriz de dois usuários. Quão incrível é isso?
+
+06:05.610 --> 06:06.570
+Está funcionando.
+
+06:07.020 --> 06:14.640
+Então vamos trabalhar no sinal. Vamos enviar as informações de Logon do front-end para o
+
+06:14.670 --> 06:15.060
+back-end
+
+06:18.470 --> 06:23.530
+e a maneira como temos que se preparar agora só vai checar por John.
+
+06:23.540 --> 06:25.940
+Eu minimizei isso, então é um pouco mais limpo.
+
+06:26.000 --> 06:34.650
+Vai checar por John e vamos voltar a senha por enquanto, para 'cookies'.
+
+06:36.690 --> 06:43.710
+E a senha de Sally para as 'bananas'.
+
+06:43.890 --> 06:48.210
+Eu vou salvar e agora trabalho na rota de 'login'.
+
+06:49.410 --> 06:52.110
+No momento, porém, sabemos que a busca está funcionando.
+
+06:52.110 --> 06:56.240
+Na verdade, vamos tentar fazer com que o endpoint de 'signin' funcione.
+
+06:56.250 --> 07:06.780
+Então, vamos pensar sobre isso, se voltarmos para a nossa página de login, bem, este componente tem duas entradas:o e-mail
+
+07:06.820 --> 07:14.810
+e a senha que quando clicamos em Entrar teremos que enviar através de 'corpo da solicitação'.
+
+07:14.900 --> 07:18.500
+Teremos que enviar isso para o servidor.
+
+07:18.500 --> 07:23.490
+O servidor irá verificar se o usuário existe e nos dará uma resposta.
+
+07:23.690 --> 07:24.450
+Então vamos fazer isso.
+
+07:28.090 --> 07:33.180
+Queremos remover componentDidMount do aplicativo porque não precisamos mais dele.
+
+07:35.430 --> 07:45.540
+E embora possamos criar nossa função fetch aqui - no app.js - porque 'Signin' é o próprio little
+
+07:45.540 --> 07:51.650
+componente e o resto do aplicativo depois de 'Signin' não importa se ele foi bem-sucedido ou não
+
+07:51.660 --> 07:57.680
+- Eu gosto de manter a funcionalidade do Signin dentro do componente.
+
+07:57.680 --> 08:05.000
+Agora, o que isso significa é que queremos transformar isso em um componente inteligente para que ele tenha
+
+08:05.000 --> 08:09.370
+é o estado de entrada de 'email' e 'password'.
+
+08:09.860 --> 08:23.030
+Então, vamos fazer isso, vamos converter isso em uma classe 'Signin' que extende React.Component
+
+08:29.270 --> 08:33.290
+e isso terá um método 'render ()'
+
+08:36.050 --> 08:37.280
+que recebe
+
+08:41.940 --> 08:47.060
+Tudo isso [código] - Vou minimizar isso só para você poder ver.
+
+08:47.090 --> 08:50.000
+Esquecemos o suporte aqui; Certifique-se de incluir isso também.
+
+08:59.800 --> 09:00h.930
+Perfeito.
+
+09:01.120 --> 09:03.250
+E nós queremos fechar
+
+09:06.390 --> 09:12.220
+o suporte aqui, e nós recebemos alguns 'adereços' que estavam em 'mudança de rota'
+
+09:12.330 --> 09:23.130
+então vamos ter que fazer 'this.props.onRouteChange ()' e depois 'this.props.onRouteChange ()' ou
+
+09:23.130 --> 09:24.130
+de fazer isso
+
+09:24.360 --> 09:33.860
+ainda melhor é fazer isso aqui destruindo 'onRouteChange'
+
+09:34.340 --> 09:40.100
+é igual a this.props '. Então tudo deve estar compilando bem.
+
+09:40.130 --> 09:43.040
+E vimos a página de login.
+
+09:43.310 --> 09:52.810
+Agora, para obter os valores de entrada destes dois, criamos uma função 'onEmailChange ()'.
+
+09:56.160 --> 10:07.840
+E isso vai ouvir o evento onchange do e-mail e vamos dizer aqui que esse evento vamos definir
+
+10:07.830 --> 10:20.280
+state for - só assim sabemos que estamos claros, vamos dizer 'signInEmail' e isso será 'event.target.value'
+
+10:20.390 --> 10:27.380
+e 'onPasswordChange ()' teremos novamente, outra função
+
+10:34.150 --> 10:40.390
+vamos atualizar um estado que chamaremos de 'signInPassword'
+
+10:43.580 --> 10:45.140
+e precisaremos criar esse estado.
+
+10:45.140 --> 10:59.470
+Então faremos o nosso 'constructor ()' 'super ()' e então 'this.state' é igual a 'signInEmail:' que será uma string vazia
+
+10:59.470 --> 11:06.870
+por enquanto quando inicializa e 'signInPassword:' novamente uma string vazia.
+
+11:06.880 --> 11:17.050
+Agora, para usarmos 'adereços', também queremos passar 'adereços' aqui.
+
+11:17.120 --> 11:17.660
+Vamos salvar.
+
+11:21.880 --> 11:26.110
+E se isso está funcionando da maneira que esperamos
+
+11:26.120 --> 11:42.110
+agora podemos criar um evento 'onSubmitSignIn' que agora usará esse estado para buscar - e por enquanto estamos
+
+11:42.110 --> 11:45.440
+Não tenho certeza do que vamos buscar ainda.
+
+11:45.530 --> 11:49.110
+Então vamos apenas 'console.log'
+
+11:49.440 --> 11:54.720
+'this.state.signInPassword'
+
+11:55.350 --> 11:57.560
+Ou, na verdade, vamos apenas 'console.log'
+
+11:57.780 --> 11:59.220
+'this.state'.
+
+11:59.610 --> 12:07.280
+E se você está se perguntando, podemos realmente ter mais de dois componentes inteligentes em um aplicativo em que isso tem estado
+
+12:07.310 --> 12:08.920
+então o app tem estado
+
+12:09.180 --> 12:10.600
+Bem, sim, absolutamente.
+
+12:10.650 --> 12:17.610
+Você quer organizar seu aplicativo de uma maneira que faça sentido, por exemplo, 'Signin' é sua própria coisa fechada.
+
+12:17.610 --> 12:26.490
+Então, usar o 'Signin', embora seja filho de 'App', pode ter seu próprio estado, desde que esse estado seja apenas
+
+12:26.490 --> 12:33.960
+preocupado com o 'Signin' então é uma boa maneira de fazer isso em vez de atualizar constantemente 'App.js'
+
+12:34.290 --> 12:38.280
+e fazer o 'App.js' crescer em muitas linhas.
+
+12:41.850 --> 12:43.540
+Tudo bem, então temos 'console.log'
+
+12:43.580 --> 12:49.610
+vamos ver se 'onSubmitSignIn' funciona vamos ao botão 'submit'
+
+12:52.260 --> 12:58.120
+antes de fazermos o 'onClick' para mudar de rota para 'casa'
+
+12:58.200 --> 13:12.200
+vamos agora fazer 'this.onSubmitSignIn' e aqui dentro vamos rodar o 'onRouteChange'
+
+13:12.590 --> 13:17.240
+que é 'this.props.onRouteChange'
+
+13:20.590 --> 13:26.230
+e vamos verificar isso. Vamos salvar voltar ao nosso aplicativo.
+
+13:26.490 --> 13:33.260
+Eu vou abrir o console aqui; Vou digitar 'test@gmail.com'
+
+13:36.500 --> 13:46.640
+'test', entre, e eu vejo que eu tenho 'signInPassword' vazio, 'signInEmail' vazio, e isso é porque nós criamos
+
+13:46.640 --> 13:50.130
+mas não adicionamos os eventos nas entradas.
+
+13:50.540 --> 13:53.300
+Então, vamos fazer isso - para o e-mail no 'input'
+
+13:53.390 --> 13:57.530
+Eu direi 'onChange'
+
+14:01.750 --> 14:13.560
+E sabe de uma coisa? Vamos adicioná-los em novas linhas apenas para que fique mais limpo. Caso contrário, pode ficar bastante confuso.
+
+14:13.560 --> 14:14.260
+Ai está.
+
+14:14.430 --> 14:24.110
+E agora eu posso dizer 'onChange' e 'onChange' vai levar 'this.onEmailChange' porque este é o e-mail.
+
+14:24.320 --> 14:25.260
+E o próximo
+
+14:29.200 --> 14:34.510
+terá uma coisa semelhante, exceto em vez de ter
+
+14:37.260 --> 14:40.930
+'onEmailChange' teremos 'onPasswordChange'.
+
+14:40.930 --> 14:42.300
+Vamos tentar de novo.
+
+14:46.180 --> 14:48.110
+'test@gmail.com'
+
+14:49.000 --> 14:51.560
+'teste' entrar.
+
+14:51.580 --> 14:54.010
+Tudo bem, temos essa informação, o que é ótimo.
+
+14:54.040 --> 15:03.870
+Agora podemos enviar para o nosso servidor e podemos fazer isso simplesmente 'onSubmitSignIn' rodando
+
+15:04.760 --> 15:20.810
+uma função - um 'fetch ()', que vimos anteriormente para HTTP nosso 'localhost' para '3000' e fazendo um '/ signin'.
+
+15:21.140 --> 15:24.040
+Agora busque por padrão uma solicitação GET
+
+15:24.110 --> 15:28.640
+mas o que queremos fazer aqui é uma solicitação POST conforme nos lembramos.
+
+15:28.720 --> 15:35.810
+Então, a maneira que fazemos isso é no segundo parâmetro, podemos passar um objeto aqui que descreve o que o
+
+15:35.810 --> 15:37.640
+pedido será.
+
+15:37.640 --> 15:41.690
+No nosso caso, teremos um 'método' de 'post'
+
+15:44.550 --> 15:49.950
+teremos cabeçalhos e cabeçalhos aceitando um objeto.
+
+15:49.960 --> 16:00.520
+No nosso caso, queremos ver 'Content-Type' e porque tem essa linha aqui, temos que envolvê-lo entre aspas
+
+16:02.110 --> 16:04.880
+e nós vamos dizer que é 'application / json'
+
+16:05.580 --> 16:06.110
+-
+
+16:09.450 --> 16:17.720
+e agora vamos dizer que o corpo vai conter o que temos no estado, mas lembre-se, a fim de enviar
+
+16:17.720 --> 16:20.530
+para o back-end, não podemos simplesmente enviar um objeto JavaScript.
+
+16:20.600 --> 16:31.880
+Nós temos que 'JSON.stringify' o objeto e o objeto vai ser 'email', que é 'this.state.email'
+
+16:31.930 --> 16:37.050
+ou um 'signInEmail' e copiamos isso
+
+16:39.850 --> 16:47.900
+e 'password' que será 'this.state.password ... -
+
+16:48.460 --> 16:52.630
+Vai ser 'signInPassword'
+
+16:52.640 --> 16:52.970
+Tudo bem.
+
+16:53.000 --> 16:55.580
+Vamos ver se isso funciona.
+
+16:55.640 --> 17:07.340
+Eu vou salvar e aqui vou dizer 'john@gmail.com' e 'cookies' se eu clicar em Entrar
+
+17:09.100 --> 17:11.330
+Eu recebo '404 (Not Found)'.
+
+17:11.800 --> 17:13.630
+Vamos depurar isso e ver o que aconteceu.
+
+17:17.100 --> 17:21.550
+Bem, em primeiro lugar eu não soletrei 'signin' certo então vamos tentar de novo.
+
+17:27.180 --> 17:30.740
+E dê uma olhada e veja se isso funciona.
+
+17:32.970 --> 17:38.280
+E nós queremos dizer "cookies" aqui, entre.
+
+17:38.300 --> 17:44.050
+Certo, nós estamos 'assinando' Bad Request '. Se nós olharmos aqui
+
+17:44.280 --> 17:50.050
+nós recebemos uma resposta "error logging" e esse é o erro que demos no servidor.
+
+17:50.340 --> 17:54.540
+Então parece que algo em nosso pedido não está funcionando.
+
+17:54.540 --> 17:55.380
+Vamos dar uma olhada.
+
+17:56.300 --> 17:59.140
+E isso tinha que ser 'cabeçalhos' não 'cabeçalho'
+
+17:59.150 --> 18:00h.830
+- isso é um erro da minha parte.
+
+18:00.890 --> 18:02.020
+Vamos tentar de novo.
+
+18:02.900 --> 18:06.180
+'john' - deixe-me consolar aqui
+
+18:06.190 --> 18:12.140
+'john@gmail.com' 'cookies' entre.
+
+18:12.160 --> 18:20.530
+Tudo bem, vamos para a guia "Rede" e ver com o que a rota de "login" respondeu.
+
+18:20.530 --> 18:22.310
+Dizia "sucesso".
+
+18:22.420 --> 18:30.670
+Então, conseguimos entrar porque, bem, entramos no John - um usuário que temos de acordo com o nosso muito simples
+
+18:30.670 --> 18:41.450
+Assine o formulário. No entanto, se quisermos mudar isso para dizer agora que o status da resposta é 400 'log de erro'
+
+18:41.730 --> 18:44.740
+e se esse erro é para não nos deixar entrar
+
+18:45.210 --> 18:53.980
+bem aqui tudo o que temos a fazer é, em vez de fazer 'onRouteChange', podemos fazer um '.then'.
+
+18:54.400 --> 19:00.700
+E lembre-se que esta resposta '.then' terá que fazer 'response.json ()' '.then ()'
+
+19:04.410 --> 19:04.770
+-
+
+19:04.800 --> 19:15.050
+Então vamos dizer que os dados que recebemos - e vamos manter isso simples aqui - se nós
+
+19:17.310 --> 19:31.270
+'if (data ==' 'success'), que é o que recebemos; Nesse caso, bem, faremos uma mudança de rota. Vamos salvar isso.
+
+19:31.470 --> 19:32.650
+Tudo bem, vamos dar uma chance.
+
+19:33.880 --> 19:42.070
+Se eu não digitar nada aqui e clicar em Entrar, recebo um 'POST' '(Bad Request)' e se olharmos para a mensagem
+
+19:42.070 --> 19:46.450
+que recebemos, temos "erro de login".
+
+19:46.560 --> 19:53.460
+Portanto, usando essas informações, podemos criar uma exibição de erro aqui [na página de login], mas ela não está permitindo o login.
+
+19:53.460 --> 19:55.040
+Para que possamos fazer login
+
+19:55.140 --> 20:08.120
+temos que usar nosso exemplo de John e nos certificar de que nossos e-mails e senhas coincidam. Isso funciona!
+
+20:11.270 --> 20:13.300
+Vamos tentar mais uma vez.
+
+20:13.510 --> 20:13.940
+Se eu fizer
+
+20:13.940 --> 20:14.460
+'John ...'
+
+20:17.630 --> 20:26.120
+'cookies' entrar e tudo está funcionando, não estamos recebendo erros. Agradável.
+
+20:26.130 --> 20:29.340
+Isso está funcionando.
+
+20:29.420 --> 20:29.870
+Tudo bem.
+
+20:29.870 --> 20:35.660
+Então, estamos apenas usando John para os usuários
+
+20:35.660 --> 20:41.930
+mas, idealmente, podemos filtrar tudo e ter certeza de que existe.
+
+20:41.930 --> 20:47.540
+Agora, como eu disse antes, não vamos fazer isso aqui, porque isso é algo que bancos de dados
+
+20:47.540 --> 20:55.930
+são muito bons, mas eu queria mostrar como isso funcionaria com correspondência de e-mails e senhas.
+
+20:56.170 --> 20:56.480
+Tudo bem.
+
+20:56.480 --> 20:58.060
+Então, temos o Sign In funcionando.
+
+20:58.070 --> 21:04.420
+Vamos também registrar o Register, e o Register é muito semelhante ao Sign In.
+
+21:04.610 --> 21:06.450
+Então, no próximo vídeo, vamos abordar isso.

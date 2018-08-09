@@ -1,0 +1,238 @@
+WEBVTT
+
+00:00.730 --> 00:04.680
+Bem vindo de volta. Agora nós examinamos alguns comandos SQL
+
+00:04.680 --> 00:10.660
+e você deve se sentir bem à vontade com a maioria deles. Mas há uma coisa que eu meio que omiti
+
+00:10.710 --> 00:16.500
+até agora. Você se lembra aqui quando falamos sobre bancos de dados relacionais eu mencionei algo sobre o nosso
+
+00:16.500 --> 00:19.030
+chave primária e uma chave estrangeira.
+
+00:19.200 --> 00:25.550
+Como essas tabelas são vinculadas umas às outras com alguns valores como nome de usuário.
+
+00:25.560 --> 00:31.210
+Bem, vamos começar a introduzir essa ideia de conectar as tabelas e como podemos fazer isso.
+
+00:32.890 --> 00:41.220
+A primeira coisa que quero mostrar é esse comando aqui. Eu quero criar uma tabela de login com criar
+
+00:41.220 --> 00:42.300
+TABELA que vimos
+
+00:44.860 --> 00:49.600
+E agora dentro daqui
+
+00:49.750 --> 00:50.940
+Eu tenho algumas coisas.
+
+00:51.190 --> 00:55.440
+Eu tenho um ID que tem serial de tipo de dados.
+
+00:55.450 --> 00:59.190
+Vamos ver o que é isso.
+
+00:59.230 --> 01:04.400
+Vemos que o tipo de dados serial é um valor inteiro de incremento automático.
+
+01:04.610 --> 01:05.220
+ESTÁ BEM.
+
+01:05.470 --> 01:11.980
+E esse valor incrementado automaticamente toda vez que um novo usuário é criado.
+
+01:11.990 --> 01:16.350
+Vai um, dois, três, quatro, cinco.
+
+01:16.450 --> 01:20.640
+Então, é um ID único que podemos atribuir a cada usuário.
+
+01:20.650 --> 01:22.720
+No entanto, isso é para a tabela de login.
+
+01:22.720 --> 01:27.930
+Então, estamos criando um ID para cada entrada de login aqui.
+
+01:29.510 --> 01:30.960
+E você vê que diz NÃO NULO.
+
+01:31.020 --> 01:39.230
+Não nulo significa que este bem tem que ser uma propriedade preenchida.
+
+01:39.260 --> 01:45.000
+Lembre-se de quando tivemos a tabela de usuários e não tivemos as pontuações e tivemos nulo aqui.
+
+01:45.320 --> 01:49.380
+Bem, se não fizermos NULL, isso significa que isso não é possível.
+
+01:50.900 --> 01:54.760
+E também temos a chave primária e a configuração das chaves primárias
+
+01:54.770 --> 02:01.480
+quando você está criando uma mesa é uma das coisas mais importantes. Dizendo que o ID aqui é o
+
+02:01.480 --> 02:02.780
+chave primária.
+
+02:03.530 --> 02:11.420
+Está dizendo que é isso que eu quero que você acesse quando estou procurando por coisas. E bancos de dados são realmente
+
+02:11.420 --> 02:11.930
+muito bom.
+
+02:11.930 --> 02:21.400
+Quando você define uma chave primária para pegar essa informação. E como você sabe, as chaves primárias são apenas uma por tabela.
+
+02:21.520 --> 02:28.090
+Geralmente algo como um ID ou algo único como um email. Ao definir isso como chave primária,
+
+02:28.130 --> 02:35.930
+agora temos uma maneira realmente rápida de selecionar ou pegar informações.
+
+02:36.010 --> 02:43.360
+Se olharmos para o segundo valor aqui, a segunda coluna. Nós temos o segredo que é um personagem variável
+
+02:43.360 --> 02:44.260
+de um 100.
+
+02:44.440 --> 02:53.350
+Vamos ver o que é esse tipo de dados. Para o caractere de variável de tipo de dados string tem um tamanho,
+
+02:56.100 --> 02:58.810
+e podemos dizer que caracteres numéricos para armazenar.
+
+02:59.130 --> 03:06.270
+Então, estamos dizendo que o valor secreto em nosso caso será o hash não maior que 100.
+
+03:06.630 --> 03:13.050
+E também não é nulo, isto é sempre tem que ser preenchido quando estamos inserindo algo neste
+
+03:13.050 --> 03:13.690
+mesa.
+
+03:13.770 --> 03:20.930
+Caso contrário, vai falhar. E então temos o nome que será o texto que usamos antes.
+
+03:21.030 --> 03:28.680
+Mas também tem que ser único. E a única palavra-chave diz que se um nome já existe bem, então nós
+
+03:28.680 --> 03:30.850
+não pode inserir nele.
+
+03:30.960 --> 03:33.140
+Então, vamos executar este comando e ver o que acontece.
+
+03:35.030 --> 03:37.070
+Vamos nos refrescar.
+
+03:37.130 --> 03:41.980
+Nós temos a tabela de login agora com ID, segredo e nome.
+
+03:42.120 --> 03:44.090
+Vamos inserir algumas informações aqui.
+
+03:46.520 --> 03:53.080
+Eu vou dizer INSERT INTO login.
+
+03:53.080 --> 03:59.890
+Não precisamos inserir nada no ID porque isso é feito para nós porque é serial,
+
+03:59.890 --> 04:10.740
+ele será incrementado automaticamente. Mas pelo segredo podemos dizer que o segredo será um hash e o nome
+
+04:11.280 --> 04:16.180
+será algum tipo de texto. Vamos formatar isso um pouco.
+
+04:23.270 --> 04:27.170
+VAULES e vamos dizer uma espécie de string.
+
+04:27.200 --> 04:28.930
+Nós vamos apenas dizer "abc" aqui.
+
+04:30.750 --> 04:32.190
+E o nome será 'Andrei'.
+
+04:36.310 --> 04:39.430
+Vamos executar a consulta.
+
+04:39.630 --> 04:44.510
+Vamos voltar para o login, atualizar, vá para o login.
+
+04:44.640 --> 04:52.150
+E vemos que Andrei foi inserido com ID de 1. Se eu voltar para a consulta e adicionar um diferente
+
+04:52.150 --> 04:57.970
+pessoa vamos fazer Sally e sua senha é 'xyz'.
+
+04:59.350 --> 05:08.680
+Execute a consulta e agora deve estar lá.
+
+05:08.890 --> 05:16.030
+E você também notou que o id dela agora é 2. E se eu entrar de novo?
+
+05:17.250 --> 05:24.090
+Eu recebo um erro, o valor da chave duplicada viola a restrição exclusiva "login_name_key" porque dissemos que
+
+05:24.090 --> 05:27.080
+queremos único para o nome.
+
+05:27.240 --> 05:28.110
+Muito legal.
+
+05:28.450 --> 05:30.210
+Vamos entrar no último.
+
+05:31.090 --> 05:32.290
+E isso será
+
+05:32.090 --> 05:33.990
+John
+
+05:34.970 --> 05:40.970
+porque é isso que temos na nossa tabela de usuários.
+
+05:41.040 --> 05:50.090
+Então nós temos 'John' perfeito e se você for fazer o login nós também temos 'John' com seu segredo que é 'lol'.
+
+05:50.270 --> 05:57.380
+E observe aqui que são quatro em vez de três porque executamos um comando, mas não conseguimos fazer isso, mas
+
+05:57.380 --> 06:01.980
+realmente não importa, desde que sejam únicos. Estas são as chaves primárias.
+
+06:02.030 --> 06:10.450
+Esta é a única coisa que nos certificamos de que é único em todos os momentos da nossa tabela. Mas fazendo isso nós
+
+06:10.450 --> 06:12.480
+criou algo interessante.
+
+06:12.640 --> 06:21.910
+Temos Andrei, Sally e John que também moram com Andrei, Sally e John na tabela Usuários. Quando nós projetamos
+
+06:21.910 --> 06:29.850
+bancos de dados como este agora podemos ter Andrei, Sally e John fazendo referência aos usuários.
+
+06:29.930 --> 06:40.380
+E se eu quisesse pegar o segredo de Andrei ou Andrei, que é 'abc', nesse caso eu tenho uma chave estrangeira que
+
+06:40.380 --> 06:51.870
+é isto. Esta coluna de nome no login é a chave estrangeira que referencia o - no nosso caso, a principal
+
+06:51.870 --> 06:57.540
+key aqui porque esses são os valores de identificação exclusivos na tabela Usuários.
+
+06:57.750 --> 06:59.610
+Isso é Andrei.
+
+06:59.830 --> 07:03.880
+No próximo vídeo, vou mostrar como podemos finalmente conectar esses dois juntos.
+
+07:04.880 --> 07:05.910
+Eu vou te ver nessa.
+
+07:06.160 --> 07:06.440
+Tchau tchau.

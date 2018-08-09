@@ -1,0 +1,517 @@
+WEBVTT
+
+00:01.210 --> 00:08.290
+Ah, o novo recurso em javascript que todo mundo está falando ultimamente 'Async Await'. Neste vídeo
+
+00:08.290 --> 00:12.830
+nós vamos aprender o que é todo esse hype. Para começar
+
+00:12.890 --> 00:19.880
+Você deve primeiro saber que o Async Await faz parte do ES8 e é construído sobre as promessas.
+
+00:20.000 --> 00:22.280
+Se você não tem certeza de quais são as promessas.
+
+00:22.280 --> 00:25.840
+Certifique-se de verificar o vídeo primeiro.
+
+00:25.960 --> 00:34.420
+Agora, sob o capô, uma função assíncrona é uma função que retorna uma promessa. Mas o benefício do Async
+
+00:34.430 --> 00:37.710
+Aguardar é que isso torna o código mais fácil de ler.
+
+00:38.110 --> 00:39.430
+Deixe-me mostrar o que quero dizer.
+
+00:39.760 --> 00:44.750
+Esta é uma promessa que acabamos de inventar.
+
+00:44.770 --> 00:47.340
+É uma função de movimento do jogador.
+
+00:47.350 --> 00:53.470
+Imagine que estamos projetando um jogo e tem a distância mais a direção que o jogador move e
+
+00:53.470 --> 00:59.560
+se quisermos mudar isso, temos 'move player' '. then', 'move player' novamente, 'move player' novamente.
+
+00:59.650 --> 01:00.810
+'move player' novamente.
+
+01:01.150 --> 01:03.670
+Agora este é um código assíncrono.
+
+01:03.730 --> 01:06.200
+Sabemos que o movimento jogador vai acontecer, então
+
+01:06.280 --> 01:08.390
+Isso vai acontecer, então isso, então isso.
+
+01:08.500 --> 01:16.780
+Se quisermos ter algum tipo de ação aqui, podemos envolvê-lo entre colchetes e consolar o log dessa extração.
+
+01:16.780 --> 01:21.370
+Todas as coisas que você pode fazer com promessas. com async aguardar
+
+01:21.410 --> 01:24.240
+Seria algo como isto.
+
+01:27.300 --> 01:28.420
+Oque esta acontecendo aqui.
+
+01:29.770 --> 01:37.660
+O grande benefício do async espera é que ele torne o código mais fácil de ler e eu sei que você provavelmente não está pensando
+
+01:37.660 --> 01:41.230
+isso agora porque essa é uma nova sintaxe, mas apenas dê uma chance.
+
+01:41.240 --> 01:48.850
+A meta com o async está esperando para fazer o código parecer síncrono - um código que é assíncrono.
+
+01:48.850 --> 01:54.890
+Agora, se você se lembra de uma promessa em javascript, é como se fosse um 'eu te devo'.
+
+01:55.020 --> 01:58.180
+Eu prometo retornar algo para você no futuro.
+
+01:58.990 --> 02:05.140
+Algo como uma chamada AJAX redimensionando uma imagem obtendo algumas informações de um banco de dados.
+
+02:05.140 --> 02:07.040
+Estas são todas as coisas que levam tempo.
+
+02:07.180 --> 02:11.910
+Em vez de esperar por eles, queremos continuar com nossas vidas e apenas tê-lo
+
+02:11.920 --> 02:13.510
+Deixe-nos saber quando terminar.
+
+02:13.780 --> 02:18.220
+Mas vamos continuar trabalhando em nossas próprias coisas, fazendo isso em segundo plano.
+
+02:18.700 --> 02:22.290
+Fazemos desta forma porque é assim que funciona o javascript.
+
+02:22.330 --> 02:30.010
+Se você se lembra em nosso vídeo "Como funciona o Javascript", falamos sobre o javascript sendo único thread. Para
+
+02:30.010 --> 02:34.270
+Para que nossos programas sejam eficientes, podemos usar a programação assíncrona para fazer essas coisas.
+
+02:34.450 --> 02:38.670
+Então promessas nos ajudam a resolver isso e ficou assim.
+
+02:39.560 --> 02:45.660
+Agora lembre-se o que eu disse no início async aguardar código são apenas promessas.
+
+02:45.770 --> 02:53.960
+Sob o capô, chamamos esse açúcar sintático de algo que ainda faz a mesma coisa, mas é apenas
+
+02:54.170 --> 02:56.930
+sintaxe diferente para parecer mais bonita.
+
+02:56.960 --> 03:06.940
+Açúcar sintático. E as promessas têm isso. Então, você continua tendo que encadear async por outro lado
+
+03:06.940 --> 03:12.420
+tem essa palavra assíncrona na frente dela e alguns aguardam palavras-chave.
+
+03:12.700 --> 03:15.180
+Então vamos ver o que tudo isso significa.
+
+03:15.980 --> 03:20.560
+Embora estas duas coisas façam o mesmo com a função playerStart.
+
+03:20.560 --> 03:25.650
+Primeiro declaramos uma função como assíncrona. Nós lideramos o conhecimento de javascript
+
+03:25.660 --> 03:32.220
+"Hey, esta é uma função assíncrona." E nós o declaramos com a palavra function e depois com o nome da função.
+
+03:32.270 --> 03:39.800
+Agora podemos fazer o que quisermos dentro desta função, mas temos acesso a uma nova palavra porque usamos
+
+03:39.890 --> 03:42.460
+a palavra assíncrona para definir essa função.
+
+03:42.620 --> 03:50.350
+Temos a palavra-chave "aguardar" e essa palavra-chave diz, e podemos removê-la por enquanto.
+
+03:51.330 --> 03:57.890
+Esta palavra-chave "aguarda" diz "ei, pause essa função até que eu tenha algo para você".
+
+03:58.920 --> 04:01.580
+Então, estamos aguardando a resposta.
+
+04:02.360 --> 04:08.900
+E você pode usar essa palavra-chave 'aguardar' na frente de qualquer função que retorne uma promessa que sabemos
+
+04:08.910 --> 04:10.050
+move o jogador faz.
+
+04:10.220 --> 04:16.760
+E uma vez que a promessa é resolvida, a função se move para a próxima linha e aguarda o próximo movimento
+
+04:17.030 --> 04:20.770
+e aguarda o próximo movimento e aguarda o próximo movimento.
+
+04:20.840 --> 04:27.200
+Agora, a coisa legal sobre isso é que, em vez de encadear isso assim agora eu posso atribuir apenas como assíncrona
+
+04:27.410 --> 04:34.380
+programação, variável primeiro a aguardar isso e eu posso atribuir segunda
+
+04:37.770 --> 04:46.070
+para aguardar isso e primeiro e segundo terão o resultado de cada função, mas em uma variável.
+
+04:46.150 --> 04:48.220
+Então parece muito sincrônico.
+
+04:48.250 --> 04:50.980
+Você não está usando '. Então' você não está encadeando.
+
+04:50.980 --> 04:54.920
+Você só tem programação síncrona simples que está esperando que isso aconteça.
+
+04:54.930 --> 04:56.590
+Então, esperando que isso aconteça.
+
+04:57.130 --> 05:02.720
+Mas vamos usar um exemplo mais realista para entendermos isso.
+
+05:02.920 --> 05:07.860
+Se usarmos nossa função de busca e, novamente, se você se lembrar de buscar a função.
+
+05:08.050 --> 05:10.010
+Isso é uma promessa.
+
+05:11.190 --> 05:15.270
+Você vê que nós recebemos uma promessa.
+
+05:15.430 --> 05:26.070
+Então, com a função fetch, se usarmos nosso recurso API favorito, o json placeholder. Vamos pegar os usuários
+
+05:26.080 --> 05:34.490
+aqui para que este ponto final de usuários. Se quisermos buscar algo, nós retornamos uma promessa, então faríamos uma
+
+05:34.490 --> 05:34.800
+.então
+
+05:34.810 --> 05:40.450
+resposta nós teríamos que passar por isso.
+
+05:40.660 --> 05:41.540
+json
+
+05:42.780 --> 05:51.990
+E finalmente, finalmente, console.log a resposta ou os dados que recebemos.
+
+05:51.990 --> 06:01.280
+Então, novamente, se eu copiar e colar isso em nosso console, temos uma promessa que está pendente inicialmente, então fica
+
+06:01.280 --> 06:06.050
+resolvido e recebo meus usuários.
+
+06:06.080 --> 06:09.010
+Agora, como podemos transformar isso em uma função assíncrona?
+
+06:09.080 --> 06:16.060
+Novamente, o mesmo recurso funcionará da mesma forma, mas parecerá um pouco mais limpo.
+
+06:16.210 --> 06:18.340
+Será açúcar sintático.
+
+06:18.620 --> 06:27.950
+Bem, se você se lembrar, temos que declarar uma função com a palavra-chave async e essa função dirá
+
+06:28.400 --> 06:32.150
+fetchUsers e buscar usuários
+
+06:32.430 --> 06:38.740
+Vai ter isso dentro dele.
+
+06:38.980 --> 06:43.580
+Mas agora podemos usar na frente de qualquer coisa que retorne uma promessa.
+
+06:43.640 --> 06:46.290
+A palavra-chave 'aguardar'.
+
+06:46.770 --> 06:52.050
+Então agora essa função vai parar até obtermos uma resposta de busca.
+
+06:52.100 --> 06:57.150
+Então eu posso dizer const 'resposta'
+
+06:59.060 --> 07:13.750
+é igual a aguardar a chamada de busca. E agora, em vez de usar o. Então eu posso dizer const 'data' igual a 'aguardar'
+
+07:14.710 --> 07:21.790
+'response.json ()' porque novamente 'response.json' retorna uma promessa para que eu possa colocar a palavra-chave 'await'. E
+
+07:21.790 --> 07:27.140
+então finalmente posso apenas 'console.log (data)'
+
+07:29.120 --> 07:31.570
+Tudo bem, vamos copiar e colar isso e ver se funciona.
+
+07:35.610 --> 07:36.100
+Tudo bem.
+
+07:36.150 --> 07:42.980
+Agora eu chamo a função fetchUsers que é a função assíncrona.
+
+07:43.160 --> 07:45.320
+E eu fiz um pequeno erro aqui.
+
+07:45.350 --> 07:51.050
+Não há resposta, é a resposta de resposta curta. Lá vai você, vamos tentar de novo.
+
+07:51.620 --> 07:53.460
+Então vamos atualizar isso.
+
+07:54.510 --> 08:01.990
+Copie e cole, execute a função fetchUsers e observe isso.
+
+08:02.030 --> 08:05.940
+Nós temos nossa promessa que foi resolvida.
+
+08:06.240 --> 08:18.200
+E nós temos nossos usuários nada diferente da promessa, mas agora temos um bom passo a passo
+
+08:18.210 --> 08:21.210
+procurando código que diz buscar isso.
+
+08:21.210 --> 08:29.450
+Obtenha uma resposta e, em seguida, execute-a pelo método json e, em seguida, console log 'data'. E você pode estar pensando
+
+08:29.450 --> 08:34.070
+para si mesmo é isso realmente mais bonito do que o que tínhamos antes.
+
+08:34.370 --> 08:36.470
+Vamos lembrar o que tínhamos antes.
+
+08:43.920 --> 08:45.590
+Isso é o que nós tivemos antes.
+
+08:45.780 --> 08:47.750
+Isso é o que temos agora.
+
+08:48.630 --> 08:52.760
+E alguns de vocês podem argumentar que a primeira promessa parece melhor.
+
+08:53.130 --> 08:53.810
+E sabe de uma coisa.
+
+08:53.850 --> 08:57.030
+É uma preferência pessoal e este é um exemplo simples.
+
+08:57.040 --> 09:00.100
+Então, há momentos em que isso realmente parece muito mais limpo.
+
+09:00.360 --> 09:07.340
+Mas acredito muito em fazer o que é mais fácil de ler e entender para você e seus colegas de equipe.
+
+09:07.560 --> 09:12.850
+Vamos fazer um último exemplo. Vamos fazer algo ainda mais realista.
+
+09:12.960 --> 09:20.130
+Digamos que temos uma lista de URLs e, desta vez, temos os usuários, postagens e álbuns do
+
+09:20.130 --> 09:22.390
+json placeholder API.
+
+09:23.660 --> 09:25.810
+E nós queremos passar por todos eles.
+
+09:25.850 --> 09:30.270
+Se você se lembra em nosso vídeo de promessas, nós tivemos algo assim.
+
+09:30.500 --> 09:32.550
+Vamos remover isso para que você possa ver melhor.
+
+09:32.870 --> 09:34.010
+Então nós tivemos algo assim.
+
+09:34.010 --> 09:43.900
+Nós prometemos. Todos - nós mapeamos através das URLs. Pegamos as URLs e respondemos com o JSON
+
+09:45.400 --> 09:54.020
+e então retornamos o array e o array tinha usuários, posts, álbuns e também fizemos um .catch.
+
+09:54.030 --> 10:03.440
+Então, novamente, apenas para ter certeza de que isso vai copiar isso, coloque-o em nosso console e vemos que
+
+10:03.440 --> 10:06.860
+obtemos os dados de nossos usuários, postagens e álbuns.
+
+10:06.860 --> 10:07.990
+Então está funcionando.
+
+10:08.270 --> 10:10.830
+Vamos converter isso em uma função assíncrona.
+
+10:11.300 --> 10:21.970
+Bem, vamos começar fazendo um 'const getData' e isso será (igual) uma função assíncrona.
+
+10:23.610 --> 10:28.470
+E eu quero apenas salientar que eu fiz desta vez com a expressão de função em vez da maneira que
+
+10:28.470 --> 10:31.900
+nós fizemos isso da última vez que foi a função assíncrona e, em seguida, o nome da função.
+
+10:32.040 --> 10:33.570
+Mas eu só quero mostrar as duas coisas.
+
+10:35.350 --> 10:44.030
+Tudo bem, então como podemos fazer uma promessa? Tudo? Bem, se você se lembra, podemos agora colocar a palavra-chave 'await'
+
+10:44.060 --> 10:50.400
+na frente de qualquer promessa. Assim, podemos colocar a palavra-chave "aguardar" na frente da promessa.
+
+10:50.570 --> 11:02.760
+Então eu posso dizer que const- e isso é um pouco ES6 mágica de desestruturação, posso dizer usuários, posts e álbuns
+
+11:03.800 --> 11:12.700
+que vamos receber vai igual 'esperar' e depois a promessa. tudo o que já temos.
+
+11:13.070 --> 11:14.450
+Então vamos apenas copiar isso.
+
+11:14.460 --> 11:19.170
+Nós vamos copiar a promessa. E colocá-la aqui.
+
+11:20.080 --> 11:20.680
+Tudo bem.
+
+11:20.800 --> 11:32.750
+E agora podemos apenas consolar log o que tínhamos. Nós podemos copiar e colar logo após 'aguardarmos' todas as promessas
+
+11:33.270 --> 11:42.590
+teremos 'usuários', 'postagens' - se eu puder soletrar. e depois 'álbuns'. e em vez de Array porque fizemos isso com a desestruturação
+
+11:42.830 --> 11:46.730
+podemos apenas dizer "usuários"
+
+11:49.790 --> 11:50.480
+'Postagens'
+
+11:53.260 --> 11:55.250
+e álbuns.
+
+11:55.510 --> 12:05.510
+Tudo bem, então vamos ver se isso funciona. Copie e cole isto e execute getData
+
+12:08.020 --> 12:09.030
+e olhe para isso.
+
+12:09.090 --> 12:12.920
+Nós temos exatamente os mesmos resultados.
+
+12:13.890 --> 12:14.670
+Muito legal.
+
+12:15.070 --> 12:23.420
+Mas pode haver uma coisa que você notou aqui que está na forma de promessa que temos com o .catch.
+
+12:23.490 --> 12:31.590
+Se algum destes falhar, queremos pegar esses erros como podemos fazer isso com async aguardar.
+
+12:31.590 --> 12:33.740
+No momento não estamos pegando nenhum desses erros.
+
+12:35.490 --> 12:38.840
+Esta é a parte que muitas pessoas não são grandes fãs.
+
+12:39.060 --> 12:47.520
+Mas é algo que, uma vez que nos acostumamos, não é tão ruim. JavaScript tem algo chamado 'try catch blocks'.
+
+12:47.790 --> 12:55.770
+e é aí que ele vê a palavra 'try' e vai automaticamente executar o que estiver dentro dela.
+
+12:55.770 --> 13:08.130
+No nosso caso, todo esse bloco queremos que ele seja executado em um bloco try e, em seguida, 'try' vem com um bloco catch
+
+13:08.160 --> 13:09.200
+também.
+
+13:09.540 --> 13:15.450
+Então tente um bloco de captura e dentro da captura se algo falhar aqui.
+
+13:15.690 --> 13:19.460
+Bem, podemos pegá-lo aqui para que possamos apenas consolar.log
+
+13:19.550 --> 13:20.190
+'oops'
+
+13:21.890 --> 13:29.760
+Então, digamos que eu tenha digitado errado uma das URLs e vamos copiar isso. Vamos tentar.
+
+13:30.020 --> 13:31.720
+Nós vamos ter os novos URLs.
+
+13:31.820 --> 13:37.880
+Deixe-me esclarecer isso. Novos URLs com o URL incorreto para um deles.
+
+13:37.880 --> 13:44.270
+Nós vamos copiar e colar o getData e você verá aqui que temos um erro de sintaxe.
+
+13:44.560 --> 13:53.570
+E isso é porque uma coisa que você tem que lembrar é que a captura recebe um erro e
+
+13:53.570 --> 13:55.390
+esse erro você pode consolar log-lo
+
+13:55.430 --> 14:00.310
+se você quiser. Então, vamos apenas consolar o log e, em seguida, tente novamente.
+
+14:01.530 --> 14:07.230
+Desta vez vamos chamar isso de getData1-perfect.
+
+14:07.240 --> 14:14.770
+Agora, se eu limpar isso um pouco e fazer o getData1 com o bloco try catch eu recebo
+
+14:15.100 --> 14:15.910
+'oops'
+
+14:15.920 --> 14:17.420
+Erro de tipo falhou ao buscar.
+
+14:17.510 --> 14:26.860
+Então eu recebo o bloco catch com o erro, assim como fizemos com a promessa. Todos usando apenas promessas.
+
+14:27.400 --> 14:28.400
+E aí você tem isso.
+
+14:28.420 --> 14:29.250
+É isso aí.
+
+14:29.330 --> 14:37.090
+Assíncrono espera, embora intimidante no início, porque há um pouco de nova sintaxe, na verdade, torna as coisas bastante
+
+14:37.090 --> 14:40.130
+bom e síncrono procurando.
+
+14:40.210 --> 14:48.370
+Nós simplesmente temos uma variável que atribuímos a promessa de espera e então a função faz uma pausa lá
+
+14:48.370 --> 14:53.710
+até que a promessa retorne e, em seguida, continue com o log do console.
+
+14:53.860 --> 14:59.690
+E você só tem que lembrar os blocos catch aqui para pegar seus erros e é isso.
+
+14:59.710 --> 15:02.280
+Você é agora um assinante que aguarda o Mestre.
+
+15:02.350 --> 15:05.170
+Você pode usar qualquer um que você preferir.
+
+15:05.170 --> 15:12.370
+Como eu disse no final do dia use promessas ou assíncrono aguardar funções com base no que for mais simples
+
+15:12.370 --> 15:19.510
+para você e sua equipe, mas espero que quando você encontrar os dois, agora você está muito mais confortável.
+
+15:19.660 --> 15:21.570
+Eu vejo você no próximo. Tchau tchau.

@@ -1,0 +1,178 @@
+WEBVTT
+
+00:01.300 --> 00:02.240
+Bem vindo de volta.
+
+00:02.470 --> 00:04.980
+Vamos trabalhar no endpoint da imagem aqui.
+
+00:05.230 --> 00:11.840
+E dado o que fizemos até agora, podemos ter certeza de que não precisaremos de nada disso.
+
+00:11.860 --> 00:14.840
+Nós vamos conectá-lo ao banco de dados.
+
+00:14.950 --> 00:20.710
+Agora, o ponto final da imagem, se você se lembra, atualiza as entradas e aumenta a contagem.
+
+00:20.710 --> 00:28.560
+Então tudo o que temos a fazer é atualizar e vamos ver o KNEX e ver se eles têm a função de atualização
+
+00:32.790 --> 00:33.970
+Sim eles fazem.
+
+00:33.990 --> 00:37.540
+E eles nos dão bons exemplos de como fazer isso.
+
+00:39.760 --> 00:42.170
+Então, vamos usar isso como um exemplo.
+
+00:43.030 --> 00:45.220
+Para criar nossa função de atualização
+
+00:48.310 --> 00:49.690
+vamos apenas copiá-lo aqui.
+
+00:52.530 --> 01:04.740
+E nós sabemos que com o nosso ponto DB onde queremos dizer que onde o ID é igual e não é igual a 3 porque
+
+01:04.740 --> 01:14.740
+isto é SQL onde o ID é igual ao ID que recebemos no corpo que queremos atualizar as entradas
+
+01:16.090 --> 01:21.100
+para ser maior do que as entradas que estão lá.
+
+01:21.140 --> 01:22.990
+Mas como podemos fazer isso?
+
+01:23.160 --> 01:26.660
+Como podemos pegar as entradas do banco de dados e aumentá-lo.
+
+01:26.660 --> 01:34.230
+Mais uma vez, este é um problema que é muito comum e é dito de selecionar o ID agarrando quaisquer que sejam as entradas
+
+01:34.230 --> 01:35.890
+é e atualizá-lo.
+
+01:36.300 --> 01:46.080
+Bem, podemos simplesmente usar algo chamado incremento e incremento apenas nos diz a coluna e a quantidade
+
+01:46.080 --> 01:49.110
+queremos incrementar por. Muito legal.
+
+01:49.230 --> 01:49.870
+Vamos fazer isso.
+
+01:50.160 --> 02:00.200
+Digamos que o ID do usuário em vez da atualização foi apenas para incrementar e faremos entradas e queremos apenas
+
+02:00.200 --> 02:01.140
+por um.
+
+02:01.450 --> 02:06.280
+E o padrão é um que eu tenho certeza, mas eu sempre gosto de ser explícito para que as pessoas saibam o que está acontecendo
+
+02:06.280 --> 02:09.020
+quando leem o código e vamos fazer isso.
+
+02:09.430 --> 02:22.110
+Então nós incrementamos por um e depois queremos dizer retornando as entradas, vamos fazer um ponto e ver o que
+
+02:22.110 --> 02:22.470
+Nós temos
+
+02:29.450 --> 02:30.530
+log de ponto do console
+
+02:33.340 --> 02:44.790
+entradas e vamos salvar. Volte para o carteiro. Vamos encontrar nosso endpoint de imagem que tem um corpo de ID e
+
+02:44.790 --> 02:47.940
+nós vamos ter que dar um ID que realmente existe por enquanto.
+
+02:47.950 --> 02:59.840
+Então vamos apenas fazer um envio. E voltando aqui não recebemos nada porque bem precisamos fazer um pedido de put.
+
+02:59.850 --> 03:07.380
+Lembre-se que nós mudamos para colocarmos de novo e ele está pendurado porque não damos uma resposta
+
+03:07.380 --> 03:09.270
+então vamos cancelar o pedido por enquanto.
+
+03:09.410 --> 03:16.610
+Mas se voltarmos para o servidor Bem, podemos ver que há um erro aqui e nós definitivamente
+
+03:16.610 --> 03:18.600
+fez um erro bobo aqui.
+
+03:18.620 --> 03:22.370
+Não tem ideia de qual banco de dados estamos falando.
+
+03:22.370 --> 03:29.310
+Precisamos realmente dizer usuários aqui. Os erros de SQL às vezes podem ser realmente confusos.
+
+03:29.380 --> 03:33.720
+Mas como eu disse, é bem declarativo.
+
+03:33.720 --> 03:40.340
+Assim, contanto que você possa lê-lo e entendê-lo com os erros do KNEX, o mínimo é, a menos que você seja
+
+03:40.340 --> 03:43.070
+eu e você esquecemos de mencionar a mesa.
+
+03:43.070 --> 03:43.970
+Vamos tentar de novo.
+
+03:44.930 --> 03:45.600
+Enviei.
+
+03:45.720 --> 03:48.730
+Nós vamos aconselhar os pedidos porque não há resposta.
+
+03:49.070 --> 03:52.440
+Mas agora eu tenho um retorno.
+
+03:52.580 --> 03:56.300
+Se eu enviar novamente, cancele o pedido.
+
+03:56.370 --> 04:05.220
+Eu tenho dois. Se eu voltar ao banco de dados e selecionar tudo o que vejo, Ann agora terá entradas de dois. Surpreendente.
+
+04:07.740 --> 04:08.630
+Então podemos voltar aqui
+
+04:08.640 --> 04:15.570
+agora, sabendo que isso funciona. Vamos dizer que as entradas, queremos - mais uma vez, retornar a primeira matriz, porque nós
+
+04:15.570 --> 04:22.670
+obter um e em vez de log do console, vamos dizer respostas ponto json entradas.
+
+04:22.990 --> 04:32.170
+Mas se algo falhar, então vamos fazer um ponto pegar apenas como nós falhamos aqui e podemos dizer que
+
+04:32.350 --> 04:45.820
+estado de ponto de resposta de erro vamos dar-lhe outro 400 vamos dizer Json incapaz de obter contagem ou entradas
+
+04:48.180 --> 04:55.260
+Nós vamos salvar isso e eu vou realmente remover isso para se certificar de que o erro está funcionando.
+
+04:55.260 --> 04:58.430
+Então deve me devolver um 400.
+
+04:58.560 --> 05:00.030
+Vamos tentar de novo.
+
+05:00.200 --> 05:04.590
+Enviar. Não é possível obter entradas. Pedido de 400.
+
+05:04.840 --> 05:16.310
+Mas se eu corrigir isso para os usuários e selecionar Ann novamente, recebo três.
+
+05:16.390 --> 05:22.660
+Tudo bem, nós temos o nosso endpoint de imagem funcionando e temos o nosso endpoint final para trabalhar em que é entrar
+
+05:24.340 --> 05:25.690
+isso é para o próximo vídeo.
+
+05:25.960 --> 05:26.800
+Eu vou te ver nessa. Tchau tchau.

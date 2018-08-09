@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.510 --> 00:07.440
+Quando eu ensino alunos pela primeira vez, a manipulação de DOM e eventos é sempre esmagadora.
+
+00:07.440 --> 00:10.230
+Demora algumas tentativas para realmente entender.
+
+00:10.320 --> 00:16.620
+E uma coisa que você deve ter notado nos vídeos anteriores é que havia muitos métodos que você
+
+00:16.620 --> 00:23.990
+Aprendi e o Dom tem muitos deles, mas você constantemente tem que verificar e ver se era compatível
+
+00:23.990 --> 00:26.450
+com os navegadores para se certificar de que funciona.
+
+00:26.450 --> 00:33.860
+Então, usamos sites como eu posso usar o dot com para verificar constantemente que podemos usar essas propriedades.
+
+00:33.860 --> 00:37.000
+Foi um processo tedioso há alguns anos atrás.
+
+00:37.010 --> 00:43.320
+O suporte para os seletores e as técnicas de manipulação DOM foram ainda piores.
+
+00:43.400 --> 00:51.540
+Por exemplo, o seletor de consulta agora é bom, mas há alguns anos apenas alguns navegadores os tinham.
+
+00:51.560 --> 00:56.510
+Então, o que as pessoas fizeram se fosse ainda pior do que é agora?
+
+00:56.970 --> 01:01.280
+Bem, havia uma biblioteca que foi criada para resolver esse enorme problema.
+
+01:02.600 --> 01:05.000
+E isso foi jQuery.
+
+01:05.060 --> 01:07.230
+Você pode ter ouvido falar disso.
+
+01:07.290 --> 01:16.200
+É uma das bibliotecas mais populares para JavaScript. Em 2006, J.A.G. foi introduzido para o desenvolvimento da Web
+
+01:16.200 --> 01:17.010
+mundo.
+
+01:17.040 --> 01:23.970
+Era uma biblioteca que significa que é apenas um JavaScript um arquivo JavaScript executado por algumas pessoas que adicionaram um
+
+01:23.970 --> 01:27.660
+pouco mais para a língua, para que você possa fazer mais coisas.
+
+01:27.680 --> 01:31.140
+Você tinha mais propriedades mais funções.
+
+01:31.140 --> 01:37.730
+Seu principal objetivo era tornar a manipulação DOM mais fácil e compatível com todos os navegadores.
+
+01:37.960 --> 01:41.820
+Então, eles cuidaram do trabalho duro e dos problemas de compatibilidade do navegador.
+
+01:41.830 --> 01:42.860
+Isso não é legal deles?
+
+01:43.940 --> 01:49.940
+Vamos verificar este exemplo do W3C do jQuery.
+
+01:50.080 --> 01:59.860
+Você pode ver aqui que eles estão carregando uma tag de script com um CDN que é apontado em um jQuery minificado
+
+02:00.070 --> 02:05.860
+JavaScript e jQuery são apenas este trecho de código.
+
+02:05.970 --> 02:16.180
+Ele sempre tem o documento de cifrão dot pronto, o que significa que, quando o documento o objeto DOM está pronto
+
+02:16.230 --> 02:20.080
+executar esta função e dentro dela você escreve tudo isso
+
+02:20.100 --> 02:20.940
+jQuery.
+
+02:21.150 --> 02:24.420
+Então, neste caso, você pode ver que queremos selecionar P.
+
+02:24.420 --> 02:30.800
+Esta foi uma sintaxe específica do jQuery e ao clicar, execute esta função.
+
+02:31.020 --> 02:34.940
+Então foi exatamente a mesma coisa de quando fizemos p
+
+02:34.950 --> 02:44.340
+Dot addEventListener e então nós clicamos e fazemos algum tipo de função.
+
+02:44.560 --> 02:51.610
+Então você pode ver que as coisas ficaram um pouco mais limpas e você pode fazer coisas como esse.
+
+02:51.690 --> 02:54.630
+Então, se eu clicar aqui, ele se esconde.
+
+02:54.780 --> 02:57.150
+Esconde-se esconde.
+
+02:57.210 --> 02:58.360
+Isso é muito legal.
+
+02:58.770 --> 03:01.960
+Mas o jQuery teve um problema.
+
+03:02.110 --> 03:04.690
+Isso tornou o código muito imperativo.
+
+03:04.810 --> 03:06.600
+E o que isso significa?
+
+03:06.700 --> 03:09.670
+É uma palavra que você vai ouvir muito quando se tornar um desenvolvedor.
+
+03:09.760 --> 03:13.560
+Isso significa que você precisa dizer ao programa exatamente o que fazer.
+
+03:13.720 --> 03:21.160
+Um por um, isso pode não parecer uma má idéia, mas quando seus sites ficam grandes e complicados, isso cria
+
+03:21.160 --> 03:22.550
+uma grande bagunça.
+
+03:23.150 --> 03:30.140
+Uma ação depende de uma ação que depende de outra ação que depende de outra
+
+03:30.140 --> 03:30.830
+açao.
+
+03:30.860 --> 03:33.730
+Agora você perde a noção do que está acontecendo.
+
+03:34.570 --> 03:40.420
+Mais erros e mais erros em sua base de código e isso se torna realmente muito complicado.
+
+03:40.420 --> 03:41.490
+Deixe-me mostrar-lhe um exemplo.
+
+03:42.970 --> 03:50.320
+Nós temos um código jQuery simples aqui onde dizemos novamente a função de documento pronto e, em seguida, estamos selecionando
+
+03:51.070 --> 03:54.990
+artigo à esquerda quando o clique acontece.
+
+03:55.000 --> 04:03.770
+Então nós verificamos que isso tem uma aula e nós removemos a classe e eu digo que isso não parece tão ruim assim.
+
+04:04.660 --> 04:12.100
+Mas chegou a um ponto em que você tinha um código como este chamado pirâmide de Destino onde se isso acontece você
+
+04:12.100 --> 04:17.680
+fazer isso e se isso acontecer você faz isso e se isso acontecer você faz isso e você pode imaginar se há
+
+04:17.680 --> 04:24.130
+foi outra coisa que estava ouvindo outro evento que pode ter consequências inesperadas, porque
+
+04:24.250 --> 04:29.760
+isso está em execução e o usuário está, ao mesmo tempo, interagindo com o site.
+
+04:29.830 --> 04:36.910
+E você pode ver aqui o quanto de uma bagunça é Quero dizer que isso é apenas um exemplo, mas você pode ver
+
+04:37.150 --> 04:38.850
+isso é muito imperativo.
+
+04:38.860 --> 04:45.940
+Isso acontece e fazer isso e dentro dele, se isso acontecer, faça isso e assim por diante e assim por diante.
+
+04:46.210 --> 04:49.520
+Isso cria uma grande confusão quando você tem grandes sites.
+
+04:49.620 --> 04:55.810
+O jQuery foi ótimo na época em que ele tornou o JavaScript realmente popular porque foi finalmente fácil tornar o JavaScript interativo
+
+04:55.840 --> 04:58.140
+sites e fez um monte de coisas boas para a indústria.
+
+04:58.140 --> 05:03.380
+No entanto, com o passar do tempo, as pessoas encontraram novas e melhores maneiras de fazer as coisas.
+
+05:03.550 --> 05:08.450
+Os navegadores da Web adaptaram novas coisas como o querySelector.
+
+05:08.740 --> 05:19.330
+E até temos um site agora que compara o que você pode fazer com JavaScript e HTML simples e o que
+
+05:19.570 --> 05:23.860
+você pode fazer com jQuery e a maioria das coisas que você pode fazer as duas coisas.
+
+05:23.860 --> 05:29.850
+E não é tão diferente, com o passar do tempo, que as pessoas encontraram novas e melhores maneiras de fazer as coisas.
+
+05:30.730 --> 05:36.070
+Você ainda tem jQuery sendo usado hoje, mas há cada vez menos pessoas iniciando projetos que
+
+05:36.070 --> 05:38.010
+estão usando o jQuery agora.
+
+05:38.200 --> 05:43.300
+Na verdade, o número de postagens de trabalho com jQuery como um requisito realmente diminuiu
+
+05:43.300 --> 05:50.130
+e há uma visão bastante negativa dos desenvolvedores que só conhecem o jQuery, isso não é bater em uma biblioteca.
+
+05:50.130 --> 05:52.380
+Foi uma parte importante do crescimento do JavaScript.
+
+05:52.740 --> 05:56.340
+Mas em 2018 isso não é útil para uma habilidade.
+
+05:56.340 --> 06:04.150
+É por isso que neste curso estamos aprendendo Reagir. React é uma biblioteca que resolve o enorme problema de
+
+06:04.150 --> 06:04.960
+jQuery.
+
+06:04.990 --> 06:11.650
+Em vez de ser imperativo, é declarativo. Vamos entrar em mais dos benefícios e o que isso significa
+
+06:12.130 --> 06:13.520
+quando chegarmos à seção.
+
+06:13.780 --> 06:21.000
+Mas ter uma perspectiva histórica de onde estávamos e onde estamos agora é importante.
+
+06:21.340 --> 06:23.130
+Então lembre-se disso.
+
+06:23.470 --> 06:27.760
+Primeiro nós tivemos HTML, depois CSS e JavaScript.
+
+06:28.030 --> 06:31.360
+Depois veio o jQuery para tornar nosso JavaScript mais fácil.
+
+06:31.360 --> 06:36.540
+Depois vieram mais bibliotecas que tornaram o JavaScript ainda mais divertido e fácil de trabalhar.
+
+06:37.490 --> 06:42.320
+De agora em diante, não usaremos técnicas de manipulação de DOM que aprendemos nesta seção.
+
+06:42.320 --> 06:46.250
+Vadio. Eu sei, mas vou te mostrar o que podemos fazer melhor.
+
+06:46.310 --> 06:47.620
+Então fique ligado.
+
+06:47.620 --> 06:49.760
+Fica muito mais divertido depois disso.
+
+06:50.390 --> 06:52.280
+Eu vejo você no próximo. Tchau tchau.

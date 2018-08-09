@@ -1,0 +1,628 @@
+WEBVTT
+
+00:01.000 --> 00:07.210
+Bem vindo de volta. No último vídeo falamos sobre o Document Object Model e alguns de vocês podem ter
+
+00:07.210 --> 00:08.240
+uma pergunta.
+
+00:08.590 --> 00:17.550
+Bem, quando ele me mostrou a janela, parecia um objeto. Você tem propriedades e métodos.
+
+00:17.840 --> 00:24.360
+Mas sempre que acessamos o DOM, o documento, bem, não parece que o objeto faz isso?
+
+00:24.550 --> 00:26.630
+Parece com HTML.
+
+00:26.950 --> 00:31.120
+E isso é porque os navegadores da Web apenas escondem o fato de que é um objeto.
+
+00:31.120 --> 00:36.380
+Eles apenas nos dão uma bela vista como esta, para que possamos brincar melhor.
+
+00:36.520 --> 00:39.870
+Mas é um objeto Javascript.
+
+00:39.910 --> 00:46.060
+Agora, com este documento, podemos usar algo chamado Seletores para selecionar elementos diferentes para que possamos
+
+00:46.060 --> 00:47.840
+manipulá-los.
+
+00:47.920 --> 00:53.710
+Então, vou mostrar a vocês alguns deles hoje aqueles que são usados ​​com mais frequência
+
+00:54.010 --> 00:55.530
+em seu dia hoje.
+
+00:55.690 --> 01:06.070
+Função de desenvolvedor da Web. Se você for documentar, o primeiro que vou mostrar é getElementsByTagName.
+
+01:07.230 --> 01:11.580
+Como o nome sugere, aceita um nome de tag.
+
+01:11.580 --> 01:19.230
+No nosso caso, se olharmos para o nosso arquivo HTML de índice bem eu criei para você uma lista de compras e se
+
+01:19.230 --> 01:21.630
+Eu minimizo isso só para que você possa ver.
+
+01:21.930 --> 01:26.420
+Nós temos um arquivo HTML simples e parece que é uma importante lista de compras.
+
+01:26.430 --> 01:29.280
+Pode ser o aniversário de alguém e eles estão recebendo um caderno.
+
+01:29.280 --> 01:30.050
+Tudo bem.
+
+01:30.180 --> 01:33.010
+Então, com o nome da tag, posso dizer bem o que a tag faz.
+
+01:33.020 --> 01:38.280
+Eu quero selecionar, eu quero selecionar a tag H1 ou pressione enter e olhe para isso.
+
+01:38.610 --> 01:40.470
+Eu recebo a tag H1.
+
+01:40.500 --> 01:40.730
+ESTÁ BEM.
+
+01:40.740 --> 01:42.260
+O que mais eu posso fazer?
+
+01:42.390 --> 01:51.520
+Eu posso fazer document.getElementsbyClassName.
+
+01:51.750 --> 01:59.260
+E aqui eu posso dizer, dentro do arquivo de índice eu tenho classe 'segunda', que é o segundo parágrafo que diz
+
+01:59.290 --> 02:01.180
+sem desculpas.
+
+02:01.180 --> 02:04.600
+Então eu posso dizer 'segundo' Eu olho para isso.
+
+02:04.730 --> 02:07.560
+Agora eu tenho o segundo elemento.
+
+02:07.570 --> 02:10.910
+Quando mais nós temos? getElementById.
+
+02:11.020 --> 02:16.750
+Eu acho que você pode adivinhar o que este vai fazer, document.getElementsById.
+
+02:16.840 --> 02:25.430
+Mais uma vez vamos selecionar Id de ver que há um primeiro ano, para que possamos fazer primeiro, e eu recebo o
+
+02:25.430 --> 02:26.100
+Identidade.
+
+02:27.300 --> 02:33.210
+Agora você vê uma diferença aqui que getElementById não tem o plural.
+
+02:33.210 --> 02:36.530
+Está certo. Porque você só pode ter um Id.
+
+02:36.600 --> 02:38.910
+Retorna o elemento completo versus
+
+02:38.950 --> 02:40.750
+bem parece uma matriz.
+
+02:41.190 --> 02:50.210
+Então, para que eu possa acessar totalmente o acima, eu vou ter que fazer 'second' e então acessar o zero
+
+02:50.260 --> 02:54.310
+índice da matriz, caso em que não recebo desculpas.
+
+02:56.370 --> 02:57.150
+Tudo bem.
+
+02:57.460 --> 03:00.940
+Então esses três são muito muito úteis.
+
+03:00.940 --> 03:06.680
+Mas há algo chamado querySelector e querySelectorAll, que são ainda melhores.
+
+03:07.000 --> 03:11.950
+Vamos dar uma olhada neles. Com document.querySelector
+
+03:12.200 --> 03:20.800
+Eu posso selecionar qualquer coisa aqui dentro, como fiz com o CCS. Por exemplo, se eu quisesse selecionar vamos fazer
+
+03:20.810 --> 03:32.460
+neste caso H1 ou eu posso selecionar H1 se eu quisesse selecionar 'Li' em nossos itens de lista, eu recebo muito
+
+03:32.520 --> 03:38.910
+mas parece que eu só recebo o primeiro no notebook. E se eu quisesse selecionar todos eles? E
+
+03:38.910 --> 03:44.170
+isto é porque o seletor de consultas seleciona o primeiro item encontrado.
+
+03:44.230 --> 03:51.490
+Se eu fizer querySelectorAll, por outro lado, seleciona todos eles.
+
+03:54.520 --> 03:58.360
+E você vê aqui que temos todos os seis elementos 'Li'.
+
+04:03.160 --> 04:06.770
+Só para mostrar que funciona com qualquer seletor CSS.
+
+04:06.820 --> 04:13.140
+Se eu fizer 'Li' e H1 enquanto obtiver o H1 e todos os 'Li' também.
+
+04:13.210 --> 04:14.920
+Então é muito muito útil.
+
+04:14.920 --> 04:20.650
+A única ressalva como você já deve saber é que sempre que novos recursos são introduzidos, temos um caminho para todos
+
+04:20.650 --> 04:22.230
+os navegadores para implementá-lo.
+
+04:22.360 --> 04:22.950
+Então vamos checar.
+
+04:22.950 --> 04:28.840
+Posso usar para ver se o querySelector está em conformidade.
+
+04:28.840 --> 04:29.290
+Tudo bem.
+
+04:29.290 --> 04:32.560
+Parece que todos os navegadores implementaram, o que é bom.
+
+04:32.590 --> 04:34.650
+Vamos verificar o querySelectorAll.
+
+04:34.860 --> 04:37.660
+Tudo bem, vamos em frente tudo é verde.
+
+04:38.200 --> 04:38.880
+Isso é bom.
+
+04:39.070 --> 04:45.670
+Eu quero me acostumar com essa prática de ter certeza de que quaisquer métodos ou propriedades que você usa tanto
+
+04:45.670 --> 04:56.280
+para HTML, CSS e Javascript, tudo está funcionando nos navegadores. Então eu recomendo que você use estes
+
+04:56.280 --> 05:00.470
+dois para fazer sua seleção porque é exatamente como CSS.
+
+05:00.600 --> 05:06.120
+Eles são mais poderosos que os três primeiros. Mas você encontrará esses três de vez em quando
+
+05:06.120 --> 05:07.500
+com as bases de código mais antigas.
+
+05:08.800 --> 05:09.470
+ESTÁ BEM.
+
+05:09.830 --> 05:10.550
+O que mais podemos fazer.
+
+05:10.540 --> 05:15.260
+Eu posso ver que temos o atributo Get e Set. Vamos dar uma olhada.
+
+05:16.980 --> 05:26.850
+Como o nome sugere, se eu fizer document.getAttribute bem, vemos que não há nada no atributo Get
+
+05:26.970 --> 05:33.270
+existe? Porque você precisa selecionar um elemento para obter seus atributos.
+
+05:33.270 --> 05:34.140
+Deixe-me explicar.
+
+05:34.380 --> 05:42.960
+Então, se eu quisesse obter o número aleatório 23 do primeiro poço 'Li', eu teria primeiro que escolher, nós podemos
+
+05:42.960 --> 05:49.210
+use algo como querySelector e desde que eu selecione o primeiro.
+
+05:49.310 --> 05:50.930
+Eu posso dizer 'Li'
+
+05:54.190 --> 05:59.650
+e eu entendi. Mas lembre-se que temos que armazená-lo em algum lugar, para que eu possa dar a uma variável e
+
+05:59.650 --> 06:07.970
+guarde-o em algum lugar ou posso dizer diretamente getAttribute random.
+
+06:08.090 --> 06:15.190
+Então eu vou dizer que vou selecionar o 'Li' e de lá eu vou pegar qualquer atributo que é chamado 'aleatório'
+
+06:16.500 --> 06:18.650
+e então eu tenho 23.
+
+06:18.870 --> 06:25.470
+Então getAttribute pode ser qualquer coisa. Você pode imaginar uma tag de imagem com largura e altura e desejar
+
+06:25.470 --> 06:30.970
+para pegar o talvez a largura e a altura para ver quais valores eles têm, o que você pode fazer com eles.
+
+06:30.990 --> 06:33.280
+Você também pode definir o atributo.
+
+06:33.510 --> 06:44.970
+Então, se eu pressionar e receber o último comando, posso agora alterar getAttribute para setAttribute para dizer agora
+
+06:45.000 --> 06:50.560
+aleatório, que é o atributo que queremos pegar e para o que queremos mudá-lo.
+
+06:50.880 --> 06:59.170
+Podemos dizer que queremos alterá-lo para 1000. Feche o colchete e fico indefinido.
+
+06:59.410 --> 07:09.780
+Mas agora, se eu selecionar o querySelector, o primeiro 'Li' verá que o aleatório foi alterado para 1000.
+
+07:09.790 --> 07:12.970
+Agora você pode estar pensando com isso.
+
+07:13.060 --> 07:18.910
+Posso ter uma aula para talvez ter um novo estilo e mudar alguns
+
+07:18.910 --> 07:22.160
+CSS? O que! Você pode absolutamente.
+
+07:22.270 --> 07:30.300
+Essa é uma das coisas legais de ter o DOM, é que você pode mudar qualquer coisa no seu navegador da Web.
+
+07:31.200 --> 07:32.960
+Então, vamos tentar alguns desses.
+
+07:33.000 --> 07:35.830
+Você pode usar getAttribute ou setAttribute
+
+07:35.850 --> 07:39.470
+Mas quero mostrar a maneira mais comum de fazer isso.
+
+07:39.510 --> 07:46.480
+A primeira maneira de mudar seu estilo é simplesmente usar a tag de estilo.
+
+07:46.620 --> 07:58.020
+Então, por exemplo, se eu quisesse dizer querySelector, whoops eu quero dizer document.querySelector e
+
+07:58.080 --> 08:07.590
+vamos selecionar a tag H1, esta H1 também tem uma propriedade de estilo e todos os elementos na página da Web têm um
+
+08:07.590 --> 08:08.380
+propriedade de estilo.
+
+08:10.020 --> 08:14.030
+E aqui está um monte de coisas que não precisamos nos preocupar.
+
+08:14.440 --> 08:21.040
+Mas o que podemos fazer é dizer estilo e depois ponto, queremos acessar uma propriedade no estilo que é, bem,
+
+08:21.620 --> 08:22.620
+nosso estilo CSS.
+
+08:22.630 --> 08:32.310
+Então, sabemos que podemos ter experiência. Então, fundo podemos dizer igual, mas digamos que dirá o plano de fundo
+
+08:32.340 --> 08:37.240
+é igual a amarelo, mas tem que ser uma string, certo?
+
+08:37.280 --> 08:41.960
+Então, pressione a corda amarela Enter, olhe para isso.
+
+08:42.000 --> 08:48.000
+Nós apenas mudamos nosso background, e você pode fazer estilos como esse e mudar todos os seus estilos.
+
+08:48.000 --> 08:49.440
+Mas há um problema aqui.
+
+08:49.500 --> 08:52.610
+A questão é a Separação de Preocupações.
+
+08:52.740 --> 09:03.060
+Nós idealmente não queremos incluir estilos que o que fizemos é essencialmente estilo igual a fundo
+
+09:03.650 --> 09:04.660
+amarelo.
+
+09:04.890 --> 09:07.160
+É exatamente a mesma coisa que fizemos.
+
+09:07.410 --> 09:16.070
+Então, se eu atualizar aqui, você verá que, embora eu não tenha mudado nada, ainda tenho o plano de fundo amarelo.
+
+09:16.210 --> 09:26.650
+Mas, como nos lembramos, queremos que essa separação de HTML se concentre no texto, CSS se concentra no estilo
+
+09:26.980 --> 09:29.920
+e Javascript nas ações.
+
+09:30.020 --> 09:36.000
+Então, qual é a melhor maneira de fazermos estilos de mudança do que o estilo {property}.
+
+09:36.060 --> 09:38.250
+Nós temos algumas coisas que podemos usar.
+
+09:38.400 --> 09:40.610
+Então, começaremos com className e classList.
+
+09:40.650 --> 09:43.900
+E eu realmente tenho um estilo muito legal chamado título legal.
+
+09:44.010 --> 09:45.110
+Então, vamos verificar isso.
+
+09:46.230 --> 09:50.750
+Eu quero remover isso. Atualizar.
+
+09:50.960 --> 09:55.990
+Então vamos colocar o querySelector do documento
+
+09:58.350 --> 10:01.780
+H1 em uma variável, então não temos que continuar fazendo isso.
+
+10:02.010 --> 10:06.060
+Então, eu vou dizer que a variável H1 é igual
+
+10:06.110 --> 10:06.580
+Ai está.
+
+10:06.660 --> 10:13.440
+Então agora temos o H1. Podemos dizer H1 dot className
+
+10:13.500 --> 10:18.610
+é igual e vamos adicionar título legal.
+
+10:18.830 --> 10:19.710
+Vamos ver o que acontece.
+
+10:20.860 --> 10:21.530
+Uau.
+
+10:21.800 --> 10:23.320
+Isso é muito legal né.
+
+10:23.420 --> 10:29.990
+Caso você esteja se perguntando como eu fiz isso eu vou usar esse CSS e a maneira que eu encontrei é que eu olhei
+
+10:29.990 --> 10:31.760
+neste Codepen.
+
+10:31.790 --> 10:37.290
+Então, se você pesquisar codepen.io, poderá encontrar muitas coisas legais que as pessoas construíram com
+
+10:37.630 --> 10:41.770
+CSS e você pode ver que isso foi feito por Rafael Castro.
+
+10:41.900 --> 10:46.630
+Eu só usei o CSS legal dele para a minha tag H1.
+
+10:46.790 --> 10:48.220
+E ai você vai.
+
+10:48.240 --> 10:58.570
+Então eu adicionei uma nova classe ao meu H1. Se eu selecionar meu H1, você verá que eu tenho uma classe chamada Title.
+
+10:58.650 --> 11:00.810
+Muito agradável.
+
+11:00.850 --> 11:02.770
+Na verdade, há outra coisa que podemos fazer, podemos fazer
+
+11:02.770 --> 11:04.240
+classList.
+
+11:04.660 --> 11:15.800
+Então, digamos que eu queria adicionar uma classe para 'Li' vai dizer document.querySelector
+
+11:18.640 --> 11:28.960
+vai fazer 'Li', que irá selecionar o primeiro e eu quero dizer que aqui queremos olhar para ClassList.
+
+11:29.060 --> 11:29.600
+eu vejo isso
+
+11:29.620 --> 11:33.240
+Bem, não há nada porque não há aulas.
+
+11:33.560 --> 11:39.970
+Mas se eu adicionar uma aula aqui e fizermos negrito, vermelho
+
+11:40.460 --> 11:43.120
+e não precisamos dessa vírgula.
+
+11:43.210 --> 11:45.530
+Então agora temos dois itens de classe.
+
+11:45.590 --> 11:50.640
+Se eu salvar e refazer isso e atualizar
+
+11:53.590 --> 12:01.990
+Eu vejo que tenho uma lista de classes. Esta lista de classes nos fornece alguns métodos que podemos usar, como Adicionar
+
+12:02.380 --> 12:04.090
+Remover e alternar.
+
+12:04.210 --> 12:05.060
+Então vamos fazer isso.
+
+12:05.230 --> 12:07.720
+Vamos fazer o 'Li'.
+
+12:07.730 --> 12:15.900
+E vou dizer classList.add e adicionaremos um título legal.
+
+12:16.000 --> 12:19.100
+Olhe para isso. Isso bagunça nossa lista.
+
+12:19.100 --> 12:22.520
+Então, vamos remover esse título legal e adicionar um diferente.
+
+12:22.580 --> 12:24.710
+Então eu vou dizer classList
+
+12:24.710 --> 12:25.480
+Remover.
+
+12:25.700 --> 12:37.990
+Cool título e em vez disso vamos adicionar outra classe que eu tenho no meu CSS que é chamado Feito que vai
+
+12:37.990 --> 12:43.290
+me dê uma linha através do texto, para que o item A fazer seja feito.
+
+12:43.630 --> 12:53.990
+Então, se eu fizer, olhe para isso, eu fiz minha primeira tarefa na minha lista de compras.
+
+12:54.120 --> 12:57.880
+Mas e se eu cometer um erro e eu quiser alterá-lo de volta.
+
+12:57.960 --> 13:08.020
+Em vez de remover eu poderia apenas dizer alternar e alternar novamente e alternar e alternar e alternar. Entende
+
+13:08.020 --> 13:15.670
+que isso pode ser bastante útil se você quiser ativar ou desativar algo.
+
+13:15.700 --> 13:16.410
+Muito legal.
+
+13:16.560 --> 13:18.050
+O que mais nos temos?
+
+13:18.220 --> 13:26.430
+O que nós aprendemos até agora é que devemos usar o querySelectors para pegar o elemento e mudar os estilos
+
+13:26.790 --> 13:29.200
+usando algo como classList.
+
+13:29.460 --> 13:33.250
+Vamos nos certificar de que o classList esteja disponível em todos os navegadores.
+
+13:34.120 --> 13:34.660
+Vamos checar.
+
+13:34.660 --> 13:36.340
+ClassList.
+
+13:38.760 --> 13:44.410
+E parece que estamos ficando verdes, mas há alguns como o IE 11 e isso tem suporte parcial.
+
+13:44.790 --> 13:47.430
+Então, queremos ter cuidado ao usar classLists.
+
+13:47.520 --> 13:51.630
+Então, podemos ter que usar algum texto em algumas áreas.
+
+13:52.360 --> 13:55.640
+Eu tenho mais alguns que gostaria de mostrar a você.
+
+13:55.690 --> 14:00.230
+Um é innerHTML e eu tenho aqui perigoso.
+
+14:00.310 --> 14:04.130
+Você verá e, em seguida, algumas bases de código e é por isso que eu quero mostrar-lhe essa propriedade.
+
+14:04.510 --> 14:16.410
+Eu posso fazer algo ao longo das linhas do seletor de ponto de documento H1.
+
+14:16.480 --> 14:30.960
+Agora, dentro disso, posso dizer que innerHTML é igual a observar esses pontos fortes de exclamação e, em seguida, fechar a tag forte.
+
+14:31.070 --> 14:34.110
+Agora, se eu pressionar Enter, olhe para isso.
+
+14:34.510 --> 14:42.380
+Acabei de alterar o innerHTML de H1 para ter uma tag forte. Vamos verificar novamente como é o H1 agora.
+
+14:43.220 --> 14:47.020
+H1 tem tags fortes com pontos de exclamação.
+
+14:47.420 --> 14:48.350
+Vamos voltar.
+
+14:48.380 --> 14:52.050
+Também podemos acessar algo chamado parentElement e children.
+
+14:52.100 --> 14:53.420
+Então, vamos verificar isso.
+
+14:54.230 --> 15:07.470
+Se eu quiser selecionar Jello document dot querySelectorAll 'Li' selecionará Jello que é o segundo
+
+15:08.930 --> 15:10.650
+na matriz, o que significa um.
+
+15:11.300 --> 15:12.480
+E eu tenho Jello.
+
+15:12.890 --> 15:25.260
+Então, agora eu posso dizer dot parentElement e eu recebo a lista não ordenada e se eu fizer o parentElement de
+
+15:25.740 --> 15:29.840
+o parentElement eu recebo o corpo.
+
+15:29.870 --> 15:31.490
+Então eu tenho Jello.
+
+15:31.940 --> 15:38.400
+Eu recebo o pai que é o UL e o pai do pai que é o corpo.
+
+15:38.420 --> 15:42.570
+Eu também posso fazer filhos.
+
+15:42.980 --> 15:50.360
+Então, se eu fizer isso, que é pai dos pais, que vai para o corpo e, em seguida, filhos eu recebo todos os filhos de
+
+15:50.360 --> 15:51.710
+o corpo.
+
+15:51.920 --> 15:52.940
+Muito legal.
+
+15:52.940 --> 15:59.550
+O último ponto que quero mostrar é que é realmente importante para os Seletores e Variáveis ​​de Cache.
+
+15:59.630 --> 16:00.490
+O que isso significa?
+
+16:00.710 --> 16:04.480
+Toda vez que fazemos algo assim, digamos que temos um arquivo Javascript.
+
+16:04.610 --> 16:10.370
+E toda vez que estamos selecionando coisas novas sempre que queremos usá-lo.
+
+16:11.530 --> 16:22.000
+Bem, isso está consumindo memória porque o computador tem que lembrar que o navegador tem que lembrar que nós
+
+16:22.000 --> 16:26.890
+quer selecionar isso e, em seguida, estamos selecionando-o novamente e, em seguida, estamos selecionando novamente e estamos selecionando
+
+16:26.890 --> 16:27.810
+a mesma coisa.
+
+16:27.810 --> 16:37.390
+Então, o navegador da Web está fazendo ações repetidamente quando tudo o que tivemos que fazer foi variável H1 é igual a documento
+
+16:37.920 --> 16:40.380
+dot querySelector H1.
+
+16:40.690 --> 16:48.610
+Então, agora, toda vez que eu precisar usar o H1, o navegador da Web não precisa procurar o DOM, encontrar o H1 e, em seguida,
+
+16:48.610 --> 16:49.830
+armazene-o na memória.
+
+16:49.900 --> 16:57.010
+Temos H1 vivendo até que atualizemos a página para que os navegadores da Web funcionem.
+
+16:57.070 --> 17:00.650
+Já nos disse onde está o H1 e agora podemos usá-lo.
+
+17:00.760 --> 17:02.360
+E isso é chamado de seletores de cache.
+
+17:02.380 --> 17:03.880
+E é algo que vamos cobrir.
+
+17:04.090 --> 17:10.480
+E o último vídeo desta seção onde falamos sobre alguns fundamentos do desenvolvedor. Eu vou te ver no próximo
+
+17:10.480 --> 17:11.830
+vídeo, tchau tchau.

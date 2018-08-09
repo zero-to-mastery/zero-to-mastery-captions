@@ -1,0 +1,991 @@
+WEBVTT
+
+00:01.490 --> 00:02.290
+Bem vindo de volta.
+
+00:02.290 --> 00:07.840
+É hora de criar um formulário de "login". Talvez até mesmo um formulário de 'Registro' porque para novos usuários, você quer
+
+00:07.850 --> 00:09.020
+registre-os.
+
+00:10.850 --> 00:11.870
+Então vamos trabalhar nisso.
+
+00:14.010 --> 00:21.550
+Primeiro, queremos talvez criar um componente de "entrada" e um "registro". Então vamos fazer isso.
+
+00:21.570 --> 00:32.120
+Eu vou criar uma nova pasta, chamá-lo 'SignIn' e esta pasta terá um novo arquivo chamado 'signIn'
+
+00:32.390 --> 00:32.970
+ponto
+
+00:33.190 --> 00:33.780
+'js'.
+
+00:37.270 --> 00:45.900
+E novamente usando nosso melhor amigo, copie e cole, podemos usar isso e chamar isso de 'Signin'.
+
+00:46.210 --> 00:52.390
+E nós não temos nenhum css para isso. E não adereços ainda. Aqui dentro
+
+00:52.390 --> 01:02.050
+Nós definitivamente queremos ter um formulário de 'Signin'. E felizmente para nós porque estamos usando 'taquiones', bem, se nós
+
+01:02.830 --> 01:14.370
+pesquisa forma de 'tachyons', eles deveriam ter, oh! Parece que eles têm um formulário de inscrição apenas para nós, para que possamos usar.
+
+01:14.430 --> 01:15.370
+Tudo bem, isso parece incrível.
+
+01:15.420 --> 01:19.400
+Nós podemos apenas copiar e colar esse código,
+
+01:19.740 --> 01:24.650
+e novamente porque temos 'taquiones' as classes serão automaticamente aplicadas.
+
+01:24.700 --> 01:27.460
+Então vamos fazer isso. Corrigir recuo um pouco.
+
+01:32.290 --> 01:36.230
+Vamos salvar. E você vê aqui que a sintaxe está errada.
+
+01:36.640 --> 01:41.780
+Bem, isso é porque com o JSX, poderíamos ter nos afastado, quando
+
+01:41.780 --> 01:45.090
+deixe-me fazer isso menor. Em html,
+
+01:45.260 --> 01:52.580
+nós não necessariamente temos que fechar as caixas de entrada. Mas aqui com o JSX, temos que ter certeza de que o
+
+01:52.580 --> 01:57.530
+tags de entrada são fechadas.
+
+01:57.560 --> 02:05.030
+Então agora nosso caso, nós temos três entradas, eu acredito. Então, podemos salvar isso e ainda há algo de errado. Vamos ver,
+
+02:05.030 --> 02:06.480
+o que mais nós tivemos.
+
+02:06.880 --> 02:08.510
+E nós temos mais uma 'entrada' aqui.
+
+02:09.670 --> 02:10.210
+Tudo bem.
+
+02:10.300 --> 02:12.030
+Você vê o destaque é fixo.
+
+02:12.140 --> 02:15.440
+Vamos apenas garantir que isso funcione adicionando este componente de 'login' ao nosso aplicativo
+
+02:15.440 --> 02:16.320
+ponto js.
+
+02:25.950 --> 02:32.180
+E, finalmente, podemos colocá-lo no topo por enquanto, para garantir que funcione.
+
+02:34.930 --> 02:36.180
+Vamos ver o que acontece.
+
+02:36.580 --> 02:41.400
+É compilado com sucesso, voltando e tudo bem, nós temos o formulário.
+
+02:41.650 --> 02:47.170
+Não parece tão ruim, mas definitivamente há algumas coisas. Nós não queremos este material de fundo e
+
+02:47.170 --> 02:51.110
+precisamos de tudo centrado.
+
+02:51.140 --> 02:54.830
+Bem, uma coisa, eu quero, eu quero que isso tenha uma carta embaixo.
+
+02:54.900 --> 02:59.220
+Então, se eu voltar aos 'tachyons' e eu fizer 'tachyons',
+
+03:02.920 --> 03:05.170
+é como um cartão de produto.
+
+03:05.170 --> 03:05.590
+Tudo bem.
+
+03:05.600 --> 03:09.250
+Eu gosto da aparência deste cartão de produto, mas eu apenas gosto dos limites dele.
+
+03:09.290 --> 03:16.620
+Eu não preciso copiar o conteúdo. Então, vou apenas copiar essa tag 'article' e adicioná-la
+
+03:20.050 --> 03:20.780
+aqui.
+
+03:23.980 --> 03:25.540
+Feche a tag 'article',
+
+03:29.420 --> 03:30.600
+e vamos ver como isso parece.
+
+03:34.410 --> 03:38.960
+Tudo bem, nós pegamos a caixa do limite, pelo menos, mas tudo é meio que empurrado.
+
+03:39.000 --> 03:41.760
+Mais uma vez vamos começar a remover algumas coisas que não precisamos.
+
+03:41.990 --> 03:44.850
+Nós não precisamos do 'esqueceu sua senha',
+
+03:45.330 --> 03:47.130
+nós não precisamos do 'Remember Me'.
+
+03:51.000 --> 03:53.850
+Vamos salvar, voltar para isso.
+
+03:54.090 --> 04:01.560
+E mais uma vez queremos ter certeza de que isso está centrado, e nós realmente queremos mudar as classes aqui,
+
+04:02.480 --> 04:03.010
+para,
+
+04:03.010 --> 04:05.280
+mais uma vez eu fiz o controle de comando,
+
+04:08.060 --> 04:14.700
+comando de controle 'g' para ter todos esses múltiplos cursores e eu vou apenas dizer 'className' e nós realmente queremos
+
+04:14.700 --> 04:20.260
+para remover este 'centro' aqui, nós já o temos aqui.
+
+04:20.340 --> 04:23.090
+Tudo bem, as coisas estão começando a parecer um pouco melhores.
+
+04:23.100 --> 04:30.400
+Eu quero fazer um pouco de sombra ao redor da fronteira, então, novamente, talvez mude o 'raio da borda' para três
+
+04:30.900 --> 04:41.160
+e alterar alguns desses valores, adicionarei minha sombra favorita e não acho que preciso disso.
+
+04:41.290 --> 04:42.520
+Vamos ver como isso parece.
+
+04:43.610 --> 04:47.610
+Tudo bem, é melhor olhar para essa borda que parece muito legal.
+
+04:49.950 --> 04:56.620
+E talvez nós queremos isso um pouco maior e isso deveria dizer 'registrar' ao invés de 'inscrever' porque
+
+04:56.640 --> 05:00.540
+bem, queremos idealmente ter outro formulário para um registro.
+
+05:00.750 --> 05:12.030
+Então, vamos dizer "Registre-se" aqui e, em seguida, para um "sinal", digamos "f1", salve isso, volte.
+
+05:12.060 --> 05:13.300
+Tudo bem.
+
+05:13.410 --> 05:15.000
+Isso não parece tão ruim, na verdade.
+
+05:17.930 --> 05:21.150
+E se eu digitar as coisas aqui, tudo fica bem.
+
+05:23.130 --> 05:23.460
+Perfeito.
+
+05:23.460 --> 05:27.470
+Portanto, temos o formulário "entrar". Este formulário "Login",
+
+05:27.620 --> 05:32.810
+bem, nós não queremos mostrar isso, quando este aplicativo está ativo.
+
+05:32.810 --> 05:40.860
+O ideal é que tenhamos um formulário "Fazer login" e, depois que um usuário fizer login, ele poderá acessar a página inicial.
+
+05:40.970 --> 05:42.220
+Então vamos fazer isso.
+
+05:42.230 --> 05:45.770
+Parece que precisamos de um pouco de estado.
+
+05:46.020 --> 05:55.320
+Se eu for para app dot js, e este é um problema que é muito comum em mapas e existem bibliotecas que você pode
+
+05:55.320 --> 05:57.910
+usar, mas para nós, eu quero construir isso do zero.
+
+05:57.920 --> 06:06.810
+Então, temos uma melhor compreensão de como as coisas funcionam. Podemos criar um estado de rota e a rota continua
+
+06:06.810 --> 06:09.410
+acompanhar de onde estamos na página.
+
+06:09.450 --> 06:14.120
+No nosso caso, queremos que ele comece com "login".
+
+06:14.130 --> 06:21.250
+Assim, quando o aplicativo, inicialmente, é carregado e o construtor é executado, "login" ou "rota" deve ser "login".
+
+06:21.520 --> 06:24.130
+Então agora que temos esse 'sinal',
+
+06:24.130 --> 06:27.240
+Bem, parece uma afirmação condicional correta.
+
+06:27.250 --> 06:34.460
+Podemos apenas dizer que, se, e eu posso fazer uma declaração if aqui porque estamos dentro de uma declaração de retorno.
+
+06:35.010 --> 06:41.110
+Mas como esses são justos, isso é apenas JSX, podemos agrupar as coisas entre chaves.
+
+06:41.500 --> 06:43.570
+E agora é uma expressão de javascript.
+
+06:43.780 --> 06:47.120
+Então, vamos dizer, vamos embrulhar isso em chaves,
+
+06:47.200 --> 06:49.640
+E nós queremos a navegação lá, não importa o quê.
+
+06:49.720 --> 06:55.330
+Se 'este' ponto 'estado' ponto 'rota' é igual a
+
+06:58.380 --> 07:00.300
+'assinar em'.
+ 
+07:00.630 --> 07:09.610
+Se isso for verdade, quero que você retorne o componente "signin". Caso contrário, você pode retornar
+
+07:12.400 --> 07:13.940
+o componente 'Logo'.
+
+07:14.150 --> 07:18.210
+Vamos apenas alterar o espaçamento aqui, só assim parece um pouco melhor. Vamos salvar
+
+07:22.010 --> 07:23.670
+e veja se isso funciona.
+
+07:23.690 --> 07:30.440
+Lá vai você, acrescentou isso. Nós vemos que, nós recebemos um erro aqui dizendo, bem, elementos json ajax devem ser embrulhados em
+
+07:30.440 --> 07:34.800
+uma tag de fechamento. Lembre-se porque estamos retornando vários elementos aqui,
+
+07:34.910 --> 07:35.590
+isso não funciona.
+
+07:35.600 --> 07:36.760
+Nós precisamos envolvê-los.
+
+07:37.130 --> 07:39.610
+Sim, essa mensagem de erro é um pouco complicada.
+
+07:42.130 --> 07:47.890
+Mas, você se acostuma depois de um tempo, então nós queremos embrulhar isso, em um
+
+07:52.330 --> 07:58.360
+'div'. Vamos salvar. Vamos voltar.
+
+07:58.380 --> 07:58.790
+Tudo bem.
+
+07:58.810 --> 08:00.680
+Vamos ver o console
+
+08:00.820 --> 08:05.380
+sem erros, mas ainda mostrando "login". Então, vamos verificar para ter certeza de que fizemos isso direito.
+
+08:05.950 --> 08:11.140
+Se 'este' ponto 'estado' ponto 'rota' é igual a 'sinalização'.
+
+08:11.310 --> 08:13.580
+E como você pode ver, eu soletrei errado.
+
+08:15.050 --> 08:16.300
+E é por isso que (isso) não estava funcionando.
+
+08:16.490 --> 08:18.840
+Se eu salvar.
+
+08:19.060 --> 08:19.940
+Ai está.
+
+08:20.100 --> 08:21.870
+Nós recebemos nosso 'Sign In'.
+
+08:21.960 --> 08:25.140
+E se eu mudar isso para outra coisa,
+
+08:25.440 --> 08:28.680
+bem, nesse caso, temos nossa tela inicial.
+
+08:28.920 --> 08:29.700
+Surpreendente.
+
+08:29.880 --> 08:33.740
+Apenas simples condicionais em javascript, e nós temos nossa auto-direcional (?).
+
+08:33.950 --> 08:37.330
+Vamos expandir isso. Vamos entrar.
+
+08:37.530 --> 08:40.440
+E agora, se o usuário fizer login,
+
+08:43.350 --> 08:51.110
+enquanto queremos direcioná-los para a página inicial. Então vamos criar uma função em 'signin' e este prop vai
+
+08:51.120 --> 08:55.500
+temos, vamos chamá-lo 'onRouteChange'.
+
+08:55.500 --> 09:02.390
+Então, quando a rota for alterada, será 'este' ponto 'onRouteChange'.
+
+09:02.400 --> 09:05.180
+E vamos escrever essa função.
+
+09:05.430 --> 09:11.320
+Podemos dizer "onRouteChange" usando as funções de seta.
+
+09:11.460 --> 09:19.210
+Vamos pensar sobre isso, pois agora podemos salvar 'este' ponto 'setState' em 'home'. Não significa muito, mas
+
+09:19.390 --> 09:23.550
+ela muda, a rota de 'signin' para 'casa'.
+
+09:25.780 --> 09:29.970
+Então vamos fazer isso funcionar. Eu vou salvar.
+
+09:30.160 --> 09:34.310
+Oh! Tem que embrulhar isso em chaves porque é um objeto.
+
+09:34.320 --> 09:34.630
+Sim.
+
+09:34.840 --> 09:44.680
+E agora, se entrarmos no componente de 'signin', podemos dizer que, para essa 'entrada', podemos apenas ter um manipulador de eventos 'onClick'.
+
+09:44.680 --> 09:50.640
+Então deixe-me, adicione isso em um novo espaço, só assim você pode ver melhor.
+
+09:58.060 --> 10:08.510
+Torne isso um pouco maior, lá vai você, vai fazer um 'onClick' e 'onClick' este 'login' receberá o 'onRouteChange'
+
+10:09.880 --> 10:20.320
+manipulador de eventos, e vamos apenas dizer 'onRouteChange', vai economizar. Vamos voltar, clicando em 'Entrar' e está funcionando.
+
+10:23.180 --> 10:25.320
+Tudo bem, nós também queremos clicar em 'onSignOut'
+
+10:25.340 --> 10:28.420
+e isso deve nos levar para a página "Entrar".
+
+10:28.460 --> 10:30.190
+Então, novamente, temos o 'onRouteChange',
+
+10:33.060 --> 10:44.020
+mas desta vez, ao clicar no sinal de saída, que é a "Navegação" aqui, queremos que ele seja encaminhado.
+
+10:44.030 --> 10:45.240
+Então, como podemos fazer isso?
+
+10:45.330 --> 10:53.520
+Vamos para o componente 'Navegação' e queremos dizer na tag 'p' que haverá um 'onClick'
+
+10:54.720 --> 11:02.610
+e o evento 'onclick', que ainda não escrevemos, mas temos o 'onRouteChange'.
+
+11:02.660 --> 11:11.290
+Então, com base nisso, eu posso passar isso como um prop e voltar para o app dot js,
+
+11:11.340 --> 11:21.910
+podemos passar para 'Navegação' 'onRouteChange', 'este' ponto 'onRouteChange'.
+
+11:22.160 --> 11:33.240
+Mas há um problema aqui, porque uma vez eu faço o 'Login' e clico em 'Sair' enquanto nada acontece. Nós nunca
+
+11:33.390 --> 11:35.600
+mudando a rota para "fazer login".
+
+11:35.640 --> 11:45.750
+O ideal é quando clicamos, mudamos a rota para 'Sign In', para que essa declaração aqui seja avaliada como
+
+11:45.750 --> 11:50.310
+verdade e nós começamos o sinal em forma.
+
+11:50.320 --> 11:57.880
+Então, parece que em vez de nós apenas estaticamente entrar em casa para 'onRouteChange', precisamos dinamicamente
+
+11:58.210 --> 11:59.800
+digamos que nossa rota
+
+12:02.750 --> 12:05.320
+vai ser onde nós damos.
+
+12:05.330 --> 12:07.460
+Precisamos alterar 'onRouteChange' e 'signin',
+
+12:07.490 --> 12:12.130
+e 'onRouteChange' e 'Navigation'.
+
+12:12.340 --> 12:16.180
+Então, vamos para "Assinar primeiro" e dizer "onRouteChange" 'home'.
+
+12:18.930 --> 12:24.240
+Agora, não queremos realmente executar essa função. A maneira que temos agora é que, vamos executar este
+
+12:24.240 --> 12:27.850
+função quando é processado.
+
+12:27.860 --> 12:33.170
+Mas isso não é o que você quer, nós queremos que ele seja executado sempre que 'onClick' acontece e então 'onClick' irá chamar
+
+12:33.170 --> 12:34.410
+esta função.
+
+12:34.410 --> 12:42.340
+Então, a maneira como fazemos isso é que podemos fazer uma função de seta. E esta função de seta só terá um 'onRoute
+
+12:43.030 --> 12:43.980
+Mude para 'casa'.
+
+12:44.180 --> 12:50.870
+Então é apenas uma função que será chamada. Aqui estamos apenas definindo a função.
+
+12:51.010 --> 12:54.020
+Vamos fazer a mesma coisa em 'Navegação' também.
+
+12:54.070 --> 13:03.440
+Em 'Navigation' 'onRouteChange', agora passará um parâmetro, mas em vez de 'home', ele dirá 'signin'. Vamos ver
+
+13:03.440 --> 13:04.400
+se isso funciona.
+
+13:05.650 --> 13:14.800
+Indo para 'Entrar' e 'Sair'. 'Entrar' e 'sair', incrível.
+
+13:14.860 --> 13:18.940
+Não vamos nos preocupar muito com um erro porque não inserimos nada.
+
+13:18.940 --> 13:21.200
+Por enquanto, queremos garantir que as rotas funcionem.
+
+13:21.480 --> 13:21.690
+Tudo bem.
+
+13:21.690 --> 13:24.480
+Vamos também criar o registro para um novo usuário.
+
+13:24.480 --> 13:26.700
+Queremos que eles tenham um registro.
+
+13:26.710 --> 13:32.730
+Talvez seja pedido também o nome do usuário.
+
+13:32.900 --> 13:38.650
+E apenas para manter as coisas simples, vamos apenas adicionar uma nova pasta em 'componentes'.
+
+13:38.870 --> 13:46.740
+E isso vai ser, 'registrar' e isso vai ser muito parecido com 'entrar'.
+
+13:46.760 --> 13:54.680
+Então, nós vamos ter um pouco de duplicação de código. Mas, novamente, estamos apenas construindo rapidamente, então deve
+
+13:54.680 --> 13:55.630
+fique bem por enquanto.
+
+13:59.160 --> 14:04.730
+Então, copiando isso de 'Signin', podemos simplesmente copiar tudo de 'Signin' e ir para 'Register'.
+
+14:04.890 --> 14:13.790
+E agora mude o 'Signin' para 'Register' e o 'Register', talvez adicionaremos um campo numérico.
+
+14:13.960 --> 14:29.620
+Talvez esse campo tenha no topo apenas o nome. E vamos dizer 'para' 'nome', 'tipo' 'texto' e 'nome' serão
+
+14:29.680 --> 14:38.050
+apenas 'nome'. 'id' vamos apenas dizer 'nome'. Na verdade, não precisamos dessas propriedades, elas só vieram com a forma
+
+14:38.050 --> 14:40.570
+que eu copio e colei de 'tachyons'.
+
+14:40.900 --> 14:44.280
+Mas, faz o trabalho por enquanto, deve ser bom.
+
+14:44.450 --> 14:47.510
+E não precisamos do link "Registrar" na parte inferior.
+
+14:50.880 --> 14:52.020
+Vamos salvar.
+
+14:52.430 --> 14:57.810
+E se voltarmos ao 'Signin', nós também não queremos que isso seja uma marca de âncora.
+
+14:57.860 --> 15:04.300
+Queremos fazer uma mudança de rota, então podemos apenas fazer uma tag 'p'
+
+15:08.330 --> 15:14.390
+e esta tag 'p' também terá o evento 'onClick'.
+
+15:14.590 --> 15:20.280
+E, ao clicar, ele dirá que, a partir do 'login', queremos ir para 'registrar'.
+
+15:20.680 --> 15:21.380
+Perfeito.
+
+15:21.400 --> 15:27.550
+E então, finalmente, se você for ao aplicativo dot js, queremos importar esse componente,
+
+15:32.790 --> 15:35.710
+Registre-se e registre-se.
+
+15:39.570 --> 15:46.420
+E 'Register' é definido, mas nunca usado, porque precisamos adicioná-lo ao nosso render.
+
+15:46.430 --> 15:54.760
+Agora isso é um pouco complicado, porque temos que fazer mais algumas verificações condicionais. Moverá
+
+15:54.940 --> 15:57.790
+isso um pouco ao redor só para ter um código mais limpo.
+
+15:57.790 --> 16:08.320
+Eu vou dizer, se 'estado' ponto 'rota' é 'casa', nesse caso, eu quero que você renderize nossa tela inicial
+
+16:12.140 --> 16:14.300
+e caso contrário,
+
+16:19.270 --> 16:22.780
+Eu vou ter outra expressão, então estou enrolando em chaves.
+
+16:23.400 --> 16:31.700
+E essa outra expressão, nós teremos outro ternário, que dirá 'este' ponto 'estado' ponto 'rota' igual a
+
+16:33.540 --> 16:41.320
+'signin', se estiver logado, retornaremos o formulário 'Signin',
+
+16:44.500 --> 16:51.930
+caso contrário, retornaremos o formulário 'Register'.
+
+16:52.090 --> 16:53.920
+E eu sei que há melhores maneiras de fazer isso.
+
+16:53.920 --> 16:58.250
+Nós poderíamos ter acabado de fazer isso aqui ou feito e a declaração de retorno.
+
+16:58.480 --> 17:02.910
+Mas, por enquanto, queremos que isso funcione para que possamos testar isso.
+
+17:02.950 --> 17:03.680
+Nós temos 'Entrar'.
+
+17:03.700 --> 17:10.490
+Se eu clicar em 'Register', eu vou me registrar, mas precisamos mudar o título para que possamos ver isso.
+
+17:10.540 --> 17:11.740
+Vamos fazer isso mais uma vez.
+
+17:11.920 --> 17:20.630
+Vamos voltar para 'Register' e vamos mudar o título para 'Register'.
+
+17:20.650 --> 17:22.150
+Vamos voltar, estamos em 'Entrar'.
+
+17:22.150 --> 17:33.440
+Se eu clicar em 'Register', eu vou para 'Register' e se eu clicar em 'Sign in', eu finalmente entro. E vamos finalmente mudar também
+
+17:33.440 --> 17:38.890
+a entrada 'digite' 'enviar' ou o 'valor' para 'Registrar'.
+
+17:39.170 --> 17:40.360
+Vamos salvar isso de novo.
+
+17:43.370 --> 17:47.030
+Volte, 'Register', clique em 'Register'.
+
+17:47.510 --> 17:52.460
+Eu não sei se você também notou que não estamos pegando o cursor quando clicamos em 'Register', então vamos
+
+17:52.460 --> 17:53.370
+Conserte isso.
+
+17:53.480 --> 17:58.830
+Vamos fazer o login e vamos dizer isso na tag "p"
+
+17:58.840 --> 18:02.270
+diremos que é um 'ponteiro'
+
+18:02.750 --> 18:08.710
+classe.
+
+18:08.920 --> 18:09.310
+Ai está. Whoo! Tudo bem.
+
+18:09.370 --> 18:13.110
+Então, estamos recebendo nossa forma, o que é bom.
+
+18:13.130 --> 18:17.250
+A última coisa que quero consertar é o 'Sair'.
+
+18:17.410 --> 18:26.980
+Eu quero ser capaz de ter 'Sair' somente quando estou em casa, e talvez quando estou no 'Sign In' ou 'Register',
+
+18:27.100 --> 18:32.290
+Eu tenho as duas guias de navegação por aqui.
+
+18:32.520 --> 18:34.010
+Isso é bastante fácil de fazer.
+
+18:34.020 --> 18:40.110
+Podemos voltar para 'Navegação' e em 'Navegação', podemos dizer que,
+
+18:45.410 --> 18:50.790
+if 'isSignedIn', uma variável que ainda não temos, mas podemos criar uma.
+
+18:51.020 --> 18:59.770
+Eu só quero que você pense em como queremos projetar isso. Então, se ele estiver conectado, o usuário, nesse caso
+
+18:59.980 --> 19:01.030
+nós queremos mostrar
+
+19:03.780 --> 19:07.750
+isso certo?
+
+19:07.880 --> 19:14.120
+Caso contrário, podemos mostrar, e estou mostrando a você como fazer isso sem o ternário, da maneira como fizemos
+
+19:14.120 --> 19:14.940
+no aplicativo
+
+19:14.950 --> 19:15.680
+ponto js.
+
+19:15.770 --> 19:17.260
+Eu só quero mostrar as duas coisas.
+
+19:17.420 --> 19:26.330
+Se o usuário não estiver conectado, talvez devamos ter duas navegações, uma que diga
+
+19:29.440 --> 19:34.940
+'Entrar' e outro que diz 'Registrar'.
+
+19:39.150 --> 19:42.630
+E aqui, vejo que estamos transformando essa coisa toda
+
+19:42.660 --> 19:49.740
+em vez do que eu deveria estar fazendo, está retornando o indivíduo.
+
+19:49.750 --> 19:51.400
+Então, aqui eu vou dizer 'voltar'
+
+19:57.180 --> 20:00.490
+embrulhe isso em um suporte.
+
+20:00.750 --> 20:12.680
+E nós temos o primeiro retorno e, em seguida, se estiver conectado, faremos o retorno.
+
+20:12.810 --> 20:16.190
+Vamos salvar isso, Oop! Eu cometi outro erro aqui.
+
+20:16.200 --> 20:17.930
+Nós não precisamos disso para 'navegar' as coisas.
+
+20:18.000 --> 20:21.780
+Nós na verdade só queremos a tag 'p' do meio
+
+20:24.920 --> 20:30.230
+e aqui, basta adicionar os dois links.
+
+20:30.380 --> 20:35.870
+Então, o 'Entrar' e 'Registrar'. Então, podemos remover isso, porque estava me dando um erro porque eu estava retornando
+
+20:35.870 --> 20:36.840
+mais de uma coisa.
+
+20:39.020 --> 20:39.820
+Tudo bem.
+
+20:39.900 --> 20:40.690
+Parece bom.
+
+20:40.740 --> 20:43.210
+Queremos ter certeza de que o 'onRouteChange',
+
+20:43.230 --> 20:52.570
+se clicarmos em 'Entrar', todos eles vão para 'casa', se clicarmos em 'Registrar' novamente, ele também irá para 'casa'.
+
+20:52.890 --> 20:57.360
+Se eu clicar em "Sair", vou para "Entrar".
+
+20:57.510 --> 21:00.790
+E finalmente 'isSignedIn' ainda não existe
+
+21:01.170 --> 21:12.360
+por isso parece que precisamos adicionar um novo estado, e vamos chamar isso de 'isSignedIn' e
+
+21:12.690 --> 21:17.390
+para começar, vai ser falso. E há algo que podemos facilmente fazer
+
+21:17.400 --> 21:26.920
+no 'onRouteChange'. 'onRouteChange' podemos talvez adicionar outro if, e vamos dizer se 'route'
+
+21:29.300 --> 21:33.450
+é igual a 'saída'.
+
+21:33.740 --> 21:35.540
+Então, por tentar sair.
+
+21:35.930 --> 21:45.540
+bem, então devemos 'setState' de 'isSignedIn' para false porque estamos desconectando.
+
+21:45.710 --> 21:46.760
+Mais se
+
+21:49.280 --> 22:04.680
+'route' é igual a 'home', bem nesse caso, queremos 'setState' de 'isSignedIn' para true.
+
+22:05.310 --> 22:11.520
+E você pode estar pensando, nós não queremos autenticar e ter certeza de que eles têm acesso a obter
+
+22:11.520 --> 22:15.750
+casa? e isso é algo com o qual não vamos nos preocupar agora, só queremos que funcione.
+
+22:16.050 --> 22:21.330
+Então, se a 'rota' for 'signout' então 'isSignedIn' será falso.
+
+22:21.330 --> 22:23.920
+Se o 'caminho' é 'casa', então eles obviamente assinaram.
+
+22:24.030 --> 22:25.620
+Então vai ser verdade.
+
+22:25.830 --> 22:31.790
+E não importa o que, nós ainda queremos mudar o 'caminho'. Vamos ver se isso realmente funciona.
+
+22:31.950 --> 22:41.950
+Eu volto, clico em 'Register', oop! Eu estou indo para 'casa' em vez de ir para a página 'Register'.
+
+22:41.970 --> 22:45.510
+Então eu cometi um erro aqui, se eu entro em 'Navegação',
+
+22:45.510 --> 22:51.750
+obviamente, se eu clicar em registrar, queremos ir para o 'registro' e se eu clicar em 'Entrar', queremos
+
+22:51.750 --> 22:58.300
+vá para "fazer login". Llet salva isso, vamos tentar de novo.
+
+22:59.410 --> 23:01.840
+'Entrar', nada acontece porque já estamos aqui.
+
+23:01.930 --> 23:02.500
+Assine, 'Register',
+
+23:02.500 --> 23:04.030
+bom,
+
+23:04.040 --> 23:06.470
+'Entrar', 'Registrar', 'Entrar', 'Registrar'
+
+23:06.490 --> 23:08.900
+Perfeito. Clique em 'Registrar' aqui
+
+23:09.040 --> 23:19.000
+Eu vou para 'Register', se eu clicar em 'Register', eu estou em 'home' e oop! nós vemos tha, precisamos dessa mudança para 'Sair' e
+
+23:19.000 --> 23:21.700
+que está na página "inicial", para que possamos voltar ao ponto de aplicativo
+
+23:21.770 --> 23:23.040
+js
+
+23:23.080 --> 23:24.620
+E é uma correção simples.
+
+23:24.730 --> 23:25.930
+Nós podemos voltar aqui.
+
+23:26.020 --> 23:34.390
+Nós queremos realmente passar o suporte aqui de 'isSignedIn' para ser 'este' ponto 'estado'
+
+23:34.410 --> 23:44.280
+ponto 'sinal'. Oop! não é isso, 'isSignedIn'. Vamos salvar. Então, se voltarmos aqui, vemos que uh! não é
+
+23:44.280 --> 23:44.760
+trabalhando.
+
+23:44.760 --> 23:52.970
+E isso porque, novamente, é por isso que é tão complicado com o JavaScript que eu tornei "falso" em uma string.
+
+23:53.130 --> 24:03.310
+Então, quando verifica, 'isSignedIn' aqui falso, tecnicamente é verdade em javascript porque é uma string,
+
+24:03.310 --> 24:04.390
+então existe.
+
+24:04.420 --> 24:08.770
+Se eu for até aqui e fizer 'Boolean'
+
+24:11.350 --> 24:15.190
+falso, dirá que é verdade.
+
+24:18.180 --> 24:19.580
+Então vamos voltar a isso.
+
+24:19.590 --> 24:25.740
+Eu vou dizer, isSignedIn ', isso deve ser falso, um booleano.
+
+24:25.740 --> 24:28.660
+Então agora vamos ver se isso funciona.
+
+24:29.400 --> 24:34.670
+Vai se registrar. Se eu clicar em "Registrar", será o lar se eu clicar em "Sair", estou saindo.
+
+24:35.220 --> 24:37.530
+Mas veja como isso não é alterado.
+
+24:38.310 --> 24:42.380
+Porque eu cometi outro erro aqui.
+
+24:42.540 --> 24:49.950
+Quando clicamos em "sair", gostaríamos de ir e dizer "sair"
+
+24:53.310 --> 24:54.390
+e quando saímos,
+
+25:00.640 --> 25:04.870
+nós saímos corretamente.
+
+25:04.880 --> 25:12.750
+Tudo bem. Nós conseguimos um ótimo aplicativo de trabalho.
+
+25:12.790 --> 25:20.050
+Há alguns materiais de limpeza que podemos fazer aqui, como remover o 'console'.
+
+25:20.140 --> 25:24.650
+Também estamos usando muito 'este' ponto 'estado', onde podemos usar a desestruturação.
+
+25:24.970 --> 25:41.560
+Então eu posso apenas ter 'isSignedIn', 'imageUrl', 'route' e 'box' desestruturados.
+
+25:41.760 --> 25:44.140
+Então agora eu posso tornar as coisas um pouco mais limpas.
+
+25:48.660 --> 25:50.570
+Ao remover 'este' ponto 'estado' em todos os lugares,
+
+25:58.920 --> 25:59.700
+ai está.
+
+26:03.180 --> 26:05.520
+Oh! e eu tenho que adicionar 'const' aqui.
+
+26:08.610 --> 26:09.330
+Tudo bem.
+
+26:09.490 --> 26:12.200
+Perfeito, isso parece muito bom.
+
+26:14.160 --> 26:16.530
+'OnButtonSubmit', 'onInputChange',
+
+26:16.570 --> 26:17.770
+Tudo está bonito.
+
+26:17.770 --> 26:20.440
+Nós temos nosso 'calculateFaceLocation'.
+
+26:20.500 --> 26:26.380
+Há obviamente algumas coisas que podemos melhorar, mas por enquanto temos um aplicativo funcional que faz
+
+26:26.440 --> 26:28.090
+exatamente o que precisamos.
+
+26:28.120 --> 26:31.710
+Ele enfrenta reconhecimento e funciona bem.
+
+26:31.720 --> 26:37.060
+Eu também quero ver o console, certifique-se de que não recebemos nenhum erro. E nós vemos que temos duas coisas
+
+26:37.060 --> 26:37.640
+Aqui.
+
+26:38.050 --> 26:40.140
+Uma é a propriedade DOM inválida para.
+
+26:40.180 --> 26:47.930
+Você quis dizer htmlFor ?, isso nos dá um bom erro que diz no Signin ponto js, ​​e isso é porque novamente
+
+26:47.930 --> 26:52.880
+estamos usando JSX e 'for' é uma palavra javascript.
+
+26:53.000 --> 27:01.760
+Então, mesmo que em html você possa usar 'for' para 'labels' para anexá-los à entrada, no JSX nós temos que fazer um 'htmlFor', então
+
+27:01.760 --> 27:09.630
+nós podemos fazer 'htmlFor', 'htmlFor',
+
+27:13.610 --> 27:17.410
+salve isso, e nós teremos que fazer isso e o 'Register' também.
+
+27:26.570 --> 27:28.080
+E isso funciona.
+
+27:28.190 --> 27:34.250
+Mas quando clico em "Entrar", recebo o envio do formulário cancelado porque o formulário não está conectado e
+
+27:34.250 --> 27:36.130
+é porque com HTML,
+
+27:36.350 --> 27:42.650
+lembre-se quando nós trabalhamos em formulários, automaticamente, se houver uma entrada ou um botão quando há uma
+
+27:42.740 --> 27:50.180
+No evento 'onSubmit', onde há um envio de 'tipo', você tentará enviar esses formulários automaticamente.
+
+27:50.180 --> 27:53.690
+Se eu realmente mudar isso para um 'div',
+
+27:58.080 --> 28:06.030
+e eu salvo isso, se voltarmos para 'Register' e eu clicar em 'Register', eu não recebo mais esse erro. Novamente,
+
+28:06.060 --> 28:13.080
+porque nos próximos vídeos quando criarmos o backend, não estaremos necessariamente enviando um formulário,
+
+28:13.080 --> 28:15.690
+vamos enviá-lo através do JSON, que é mais dinâmico.
+
+28:15.690 --> 28:18.310
+Nós podemos personalizar as coisas um pouco melhor.
+
+28:18.510 --> 28:25.530
+Não podemos nos preocupar com formulários html, para que possamos ter uma personalização completa com o JSON. Então nós podemos fazer o
+
+28:25.530 --> 28:27.510
+mesmo aqui também.
+
+28:33.620 --> 28:36.000
+E novamente, assinando novamente, sem erros.
+
+28:36.020 --> 28:38.090
+Tudo funciona como pretendido.
+
+28:38.090 --> 28:46.900
+Se a parte do formulário foi confusa, confira a seção HTTP, JSON e AJAX. Como eu disse antes,
+
+28:46.910 --> 28:52.120
+formulários enviam ou tentam enviar as coisas automaticamente para nós, não estamos enviando nada ainda.
+
+28:52.130 --> 28:58.310
+Nós vamos criar nosso próprio servidor, onde poderemos entrar em nossos próprios usuários e registrar
+
+28:58.430 --> 29:01.370
+nossos próprios novos usuários.
+
+29:01.380 --> 29:06.330
+Há algumas coisas que podemos limpar e não precisamos nos preocupar, porque temos um trabalho
+
+29:06.520 --> 29:13.470
+aplicativo. E agora quero começar a criar um servidor, para que possamos realmente conectar pessoas e
+
+29:13.470 --> 29:18.840
+saia e tenha um servidor com o qual este site interaja.
+
+29:18.940 --> 29:20.550
+Eu vou te ver nessa por. Tchau tchau
