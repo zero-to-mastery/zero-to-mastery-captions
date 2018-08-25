@@ -1,0 +1,428 @@
+WEBVTT
+
+00:01.250 --> 00:07.580
+Good job making it this far things are going to get more and more fun starting in this section because
+
+00:07.820 --> 00:15.530
+we're now learning real tools that real companies use and that will get you hired in 2018 and development
+
+00:15.560 --> 00:23.540
+also becomes a lot faster because we're using these tools to make us build websites faster and better.
+
+00:23.540 --> 00:28.770
+So let's talk about react. What do we have before react?
+
+00:28.870 --> 00:36.890
+Well as I've mentioned before we had jQuery. jQuery was as you remember very imperative writing
+
+00:36.890 --> 00:41.270
+code was like mixing ingredients sequentially.
+
+00:41.270 --> 00:44.480
+If this happens then do this and then do that.
+
+00:44.480 --> 00:50.070
+But also if this happens then do this and it created a lot of inconsistencies.
+
+00:50.300 --> 00:58.430
+And if you remember the DOM manipulation section Well that is really really difficult and constantly keeping
+
+00:58.430 --> 01:06.280
+track of what changed and what to change is a huge mess and it creates for a very slow development.
+
+01:06.740 --> 01:12.830
+And as your website gets more and more complex it becomes very very hard to scale which means it becomes
+
+01:12.830 --> 01:16.360
+very hard for teams of developers to manage it.
+
+01:17.450 --> 01:24.050
+Now react was created at Facebook as you know Facebook is a pretty big app and a lot of things need
+
+01:24.050 --> 01:25.670
+to happen for it to work well.
+
+01:25.820 --> 01:33.230
+And they had this problem and they created react as a way to solve this issue and be able to have a tool
+
+01:33.290 --> 01:39.410
+that allows them to build websites in a nice predictable way that you can have multiple developers working
+
+01:39.410 --> 01:40.630
+on it at the same time.
+
+01:42.410 --> 01:49.130
+And I like to use the analogy of a bread machine using react is kind of like that you just throw in
+
+01:49.130 --> 01:58.980
+the ingredients and react does all this magic underneath the hood and puts out a website.
+
+01:59.080 --> 02:01.670
+So it's very reliable and very consistent.
+
+02:02.500 --> 02:11.680
+And it does one thing really really well and that is the view it manages to make our websites the DOM
+
+02:12.810 --> 02:18.520
+change in predictable ways that is easy to scale and easy to manage.
+
+02:18.660 --> 02:24.690
+And the beauty of react is that because it's just the view it doesn't necessarily mean it's only for
+
+02:24.690 --> 02:25.710
+browsers.
+
+02:26.010 --> 02:32.200
+As a matter of fact a react can be used with mobile devices to build native apps.
+
+02:32.220 --> 02:34.760
+It's used in virtual reality apps.
+
+02:35.010 --> 02:41.310
+You can build desktop apps with react anywhere that has a view well react can use it.
+
+02:41.340 --> 02:48.450
+And big companies as I mentioned before Facebook and Instagram use react and Netflix uses react whenever
+
+02:48.450 --> 02:52.750
+you browse through movie choices well that's using react underneath the hood.
+
+02:53.040 --> 02:57.140
+It's a very very useful tool and in very high demand.
+
+02:57.210 --> 03:03.300
+So I'm excited to talk about react and teach you this valuable skill in this section.
+
+03:03.360 --> 03:09.390
+Now in order to understand react there's a few things that we want to go over and these are principles
+
+03:09.390 --> 03:14.850
+that are very valuable that have been learned over the years by developers.
+
+03:14.850 --> 03:21.360
+One is the idea of thinking in components up to this point we've just built websites.
+
+03:21.620 --> 03:27.250
+Everything is just one JavaScript file one CSS file one HTML file.
+
+03:27.380 --> 03:34.360
+But wouldn't it be nice if the web was a network of these small components.
+
+03:34.370 --> 03:41.180
+Think of them as Lego blocks where everybody builds a specific Lego block and you just combine these
+
+03:41.180 --> 03:44.600
+Lego blocks to create your website.
+
+03:44.810 --> 03:50.780
+That is the idea that react established let's use this as an example.
+
+03:50.900 --> 04:00.800
+You first have atoms which as you can see here are icons and little small indivisible elements on
+
+04:00.800 --> 04:03.350
+your website such as images.
+
+04:03.500 --> 04:07.780
+There's some text and you divide these into atoms.
+
+04:07.790 --> 04:16.040
+From there you form molecules or combine atoms that have similar functionality such as the navigation
+
+04:16.040 --> 04:17.090
+bar down here.
+
+04:17.090 --> 04:25.270
+You combine individual atoms to add some functionality and then you have organisms again a little bit
+
+04:25.270 --> 04:29.470
+bigger than molecules that combines to a bigger scale functionality.
+
+04:29.560 --> 04:31.530
+And then finally you have templates.
+
+04:31.840 --> 04:37.950
+The combination of these organisms to give you an idea of how your app or website should look.
+
+04:37.960 --> 04:39.580
+Finally you have your pages.
+
+04:39.640 --> 04:43.140
+That is the page of your app.
+
+04:43.350 --> 04:52.650
+And if you think in components as this image demonstrates well you're able to build small little components
+
+04:53.190 --> 04:58.200
+that you can reuse and put on different parts of the webpage.
+
+04:58.260 --> 05:05.550
+For example this back-button here if I build a react component that is the back-button I can now use it on
+
+05:05.670 --> 05:06.600
+multiple pages.
+
+05:06.600 --> 05:13.110
+And I don't have to rewrite the code if I wanted the navigation bar to be used in different areas of
+
+05:13.110 --> 05:13.590
+the app.
+
+05:13.590 --> 05:19.670
+Well again I don't need to rewrite the code I write it once and I can reuse it as a matter of fact I can even
+
+05:19.710 --> 05:21.020
+share it with the world.
+
+05:21.300 --> 05:28.900
+And this idea of components makes react AMAZING because right here I have a website that has react
+
+05:28.920 --> 05:32.280
+components built by somebody and we can reuse these.
+
+05:32.490 --> 05:36.290
+And it's not just CSS and HTML.
+
+05:36.330 --> 05:42.310
+But real functionality such as navigation bars and sign-in forms.
+
+05:42.320 --> 05:51.480
+I can just download this react component and attach it to my website and because of the way react is
+
+05:51.480 --> 05:56.690
+structured it doesn't really need to know about the rest of the webpage it's just its own lego block
+
+05:56.880 --> 06:02.540
+that works by itself by reducing dependencies on other parts of the web site.
+
+06:02.580 --> 06:06.390
+I can just plug this anywhere I want.
+
+06:06.400 --> 06:12.310
+Another important concept with react is the idea of one way data flow.
+
+06:12.390 --> 06:19.200
+The best way to describe it is by looking at this tree like structure in here you see that we have a
+
+06:19.200 --> 06:25.110
+parent some children and then those children have their own children and those children have their own
+
+06:25.110 --> 06:26.460
+children.
+
+06:26.650 --> 06:34.240
+And the idea with react is that data flows from top to bottom and never the other way around that is
+
+06:34.570 --> 06:38.380
+if these red let's call them components change.
+
+06:38.530 --> 06:44.170
+Well in that case only their children know about the change.
+
+06:44.170 --> 06:50.290
+The parents don't really care about the change because well the direction of the data flow is just
+
+06:50.290 --> 06:51.440
+always downstream.
+
+06:51.490 --> 06:58.750
+So if we go back to the idea of components if we had a website built on components and this was the page
+
+06:58.980 --> 07:06.310
+and these were organisms and then molecules then atoms.
+
+07:06.380 --> 07:11.110
+Well in that case the red components change and then only the ones below it.
+
+07:11.120 --> 07:18.290
+As you can see here in blue know of this change and based on that they will act accordingly and change
+
+07:18.290 --> 07:19.170
+as well.
+
+07:19.340 --> 07:25.820
+Now without actually having a problem it's hard to understand this concept but trust me this is a very
+
+07:25.820 --> 07:29.500
+important concept that react brought in.
+
+07:29.510 --> 07:35.870
+It creates a lot of really nice bug free code and it is an idea that you'll understand more and more
+
+07:35.900 --> 07:41.300
+as we start to code in react.
+
+07:41.540 --> 07:49.600
+The next thing is the idea of Virtual DOM you know what the DOM is the Document Object Model.
+
+07:49.730 --> 07:54.950
+And we also learned that one of the most important things as a developer is to minimize the amount of
+
+07:54.950 --> 08:01.010
+DOM manipulation that we do because well web browsers has to have to work really really hard to achieve
+
+08:01.010 --> 08:05.320
+that and it reduces the performance of the webpage plus increases
+
+08:05.330 --> 08:11.160
+bugs. I think this image demonstrates what react does really well beforehand.
+
+08:11.200 --> 08:15.840
+We were the painters we told the DOM exactly what to do.
+
+08:15.910 --> 08:23.180
+Remove this element then put this in and then also add this and color this this way with react
+
+08:23.200 --> 08:30.030
+We have this react bot and the react bot creates something called the Virtual DOM, Virtual DOM is
+
+08:30.070 --> 08:37.050
+just a JavaScript object and this JavaScript object that just describes our website.
+
+08:37.290 --> 08:46.160
+The current state of the website and we just give it that object to react and the react bot will automatically
+
+08:46.160 --> 08:53.240
+make changes to the DOM and paint the picture in the most optimum way possible.
+
+08:53.240 --> 08:56.480
+So we just tell it hey this is the object.
+
+08:56.660 --> 08:58.140
+This is what we want
+
+08:58.640 --> 09:02.960
+in the DOM and the react takes care of DOM manipulation for you.
+
+09:02.960 --> 09:11.660
+Remember how annoying it was to do query selector-all then grab elements by id and then doing all these event handlers
+
+09:11.660 --> 09:14.480
+well react takes care of that.
+
+09:14.480 --> 09:22.430
+So again the virtual DOM is just a copy of the DOM that's in a JavaScript object and then react underneath
+
+09:22.430 --> 09:28.910
+the hood just changes the view and that's why it's able to work outside of browsers and you can use
+
+09:28.910 --> 09:35.380
+things like VR and and mobile devices because react is the machine and what the canvas is on
+
+09:35.390 --> 09:38.960
+well we can change the canvas to whatever we want.
+
+09:38.960 --> 09:43.670
+Finally react has a great ecosystem.
+
+09:43.750 --> 09:49.540
+It is probably one of the biggest ecosystems in JavaScript right now and there are so many tools that
+
+09:49.540 --> 09:56.840
+work with react as a matter of fact the developer community is so big that any problem you have there
+
+09:56.910 --> 10:02.250
+is most likely a chance that somebody else has had it and has posted it on the Internet and you can
+
+10:02.250 --> 10:03.630
+find solutions for.
+
+10:03.690 --> 10:09.810
+You can find react packages in npm you can use it with node there's web pack and babel that you
+
+10:09.810 --> 10:10.770
+can use with it.
+
+10:11.010 --> 10:18.060
+It's just a really good ecosystem that uses the latest JavaScript technology to build websites in a
+
+10:18.060 --> 10:20.490
+really nice elegant way.
+
+10:20.500 --> 10:26.630
+Now one thing that I want to warn you about in this section we're going to see code like this.
+
+10:27.580 --> 10:30.090
+And it's going to look very strange at first.
+
+10:30.250 --> 10:34.900
+It's like the same way when you looked at JavaScript the first time.
+
+10:35.030 --> 10:37.400
+It seemed like a whole new different world.
+
+10:37.400 --> 10:43.130
+It will when you first look at this but trust me knowing what you know about JavaScript this becomes
+
+10:43.250 --> 10:44.690
+really really easy.
+
+10:44.720 --> 10:51.740
+You have classes that extends the react component and this is how we build components.
+
+10:51.980 --> 11:00.020
+We have constructor again that we've seen in advanced objects and then each class has a mandatory render
+
+11:00.110 --> 11:03.860
+function that you just tell it what this clock should render.
+
+11:03.890 --> 11:06.970
+And as you can see it looks like HTML isn't it.
+
+11:07.400 --> 11:12.020
+It's not exactly HTML but the syntax is very similar.
+
+11:12.020 --> 11:16.490
+So even by looking at this you see that this clock component.
+
+11:16.520 --> 11:20.170
+Again this lego block just returns a Hello World
+
+11:20.180 --> 11:27.730
+h1 tag with an h2 that says it is and then the time again just to give you a heads up you're going
+
+11:27.730 --> 11:36.580
+to hear words like props and state and react components but these are just language syntax that you'll learn.
+
+11:36.860 --> 11:39.540
+And it's actually quite easy once you get used to it.
+
+11:39.890 --> 11:43.730
+So don't worry this is all going to make sense
+
+11:43.820 --> 11:49.290
+by the end of it. And you know what we're going to be building a pretty cool app.
+
+11:49.350 --> 11:57.170
+It's called Robo Friends and we're going to build this app that well searches through your robot friends
+
+11:57.680 --> 11:59.710
+and you can find their contact information.
+
+11:59.780 --> 12:03.120
+And as you can see it updates live.
+
+12:03.290 --> 12:04.800
+It's super fast.
+
+12:04.940 --> 12:06.450
+It's responsive.
+
+12:06.800 --> 12:08.600
+It's going to be a lot of fun.
+
+12:08.690 --> 12:14.990
+And we're going to build this pretty fast just to show you how powerful react is.
+
+12:15.030 --> 12:15.500
+All right.
+
+12:15.540 --> 12:17.770
+I'm really excited to get into this section.
+
+12:17.850 --> 12:19.400
+You're going to have a lot of fun.
+
+12:19.530 --> 12:21.020
+I'll see you in the next one.
+

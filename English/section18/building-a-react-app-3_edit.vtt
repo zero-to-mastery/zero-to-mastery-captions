@@ -1,0 +1,880 @@
+WEBVTT
+
+00:00.570 --> 00:05.760
+All right we're getting closer and closer to having our app look like this but we clearly see that we
+
+00:05.760 --> 00:07.820
+have a search box here.
+
+00:07.980 --> 00:14.450
+So in this video we're going to work on having this interactive. Looking back at our app,
+
+00:14.460 --> 00:15.170
+we see that
+
+00:15.180 --> 00:21.280
+well we definitely need a title and the search box, so let's create that.
+
+00:21.360 --> 00:22.830
+If I go to index.js
+
+00:23.030 --> 00:29.730
+I think now that we're officially building an app, instead of having the "Cardlist" component here we should
+
+00:29.730 --> 00:39.390
+have one big component called "App", and this "App" will be the father of all our children, all our components
+
+00:39.900 --> 00:42.890
+Let's do that. Let's build the "App" component first
+
+00:47.270 --> 00:53.060
+And this "App" component again will "import React from 'react';"
+
+00:57.620 --> 01:00.470
+and "App" will equal
+
+01:06.800 --> 01:13.130
+the "CardList" component which we can just copy and put in here
+
+01:15.560 --> 01:20.840
+And again, changing this to "Babel", we want to import
+
+01:23.850 --> 01:25.740
+the "CardList" component
+
+01:30.450 --> 01:37.500
+and we also want to have our "robots" actually imported in here
+
+01:37.540 --> 01:40.040
+so we have access to it
+
+01:40.150 --> 01:46.120
+And then finally we now just want to render the app component so we can just bring this back the way
+
+01:46.120 --> 01:48.490
+it was
+
+01:48.720 --> 01:54.030
+We save. We need to obviously export our app
+
+01:54.050 --> 02:02.960
+So we'll say "export default App;", save this
+
+02:03.170 --> 02:04.190
+Let's go back
+
+02:04.430 --> 02:04.700
+Yep
+
+02:04.760 --> 02:06.460
+Everything is still working
+
+02:07.060 --> 02:11.400
+Now within the "CardList" we also have a header
+
+02:11.470 --> 02:14.700
+So we'll do "h1", that'll say "RoboFriends"
+
+02:17.990 --> 02:22.850
+and again remember that we need to return just one single parent
+
+02:22.850 --> 02:27.110
+ao we need to do something like a "div" to wrap it
+
+02:31.560 --> 02:33.860
+and I need to close this "h1" tag
+
+02:37.250 --> 02:37.680
+All right
+
+02:37.690 --> 02:46.060
+I have my "robot friends" title and we also need a search box. And although "h1" was easy and we now have to
+
+02:46.060 --> 02:48.160
+build a component for it,
+
+02:48.160 --> 02:56.700
+It sounds like we probably want to create a search box component for this app, so let's do that
+
+02:56.700 --> 03:08.840
+I'm going to say "import SearchBox" from a file that we'll create called "SearchBox". We will create a new
+
+03:08.840 --> 03:09.200
+file
+
+03:19.810 --> 03:25.840
+and this file will have "import React from 'react';"
+
+03:29.030 --> 03:30.370
+and the search box
+
+03:32.570 --> 03:36.120
+will have a function that returns -
+
+03:36.140 --> 03:38.130
+Let's think about what it returns
+
+03:39.400 --> 03:43.830
+Well it definitely returns an input, right?
+
+03:43.870 --> 03:47.930
+That is type of 'search'
+
+03:48.210 --> 03:51.490
+And let's also have a placeholder -
+
+03:51.620 --> 04:02.740
+let's close this - and placeholder that says 'search robots'
+
+04:02.880 --> 04:15.080
+We close this and save and we have to export: "export default SearchBox;", save, "Compiled successfully!"
+
+04:15.080 --> 04:16.850
+All right! We have our search box
+
+04:16.850 --> 04:19.220
+But, well, it's not searching anything right now
+
+04:22.690 --> 04:29.130
+Let's add this on a new line, just so it looks nicer. And it's always a good idea, just in case you want
+
+04:29.130 --> 04:35.620
+to add more things to the search box, to wrap everything in a "div"
+
+04:35.670 --> 04:37.250
+So I'm going to do that right now.
+
+04:39.660 --> 04:44.070
+And this "div" will just have a "className" of "padding2"
+
+04:44.100 --> 04:50.180
+again using [tag-ons], and with the "input" we can do a "className"
+
+04:51.450 --> 04:52.920
+and I just know these look good
+
+04:52.920 --> 04:55.440
+so I'm just going to copy and paste here
+
+04:55.460 --> 04:56.860
+just padding
+
+04:56.970 --> 05:00.240
+with background "lightest-blue"
+
+05:00.240 --> 05:02.930
+If I do this, and - let's go back
+
+05:02.940 --> 05:03.600
+All right
+
+05:03.600 --> 05:04.800
+This looks better -
+
+05:04.830 --> 05:06.390
+We want to center everything
+
+05:06.540 --> 05:10.190
+So maybe in the app we can just add a "className"
+
+05:11.220 --> 05:14.570
+equals to "text center"
+
+05:14.580 --> 05:15.750
+see if that works
+
+05:17.010 --> 05:17.660
+There you go
+
+05:17.730 --> 05:19.370
+That's much better
+
+05:19.380 --> 05:21.380
+I like this already
+
+05:21.550 --> 05:25.610
+Now, how can we make this interactive?
+
+05:25.660 --> 05:33.600
+Up until now we've just had these static web sites but real web sites are interactive, right?
+
+05:33.660 --> 05:36.430
+Well let's think about this logically
+
+05:36.570 --> 05:39.360
+We have an app
+
+05:39.600 --> 05:41.920
+We have a "SearchBox"
+
+05:42.910 --> 05:53.220
+And we have a "CardList", but the search box component needs to communicate with the card list, and same
+
+05:53.220 --> 05:54.930
+with the card list. "CardList"
+
+05:54.960 --> 06:02.410
+needs to know what is in the search box so that it can filter out robots accordingly
+
+06:03.880 --> 06:10.030
+Let's go back to our image that we have of one way data flow. Looking at this
+
+06:10.030 --> 06:20.430
+we have the app component, and then the card list component that has cards, and then the search box component
+
+06:20.910 --> 06:22.790
+that, well, doesn't have any children now
+
+06:22.920 --> 06:30.030
+But in order for these two to communicate we have a one way data flow, that is they need to send their
+
+06:30.030 --> 06:36.170
+information to their parent and the parent tells them what to do
+
+06:37.230 --> 06:39.010
+Now how can we do that
+
+06:40.300 --> 06:46.870
+Up until now we just had some data that we just trickled down, but we never had it where one of the children
+
+06:47.020 --> 06:51.910
+had to modify data or communicate with a neighbor.
+
+06:54.650 --> 06:56.740
+Well, in order to do this
+
+06:56.740 --> 07:06.730
+React has an idea of something called "state". Up until now we learned about props such as properties
+
+07:06.730 --> 07:09.080
+that we keep passing down
+
+07:09.860 --> 07:15.150
+but we've never changed them because React just reads the props.
+
+07:15.170 --> 07:24.130
+If I go to "CardList" it just reads the props that it receives and it just renders something. And this one-
+
+07:24.130 --> 07:33.340
+way data flow is really nice because this "CardList" is a pure function. It receives an input and then
+
+07:33.400 --> 07:37.370
+it always returns the same output
+
+07:37.660 --> 07:42.760
+So if robots are always the same it's always going to return the same thing
+
+07:42.820 --> 07:48.430
+It's deterministic, pure functions, and it's something that we've talked about before. And this is a really
+
+07:48.430 --> 07:49.720
+really good thing.
+
+07:49.810 --> 07:56.200
+These components are what's called "pure components", and some even call it "dumb components"
+
+07:56.200 --> 08:01.480
+It just means that they don't really need to know about anything other than the fact that they're pure
+
+08:01.480 --> 08:04.680
+functions that receive something and return something.
+
+08:05.200 --> 08:11.480
+And this is really nice because we always know what this is going to look like, and that's all we had
+
+08:11.540 --> 08:12.870
+up until this point
+
+08:13.250 --> 08:18.640
+But now we have to worry about something other than props
+
+08:18.740 --> 08:22.840
+Props never change. Props are always just inputs that we get
+
+08:22.850 --> 08:24.370
+and we've never modified them
+
+08:25.180 --> 08:29.490
+But in this case we need a memory in our app
+
+08:29.680 --> 08:36.150
+We need this to communicate with this, and also change and update accordingly
+
+08:36.340 --> 08:44.380
+And that's what "state" is in React. "State" - and you'll hear this in computer programming a lot - simply means
+
+08:45.340 --> 08:54.060
+the description of your app. A "state" is simply an object - an object that describes your application
+
+08:54.430 --> 09:02.650
+And this "state" which describes our application is the robots, and whatever's entered in the search box
+
+09:04.110 --> 09:07.020
+and "state" is able to change
+
+09:07.110 --> 09:13.020
+We're able to change the value of the search box, the value of the input, and we're able to change what
+
+09:13.060 --> 09:15.190
+robot's array means
+
+09:15.210 --> 09:17.190
+What gets displayed
+
+09:17.290 --> 09:19.390
+This is a rule that you just have to remember
+
+09:19.570 --> 09:26.330
+Props are simply things that come out of "state"
+
+09:26.440 --> 09:34.570
+So a parent feeds "state" into a child component and as soon as a child (components) component receives a
+
+09:34.580 --> 09:42.460
+"state" it's a property. That child can never change that property. The parent just tells it what the "state"
+
+09:42.460 --> 09:47.630
+is and the child receives it as "robots"
+
+09:47.650 --> 09:58.090
+So the first thing we need to do is to start being able to use "state" in our app, the description of what
+
+09:58.600 --> 10:00.650
+our "state" should be
+
+10:00.670 --> 10:07.960
+So let's just do a constant "state" for now and show you that our "state" needs to have a "robots" array
+
+10:08.410 --> 10:14.360
+and it needs to have, let's call it "searchfield"
+
+10:14.610 --> 10:18.530
+And this is just whatever our search field needs
+
+10:18.840 --> 10:25.500
+But in order to use "state" we have to go back to our original way that we created React components. If
+
+10:25.500 --> 10:37.990
+you remember this, when we first did "create React app", we create a class and we do that by saying "export
+
+10:38.380 --> 10:40.420
+default" or "export App
+
+10:46.710 --> 10:51.540
+extends React.Component"
+
+10:51.670 --> 11:02.640
+It extends the "Component" class, and again we can use shorthand here and just say… So now we can just remove
+
+11:02.640 --> 11:03.630
+React from here
+
+11:04.510 --> 11:14.830
+And this always has a render function that has to return something, which is this
+
+11:18.990 --> 11:28.750
+Again, it's just the syntax that you have to get used to. So if I save this - oh, and I made a mistake here, instead
+
+11:28.750 --> 11:30.580
+of "export" this should say "class"
+
+11:30.790 --> 11:36.720
+So, yeah, "class App extends Component" and then we do "export default App;"
+
+11:36.730 --> 11:43.750
+So again we're just declaring a class. I save and we just have something that says "state is assigned
+
+11:43.750 --> 11:46.590
+a value but never used"
+
+11:46.740 --> 11:48.270
+That's because that's pretty true
+
+11:48.270 --> 11:49.150
+we don't use it
+
+11:49.200 --> 11:53.000
+So how can we add "state"? Well, in React
+
+11:53.010 --> 11:56.030
+we simply do a constructor
+
+11:56.040 --> 11:58.600
+You might remember this from when we spoke about objects
+
+11:59.630 --> 12:05.130
+And this constructor, in here we can declare the state
+
+12:05.330 --> 12:21.400
+We simply say "this.state =", and in here we just put whatever we want our state to have
+
+12:21.400 --> 12:24.630
+So if I save this, I get
+
+12:24.700 --> 12:27.610
+"'this' is not allowed before super()"
+
+12:27.610 --> 12:34.010
+Again, something that you might remember from the advanced objects video in order to use "this"
+
+12:34.300 --> 12:42.890
+we have to do this weird thing where we call "super()" which calls the constructor of component
+
+12:43.090 --> 12:49.890
+If I do this and save, everything's working fine
+
+12:49.960 --> 13:00.810
+And now we have our "state", which is robots and search field, and this "state" as I've said before is what
+
+13:00.810 --> 13:02.220
+describes our app
+
+13:02.220 --> 13:07.590
+These are the things that can change, and that's what this "state" is - something that can change and affect
+
+13:07.860 --> 13:08.720
+our app
+
+13:10.320 --> 13:17.160
+And they usually live in the parent component, the component that is the parent that just kind of passes
+
+13:17.180 --> 13:19.550
+"state" to different components
+
+13:19.550 --> 13:29.210
+And now I can access "robots", not from here, but from "this.state.robots"
+
+13:29.310 --> 13:34.100
+And again, just React syntax that you'll have to get used to
+
+13:34.270 --> 13:34.540
+All right
+
+13:34.550 --> 13:37.180
+So everything is working as expected
+
+13:37.490 --> 13:47.210
+And do you see that our state, which is "robots", is now passed down as "props" so "CardList" accepts "robots"
+
+13:47.330 --> 13:50.550
+as "props" even though in the app.js 
+
+13:50.690 --> 13:59.090
+it's a "state". And like I said because "App" now owns "state" that includes "robots"
+
+13:59.180 --> 14:02.540
+it's allowed to change it. OK
+
+14:02.630 --> 14:11.530
+Now the way we can communicate them, we have these two valleys, and ideally in the search box I have something
+
+14:11.530 --> 14:19.930
+called "onSearchChange()", which again is a function that I'm just going to make up
+
+14:20.500 --> 14:23.170
+This is just a random name that I've created
+
+14:23.650 --> 14:30.250
+And "onSearchChange()" I want to say that every time the input changes, just like we did with DOM manipulation,
+
+14:30.670 --> 14:37.580
+we get an event, and within this event I'm going to "console.log" this event
+
+14:41.430 --> 14:44.590
+I've created a function, and I want
+
+14:44.590 --> 14:48.740
+any time this input changes to trigger "console.log"
+
+14:49.170 --> 14:58.890
+So we can pass this actually now. I can say "searchChange=[onSearchChange]", but again because this
+
+14:58.890 --> 15:09.090
+is an object we have to say "this." so that it says "this" (which is the "App") ".onSearchChange" is "searchChange"
+
+15:10.110 --> 15:17.760
+If I save this and now go to the search box, I now have "searchChange"
+
+15:21.590 --> 15:25.910
+as a function, so I can just say, just like in HTML -
+
+15:25.930 --> 15:32.110
+Remember in HTML I can do "onchange html", it's an event,
+
+15:32.170 --> 15:36.040
+we're just listening to "any time the input changes"
+
+15:36.260 --> 15:39.720
+So I can say "onChange="
+
+15:42.420 --> 15:43.980
+"[searchChange]"
+
+15:43.980 --> 15:45.600
+Let's see if that works
+
+15:45.690 --> 15:46.730
+I'm getting no errors
+
+15:46.740 --> 15:53.290
+If I go back to my app, I open up the console and I type in something, and look at that!
+
+15:53.340 --> 16:01.120
+I'm getting the event. And this is just something you have to remember is that with an event we always
+
+16:01.120 --> 16:09.170
+have "event.target.value" which should give us the value of the search term
+
+16:09.190 --> 16:13.580
+Let's save that and type in something here
+
+16:15.160 --> 16:19.960
+Look at that! We're now noticing the difference as we type
+
+16:20.000 --> 16:22.760
+So let's go over one more time what just happened
+
+16:23.650 --> 16:25.640
+And again I know this is tough
+
+16:25.660 --> 16:31.170
+This took me a while to get when we first started, but this diagram really explains it well
+
+16:32.080 --> 16:34.180
+I have my app component
+
+16:34.180 --> 16:43.940
+My search box, and my card list. Any time the search box changes, on change I'm going to run the function, I'm
+
+16:43.940 --> 16:48.620
+going to call this function
+
+16:48.630 --> 16:51.020
+And the way we call it is we add this
+
+16:51.100 --> 16:58.240
+Remember how when we did DOM events we defined the function and then every time the event happens it
+
+16:58.240 --> 16:59.490
+would call it.
+
+16:59.920 --> 17:08.720
+So we are saying every time the onchange event is triggered, call the search change function
+
+17:08.950 --> 17:16.330
+And if you remember the search change function which is a prop is the "onSearchChange" function that
+
+17:16.330 --> 17:17.460
+is defined in the app
+
+17:17.470 --> 17:19.470
+That's how we communicate with the parent
+
+17:19.510 --> 17:24.880
+It triggers the event, the parent says "Oh, run this function"
+
+17:25.060 --> 17:29.810
+And now this function gets run
+
+17:29.940 --> 17:39.150
+But now that I have the value of the search input, I can now directly communicate that search input to
+
+17:39.330 --> 17:41.110
+the "robots" list
+
+17:41.130 --> 17:42.660
+Let's see how that works
+
+17:42.720 --> 17:55.950
+We can create a variable, let's say "filteredRobots", and this will equal the "this.state.robots"
+
+17:57.980 --> 18:00.190
+and this "robots", which is the array
+
+18:00.230 --> 18:08.240
+- again this is how we access "state" - is going to use "filter", filtering our array
+
+18:08.410 --> 18:17.290
+We give it "robots", and now our array will have to return a condition, and the condition is going to be
+
+18:18.820 --> 18:19.530
+"robots"
+
+18:19.560 --> 18:28.400
+".name" and we're going to do something that we haven't seen before which is "to.LowerCase"
+
+18:28.720 --> 18:33.850
+And this is a method that comes with all strings, and it just makes everything lowercase
+
+18:33.880 --> 18:39.840
+And this is good for comparisons so we don't have to compare capitalized or lowercase
+
+18:39.990 --> 18:51.640
+And if the "name" of "robots", which is now lowercased, "includes" - it's another method and again it's pre-built
+
+18:51.700 --> 18:58.450
+into javascript - if it "includes" the "searchfield"
+
+18:58.610 --> 19:02.940
+And again we want to do "toLowerCase" in case
+
+19:03.140 --> 19:08.140
+Well in case we use capitals or lowercase, it works both ways
+
+19:08.510 --> 19:09.260
+And there it is
+
+19:09.470 --> 19:16.370
+If the name of the robots in lowercase includes - and this does the comparison -
+
+19:16.530 --> 19:26.400
+if anything in the string includes "toLowerCase", well, then only return the robots that returns true
+
+19:26.400 --> 19:29.220
+to this. Let's save -
+
+19:29.270 --> 19:33.240
+- oh, and you see here the how you get the 'searchfield' there because, well, it's part of the state
+
+19:33.260 --> 19:38.190
+I have to do "this.state.searchfield"
+
+19:38.400 --> 19:42.150
+If I save this, I get that
+
+19:42.150 --> 19:44.720
+"'filteredRobots' is assigned a value but never used"
+
+19:44.850 --> 19:49.240
+But don't worry, we can now console log this and see what we get
+
+19:51.320 --> 19:59.970
+if I save, and let's go back to our app, and if I search something here, oh, I get an error
+
+20:00.110 --> 20:03.510
+And this is an error that is very very confusing
+
+20:03.530 --> 20:05.010
+It is tricky the first time
+
+20:05.120 --> 20:06.490
+But bear with me here
+
+20:06.620 --> 20:11.700
+The problem right now is that the value of "this"
+
+20:12.260 --> 20:23.090
+well it's not referring to the "App", because the event happened in the "input", the value of "this" is, well,
+
+20:23.090 --> 20:28.040
+the input, and "input" doesn't have "state.robots"
+
+20:28.490 --> 20:35.050
+And this is a trick that you always forget, but just keep this in mind as a rule of thumb
+
+20:36.060 --> 20:43.740
+With anything that comes from React, so constructor and render are pre-built in React, any time you
+
+20:43.740 --> 20:54.100
+make your own methods on a component, use this syntax, so arrow functions, and this makes sure that the "this"
+
+20:54.100 --> 20:58.020
+value is according to where it was created, which is the "App"
+
+20:58.210 --> 20:59.320
+I know it's confusing
+
+20:59.320 --> 21:00.610
+You can up read more about it
+
+21:00.610 --> 21:02.280
+I'll leave a resource for it
+
+21:02.290 --> 21:06.280
+It's a tough topic to get, but again, rule of thumb -
+
+21:06.280 --> 21:07.260
+use the arrows
+
+21:07.300 --> 21:16.550
+If I do this now and I click, there you go - I now get "robots"
+
+21:16.600 --> 21:18.250
+But here's the thing
+
+21:18.250 --> 21:24.610
+Searchfield right now - you see that I still have 10 robots, it's not really filtering anything
+
+21:24.880 --> 21:31.570
+And that is because my "searchfield" is always an empty string. In order to update the state
+
+21:31.660 --> 21:40.890
+again another rule of React is to do "this.setState", and it's again a method that comes with React
+
+21:40.900 --> 21:47.680
+And anytime you want to change state you always do this, you don't do "this.state.searchfield ="
+
+21:47.770 --> 21:49.290
+- you never do that
+
+21:49.300 --> 22:00.280
+You have to do "this.setState", and within here we just say "searchfield is…" - and again we're using
+
+22:00.280 --> 22:06.460
+an object, so "searchfield is now going to be "event.target.value"
+
+22:08.480 --> 22:20.870
+If I save this and go back, you see that now everything is being filtered
+
+22:20.930 --> 22:26.130
+So I'm changing the state so that the "searchfield" always gets updated
+
+22:26.150 --> 22:30.770
+and now we're filtering the robots according to the changed "searchfield"
+
+22:33.330 --> 22:33.620
+OK
+
+22:33.640 --> 22:37.320
+So one last thing. Looking at this
+
+22:37.570 --> 22:42.250
+We have the fact that filter robots is still not assigned, and you're right
+
+22:42.400 --> 22:48.400
+If we look at this, we've now communicated the search box with the app, and we have the search field constantly
+
+22:48.400 --> 22:48.940
+changing
+
+22:48.940 --> 22:56.740
+So now we need to communicate it to the "filteredRobots". What we can do is that "filteredRobots" can now
+
+22:56.740 --> 23:02.350
+be used as props instead of "this.state.robots"
+
+23:02.350 --> 23:03.100
+So let's do that
+
+23:03.160 --> 23:06.910
+Let's move this down here
+
+23:10.430 --> 23:17.060
+And now we have access to "filteredRobots", and instead of passing "this.state.robots" we simply pass
+
+23:17.690 --> 23:19.970
+"filteredRobots"
+
+23:20.120 --> 23:23.670
+If I save this, make sure the search part saved as well
+
+23:23.930 --> 23:29.940
+And now I go back. I'm going to close the tab and let's check it out
+
+23:33.200 --> 23:34.280
+Look at that
+
+23:34.430 --> 23:37.420
+We have our app working
+
+23:37.610 --> 23:38.610
+How cool is that
+
+23:39.960 --> 23:43.230
+Let's go over it one more time to show you exactly what it does
+
+23:45.150 --> 23:52.110
+We have our "App" component that has two states - "robots" and "searchfield"
+
+23:52.300 --> 24:01.120
+And because "App" owns the state, any component that has "state" uses the "class" syntax so they can use the
+
+24:01.150 --> 24:08.930
+"constructor" function to create "this.state", and this "state" is what changes in an app
+
+24:08.950 --> 24:11.380
+It's what describes the app
+
+24:11.380 --> 24:16.840
+Remember when I said the virtual DOM is just a javascript object? The virtual DOM is just an object that
+
+24:16.840 --> 24:27.190
+collects this entire state and React uses this state to render and pass them down as props to these
+
+24:27.190 --> 24:32.740
+components so that these components that are just pure functions can just render
+
+24:32.940 --> 24:38.010
+And we always know that the app is going to look the same because, well, they're just simple pure functions
+
+24:39.350 --> 24:44.500
+We manage this state in here, the app is the only thing that can change this state
+
+24:44.630 --> 24:52.880
+But it can pass down things such as props, so we passed down "onSearchChange" to the "SearchBox", and the
+
+24:52.880 --> 24:56.720
+"SearchBox", every time there's an "onChange" on the input,
+
+24:56.720 --> 24:59.760
+it lets the app know "Hey, there was a change"
+
+24:59.840 --> 25:00.840
+"Run this function"
+
+25:01.040 --> 25:07.570
+It runs the function with the event and updates the state of the "searchfield" to whatever we type
+
+25:09.600 --> 25:15.720
+Now with the information that we have from the search box we can now communicate to the card list and
+
+25:15.720 --> 25:26.100
+tell it "Hey, I want to filter the "robots" state to now have only what includes in the "searchfield"
+
+25:27.030 --> 25:34.970
+and instead of passing that "this.state" to our "robots" we just passed the "filteredRobots"
+
+25:35.130 --> 25:39.000
+You might be asking yourself "Well, "robots" never really changes, does it?"
+
+25:39.000 --> 25:43.620
+"We always just create a new array called "filterRobots" and we always pass that down"
+
+25:43.680 --> 25:46.540
+"Does this need to be part of the state"
+
+25:47.020 --> 25:53.550
+And right now not really because we just have a hard coded "robots", but when we get later on in the
+
+25:53.550 --> 25:56.080
+course you'll see that that's not the case
+
+25:56.220 --> 26:02.550
+Most of the time you're getting the users or robots from another place over the internet in which
+
+26:02.550 --> 26:08.610
+case we will need "robots" to change from an empty array to an array
+
+26:08.610 --> 26:14.480
+after we go and grab all of our users
+
+26:14.750 --> 26:15.410
+Whoo! All right
+
+26:15.530 --> 26:16.850
+That was a lot
+
+26:16.880 --> 26:23.000
+I know, I know it's a lot of information, a lot of new syntax, but as you can see, with a few lines of
+
+26:23.000 --> 26:30.320
+code we built a pretty awesome app. In the next video we're going to finish this up and finalize our
+
+26:30.320 --> 26:30.660
+app
+
+26:30.680 --> 26:33.490
+so it looks as pretty as this
+
+26:33.560 --> 26:35.130
+I'll see you in that one. Bye!

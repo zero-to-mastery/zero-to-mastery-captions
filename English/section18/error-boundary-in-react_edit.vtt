@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.650 --> 00:10.830
+Let's add one more tool to our knowledge in React andReact 16, which was a new version of react,
+
+00:11.010 --> 00:18.780
+introduced something called "error boundaries" and it solved the problem that React had previously, which was
+
+00:19.110 --> 00:25.110
+if there were some sort of an error within a component for whatever reason there wasn't a graceful way
+
+00:25.110 --> 00:32.370
+to handle it. on the next render you'd get all these cryptic errors and things just wouldn't work
+
+00:32.370 --> 00:34.710
+out nicely. For a user
+
+00:35.130 --> 00:42.900
+You want to make sure that even if a part of your component tree breaks, you can still have a nice UI experience,
+
+00:42.910 --> 00:48.780
+maybe a piece of text that says something went wrong, but not have the app break.
+
+00:48.780 --> 00:54.520
+So in this video we're going to talk about error boundaries and apply it to our RoboFriends app.
+
+00:54.600 --> 00:55.500
+Let's get started.
+
+00:57.140 --> 01:04.370
+The first thing I want to do is in the component I'm going to add a new file and we'll call this component
+
+01:04.760 --> 01:13.330
+ErrorBoundry.js and just a reminder you do need React 16 or higher for this to work.
+
+01:13.430 --> 01:21.930
+So make sure that in your package.json file that you have the right version of React. Now in here we can
+
+01:22.110 --> 01:25.980
+do our regular import react
+
+01:28.960 --> 01:33.620
+component and we're importing that from the react package.
+
+01:34.050 --> 01:41.000
+And then finally we have a class of ErrorBoundry that extends the react component
+
+01:43.830 --> 01:45.840
+and within here we have the constructor
+
+01:48.960 --> 01:51.460
+and again we call super here.
+
+01:52.610 --> 02:03.420
+And just so we have access to the props, we'll have to - within the constructor - have the props paramater.
+
+02:03.560 --> 02:11.880
+And then finally for this.state we're going to create a property called hasError.
+
+02:12.370 --> 02:16.190
+And for now it's going to be false.
+
+02:16.260 --> 02:26.310
+And let's also not forget to export default ErrorBoundry so we have access to it and have our default
+
+02:26.520 --> 02:29.760
+render here that will return for us.
+
+02:30.830 --> 02:32.760
+Hmm what should it return.
+
+02:33.170 --> 02:41.300
+Well ideally with this ErrorBoundry component we can wrap the component or we can wrap a component such
+
+02:41.300 --> 02:48.890
+as the CardList component with an ErrorBoundry component and if the CardList component fails we can
+
+02:48.890 --> 02:51.340
+catch it in the ErrorBoundry.
+
+02:52.390 --> 02:57.790
+I know this is a little bit hard to follow. React does have really good documentation on this so you can
+
+02:57.790 --> 02:59.520
+always read up on it later.
+
+02:59.530 --> 03:01.150
+But stick with me.
+
+03:01.150 --> 03:03.220
+Trust me it's going to make sense.
+
+03:03.220 --> 03:14.080
+So the first thing we want to do is we want to check if this.state.hasError is equal to true.
+
+03:14.150 --> 03:23.000
+So if there is some sort of an error then we want to return this default state of how can we gracefully
+
+03:24.330 --> 03:29.670
+display something to the user, that makes it meaningful to them, even though we weren't able to display
+
+03:29.670 --> 03:31.190
+what we intended originally.
+
+03:32.040 --> 03:44.590
+In our case we can just say that we have an <h1> of "Oooops. That is not good" for the user to see.
+
+03:44.620 --> 03:52.760
+So we're saying here that if, for some reason there's an error we're going to just spit out an h1 tag.
+
+03:53.940 --> 03:54.870
+Otherwise,
+
+03:55.100 --> 03:58.460
+and we can just do a return here.
+
+03:58.560 --> 04:06.150
+We're going to say that this.props.children will render, again remember -because children will
+
+04:06.150 --> 04:09.070
+be anything that's in-between ErrorBoundry.
+
+04:09.090 --> 04:16.050
+In our case is probably going to be the CardList. So render the children, whatever's inside
+
+04:16.140 --> 04:17.410
+of ErrorBoundry,
+
+04:17.470 --> 04:19.330
+otherwise render <h1>.
+
+04:19.710 --> 04:28.390
+Now how are we going to be able to change this hasError? Well with React 16 we have a new life cycle
+
+04:28.390 --> 04:38.270
+method that was introduced and it's called componentDidCatch and this componentDidCatch is kind
+
+04:38.270 --> 04:49.390
+of like the try catch block in javascript if anything errors out it will run this lifecycle hook and this
+
+04:49.400 --> 04:52.420
+lifecycle hook actually gets a couple of parameters.
+
+04:52.450 --> 04:55.690
+That is the error and the info.
+
+04:55.830 --> 05:03.540
+But in our case we just want to say that this.setState is going to now, if this component
+
+05:03.590 --> 05:08.230
+errors out, is going to have has error equal to true.
+
+05:08.280 --> 05:13.760
+So if that ever gets triggered were going to render the H-1 tag.
+
+05:13.870 --> 05:14.190
+All right.
+
+05:14.230 --> 05:17.490
+Let's save and let's go to app.js
+
+05:17.580 --> 05:20.730
+Let's import our errorBoundry
+
+05:25.190 --> 05:26.630
+from our components.
+
+05:32.210 --> 05:34.030
+And now we can use this.
+
+05:34.100 --> 05:38.740
+Let's use it over here for the card list.
+
+05:38.900 --> 05:46.370
+So if something goes on with the CardList we want to have some sort of a graceful exit boundary.
+
+05:46.580 --> 05:55.340
+So we'll say ErrorBoundary and because we're rendering this dot props dot children, if we wrap it like
+
+05:55.340 --> 05:55.970
+this.
+
+05:57.250 --> 06:00.450
+And nothing goes on it will still render CardList.
+
+06:00.490 --> 06:03.030
+So let's save Let's see if we made any mistakes.
+
+06:03.130 --> 06:04.570
+So far so good.
+
+06:04.690 --> 06:08.320
+Let's go back to our app and.
+
+06:08.380 --> 06:10.400
+All right let's look at the console.
+
+06:10.410 --> 06:17.280
+No errors here, if we refresh no errors here if I type stuff, no errors, that's good.
+
+06:19.190 --> 06:26.840
+Now with this error boundary, if anything in the CardList fails it's going to catch it and display our error
+
+06:26.840 --> 06:28.000
+message.
+
+06:28.070 --> 06:29.420
+So let's see what I mean.
+
+06:29.710 --> 06:39.420
+If I go into CardList here and now in here if we say, if for now we'll just say true.
+
+06:39.660 --> 06:48.440
+We're going to assume that in CardList there was an error, so we can do that by saying throw new error and say "NOOOOOOO"
+
+06:51.790 --> 06:54.850
+If we save this, everything is still working.
+
+06:54.850 --> 06:59.750
+If I go back you see that I'm still getting the error, it says uncaught error.
+
+06:59.800 --> 07:00.620
+No.
+
+07:00.910 --> 07:07.030
+And at the bottom it says the above error occurred in the CardList component. React will try to recreate
+
+07:07.030 --> 07:11.950
+this component tree from scratch using the errorBoundry you provided. ErrorBoundry.
+
+07:12.360 --> 07:16.670
+OK that's great but I still see the error.
+
+07:16.900 --> 07:23.770
+And that is because we're running right now in development mode. For create react app.
+
+07:23.770 --> 07:29.780
+They want to show us whenever there's an error in our component. Error boundaries are really useful when
+
+07:29.780 --> 07:38.750
+you put your apps into production where you don't have this detailed logs of what errors you have. Your
+
+07:38.750 --> 07:40.540
+users are never going to see this.
+
+07:40.550 --> 07:45.040
+So if I refresh here really fast do you see that right over here.
+
+07:45.050 --> 07:48.320
+How it said - Oooops that is not good.
+
+07:48.470 --> 07:49.010
+Oops.
+
+07:49.100 --> 07:50.450
+That is not good.
+
+07:50.450 --> 07:54.820
+So in production users are going to see that.
+
+07:55.040 --> 08:01.640
+But for our case the intended behavior for create React App in development is to show us the errors
+
+08:01.910 --> 08:05.770
+but with error boundaries we have that extra safety during production.
+
+08:07.830 --> 08:08.890
+That's it for now.
+
+08:08.890 --> 08:10.800
+I'll see in the next one. Bye bye.

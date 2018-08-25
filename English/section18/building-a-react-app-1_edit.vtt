@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00.840 --> 00:04.900
+Alright, let's build our RoboFriends app. I think to get started
+
+00:04.930 --> 00:10.730
+we want to think about components again and what kind of components we want to build
+
+00:10.750 --> 00:16.720
+Looking at this website the smallest component that we probably want to start working on is perhaps
+
+00:17.020 --> 00:19.000
+the card component
+
+00:19.000 --> 00:25.480
+This card over here. If we can build one of these then, according to what I've said before, we can just
+
+00:25.720 --> 00:29.180
+copy all these components and add them to the page
+
+00:29.350 --> 00:31.440
+So let's start off with this
+
+00:31.660 --> 00:34.530
+The card component
+
+00:34.590 --> 00:36.400
+Alright
+
+00:36.580 --> 00:40.610
+Now, we won't be using the ‘Hello’ component anymore
+
+00:40.690 --> 00:43.430
+and if you remember it looked like this
+
+00:43.780 --> 00:47.530
+Let's just - I know it's sad but we're going to delete it
+
+00:47.680 --> 00:49.810
+We’re going to delete the ‘hello.css’
+
+00:50.290 --> 00:52.090
+Start off clean
+
+00:52.100 --> 00:54.830
+So I’m going to delete. OK
+
+01:00.330 --> 01:03.810
+And we'll also delete ‘hello.css’
+
+01:03.850 --> 01:09.040
+I know all our hard work just completely gone
+
+01:09.210 --> 01:12.420
+You know what? We're going to start deleting things that we don't need
+
+01:12.420 --> 01:16.880
+in this project. For example the ‘App.js’ that we had initially?
+
+01:16.890 --> 01:23.200
+Well, we can delete that. We can also delete ‘App.css’
+
+01:27.400 --> 01:28.450
+‘App.test’
+
+01:32.370 --> 01:41.020
+And the logo
+
+01:41.050 --> 01:41.500
+Alright
+
+01:41.500 --> 01:44.410
+So everything's looking very small now
+
+01:44.470 --> 01:52.430
+We have just ‘index.css’, ‘index.js’ and this ‘Register Service Worker’ that comes with ‘Create a React App’
+
+01:52.430 --> 01:54.620
+that we don't need to touch
+
+01:54.950 --> 02:00.940
+OK. Obviously we have failed to compile because, well, the ‘Hello’ imports doesn't really work. We don't have
+
+02:00.940 --> 02:03.970
+anything. So let's start off with this
+
+02:03.990 --> 02:08.670
+Let's start off by creating a ‘card’ component
+
+02:10.330 --> 02:15.870
+And this card component, we’ll have to import it from ‘card.js’
+
+02:15.940 --> 02:22.860
+Again if I save this, I still get an error because it doesn't exist
+
+02:22.990 --> 02:23.740
+So let's create it
+
+02:23.770 --> 02:37.130
+I'm going to say ‘new file’, card.js’. Again making sure that this is using ‘Babel’. And let's do what
+
+02:37.130 --> 02:38.870
+we've done before. We do import
+
+02:42.180 --> 02:46.800
+React from ‘react’
+
+02:47.050 --> 02:51.520
+Instead of doing the class way for now we're just going to worry about building the function
+
+02:51.580 --> 02:57.440
+so I'm going to say ‘const’, ‘Card’ equals -
+
+02:57.440 --> 02:59.400
+It won't have any properties for now
+
+03:00.470 --> 03:05.490
+And this will return - have some brackets
+
+03:11.530 --> 03:21.110
+And within here we’ll say that it has a ‘div’. Within this ‘div’ we’ll have an image and this image will
+
+03:21.110 --> 03:26.180
+have some sort of a source that - we don't know what it is yet so we'll just keep it the way it is
+
+03:26.280 --> 03:29.840
+Closing tag. And we'll have another ‘div’
+
+03:34.780 --> 03:35.500
+that within here
+
+03:35.520 --> 03:46.980
+If you remember we have our name and email in here. So we'll just do an ‘H2’. We'll just write hardcoded
+
+03:46.990 --> 03:48.080
+values here
+
+03:48.310 --> 03:51.890
+We’ll do Jane Doe
+
+03:52.070 --> 04:01.090
+And finally a ‘p’ tag that has some e-mail address. So let’s do Jane Doe at gmail dot com
+
+04:01.550 --> 04:03.620
+Close the tag
+
+04:03.670 --> 04:03.970
+All right
+
+04:03.970 --> 04:07.530
+So we just have a simple component that's returning
+
+04:07.540 --> 04:08.060
+‘card’
+
+04:08.110 --> 04:10.950
+And remember we want to export this
+
+04:10.960 --> 04:14.530
+so we want to say ‘export’, ‘default’, ‘card’ 
+
+04:17.370 --> 04:18.210
+Save
+
+04:18.490 --> 04:21.480
+I get ‘img elements must have an alt property’
+
+04:21.630 --> 04:23.390
+Again it's giving me a nice hint
+
+04:23.400 --> 04:26.920
+so let's just add an ‘alt’ property
+
+04:26.970 --> 04:29.540
+We just say what this photo is
+
+04:29.640 --> 04:38.870
+so I'll just say ‘photo’ for now. Or I'll say ‘robots’ for now. Compile successfully. If we look back at our
+
+04:38.870 --> 04:46.130
+app we have robots Jane Doe and Jane Doe. Perfect
+ 
+04:46.160 --> 04:52.850
+Alright. We have the card component and you must be asking yourself why are we using React here if
+
+04:52.850 --> 04:54.630
+we're not really using it
+
+04:54.860 --> 04:56.510
+Let's see what happens if I remove it
+
+04:58.130 --> 05:05.370
+I get a whole bunch of errors that says ‘React must be in scope when using JSX’. Remember
+
+05:05.390 --> 05:07.810
+JSX is this
+
+05:07.910 --> 05:16.680
+We're not writing HTML we're writing JSX and we need to import React so that our program understands
+
+05:16.740 --> 05:20.070
+JSX. This HTML-like syntax
+
+05:20.300 --> 05:26.470
+OK now we need an image and for this exercise I have something called ‘RoboHash’ for you
+
+05:26.820 --> 05:29.100
+It's a really really cool API
+
+05:29.100 --> 05:33.240
+And for those that don't know what APIs are - don't worry I have a section coming up with all that
+
+05:33.240 --> 05:35.350
+information where you'll get to learn about it
+
+05:35.550 --> 05:45.180
+But the cool thing about RoboHash is, I can just say anything in here and it will return a random
+
+05:45.180 --> 05:47.420
+robot for me
+
+05:47.460 --> 05:49.530
+All we need is just this
+
+05:49.740 --> 05:59.130
+URL, and I can just say for now, ‘test’
+
+05:59.370 --> 06:05.840
+If I save this and go back to my example
+
+06:06.020 --> 06:06.610
+There you go
+
+06:06.620 --> 06:08.150
+We have our random robot
+
+06:08.450 --> 06:17.760
+If I changed this to let's say ‘test test’, I save, well now I get another robot
+
+06:17.780 --> 06:18.820
+How cool is that?
+
+06:20.500 --> 06:27.610
+Alright, um, I want to make sure that the size is somewhat small so you can do a question mark here and
+
+06:27.610 --> 06:29.120
+just give it width and height
+
+06:29.200 --> 06:32.830
+So I'm just going to do 200 by 200
+
+06:32.890 --> 06:36.150
+And again this is just something that you do with this
+
+06:36.310 --> 06:40.950
+URL that they give you in the information here - I won’t make you go through it
+
+06:44.940 --> 06:47.520
+I save. Everything should look nice
+
+06:49.020 --> 07:00.330
+Now let's say I wanted to add a title and I'll do something like ‘div’ or ‘H1’, ‘RoboFriends’ here
+
+07:06.950 --> 07:08.240
+You see I get an error here?
+
+07:08.390 --> 07:17.430
+It's because - remember we need to return one thing. And we can’t have multiple elements being returned, right?
+
+07:17.610 --> 07:21.540
+If we want to return something make sure it's one thing, or an array
+
+07:21.540 --> 07:25.520
+but for now we'll worry about the title later
+
+07:25.530 --> 07:29.640
+We want to make sure that we're only returning one element
+
+07:29.640 --> 07:35.680
+so in this case that ‘div’ element that has a ton of things inside which is the ‘card’ component
+
+07:35.690 --> 07:38.930
+Alright let's save
+
+07:38.960 --> 07:39.230
+Alright
+
+07:39.260 --> 07:41.720
+We have our card component
+
+07:41.720 --> 07:45.760
+It looks nice but what if I wanted to have multiple cards now
+
+07:45.760 --> 07:50.350
+According to what we know, because we have the card component
+
+07:50.360 --> 08:00.810
+If I go to ‘index.js’.. I can just say - I’ve put this on our new line so you can see - I can just wrap
+
+08:00.810 --> 08:09.080
+this in a ‘div’. Again because we want to return just a single element, and I could say ‘card’
+
+08:12.090 --> 08:16.040
+‘card’ and close the ‘div’ tag
+
+08:18.650 --> 08:22.660
+Save and look at that. We have multiple cards now
+
+08:22.650 --> 08:26.350
+They're each their own component
+
+08:26.540 --> 08:32.420
+OK but let's add some styling to this just to make it look nicer. Again because we have tachyons
+
+08:32.750 --> 08:39.290
+we can use some really nice syntax. If we go to the ‘cards’ component within the div I can say ‘class’
+
+08:39.440 --> 08:40.310
+name again
+
+08:40.340 --> 08:45.180
+remember we can't use class. ‘BG’, light green
+
+08:45.200 --> 08:50.780
+so that is ‘background’, ‘light green’ and this is just tachyon classes that are already predefined for
+
+08:50.780 --> 08:51.840
+us. Again,
+
+08:52.060 --> 08:54.870
+CSS section - this isn't that
+
+08:54.950 --> 09:00.260
+so we're not going to focus too much on CSS. I'll just give you the stylings that you need. We have the
+
+09:00.260 --> 09:07.570
+div, the border, we have padding of three, lots of margins two as well
+
+09:07.580 --> 09:10.060
+And then it will do ‘grow’ which is the animation
+
+09:10.070 --> 09:16.510
+So if I save this. Look at that. That’s.. that's pretty nice
+
+09:19.210 --> 09:21.670
+You know what? Let’s add a few more. We’ll do
+
+09:21.820 --> 09:29.560
+‘bw2’ and ‘shadow 5’ to add a bit of shadows to them
+
+09:30.010 --> 09:30.600
+There you go
+
+09:30.630 --> 09:32.740
+They look more 3D now
+
+09:32.740 --> 09:33.900
+That looks very nice
+
+09:35.200 --> 09:35.530
+There you go
+
+09:35.530 --> 09:37.400
+We have our cards. 
+
+09:37.420 --> 09:43.840
+Again, we don't want this static card where it says Jane Doe Jane Doe Jane Doe we want it to be dynamic
+
+09:43.840 --> 09:44.100
+Right?
+
+09:44.100 --> 09:53.040
+So it sounds like we need, what we call, ‘props’ - properties. Well and I actually have for you a robots object
+
+09:53.040 --> 09:53.920
+that I've created
+
+09:54.030 --> 10:01.140
+so I'm just going to add a new file here that says ‘robots.js’ and within here I'm just going to
+
+10:01.140 --> 10:08.910
+copy and paste this. As you can see it is just a constant object, it's robots it's an array of objects
+
+10:08.910 --> 10:16.420
+and it has ID, name, username, email, and these are just random that I've made
+
+10:16.530 --> 10:21.440
+If you want this file then you can grab the files from the end of this section
+
+10:21.610 --> 10:26.300
+But for now this way I have something that I can use and you can see I'm exporting it
+
+10:26.410 --> 10:36.140
+I can say import robots from ’dot’, because we're in the same directory
+
+10:36.500 --> 10:39.000
+robots
+
+10:39.060 --> 10:48.760
+Now if I save this we get ‘robots as defined by never used’ but because this is using ‘export’ instead of
+
+10:48.790 --> 10:52.630
+‘export default’ this file could have multiple exports
+
+10:52.690 --> 10:54.620
+It just so happens that I only have one
+
+10:54.880 --> 11:01.960
+The rule is, for these ones because there are a default - well you can just do ‘card’. For ones that aren't
+
+11:01.960 --> 11:02.650
+default
+
+11:02.740 --> 11:05.530
+you have to destructure it
+
+11:05.680 --> 11:07.020
+That is like this
+
+11:07.030 --> 11:14.930
+So that if I have another variable let's say, that says ‘cats’ then I will have to do ‘cats’ to grab it
+
+11:16.220 --> 11:21.930
+So we have robots and now I can give it some properties
+
+11:21.940 --> 11:24.340
+I can say ‘id’ equals
+
+11:24.370 --> 11:33.130
+And again we have these brackets so that it's a javascript expression and we'll say ‘robots’.. ‘robots’
+
+11:34.570 --> 11:44.070
+first array.. dot ‘id’ has the ID then we have name equals robots
+
+11:44.150 --> 11:58.340
+again, the first user dot name, close the bracket, and then we also have email equals robots first
+
+11:58.340 --> 12:03.400
+in the array, dot email
+
+12:03.440 --> 12:10.140
+Holy moly that's a lot of typing. And I'm going to make this smaller just so you can see. I'm going to
+
+12:10.140 --> 12:15.580
+copy and paste for the other ones as well except for..
+
+12:15.660 --> 12:23.150
+change this to the second user and then the third use-
+
+12:23.220 --> 12:31.560
+Oops.. the second user
+
+12:31.800 --> 12:39.750
+Now if I save this it's compiled successfully but nothing has changed because we need to go to cards
+
+12:39.810 --> 12:47.070
+I’m going to close ‘robots.js’ for now. Because cards needs to now accept parameters and what are
+
+12:47.070 --> 12:47.810
+the parameters?
+
+12:47.820 --> 13:05.620
+Well it's properties. And these props are now props dot name, and props dot email
+
+13:05.780 --> 13:08.650
+I save that, go back
+
+13:08.840 --> 13:13.340
+Hmm. It's not working. Well because this is a javascript expression
+
+13:13.400 --> 13:13.950
+Right?
+
+13:13.970 --> 13:18.050
+So I need to wrap it in curly brackets
+
+13:18.820 --> 13:22.870
+Just the way it works in JSX. Save
+
+13:23.020 --> 13:23.680
+Look at that
+
+13:23.750 --> 13:29.840
+We have dynamic names that we're passing as properties to each one
+
+13:30.000 --> 13:31.950
+Let's add ‘text center’ here
+
+13:33.800 --> 13:34.630
+And there you go
+
+13:34.670 --> 13:35.890
+Now we have everything centered
+
+13:35.960 --> 13:36.800
+That's a lot better
+
+13:38.260 --> 13:38.490
+OK
+
+13:38.500 --> 13:42.210
+But we also passed ID. We can use ID to do something cool
+
+13:42.250 --> 13:50.500
+If you remember in the ESX section we have template strings and because this is a template string we
+
+13:50.500 --> 13:55.020
+have to wrap it in a curly bracket so it's a javascript expression
+
+13:55.360 --> 14:02.780
+And now within the RoboHash, instead of using test here we can randomize what robots we get
+
+14:02.920 --> 14:05.310
+by using the syntax as you remember
+
+14:05.500 --> 14:08.790
+and in here we can just say props dot ID
+
+14:08.920 --> 14:16.000
+So now this will say RoboHash.org, ID of whatever it is for the robot with the site
+
+14:16.000 --> 14:20.200
+So we make sure that again the IDs are always dynamic and changing
+
+14:20.200 --> 14:29.010
+If I save this and go back. Look at that. You see that there's a bit of a delay again because we're talking
+
+14:29.010 --> 14:31.440
+to the API and the API is returning
+
+14:31.440 --> 14:33.800
+answer for us but how cool is that?
+
+14:33.810 --> 14:39.350
+We just created our own dynamic cards
+
+14:39.380 --> 14:46.120
+One last thing. Although this works, something nicer that you can do is we have something called destructuring
+
+14:46.370 --> 14:48.500
+We can do something like ‘const’
+
+14:50.940 --> 14:57.730
+name.. email.. equals ‘props’, again
+
+14:57.820 --> 15:05.470
+as you may remember from E6, and now I can use outside ‘ID’ as well
+
+15:11.280 --> 15:12.430
+and it still works
+
+15:14.240 --> 15:21.160
+Another cool thing that you can do and this is even cleaner is, within the parameters you can do destructuring
+
+15:21.620 --> 15:23.840
+Again you can add these over here now
+
+15:28.740 --> 15:34.790
+And now if I save it should still work and it does
+
+15:34.990 --> 15:42.070
+This might be confusing if you're new to destructuring but as you saw step by step we're just receiving
+
+15:42.070 --> 15:46.260
+props and we're destructuring the props right inside of the brackets here
+
+15:47.460 --> 15:50.440
+This is much cleaner
+
+15:50.760 --> 15:51.450
+Alright
+
+15:51.450 --> 15:54.210
+That was a lot of fun in a really really fast way
+
+15:54.210 --> 15:57.960
+we've just created our own cards. In the next section
+
+15:57.990 --> 16:01.120
+we're going to expand on this and make this even better
+
+16:01.200 --> 16:02.820
+I'll see you in that one. Bye-bye 

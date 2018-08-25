@@ -1,0 +1,499 @@
+WEBVTT
+
+00:01.160 --> 00:02.750
+And welcome back.
+
+00:02.750 --> 00:10.130
+One thing I noticed from the previous video is in my Constants file I should make sure that my variable
+
+00:10.130 --> 00:12.260
+and my strings are the same.
+
+00:12.260 --> 00:16.910
+So just adding an underscore over here, all right.
+
+00:16.940 --> 00:26.360
+So let's talk about the next part which is using the other method that comes with react redux which is
+
+00:26.660 --> 00:27.200
+connect.
+
+00:30.310 --> 00:39.170
+Now this connect function is optimized in order for us to avoid using something called store.subscribe.
+
+00:39.310 --> 00:44.490
+So if you remember when we console logged the store in our apt.
+
+00:44.590 --> 00:50.960
+Yes we had a few functions including the get state function that we locked.
+
+00:50.960 --> 00:55.430
+Now there's also a dot subscribe function which subscribes 
+
+00:55.480 --> 01:02.510
+any component that is interested to be aware of redux and listen to any changes.
+
+01:03.680 --> 01:10.400
+But that's a little tedious and connect simplifies the process by simply saying use the connect function.
+
+01:10.400 --> 01:17.220
+and with that we're going to make the component redux aware.
+
+01:17.430 --> 01:25.740
+If you remember the connect components would be the yellow little components that know about redux.
+
+01:25.740 --> 01:33.470
+So we've created the provider component that essentially passes down the store to the components.
+
+01:33.510 --> 01:35.180
+But now we have to say which,
+
+01:35.220 --> 01:45.870
+Which one of these react components we want to be smart or be aware that the redux library exists and
+
+01:45.870 --> 01:47.560
+they can subscribe to changes.
+
+01:47.580 --> 01:49.230
+So I'm going to show you how to do that in this video
+
+01:52.380 --> 01:59.040
+and by the way this standard in the industry is that we call these smart components containers kind
+
+01:59.040 --> 02:01.310
+of like app.js
+
+02:01.410 --> 02:08.080
+So we're most likely going to connect the app.js file because it is a container.
+
+02:08.210 --> 02:15.680
+So the very first thing we're going to do is go to app.js file and within here we want to import
+
+02:15.740 --> 02:18.590
+a few things.
+
+02:18.620 --> 02:21.490
+Let's start off with importing the actions.
+
+02:21.530 --> 02:26.250
+So I'm going to import the actions that we have.
+
+02:26.480 --> 02:27.770
+Let's go over here.
+
+02:28.620 --> 02:32.300
+We have the set search field action.
+
+02:32.310 --> 02:41.210
+So we're going to do the setSearchField action and we're going to import that from the actions.js
+
+02:41.210 --> 02:51.030
+file and because actions.js file is folder level up since the app.js is in the containers.
+
+02:51.120 --> 02:56.740
+I'm going to do the double periods.
+
+02:56.850 --> 03:03.720
+Let's save that and we get a nice little warning saying that ... search field is defined
+
+03:03.720 --> 03:04.800
+but never used.
+
+03:04.920 --> 03:11.330
+Let's also save our index file, perfect.
+
+03:11.370 --> 03:16.120
+Let's now use this connect method that I've been talking about.
+
+03:16.140 --> 03:31.970
+So now at the top over here I'm going to say import the connect method from react redux and this connect
+
+03:31.970 --> 03:32.540
+method,
+
+03:32.540 --> 03:33.570
+The way it works.
+
+03:33.590 --> 03:40.140
+And again and you just have to get used to it is at the very bottom where we do export default.
+
+03:40.710 --> 03:50.820
+We're going to say connect is going to be a function and then another or another brackets around app.
+
+03:50.840 --> 03:58.550
+Now this syntax might look a little bit confusing and connect is something we call higher order function.
+
+03:58.940 --> 04:09.130
+Now a higher order function is a function that returns another function. So connect is going to run and
+
+04:09.160 --> 04:15.500
+whatever connect does inside of this function is going to return another function.
+
+04:15.640 --> 04:22.250
+And because it returns another function it's going to run this part with the app.
+
+04:22.280 --> 04:28.190
+So that's how higher order components work and you'll learn more about these later on in your career.
+
+04:28.190 --> 04:35.330
+But for now just know that this is the syntax you just have to get used to it. Now let's just add a new line 
+
+04:35.430 --> 04:36.560
+so we can see it better here.
+
+04:37.410 --> 04:47.250
+Now within here, connect accepts two parameters which again are standard. I can name them whatever I want
+
+04:47.470 --> 04:58.750
+but we're just following the redux standards, which the first one is mapStateToProps and the second
+
+04:58.750 --> 05:08.520
+one is mapDispatchToProps.
+
+05:08.580 --> 05:09.100
+All right.
+
+05:09.100 --> 05:17.560
+So right now we've just connected this component, this app component and said hey subscribe to any state
+
+05:17.560 --> 05:21.240
+changes in the redux store.
+
+05:22.090 --> 05:28.930
+And now app knows that there is a redux store somewhere and any time that there's changes to it it might
+
+05:28.930 --> 05:31.330
+be interested in.
+
+05:31.390 --> 05:35.470
+But now we need to tell it what to be interested in.
+
+05:35.500 --> 05:42.230
+That is what state should I listen to, what dispatch or what action should I listen to.
+
+05:42.250 --> 05:46.820
+So let's go back to the top and at the very top here.
+
+05:46.910 --> 05:54.000
+We want to define these functions that, or these parameters. So all we're going to do is say 
+
+05:54.000 --> 06:04.410
+const mapStateToProps and this is going to receive a state and oops.
+
+06:04.520 --> 06:06.980
+And it's going to return
+
+06:09.850 --> 06:10.480
+an object
+
+06:13.730 --> 06:19.310
+and like I said before you can name these whatever you want but this is the standard and any redux app
+
+06:19.310 --> 06:22.040
+you'll just see this or just get used to the syntax.
+
+06:22.100 --> 06:25.340
+Once you do it a couple times it becomes second nature.
+
+06:25.340 --> 06:25.690
+All right.
+
+06:25.690 --> 06:30.950
+And in here we want to say that the search field
+
+06:35.270 --> 06:41.690
+state which again if we go to our reducers, we have a search field over here.
+
+06:44.530 --> 06:53.260
+This search field state is going to equal a state which we receive dot the part of the reducer which
+
+06:53.260 --> 07:06.550
+again if we go to reducers is search robots so searchRobots.searchField
+
+07:06.560 --> 07:13.580
+So again it's saying that the search field that we're going to return which is going to be used as props
+
+07:13.970 --> 07:24.560
+by the App component is going to come from the state (not Stata) state.searchRobots.searchField
+
+07:25.010 --> 07:33.980
+which again comes from our reducer because remember in index.js file we've created the store
+
+07:34.070 --> 07:37.220
+with the search robots reducer.
+
+07:37.250 --> 07:45.980
+So if we go back here let's save that, and we have MapDispatchToProps is not defined.
+
+07:46.160 --> 07:53.690
+And again because we need the second part which is MapDispatchToProps so let's again create that.
+
+07:56.970 --> 08:07.700
+We'll say that const mapDispatchedToProps is going to receive something called dispatch.
+
+08:07.830 --> 08:14.730
+And again something that, you'll just have to get used to. Dispatch, if you remember in our discussion
+
+08:14.730 --> 08:21.510
+about flux is what triggers the action, so an action is just an object that we've created,
+
+08:21.510 --> 08:29.330
+again, if you remember. But in order to send this action we need something called dispatch to -
+
+08:29.360 --> 08:35.250
+so it gets dispatched into the reducer.
+
+08:35.330 --> 08:44.750
+So this dispatch can now be used to send actions, and the way we do that, we can say onSearchChange
+
+08:46.040 --> 08:48.350
+which is just the name that - I can say anything.
+
+08:48.360 --> 08:51.950
+So remember this is a prop that it's going to receive.
+
+08:51.950 --> 08:58.230
+But we're going to keep it the same as the one that we've had in our react app - onSearchChange.
+
+08:58.260 --> 09:05.910
+And so this is what the prop is going to be named. And the onSearchChange is going to receive an event
+
+09:06.390 --> 09:15.270
+because remember it's a input box that users type, and this event, again because on search change is a
+
+09:15.270 --> 09:26.840
+function, is going to dispatch the action setSearchField because remember, the action is just an object
+
+09:26.870 --> 09:28.870
+just a function that returns an object.
+
+09:28.940 --> 09:30.530
+We want to dispatch that.
+
+09:30.620 --> 09:39.950
+So the reducers are aware of it and this search field when it gets dispatched is going to listen to.
+
+09:40.100 --> 09:47.590
+If you remember in our actions it's going to receive a text. That is whatever the user has input to it.
+
+09:48.220 --> 09:59.100
+In which case we can just do event.target.value again just like we have in the onSearchChange
+
+09:59.100 --> 10:03.520
+here, event.target.value
+
+10:03.530 --> 10:07.970
+So if I save this, let me make this a little bit smaller and save
+
+10:07.970 --> 10:11.390
+now, I have a few little warnings.
+
+10:11.390 --> 10:17.100
+One is that remember we need to return this as an object.
+
+10:17.180 --> 10:30.930
+So we want to say return just like we did above with the state, an object that contains all of our action.
+
+10:30.950 --> 10:38.340
+Again mapStateToProps is telling me what state, what piece state I need to listen to, and send down as
+
+10:38.350 --> 10:46.270
+props and mapDispatchToProps says hey tell me what props I should listen to that are actions
+
+10:46.300 --> 10:47.720
+that need to get dispatched.
+
+10:49.160 --> 10:52.170
+All right everything is working.
+
+10:52.670 --> 10:54.640
+We're not getting any errors over here.
+
+10:55.070 --> 11:01.520
+And remember now that down here in the connect we know what mapStateToProps is, (what) mapDispatchToProps
+
+11:01.530 --> 11:08.120
+is and connect is going to run the first part of the function and say Okay I'm listening to this
+
+11:08.120 --> 11:15.950
+part of the state and I'm interested in these actions and then it's going to give those props to the
+
+11:16.010 --> 11:17.460
+app.
+
+11:17.480 --> 11:19.260
+Here's the exciting part.
+
+11:20.160 --> 11:24.850
+Because remember I said redux can replace your state in your app.
+
+11:24.990 --> 11:36.490
+I can technically now remove the search field from this.state from the app and I can also remove
+
+11:36.510 --> 11:40.290
+onSearchChange because again that's coming down as props.
+
+11:40.290 --> 11:45.860
+We don't need to declare it as a method of app. So I can delete that now.
+
+11:46.760 --> 11:52.660
+And then down here I'm not interested in this.state searchfield anymore.
+
+11:52.790 --> 11:56.780
+I can remove that because now it's coming down as props.
+
+11:56.990 --> 11:59.570
+So instead I can say 
+
+12:02.890 --> 12:16.180
+const searchField with capital F comes from this.props and finally the onSearchChange doesn't come
+
+12:16.180 --> 12:21.350
+from this.onSearchChange which was a method of the app.
+
+12:21.370 --> 12:22.520
+It comes from the props.
+
+12:22.600 --> 12:31.650
+So again I can say onSearchChange and remove the .this . Let's save that.
+
+12:35.740 --> 12:42.040
+And again I'll get an error saying that searchfield is not defined because remember, with our redux
+
+12:42.040 --> 12:47.730
+state we changed the search field to have capital F.
+
+12:47.750 --> 12:52.480
+So if I changed that so it understands that, that's what we're interested in.
+
+12:53.860 --> 12:57.080
+Everything is working.
+
+12:57.110 --> 13:06.950
+Now here's a little gotcha. Right now because in our index.js file we only have one reducer.
+
+13:06.980 --> 13:11.440
+We're creating the store from this, if we go back to app.js
+
+13:11.490 --> 13:17.460
+state actually only has one field and that is searchField.
+
+13:17.570 --> 13:21.950
+So we would have to do something like this.
+
+13:22.830 --> 13:28.680
+In order for it to work. Now we're going to get back to this point, because once we start adding more
+
+13:29.190 --> 13:37.080
+pieces of state and more reducers we're going to have to get state from each piece that we're interested
+
+13:37.080 --> 13:37.470
+in.
+
+13:37.860 --> 13:42.510
+But for now we're going to get back to that we're just going to say state.searchField because if you
+
+13:42.510 --> 13:47.630
+remember and console.log store.get state.
+
+13:47.700 --> 13:49.230
+We just had the search field.
+
+13:49.530 --> 13:54.730
+So let's save that and go back.
+
+13:54.750 --> 13:55.850
+All right.
+
+13:55.950 --> 13:58.160
+Nothing in the console that's good.
+
+13:58.230 --> 14:03.530
+The moment of truth if I type something here.
+
+14:03.610 --> 14:04.340
+Look at that.
+
+14:04.360 --> 14:11.140
+Everything is working, despite the fact that we no longer have the state for the search field in here
+
+14:11.440 --> 14:13.910
+or the method.
+
+14:14.050 --> 14:16.570
+Instead everything is going through redux.
+
+14:16.570 --> 14:28.090
+And just to test that theory if I go in here, into my setSearchField and instead of having these automatic
+
+14:28.090 --> 14:37.240
+return I'm going to say console.log(text) and I'm going to return from here the object so we're just
+
+14:37.240 --> 14:44.110
+going to console log to see if the action is coming through.
+
+14:44.140 --> 14:46.480
+I save and go back.
+
+14:46.480 --> 14:51.290
+Let's open up the tool, the console and look at that.
+
+14:51.370 --> 14:55.890
+Everything I type is being sent through the action.
+
+14:55.900 --> 15:01.000
+And another cool part is if I go to the reducer and again I test everything out and I say 
+
+15:01.000 --> 15:11.340
+console.log(action.type) I save this and go back. we see that we have a little funny action that happens.
+
+15:11.340 --> 15:13.980
+And this is the default when redux initiates.
+
+15:14.100 --> 15:20.520
+But now if I click on anything or type something I get CHANGE_SEARCH_FIELD,  CHANGE_SEARCH_FIELD because
+
+15:20.520 --> 15:27.390
+the reducer on every action gets run, and says - did CHANGE_SEARCH_FIELD action happen? 
+
+15:27.420 --> 15:29.960
+If that's the case I'm going to return a new state.
+
+15:29.970 --> 15:31.050
+Very cool.
+
+15:31.050 --> 15:37.820
+We've just connected our react up to redux and everything works nicely.
+
+15:38.850 --> 15:44.000
+There's a bit of boilerplate here and you know you have to remember mapStateToProps, 
+
+15:44.000 --> 15:53.040
+mapDispatchToProps but once you get used to that syntax, it's really really nice and beautiful the way redux works
+
+15:53.250 --> 16:01.710
+and how we've cleaned up everything where everything flows nicely. Just like we mentioned. We've created
+
+16:01.710 --> 16:10.320
+an action that gets dispatched into a reducer, a function that based on that action takes the
+
+16:10.320 --> 16:13.710
+state and changes it in the store.
+
+16:13.710 --> 16:19.200
+And because the store got updated react components that are interested are going to listen to those
+
+16:19.200 --> 16:22.040
+changes and make a view change.
+
+16:23.460 --> 16:25.260
+Very cool.
+
+16:25.260 --> 16:28.430
+All right some more exciting stuff coming up in the next video.
+
+16:28.620 --> 16:30.080
+I'll see you in that one.
+
+16:30.080 --> 16:30.390
+Bye-bye

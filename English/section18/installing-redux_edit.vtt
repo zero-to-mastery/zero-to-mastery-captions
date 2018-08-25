@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+And a welcome back. We know how the RoboFriends app works
+
+00:05.660 --> 00:14.330
+now, with react, that's great. But Bruno asked us a specific thing. We need to add redux to our 
+
+00:14.330 --> 00:20.860
+RoboFriends app so that it can scale well, and handle state management better.
+
+00:22.630 --> 00:28.960
+Now with these next videos were going to work together, step by step.
+
+00:28.990 --> 00:34.630
+I'm going to show you how redux is implemented and how it works and you're going to be following along
+
+00:35.170 --> 00:38.320
+trying to make sure that your code works as well.
+
+00:38.770 --> 00:42.120
+All right so take a pause now and get your environment set up.
+
+00:42.140 --> 00:46.470
+So you can code along with me. You're all set?
+
+00:46.510 --> 00:46.940
+All right.
+
+00:46.960 --> 00:48.300
+I'm going to get started.
+
+00:48.370 --> 00:56.360
+The first thing I'm going to do is, I have my RoboFriends app, so I'm going to clone this repo and
+
+00:56.360 --> 01:06.650
+we'll just do our regular set up with git clone and then I'm going to CD into my RoboFriend. Perfect.
+
+01:06.690 --> 01:09.510
+Let's open this up in your text editor.
+
+01:14.630 --> 01:18.720
+And again I love joining these together so it looks nice.
+
+01:19.470 --> 01:20.670
+And clean.
+
+01:20.720 --> 01:21.250
+Perfect.
+
+01:22.670 --> 01:29.510
+Now obviously the first thing we need to do when we clone something is npm install to make sure
+
+01:29.510 --> 01:32.710
+we have all the packages.
+
+01:32.920 --> 01:38.970
+And we also want to make sure that everything is running smoothly without any errors whatsoever.
+
+01:39.190 --> 01:48.410
+So the next step is going to be to run npm start.
+
+01:48.460 --> 01:49.180
+All right.
+
+01:49.180 --> 01:49.690
+Perfect.
+
+01:49.690 --> 01:50.930
+Everything is working.
+
+01:51.040 --> 01:53.780
+And we should be able to filter.
+
+01:53.780 --> 01:56.420
+Perfect.
+
+01:56.430 --> 01:56.690
+All right.
+
+01:56.700 --> 01:59.790
+So we're familiar with this codebase.
+
+02:01.120 --> 02:09.990
+We have our react app, but that's it. Just a simple react app with containers and components.
+
+02:10.040 --> 02:20.930
+The very first thing we would want to do is install redux. So I'm going to close this and run npm install redux.
+
+02:23.740 --> 02:30.990
+This redux package will give us some tools in order to incorporate redux into our react app.
+
+02:32.220 --> 02:33.840
+But here's the cool part.
+
+02:33.840 --> 02:37.630
+With the redux package, and why I'm such a big fan.
+
+02:38.690 --> 02:45.680
+It's that 90 percent of your code is still going to be Javascript. Redux is going to give you a few helpers
+
+02:46.070 --> 02:48.620
+but you're still writing Javascript.
+
+02:48.740 --> 02:52.280
+It's still improving your Javascript skills.
+
+02:52.280 --> 02:57.470
+When you write redux and it teaches really really good principles, which is why I'm such a big fan of
+
+02:57.530 --> 03:05.630
+the library. You might not always need redux in your projects but it is just a good, good tool to learn
+
+03:05.960 --> 03:13.070
+because it has such great concepts that you'll use throughout your career.
+
+03:13.220 --> 03:19.010
+Now the second thing we need, and this is something similar with react - remember how we installed the
+
+03:19.010 --> 03:25.730
+react package, and then we also needed something called the react dom package to connect react to
+
+03:25.730 --> 03:29.130
+the dom? Well, in similar fashion.
+
+03:29.140 --> 03:38.770
+We need to connect redux to react because redux theoretically could work with any other library by adding
+
+03:38.980 --> 03:40.240
+another package.
+
+03:40.300 --> 03:46.600
+We can again let react know that hey we're going to be using redux with you.
+
+03:46.600 --> 03:48.050
+So that's very easy to do.
+
+03:48.070 --> 03:53.080
+We'll just npm install and the package is called react redux.
+
+03:59.260 --> 04:06.570
+And the way this react redux is going to work is that it's going to connect only the containers.
+
+04:06.760 --> 04:14.410
+So in this case app.js to the, what we call a redux store or that big Javascript object we're talking
+
+04:14.410 --> 04:14.820
+about.
+
+04:14.860 --> 04:21.110
+That describes the state of our app and they're going to communicate, the container is going to communicate
+
+04:21.200 --> 04:23.770
+with the store and vice versa.
+
+04:24.900 --> 04:31.410
+Now the other components, what we call dumb or presentational components,
+
+04:31.530 --> 04:34.250
+won't know that redux exists.
+
+04:34.320 --> 04:41.010
+The only connection is going to be between something called a container or a smart component and the
+
+04:41.100 --> 04:42.650
+redux store.
+
+04:42.660 --> 04:44.130
+So let me show you what I mean.
+
+04:45.280 --> 04:51.040
+If you remember this diagram we just installed the redux package which you can think of it as being
+
+04:51.040 --> 04:51.990
+over here.
+
+04:52.000 --> 04:58.300
+This red box that allows us to create a store and a couple of other help functions.
+
+04:58.300 --> 05:10.310
+We also downloaded react redux which allows us to connect these two pieces and react redux is able
+
+05:10.310 --> 05:17.090
+to be used in order to say hey we want these yellow components to be aware that we're using redux and to
+
+05:17.090 --> 05:20.650
+get their state from the redux store.
+
+05:22.380 --> 05:28.020
+So just think of this diagram as we're working through it all we're doing is essentially connecting
+
+05:28.020 --> 05:30.710
+these two libraries together.
+
+05:30.770 --> 05:37.630
+All right so now that we have these two packages we can start importing them and using it within our
+
+05:37.630 --> 05:43.660
+app but that's for the next couple of videos. I'll see you in the next one.
+
+05:43.770 --> 05:44.010
+Bye-bye.

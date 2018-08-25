@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+Our robo friends are looking really really nice.
+
+00:03.130 --> 00:05.780
+I really like this app. There is one issue though.
+
+00:05.920 --> 00:14.580
+If I minimize this. OK, it's responsive, it looks good. But if I scroll down, well, I lose my search bar at
+
+00:14.580 --> 00:14.980
+the top.
+
+00:14.980 --> 00:21.540
+Wouldn't it be nice if this was at the top and I have a scroll that I can do and still search through my friends?
+
+00:24.510 --> 00:30.150
+Well, you might be thinking - "There's probably a CSS style that I can add here." But I want to illustrate
+
+00:30.150 --> 00:39.180
+to you the fact that React and why React so good is because you can create Components that are
+
+00:39.300 --> 00:42.560
+reusable, not just card components but functionality.
+
+00:42.600 --> 00:48.110
+Would it be cool if there was maybe something where we can add around "CardList"?
+
+00:48.120 --> 00:58.960
+Maybe I can create a "Scroll" Component? And this "Scroll" Component just wraps the "CardList".
+
+00:59.190 --> 01:02.130
+And now "CardList" will be completely scrollable.
+
+01:02.220 --> 01:08.820
+But now I can use "Scroll" this component anywhere in my app, any time I need scrolling, I can just wrap
+
+01:08.820 --> 01:10.740
+it around.
+
+01:10.790 --> 01:11.870
+Can we do this?
+
+01:11.930 --> 01:12.860
+Let's give it a try.
+
+01:14.690 --> 01:19.030
+I'm going to "import" a Component that we don't have yet
+
+01:19.160 --> 01:28.510
+that's called "Scroll" from a file that we'll create in just the second. Let's create a new file.
+
+01:30.610 --> 01:32.040
+We'll call that "Scroll.js"
+
+01:32.080 --> 01:42.850
+And here we'll, again, go through the motion of "React from react".
+
+01:42.900 --> 01:44.340
+Let's make this a little bit bigger.
+
+01:46.150 --> 01:54.470
+And again I want to change this to Babel and we'll say "const Scroll" equals
+
+01:54.610 --> 02:01.790
+it's going to return- Hmm- what should it have returned?
+
+02:01.850 --> 02:11.790
+Before we talk about that just so we don't forget- we have to "export default Scroll".
+
+02:11.800 --> 02:18.910
+Now here's a problem. We want to return something, but it doesn't make sense, does it?
+
+02:19.060 --> 02:20.220
+If I go to "App.js"
+
+02:22.130 --> 02:22.990
+"Scroll", but it's not a self closing component, 
+
+02:23.010 --> 02:27.850
+it wraps component.
+
+02:27.870 --> 02:33.420
+So how can we tell "Scroll" to "Hey, just render whatever's inside of you."
+
+02:36.320 --> 02:37.370
+Up to this point,
+
+02:37.430 --> 02:44.280
+We've learned about "props" and we've learned about "state".
+
+02:44.340 --> 02:53.040
+There's one other thing in React that I want to teach you and that is "children". And "children" is this.
+
+02:54.320 --> 03:00.310
+"Scroll" can use "children" as a way to render its children.
+
+03:00.740 --> 03:01.790
+What do I mean by that?
+
+03:03.040 --> 03:09.710
+Well, in here, every "props" object has children.
+
+03:09.800 --> 03:16.540
+So if I go "props.children", well, let's see what happens.
+
+03:16.660 --> 03:28.460
+I save and go back, everything's rendered. But if I remove this and I just do a "h1",
+
+03:37.000 --> 03:44.910
+I just get this. You see, "props.children" is exactly that.
+
+03:45.080 --> 03:49.490
+If I "console.log(props)"
+
+03:53.520 --> 03:54.860
+Let's open up the console.
+
+03:54.900 --> 03:57.770
+I see that I get an object.
+
+03:57.780 --> 04:07.560
+And even though item pass any "props" to "Scroll", automatically every single component in React has this
+
+04:07.560 --> 04:18.050
+property, "children". And this children -a kinda looks confusing here- but has "CardList" type "CardList"
+
+04:22.440 --> 04:32.800
+So using this "props.children", we can create Components that wrap other Components. Up to this point,
+
+04:32.800 --> 04:39.820
+we were only able to wrap these 'lower case components' which are kind of like the HTML tags.
+
+04:39.820 --> 04:44.680
+But every time we had a custom component with a capital letter that we built, well- we couldn't really
+
+04:44.680 --> 04:46.000
+wrap it.
+
+04:46.020 --> 04:50.690
+Now we can using "this.children".
+
+04:50.780 --> 04:52.690
+But here's the cool part.
+
+04:52.910 --> 04:54.940
+Using "props.children"
+
+04:55.160 --> 05:07.180
+Well, I can create a scrollable component. Let me show you how. Simply do "div" close that "/div",
+
+05:07.180 --> 05:16.150
+and in here, again curly brackets "props.children". And all we need now is to add styles to this div. 
+
+05:16.150 --> 05:22.630
+I could create a "Scroll.css" file and add a style so that scrollable, but I want to show you another way
+
+05:22.630 --> 05:24.230
+which is using "style".
+
+05:24.550 --> 05:25.950
+Just like an HTML,
+
+05:26.170 --> 05:35.200
+Using this style attribute and JSX, I can add styles but using double curly brackets, that is
+
+05:35.200 --> 05:43.210
+this is a JavaScript expression and within this I'm returning an object and this object can have
+
+05:43.240 --> 05:47.760
+CSS styles, such as a property "overflowY".
+
+05:50.040 --> 05:54.450
+which is a CSS property and this you can say "scroll" again,
+
+05:54.480 --> 06:06.870
+a CSS way to make the element scrollable. We'll say "border" is 1 pixel, solid, black and finally
+
+06:06.870 --> 06:17.670
+we'll give it a "height" of 500 pixels. I'm going to make this smaller so you can see, I'm going to save,
+
+06:17.670 --> 06:18.290
+compiling is fine.
+
+06:18.330 --> 06:21.560
+If I go back, it looks like we have a box here.
+
+06:21.690 --> 06:26.520
+Let's make it a little bit bigger just so you can see. I'm going to say 5 pixels even though it's ugly.
+
+06:26.610 --> 06:30.150
+And I forgot 't' in here, right?
+
+06:30.180 --> 06:36.760
+All right, let's see. Look at that, we have a scrollable component.
+
+06:36.770 --> 06:44.110
+Let's make this a little bit bigger, just so we can see a better. Look at that.
+
+06:44.160 --> 06:53.650
+If I make this smaller, I now have a scrollable component inside of this.
+
+06:53.760 --> 06:55.250
+Very cool.
+
+06:55.320 --> 06:57.690
+Now this is a simple app.
+
+06:57.840 --> 07:00.550
+It allows you to search.
+
+07:00.570 --> 07:07.440
+It allows you to scroll but it does show the power of React, doesn't it?
+
+07:08.260 --> 07:18.050
+We've created these simple functions and the only thing that we tell it to do is, 
+
+07:18.050 --> 07:24.880
+well, we tell it what state it has. The entire app is described through these two things.
+
+07:25.040 --> 07:34.550
+The "robots" and "searchfield" and React takes care of the rest. As soon as "searchfield" or "robots" changes,
+
+07:35.330 --> 07:38.200
+React trickles down
+
+07:38.200 --> 07:46.880
+All this information as "props" to all these components and magically creates our view for us.
+
+07:46.900 --> 07:49.780
+That's why React is so powerful it's a view layer.
+
+07:49.870 --> 07:55.580
+It takes care of manipulating the DOM and all we tell it is "Hey, what's the state?"
+
+07:55.780 --> 07:59.610
+"What are the functions that you wanted to work with the state?" and the rest?
+
+07:59.620 --> 08:06.400
+Well it optimizes to make sure that everything is super fast and you can see how amazingly fast everything
+
+08:06.400 --> 08:06.870
+is here.
+
+08:06.880 --> 08:12.220
+It's a super snappy app and these components are now reusable.
+
+08:12.220 --> 08:19.570
+I can bring "SearchBox" now into a another part of the web site. I can add "Scroll" into another part of
+
+08:19.570 --> 08:20.440
+the web site.
+
+08:21.240 --> 08:27.430
+This is what made React so powerful and this is why so many web sites are powered by React.
+
+08:27.480 --> 08:35.960
+Once you learn the syntax and you get used to everything that's when React truly becomes powerful.
+
+08:35.960 --> 08:41.790
+Although we took a bit of time to create this app, once you get used to it and app like this 
+
+08:41.790 --> 08:46.980
+you can create it in, well, less than an hour, probably 30 minutes.
+
+08:47.050 --> 08:49.980
+All right I think we've done a great job here.
+
+08:49.990 --> 08:51.560
+Can't wait to see you in the next video. Bye-bye
