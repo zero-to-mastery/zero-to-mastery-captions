@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+Und ein Willkommen zurück. Wir wissen, wie die RoboFriends App funktioniert
+
+00:05.660 --> 00:14.330
+jetzt, mit reagieren, das ist großartig. Aber Bruno hat uns etwas Bestimmtes gefragt. Wir müssen redux zu unserem hinzufügen
+
+00:14.330 --> 00:20.860
+RoboFriends App, so dass es gut skalieren kann, und besser mit der Zustandsverwaltung umgehen.
+
+00:22.630 --> 00:28.960
+Jetzt mit diesen nächsten Videos würden Schritt für Schritt zusammenarbeiten.
+
+00:28.990 --> 00:34.630
+Ich werde Ihnen zeigen, wie Redux implementiert ist und wie es funktioniert und Sie werden folgen
+
+00:35.170 --> 00:38.320
+versuchen, sicherzustellen, dass Ihr Code auch funktioniert.
+
+00:38.770 --> 00:42.120
+Gut, machen Sie jetzt eine Pause und lassen Sie Ihre Umgebung einrichten.
+
+00:42.140 --> 00:46.470
+So kannst du mit mir mitkodieren. Du bist fertig?
+
+00:46.510 --> 00:46.940
+Gut.
+
+00:46.960 --> 00:48.300
+Ich werde anfangen.
+
+00:48.370 --> 00:56.360
+Das erste, was ich tun werde, ist, dass ich meine RoboFriends App habe, also werde ich dieses Repo klonen und
+
+00:56.360 --> 01:06.650
+Wir werden unser reguläres Setup mit Git Clone machen und dann gehe ich auf CD in meinen RoboFriend. Perfekt.
+
+01:06.690 --> 01:09.510
+Öffnen wir das in Ihrem Texteditor.
+
+01:14.630 --> 01:18.720
+Und wieder liebe ich es, diese zusammen zu verbinden, damit es schön aussieht.
+
+01:19.470 --> 01:20.670
+Und sauber.
+
+01:20.720 --> 01:21.250
+Perfekt.
+
+01:22.670 --> 01:29.510
+Jetzt ist offensichtlich das erste, was wir tun müssen, wenn wir etwas klonen, ist npm install um sicherzugehen
+
+01:29.510 --> 01:32.710
+Wir haben alle Pakete.
+
+01:32.920 --> 01:38.970
+Und wir wollen auch sicherstellen, dass alles reibungslos läuft.
+
+01:39.190 --> 01:48.410
+Der nächste Schritt wird sein, npm start zu starten.
+
+01:48.460 --> 01:49.180
+Gut.
+
+01:49.180 --> 01:49.690
+Perfekt.
+
+01:49.690 --> 01:50.930
+Alles funktioniert.
+
+01:51.040 --> 01:53.780
+Und wir sollten filtern können.
+
+01:53.780 --> 01:56.420
+Perfekt.
+
+01:56.430 --> 01:56.690
+Gut.
+
+01:56.700 --> 01:59.790
+Wir sind also mit dieser Codebasis vertraut.
+
+02:01.120 --> 02:09.990
+Wir haben unsere Reaktions-App, aber das war's. Einfach eine einfache App mit Containern und Komponenten.
+
+02:10.040 --> 02:20.930
+Das erste, was wir tun möchten, ist Redux installieren. Also werde ich das schließen und npm install redux ausführen.
+
+02:23.740 --> 02:30.990
+Dieses Redux-Paket wird uns einige Tools geben, um Redox in unsere React-App zu integrieren.
+
+02:32.220 --> 02:33.840
+Aber hier ist der coole Teil.
+
+02:33.840 --> 02:37.630
+Mit dem Redux-Paket und warum ich so ein großer Fan bin.
+
+02:38.690 --> 02:45.680
+Es ist, dass 90 Prozent Ihres Codes immer noch Javascript sein wird. Redux wird dir ein paar Helfer geben
+
+02:46.070 --> 02:48.620
+aber du schreibst immer noch Javascript.
+
+02:48.740 --> 02:52.280
+Es verbessert immer noch deine Javascript Fähigkeiten.
+
+02:52.280 --> 02:57.470
+Wenn du Redux schreibst und es wirklich sehr gute Prinzipien lehrt, bin ich ein großer Fan von
+
+02:57.530 --> 03:05.630
+die Bibliothek. Du brauchst vielleicht nicht immer Reduce in deinen Projekten, aber es ist nur ein gutes, gutes Werkzeug um es zu lernen
+
+03:05.960 --> 03:13.070
+weil es so großartige Konzepte hat, die Sie während Ihrer Karriere nutzen werden.
+
+03:13.220 --> 03:19.010
+Jetzt die zweite Sache, die wir brauchen, und das ist etwas Ähnliches mit der Reaktion - erinnern Sie sich, wie wir das installiert haben
+
+03:19.010 --> 03:25.730
+react package, und dann brauchten wir auch etwas namens react dom package, um zu reagieren
+
+03:25.730 --> 03:29.130
+das Dom? Nun, in ähnlicher Weise.
+
+03:29.140 --> 03:38.770
+Wir müssen Redux verbinden, um zu reagieren, weil Redox theoretisch mit jeder anderen Bibliothek durch Hinzufügen arbeiten könnte
+
+03:38.980 --> 03:40.240
+ein anderes Paket.
+
+03:40.300 --> 03:46.600
+Wir können wieder reagieren lassen und wissen, dass wir redux mit dir benutzen werden.
+
+03:46.600 --> 03:48.050
+Das ist also sehr einfach.
+
+03:48.070 --> 03:53.080
+Wir werden nur npm installieren und das Paket heißt react redux.
+
+03:59.260 --> 04:06.570
+Und die Art und Weise, wie dieses reduktive System funktioniert, ist, dass es nur die Container verbindet.
+
+04:06.760 --> 04:14.410
+Also in diesem Fall app.js zu dem, was wir einen Redox-Speicher oder das große Javascript-Objekt nennen wir reden
+
+04:14.410 --> 04:14.820
+Über.
+
+04:14.860 --> 04:21.110
+Das beschreibt den Zustand unserer App und sie werden kommunizieren, der Container wird kommunizieren
+
+04:21.200 --> 04:23.770
+mit dem Laden und umgekehrt.
+
+04:24.900 --> 04:31.410
+Nun die anderen Komponenten, was wir dumme oder darstellende Komponenten nennen,
+
+04:31.530 --> 04:34.250
+werde nicht wissen, dass redux existiert.
+
+04:34.320 --> 04:41.010
+Die einzige Verbindung wird zwischen etwas sein, das ein Container oder eine intelligente Komponente genannt wird, und der
+
+04:41.100 --> 04:42.650
+redux speichern.
+
+04:42.660 --> 04:44.130
+Lass mich dir zeigen, was ich meine.
+
+04:45.280 --> 04:51.040
+Wenn Sie sich an dieses Diagramm erinnern, haben wir das Redux-Paket installiert, das Sie sich vorstellen können
+
+04:51.040 --> 04:51.990
+hier drüben.
+
+04:52.000 --> 04:58.300
+Diese rote Box, die es uns ermöglicht, ein Geschäft und ein paar andere Hilfefunktionen zu erstellen.
+
+04:58.300 --> 05:10.310
+Wir haben auch react redux heruntergeladen, was uns erlaubt, diese beiden Teile zu verbinden und reduktiv reagieren zu können
+
+05:10.310 --> 05:17.090
+um verwendet zu werden, um zu sagen, hey, wir wollen diesen gelben Komponenten bewusst sein, dass wir redux und to verwenden
+
+05:17.090 --> 05:20.650
+Holen Sie sich ihren Status aus dem Redux-Shop.
+
+05:22.380 --> 05:28.020
+Denk einfach an dieses Diagramm, während wir es durcharbeiten. Alles, was wir tun, ist im Wesentlichen eine Verbindung
+
+05:28.020 --> 05:30.710
+diese beiden Bibliotheken zusammen.
+
+05:30.770 --> 05:37.630
+Gut, jetzt, da wir diese zwei Pakete haben, können wir anfangen sie zu importieren und sie in unserem benutzen
+
+05:37.630 --> 05:43.660
+App, aber das ist für die nächsten paar Videos. Wir sehen uns im nächsten.
+
+05:43.770 --> 05:44.010
+Tschüss.

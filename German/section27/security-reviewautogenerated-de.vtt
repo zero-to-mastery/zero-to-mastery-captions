@@ -1,0 +1,563 @@
+WEBVTT
+
+00:01.070 --> 00:02.480
+Willkommen zurück.
+
+00:02.480 --> 00:10.100
+Ich möchte einen schnellen Überblick über unsere Sicherheit geben und darüber, wie unsere App gerade funktioniert, weil wir eine sichere Lösung anbieten
+
+00:10.310 --> 00:19.650
+Web App Online ist eine sehr sehr wichtige Verantwortung des Web Developer. Lass uns zurück zu unserer Codebasis gehen.
+
+00:19.750 --> 00:24.250
+Es gibt zwei Hauptprobleme, die ich bis jetzt sehe.
+
+00:24.280 --> 00:28.870
+Das erste ist, dass wir nichts tun, was Validierung genannt wird.
+
+00:29.010 --> 00:39.820
+Wenn ich mich hier anmelde und zu meinem Anmelde-Controller gehe, wenn ein Benutzer die richtige E-Mail nicht eingibt
+
+00:40.150 --> 00:45.460
+oder gibt etwas ein, von dem wir nicht erwarten, dass das E-Mail-Feld leer bleibt oder das Passwortfeld leer ist
+
+00:46.860 --> 00:51.310
+Was passiert dann? Und das gleiche mit dem Register.
+
+00:51.470 --> 01:00.800
+Wenn wir zur Registrierung gehen und ein Benutzer die richtige E-Mail oder den Namen oder das Passwort nicht eingibt, technisch
+
+01:00.800 --> 01:09.230
+Registriere sie trotzdem, denn wenn wir leeres leeres Passwort leer lassen, geben sie einfach ein Leerzeichen ein
+
+01:09.260 --> 01:10.810
+Benutzer in die Datenbank.
+
+01:12.160 --> 01:14.670
+Lass uns zur App gehen und dir zeigen, was das bedeutet.
+
+01:15.460 --> 01:23.480
+Wenn ich dieses Feld leer lasse und auf Register klicke, schaue ich an, dass ich in die App eingetragen bin und wenn ich zurück zum
+
+01:23.480 --> 01:24.170
+Datenbank
+
+01:26.910 --> 01:37.200
+und gehe zu den Benutzern Ich sehe einen leeren Benutzer. Und das ist nicht sehr schädlich, aber es zeigt ein wichtiges Thema
+
+01:37.200 --> 01:44.790
+auf die du dich in deiner App wirklich konzentrieren solltest, und das ist die Validierung - stelle sicher, dass du dich bei der Kommunikation auskennst
+
+01:44.790 --> 01:49.520
+zwischen dem Frontend und dem Backend gibt es ein paar Sicherheitsschichten.
+
+01:49.620 --> 01:54.420
+Zuerst wird das Front-End seine eigene Validierung durchführen.
+
+01:54.420 --> 02:03.670
+Zum Beispiel, wenn wir innerhalb unseres Re-Acts auf die Anmeldeseite oder die Registerseite unseres Front-End gehen
+
+02:03.670 --> 02:10.100
+App, die wir vorher überprüfen, wenn wir auf Register klicken, wird eine Schaltfläche "Senden" haben.
+
+02:10.330 --> 02:18.360
+Und bei submit wird überprüft, ob der Name nicht leer ist, die E-Mail hat das richtige E-Mail-Format
+
+02:18.450 --> 02:26.830
+wie zum Beispiel mit einem at-Zeichen oder einem Punkt com am Ende und dann Passwort wird eine Art Validierung für
+
+02:26.830 --> 02:33.690
+Sagen wir es muss größer als sechs Zeichen sein. Und jetzt sendet das Frontend diese validierte Information
+
+02:34.320 --> 02:40.520
+zum Backend und eine wichtige Sache, die Sie mit Ihrem Server sicherstellen möchten, ist dass der Server
+
+02:40.520 --> 02:45.590
+vertraut nie etwas vom Frontend.
+
+02:45.640 --> 02:48.050
+Also sollte es seine eigene Validierung machen.
+
+02:48.070 --> 02:56.470
+Das heißt, den E-Mail-Namen und das Passwort zu überprüfen und sicherzustellen, dass Werte vorhanden sind, die eingegeben und verarbeitet werden sollen
+
+02:56.590 --> 02:58.030
+in die Datenbank.
+
+02:58.920 --> 03:14.470
+Eine Möglichkeit, dies zu tun. Nun, wir können einfach sagen, dass wenn E-Mail oder Name oder Passwort und wir können nur tun
+
+03:14.800 --> 03:17.070
+nicht so, dass das Gegenteil ist.
+
+03:17.320 --> 03:20.700
+Wenn das also leer ist, werden sie wahr.
+
+03:20.740 --> 03:24.500
+Wenn das leer ist, werden sie wahr, das ist leer, sie werden wahr.
+
+03:24.580 --> 03:30.280
+Wenn also einige davon leer sind, können wir einfach auf den Status antworten
+
+03:32.710 --> 03:33.370
+400
+
+03:36.330 --> 03:40.910
+und wir können nur mit einer falschen Formulareingabe antworten.
+
+03:43.710 --> 03:45.420
+Lass uns das speichern und sehen, was passiert.
+
+03:47.570 --> 03:53.500
+Ich werde sparen. Die eine Sache, die ich tun möchte, ist, tatsächlich zu meiner Datenbank zurückzukehren und meine laufende PSQL laufen zu lassen
+
+03:53.500 --> 03:53.850
+Hier.
+
+03:53.890 --> 03:58.540
+Wenn ich auf Login oder Benutzer gehe, möchte ich den leeren Benutzer löschen.
+
+03:58.540 --> 03:58.800
+Jetzt
+
+04:02.920 --> 04:07.130
+und dieser ist perfekt.
+
+04:07.350 --> 04:09.570
+Wenn ich wieder hier bin und versuche auf Register zu klicken
+
+04:12.780 --> 04:15.470
+Ich bekomme immer noch das Register.
+
+04:15.490 --> 04:19.180
+Das ist, weil wenn ich zurück gehe, sehe ich, dass ich hier einen Fehler erhalte
+
+04:23.080 --> 04:26.050
+und ich bekomme "kann Header nicht festlegen, nachdem sie gesendet werden".
+
+04:26.590 --> 04:33.430
+Und das ist ein kleiner Trick, wenn Sie hierhin gehen und die Konsole öffnen.
+
+04:33.660 --> 04:44.890
+Alles in allem haben wir eine schlechte Anfrage vom Server, aber diese if-Anweisung wird ausgeführt und dann wird es fortgesetzt
+
+04:44.890 --> 04:52.810
+auf und tut dies auch, weil erinnern, um die Ausführung innerhalb einer Funktion zu beenden, müssen wir sagen
+
+04:53.050 --> 04:53.670
+Rückkehr.
+
+04:53.920 --> 05:01.870
+Wenn diese Funktion ausgeführt wird, kehrt sie von dieser Funktion zurück und dieser Teil wird nie ausgeführt.
+
+05:03.480 --> 05:14.860
+Lassen Sie mich das jetzt in unserer App speichern, lassen Sie uns hier nur auffrischen. Wir machen nur einen leeren Benutzer.
+
+05:14.950 --> 05:21.100
+Wieder werden wir eingeloggt, weil wir jetzt zum Frontend gehen, wenn Sie sich in unserem Register erinnern
+
+05:21.100 --> 05:26.030
+Datei am Frontend, wenn wir auf Register klicken.
+
+05:28.890 --> 05:30.180
+Nun, wir holen ab
+
+05:32.690 --> 05:40.640
+und wir überprüfen nur, ob der Benutzer und dieser Benutzer hier auf die falsche Formularübergabe reagieren
+
+05:41.060 --> 05:43.400
+Benutzer wird das sein.
+
+05:43.400 --> 05:51.530
+Also lassen Sie uns hier nach ID suchen. Wir speichern und erinnern uns, dies ist etwas, was wir mit unserer Anmeldung gemacht haben
+
+05:51.560 --> 06:00.310
+Auch in den vorherigen Videos, wenn wir zurückgehen, gehen Sie zurück zu registrieren versuchen Sie sich zu registrieren.
+
+06:00.780 --> 06:06.430
+Es lässt mich nicht, denn wenn ich die Konsole öffne, konnte ich Ressourcen nicht laden.
+
+06:06.430 --> 06:17.400
+Wenn ich zum Netzwerk gehe, versuche das nochmal zu gehen, registriere ich bekomme "falsche Formularübergabe".
+
+06:17.520 --> 06:19.530
+Das ist wirklich sehr wichtig.
+
+06:19.560 --> 06:28.460
+Der Server und der Client sollten seine eigene Validierung durchführen und sicherstellen, dass alle Möglichkeiten berücksichtigt werden.
+
+06:28.530 --> 06:35.610
+Wenn ein Angreifer zum Beispiel ein wirklich wirklich schlechtes Stück Code anstelle einer E-Mail eingibt. Nun, wir brauchen
+
+06:35.610 --> 06:42.260
+sich dagegen zu wehren und dafür zu sorgen, dass wir darauf entsprechend reagieren.
+
+06:42.430 --> 06:49.220
+So können wir Dinge wie diese in andere Teile unserer App einfügen, insbesondere solche, in denen wir Eingaben akzeptieren.
+
+06:49.510 --> 06:57.760
+Zum Glück für uns, das ist für unser Register und dann haben wir auch unser Zeichen.
+
+06:57.760 --> 07:05.430
+Und dann für die Anmeldung können wir einfach nur kopieren und einfügen und hier verwenden wir Anfrage Punktkörper Punkt E-Mail
+
+07:05.550 --> 07:10.740
+und Passwort, damit wir es einfach einfach neu strukturieren können
+
+07:13.540 --> 07:17.310
+Passwort von Anfrage Punktkörper
+
+07:20.360 --> 07:21.390
+Wir werden den Namen entfernen
+
+07:25.190 --> 07:34.300
+und wieder und wir werden nur die Anfrage Dot Körper von diesen entfernen, nur um es ein wenig sauberer zu machen.
+
+07:34.460 --> 07:37.270
+Und wenn ich das spare, sollte das auch funktionieren.
+
+07:37.640 --> 07:40.610
+Lassen Sie uns zur Anmeldung gehen, stellen Sie sicher, dass ich mich nicht anmelden kann.
+
+07:40.730 --> 07:41.260
+Perfekt.
+
+07:41.270 --> 07:51.570
+Und wenn ich zu Wes auf gmail dot com gehen Eins zwei drei anmelden, ich kann mich anmelden.
+
+07:51.590 --> 07:54.550
+In Ordnung, das ist der erste Teil der Sicherheit, die ich abdecken wollte.
+
+07:54.890 --> 07:59.170
+Es gibt natürlich ein paar weitere Dinge, die wir hier tun können, aber ich denke, Sie haben die Idee.
+
+08:00.570 --> 08:09.160
+Die nächste Sache, und ein weiterer großer Fehler in unserer App, ist, dass, wenn wir ein Bild einreichen, lassen Sie uns das greifen
+
+08:12.200 --> 08:14.880
+und lass uns den Tab öffnen.
+
+08:15.320 --> 08:18.020
+Die Netzwerkregisterkarte hier klicken, um zu erkennen
+
+08:20.930 --> 08:25.600
+und wenn Sie den Bildendpunkt gut betrachten, wenn wir uns darum kümmern.
+
+08:25.610 --> 08:31.560
+Aber wenn Sie sich die Ausgaben anschauen, fragen wir hier nach API clarifai für die Anfrage.
+
+08:31.580 --> 08:43.650
+Wenn ich darauf klicke und auf die Header schaue und mir die Berechtigung ansehe bekomme ich den Schlüssel mit DCB17e ...
+
+08:43.690 --> 08:49.290
+Und wenn ich zurück zum Frontend gehe und unter App dot js
+
+08:55.810 --> 08:58.170
+DCB17e ...
+
+08:58.180 --> 08:59.970
+Das ist unser API-Schlüssel.
+
+09:00.390 --> 09:03.520
+Wir machen unseren API-Schlüssel, der in meinem Fall frei ist.
+
+09:03.520 --> 09:11.190
+Aber wenn Sie eine API verwenden, die Geld kostet, könnte jemand diese Informationen stehlen und Ihre API verwenden
+
+09:11.350 --> 09:19.690
+um diese API nur mit Anfragen zu laden und Sie dazu zu bringen, eine Menge Geld zu bezahlen
+
+09:19.690 --> 09:22.090
+Du spielst als Entwickler an deinem eigenen Projekt.
+
+09:22.090 --> 09:23.230
+Das ist gut.
+
+09:23.590 --> 09:26.560
+Aber solche Dinge sollten nicht passieren.
+
+09:26.560 --> 09:31.880
+Eine Sache, die wir tun können, um dies zu vermeiden, besteht darin, dass Sie dies anstelle des Frontends ins Backend verschieben.
+
+09:32.200 --> 09:33.510
+Lass mich dir zeigen, wie wir das machen können.
+
+09:36.800 --> 09:44.390
+Wir werden zu unserem Frontend zurückgehen und in unserem Frontend werde ich tatsächlich das Clarifai kopieren
+
+09:44.390 --> 09:49.440
+Informationen zum Backend und entfernen Sie es aus dem Frontend.
+
+09:49.910 --> 09:56.490
+Wenn Sie sich erinnern, müssen wir einfach Clarifai auf dem Backend installieren, also werde ich den Server stoppen und
+
+09:56.490 --> 10:02.370
+installiere NPM Clarifai, damit wir das Paket dot json haben
+
+10:06.500 --> 10:14.230
+wir werden es diesmal mit require importieren.
+
+10:14.250 --> 10:16.200
+Lassen Sie uns zu unserem Griffbild gehen
+
+10:19.250 --> 10:29.860
+und dann das Griffbild, das wir einfach importieren werden und statt Import werden wir const clarifai equals erfordern
+
+10:32.150 --> 10:41.550
+clarifai und wir werden nur genau das kopieren, was wir in unserer App haben und dieses entfernen wollen
+
+10:41.550 --> 10:42.120
+das heraus
+
+10:46.840 --> 10:48.730
+Verwenden Sie unseren API-Schlüssel hier.
+
+10:52.680 --> 11:01.940
+Wenn wir dann runterscrollen, schauen wir uns an, wo wir unseren API-Schlüssel verwenden, in unserem Fall sind es hier App-Modelle.
+
+11:02.280 --> 11:08.940
+Und hier wollen wir einfach das Clarifai machen und dann unsere Antwort ergreifen.
+
+11:09.090 --> 11:11.210
+Also diesen unteren Teil können wir behalten.
+
+11:11.210 --> 11:19.620
+Wir brauchen nur den Clarifai-Aufruf, der jetzt vom Backend kommt, also kopieren wir das.
+
+11:19.670 --> 11:20.900
+Geh zurück zu unserem hinteren Ende
+
+11:24.110 --> 11:31.320
+Lassen Sie uns das an Ort und Stelle setzen, denn wir haben jetzt App von der neuen Instanziierung von Clarifai und wir werden es jetzt tun
+
+11:31.320 --> 11:33.500
+muss den Eingang greifen.
+
+11:33.570 --> 11:40.210
+Es klingt also so, als würden wir einen neuen Endpunkt benötigen. Lassen Sie uns das ein bisschen aufräumen und vorhersagen
+
+11:42.580 --> 11:43.380
+Klarifai
+
+11:46.470 --> 11:49.950
+Lass es uns hier machen, nur damit wir besser sehen können. Ich werde das ein bisschen minimieren
+
+11:52.860 --> 12:03.780
+und app-dot-modelle sagen voraus, dass wir es mit unserer request dot body dot-eingabe vorhersagen werden, was wir offensichtlich tun
+
+12:03.780 --> 12:04.470
+nicht haben.
+
+12:04.490 --> 12:09.980
+Aber jetzt wissen wir, dass wir die Eingabe brauchen, und wir können dies um eine Funktion herum so einfach verpacken.
+
+12:10.140 --> 12:20.560
+Wir können const handleApiCall sagen und dieses wird eine Anfrage erhalten
+
+12:25.280 --> 12:30.230
+und wir werden das hier einfach nach oben bringen.
+
+12:30.300 --> 12:39.550
+So, jetzt können wir einfach sagen Griff API-Aufruf an der Unterseite hier und auf unserem Server können wir eine neue erstellen
+
+12:39.550 --> 12:48.710
+Endpunkt für Image und wir können eine Post-Anfrage machen, weil wir sie zu unserem Anfrage-Punktkörper hinzufügen und
+
+12:48.710 --> 12:50.540
+Wir nennen das Bildurl
+
+12:50.570 --> 12:59.900
+und der imageurl-Endpunkt wird das handleApiCall haben.
+
+13:00.040 --> 13:07.240
+Es wird die Datenbank nicht benötigen. Wir werden es definitiv importieren müssen, aber wir haben es bereits auf dem Bildobjekt.
+
+13:07.240 --> 13:17.220
+OK, wenn ich das jetzt speichere, müssen wir jetzt sicherstellen, dass wir den Body mit der URL erhalten, also zu
+
+13:17.220 --> 13:18.940
+das vordere Ende.
+
+13:19.190 --> 13:28.980
+Wir sagen, dass wir uns bei submit abholen müssen, und dann kopieren wir das einfach.
+
+13:28.980 --> 13:36.780
+Was wir hier für jetzt haben. Wir wollen Bildurl holen.
+
+13:37.010 --> 13:49.310
+Es wird eine Post-Methode sein und wir werden einen json der Eingabe haben und diese Eingabe wird einfach so sein
+
+13:49.310 --> 14:01.700
+State DOT-Eingabe. Das wird uns eine Antwort geben, und diese Antwort wird auf diese Weise nach unten dringen.
+
+14:01.810 --> 14:08.220
+Aber denken Sie daran, dass, weil dies ein Abruf ist, wir Antwort-Punkt json tun müssen.
+
+14:08.470 --> 14:16.550
+Das ist also einfach genug, um den Einzug hier zu korrigieren und wir machen einen Punkt, dann ist die Antwort gleich
+
+14:18.530 --> 14:19.760
+Antwortpunkt Jason
+
+14:22.420 --> 14:28.510
+Wir werden sparen und wir werden zurückgehen und sicherstellen, dass dies funktioniert.
+
+14:28.510 --> 14:41.660
+Also lass uns zu unserem Server gehen um zu image und stelle sicher das wir hier mit dot then und data antworten
+
+14:41.660 --> 14:43.180
+Diese Daten haben einen Antwortpunkt json
+
+14:43.260 --> 14:51.470
+von Dateien. Was auch immer das uns gibt. Wenn es einen Fehler gibt, machen wir einen Haken.
+
+14:54.470 --> 14:56.420
+Ich werde den Antwortstatus 400 sagen.
+
+14:59.050 --> 15:00.810
+Wir werden es tun.
+
+15:00.810 --> 15:12.900
+json "kann nicht mit API arbeiten". Lass uns sparen. Wir werden sehen, ob das das erste Mal funktioniert.
+
+15:12.920 --> 15:23.930
+Das geht normalerweise nicht, aber wenn wir uns mit Wes bei Gmail dot com 1 2 3 anmelden, haben wir ein kleines Problem.
+
+15:25.420 --> 15:29.060
+Lasst uns zu Consol gehen - nicht holen
+
+15:32.090 --> 15:38.040
+Oh wir müssen eigentlich NPM unseren Server starten.
+
+15:38.110 --> 15:39.510
+Alles klar und jetzt bekommen wir ein paar Fehler.
+
+15:39.520 --> 15:40.660
+Gut.
+
+15:40.660 --> 15:47.510
+Wir haben fehlende Klammern, also haben wir nur ein bisschen einen Syntaxfehler gemacht, und das liegt daran
+
+15:47.510 --> 15:50.270
+Ich habe einen Zeitraum hier vergessen.
+
+15:50.270 --> 15:51.390
+Lass uns das speichern.
+
+15:51.920 --> 15:58.810
+Und wenn wir zu unseren Front-Ends laufen, läuft Back-End. Schließen wir das und versuchen es noch einmal.
+
+16:00.170 --> 16:01.190
+Okay, ich bin angemeldet.
+
+16:01.250 --> 16:09.680
+Wenn ich dieses Bild nochmal kopiere. Moment der Wahrheit.
+
+16:09.790 --> 16:10.180
+Gut.
+
+16:10.180 --> 16:17.820
+Wir bekommen das Bild, aber die Antwort - etwas funktioniert nicht. Wir konnten die Serverantwort nicht abrufen
+
+16:17.900 --> 16:20.390
+mit einem Status von 500.
+
+16:20.390 --> 16:24.140
+So bekommen wir einen Fehler im Server und es sieht so aus
+
+16:26.740 --> 16:29.620
+Handle-API-Aufruf ist keine Funktion.
+
+16:29.650 --> 16:39.010
+Also lass uns wieder zum Server und meinem schrecklichen Rechtschreibfehler gehen. Das bringt dich immer mit der Schreibweise.
+
+16:39.040 --> 16:41.150
+Lass es uns noch einmal versuchen.
+
+16:41.340 --> 16:47.710
+Wir werden das klären und erkennen. Keine Fehler.
+
+16:47.750 --> 16:48.480
+Gut.
+
+16:48.570 --> 16:49.410
+Sieh dir das an.
+
+16:49.680 --> 16:51.120
+Das funktioniert.
+
+16:51.120 --> 16:52.100
+Tolle.
+
+16:52.530 --> 16:59.340
+Ich sehe keine Fehler in meiner API oder im Frontend.
+
+16:59.420 --> 17:00.510
+Das war also nicht schlecht.
+
+17:00.590 --> 17:08.100
+Und wenn ich tatsächlich zu der Anfrage zurückkehre, gehe auf den Netzwerk-Tab und lass uns das überprüfen, ich werde drücken
+
+17:08.100 --> 17:12.810
+finde heraus, ob ich zu imageurl gehe.
+
+17:13.060 --> 17:15.560
+Wir sehen keinen unserer Schlüssel.
+
+17:15.580 --> 17:21.780
+Das einzige, was wir sehen, ist eine Antwort, die die Antwort ist, die wir von Clarifai bekommen, aber unser Server
+
+17:21.780 --> 17:25.850
+läuft in unserer eigenen Umgebung und niemand hat Zugang dazu.
+
+17:27.290 --> 17:30.110
+Also lass uns über das gehen, was wir gerade getan haben.
+
+17:30.200 --> 17:39.720
+Wir haben einen neuen Endpunkt geschaffen, und weil wir jetzt unsere eigenen Controller haben, ist es unser Image
+
+17:39.720 --> 17:46.500
+kann es zu den Bild-Controllern hinzufügen und innerhalb der Bild-Controller erstellen wir eine neue Funktion und nur
+
+17:46.500 --> 17:54.480
+so ziemlich kopieren und einfügen es genau wie wir hatten auf der Vorderseite und wir antworteten mit Json Daten und
+
+17:54.480 --> 17:59.400
+Diese Json-Daten werden jetzt als Antwortpunkt Json gesendet.
+
+17:59.790 --> 18:09.920
+Also haben wir am Frontend einfach eine Fetch-Anfrage erstellt, die die Eingabe geschickt hat und wir haben mit einer Antwort geantwortet.
+
+18:10.290 --> 18:14.630
+Es hat sich also nicht viel am Frontend geändert, außer dass wir jetzt den API-Schlüssel verstecken.
+
+18:14.760 --> 18:21.030
+Und anstatt hier zu klären, haben wir es im Backend.
+
+18:21.280 --> 18:26.630
+Ich hoffe das waren wertvolle Sicherheitstipps für dich.
+
+18:26.650 --> 18:31.130
+Es gibt viele Dinge, wenn es um Sicherheit geht, und es ist definitiv etwas, das Sie bekommen müssen
+
+18:31.130 --> 18:35.190
+gewohnt, wie Sie mehr und mehr Jahre Erfahrung haben.
+
+18:36.250 --> 18:43.900
+Aber mit dieser allgemeinen Regel sicherzustellen, dass Ihre Maschine oder in unserem Fall Ihre Codebasis von vorne
+
+18:43.900 --> 18:49.210
+Ende und zurück und verlässt sich nie auf die Sicherheit des anderen immer konzentriert und stellen Sie sicher, dass was auch immer
+
+18:49.220 --> 18:55.650
+Eingaben, die es von anderen Orten außerhalb seiner selbst erhält, werden immer validiert.
+
+18:55.780 --> 19:00.510
+Und wir schützen alle Geheimnisse, die wir von der Außenwelt haben.
+
+19:00.610 --> 19:04.760
+Traue nie jemand ist so ziemlich das Motto in Sicherheit.
+
+19:05.570 --> 19:08.680
+Also ich hoffe das war aufschlussreich und ich werde es im nächsten Video sehen.
+

@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Willkommen zurück.
+
+00:03.570 --> 00:10.610
+Bevor wir anfangen, etwas über Redux zu lernen, müssen wir über etwas sprechen, das Staatsverwaltung genannt wird.
+
+00:10.640 --> 00:12.440
+Wir haben dieses Wort schon einmal gehört - Staat.
+
+00:12.530 --> 00:13.050
+Recht.
+
+00:13.190 --> 00:14.690
+Beim Erstellen einer reaktiven App.
+
+00:14.720 --> 00:24.300
+Wir hatten dies. Status und Zustand beschrieben, wie unsere App aussehen sollte. Wenn wir uns daran erinnern,
+
+00:27.630 --> 00:36.750
+react ist einfach eine Gruppe von Komponenten, die in einer baumartigen Struktur gerendert werden.
+
+00:36.840 --> 00:41.420
+Das wäre zum Beispiel die app.js.
+
+00:41.560 --> 00:48.390
+Und jede dieser Komponenten hätte zum Beispiel die roten Punkte hier drüben.
+
+00:48.700 --> 00:49.750
+Sie haben Staat.
+
+00:49.750 --> 00:57.730
+Zum Beispiel wird diese App-Komponente als angemeldet gemeldet, und der Status ist Benutzer
+
+00:57.730 --> 01:06.340
+In diesem Fall könnte diese Benutzerkomponente einen Status des Benutzers "Mitch" haben oder wenn sie sich als angemeldet hat
+
+01:06.340 --> 01:14.200
+ist "Admin" es könnte die Admin-Komponente und jedes Mal, wenn Sie den blauen Punkt sehen, dass es ein war
+
+01:14.200 --> 01:21.340
+ändern, wenn es hier eine Änderung gibt, kann es etwas in diese Komponente aktualisieren und wir rendern.
+
+01:21.640 --> 01:31.380
+Und wir haben das getan, um zu reagieren, und ich möchte, dass Sie sich den Staat als Erinnerung vorstellen. Eine App muss sich an Dinge erinnern
+
+01:31.440 --> 01:40.240
+um anders zu arbeiten, hätten wir einfach einfache html-webseiten wie zuvor.
+
+01:40.320 --> 01:43.340
+Merken Sie sich diese Keiko Corp Website.
+
+01:43.490 --> 01:46.940
+Das hat wirklich keinen Staat, tut es.
+
+01:48.050 --> 01:57.230
+Jedes Mal zeigen wir genau die gleiche Webseite für jeden, der sie benutzt. Diese Seite hat keine Ahnung wer der Benutzer ist
+
+01:57.230 --> 02:03.740
+ist oder irgendwelche Interaktionen, die ich habe - es ist hauptsächlich nur Text.
+
+02:03.810 --> 02:07.530
+Jetzt die RoboFriends App - das ist anders.
+
+02:07.680 --> 02:08.880
+Es hat Staat.
+
+02:09.330 --> 02:14.880
+Nun, hauptsächlich, weil wir es geschrieben haben und wir hatten den Zustand, aber wir können damit interagieren.
+
+02:14.940 --> 02:16.450
+Ich kann hier tippen.
+
+02:17.400 --> 02:25.360
+Leanne und ich haben einen Zustand der Suchbox mit L-E-A darin.
+
+02:25.560 --> 02:36.650
+Und die Roboter werden nur mit Leanne gefiltert. State beschreibt, wie unsere App aussehen soll. Unsere App, unser Robo
+
+02:36.650 --> 02:46.520
+Freunde App sollte jetzt mit nur einer Roboterkarte so aussehen, weil der Zustand einer Suche ist
+
+02:46.520 --> 02:50.540
+Box mit den Buchstaben L-E-A darin.
+
+02:51.570 --> 03:00.660
+Jetzt mit einer einfachen App wie die robo Freunde ap0, p Zustand war es ziemlich einfach zu verstehen, aber State-Management
+
+03:00.900 --> 03:02.780
+ist ein wirklich schweres Problem
+
+03:02.880 --> 03:10.340
+wie unsere Apps größer und größer und größer werden. Und Sie werden tatsächlich im späteren Teil des Kurses sehen, wann
+
+03:10.340 --> 03:15.180
+Wir beginnen mit der Arbeit an der Smart Brain App, die die Bilderkennung macht.
+
+03:16.720 --> 03:24.430
+Du wirst bemerken, wie der Zustand immer komplizierter wird und dein Kopf verletzt wird
+
+03:24.430 --> 03:26.770
+müssen alle diese Dinge im Auge behalten.
+
+03:28.180 --> 03:35.380
+Mit einer einfachen Reaktions-App können wir also schöne Ansichten haben und vielleicht unterschiedliche Zustände und Unterschiede haben
+
+03:35.380 --> 03:39.680
+Komponenten, aber schließlich als unsere App größer wird.
+
+03:39.760 --> 03:49.150
+Wir enden mit so etwas, wo wir immer mehr Komponenten mehr und mehr in uns haben
+
+03:49.150 --> 03:55.540
+diese Komponente oder wir können hier einen massiven Zustand ganz oben haben, der auch ziemlich hart wird und
+
+03:55.960 --> 03:59.090
+all diese blauen Punkte, wie sie aktualisieren,
+
+03:59.110 --> 04:04.180
+Sie müssen auch den Status aktualisieren und dann erneut rendern.
+
+04:04.380 --> 04:11.070
+Und dieses Beispiel hier ist nur ein kleines Diagramm, aber Sie können mit all diesen Pfeilen sehen, wie verwirrend es ist
+
+04:11.070 --> 04:17.520
+diesen Zustand zu bekommen und den Überblick zu behalten, ist wirklich sehr, sehr schwer.
+
+04:17.550 --> 04:23.060
+Wir brauchen also eine Art von Staatsverwaltung und Redux.
+
+04:23.060 --> 04:25.070
+löst dieses Problem für uns.
+
+04:25.070 --> 04:32.210
+Wie können wir dieses Diagramm vereinfachen und die Dinge in unseren Köpfen als Entwickler leichter verständlich machen?
+
+04:32.870 --> 04:35.060
+Redux hat ein neuartiges Konzept entwickelt.
+
+04:36.470 --> 04:39.750
+Was, wenn wir nur den ganzen Staat entfernen,
+
+04:39.980 --> 04:43.050
+also dieser Zustand von allen Komponenten?
+
+04:43.220 --> 04:45.390
+Was ist, wenn wir nur Requisiten haben?
+
+04:45.620 --> 04:49.650
+Also haben alle diese Komponenten nur Requisiten, die weitergegeben werden.
+
+04:50.000 --> 05:00.150
+Und jetzt der Staat, wir behalten es in einem Geschäft. Und ein Geschäft ist einfach nur der Zustand, der dies ist
+
+05:00.180 --> 05:01.700
+das hat reagiert.
+
+05:01.860 --> 05:05.960
+Aber in einem massiven Objekt genau wie du hier siehst.
+
+05:06.120 --> 05:14.940
+Ein einzelnes Objekt, das beschreibt, wie unsere App aussehen sollte, und alles, was wir tun, ist nur diesen Zustand zu übergeben
+
+05:15.300 --> 05:18.840
+für welche Komponente es als Requisiten benötigt.
+
+05:19.750 --> 05:30.070
+Wenn unser Diagramm so aussieht, als würde es nur reagieren, kann es mit redux so aussehen, wo es keine gibt
+
+05:30.070 --> 05:32.690
+der Komponenten müssen den Zustand nicht mehr halten.
+
+05:32.860 --> 05:41.020
+Und wir können ein riesiges Objekt haben, das unsere gesamte App beschreibt und welche Komponente auch immer benötigt wird
+
+05:41.020 --> 05:43.440
+Requisite kann einfach dazu weitergegeben werden.
+
+05:44.320 --> 05:51.670
+Und alle Updates, die passieren, gehen durch den Staat, der Staat wird modifiziert und dann geben wir das weiter
+
+05:51.670 --> 05:59.800
+Informationen zur Komponente. Dieses Diagramm könnte verwirrend sein, ohne etwas zu programmieren.
+
+05:59.900 --> 06:01.010
+Und wir werden darauf zurückkommen,
+
+06:01.010 --> 06:02.780
+das macht also Sinn.
+
+06:02.990 --> 06:11.230
+Aber auch visuell können Sie sehen, dass dieses Diagramm viel einfacher aussieht als das Diagramm davor.
+
+06:11.240 --> 06:15.630
+Wir haben viel weniger Pfeile und alles fließt schöner.
+
+06:15.680 --> 06:20.910
+Während wir durch die Videos gehen, werden Sie diese Idee des staatlichen Managements immer besser kennen lernen.
+
+06:20.930 --> 06:28.430
+Aber ich wollte im Hinterkopf behalten, dass redux das löst. Redux ist eine Bibliothek, die einen Zustand herstellt
+
+06:28.430 --> 06:34.100
+Management einfacher, nicht nur für Reac, sondern für alle Tools, die wir verwenden.
+
+06:34.220 --> 06:36.810
+Es passiert einfach wirklich gut mit reagieren.
+
+06:37.400 --> 06:44.870
+Und redux hat sich tatsächlich vom Datenbankdesign inspirieren lassen. Von Dingen wie Events Sourcing oder CQRS
+
+06:45.230 --> 06:49.400
+über die Sie mehr lesen können. Datenbanken hatten das gleiche Problem.
+
+06:49.520 --> 06:57.530
+All diese Updates und all diese Änderungen sind passiert, aber wir brauchten einen Weg, um sicherzustellen, dass all diese Änderungen stattfinden
+
+06:57.890 --> 07:00.950
+sind in einer schönen zusammenhängenden Art organisiert.
+
+07:02.120 --> 07:02.730
+Gut.
+
+07:02.860 --> 07:08.580
+Nun, lasst uns ins nächste Video gehen und mit redux ein bisschen tiefer gehen.
+
+07:08.690 --> 07:09.680
+Wir sehen uns im nächsten. Tschüss.

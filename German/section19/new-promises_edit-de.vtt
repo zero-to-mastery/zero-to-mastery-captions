@@ -1,0 +1,832 @@
+WEBVTT
+
+00:01.390 --> 00:09.650
+Versprechen sind ein neues Feature in JavaScript ab ES6. Aber das bedeutet, dass sie wirklich nützlich sind, um sie zu haben
+
+00:09.650 --> 00:11.590
+als Teil der Sprache einführen.
+
+00:11.630 --> 00:12.410
+Recht?
+
+00:12.660 --> 00:14.490
+Nun, du hast absolut recht.
+
+00:14.510 --> 00:16.350
+Versprechen sind überall.
+
+00:16.400 --> 00:21.680
+Und in diesem Video werde ich dir zeigen, was sie sind, wie sie funktionieren und hoffentlich verstehen wir warum
+
+00:21.710 --> 00:25.970
+wir sollten alle vor Freude springen, dass wir sie anstelle von Rückrufen haben.
+
+00:25.970 --> 00:29.260
+Jetzt, um Versprechungen zu verstehen, definieren wir es.
+
+00:29.660 --> 00:36.650
+Ein Versprechen ist ein Objekt, das irgendwann in der Zukunft einen einzelnen Wert erzeugen kann. Entweder ein aufgelöster Wert,
+
+00:37.160 --> 00:39.920
+oder ein Grund, dass es nicht gelöst oder abgelehnt wird.
+
+00:40.910 --> 00:46.890
+Ein Versprechen vielleicht in einem von drei möglichen Zuständen erfüllt, abgelehnt oder ausstehend.
+
+00:47.010 --> 00:47.750
+Huh.
+
+00:48.150 --> 00:53.730
+Lasst uns herausfinden, was das in diesem Video bedeutet, damit am Ende alles einen Sinn ergibt
+
+00:53.730 --> 00:54.340
+für dich.
+
+00:54.450 --> 01:00.840
+Um das Konzept vollständig zu verstehen, müssen wir zuerst darüber sprechen, was wir vorher hatten und was es ist
+
+01:01.050 --> 01:02.050
+Rückrufe.
+
+01:03.340 --> 01:04.430
+Etwas wie das.
+
+01:04.570 --> 01:11.170
+Wenn etwas erledigt ist, führen Sie diesen Code aus. Rückrufe in Javascript sind genau das.
+
+01:11.170 --> 01:17.360
+Ich schreibe meinem Freund Bob und sage Hey Bob, was ist das für ein wirklich guter Song der Backstreet Boys?
+
+01:18.130 --> 01:23.020
+Wenn Bob Zeit hat, ruft er mich zurück und sagt:Oh ja, ja, dieses Lied -
+
+01:23.090 --> 01:23.370
+Es ist
+
+01:23.380 --> 01:24.460
+Ich will es auf diese Weise.
+
+01:24.670 --> 01:27.590
+Und genau das passiert auch hier.
+
+01:27.820 --> 01:30.940
+Wir haben ein Element, dem wir einen Ereignis-Listener hinzufügen.
+
+01:31.120 --> 01:38.320
+Und wenn ein Nutzer klickt, erhalten wir das Rückrufformular. Das ist, sobald der Nutzer klickt, wir sind
+
+01:38.320 --> 01:42.100
+werde mit dem Formular antworten.
+
+01:42.140 --> 01:43.750
+Denken wir an ein anderes Beispiel.
+
+01:44.000 --> 01:50.480
+Nehmen wir an, wir erstellen ein Spiel, und wir haben diese Funktion zum Verschieben von Spielern, die den Abstand zum Verschieben hat
+
+01:50.480 --> 01:52.230
+der Spieler und die Richtung.
+
+01:52.640 --> 01:59.330
+Nun, wenn ich Spieler 100 nach links bewegen wollte, würde ich das laufen lassen. Sobald das erledigt ist
+
+01:59.360 --> 02:07.070
+Ich möchte, dass es eine Callback-Funktion ausführt, die den Spieler 400 wieder nach links und dann wieder zurück bewegt
+
+02:07.070 --> 02:12.740
+Danach wird die Funktion ausgeführt, um den Spieler 10 nach rechts und eine weitere Callback-Option zum Verschieben zu bewegen
+
+02:12.740 --> 02:15.200
+Spieler 330 nach links.
+
+02:15.350 --> 02:19.950
+Und wir haben etwas, das die Pyramide des Untergangs genannt wird.
+
+02:20.030 --> 02:23.060
+Dies ist offensichtlich ein einfaches Beispiel.
+
+02:23.240 --> 02:30.290
+Aber mit Rückrufen erhalten Sie diese verschachtelte verschachtelte Funktion und Sie erstellen diese Pyramide von wirklich wirklich
+
+02:30.290 --> 02:35.930
+komplizierte Code passiert, dann passiert das und das passiert und das passiert und es ist wirklich
+
+02:35.930 --> 02:37.460
+wirklich schwer zu lesen.
+
+02:37.550 --> 02:39.460
+Lassen Sie mich Ihnen ein realistischeres Beispiel zeigen.
+
+02:42.640 --> 02:50.380
+Nehmen wir an, wir hätten eine Art App, die Twitter nutzt und lassen Sie mich größer machen, damit Sie uns sehen können
+
+02:50.380 --> 02:51.350
+Habe eine GrabTweets
+
+02:51.360 --> 02:56.410
+Funktion, dass der erste Parameter die URL hat
+
+02:56.410 --> 02:57.740
+Für den Moment habe ich es einfach vereinfacht.
+
+02:57.760 --> 03:00.430
+Wir haben gerade Twitter und den Twitter-Handle übergeben.
+
+03:00.640 --> 03:05.780
+Und dann die Callback-Funktion, nachdem du die Tweets gepackt hast, die einen Fehler haben.
+
+03:05.830 --> 03:07.330
+Und die Tweets.
+
+03:07.750 --> 03:11.040
+Und wenn es einen Fehler gibt, werfen wir einen Fehler.
+
+03:11.050 --> 03:13.620
+Das schafft nur einen Fehler in Javascript.
+
+03:13.810 --> 03:15.870
+Sonst werden wir die Tweets anzeigen.
+
+03:16.180 --> 03:21.740
+Aber wenn die Tweets von andrei erfolgreich waren, wollen wir auch die Tweets noch einmal packen.
+
+03:22.000 --> 03:24.840
+Lassen Sie uns Elon Musk dieses Mal immer wieder tun, wenn es falsch ist
+
+03:24.880 --> 03:25.830
+Wir werden Fehler werfen.
+
+03:25.930 --> 03:28.270
+Ansonsten werden wir seine Tweets anzeigen.
+
+03:28.450 --> 03:33.880
+Und wenn das gelingt, greifen wir auch Vitalik Buterins Tweets.
+
+03:34.000 --> 03:42.520
+Und wieder, wenn Fehler, werfen Fehler sonst Tweets anzeigen. Und das sieht nicht sehr hübsch aus, oder?
+
+03:43.340 --> 03:46.840
+Ich meine, wir müssen dasselbe tun, wir müssen auf Fehler prüfen.
+
+03:46.880 --> 03:54.310
+Und jedes Mal, wenn wir es verschachtelt haben und insgesamt haben wir eine Menge Code-Wiederholungen.
+
+03:55.820 --> 04:01.330
+Jetzt dienen Versprechungen demselben Zweck wie Rückrufe.
+
+04:01.450 --> 04:03.520
+Warum haben wir zwei Dinge?
+
+04:03.520 --> 04:08.080
+Nun, Versprechen sind neu in ES6 und sie sind ein bisschen stärker.
+
+04:08.080 --> 04:10.490
+Lass mich dir zeigen, wie ein Versprechen aussieht.
+
+04:12.190 --> 04:14.830
+Du erinnerst dich an diesen Spielercode.
+
+04:14.970 --> 04:21.690
+Nun, das mit einem Versprechen wird ungefähr so ​​aussehen.
+
+04:21.690 --> 04:29.010
+Sieht das nicht viel besser aus, aber es ist wirklich schwer zu verstehen, was hier passiert, ohne wirklich
+
+04:29.010 --> 04:30.900
+wissen, wie man ein Versprechen schafft.
+
+04:30.930 --> 04:32.420
+Also fangen wir damit an.
+
+04:32.760 --> 04:44.150
+Ich werde das entfernen und unser allererstes Versprechen formulieren. Wir werden sagen, const Versprechen gleich-
+
+04:44.320 --> 04:47.240
+und das ist eine neue Syntax, an die Sie sich nur gewöhnen müssen.
+
+04:47.440 --> 04:49.900
+'neues Versprechen ()'
+
+04:49.900 --> 04:59.940
+Also erstellen wir ein neues Versprechen und dieses Versprechen hat Parameter, die entweder verrechnet oder abgelehnt werden.
+
+05:00.080 --> 05:08.560
+Und hier - in dieser Funktion haben wir die Möglichkeit zu sagen, entweder zu lösen.
+
+05:08.670 --> 05:23.570
+Lass uns einfach 'Zeug' machen oder ablehnen und in diesem Fall haben wir einen 'Fehler, es ist kaputt'.
+
+05:23.610 --> 05:29.160
+Jetzt wollen wir natürlich eine bedingte Aussage hier haben, werden wir sagen, wenn Bedingung in unserem Fall werden wir nur
+
+05:29.160 --> 05:30.720
+lass es für jetzt wahr sein.
+
+05:31.850 --> 05:32.850
+Wenn wahr-
+
+05:33.050 --> 05:42.520
+Wenn also das Versprechen zurückkommt, werden wir es lösen.
+
+05:42.600 --> 05:50.510
+Sonst werden wir ablehnen.
+
+05:50.590 --> 05:51.330
+Und hier ist die Sache.
+
+05:51.340 --> 05:54.530
+Das sieht verwirrend aus, ohne die Anwendung zu kennen.
+
+05:54.580 --> 05:58.780
+Aber ich möchte, dass du das hier drüben hast, damit du es dir anschauen kannst, während wir uns damit fortbewegen
+
+05:58.780 --> 06:01.310
+Video wird dies mehr und mehr Sinn machen.
+
+06:01.360 --> 06:10.360
+So, jetzt haben wir ein Versprechen, wenn ich dies in meine Konsole, meinen Chrome-Browser, lege.
+
+06:11.180 --> 06:11.470
+Gut
+
+06:11.480 --> 06:12.820
+Ich habe das Versprechen jetzt.
+
+06:12.830 --> 06:16.850
+Aber wie können wir dieses Versprechen jetzt ausführen?
+
+06:17.090 --> 06:21.240
+Nun, ich kann es nur versprechen
+
+06:21.370 --> 06:32.650
+Also noch einmal, wenn das Versprechen gelöst oder abgelehnt wird. Dann will ich die Ergebnisse bekommen und dann wollen wir
+
+06:32.650 --> 06:38.590
+console.log das 'Ergebnis'.
+
+06:38.740 --> 06:39.250
+Das ist es.
+
+06:39.270 --> 06:41.260
+Lass uns sehen, was hier passiert.
+
+06:41.260 --> 06:43.850
+Ich werde das hier kopieren.
+
+06:44.650 --> 06:45.800
+"Stuff arbeitete".
+
+06:46.120 --> 06:46.560
+Gut.
+
+06:46.600 --> 06:57.000
+Also haben wir das Versprechen gegeben, dass es diesen Teil ausgeführt hat und weil wir gerade gemacht haben, ob es gleich wahr ist, wird es auch tun
+
+06:57.000 --> 06:58.310
+führe die Lösung aus.
+
+06:59.150 --> 07:05.760
+Und die Entschlossenheit wird "Stuff Worked" in das Ergebnis senden und wir werden console.log "Stuff
+
+07:05.770 --> 07:06.350
+Hat funktioniert."
+
+07:06.560 --> 07:10.750
+Und Sie sehen auch hier, dass das Versprechen gelöst ist.
+
+07:11.200 --> 07:21.520
+Wiederum wenn ich nur "Versprechen" hier protokolliere, sehe ich, dass wir das Versprechen mit "Stuff Worked" super haben.
+
+07:21.690 --> 07:21.880
+okay
+
+07:21.890 --> 07:28.110
+Basierend auf dem, was wir jetzt wissen, schauen wir uns einfach an, was wir mit Versprechungen machen können.
+
+07:28.160 --> 07:33.710
+Lass uns sagen, dass ich jetzt mit 'Stuff Worked' das Ergebnis holen will.
+
+07:37.880 --> 07:48.380
+Und fügen Sie ein Ausrufezeichen hinzu und dann - und dies wird Verkettung in Versprechungen genannt.
+
+07:48.380 --> 07:55.250
+Dann, nachdem ich das gemacht habe, werde ich das Ergebnis mit dem Ausrufezeichen und in unserem Fall zurückgeben
+
+07:55.310 --> 07:59.220
+Ich möchte nur das 'result2' bekommen.
+
+07:59.330 --> 08:06.370
+Und wir werden nur console.log 'result2'.
+
+08:06.520 --> 08:07.120
+Gut.
+
+08:07.170 --> 08:08.660
+Nun, mal sehen, was jetzt passiert.
+
+08:08.780 --> 08:13.340
+Also habe ich mein Versprechen, nur dafür zu sorgen, dass wir es hier haben.
+
+08:13.340 --> 08:14.250
+Perfekt.
+
+08:15.300 --> 08:25.070
+Und wir werden das Versprechen, das mit dem Ausrufezeichen gearbeitet hat, sehr cool laufen lassen.
+
+08:25.180 --> 08:30.970
+Aber was passiert, wenn dazwischen etwas passiert, wir haben nur ein console.log, aber
+
+08:30.970 --> 08:36.300
+Nehmen wir an, wir haben einen Fehler, und dieser Fehler führt dazu, dass wir einen Fehler auslösen.
+
+08:37.500 --> 08:44.290
+Nun, was passiert jetzt? Mit Versprechungen können Sie tatsächlich etwas tun, das '.catch ()' genannt wird.
+
+08:44.710 --> 08:48.880
+Und dies wird jeden Fehler erfassen, den das Versprechen haben könnte.
+
+08:48.880 --> 08:51.700
+In unserem Fall wollen wir nur eine console.log
+
+08:52.390 --> 08:54.460
+Und jetzt, wenn ich das führe
+
+08:57.770 --> 09:00.170
+wir konsolen den Fehler protokollieren.
+
+09:00.210 --> 09:02.250
+Lass es uns ein bisschen sauberer machen.
+
+09:02.660 --> 09:06.620
+Damit Sie genau sehen können, was passiert.
+
+09:09.700 --> 09:14.480
+Also nochmal kopieren und einfügen.
+
+09:14.560 --> 09:16.220
+Da gehts los wir bekommen den Fehler.
+
+09:16.390 --> 09:20.760
+Wenn der Wurf-Fehler vorher passiert, sagen wir, es passiert
+
+09:23.430 --> 09:24.150
+über
+
+09:28.170 --> 09:29.610
+und wir wollen das zurückgeben
+
+09:32.990 --> 09:43.310
+Naja, wenn ich den Wurffehler oben drüber bewege. Speichern und erneut kopieren und einfügen. Lass uns das aufräumen a
+
+09:43.310 --> 09:46.300
+Bit und sehen, dass wir immer noch den Fehler bekommen.
+
+09:46.370 --> 09:56.300
+So .catch fängt alle Fehler auf, die zwischen den Ketten auftreten können. Das ist sehr, sehr cool.
+
+09:56.290 --> 09:57.990
+In Ordnung, ich habe eine kleine Frage an dich.
+
+09:58.100 --> 10:05.060
+Was passiert, wenn wir etwas in dieser Richtung tun - lass mich einfach zu dem zurückkehren, was wir vorher hatten. Wir nicht
+
+10:05.060 --> 10:06.690
+habe einen Fehler mehr.
+
+10:07.910 --> 10:17.900
+Aber diesmal haben wir das Ergebnis2 plus das Fragezeichen.
+
+10:18.060 --> 10:20.920
+Also werden wir ein Fragezeichen hinzufügen.
+
+10:20.950 --> 10:22.360
+Wir werden das zurückgeben.
+
+10:22.390 --> 10:27.450
+Wir werden mit Console.log Fehler fangen.
+
+10:27.620 --> 10:33.160
+Und danach werden wir eine
+
+10:33.950 --> 10:39.270
+result3 und dann result3 wird a haben
+
+10:40.610 --> 10:41.180
+Ergebnis3
+
+10:42.200 --> 10:43.800
+Plus
+
+10:44.780 --> 10:47.190
+lass uns ein anderes Ausrufezeichen machen.
+
+10:47.540 --> 10:50.820
+Und wir wollen das wieder so loggen.
+
+10:50.900 --> 10:51.440
+Hoppla.
+
+10:52.260 --> 10:55.900
+Wir werden console.log
+
+10:57.840 --> 10:59.680
+das ist in Ordnung.
+
+10:59.690 --> 11:00.860
+Was denkst du wird passieren?
+
+11:00.860 --> 11:02.780
+Mal schauen.
+
+11:03.010 --> 11:09.530
+Wir speichern, kopieren und einfügen und schauen uns das an.
+
+11:09.540 --> 11:12.790
+Wir haben 'gestopft gearbeitet' - oder 'Stuff Worked!?!' - Haha
+
+11:12.870 --> 11:15.280
+Ausrufezeichen Ausrufezeichen.
+
+11:15.420 --> 11:20.450
+So '.catch' läuft nur, wenn etwas dazwischen dazwischen fehlschlägt.
+
+11:20.490 --> 11:25.840
+Aber weil ich es davor gestellt habe, wenn das fehlschlägt
+
+11:33.210 --> 11:42.140
+- Nun, ich bekomme die Fehlerkonsole nicht. Ich erhalte einen Fehler in unserer Konsole, weil wir einen Fehler geworfen haben, aber der
+
+11:42.170 --> 11:44.100
+catch-Anweisung wird nie ausgeführt.
+
+11:44.480 --> 11:53.750
+Also, wo Sie die catch-Anweisung setzen, wird es überprüft und ausgeführt werden, bevor etwas scheitert.
+
+11:54.140 --> 11:54.800
+Gut.
+
+11:54.800 --> 11:55.440
+Genial.
+
+11:55.730 --> 11:58.250
+So schaffen wir ein Versprechen.
+
+11:58.340 --> 12:01.130
+Ein Versprechen hat eine Entschlossenheit und eine Ablehnung.
+
+12:01.190 --> 12:03.770
+Und bis jetzt ist es nur gelöst worden.
+
+12:03.770 --> 12:05.330
+Es hat einfach geklappt.
+
+12:05.360 --> 12:06.950
+Wir haben den Ausschuss nie ausgeführt.
+
+12:06.950 --> 12:08.320
+Das machen wir später.
+
+12:08.570 --> 12:19.060
+Aber wir sehen, dass wir es mit einer Versprechung einer Variablen geben können und dies asynchron ausführen können.
+
+12:19.280 --> 12:25.730
+Wenn wir dann laufen und das Ergebnis bekommen und tun, was immer du willst, können wir es weiter verketten und
+
+12:25.730 --> 12:27.890
+wir können auch unsere Fehler erkennen.
+
+12:27.920 --> 12:32.840
+Ein Versprechen ist etwas, das Sie jetzt haben, dass Sie um Ihren Code herum verwenden können, obwohl Sie es nicht haben
+
+12:32.840 --> 12:34.450
+der Wert gerade noch.
+
+12:34.610 --> 12:39.230
+Sie können es einfach einer Variable zuweisen, wie wir es hier für ein const-Versprechen getan haben.
+
+12:39.240 --> 12:43.250
+"Nun, wann wäre das eine gute Sache?"
+
+12:43.670 --> 12:48.380
+Gute Versprechen sind großartig für die asynchrone Programmierung. Wenn du dich nicht erinnerst, was das ist
+
+12:48.380 --> 12:52.790
+Stellen Sie sicher, dass Sie mein Video über "Wie funktioniert JavaScript" lesen, um das Konzept zu verstehen.
+
+12:53.030 --> 12:58.940
+Wenn Sie nicht möchten, dass Javascript die Ausführung Ihres Codes wie API-Aufrufe blockiert, greifen Sie auf Daten zu
+
+12:58.940 --> 13:04.960
+aus einer Datenbank oder vielleicht ein Bild optimierend verwenden Sie ein Versprechen, damit die Aufgabe in der Rückseite geschieht
+
+13:05.690 --> 13:12.800
+Wenn das Versprechen gelöst oder abgelehnt wird, erhalten Sie diese Antwort.
+
+13:12.800 --> 13:16.610
+Jetzt zeigen wir Ihnen etwas anderes, was Versprechen tun können.
+
+13:16.610 --> 13:18.750
+Das macht sie wirklich sehr mächtig.
+
+13:18.890 --> 13:30.840
+Sagen wir, dass wir hier ein weiteres Versprechen, ein beständiges Versprechen, hatten2 und dieses Versprechen hat es erneut gegeben
+
+13:30.840 --> 13:33.080
+eine Lösung.
+
+13:34.810 --> 13:35.380
+ablehnen
+
+13:41.960 --> 13:50.170
+Ich werde dies ein wenig kleiner machen und diese "Entschlossenheit, Ablehnung" wird ein setTimeout haben. Also setze Zeitlimit
+
+13:50.180 --> 13:56.470
+ist eine Web-API, die es uns erlaubt, nach ein paar Sekunden eine Pause einzulegen und etwas auszuführen.
+
+13:56.570 --> 13:58.150
+Also 'setTimeout ()'
+
+13:58.190 --> 14:07.690
+Wir sagen "in 100 Sekunden auflösen" oder "100 Millisekunden" den Text "HIII"
+
+14:10.490 --> 14:11.070
+Okay.
+
+14:11.150 --> 14:12.910
+Mach dir keine Sorgen über die Syntax.
+
+14:12.950 --> 14:19.100
+Im Wesentlichen heißt das:"Führe das aus und gib 'HIII' in 100 Millisekunden zurück."
+
+14:19.100 --> 14:21.970
+Lassen Sie uns noch ein Versprechen geben.
+
+14:22.870 --> 14:23.740
+Sagen wir Versprechen3
+
+14:23.740 --> 14:28.610
+und dieser löst sich in einer Sekunde auf.
+
+14:28.730 --> 14:33.010
+Und dieser wird 'POOKIE' sagen.
+
+14:33.080 --> 14:40.250
+Und dann wird endlich ein viertes Versprechen und dieses vierte Versprechen gelöst werden
+
+14:40.310 --> 14:42.630
+in drei Sekunden.
+
+14:42.770 --> 14:49.280
+Und es wird sagen:"Ist es das, wonach du suchst?".
+
+14:54.240 --> 14:54.860
+Gut.
+
+14:55.030 --> 14:56.650
+Also haben wir diese Versprechen.
+
+14:56.650 --> 15:05.470
+Nun, ein Feature, das wir haben, ist etwas, das "Promise.all ()" heißt und alles verspricht
+
+15:05.470 --> 15:07.480
+eine Reihe von Versprechen.
+
+15:07.480 --> 15:20.330
+In unserem Fall "versprechen" (eins), "versprechen2", "versprechen3" und dann "versprechen4", das sind viele Versprechen
+
+15:21.460 --> 15:24.550
+und hier können wir eine
+
+15:24.930 --> 15:31.160
+Und die Werte werden als Array in der Reihenfolge zurückgegeben, in der sie gerade notiert wurden.
+
+15:32.080 --> 15:37.910
+Und hier können wir einfach console.log Werte speichern.
+
+15:38.310 --> 15:43.420
+Und ich werde das in unsere Konsole kopieren.
+
+15:43.650 --> 15:45.560
+Eigentlich wollen wir nur kopieren und einfügen.
+
+15:45.570 --> 15:51.600
+All dies, schaue hier unten auf dem Bildschirm, während ich Enter drücke.
+
+15:53.190 --> 15:59.540
+Eins, zwei, drei, vier, fünf und wir haben unser Ergebnis
+
+15:59.700 --> 16:06.870
+Fünf Sekunden später. Du siehst hier, obwohl diese viel weniger gut waren, weil wir 'versprechen'
+
+16:06.870 --> 16:15.250
+es hat gewartet, bis alle Versprechen gelöst waren und dann die Werte sehr cool abgemeldet.
+
+16:15.960 --> 16:29.060
+Und übrigens, der Grund dafür, wenn ich das tue:wo ich die Variablen zuerst zuweisen und dann "promise.all" ausführen
+
+16:29.140 --> 16:32.610
+Das Ergebnis ist sofort.
+
+16:32.800 --> 16:36.300
+Und das ist, weil wir diese Versprechen bereits richtig gemacht haben.
+
+16:36.310 --> 16:43.570
+Wir haben es einer Variablen zugewiesen und zwischen den Zeitpunkten, die wir kopiert und eingefügt haben, hier diese Versprechen
+
+16:43.600 --> 16:46.390
+im Hintergrund wurden gelöst.
+
+16:46.600 --> 16:47.170
+Gut.
+
+16:47.170 --> 16:53.410
+Lassen Sie uns mit dem letzten Beispiel abschließen, das einige reale Anwendungen enthält, damit Sie eine Idee haben
+
+16:53.410 --> 16:55.710
+wenn wir Versprechungen nutzen wollen
+
+17:01.840 --> 17:04.710
+Ich werde dies löschen, aktualisieren.
+
+17:04.790 --> 17:11.680
+Jetzt habe ich hier eine Liste von URLs und diese URLs stammen von einer einfachen API.
+
+17:11.750 --> 17:12.860
+Lass mich es dir zeigen.
+
+17:17.500 --> 17:23.120
+Genannt JSON Platzhalter und sie geben uns nur einige Endpunkte, die wir verwenden könnten, wie Benutzer, die zurückkehren
+
+17:23.120 --> 17:25.310
+uns einige JSON-Daten.
+
+17:25.540 --> 17:28.410
+Ich habe also Nutzer, Posts und Alben hier.
+
+17:29.670 --> 17:34.310
+Und das ist sehr ähnlich zu etwas, das Sie auf einer Website tun, wo Sie vielleicht einige Informationen greifen möchten
+
+17:34.320 --> 17:44.390
+von Ihrem Server aus der Datenbank mit Benutzern, Posts und Alben und lassen Sie uns sagen, dass sie alle wichtig sind
+
+17:44.390 --> 17:47.440
+zu uns für die Seite für die Profilseite des Benutzers.
+
+17:47.480 --> 17:54.450
+"Wie können wir sie alle greifen?" Nun wieder mit Versprechungen, die wir versprechen können
+
+17:54.450 --> 17:59.330
+und wir können einfach die URLs greifen.
+
+17:59.930 --> 18:03.730
+Und in diesem Fall können wir einfach über diese Karte hinweg ein Array bilden.
+
+18:05.770 --> 18:18.980
+Und mit jeder URL, die wir greifen. Wir wollen - wir wollen nochmal eine Web-API holen um URLs zu machen
+
+18:18.980 --> 18:24.250
+ein AJAX-Aufruf an die URL
+
+18:24.330 --> 18:32.730
+Dann wollen wir die Antwort erneut über die response.json ausführen
+
+18:32.800 --> 18:34.520
+Das kommt nur mit holen
+
+18:34.550 --> 18:35.470
+das musst du machen
+
+18:38.320 --> 18:43.350
+und dann können wir von hier aus
+
+18:43.580 --> 18:48.320
+Und das wird uns wieder ein Array erinnern, weil wir ein Versprechen bekommen.
+
+18:48.330 --> 18:55.110
+Alle diese Ergebnisse werden Ergebnisse zurückliefern.
+
+18:55.150 --> 18:57.720
+Nun, jetzt lassen Sie uns einfach console.log
+
+18:57.720 --> 19:01.250
+sie und wir werden Ergebnisse machen.
+
+19:01.630 --> 19:02.350
+Der erste
+
+19:05.850 --> 19:16.170
+der zweite und der dritte. Mal sehen, ob das funktioniert. Ich werde das alles kopieren.
+
+19:16.590 --> 19:18.710
+Lass uns zu unserer Seite zurückkehren.
+
+19:19.500 --> 19:23.130
+Kopieren Sie unseren Code und fügen Sie ihn ein.
+
+19:23.130 --> 19:24.760
+Und da gehst du.
+
+19:24.840 --> 19:26.490
+Da ist unsere Antwort.
+
+19:26.580 --> 19:35.120
+Wir sehen, dass wir hier undefiniert sind, weil ich hier drei anstelle von zwei gesetzt habe. Lass uns das tun. Wir kopieren und
+
+19:35.120 --> 19:40.760
+fügen Sie das wieder ein, um die Seite zu aktualisieren und los gehts.
+
+19:40.790 --> 19:48.680
+Wir haben unsere Benutzer, wir haben unsere Posts und dann haben wir auch unsere Alben.
+
+19:48.690 --> 19:49.730
+Sehr cool.
+
+19:50.920 --> 19:56.320
+Nehmen wir an, hier scheitert etwas, vielleicht haben wir eine der URLs falsch geschrieben.
+
+19:56.350 --> 19:58.990
+Also wird die Benutzer-API nicht funktionieren.
+
+19:59.290 --> 20:03.490
+Lassen Sie uns ein .catch und console.log hinzufügen
+
+20:09.910 --> 20:22.170
+Error. Wenn ich diese Aktualisierung kopiere und wieder einfüge und diese wiederum durch die Konsole laufe, schaue, dass wir einen Fehler bekommen. Mit
+
+20:22.170 --> 20:28.320
+versprochen, wenn alles schief geht, weil wir für unsere gesamte Seite Nutzer, Beiträge und Alben benötigen
+
+20:28.320 --> 20:29.420
+unsere Internetseite.
+
+20:29.490 --> 20:37.980
+Wir bekommen ein "Ablehnen" von dem Versprechen und wir können es fangen und wir können mit diesem Fehler machen, was wir wollen.
+
+20:38.010 --> 20:39.040
+Sehr cool.
+
+20:39.180 --> 20:40.810
+Also gut, lass uns das reparieren.
+
+20:40.830 --> 20:42.460
+Es funktioniert also wieder.
+
+20:42.800 --> 20:43.550
+Und da gehst du.
+
+20:43.590 --> 20:47.100
+Deshalb sind Versprechungen so vorteilhaft.
+
+20:47.100 --> 20:50.750
+Wir können so etwas sehr sauber machen.
+
+20:50.760 --> 20:56.060
+Denken Sie daran, dass der Abruf einfach zurückkehrt
+
+20:56.200 --> 21:00.970
+Ein Versprechen. Wenn ich nur rennen hole hier
+
+21:01.000 --> 21:04.100
+Sie sehen, dass ich ein Versprechen bekomme, das aussteht.
+
+21:04.180 --> 21:12.370
+Und indem wir etwas hinzufügen, antworten wir auf das, was das Versprechen erwidert, ob es gelöst ist
+
+21:12.370 --> 21:13.260
+oder lehnt ab.
+
+21:13.390 --> 21:16.500
+Und manipuliere die Schulden.
+
+21:16.900 --> 21:24.130
+Also bei ihren grundlegenden Versprechungen sind ein bisschen wie Event Listeners nur ein Versprechen kann nur Erfolg haben oder
+
+21:24.130 --> 21:27.850
+scheitern, wenn es zweimal nicht gelingen oder fehlschlagen kann.
+
+21:27.940 --> 21:31.860
+Und das ist extrem nützlich für Dinge, die asynchron sind
+
+21:31.870 --> 21:39.580
+Erfolg und Misserfolg wie API-Aufrufe, weil wir weniger an der genauen Zeit interessiert sind, zu der etwas geworden ist
+
+21:39.580 --> 21:43.490
+verfügbar und mehr daran interessiert, auf das Ergebnis zu reagieren.
+
+21:43.600 --> 21:48.130
+Wir reagieren also auf etwas, das asynchron passiert.
+
+21:48.150 --> 21:56.700
+Erinnern wir uns also noch einmal daran, was wir mit einem Versprechen begonnen haben, nämlich ein Objekt, das einen einzelnen Wert erzeugen kann
+
+21:56.790 --> 22:06.020
+Irgendwann in der Zukunft entweder gelöst oder abgelehnt mit einem Grund, warum es abgelehnt wurde und vielleicht ein Versprechen
+
+22:06.120 --> 22:18.590
+in einem von drei möglichen Zuständen kann es erfüllt, abgelehnt oder anhängig sein. Siehst du, das war nicht so schlimm, war es jetzt
+
+22:18.590 --> 22:23.970
+geh ab und übe einige Versprechungen und sieh all ihre Kraft.
+
+22:24.190 --> 22:25.950
+Wir sehen uns im nächsten. Tschüss.

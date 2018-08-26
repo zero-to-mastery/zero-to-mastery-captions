@@ -1,0 +1,496 @@
+WEBVTT
+
+00:01.260 --> 00:02.200
+Bine ai revenit.
+
+00:02.430 --> 00:09.270
+În acest videoclip vom vorbi puțin despre ceva avansat și nu ne-am ocupat prea mult de asta
+
+00:09.270 --> 00:15.030
+curs și vom fi cu siguranță în secțiunea următoare, dar vreau să încep cu asta, chiar dacă
+
+00:15.030 --> 00:20.070
+ar putea fi nou și confuză la început, până când vom intra în secțiunea următoare vom reveni și
+
+00:20.070 --> 00:22.020
+revede exact ceea ce facem.
+
+00:22.820 --> 00:27.880
+Vreau să fac această aplicație mai realistă într-o aplicație reală.
+
+00:27.950 --> 00:35.010
+Nu am avea neapărat acești roboți scrise aici ca în robots.js.
+
+00:35.210 --> 00:36.370
+Tocmai am creat acest fișier,
+
+00:36.380 --> 00:42.120
+dar în viața reală, nu intrăm manual pe utilizatori.
+
+00:42.250 --> 00:46.610
+Am folosi ceva de genul unui API.
+
+00:46.830 --> 00:48.050
+Și ce înseamnă asta.
+
+00:48.060 --> 00:56.460
+Ei bine, vrem ca, atunci când acest site Web se încarcă, să facă o cerere undeva acolo, în lumea
+
+00:56.460 --> 01:06.710
+internet și apuca aceste roboți de la un server. Ei bine, putem face asta. Avem ceva aici
+
+01:06.710 --> 01:12.690
+numita "JSONPlaceholder" si nu trebuie sa va ingrijorati prea mult, dar au de fapt un adevarat
+
+01:12.690 --> 01:21.030
+adresă URL minunată pe care o putem folosi și returnează ceea ce avem nevoie:un nume, un ID și un nume de utilizator.
+
+01:21.060 --> 01:23.570
+Restul informațiilor nu avem nevoie de ele.
+
+01:23.580 --> 01:30.910
+Dar după cum puteți vedea doar prin tastarea în această adresă URL, obțin acest lucru.
+
+01:30.910 --> 01:35.440
+Folosind acest lucru, vom face ca aplicația noastră să fie mai realistă.
+
+01:37.050 --> 01:37.910
+Să începem.
+
+01:39.830 --> 01:45.900
+Dacă îmi închid fișierele CSS, deoarece nu mai avem nevoie de ele.
+
+01:46.100 --> 01:48.260
+Și să închidem restul filelor.
+
+01:49.920 --> 01:59.340
+Privind această componentă a aplicației, vedem că este ceea ce noi numim o componentă inteligentă spre deosebire de caseta de căutare sau
+
+01:59.420 --> 02:06.440
+cardlist, care sunt doar funcții pure așa cum puteți vedea aici.
+
+02:06.620 --> 02:15.200
+App.js are de fapt stat, o bucată de date care descrie aplicația noastră și pentru că ei au stat pe care îi numim
+
+02:15.200 --> 02:16.910
+componente inteligente.
+
+02:17.820 --> 02:20.720
+Și componentele inteligente tind să aibă această sintaxă de clasă.
+
+02:21.300 --> 02:30.460
+Acum, în viața reală, când pornim această aplicație, aceste roboți ar fi de fapt o matrice goală pentru că există
+
+02:30.480 --> 02:31.160
+nimic acolo.
+
+02:31.200 --> 02:33.420
+Nu am apucat utilizatorii.
+
+02:33.420 --> 02:42.710
+Deci, cel mai probabil, dacă salvez acest lucru, roboții nu s-ar afișa până când nu încărc site-ul web, și apoi cât mai curând
+
+02:42.710 --> 02:47.400
+site-ul web devine încărcat cer utilizatorilor de undeva prin internet
+
+02:50.020 --> 02:53.450
+undeva sperăm aici.
+
+02:53.490 --> 02:54.340
+Deci, să facem asta.
+
+02:56.610 --> 03:06.660
+React vine cu câteva alte lucruri în interiorul componentelor pe care le putem folosi și se numesc ciclul de viață
+
+03:06.810 --> 03:07.450
+metode.
+
+03:10.250 --> 03:12.530
+Și arată cam așa.
+
+03:13.990 --> 03:15.320
+Nu fiți prea copleșiți.
+
+03:15.400 --> 03:23.570
+Acestea sunt doar metode pe care le putem folosi aici, care vin cu reacție și se numesc cârlige de viață
+
+03:23.570 --> 03:32.240
+deoarece ceea ce fac ei este, dacă vom rula aceste, va declanșa automat atunci când această aplicație devine încărcate pe
+
+03:32.240 --> 03:32.960
+Site-ul Web.
+
+03:32.960 --> 03:33.700
+Lasă-mă să explic.
+
+03:34.760 --> 03:37.490
+Vedem că avem trei secțiuni.
+
+03:37.670 --> 03:45.860
+Avem montare, actualizare și demontare. Felul în care reacționează este că facem ceva numit montare.
+
+03:45.940 --> 03:58.920
+Când fac clic pe refresh aici componenta aplicației - această componentă chiar aici - se montează în document
+
+03:59.820 --> 04:01.220
+cu id-ul "traseului".
+
+04:01.320 --> 04:09.960
+Dacă ne întoarcem la fișierul nostru index.html, pagina noastră Web nu este altceva decât un div cu un id de root.
+
+04:10.080 --> 04:21.350
+Când spunem că montează o componentă, înlocuim acest lucru și adăugăm întreaga noastră aplicație - aceasta este în creștere. Deci, montarea
+
+04:21.350 --> 04:31.480
+este începutul aplicației. Acum, când se montează, acestea sunt cârligele de viață care se lovesc și sunt în ordine.
+
+04:31.510 --> 04:37.990
+Deci, primul lucru este că verifică Hey face această componentă are un constructor? Va avea această aplicație un constructor?
+
+04:37.990 --> 04:38.360
+Da.
+
+04:38.390 --> 04:45.730
+OK, rulați această bucată de cod. are componentWillMount ()?
+
+04:45.740 --> 04:47.840
+Nu, nu. Apoi ignorați-o.
+
+04:47.900 --> 04:53.240
+Are aceasta functie ()? Da, a făcut - executați acest lucru.
+
+04:53.240 --> 04:55.760
+Are componentDidMount ()?
+
+04:55.760 --> 05:01.910
+Nu, nu are componentDidMount () - ignorați-l. Și tocmai trece prin asta de fiecare dată.
+
+05:01.910 --> 05:08.200
+De asemenea, are ceva numit actualizare și care este, ori de câte ori o componentă se schimbă.
+
+05:08.240 --> 05:18.160
+De exemplu, atunci când am avut lista bine de fiecare dată când scriu ceva, componenta listei de cartele devine
+
+05:18.170 --> 05:24.090
+re-redat deoarece avem noi informații, funcția primește intrări noi.
+
+05:24.090 --> 05:27.240
+Același lucru cu componenta de intrare.
+
+05:27.240 --> 05:36.020
+Deci, din nou, în cadrul acelor componente, dacă vrem să adăugăm componenta componentWillReceiveProps (), shouldComponentUpdate (),
+
+05:36.040 --> 05:38.600
+și așa mai departe și așa mai departe.
+
+05:39.390 --> 05:50.010
+Și, în sfârșit, dacă dezasamblarea este atunci când o componentă este îndepărtată dintr-o pagină, de exemplu, dacă schimbăm a
+
+05:50.040 --> 05:58.290
+pagină diferită aici, componenta va fi dezasamblată, componenta aplicației va fi șters din pagină.
+
+05:58.290 --> 06:05.400
+Acestea se numesc cârlige de ciclu de viață, deoarece acestea se execută de fiecare dată când o componentă face ceva și vine
+
+06:05.400 --> 06:06.720
+cu reacție.
+
+06:06.720 --> 06:12.470
+Deci, puteți să le puneți în componența dvs. de clasă și vor fi declanșate automat.
+
+06:12.480 --> 06:16.310
+Nu trebuie să vă faceți griji că le-ați sunat. Lasă-mă să demonstrez asta.
+
+06:17.890 --> 06:24.280
+Vrem să folosim componentDidMount care este sunat după rendering. Acest lucru spune că da,
+
+06:24.310 --> 06:31.190
+componenta aplicației este montată pe pagina web și este redată, adică se afișează ceva.
+
+06:31.310 --> 06:43.840
+Putem face asta spunând componentDidMount și, pentru că aceasta face parte din reacție,
+
+06:43.890 --> 06:48.910
+Observați că nu folosesc funcții de săgeată aici.
+
+06:49.050 --> 06:50.570
+Acum, în cadrul componentDidMount.
+
+06:50.580 --> 06:52.240
+Pot spune console.log ('check')
+
+06:55.570 --> 07:05.240
+Dacă am reîmprospătarea și deschid consola, veți vedea că am verificat dacă am reîmprospătare.
+
+07:05.240 --> 07:05.870
+Acolo te duci.
+
+07:05.870 --> 07:06.670
+A fost foarte rapid.
+
+07:06.680 --> 07:11.210
+Dar vezi că asta se numește automat, chiar dacă nu am spus nimic.
+
+07:12.320 --> 07:15.030
+Folosind acest lucru putem face ceva interesant.
+
+07:15.110 --> 07:26.490
+Acum, când componentDoesMount pot spune acest.setState să aibă acum roboți pentru roboți pe care noi
+
+07:26.490 --> 07:32.440
+accesați fișierul javascript.
+
+07:32.690 --> 07:38.730
+Dacă fac asta și salvez să refresh și să vedem ce se întâmplă.
+
+07:40.070 --> 07:45.280
+Este într-adevăr foarte rapid, dar vedeți că primim roboții noștri.
+
+07:45.280 --> 07:52.710
+Spun constructorul cu o matrice goală doar pentru a vă arăta ordinea execuției aici.
+
+07:52.720 --> 07:57.190
+Dacă adaug un jurnal de console și vom spune unul aici
+
+08:01.230 --> 08:08.090
+vom spune doi aici și vom spune doar trei.
+
+08:08.710 --> 08:24.150
+Dacă salvez acest lucru și deschid consola am 1 3 2 3. Să verificăm doar asta. Avem una - care rulează mai întâi
+
+08:25.510 --> 08:35.250
+apoi trei, care se face. Apoi două, care este componentDidMount și apoi trei rulează din nou.
+
+08:35.250 --> 08:43.390
+De fapt, să schimbăm acest lucru cu cuvintele reale, pentru a vedea mai bine ce se întâmplă de fapt.
+
+08:46.120 --> 08:53.250
+Dacă salvăm și reîmprospătăm uita-te la asta:avem un constructor care rulează mai întâi apoi render apoi componentDidMount
+
+08:53.250 --> 08:57.070
+la fel ca această comandă.
+
+08:57.220 --> 09:00.500
+Dar acum ne-am făcut și noi.
+
+09:00.820 --> 09:03.840
+De ce a făcut randul din nou.
+
+09:03.890 --> 09:14.970
+Dacă vă aduceți aminte că am creat constructorul, am executat randarea și apoi am actualizat statul și componentaDidMount.
+
+09:15.060 --> 09:24.470
+Deci, pentru că am actualizat statul, de fiecare dată când statul se schimbă - Amintiți-vă că treceți prin ciclul de viață - se actualizează
+
+09:24.950 --> 09:26.150
+rulează din nou.
+
+09:26.150 --> 09:37.210
+Deci, pentru că merge dintr-o matrice goală pe o listă de roboți, randamentul devine re-rulat, iar virtualul Dom
+
+09:37.840 --> 09:47.240
+observă că există o diferență și repară browserul Web pentru a include roboții. Foarte tare. cunoaștere
+
+09:47.240 --> 09:48.680
+ceea ce am făcut,
+
+09:48.870 --> 09:56.050
+putem elimina acest lucru și, în final, putem face acest lucru mai realist.
+
+09:56.050 --> 10:03.980
+În loc să folosesc fișierul robotului, voi elimina acest lucru și aici vă voi arăta
+
+10:04.850 --> 10:09.200
+un mod racoros de a lua această listă de aici.
+
+10:09.200 --> 10:18.710
+Am de gând să copiez link-ul și o să spun despre care vom afla în secțiunea următoare.
+
+10:18.730 --> 10:25.680
+Spunem doar să facem această solicitare HTTP, iar preluarea primește acest lucru.
+
+10:26.000 --> 10:31.570
+Din nou, noi doar spunem că du-te aici, atunci.
+
+10:31.690 --> 10:33.800
+Aceasta va primi un răspuns
+
+10:38.910 --> 10:43.320
+și acest răspuns este ... Ei bine, această parte este puțin complicată.
+
+10:43.320 --> 10:46.500
+Trebuie să te obișnuiești cu asta.
+
+10:46.690 --> 10:53.560
+response.json - trebuie doar să convertim răspunsul, din nou ceva despre care vom vorbi în următoarea sesiune.
+
+10:53.570 --> 10:56.990
+Deocamdată, puteți să copiați și să lipiți acest lucru.
+
+10:56.990 --> 10:59.350
+Vom reveni la asta și vom explica ce se întâmplă.
+
+10:59.720 --> 11:05.220
+Și de aici, să adăugăm acest lucru pe o linie nouă, astfel încât să știm exact ce se întâmplă.
+
+11:06.860 --> 11:14.660
+Vom spune. Atunci roboți sau putem spune utilizatori, deoarece în acest caz primim utilizatori și aici putem
+
+11:14.660 --> 11:15.080
+Spune
+
+11:18.440 --> 11:27.900
+acest roboți.SsetState la utilizatorii egali și trebuie să ne asigurăm că vom returna acest lucru. Salvați.
+
+11:27.940 --> 11:29.000
+Să vedem dacă funcționează.
+
+11:30.300 --> 11:31.040
+Uită-te la asta.
+
+11:31.140 --> 11:40.650
+Să reîmprospătăm și să vedeți acel mic decalaj, acum lucrează.
+
+11:40.730 --> 11:47.210
+Deci, aici putem să facem acest lucru mai mic și să îl reducem la o linie.
+
+11:47.290 --> 11:48.810
+Ar trebui să ne amintim cum să facem asta.
+
+11:50.270 --> 11:52.730
+Și vedem că suntem pur și simplu
+
+11:55.440 --> 11:56.460
+actualizarea stării
+
+11:59.370 --> 12:01.910
+după ce luăm.
+
+12:01.950 --> 12:04.780
+Așadar, preluăm orice sunt utilizatorii.
+
+12:05.070 --> 12:06.750
+Avem un răspuns.
+
+12:06.810 --> 12:10.750
+Facem niște magie aici cu Json despre care vom vorbi mai târziu.
+
+12:10.890 --> 12:17.890
+Apoi primim utilizatorii și actualizăm utilizatorii cu setState. Deci, dacă mă împrospătez
+
+12:17.890 --> 12:18.270
+din nou.
+
+12:21.040 --> 12:28.260
+Dacă nu fac asta, să spunem că eu doar, aici nu faceți nimic și să întoarceți un obiect gol.
+
+12:28.390 --> 12:36.730
+Vedeți că nu primesc roboții, primesc doar roboții după actualizarea cu acești utilizatori.
+
+12:37.120 --> 12:38.060
+Cat de tare e asta.
+
+12:42.250 --> 12:43.030
+In regula.
+
+12:43.030 --> 12:43.840
+A fost foarte mult.
+
+12:43.870 --> 12:51.010
+Și probabil asta pare destul de înfricoșător. Pentru a vă face să vă simțiți puțin mai confortabil, pentru că eu folosesc
+
+12:51.010 --> 12:54.160
+aduceți și nu este nimic atașat la ea,
+
+12:54.160 --> 12:58.070
+Acest lucru înseamnă că face parte din obiectul ferestrei?
+
+12:58.300 --> 13:06.000
+Să verificăm:dacă deschid consola și fac window.fetch.
+
+13:06.490 --> 13:07.210
+Da, uită-te la asta.
+
+13:07.330 --> 13:12.190
+Fetch este o metodă pe obiectul ferestrei.
+
+13:12.190 --> 13:14.160
+Acesta vine cu toate browserele acum.
+
+13:14.380 --> 13:17.120
+Este un instrument pentru noi de a face cereri.
+
+13:18.050 --> 13:26.480
+Pentru servere, și după cum puteți vedea acest lucru este un server care ne revine atunci când facem o reducere a utilizatorilor o listă de
+
+13:26.480 --> 13:35.280
+utilizatorii pe care le putem folosi, ceea ce este perfect pentru aplicația noastră.
+
+13:35.320 --> 13:41.890
+Și în cele din urmă te întrebi, dacă asta ar fi fost foarte lent sau orice ar fi făcut asta nu știu cinci secunde
+
+13:41.950 --> 13:44.460
+și am avut o întreagă tona de utilizatori.
+
+13:44.860 --> 13:56.870
+Ei bine, în acest caz puteți face ceva ca o declarație IF:dacă robots.lenth este zero.
+
+13:57.040 --> 14:03.510
+În acest caz, putem returna un "h1" care spune încărcarea
+
+14:09.880 --> 14:13.090
+altcineva putem spune returnarea
+
+14:15.850 --> 14:19.360
+acest. Din nou, e doar javascript.
+
+14:19.360 --> 14:20.800
+Este o frumusete in a reactiona.
+
+14:22.490 --> 14:27.720
+Și vedeți cum obținem roboții nu este definită pentru că este vorba de acest stat. Robots.
+
+14:27.920 --> 14:29.910
+Din nou, ne referim la starea aplicației.
+
+14:30.350 --> 14:36.380
+Și dacă refresh, să spunem doar că nu actualizăm statul și mă voi întoarce
+
+14:36.380 --> 14:37.310
+un obiect gol
+
+14:41.370 --> 14:48.610
+în timp ce în cazul ăsta am încărcat.
+
+14:48.730 --> 14:50.240
+Foarte tare.
+
+14:50.290 --> 14:58.450
+Și astfel construiți aplicații reale cu reacție, aveți o bară de încărcare, pot adăuga aici, pot face cereri
+
+14:58.450 --> 15:04.260
+pe componentDidMount și să interacționeze cu componentele.
+
+15:05.300 --> 15:06.110
+Foarte tare.
+
+15:07.950 --> 15:16.370
+Știi ce, avem aplicația noastră. Este un ultim lucru pe care vi-l voi arăta cu reacție și
+
+15:16.370 --> 15:18.860
+ați învățat elementele de bază și ați reacționat.
+
+15:18.860 --> 15:22.180
+Puteți lua acest lucru acum pentru a construi orice aplicație pe care o doriți.
+
+15:22.340 --> 15:24.140
+Deci, încă un lucru de făcut.
+
+15:24.170 --> 15:28.130
+Încă o bucată mică pentru a obține cunoștințele noastre de reacție.
+
+15:28.550 --> 15:29.740
+Ne vedem în următorul.
+
+15:29.970 --> 15:30.180
+Pa! Pa

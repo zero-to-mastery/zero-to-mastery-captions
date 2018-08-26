@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.940 --> 00:06.610
+Willkommen zurück, in diesem Abschnitt werden wir über einige fortgeschrittene Themen in CSS sprechen und ich werde gehen
+
+00:06.610 --> 00:09.930
+Beginnen Sie mit dem kritischen Render-Pfad.
+
+00:10.000 --> 00:10.800
+Was ist das?
+
+00:11.720 --> 00:17.540
+Nun, wir sollten immer wissen, wie die Dinge unter der Haube funktionieren, damit wir unsere Webseiten so schnell machen können
+
+00:17.570 --> 00:19.950
+und so zuverlässig wie möglich.
+
+00:19.970 --> 00:25.410
+Basierend auf dem, was wir im vorherigen Abschnitt erstellt haben, schauen wir uns an, was unter der Motorhaube passiert.
+
+00:25.520 --> 00:31.760
+Wir gehen auf unsere Website und im Idealfall wird unsere Website auf einem Server sein und ich werde Ihnen zeigen, wie es geht
+
+00:31.760 --> 00:33.500
+das später im Kurs.
+
+00:33.620 --> 00:41.660
+Für jetzt ist es nur unser Computer. Aber tun wir so, als hätten wir einen Server, auf dem unsere Dateien gehostet werden. Wenn wir gehen
+
+00:41.660 --> 00:42.620
+zu unserer Website.
+
+00:42.650 --> 00:45.160
+Wir nennen es "coolwebsite.com".
+
+00:45.290 --> 00:54.150
+Wir werden die HTML-Datei anfordern und der Browser sieht nun unsere HTML-Datei.
+
+00:54.270 --> 01:02.730
+So liest es sich durch dieses Dokument und wenn es durchschaut, bemerkt es:"Oh, ich brauche eine CSS-Datei
+
+01:02.730 --> 01:03.230
+Hier'.
+
+01:04.210 --> 01:11.040
+Also geht es zurück, macht eine andere Anfrage und sagt 'Hey, kannst du mir bitte auch eine CSS-Datei geben?'
+
+01:11.850 --> 01:13.760
+Der Server sagt:"Ja, kein Problem.
+
+01:13.860 --> 01:15.690
+Lass mich das für dich greifen.
+
+01:15.690 --> 01:27.560
+Greift die CSS-Datei und jetzt beginnt es, beide zu betrachten:die HTML- und die CSS-Datei, um zu versuchen und herauszufinden
+
+01:27.620 --> 01:30.000
+Wie sollte die Webseite aussehen?
+
+01:30.170 --> 01:34.000
+Aber dann merkt es auch, dass - "Warte eine Sekunde.
+
+01:34.070 --> 01:36.090
+Ich brauche auch ein paar Schriftarten.
+
+01:36.320 --> 01:39.980
+Also geht es an diese Adresse und sucht wieder nach Schriftart.
+
+01:40.430 --> 01:45.420
+Die Website fragt nun auf der Website, ob die Schriftarten gehostet werden.
+
+01:45.440 --> 01:53.950
+In unserem Fall ist es die Google API und es greift die Font-Datei. Jetzt ist hier die Sache.
+
+01:54.170 --> 02:02.110
+Während es die Schriftartdatei ergreift, könnte es bedeuten, dass die Seite und das Rendering die Website anzeigen,
+
+02:03.590 --> 02:05.800
+So könnte es die Website anzeigen.
+
+02:05.810 --> 02:13.970
+Wenn es nur HTML oder CSS hat, aber der Text möglicherweise nicht angezeigt wird, weil der Text nach dem sucht
+
+02:13.970 --> 02:16.000
+Schriftartendatei.
+
+02:16.090 --> 02:22.930
+Wenn wir über den kritischen Render-Pfad sprechen, erwähnen wir gerne, dass CSS eine Render-Blockierungsdatei ist
+
+02:22.930 --> 02:30.520
+Sie können also keine Webseite rendern, bis Sie Ihr CSS erhalten und manchmal, wenn Sie eine Schriftart haben
+
+02:30.520 --> 02:36.460
+Dateien müssen Sie auch darauf warten, dass der Text auf der Seite gerendert wird.
+
+02:36.630 --> 02:41.460
+Berücksichtigen Sie dies beim Erstellen Ihrer Websites. Aber was sind einige Dinge, die wir berücksichtigen können?
+
+02:41.670 --> 02:44.900
+Damit unsere Webseiten schneller geladen werden?
+
+02:44.970 --> 02:47.580
+Einer ist vielleicht, unsere eigenen Schriftartdateien zu haben.
+
+02:47.700 --> 02:54.420
+Eine andere könnte sein, dass Sie Ihr CSS nicht zu groß machen wollen, wenn wir Hunderte und Abertausende haben
+
+02:54.420 --> 02:56.250
+von Codezeilen von CSS.
+
+02:56.490 --> 03:01.620
+Nun, die Datei wird größer und größer und es ist mehr und mehr, dass Sie über die Leitung übertragen müssen.
+
+03:03.240 --> 03:09.950
+Eine Methode, die Leute benutzt haben und die Sie oft sehen werden, ist etwas, das Ihr CSS "verkleinert". Und
+
+03:09.950 --> 03:12.080
+wenn wir den Browser hier öffnen.
+
+03:12.300 --> 03:13.050
+"Guten Morgen!"
+
+03:13.070 --> 03:15.320
+Ja, es ist früh am Morgen, dass ich das filme!
+
+03:16.730 --> 03:23.660
+Und CSS-Minifier. Was es tut, ist, dass Sie hier Ihr CSS eingeben können - Sie können hier ein Beispiel sehen.
+
+03:23.660 --> 03:28.070
+Sie geben dies ein und klicken auf "Minimieren".
+
+03:28.310 --> 03:33.890
+Und was Minify macht - es entfernt alle Leerzeichen, also alles auf einer Zeile,
+
+03:33.890 --> 03:36.060
+nur wirklich winzig zusammen.
+
+03:36.080 --> 03:43.040
+Obwohl es das gleiche CSS ist, macht es technisch die Datei ein wenig kleiner, so dass die
+
+03:43.130 --> 03:50.030
+Anzahl der Bytes, die Sie über das Internet senden, ist viel weniger und Sie werden sehen, dass diese Technik verwendet wird
+
+03:50.030 --> 03:51.350
+in Javascript auch.
+
+03:51.350 --> 03:57.620
+Und darüber werden wir in diesem Abschnitt sprechen. Das ist der kritische Renderpfad, ein Pfad, der eine Website darstellt
+
+03:57.620 --> 04:03.300
+dauert, um dem Benutzer etwas anzuzeigen. Wir sehen uns im nächsten.
+
+04:03.330 --> 04:03.810
+Tschüss

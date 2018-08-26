@@ -1,0 +1,499 @@
+WEBVTT
+
+00:01.160 --> 00:02.750
+E bem vindo de volta.
+
+00:02.750 --> 00:10.130
+Uma coisa que notei no vídeo anterior é no meu arquivo Constants, eu deveria ter certeza de que minha variável
+
+00:10.130 --> 00:12.260
+e minhas cordas são as mesmas.
+
+00:12.260 --> 00:16.910
+Então, apenas adicionando um sublinhado aqui, tudo bem.
+
+00:16.940 --> 00:26.360
+Então, vamos falar sobre a próxima parte que está usando o outro método que vem com reagir redux que é
+
+00:26.660 --> 00:27.200
+conectar.
+
+00:30.310 --> 00:39.170
+Agora esta função de conexão é otimizada para evitarmos usar algo chamado store.subscribe.
+
+00:39.310 --> 00:44.490
+Então, se você se lembra quando consolamos a loja registrada em nosso apt.
+
+00:44.590 --> 00:50.960
+Sim, tivemos algumas funções, incluindo a função de estado get que bloqueamos.
+
+00:50.960 --> 00:55.430
+Agora há também uma função de assinatura de pontos que se inscreve
+
+00:55.480 --> 01:02.510
+qualquer componente que esteja interessado em conhecer o redux e ouvir qualquer alteração.
+
+01:03.680 --> 01:10.400
+Mas isso é um pouco tedioso e conectar simplifica o processo dizendo simplesmente usar a função de conexão.
+
+01:10.400 --> 01:17.220
+e com isso vamos tornar o componente redux ciente.
+
+01:17.430 --> 01:25.740
+Se você se lembrar, os componentes de conexão seriam os pequenos componentes amarelos que sabem sobre o redux.
+
+01:25.740 --> 01:33.470
+Então, criamos o componente provedor que essencialmente passa a loja para os componentes.
+
+01:33.510 --> 01:35.180
+Mas agora temos que dizer qual,
+
+01:35.220 --> 01:45.870
+Qual desses componentes reagentes queremos ser inteligentes ou estar ciente de que a biblioteca de redux existe e
+
+01:45.870 --> 01:47.560
+eles podem se inscrever para mudanças.
+
+01:47.580 --> 01:49.230
+Então, vou mostrar a você como fazer isso nesse vídeo
+
+01:52.380 --> 01:59.040
+e pela maneira como este padrão na indústria é que nós chamamos esses recipientes inteligentes tipos de tipo
+
+01:59.040 --> 02:01.310
+de como app.js
+
+02:01.410 --> 02:08.080
+Portanto, provavelmente conectaremos o arquivo app.js porque ele é um contêiner.
+
+02:08.210 --> 02:15.680
+Então, a primeira coisa que vamos fazer é ir para o arquivo app.js e aqui queremos importar
+
+02:15.740 --> 02:18.590
+algumas coisas.
+
+02:18.620 --> 02:21.490
+Vamos começar importando as ações.
+
+02:21.530 --> 02:26.250
+Então, vou importar as ações que temos.
+
+02:26.480 --> 02:27.770
+Vamos até aqui.
+
+02:28.620 --> 02:32.300
+Nós temos a ação do campo de pesquisa.
+
+02:32.310 --> 02:41.210
+Então, vamos fazer a ação setSearchField e vamos importar isso do actions.js
+
+02:41.210 --> 02:51.030
+arquivo e porque o arquivo actions.js está no nível da pasta, já que o app.js está nos contêineres.
+
+02:51.120 --> 02:56.740
+Eu vou fazer os períodos duplos.
+
+02:56.850 --> 03:03.720
+Vamos salvar isso e recebemos um pequeno aviso dizendo que ... o campo de pesquisa está definido
+
+03:03.720 --> 03:04.800
+mas nunca usado.
+
+03:04.920 --> 03:11.330
+Vamos também salvar nosso arquivo de índice, perfeito.
+
+03:11.370 --> 03:16.120
+Vamos agora usar este método de conexão do qual falei.
+
+03:16.140 --> 03:31.970
+Então, agora no topo aqui eu vou dizer importar o método de conexão de reagir redux e esta conexão
+
+03:31.970 --> 03:32.540
+método,
+
+03:32.540 --> 03:33.570
+O jeito que funciona.
+
+03:33.590 --> 03:40.140
+E mais uma vez e você só tem que se acostumar com isso é na parte inferior onde nós exportamos padrão.
+
+03:40.710 --> 03:50.820
+Nós vamos dizer que o connect vai ser uma função e depois outro ou outro par com o app.
+
+03:50.840 --> 03:58.550
+Agora esta sintaxe pode parecer um pouco confusa e conectar é algo que chamamos de função de ordem superior.
+
+03:58.940 --> 04:09.130
+Agora, uma função de ordem superior é uma função que retorna outra função. Então, o connect vai rodar e
+
+04:09.160 --> 04:15.500
+qualquer conexão dentro dessa função vai retornar outra função.
+
+04:15.640 --> 04:22.250
+E porque ele retorna outra função, ele executará essa parte com o aplicativo.
+
+04:22.280 --> 04:28.190
+Então é assim que os componentes de ordem mais alta funcionam e você aprenderá mais sobre isso mais tarde em sua carreira.
+
+04:28.190 --> 04:35.330
+Mas por enquanto só saiba que esta é a sintaxe que você só precisa se acostumar com isso. Agora vamos apenas adicionar uma nova linha
+
+04:35.430 --> 04:36.560
+para que possamos ver melhor aqui.
+
+04:37.410 --> 04:47.250
+Agora dentro de aqui, conectar aceita dois parâmetros que são novamente padrão. Eu posso nomeá-los o que eu quiser
+
+04:47.470 --> 04:58.750
+mas estamos apenas seguindo os padrões de redux, que o primeiro é o mapStateToProps e o segundo
+
+04:58.750 --> 05:08.520
+um é mapDispatchToProps.
+
+05:08.580 --> 05:09.100
+Tudo bem.
+
+05:09.100 --> 05:17.560
+Então agora nós apenas conectamos este componente, este componente de aplicativo e disse:"Ei, inscreva-se em qualquer estado
+
+05:17.560 --> 05:21.240
+mudanças no armazenamento do redux.
+
+05:22.090 --> 05:28.930
+E agora o aplicativo sabe que há um repositório redux em algum lugar e sempre que houver mudanças nele, ele pode
+
+05:28.930 --> 05:31.330
+estar interessado em.
+
+05:31.390 --> 05:35.470
+Mas agora precisamos dizer o que interessar.
+
+05:35.500 --> 05:42.230
+Esse é o estado que devo ouvir, qual envio ou qual ação devo ouvir.
+
+05:42.250 --> 05:46.820
+Então vamos voltar para o topo e no topo aqui.
+
+05:46.910 --> 05:54.000
+Queremos definir essas funções, ou esses parâmetros. Então tudo o que vamos fazer é dizer
+
+05:54.000 --> 06:04.410
+const mapStateToProps e isso vai receber um estado e oops.
+
+06:04.520 --> 06:06.980
+E vai voltar
+
+06:09.850 --> 06:10.480
+um objeto
+
+06:13.730 --> 06:19.310
+e como eu disse antes, você pode nomear tudo o que quiser, mas este é o aplicativo padrão e qualquer redux
+
+06:19.310 --> 06:22.040
+você só verá isso ou apenas se acostumar com a sintaxe.
+
+06:22.100 --> 06:25.340
+Uma vez que você faz isso algumas vezes, isso se torna uma segunda natureza.
+
+06:25.340 --> 06:25.690
+Tudo bem.
+
+06:25.690 --> 06:30.950
+E aqui queremos dizer que o campo de pesquisa
+
+06:35.270 --> 06:41.690
+Estado que, novamente, se formos para os nossos redutores, temos um campo de pesquisa aqui.
+
+06:44.530 --> 06:53.260
+Este estado do campo de busca é igual a um estado que recebemos ponto a parte do redutor que
+
+06:53.260 --> 07:06.550
+novamente, se formos para redutores é robôs de busca para searchRobots.searchField
+
+07:06.560 --> 07:13.580
+Então, novamente, está dizendo que o campo de pesquisa que vamos retornar, que vai ser usado como adereços
+
+07:13.970 --> 07:24.560
+pelo componente App vai vir do estado (não Stata) state.searchRobots.searchField
+
+07:25.010 --> 07:33.980
+que novamente vem do nosso redutor porque lembre-se no arquivo index.js criamos a loja
+
+07:34.070 --> 07:37.220
+com o redutor de robôs de busca.
+
+07:37.250 --> 07:45.980
+Então, se voltarmos aqui, vamos salvar isso, e temos MapDispatchToProps não está definido.
+
+07:46.160 --> 07:53.690
+E mais uma vez, porque precisamos da segunda parte que é MapDispatchToProps, então vamos criar novamente isso.
+
+07:56.970 --> 08:07.700
+Vamos dizer que const mapDispatchedToProps vai receber algo chamado despacho.
+
+08:07.830 --> 08:14.730
+E novamente algo que, você só precisa se acostumar. Despacho, se você se lembra em nossa discussão
+
+08:14.730 --> 08:21.510
+sobre o fluxo é o que desencadeia a ação, então uma ação é apenas um objeto que criamos,
+
+08:21.510 --> 08:29.330
+novamente, se você se lembra. Mas para enviar esta ação precisamos de algo chamado despacho para -
+
+08:29.360 --> 08:35.250
+por isso é enviado para o redutor.
+
+08:35.330 --> 08:44.750
+Então, esse despacho agora pode ser usado para enviar ações, e a maneira como fazemos isso, podemos dizer onSearchChange
+
+08:46.040 --> 08:48.350
+qual é apenas o nome que - eu posso dizer qualquer coisa.
+
+08:48.360 --> 08:51.950
+Então lembre-se que este é um suporte que vai receber.
+
+08:51.950 --> 08:58.230
+Mas vamos mantê-lo igual ao que tivemos em nosso aplicativo reagente - onSearchChange.
+
+08:58.260 --> 09:05.910
+E é por isso que o suporte será nomeado. E o onSearchChange vai receber um evento
+
+09:06.390 --> 09:15.270
+porque lembre-se de que é uma caixa de entrada que os usuários digitam e esse evento, mais uma vez, porque na mudança de pesquisa é um
+
+09:15.270 --> 09:26.840
+função, vai despachar a ação setSearchField porque lembre-se, a ação é apenas um objeto
+
+09:26.870 --> 09:28.870
+apenas uma função que retorna um objeto.
+
+09:28.940 --> 09:30.530
+Queremos despachar isso.
+
+09:30.620 --> 09:39.950
+Então, os redutores estão cientes disso e este campo de busca, quando enviado, vai escutar.
+
+09:40.100 --> 09:47.590
+Se você se lembrar de nossas ações, receberá um texto. Isso é o que o usuário tiver inserido.
+
+09:48.220 --> 09:59.100
+Nesse caso, podemos apenas fazer o event.target.value novamente, como temos no onSearchChange
+
+09:59.100 --> 10:03.520
+aqui, event.target.value
+
+10:03.530 --> 10:07.970
+Então, se eu salvar isso, deixe-me fazer um pouco menor e salvar
+
+10:07.970 --> 10:11.390
+agora tenho alguns pequenos avisos.
+
+10:11.390 --> 10:17.100
+Uma é que lembramos que precisamos retornar isso como um objeto.
+
+10:17.180 --> 10:30.930
+Então, nós queremos dizer o retorno como fizemos acima com o estado, um objeto que contém toda a nossa ação.
+
+10:30.950 --> 10:38.340
+Novamente o mapStateToProps está me dizendo qual estado, que estado preciso ouvir e enviar como
+
+10:38.350 --> 10:46.270
+props e mapDispatchToProps diz hey me diga que adereços devo ouvir que são ações
+
+10:46.300 --> 10:47.720
+que precisa ser despachado.
+
+10:49.160 --> 10:52.170
+Tudo bem, tudo está funcionando.
+
+10:52.670 --> 10:54.640
+Não estamos recebendo nenhum erro aqui.
+
+10:55.070 --> 11:01.520
+E lembre-se agora que aqui embaixo na conexão nós sabemos o que mapStateToProps é, (o que) mapDispatchToProps
+
+11:01.530 --> 11:08.120
+é e conectar-se vai executar a primeira parte da função e dizer tudo bem eu estou ouvindo isso
+
+11:08.120 --> 11:15.950
+parte do estado e estou interessado nessas ações e, em seguida, ele vai dar esses suportes para o
+
+11:16.010 --> 11:17.460
+aplicativo.
+
+11:17.480 --> 11:19.260
+Aqui está a parte emocionante.
+
+11:20.160 --> 11:24.850
+Porque lembre-se que eu disse que o redux pode substituir seu estado no seu aplicativo.
+
+11:24.990 --> 11:36.490
+Agora, tecnicamente, posso remover o campo de pesquisa do this.state do aplicativo e também posso removê-lo
+
+11:36.510 --> 11:40.290
+onSearchChange porque novamente está descendo como adereços.
+
+11:40.290 --> 11:45.860
+Não precisamos declará-lo como um método de aplicativo. Então eu posso deletar isso agora.
+
+11:46.760 --> 11:52.660
+E então aqui embaixo não estou mais interessado no campo de pesquisa.
+
+11:52.790 --> 11:56.780
+Eu posso remover isso porque agora está descendo como adereços.
+
+11:56.990 --> 11:59.570
+Então, em vez disso, posso dizer
+
+12:02.890 --> 12:16.180
+const searchField com capital F vem deste.props e finalmente o onSearchChange não vem
+
+12:16.180 --> 12:21.350
+from this.onSearchChange, que era um método do aplicativo.
+
+12:21.370 --> 12:22.520
+Vem dos adereços.
+
+12:22.600 --> 12:31.650
+Então, novamente eu posso dizer onSearchChange e remover o .this. Vamos salvar isso.
+
+12:35.740 --> 12:42.040
+E mais uma vez eu vou receber um erro dizendo que o campo de pesquisa não está definido porque lembre-se, com o nosso redux
+
+12:42.040 --> 12:47.730
+estado mudamos o campo de pesquisa para ter o capital F.
+
+12:47.750 --> 12:52.480
+Então, se eu mudei para que entenda isso, é nisso que estamos interessados.
+
+12:53.860 --> 12:57.080
+Tudo está funcionando.
+
+12:57.110 --> 13:06.950
+Agora aqui está um pouco te peguei. Agora porque no nosso arquivo index.js nós temos apenas um redutor.
+
+13:06.980 --> 13:11.440
+Estamos criando a loja a partir disso, se voltarmos para app.js
+
+13:11.490 --> 13:17.460
+estado na verdade só tem um campo e isso é searchField.
+
+13:17.570 --> 13:21.950
+Então teríamos que fazer algo assim.
+
+13:22.830 --> 13:28.680
+Para que isso funcione. Agora vamos voltar a este ponto, porque uma vez começamos a adicionar mais
+
+13:29.190 --> 13:37.080
+pedaços de estado e mais redutores vamos ter que obter estado de cada peça que estamos interessados
+
+13:37.080 --> 13:37.470
+dentro.
+
+13:37.860 --> 13:42.510
+Mas por enquanto vamos voltar a isso que vamos dizer state.searchField porque se você
+
+13:42.510 --> 13:47.630
+Lembre-se e console.log store.get estado.
+
+13:47.700 --> 13:49.230
+Acabamos de ter o campo de busca.
+
+13:49.530 --> 13:54.730
+Então, vamos salvar isso e voltar.
+
+13:54.750 --> 13:55.850
+Tudo bem.
+
+13:55.950 --> 13:58.160
+Nada no console é bom.
+
+13:58.230 --> 14:03.530
+O momento da verdade se eu digitar algo aqui.
+
+14:03.610 --> 14:04.340
+Olhe para isso.
+
+14:04.360 --> 14:11.140
+Tudo está funcionando, apesar do fato de que não temos mais o estado do campo de pesquisa aqui
+
+14:11.440 --> 14:13.910
+ou o método.
+
+14:14.050 --> 14:16.570
+Em vez disso tudo está passando por redux.
+
+14:16.570 --> 14:28.090
+E só para testar essa teoria se eu entrar aqui, no meu setSearchField e em vez de ter essas
+
+14:28.090 --> 14:37.240
+voltar eu vou dizer console.log (texto) e eu vou voltar daqui o objeto, então estamos apenas
+
+14:37.240 --> 14:44.110
+indo para o log do console para ver se a ação está chegando.
+
+14:44.140 --> 14:46.480
+Eu salvo e volto.
+
+14:46.480 --> 14:51.290
+Vamos abrir a ferramenta, o console e ver isso.
+
+14:51.370 --> 14:55.890
+Tudo o que eu digito está sendo enviado através da ação.
+
+14:55.900 --> 15:01.000
+E outra parte legal é se eu for ao redutor e novamente testar tudo e disser
+
+15:01.000 --> 15:11.340
+console.log (action.type) Eu salvei isso e voltei. vemos que temos uma ação engraçada que acontece.
+
+15:11.340 --> 15:13.980
+E esse é o padrão quando o redux é iniciado.
+
+15:14.100 --> 15:20.520
+Mas agora, se eu clicar em algo ou digitar algo, recebo CHANGE_SEARCH_FIELD, CHANGE_SEARCH_FIELD porque
+
+15:20.520 --> 15:27.390
+o redutor em cada ação é executado e diz - aconteceu a ação CHANGE_SEARCH_FIELD?
+
+15:27.420 --> 15:29.960
+Se for esse o caso, vou retornar um novo estado.
+
+15:29.970 --> 15:31.050
+Muito legal.
+
+15:31.050 --> 15:37.820
+Acabamos de conectar nossa reação ao redux e tudo funciona bem.
+
+15:38.850 --> 15:44.000
+Há um pouco de clichê aqui e você sabe que precisa lembrar mapStateToProps,
+
+15:44.000 --> 15:53.040
+mapDispatchToProps, mas uma vez que você se acostumar com essa sintaxe, é realmente muito bom e bonito a maneira como o redux funciona
+
+15:53.250 --> 16:01.710
+e como limpamos tudo onde tudo flui bem. Assim como nós mencionamos. Nós criamos
+
+16:01.710 --> 16:10.320
+uma ação que é enviada para um redutor, uma função que, com base nessa ação, leva
+
+16:10.320 --> 16:13.710
+estado e muda na loja.
+
+16:13.710 --> 16:19.200
+E porque a loja foi atualizada reagir componentes que estão interessados ​​vão ouvir aqueles
+
+16:19.200 --> 16:22.040
+muda e faz uma mudança de visão.
+
+16:23.460 --> 16:25.260
+Muito legal.
+
+16:25.260 --> 16:28.430
+Tudo bem, algumas coisas mais excitantes surgindo no próximo vídeo.
+
+16:28.620 --> 16:30.080
+Eu vou te ver nessa.
+
+16:30.080 --> 16:30.390
+Tchau tchau

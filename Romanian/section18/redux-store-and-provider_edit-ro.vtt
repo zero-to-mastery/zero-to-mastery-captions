@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Bine ai revenit.
+
+00:02.210 --> 00:08.780
+Acum, că avem acțiunile noastre constante și reductoare, să începem să conectăm această parte redux a aplicației noastre
+
+00:09.170 --> 00:11.540
+la cererea noastră de reacție.
+
+00:13.290 --> 00:16.630
+Acum, modul în care putem face acest lucru este destul de simplu.
+
+00:17.520 --> 00:25.260
+Dacă vă amintiți că am descărcat un pachet numit reactx redux și acest pachet să-l importăm aici
+
+00:26.910 --> 00:32.840
+vine cu API frumos și ușor de doar două lucruri.
+
+00:32.920 --> 00:40.540
+Unul este un furnizor și celălalt este conectarea și folosirea acestor două lucruri pe care le vom putea
+
+00:40.780 --> 00:42.900
+conectați aceste două părți ale aplicației noastre.
+
+00:43.570 --> 00:52.660
+Așa că am de gând să spun import de la reacx redux.
+
+00:52.870 --> 00:58.520
+Acum, în acest videoclip, vom vorbi despre furnizor și în următoarea discuție despre conectare.
+
+00:58.540 --> 01:04.560
+Deci, pentru moment, hai să-l importăm pe furnizor.
+
+01:04.780 --> 01:13.300
+Acum, înăuntru, aici sunt câteva lucruri pe care trebuie să le facem mai întâi pentru a crea magazinul. Dacă ne întoarcem la noi
+
+01:13.300 --> 01:23.510
+diagrama ne amintim că există ceva numit magazin și redox, care este sursa întregului adevăr.
+
+01:23.800 --> 01:32.530
+Acesta este un obiect mare javascript, obiect care descrie starea aplicației noastre, astfel încât reacția poate să redea
+
+01:32.530 --> 01:36.010
+să facă modificări și să le afișeze utilizatorului.
+
+01:36.010 --> 01:43.330
+Așadar, am creat o acțiune pe care am creat-o și am redus un reductor și avem de asemenea nevoie de un magazin.
+
+01:43.510 --> 01:45.900
+Deci, să facem asta mai întâi.
+
+01:46.020 --> 01:53.600
+Putem folosi pachetul redux pentru acest lucru și să spunem import și are o funcție denumită crea magazin.
+
+01:53.670 --> 01:54.920
+Numele frumos și ușor.
+
+01:55.170 --> 02:00.620
+Și o vom importa din pachetul redux.
+
+02:00.660 --> 02:06.570
+Acum, modul în care cream un magazin este destul de ușor și putem spune că magazia const este egală
+
+02:09.780 --> 02:19.940
+crea magazin și în interiorul nostru punem ceea ce numim rootReducer, care este reducerea aplicației noastre
+
+02:20.570 --> 02:22.390
+Acum, în viața reală,
+
+02:22.460 --> 02:25.420
+avem multe reductoare.
+
+02:25.730 --> 02:34.230
+Dacă ne întoarcem la fișierul nostru de reducere, chiar acum avem doar un reductor de roboți de căutare.
+
+02:34.430 --> 02:41.240
+Dar, așa cum am spus înainte, aplicațiile devin din ce în ce mai complexe și veți avea tot mai multe acțiuni
+
+02:41.360 --> 02:42.450
+care trebuie luate.
+
+02:42.890 --> 02:50.420
+Și putem continua să menționăm acțiunile legate de roboții de căutare chiar aici, dar mai târziu în videoclipul pe care l-am făcut
+
+02:50.420 --> 02:54.840
+trebuie, de asemenea, să obțineți roboți din API.
+
+02:55.280 --> 03:05.870
+Daca iti amintesti. acum din cauza asta vom avea multe multe reductoare și în magazin noi
+
+03:05.870 --> 03:15.820
+doriți să combinați toți acești reductori pentru a crea un reductor rădăcină pe care o vom face mai târziu.
+
+03:16.650 --> 03:25.080
+Dar pentru moment, pentru că avem doar un reductor, hai să folosim doar reductorul roboților de căutare pentru a crea
+
+03:25.080 --> 03:25.480
+magazinul
+
+03:29.650 --> 03:31.580
+și trebuie să importăm acest lucru.
+
+03:31.600 --> 03:32.880
+Să mergem mai departe și să facem asta.
+
+03:33.680 --> 03:34.920
+Și eu spun import
+
+03:38.010 --> 03:44.470
+căutați roboți din fișierul nostru de reducere.
+
+03:44.480 --> 03:44.970
+In regula.
+
+03:45.020 --> 03:51.930
+Deci, am aici roboți de căutare pentru a crea magazinul și asta e.
+
+03:51.950 --> 04:00.560
+Avem un magazin. Acum acest magazin poate fi accesat și trimis în aplicația noastră.
+
+04:00.650 --> 04:08.110
+Amintiți-vă cu redux ipotetic putem să eliminăm orice stare de la reacția noastră și să o ținem înăuntru
+
+04:08.110 --> 04:11.850
+magazinul și treci în magazin ca un suport.
+
+04:11.890 --> 04:21.590
+Deci, să vedem ce se întâmplă dacă fac asta dacă mă duc la magazin egal cu magazinul pe care îl avem și eu îl salvez.
+
+04:21.740 --> 04:24.460
+Și să deschidem și app.js
+
+04:25.360 --> 04:26.780
+Și în
+
+04:26.810 --> 04:27.690
+componentDidMount.
+
+04:27.890 --> 04:29.240
+Hai să consolezi jurnalul
+
+04:32.000 --> 04:40.060
+this.props.store
+
+04:40.100 --> 04:41.460
+În regulă, hai să începem
+
+04:48.270 --> 04:49.630
+Când deschid consola
+
+04:52.820 --> 04:57.800
+și avem un pic de îngust aici, care este doar o eroare de sintaxă în cazul nostru, apoi declarații așa că hai
+
+04:57.800 --> 04:58.550
+rezolva asta.
+
+05:01.540 --> 05:03.150
+Mergeți la reductoare.
+
+05:03.240 --> 05:09.420
+Nu avem nevoie de ghilimele duble aici pentru punct și virgulă aici pentru că avem aici.
+
+05:09.500 --> 05:17.770
+Să salvăm asta și vom avea o eroare spunând că câmpul de căutare nu este definit în fișierul nostru de reduceri.
+
+05:17.840 --> 05:20.720
+Și din nou o mică eroare aici.
+
+05:20.720 --> 05:30.370
+Modul în care vrem să trecem cel de-al treilea parametru la un obiect. Obiect este ca un obiect, așa că vrem să mergem
+
+05:30.370 --> 05:31.020
+acest.
+
+05:32.880 --> 05:39.790
+Și noi, la greșelile constante mici mici, aici pentru a salva bine.
+
+05:39.840 --> 05:40.950
+Deci, totul funcționează.
+
+05:40.950 --> 05:46.700
+Avem un avertisment spunând că furnizorul este definit, dar niciodată folosit nu este bine.
+
+05:47.570 --> 05:49.180
+Pentru că nu mai folosim încă.
+
+05:49.250 --> 05:51.390
+Dar să mergem la jurnalul de console și să vedem ce se întâmplă.
+
+05:52.750 --> 06:01.570
+În regulă, vedem că magazinul nostru a ieșit aici și avem câteva funcții pe care le putem folosi
+
+06:01.870 --> 06:05.860
+inclusiv obțineți statul. Să folosim asta și să vedem ce se întâmplă.
+
+06:05.890 --> 06:15.750
+Din nou, mergeți la fișierul meu de indexare pe care o voi spune sau în fișierul nostru app.js voi spune să obțineți statul, mergând
+
+06:15.760 --> 06:20.490
+pentru a salva merge înapoi și uita-te la asta.
+
+06:20.550 --> 06:27.190
+Avem statul nostru care are doar câmpul de căutare chiar acum.
+
+06:27.190 --> 06:27.620
+In regula.
+
+06:27.760 --> 06:36.910
+Deci, trecem prin magazinul nostru ca un suport și putem folosi statul. Foarte misto, să eliminăm această consolă
+
+06:36.910 --> 06:37.750
+Buturuga.
+
+06:37.750 --> 06:43.120
+Din moment ce nu avem nevoie de ea, noi înțelegem ce se întâmplă acum în fișierul index care trebuie să trecem în jos
+
+06:43.120 --> 06:45.820
+stocați în aplicație.
+
+06:45.920 --> 06:52.900
+Acum nu vrem sa trecem prin magazin pana la componentele mai mici
+
+06:53.200 --> 07:01.170
+de peste si peste din nou si de reactie redox ne ofera o componenta placuta pe care o putem folosi pentru a face acest lucru foarte usor.
+
+07:01.280 --> 07:06.770
+Putem pur și simplu să înfășurăm componenta noastră de aplicație în această componentă a furnizorului.
+
+07:06.770 --> 07:07.770
+Lasa-ma sa-ti arat.
+
+07:08.300 --> 07:24.180
+Vom avea o componentă de furnizor și această componentă a aplicației se va afla în interiorul acesteia
+
+07:24.180 --> 07:27.150
+acea.
+
+07:27.160 --> 07:31.540
+Acum, formatarea este puțină, dar este bine pentru moment.
+
+07:31.540 --> 07:39.220
+Vreau doar să văd că furnizorul împachetează aplicația și acum, în loc să treacă la magazin
+
+07:39.220 --> 07:47.440
+aplicația pe care o putem include în componenta furnizorului și pe care o va lua componenta furnizorului
+
+07:47.440 --> 07:56.410
+îngrijirea trecerii în jos a magazinului la toate componentele de pe copacul component din aplicație și folosim ceva
+
+07:56.410 --> 08:02.730
+numită Conectare despre care am vorbit să terminăm această conexiune.
+
+08:02.750 --> 08:04.530
+Deci, tu o ai.
+
+08:04.610 --> 08:14.000
+Am creat componenta furnizorului care trece prin magazin și magazinul folosește reductorul rădăcină sau orice altceva
+
+08:14.000 --> 08:19.660
+reduceri pe care trebuie să le creăm și să creăm arborele obiect al statului nostru.
+
+08:20.820 --> 08:28.950
+În următorul videoclip, permiteți-mi să salvez acest lucru. În următorul videoclip vom folosi cealaltă parte a reduxului de reacție
+
+08:29.100 --> 08:31.520
+pentru a conecta în final totul împreună.
+
+08:32.270 --> 08:34.070
+O să văd asta. Pa! Pa.

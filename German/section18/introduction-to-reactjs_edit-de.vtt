@@ -1,0 +1,428 @@
+WEBVTT
+
+00:01.250 --> 00:07.580
+Gute Arbeit, die es so weit bringen wird, wird in diesem Abschnitt immer mehr Spaß machen
+
+00:07.820 --> 00:15.530
+Wir lernen jetzt echte Tools, die echte Unternehmen nutzen und die Sie 2018 und die Entwicklung einstellen werden
+
+00:15.560 --> 00:23.540
+wird auch viel schneller, weil wir diese Tools verwenden, um Websites schneller und besser zu machen.
+
+00:23.540 --> 00:28.770
+Lass uns über Reagieren reden. Was haben wir vorher zu reagieren?
+
+00:28.870 --> 00:36.890
+Nun, wie ich schon erwähnt habe, hatten wir jQuery. jQuery war, wie du dich erinnerst, sehr zwingendes Schreiben
+
+00:36.890 --> 00:41.270
+Code war wie Mischen Zutaten nacheinander.
+
+00:41.270 --> 00:44.480
+Wenn dies passiert, dann mach das und tu das dann.
+
+00:44.480 --> 00:50.070
+Aber auch wenn dies passiert, dann tue dies und es entstanden viele Inkonsistenzen.
+
+00:50.300 --> 00:58.430
+Und wenn Sie sich an den DOM-Manipulationsabschnitt erinnern, ist das wirklich sehr schwierig und wird ständig beibehalten
+
+00:58.430 --> 01:06.280
+Der Überblick darüber, was sich geändert hat und was geändert werden muss, ist ein riesiges Durcheinander und verursacht eine sehr langsame Entwicklung.
+
+01:06.740 --> 01:12.830
+Und je komplexer Ihre Website wird, desto schwieriger wird es zu skalieren
+
+01:12.830 --> 01:16.360
+sehr schwierig für Teams von Entwicklern, um es zu verwalten.
+
+01:17.450 --> 01:24.050
+Jetzt reagiere auf Facebook, da du weißt, dass Facebook eine ziemlich große App ist und viele Dinge brauchen
+
+01:24.050 --> 01:25.670
+damit es gut funktioniert.
+
+01:25.820 --> 01:33.230
+Und sie hatten dieses Problem und sie schufen Reaktion, um dieses Problem zu lösen und ein Werkzeug zu haben
+
+01:33.290 --> 01:39.410
+Dadurch können Websites auf eine gut vorhersehbare Weise erstellt werden, sodass mehrere Entwickler arbeiten können
+
+01:39.410 --> 01:40.630
+darauf zur gleichen Zeit.
+
+01:42.410 --> 01:49.130
+Und ich benutze gerne die Analogie einer Brotmaschine mit react ist so ähnlich, dass Sie einfach hineinwerfen
+
+01:49.130 --> 01:58.980
+Die Zutaten und reagieren macht all diese Magie unter der Haube und veröffentlicht eine Website.
+
+01:59.080 --> 02:01.670
+Es ist also sehr zuverlässig und sehr konsistent.
+
+02:02.500 --> 02:11.680
+Und es macht eine Sache wirklich sehr gut und das ist die Ansicht, die es schafft, unsere Websites zum DOM zu machen
+
+02:12.810 --> 02:18.520
+Änderung auf vorhersehbare Weise, die einfach zu skalieren und einfach zu verwalten ist.
+
+02:18.660 --> 02:24.690
+Und die Schönheit des Reagierens ist, dass, weil es nur die Ansicht ist, es nicht unbedingt bedeutet, dass es nur dafür ist
+
+02:24.690 --> 02:25.710
+Browser.
+
+02:26.010 --> 02:32.200
+In der Tat kann eine Reaktion mit mobilen Geräten verwendet werden, um native Apps zu erstellen.
+
+02:32.220 --> 02:34.760
+Es wird in Virtual Reality Apps verwendet.
+
+02:35.010 --> 02:41.310
+Sie können Desktop-Apps mit reaktion überall dort erstellen, wo eine Sicht gut reagieren kann.
+
+02:41.340 --> 02:48.450
+Und große Unternehmen, wie ich vor Facebook und Instagram erwähnt habe, reagieren darauf und Netflix-Anwendungen reagieren immer dann
+
+02:48.450 --> 02:52.750
+Sie durchsuchen Filmauswahl gut, die unter der Haube reagiert.
+
+02:53.040 --> 02:57.140
+Es ist ein sehr nützliches Werkzeug und sehr gefragt.
+
+02:57.210 --> 03:03.300
+Ich freue mich daher, in diesem Abschnitt über die Reaktion zu sprechen und Ihnen diese wertvolle Fähigkeit beizubringen.
+
+03:03.360 --> 03:09.390
+Jetzt, um zu verstehen, gibt es ein paar Dinge, über die wir gehen wollen, und das sind Prinzipien
+
+03:09.390 --> 03:14.850
+Das sind sehr wertvolle, die im Laufe der Jahre von Entwicklern gelernt wurden.
+
+03:14.850 --> 03:21.360
+Eine Idee ist das Denken in Komponenten bis zu diesem Punkt, wir haben gerade Webseiten erstellt.
+
+03:21.620 --> 03:27.250
+Alles ist nur eine JavaScript-Datei eine CSS-Datei eine HTML-Datei.
+
+03:27.380 --> 03:34.360
+Aber wäre es nicht schön, wenn das Web ein Netzwerk dieser kleinen Komponenten wäre?
+
+03:34.370 --> 03:41.180
+Denken Sie an sie als Lego-Blöcke, wo jeder einen bestimmten Lego-Block baut und Sie kombinieren diese einfach
+
+03:41.180 --> 03:44.600
+Lego Blöcke zum Erstellen Ihrer Website.
+
+03:44.810 --> 03:50.780
+Das ist die Idee, die sich bewährt hat, lassen Sie uns dies als ein Beispiel verwenden.
+
+03:50.900 --> 04:00.800
+Sie haben zuerst Atome, die, wie Sie hier sehen können, Symbole und kleine unteilbare Elemente sind
+
+04:00.800 --> 04:03.350
+Ihre Website wie Bilder.
+
+04:03.500 --> 04:07.780
+Es gibt Text und du teilst diese in Atome auf.
+
+04:07.790 --> 04:16.040
+Von dort aus bilden Sie Moleküle oder kombinieren Atome, die ähnliche Funktionen wie die Navigation haben
+
+04:16.040 --> 04:17.090
+Stange hier unten.
+
+04:17.090 --> 04:25.270
+Sie kombinieren einzelne Atome, um etwas Funktionalität hinzuzufügen, und dann haben Sie wieder Organismen ein wenig
+
+04:25.270 --> 04:29.470
+größer als Moleküle, die zu einer größeren Funktionalität kombiniert.
+
+04:29.560 --> 04:31.530
+Und dann hast du endlich Vorlagen.
+
+04:31.840 --> 04:37.950
+Die Kombination dieser Organismen, um Ihnen eine Vorstellung davon zu geben, wie Ihre App oder Website aussehen sollte.
+
+04:37.960 --> 04:39.580
+Endlich hast du deine Seiten.
+
+04:39.640 --> 04:43.140
+Das ist die Seite Ihrer App.
+
+04:43.350 --> 04:52.650
+Und wenn Sie in Komponenten denken, wie dieses Bild zeigt, können Sie kleine kleine Komponenten bauen
+
+04:53.190 --> 04:58.200
+dass Sie verschiedene Teile der Webseite wiederverwenden und anlegen können.
+
+04:58.260 --> 05:05.550
+Zum Beispiel diese Zurück-Taste hier, wenn ich eine reaktive Komponente baue, die die Rücktaste ist, kann ich sie jetzt benutzen
+
+05:05.670 --> 05:06.600
+mehrere Seiten.
+
+05:06.600 --> 05:13.110
+Und ich muss den Code nicht neu schreiben, wenn ich die Navigationsleiste in verschiedenen Bereichen verwenden wollte
+
+05:13.110 --> 05:13.590
+die App.
+
+05:13.590 --> 05:19.670
+Nun, ich muss den Code, den ich einmal geschrieben habe, nicht neu schreiben und ich kann ihn tatsächlich wiederverwenden, ich kann es sogar
+
+05:19.710 --> 05:21.020
+teile es mit der Welt.
+
+05:21.300 --> 05:28.900
+Und diese Idee von Komponenten macht REAGIEREN, denn genau hier habe ich eine Website, die reagiert hat
+
+05:28.920 --> 05:32.280
+Komponenten, die von jemandem gebaut werden und wir können diese wiederverwenden.
+
+05:32.490 --> 05:36.290
+Und es ist nicht nur CSS und HTML.
+
+05:36.330 --> 05:42.310
+Aber echte Funktionalität wie Navigationsleisten und Anmeldeformen.
+
+05:42.320 --> 05:51.480
+Ich kann diese Komponente einfach herunterladen und sie an meine Website anhängen
+
+05:51.480 --> 05:56.690
+strukturiert es muss nicht wirklich über den Rest der Webseite wissen, es ist nur ein eigener Legostein
+
+05:56.880 --> 06:02.540
+das funktioniert, indem Abhängigkeiten von anderen Teilen der Website reduziert werden.
+
+06:02.580 --> 06:06.390
+Ich kann das einfach überall anschließen, wo ich will.
+
+06:06.400 --> 06:12.310
+Ein anderes wichtiges Konzept bei der Reaktion ist die Idee des Einweg-Datenflusses.
+
+06:12.390 --> 06:19.200
+Der beste Weg, um es zu beschreiben ist, indem Sie auf diese baumartige Struktur schauen. Hier sehen Sie, dass wir eine haben
+
+06:19.200 --> 06:25.110
+Eltern einige Kinder und dann haben diese Kinder ihre eigenen Kinder und diese Kinder haben ihre eigenen
+
+06:25.110 --> 06:26.460
+Kinder.
+
+06:26.650 --> 06:34.240
+Und die Idee mit react ist, dass Daten von oben nach unten fließen und niemals umgekehrt
+
+06:34.570 --> 06:38.380
+Wenn diese rot sind, nennen wir sie Komponenten.
+
+06:38.530 --> 06:44.170
+Nun, in diesem Fall wissen nur ihre Kinder von der Veränderung.
+
+06:44.170 --> 06:50.290
+Die Eltern interessieren sich nicht wirklich für die Veränderung, weil die Richtung des Datenflusses gut ist
+
+06:50.290 --> 06:51.440
+immer stromabwärts.
+
+06:51.490 --> 06:58.750
+Wenn wir also auf die Idee von Komponenten zurückkommen, wenn wir eine Website auf Komponenten aufbauen würden, wäre dies die Seite
+
+06:58.980 --> 07:06.310
+und das waren Organismen und dann Moleküle und dann Atome.
+
+07:06.380 --> 07:11.110
+Nun, in diesem Fall ändern sich die roten Komponenten und dann nur die darunter.
+
+07:11.120 --> 07:18.290
+Wie Sie hier in Blau sehen können, wissen Sie von dieser Veränderung und darauf basierend werden sie entsprechend handeln und sich ändern
+
+07:18.290 --> 07:19.170
+auch.
+
+07:19.340 --> 07:25.820
+Nun, ohne wirklich ein Problem zu haben, ist es schwer dieses Konzept zu verstehen, aber vertrau mir das ist ein sehr
+
+07:25.820 --> 07:29.500
+wichtiges Konzept, das reagiert hat.
+
+07:29.510 --> 07:35.870
+Es erzeugt eine Menge wirklich schönen fehlerfreien Code und es ist eine Idee, die Sie mehr und mehr verstehen werden
+
+07:35.900 --> 07:41.300
+wie wir anfangen zu reagieren.
+
+07:41.540 --> 07:49.600
+Die nächste Sache ist die Idee von Virtual DOM Sie wissen, was das DOM ist das Document Object Model.
+
+07:49.730 --> 07:54.950
+Und wir haben auch gelernt, dass eines der wichtigsten Dinge als Entwickler darin besteht, die Menge an
+
+07:54.950 --> 08:01.010
+DOM-Manipulation, die wir tun, weil gut Web-Browser wirklich wirklich hart arbeiten müssen, um zu erreichen
+
+08:01.010 --> 08:05.320
+das und es reduziert die Leistung der Webseite plus erhöht
+
+08:05.330 --> 08:11.160
+Fehler. Ich denke, dieses Bild zeigt, was reactive wirklich gut macht.
+
+08:11.200 --> 08:15.840
+Wir waren die Maler, wir haben dem DOM genau gesagt, was zu tun ist.
+
+08:15.910 --> 08:23.180
+Entferne dieses Element, füge es hinzu und füge dieses hinzu und färbe es auf diese Weise mit react
+
+08:23.200 --> 08:30.030
+Wir haben diesen Reaktionsbot und der Reaktivbot erstellt etwas, das als virtuelles DOM, virtuelles DOM bezeichnet wird
+
+08:30.070 --> 08:37.050
+nur ein JavaScript-Objekt und dieses JavaScript-Objekt, das nur unsere Website beschreibt.
+
+08:37.290 --> 08:46.160
+Der aktuelle Stand der Website und wir geben es nur dem Objekt zu reagieren und der Reaktionsbot wird automatisch
+
+08:46.160 --> 08:53.240
+Nehmen Sie Änderungen am DOM vor und malen Sie das Bild so optimal wie möglich.
+
+08:53.240 --> 08:56.480
+Also sagen wir einfach, hey, das ist das Objekt.
+
+08:56.660 --> 08:58.140
+Das ist was wir wollen
+
+08:58.640 --> 09:02.960
+Im DOM kümmert sich der Reagent um DOM-Manipulation für dich.
+
+09:02.960 --> 09:11.660
+Erinnern Sie sich, wie nervig es war, einen Abfrage-Selektor zu erstellen - dann sollten Sie alle Elemente nach ID abfragen und dann alle diese Event-Handler ausführen
+
+09:11.660 --> 09:14.480
+gut reagieren kümmert sich darum.
+
+09:14.480 --> 09:22.430
+Also wieder ist das virtuelle DOM nur eine Kopie des DOM, das in einem JavaScript-Objekt ist und reagiert dann darunter
+
+09:22.430 --> 09:28.910
+die Kapuze ändert nur die Ansicht und deshalb kann sie außerhalb von Browsern arbeiten und Sie können verwenden
+
+09:28.910 --> 09:35.380
+Dinge wie VR und mobile Geräte, weil reagieren ist die Maschine und was die Leinwand ist
+
+09:35.390 --> 09:38.960
+Nun, wir können die Leinwand auf das ändern, was wir wollen.
+
+09:38.960 --> 09:43.670
+Endlich hat Reagieren ein grossartiges Ökosystem.
+
+09:43.750 --> 09:49.540
+Es ist wahrscheinlich eines der größten Ökosysteme in JavaScript und es gibt so viele Tools, die es gibt
+
+09:49.540 --> 09:56.840
+arbeiten mit reagieren in der Tat ist die Entwickler-Community so groß, dass jedes Problem, das Sie dort haben
+
+09:56.910 --> 10:02.250
+ist wahrscheinlich eine Chance, dass jemand anderes es hat und hat es im Internet veröffentlicht und Sie können
+
+10:02.250 --> 10:03.630
+finde Lösungen für.
+
+10:03.690 --> 10:09.810
+Sie können react-Pakete in npm finden Sie können es mit Knoten verwenden, dort ist Web-Paket und babel, dass Sie
+
+10:09.810 --> 10:10.770
+kann damit umgehen.
+
+10:11.010 --> 10:18.060
+Es ist nur ein wirklich gutes Ökosystem, das die neueste JavaScript-Technologie verwendet, um Websites in einem Webbrowser zu erstellen
+
+10:18.060 --> 10:20.490
+wirklich schöne, elegante Art und Weise.
+
+10:20.500 --> 10:26.630
+Nun, eine Sache, vor der ich dich in diesem Abschnitt warnen möchte, wir werden Code wie diesen sehen.
+
+10:27.580 --> 10:30.090
+Und es wird zuerst sehr seltsam aussehen.
+
+10:30.250 --> 10:34.900
+Es ist genauso, wenn Sie JavaScript beim ersten Mal angeschaut haben.
+
+10:35.030 --> 10:37.400
+Es schien wie eine ganz andere Welt.
+
+10:37.400 --> 10:43.130
+Es wird, wenn Sie das zuerst betrachten, aber vertrauen Sie mir, zu wissen, was Sie über JavaScript wissen, wird dies
+
+10:43.250 --> 10:44.690
+wirklich sehr einfach.
+
+10:44.720 --> 10:51.740
+Sie haben Klassen, die die Reaktionskomponente erweitern, und so bauen wir Komponenten.
+
+10:51.980 --> 11:00.020
+Wir haben wieder Konstrukte, die wir in fortgeschrittenen Objekten gesehen haben, und dann hat jede Klasse einen obligatorischen Rendervorgang
+
+11:00.110 --> 11:03.860
+Funktion, dass Sie nur sagen, was diese Uhr rendern sollte.
+
+11:03.890 --> 11:06.970
+Und wie Sie sehen können, sieht es aus wie HTML ist es nicht.
+
+11:07.400 --> 11:12.020
+Es ist nicht genau HTML, aber die Syntax ist sehr ähnlich.
+
+11:12.020 --> 11:16.490
+Also selbst wenn man sich das anschaut, sieht man diese Uhrkomponente.
+
+11:16.520 --> 11:20.170
+Dieser Legoblock gibt wieder eine Hello World zurück
+
+11:20.180 --> 11:27.730
+h1 tag mit einem h2, der sagt, dass es ist und dann wieder die zeit, nur um dir einen kopf zu geben du gehst
+
+11:27.730 --> 11:36.580
+Wörter wie Requisiten und Zustände zu hören und Komponenten zu reagieren, aber dies sind nur Sprachsyntax, die Sie lernen werden.
+
+11:36.860 --> 11:39.540
+Und es ist eigentlich ganz einfach, wenn man sich erst daran gewöhnt hat.
+
+11:39.890 --> 11:43.730
+Also mach dir keine Sorgen, das wird alles einen Sinn ergeben
+
+11:43.820 --> 11:49.290
+bis zum Ende davon. Und Sie wissen, was wir bauen werden eine ziemlich coole App.
+
+11:49.350 --> 11:57.170
+Es heißt Robo Friends und wir werden diese App bauen, die gut durch deine Roboterfreunde sucht
+
+11:57.680 --> 11:59.710
+und Sie können ihre Kontaktinformationen finden.
+
+11:59.780 --> 12:03.120
+Und wie Sie sehen können, wird es live aktualisiert.
+
+12:03.290 --> 12:04.800
+Es ist super schnell.
+
+12:04.940 --> 12:06.450
+Es reagiert.
+
+12:06.800 --> 12:08.600
+Es wird eine Menge Spaß machen.
+
+12:08.690 --> 12:14.990
+Und wir werden das ziemlich schnell aufbauen, nur um Ihnen zu zeigen, wie mächtig das ist.
+
+12:15.030 --> 12:15.500
+Gut.
+
+12:15.540 --> 12:17.770
+Ich bin wirklich aufgeregt, in diesen Abschnitt zu kommen.
+
+12:17.850 --> 12:19.400
+Du wirst viel Spaß haben.
+
+12:19.530 --> 12:21.020
+Wir sehen uns im nächsten.
+

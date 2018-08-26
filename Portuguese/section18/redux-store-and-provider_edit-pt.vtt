@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Bem vindo de volta.
+
+00:02.210 --> 00:08.780
+Agora que temos nossas ações constantes e redutores, vamos começar a conectar esta parte do redux de nosso aplicativo
+
+00:09.170 --> 00:11.540
+para o nosso aplicativo reagir.
+
+00:13.290 --> 00:16.630
+Agora, a maneira que podemos fazer isso é bem simples.
+
+00:17.520 --> 00:25.260
+Se você lembra que baixamos um pacote chamado react redux e este pacote vamos importá-lo aqui
+
+00:26.910 --> 00:32.840
+vem com API agradável e fácil de apenas duas coisas.
+
+00:32.920 --> 00:40.540
+Um é um provedor e o outro é conectar e usar essas duas coisas que vamos ser capazes de
+
+00:40.780 --> 00:42.900
+conecte essas duas partes do nosso aplicativo.
+
+00:43.570 --> 00:52.660
+Então, eu vou dizer import from react redux.
+
+00:52.870 --> 00:58.520
+Agora neste vídeo vamos falar sobre o provedor e no próximo vídeo falamos sobre conexão.
+
+00:58.540 --> 01:04.560
+Então, por enquanto, vamos apenas ter o provedor importando.
+
+01:04.780 --> 01:13.300
+Agora, aqui dentro, algumas coisas que precisamos fazer primeiro são criar a loja. Se voltarmos ao nosso
+
+01:13.300 --> 01:23.510
+Nós nos lembramos de que há algo chamado uma loja e redox que é a fonte de toda a verdade.
+
+01:23.800 --> 01:32.530
+Ou seja, é um objeto grande javascript, objeto que descreve o estado do nosso aplicativo para que possa reagir
+
+01:32.530 --> 01:36.010
+faça alterações e exiba para o usuário.
+
+01:36.010 --> 01:43.330
+Então criamos uma ação que criamos e reduzimos um redutor e também precisamos de uma loja.
+
+01:43.510 --> 01:45.900
+Então vamos fazer isso primeiro.
+
+01:46.020 --> 01:53.600
+Podemos usar o pacote redux para isso e dizer import e ele tem uma função chamada create store.
+
+01:53.670 --> 01:54.920
+Nome agradável e fácil.
+
+01:55.170 --> 02:00.620
+E vamos importar isso do pacote redux.
+
+02:00.660 --> 02:06.570
+Agora, a maneira como criamos uma loja é muito fácil e podemos dizer const store igual
+
+02:09.780 --> 02:19.940
+criar loja e aqui colocamos o, o que chamamos de rootReducer, que é o redutor do nosso aplicativo
+
+02:20.570 --> 02:22.390
+Agora na vida real,
+
+02:22.460 --> 02:25.420
+nós temos muitos redutores.
+
+02:25.730 --> 02:34.230
+Se voltarmos ao nosso arquivo redutor, agora só temos um redutor de robôs de busca.
+
+02:34.430 --> 02:41.240
+Mas como eu disse antes, os aplicativos ficam cada vez mais complexos e você terá mais e mais ações
+
+02:41.360 --> 02:42.450
+que precisam ser tomadas.
+
+02:42.890 --> 02:50.420
+E podemos continuar listando ações relacionadas a robôs de busca aqui, mas mais tarde no vídeo que
+
+02:50.420 --> 02:54.840
+também precisa obter robôs da API.
+
+02:55.280 --> 03:05.870
+Se você lembrar. agora por causa disso, vamos ter muitos muitos redutores e na loja nós
+
+03:05.870 --> 03:15.820
+quero combinar todos esses redutores para criar um redutor de raiz que faremos mais tarde.
+
+03:16.650 --> 03:25.080
+Mas por enquanto, porque só temos um redutor, vamos usar o redutor de robôs de busca para criar
+
+03:25.080 --> 03:25.480
+a loja
+
+03:29.650 --> 03:31.580
+e precisamos importar isso.
+
+03:31.600 --> 03:32.880
+Então vamos em frente e fazer isso.
+
+03:33.680 --> 03:34.920
+E eu digo importar
+
+03:38.010 --> 03:44.470
+busca robôs do nosso arquivo redutor.
+
+03:44.480 --> 03:44.970
+Tudo bem.
+
+03:45.020 --> 03:51.930
+Então eu tenho robôs de busca aqui para criar a loja e é isso.
+
+03:51.950 --> 04:00.560
+Nós temos uma loja. Agora, essa loja agora pode ser acessada e transmitida para nosso aplicativo.
+
+04:00.650 --> 04:08.110
+Lembre-se com redux hipoteticamente podemos remover todos os estados de nosso reagir e mantê-lo dentro de
+
+04:08.110 --> 04:11.850
+a loja e passar a loja como um adereço.
+
+04:11.890 --> 04:21.590
+Então, vamos ver o que acontece se eu fizer isso se eu for armazenar é igual à loja que temos e eu salvo.
+
+04:21.740 --> 04:24.460
+E vamos também abrir o app.js
+
+04:25.360 --> 04:26.780
+E no
+
+04:26.810 --> 04:27.690
+componentDidMount.
+
+04:27.890 --> 04:29.240
+Vamos apenas consolar log
+
+04:32.000 --> 04:40.060
+this.props.store
+
+04:40.100 --> 04:41.460
+Tudo bem, vamos rodar o npm start
+
+04:48.270 --> 04:49.630
+Quando eu abro o console
+
+04:52.820 --> 04:57.800
+e nós temos um pouco de um estreito aqui que é apenas um erro de sintaxe no nosso caso, então as declarações então vamos
+
+04:57.800 --> 04:58.550
+Conserte isso.
+
+05:01.540 --> 05:03.150
+Vá para redutores.
+
+05:03.240 --> 05:09.420
+Nós não precisamos das aspas duplas aqui para o ponto-e-vírgula aqui porque nós temos isso aqui.
+
+05:09.500 --> 05:17.770
+Vamos salvar isso e recebemos um erro dizendo que o campo de pesquisa não está definido em nosso arquivo de redutores.
+
+05:17.840 --> 05:20.720
+E novamente um pequeno pequeno erro aqui.
+
+05:20.720 --> 05:30.370
+A maneira que queremos passar o terceiro parâmetro para um objeto.atribuir é como um objeto, por isso queremos ir como
+
+05:30.370 --> 05:31.020
+esta.
+
+05:32.880 --> 05:39.790
+E nós a constante pequeno pequeno erro aqui para salvar tudo bem.
+
+05:39.840 --> 05:40.950
+Então tudo está funcionando.
+
+05:40.950 --> 05:46.700
+Temos um aviso dizendo que o provedor está definido, mas nunca usado, tudo bem.
+
+05:47.570 --> 05:49.180
+Porque enquanto não estamos usando ainda.
+
+05:49.250 --> 05:51.390
+Mas vamos para o log do console e ver o que acontece.
+
+05:52.750 --> 06:01.570
+Tudo bem, vemos que nossa loja por aqui foi desconectada e temos algumas funções que podemos usar
+
+06:01.870 --> 06:05.860
+incluindo o estado get. Vamos usar isso e ver o que acontece.
+
+06:05.890 --> 06:15.750
+Mais uma vez indo para o meu arquivo de índice eu vou dizer ou no nosso arquivo app.js eu vou dizer obter estado, indo
+
+06:15.760 --> 06:20.490
+para salvar voltar e olhar para isso.
+
+06:20.550 --> 06:27.190
+Nós temos nosso estado que apenas tem o campo de busca agora.
+
+06:27.190 --> 06:27.620
+Tudo bem.
+
+06:27.760 --> 06:36.910
+Então, estamos passando por nossa loja como um suporte e podemos usar o estado get. Muito legal, vamos remover esse console
+
+06:36.910 --> 06:37.750
+registro.
+
+06:37.750 --> 06:43.120
+Como não precisamos, entendemos o que está acontecendo agora no arquivo de índice.
+
+06:43.120 --> 06:45.820
+armazenar no aplicativo.
+
+06:45.920 --> 06:52.900
+Agora, nós realmente não queremos passar a loja até a nossa árvore de componentes para os componentes menores
+
+06:53.200 --> 07:01.170
+Uma e outra vez e reagir redox nos dá um bom componente que podemos usar para fazer isso com muita facilidade.
+
+07:01.280 --> 07:06.770
+Podemos simplesmente envolver nosso componente de aplicativo nesse componente do provedor.
+
+07:06.770 --> 07:07.770
+Deixe-me te mostrar.
+
+07:08.300 --> 07:24.180
+Nós vamos ter um componente de provedor e este componente de aplicativo vai estar dentro dele assim como
+
+07:24.180 --> 07:27.150
+aquele.
+
+07:27.160 --> 07:31.540
+Agora a formatação aqui está um pouco fora, mas está bem por enquanto.
+
+07:31.540 --> 07:39.220
+Eu só quero ver que o provedor está envolvendo o aplicativo e agora em vez de passar pela loja para
+
+07:39.220 --> 07:47.440
+o aplicativo podemos apenas incluí-lo no componente provedor e o componente provedor vai levar
+
+07:47.440 --> 07:56.410
+cuidar de passar a loja para todos os componentes na árvore de componentes do aplicativo e usamos algo
+
+07:56.410 --> 08:02.730
+chamado Connect que falamos para terminar esta conexão.
+
+08:02.750 --> 08:04.530
+Então você tem isso.
+
+08:04.610 --> 08:14.000
+Criamos o componente provedor que passa pela loja e a loja usa o redutor de raiz ou qualquer outra coisa
+
+08:14.000 --> 08:19.660
+redutores que temos para criar a loja e criar essa árvore de objetos do nosso estado.
+
+08:20.820 --> 08:28.950
+Então, no próximo vídeo, deixe-me salvar isso. No próximo vídeo vamos usar a outra parte do reagente redux
+
+08:29.100 --> 08:31.520
+para finalmente conectar tudo junto.
+
+08:32.270 --> 08:34.070
+Eu vou ver isso. Tchau tchau.

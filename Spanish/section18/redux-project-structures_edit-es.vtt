@@ -1,0 +1,184 @@
+WEBVTT
+
+00:01.120 --> 00:01.800
+Todo bien.
+
+00:01.810 --> 00:06.000
+Así que tenemos redux funcionando, muy bien con nuestra aplicación.
+
+00:06.100 --> 00:09.160
+Acabamos de aprender una biblioteca impresionante.
+
+00:09.580 --> 00:12.510
+Espero que todos se sientan bien. Ahora,
+
+00:13.030 --> 00:15.890
+Quiero agregar algunas cosas.
+
+00:15.940 --> 00:23.530
+Obviamente, este es un ejemplo simple. Pero los fundamentos están ahí. Usando estos principios, puedes
+
+00:23.530 --> 00:27.560
+ir y construir, aplicaciones cada vez más grandes.
+
+00:27.970 --> 00:32.090
+Pero mientras escribía esto, es posible que haya notado algunas cosas.
+
+00:32.230 --> 00:32.850
+Uno,
+
+00:33.100 --> 00:42.170
+Bueno, veamos aquí nuestra estructura de carpetas. Podemos imaginar que a medida que crece nuestra aplicación se va a conseguir
+
+00:42.410 --> 00:44.540
+cada vez más y más grande
+
+00:44.690 --> 00:49.460
+Y esto es en realidad algo que les demostraré más adelante en el curso, cuando trabajamos en el
+
+00:49.460 --> 00:57.920
+aplicación de cerebro inteligente. Donde comenzamos a cargar nuestra aplicación js, con un montón de funciones.
+
+00:57.920 --> 01:00.100
+Y no estamos usando redux para eso.
+
+01:00.200 --> 01:06.660
+Así que este archivo se hace más y más largo con nuevos métodos y nuevos métodos y nuevos métodos.
+
+01:06.690 --> 01:16.350
+Ahora, tener un componente de contenedor, es tener un componente conectado. Un componente que sabe que
+
+01:16.410 --> 01:22.790
+la tienda redux existe y escucha los accesorios y envía acciones desde allí.
+
+01:22.830 --> 01:26.100
+Bueno, tener solo uno no es realmente realista.
+
+01:26.130 --> 01:33.570
+Lo más probable es que tenga varios contenedores. Pero debido a la forma en que funciona el redux, eso es bastante
+
+01:33.570 --> 01:34.570
+fácil de hacer.
+
+01:34.620 --> 01:42.300
+Solo podemos usar connect y elegir qué componentes queremos conectar a la tienda redux.
+
+01:42.660 --> 01:46.960
+Y si queremos, dos contenedores para hablar el uno al otro,
+
+01:47.280 --> 01:50.670
+bueno, muy simple, solo los conectamos.
+
+01:50.850 --> 01:58.030
+Y debido a que la tienda está por encima de todo lo demás, podemos obtener esa información de estado.
+
+01:58.950 --> 02:01.420
+Entonces hace que la comunicación sea muy fácil.
+
+02:01.770 --> 02:08.790
+Entonces, obviamente, queremos tener contenedores como este. Y simples componentes de presentación que son solo
+
+02:08.790 --> 02:13.940
+funciones puras, que solo reciben accesorios y rinden.
+
+02:14.050 --> 02:20.650
+Sin embargo, a medida que crecemos más y más componentes, y más y más contenedores, comienza a tener sentido
+
+02:20.650 --> 02:26.710
+no tiene solo un archivo de "constantes", un archivo de "acciones" y un archivo de "reductores".
+
+02:27.010 --> 02:33.670
+Puedes imaginar estos cada vez más grandes y más grandes. Y verás proyectos que tienen 'acciones'
+
+02:33.670 --> 02:37.470
+carpeta, una carpeta 'constantes' y una carpeta 'reductores'.
+
+02:37.630 --> 02:41.820
+Pero personalmente me gusta la forma de hacer las cosas.
+
+02:42.160 --> 02:46.260
+Es decir, agrupe todo según el componente.
+
+02:46.420 --> 02:53.630
+Por ejemplo, cree una aplicación dot js o, digamos, hay un componente de campo de búsqueda inteligente.
+
+02:54.010 --> 02:59.920
+Vamos a crear una carpeta, llamada 'campo de búsqueda' y esa carpeta 'campo de búsqueda' va a tener todo
+
+02:59.920 --> 03:03.670
+los componentes de presentación del DOM, que necesita.
+
+03:03.670 --> 03:06.730
+Va a tener todas las 'acciones' que necesita en acción dot
+
+03:06.790 --> 03:10.060
+js. Va a tener todo el 'reductor' que necesita.
+
+03:10.180 --> 03:12.780
+Y también tendrá todas las constantes
+
+03:13.000 --> 03:19.810
+necesita. Entonces, cada carpeta va a representar un componente, una parte de nuestro sitio web y está todo junto
+
+03:20.080 --> 03:21.760
+en una pequeña carpeta.
+
+03:21.760 --> 03:26.400
+Entonces, si alguna vez queremos compartir el código, será bastante fácil de hacer.
+
+03:26.410 --> 03:32.850
+También es muy agradable pensar de esa manera. En lugar de tener estos nombres masivos de carpeta general.
+
+03:33.020 --> 03:35.840
+Y eso es lo que verás con la mayoría de los grandes proyectos.
+
+03:35.840 --> 03:43.190
+Esta idea de componentes, que tienen sus propias carpetas, estos contenedores que nuevamente tienen sus propias carpetas,
+
+03:43.190 --> 03:45.950
+así como reductores y acciones.
+
+03:46.100 --> 03:52.130
+Y de esta manera puedes leer la estructura de la carpeta y decidir dónde quieres ir para corregir un error
+
+03:52.130 --> 03:53.670
+o crea una nueva característica.
+
+03:55.690 --> 03:59.010
+También querrás evitar repetir el código.
+
+03:59.170 --> 04:03.940
+Por ejemplo, en la mayoría de las aplicaciones, vamos a tener una gran cantidad de llamadas a buscar.
+
+04:04.210 --> 04:11.800
+Entonces, ¿no sería genial, si tuviéramos una carpeta de API aquí, que hace la llamada de búsqueda, tal vez lo llamemos API,
+
+04:11.920 --> 04:20.740
+'obtener API' y todo lo que tenemos que hacer es pasar una función, y esa función va a pasar esa url a
+
+04:20.740 --> 04:24.130
+la función de búsqueda y también va a hacer esto
+
+04:24.160 --> 04:27.120
+json para nosotros. Entonces solo devolverá los datos.
+
+04:27.130 --> 04:36.170
+Así que mantenemos repe .., así que dejamos de repetir todo este punto de búsqueda, luego punto y punto. Entonces, pensando en términos de
+
+04:36.230 --> 04:40.550
+organizando sus carpetas, a algo que tenga sentido, algo que pueda escalar.
+
+04:40.760 --> 04:47.270
+Y, si alguien llega al proyecto, les facilita seguir y leer, es una buena forma de
+
+04:47.270 --> 04:50.030
+haciendo cosas.
+
+04:50.050 --> 04:52.390
+De acuerdo, es suficiente por ahora.
+
+04:52.390 --> 04:53.900
+Te veré en el próximo video.
+
+04:53.910 --> 04:54.380
+Adiós

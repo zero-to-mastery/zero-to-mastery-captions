@@ -1,0 +1,289 @@
+WEBVTT
+
+00:00.770 --> 00:02.360
+Willkommen zurück.
+
+00:02.360 --> 00:09.110
+Ich bin so aufgeregt für diesen Abschnitt, weil wir endlich alles, was wir wissen, an einem Ort vereinen. Durch
+
+00:09.110 --> 00:17.680
+Am Ende werden wir ein einheitliches Verständnis davon haben, wie alles funktioniert, und zwar in der Welt der Webentwicklung.
+
+00:17.800 --> 00:28.830
+Wir haben unser Front-End "intelligentes Gehirn" hier mit der Anmeldeseite und wir haben unsere App, eingebaut in React. Wir ... auch
+
+00:28.830 --> 00:34.880
+Lassen Sie unseren Server auf Port 3000 laufen, um Anfragen zu hören.
+
+00:35.040 --> 00:37.700
+Aber jetzt brauchen wir diese Datenbank nicht mehr.
+
+00:37.960 --> 00:46.240
+Wir können jetzt unsere eigene PostgreSQL-Datenbank erstellen und den Server über SQL mit ihm interagieren lassen.
+
+00:46.330 --> 00:54.860
+alles aktualisieren und dann durch Express zurück zum Frontend antworten. Es wird so sein
+
+00:54.860 --> 00:55.490
+viel Spaß.
+
+00:55.550 --> 00:56.750
+Ich bin so aufgeregt.
+
+00:56.870 --> 01:03.690
+Bevor wir aber anfangen etwas zu programmieren, müssen wir unsere Datenbank entwerfen.
+
+01:03.920 --> 01:09.050
+Lassen Sie uns eine Datenbank erstellen.
+
+01:11.470 --> 01:14.080
+Und wir werden es "Smart-Brain" nennen.
+
+01:19.470 --> 01:19.830
+Gut.
+
+01:19.830 --> 01:20.800
+Perfekt.
+
+01:20.940 --> 01:28.350
+Jetzt, da wir unsere Datenbank erstellt haben, möchte ich diese drei separaten Dinge als ihre eigene Person betrachten
+
+01:28.350 --> 01:33.130
+Computer, die bei der Bereitstellung unterschiedliche Teile sein werden.
+
+01:33.220 --> 01:36.830
+Wir haben unseren Server auf einem Computer leben.
+
+01:36.940 --> 01:44.960
+Wir haben unsere Datenbank auf einem Computer und wir können uns tatsächlich damit verbinden.
+
+01:47.710 --> 01:52.110
+Und wir haben unsere App auch in einem separaten Computer.
+
+01:55.860 --> 02:03.660
+Also schließen wir das schnell und verbinden uns mit unserer Datenbank, unserem lokalen Host, und wir nannten es intelligentes Gehirn.
+
+02:05.510 --> 02:08.640
+Klicken Sie auf Verbinden und los gehts.
+
+02:08.960 --> 02:12.390
+Aber noch keine Tische. Um loszulegen,
+
+02:12.710 --> 02:18.710
+Wie bei der Erstellung unseres API-Designs für unseren Server möchten wir wirklich darüber nachdenken, wie unsere Datenbank aussieht
+
+02:18.710 --> 02:26.230
+würde schauen und wir verwenden relationale Datenbank hier, weil meiner Meinung nach im Jahr 2018 und voran
+
+02:26.680 --> 02:33.480
+relationale Datenbanken sind wirklich sehr gut. Datenbanken wie MongoDB sind zwar wirklich einfach zu bekommen
+
+02:33.480 --> 02:35.020
+begann mit und sie sind dynamisch.
+
+02:35.040 --> 02:38.250
+Sie müssen nicht zu viel darüber nachdenken, wenn Sie anfangen.
+
+02:38.250 --> 02:45.660
+Ich denke relationale Datenbanken bieten eine sehr gute Möglichkeit darüber nachzudenken, wie Ihre App strukturiert sein sollte
+
+02:45.870 --> 02:49.780
+und wie alles und alle Teile zusammenkommen.
+
+02:50.380 --> 02:58.240
+Es ist ein wirklich sehr leistungsfähiges Werkzeug, dass die Branche sich 2018 immer mehr zurückzieht. Ob
+
+02:58.270 --> 03:06.180
+Sie verwenden PostgreSQL oder MySQL oder SQLite, alle diese Datenbanken sind ziemlich gleich.
+
+03:06.180 --> 03:12.510
+Sie sind super mächtig und wir werden genau das gleiche mit unserer App machen, weil wir nicht unbedingt sind
+
+03:12.510 --> 03:17.430
+Speichern von Informationen wie LinkedIn oder Facebook, wo alles ein Dokumentmodell ist.
+
+03:17.430 --> 03:20.600
+Wir haben Benutzer, die miteinander interagieren.
+
+03:20.610 --> 03:25.710
+Aber wenn wir in unserer App verschiedene Dinge haben können wir Login-Informationen haben, wenn wir unsere erweitern
+
+03:25.710 --> 03:30.820
+App können wir vielleicht Informationen über die Art der Bilder haben, die sie eingereicht haben.
+
+03:30.850 --> 03:34.690
+Jetzt schauen wir uns an, was wir gebaut haben.
+
+03:34.690 --> 03:42.520
+Es gibt definitiv ein paar Dinge, die wir erschaffen wollen. Wenn wir hier zu unserem Datenbankbeispiel zurückgehen
+
+03:42.520 --> 03:47.980
+haben unsere Benutzer Tabelle, die wir erstellen müssen. Aber erinnere dich an das, was ich über Passwörter gesagt habe
+
+03:47.980 --> 03:49.400
+wie wir Passwörter speichern.
+
+03:50.300 --> 03:57.230
+Wir möchten nicht unbedingt ein Benutzerobjekt oder eine Benutzertabelle mit all diesen Spalten erstellen.
+
+03:57.230 --> 04:00.510
+Wir wollen Dinge trennen und sie durch Fremdschlüssel verbinden.
+
+04:01.850 --> 04:10.440
+Also werden wir eine Benutzertabelle und dann eine Login-Tabelle erstellen und diese Tabellen durchverbinden lassen
+
+04:10.680 --> 04:13.150
+vielleicht das E-Mail-Feld.
+
+04:13.410 --> 04:19.730
+Lassen Sie uns zu unserer GUI zurückkehren und diese Tabellen jetzt erstellen. Ich werde die Abfrage öffnen, lassen Sie uns das entfernen für
+
+04:19.730 --> 04:25.160
+jetzt (unsere alte Abfrage) und lassen Sie uns unsere Benutzer Tabelle erstellen.
+
+04:25.530 --> 04:36.460
+Wie Sie sich erinnern, erstellen Sie Tabellenbenutzer. Ich habe Klammern hier, nur damit es sauber ist.
+
+04:36.610 --> 04:44.260
+Und hier sage ich, ID wird seriell sein und dies wird unser Hauptschlüssel sein.
+
+04:47.260 --> 04:56.750
+Wir werden auch den Namen und den Namen haben, wir geben ihm ein variables Zeichen (VARCHAR) von 100. Wir nehmen nur an
+
+04:56.750 --> 05:03.570
+dass niemand mehr als 100 Zeichen hat, was ich auch nicht glaube.
+
+05:03.620 --> 05:05.980
+Ansonsten wird uns unsere Datenbank einen Fehler geben.
+
+05:06.260 --> 05:11.180
+Wir können auch ein E-Mail-Feld erstellen, und dies wird ein Text sein.
+
+05:11.300 --> 05:14.510
+Wir möchten auch sicherstellen, dass dies eine einzigartige E-Mail ist.
+
+05:14.510 --> 05:20.120
+Sonst wollen wir den gleichen Benutzer nicht immer wieder registrieren und er kann nicht ignoriert werden.
+
+05:20.360 --> 05:30.030
+Es muss immer da sein, denn das werden wir in unserer Login-Tabelle verwenden. Wir wissen auch, dass wir
+
+05:30.030 --> 05:38.860
+wollen Einträge und die Einträge können wirklich eine ziemlich große Zahl sein, wenn wir einen wirklich engagierten Benutzer haben.
+
+05:39.170 --> 05:42.330
+Nun, diese Person kann diese Fotos weiterreichen.
+
+05:42.560 --> 05:45.260
+Also lass uns hier eine GROSSARTe machen.
+
+05:45.430 --> 05:45.680
+Hoppla.
+
+05:45.680 --> 05:55.520
+Und statt groß ist es BIGINT da gehst du hin. Mit BIGINT werden wir auch sagen, dass wir den Standard wollen.
+
+05:55.670 --> 06:04.250
+Und das könnte für uns neu sein, aber der Standardwert sollte Null sein, wenn wir nicht irgendwie mit Einträgen einfügen
+
+06:04.250 --> 06:11.790
+und eine Nummer. Wenn wir nicht angeben, wofür wir die Nummer einfügen, sollte der Standardwert null sein.
+
+06:11.790 --> 06:20.250
+Schließlich möchten wir auch die Zeit bekommen, die sie unserer App beigetreten sind, und wir können einen Zeitstempeldatentyp für verwenden
+
+06:20.250 --> 06:20.820
+Das.
+
+06:21.180 --> 06:26.900
+Und wieder wollen wir sicherstellen, dass dies auch NICHT NULL ist.
+
+06:26.910 --> 06:28.700
+Gut, lasst uns das laufen lassen und sehen, ob es funktioniert.
+
+06:31.000 --> 06:36.140
+Und ich bekomme einen Fehler bei oder in der Nähe von ")" Und das ist, weil ich hier am Ende ein Komma hinzugefügt habe.
+
+06:36.160 --> 06:37.040
+Lass es uns nochmal versuchen.
+
+06:38.710 --> 06:39.350
+Da gehst du.
+
+06:39.430 --> 06:40.770
+Wenn ich auffrische.
+
+06:40.870 --> 06:44.050
+Wir haben unsere Benutzer Tabelle. Tolle.
+
+06:44.500 --> 06:51.120
+Also haben wir die Benutzertabelle, in der wir all diese Informationen speichern werden.
+
+06:51.500 --> 06:58.310
+Außerdem möchten wir sicherstellen, dass wir unsere Login-Informationen, diese E-Mail und die Hashes speichern
+
+06:58.310 --> 07:02.070
+Denken Sie daran, dass wir niemals Klartextpasswörter speichern.
+
+07:03.410 --> 07:06.430
+Lass uns das schaffen. Ich gehe zurück zur Abfrage
+
+07:09.140 --> 07:13.380
+entferne dies und ändere es zur Anmeldung.
+
+07:13.980 --> 07:17.500
+Und diese Anmeldung hat jetzt eine ID.
+
+07:17.580 --> 07:25.800
+Noch einmal von seriell und der serielle Datentyp wird nur inkrementiert wird es der Primärschlüssel sein
+
+07:29.260 --> 07:38.060
+und wir werden einen Spaltenhash haben, der wieder ein variables Zeichen (VARCHAR) von 100 hat, weil wir das wissen
+
+07:38.070 --> 07:45.970
+bcrypt gibt uns immer eine bestimmte Länge Hash und es wird nie mehr als 100 Zeichen sein. NOT NULL - wir absolut
+
+07:45.970 --> 07:47.740
+brauche diese Information.
+
+07:47.740 --> 07:55.520
+Und dann endlich eine E-Mail, die der Benutzer-Tabelle entspricht und diese E-Mail wäre ein Text
+
+07:55.680 --> 08:00.820
+muss eindeutig und definitiv NICHT NULL sein.
+
+08:03.950 --> 08:05.010
+Lassen Sie uns die Abfrage ausführen.
+
+08:06.550 --> 08:09.090
+Und erfrischen.
+
+08:09.220 --> 08:09.890
+Gut.
+
+08:09.910 --> 08:10.920
+Wir haben uns selbst
+
+08:11.200 --> 08:13.380
+unsere Tische entwerfen.
+
+08:13.600 --> 08:21.410
+Jetzt, da wir diese Tabellen haben, verstehen wir, wie unsere Daten aussehen werden.
+
+08:21.600 --> 08:27.960
+Dies wird eine Datenbank sein, die persistent bleibt, egal ob der Server ausfällt. Es wird machen
+
+08:27.960 --> 08:30.770
+sicher, dass diese Daten bleiben.
+
+08:31.910 --> 08:40.220
+Jetzt, da wir diese drei Teile laufen haben, können wir mit dem Server arbeiten und die Datenbank entfernen
+
+08:41.090 --> 08:45.320
+Variable und tatsächlich eine Verbindung zu unserer Datenbank.
+
+08:45.410 --> 08:45.990
+Ich bin aufgeregt zu
+
+08:45.990 --> 08:48.590
+zeige dir, wie wir das im nächsten Video machen werden. Tschüss.

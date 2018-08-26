@@ -1,0 +1,283 @@
+WEBVTT
+
+00:01.100 --> 00:02.330
+Willkommen zurück.
+
+00:02.330 --> 00:10.550
+Ich möchte mit Ihnen schnell über ein sehr wichtiges Thema für einen Entwickler sprechen, und das ist Debugging.
+
+00:10.610 --> 00:14.810
+Debugging ist das Suchen nach Code,
+
+00:14.810 --> 00:22.870
+zu verstehen, was es tut und herauszufinden, warum es nicht wie erwartet funktioniert oder vielleicht ist es nicht einmal
+
+00:22.880 --> 00:28.610
+Laufen, vielleicht bekommst du Fehler oder vielleicht etwas, was der Benutzer auf einer Website macht
+
+00:28.730 --> 00:30.570
+ein seltsames Verhalten auszulösen.
+
+00:30.860 --> 00:36.100
+Das ist Debuggen. Herausfinden, warum das Programm nicht so funktioniert, wie es ist.
+
+00:36.440 --> 00:42.190
+Und wenn Sie als Entwickler arbeiten, verbringen Sie viel Zeit mit Debugging.
+
+00:42.230 --> 00:48.130
+Es ist also ein sehr wichtiges Thema und ich möchte über einige der Strategien sprechen, die wir für das Debuggen verwenden können.
+
+00:48.170 --> 00:56.090
+Ich habe hier eine ziemlich komplexe Funktion und ehrlich gesagt, es sei denn, Sie hatten viel Erfahrung mit Javascript
+
+00:56.720 --> 00:59.360
+Das ist eine ziemlich schwer zu verstehende Funktion.
+
+00:59.510 --> 01:08.740
+Lass uns sagen, dass du zur Arbeit gehst und jemand sagt, hey! Ich nicht,
+
+01:08.740 --> 01:09.870
+Ich weiß nicht, was mit dieser Funktion passiert,
+
+01:10.240 --> 01:17.600
+Kannst du drüber nachdenken? und du musst herausfinden, was es macht und ob es gut funktioniert oder nicht.
+
+01:18.070 --> 01:23.490
+Also werde ich Sie durch die Schritte führen, die ich verwenden würde, um diesen Code zu debuggen.
+
+01:23.530 --> 01:29.970
+Vielleicht funktioniert es gut, vielleicht nicht, aber ich möchte verstehen, was dieses Stück Code tut.
+
+01:30.880 --> 01:39.410
+Also, das erste, was ich tun würde, ist es zu lesen, ich sage OK, wir ordnen eine Variable zu und es sieht so aus
+
+01:39.410 --> 01:41.140
+Wir haben ein Array.
+
+01:41.270 --> 01:46.070
+Es ist ein verschachteltes Array, also gibt es ein Array innerhalb eines Arrays.
+
+01:47.410 --> 01:51.800
+Und es sieht so aus, als ob dieser Code etwas namens flattened machen möchte.
+
+01:51.870 --> 01:52.570
+OK.
+
+01:52.840 --> 02:00.790
+Wir wissen, dass wir von dem, was wir vorher gelernt haben, "reduzieren", "a" ist der "Akkumulator".
+
+02:00.790 --> 02:01.690
+Ich kann den Namen ändern,
+
+02:01.720 --> 02:03.070
+also macht es mehr Sinn für mich.
+
+02:03.070 --> 02:05.730
+OK, "Akkumulator" perfekt.
+
+02:05.800 --> 02:08.790
+Und "b" ist gut, was ist "b"?
+
+02:09.280 --> 02:20.320
+'b' ist das richtig, weil wir iterieren und das erste Array durchlaufen, was uns drei Arrays gibt.
+
+02:20.510 --> 02:23.240
+Also ich kann nur sagen, Array hier. OK.
+
+02:28.620 --> 02:38.250
+Nun, ich sehe auch, dass innerhalb dieser reduzieren, ich habe den "Akku", ich habe das Array und ich will den "Akku" zu
+
+02:38.370 --> 02:40.490
+Beginne mit einem leeren Array.
+
+02:40.680 --> 02:42.170
+Das macht bisher Sinn.
+
+02:42.270 --> 02:45.470
+Also wird der 'Akkumulator' beim Start ein leeres Array sein.
+
+02:45.720 --> 02:48.080
+Und was wir tun werden, werden wir tun,
+
+02:48.090 --> 02:50.410
+leerer Array-Punkt concat.
+
+02:50.430 --> 02:58.580
+Und wenn Sie sich erinnern, fügt "concat" den Inhalt eines Arrays in das ein, was gerade erstellt wird.
+
+02:58.580 --> 03:06.590
+Eine Sache, die ich tun kann, ist, diese Funktion zu öffnen, so dass ich jetzt, anstatt nur eine Linie zu haben, sagen kann
+
+03:06.590 --> 03:18.120
+'console.log' Array und wir werden herausfinden, welches Array ist und wird auch sagen 'console.log' 'Akku', wird 'Akku' sagen.
+
+03:18.170 --> 03:24.050
+Also haben wir die Konsole geöffnet und wir möchten auch sicherstellen, dass wir diese zurückgeben, weil wir sie entfernt haben
+
+03:24.080 --> 03:29.160
+es aus einer einzigen Linie, die bereits implizit Rückkehr bedeutet, um zwei Zeilen zu machen.
+
+03:29.410 --> 03:29.620
+OK.
+
+03:29.630 --> 03:36.320
+Also lasst uns diese Funktion einfach aktualisieren und hinzufügen und sehen, ob wir einige Konsolenprotokolle finden können, um herauszufinden
+
+03:36.320 --> 03:37.300
+was es macht.
+
+03:37.410 --> 03:44.390
+Es wird drei Schleifen geben, die wir sehen und in der ersten Schleife sieht es so aus, es heißt das Array
+
+03:44.390 --> 03:48.050
+ist [0, 1] und der Akkumulator ist das leere Array.
+
+03:48.140 --> 03:49.670
+Ok, das macht Sinn.
+
+03:49.670 --> 03:58.430
+Und dann sehen wir die zweite Schleife um das 2 und 3 Array, die hier ist, wird umschlungen und der "Akkumulator"
+
+03:58.760 --> 04:01.940
+hat jetzt 0 und 1.
+
+04:01.940 --> 04:08.270
+Es sieht also so aus, als hätte ich nach dem ersten Durchlauf die Null und eins des Arrays in die
+
+04:08.270 --> 04:11.870
+leeres Array, das der Akkumulator ist. OK.
+
+04:12.050 --> 04:15.690
+Und dann der letzte Durchgang, der vier und fünf ist.
+
+04:15.740 --> 04:23.260
+Ich füge nun das Array von 4 und 5 in den "Akkumulator" ein, der 0, 1, 2, 3 hinzufügt.
+
+04:23.300 --> 04:33.110
+Es sieht also so aus, dass wir jedes Array erfassen und es in den Akkumulator einfügen.
+
+04:33.150 --> 04:37.190
+Und weil es ungefähr so ​​aussieht.
+
+04:37.260 --> 04:44.530
+So würde es im ersten Durchgang aussehen, wir verwenden nur die concat-Funktion
+
+04:44.530 --> 04:53.560
+Verbinden Sie die Arrays [0, 1], so dass wir das Array abflachen. Dies bedeutet, dass Sie kein Array haben
+
+04:53.590 --> 04:58.360
+Innerhalb eines Arrays können wir einfach alles komplett abflachen.
+
+04:58.360 --> 05:08.570
+Das bedeutet, dass ich mit "abgeflacht", wenn ich mir das anschaue, was es tut, nun, es findet nur Array [0, 1, 2, 3, 4, 5]. Genial.
+
+05:08.720 --> 05:14.420
+Es gibt einen weiteren Trick, den ich Ihnen zeigen möchte, und das ist, anstatt das Konsolenprotokoll zu verwenden, können Sie etwas verwenden
+
+05:14.420 --> 05:22.610
+Debugger genannt. Und du bemerkst, dass die Farbe rot wird, was Yep bedeutet! Es ist ein Javascript-Keyword.
+
+05:22.850 --> 05:24.460
+Und was können Sie tun?
+
+05:24.560 --> 05:32.060
+Nun, mal sehen, was passiert, wenn ich diese Funktion erneut ausführen, um hier zu aktualisieren, und ich möchte es ausführen,
+
+05:32.570 --> 05:33.430
+Wow! was ist gerade passiert.
+
+05:34.800 --> 05:43.350
+Wenn die Javascript-Engine und der Browser in den Word-Debugger laufen, stoppt es.
+
+05:43.430 --> 05:49.720
+Es ist ein, es ist ein Wort, das erzählt, was auch immer diese Datei liest, hey! hör auf, was auch immer du gerade tust,
+
+05:50.840 --> 05:55.120
+und es öffnet das Fenster für uns genau dort, wo es aufgehört hat.
+
+05:55.400 --> 05:58.190
+Also lass mich diesen ganzen Bildschirm machen und es dir zeigen.
+
+05:58.390 --> 06:07.330
+Es stoppt in der Mitte seiner Ausführung. Aber wir sehen, dass hier 'Akkumulator' eine leere Matrix ist, weil während
+
+06:07.330 --> 06:17.700
+wir haben es angefangen und das Array ist 0 und 1, jetzt habe ich ein paar Optionen.
+
+06:17.850 --> 06:21.600
+Ich kann spielen, was die ganze Sache wieder aufnimmt, oder ich kann übertreten
+
+06:21.600 --> 06:26.750
+und lass uns sehen, was passiert mit Schritt über, es geht in die nächste Zeile.
+
+06:27.780 --> 06:31.460
+Und wenn ich noch einmal klicke, geht es zur nächsten Zeile.
+
+06:32.400 --> 06:40.980
+Und jetzt sehe ich, dass der Akkumulator 0 und 1 ist und das Array jetzt 2 und 3 ist.
+
+06:41.020 --> 06:48.130
+Also weiß ich, dass in der nächsten Zeile, der 'Akku', nun, ich ändere dies versehentlich zu einem Array, aber das wird
+
+06:48.130 --> 06:59.550
+sei der 'akkumulator' wird 0 und 1 dot concat, 2 und 3. Und ich kann weitermachen und sehen
+
+06:59.550 --> 07:06.260
+wie sich die Parameter verändern und buchstäblich die gesamte Funktion durchlaufen.
+
+07:06.720 --> 07:07.950
+Lasst uns das schließen.
+
+07:08.260 --> 07:13.070
+Wenn ich das zurück zum Weg führe, der der "Akkumulator" ist,
+
+07:18.470 --> 07:19.910
+mache diesen Vollbildmodus.
+
+07:19.910 --> 07:20.720
+Gut.
+
+07:20.720 --> 07:24.950
+Also Array ist [0, 1] 'Akku' ist ein leeres Array, ich werde durchgehen,
+
+07:28.260 --> 07:34.470
+das veränderte 'Akku' ist jetzt [0, 1] Array [2, 3] und ich gehe weiter und merke genau was passiert
+
+07:34.470 --> 07:40.460
+Im Code und wenn es fertig ist, kehrt es zurück und schaut es an.
+
+07:40.620 --> 07:46.370
+Wir haben unsere Konsole zurück.
+
+07:46.420 --> 07:47.500
+Ist das nicht cool?
+
+07:47.500 --> 07:53.080
+Debugger ermöglicht es uns, buchstäblich in die Funktion zu gehen und zu sehen, was Schritt für Schritt geschieht. Wie ich das zurückgebe
+
+07:53.080 --> 07:57.050
+wie es war.
+
+07:57.160 --> 08:01.780
+Ich möchte, dass du das mit dir nimmst und verstehst, dass wenn du das erste Mal so etwas siehst,
+
+08:01.780 --> 08:02.800
+es ist überwältigend,
+
+08:02.800 --> 08:09.070
+Mit genug Zeit und mit Konsole und Debugger können Sie verstehen, was eine Funktion macht, und wenn
+
+08:09.070 --> 08:14.140
+es tut etwas, was du nicht erwartest oder etwas falsch machst,
+
+08:14.710 --> 08:17.390
+Sie können diese Techniken verwenden, um es zu beheben.
+
+08:17.400 --> 08:20.410
+Es ist eine sehr nützliche Fähigkeit, die Sie verwenden werden.
+
+08:20.730 --> 08:21.540
+Also viel Glück.
+
+08:21.660 --> 08:23.270
+Viel Spaß da ​​draußen. Buh-Tschüss

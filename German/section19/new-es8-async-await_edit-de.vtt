@@ -1,0 +1,517 @@
+WEBVTT
+
+00:01.210 --> 00:08.290
+Ah die neue Funktion in Javascript, über die in letzter Zeit "Async Await" gesprochen wird. In diesem Video
+
+00:08.290 --> 00:12.830
+Wir werden lernen, worum es bei dem Hype geht. Um loszulegen
+
+00:12.890 --> 00:19.880
+Sie müssen zuerst wissen, dass Async Await Teil von ES8 ist und auf Versprechen aufgebaut ist.
+
+00:20.000 --> 00:22.280
+Wenn Sie nicht sicher sind, was Versprechen sind.
+
+00:22.280 --> 00:25.840
+Stellen Sie sicher, dass Sie das Video zuerst auschecken.
+
+00:25.960 --> 00:34.420
+Unter der Haube ist eine Async-Funktion eine Funktion, die ein Versprechen zurückgibt. Aber der Vorteil von Async
+
+00:34.430 --> 00:37.710
+Erwartet wird, dass es den Code leichter lesbar macht.
+
+00:38.110 --> 00:39.430
+Lass mich dir zeigen, was ich meine.
+
+00:39.760 --> 00:44.750
+Dies ist ein Versprechen, das wir gerade erfunden haben.
+
+00:44.770 --> 00:47.340
+Es ist eine Move-Player-Funktion.
+
+00:47.350 --> 00:53.470
+Stellen Sie sich vor, wir entwickeln ein Spiel und es hat die Entfernung plus die Richtung, in die sich der Spieler bewegt
+
+00:53.470 --> 00:59.560
+Wenn wir diese ändern wollen, haben wir 'Spieler bewegen' '.', 'Spieler erneut bewegen', 'Spieler erneut bewegen'.
+
+00:59.650 --> 01:00.810
+'Spieler verschieben' erneut.
+
+01:01.150 --> 01:03.670
+Jetzt ist dies asynchroner Code.
+
+01:03.730 --> 01:06.200
+Wir wissen, dass der Zugspieler dann passieren wird
+
+01:06.280 --> 01:08.390
+Das wird passieren, dann das, dann das.
+
+01:08.500 --> 01:16.780
+Wenn wir hier irgendeine Aktion ausführen wollen, können wir sie in Klammern umbrechen und diese Extraktion per Konsole protokollieren.
+
+01:16.780 --> 01:21.370
+Alle Dinge, die du mit Versprechen tun kannst. mit Async erwarten
+
+01:21.410 --> 01:24.240
+Es würde ungefähr so ​​aussehen.
+
+01:27.300 --> 01:28.420
+Was ist denn hier los.
+
+01:29.770 --> 01:37.660
+Der große Vorteil von async besteht darin, dass es den Code leichter lesbar macht und ich weiß, dass Sie wahrscheinlich nicht nachdenken
+
+01:37.660 --> 01:41.230
+das gerade jetzt, weil dies eine neue Syntax ist, aber gib ihr einfach eine Chance.
+
+01:41.240 --> 01:48.850
+Das Ziel mit async have besteht darin, Code synchron aussehen zu lassen - ein Code, der asynchron synchron aussieht.
+
+01:48.850 --> 01:54.890
+Nun, wenn Sie sich erinnern, ein Versprechen in Javascript ist irgendwie wie ein "Ich schulde dir".
+
+01:55.020 --> 01:58.180
+Ich verspreche Ihnen etwas in der Zukunft zurückzugeben.
+
+01:58.990 --> 02:05.140
+So etwas wie ein AJAX-Aufruf, bei dem ein Bild skaliert wird und Informationen aus einer Datenbank abgerufen werden.
+
+02:05.140 --> 02:07.040
+Das sind alles Dinge, die Zeit brauchen.
+
+02:07.180 --> 02:11.910
+Anstatt darauf zu warten, wollen wir unser Leben weiterführen und haben es einfach
+
+02:11.920 --> 02:13.510
+Lass es uns wissen, wenn es fertig ist.
+
+02:13.780 --> 02:18.220
+Aber wir werden weiter an unseren eigenen Sachen arbeiten, während es im Hintergrund läuft.
+
+02:18.700 --> 02:22.290
+Wir machen das so, denn so funktioniert Javascript.
+
+02:22.330 --> 02:30.010
+Wenn Sie sich in unserem "How Javascript Works" Video erinnern, haben wir darüber gesprochen, dass JavaScript single threaded ist. Zum
+
+02:30.010 --> 02:34.270
+Unsere Programme, um effizient zu sein, können wir asynchrone Programmierung verwenden, um diese Dinge zu tun.
+
+02:34.450 --> 02:38.670
+Versprechen helfen uns, dies zu lösen, und es sah so aus.
+
+02:39.560 --> 02:45.660
+Nun erinnere dich daran, was ich am Anfang async erwarten Code nur Versprechen sind.
+
+02:45.770 --> 02:53.960
+Unter der Haube nennen wir diesen syntaktischen Zucker etwas, das immer noch das Gleiche tut, aber eben ist
+
+02:54.170 --> 02:56.930
+andere Syntax, um es schöner aussehen zu lassen.
+
+02:56.960 --> 03:06.940
+Syntethischer Zucker. Und Versprechen haben das. Dann müssen Sie weiterhin Async verketten
+
+03:06.940 --> 03:12.420
+hat dieses asynchrone Wort davor und einige erwarten Schlüsselworte.
+
+03:12.700 --> 03:15.180
+Lasst uns durchgehen, was das alles bedeutet.
+
+03:15.980 --> 03:20.560
+Obwohl diese beiden Dinge dasselbe mit der playerStart Funktion machen.
+
+03:20.560 --> 03:25.650
+Wir deklarieren zuerst eine Funktion als async. Wir führen JavaScript-Kenntnisse
+
+03:25.660 --> 03:32.220
+"Hey, das ist eine asynchrone Funktion." Und wir erklären es mit der Wortfunktion und dann einem Funktionsnamen.
+
+03:32.270 --> 03:39.800
+Wir können nun innerhalb dieser Funktion alles tun, was wir wollen, aber wir haben Zugriff auf ein neues Wort, weil wir es benutzt haben
+
+03:39.890 --> 03:42.460
+das asynchrone Wort, um diese Funktion zu definieren.
+
+03:42.620 --> 03:50.350
+Wir haben das "erwarten" -Schlüsselwort und dieses Schlüsselwort sagt - und wir können dieses für jetzt entfernen.
+
+03:51.330 --> 03:57.890
+Dieses "erwarten" -Schlüsselwort sagt "hey pause diese Funktion, bis ich etwas für dich habe."
+
+03:58.920 --> 04:01.580
+Also warten wir auf die Antwort.
+
+04:02.360 --> 04:08.900
+Und Sie können dieses "await" -Schlüsselwort vor jeder Funktion verwenden, die ein Versprechen zurückgibt, das wir kennen
+
+04:08.910 --> 04:10.050
+Spieler bewegen.
+
+04:10.220 --> 04:16.760
+Und sobald das Versprechen gelöst ist, bewegt sich die Funktion zur nächsten Zeile und wartet auf den nächsten Zug
+
+04:17.030 --> 04:20.770
+und wartet auf den nächsten Zug und wartet auf den nächsten Zug.
+
+04:20.840 --> 04:27.200
+Nun, das coole daran ist, dass ich es, anstatt es so zu verketten, wie asynchron zuordnen kann
+
+04:27.410 --> 04:34.380
+Programmierung, Variable zuerst, um dies zu erwarten und ich kann zweite zuweisen
+
+04:37.770 --> 04:46.070
+um dies zu erwarten und das erste und zweite wird das Ergebnis jeder Funktion haben, aber in einer Variablen.
+
+04:46.150 --> 04:48.220
+Es sieht also sehr synchron aus.
+
+04:48.250 --> 04:50.980
+Du benutzt nicht 'dann', du verkettest nicht.
+
+04:50.980 --> 04:54.920
+Sie haben nur eine einfache synchrone Programmierung, auf die Sie warten müssen.
+
+04:54.930 --> 04:56.590
+Dann warte ich darauf, dass dies geschieht.
+
+04:57.130 --> 05:02.720
+Aber lassen Sie uns ein realistischeres Beispiel verwenden, damit wir das wirklich verstehen.
+
+05:02.920 --> 05:07.860
+Wenn wir unsere Fetch-Funktion verwenden und erneut, wenn Sie sich an die Fetch-Funktion erinnern.
+
+05:08.050 --> 05:10.010
+Das ist ein Versprechen.
+
+05:11.190 --> 05:15.270
+Sie sehen, dass wir ein Versprechen bekommen.
+
+05:15.430 --> 05:26.070
+Also mit der Fetch-Funktion, wenn wir unsere Lieblings-API-Ressource, JSON Platzhalter verwenden. Lass uns die Benutzer ergreifen
+
+05:26.080 --> 05:34.490
+hier also dieser Benutzer Endpunkt. Wenn wir etwas holen wollen, haben wir ein Versprechen abgegeben, damit wir es tun
+
+05:34.490 --> 05:34.800
+.dann
+
+05:34.810 --> 05:40.450
+Antwort würden wir es durchlaufen müssen.
+
+05:40.660 --> 05:41.540
+Json
+
+05:42.780 --> 05:51.990
+Und dann schließlich console.log die Antwort oder die Daten, die wir bekommen.
+
+05:51.990 --> 06:01.280
+Also, wenn ich es wieder in unsere Konsole kopiere und einfüge, bekommen wir ein Versprechen, das anfänglich aussteht, dann wird es
+
+06:01.280 --> 06:06.050
+aufgelöst und ich bekomme meine Benutzer.
+
+06:06.080 --> 06:09.010
+Wie können wir das nun in eine asynchrone Funktion umwandeln?
+
+06:09.080 --> 06:16.060
+Auch hier funktioniert die gleiche Funktion, aber sie wird etwas sauberer aussehen.
+
+06:16.210 --> 06:18.340
+Es wird syntaktischer Zucker sein.
+
+06:18.620 --> 06:27.950
+Nun, wenn Sie sich erinnern, müssen wir eine Funktion mit asynchronem Schlüsselwort deklarieren und diese Funktion wird sagen
+
+06:28.400 --> 06:32.150
+fetchUsers und holen Benutzer
+
+06:32.430 --> 06:38.740
+Wird das drinnen haben.
+
+06:38.980 --> 06:43.580
+Aber wir können jetzt vor allem verwenden, was ein Versprechen zurückgibt.
+
+06:43.640 --> 06:46.290
+Das "erwarten" -Schlüsselwort.
+
+06:46.770 --> 06:52.050
+Jetzt wird diese Funktion anhalten, bis wir eine Antwort von holen bekommen.
+
+06:52.100 --> 06:57.150
+Also ich kann const 'Antwort' sagen
+
+06:59.060 --> 07:13.750
+Gleicher Wert erwartet den Holruf. Und jetzt, anstatt das zu verwenden, kann ich sagen const 'Daten' entspricht 'erwarten'
+
+07:14.710 --> 07:21.790
+'response.json ()' weil wieder 'response.json' ein Versprechen zurückgibt, damit ich das 'await' Schlüsselwort setzen kann. Und
+
+07:21.790 --> 07:27.140
+dann kann ich endlich 'console.log (data)'
+
+07:29.120 --> 07:31.570
+Alles klar, kopieren und einfügen und sehen, ob es funktioniert.
+
+07:35.610 --> 07:36.100
+Gut.
+
+07:36.150 --> 07:42.980
+Jetzt rufe ich die Funktion fetchUsers auf, die die Async-Funktion ist.
+
+07:43.160 --> 07:45.320
+Und ich habe hier einen Fehler gemacht.
+
+07:45.350 --> 07:51.050
+Es gibt keine Antwort, es ist 'resp' und kurze Antwortform. Na los, lass es uns nochmal versuchen.
+
+07:51.620 --> 07:53.460
+Also lasst uns das auffrischen.
+
+07:54.510 --> 08:01.990
+Kopieren und einfügen, führen Sie die Funktion fetchUsers aus und sehen Sie sich das an.
+
+08:02.130 --> 08:05.940
+Wir haben unser Versprechen, das gelöst wurde.
+
+08:06.240 --> 08:18.200
+Und wir haben von unseren Nutzern nichts anderes als das Versprechen, aber jetzt haben wir einen schönen Schritt für Schritt
+
+08:18.210 --> 08:21.210
+Code suchen, der sagt, holen Sie das.
+
+08:21.210 --> 08:29.450
+Erhalten Sie eine Antwort, führen Sie sie dann über die JSON-Methode aus, und melden Sie dann die Protokolldaten an. Und du denkst vielleicht
+
+08:29.450 --> 08:34.070
+Für dich ist das eigentlich hübscher als das, was wir vorher hatten.
+
+08:34.370 --> 08:36.470
+Erinnern wir uns, was wir vorher hatten.
+
+08:43.920 --> 08:45.590
+Das hatten wir vorher.
+
+08:45.780 --> 08:47.750
+Das haben wir jetzt.
+
+08:48.630 --> 08:52.760
+Und einige von euch könnten argumentieren, dass die erste vielversprechende Weise es besser aussieht.
+
+08:53.130 --> 08:53.810
+Und weisst du was.
+
+08:53.850 --> 08:57.030
+Es ist persönliche Vorliebe und das ist ein einfaches Beispiel.
+
+08:57.040 --> 09:00.100
+Es gibt Zeiten, in denen das tatsächlich viel sauberer aussieht.
+
+09:00.360 --> 09:07.340
+Aber ich glaube fest daran, was für Sie und Ihre Teamkollegen am leichtesten zu lesen und zu verstehen ist.
+
+09:07.560 --> 09:12.850
+Lassen Sie uns ein letztes Beispiel machen. Lass uns etwas noch realistischer machen.
+
+09:12.960 --> 09:20.130
+Nehmen wir an, wir haben eine Liste von URLs und dieses Mal haben wir die Benutzer, Posts und Alben von
+
+09:20.130 --> 09:22.390
+JSON-Platzhalter-API.
+
+09:23.660 --> 09:25.810
+Und wir wollen alle durchgehen.
+
+09:25.850 --> 09:30.270
+Wenn du dich an unser Versprechen-Video erinnerst, hatten wir so etwas.
+
+09:30.500 --> 09:32.550
+Lassen Sie uns das entfernen, damit Sie es besser sehen können.
+
+09:32.870 --> 09:34.010
+Also hatten wir so etwas.
+
+09:34.010 --> 09:43.900
+Wir haben versprochen. Alle - wir haben über die URLs abgebildet. Wir haben die URLs abgerufen und mit dem JSON geantwortet
+
+09:45.400 --> 09:54.020
+und dann haben wir das Array zurückgegeben und das Array hatte Benutzer, Posts, Alben und wir haben auch ein .catch gemacht.
+
+09:54.030 --> 10:03.440
+Also nochmal, um sicher zu gehen, dass das funktioniert, wird es in unsere Konsole kopiert und wir sehen das
+
+10:03.440 --> 10:06.860
+Wir erhalten unsere Daten für Nutzer, Posts und Alben.
+
+10:06.860 --> 10:07.990
+Das funktioniert also.
+
+10:08.270 --> 10:10.830
+Lassen Sie uns dies in eine asynchrone Funktion umwandeln.
+
+10:11.300 --> 10:21.970
+Nun, beginnen wir mit einem 'const getData' und dies ist (gleich) eine asynchrone Funktion.
+
+10:23.610 --> 10:28.470
+Und ich möchte nur darauf hinweisen, dass ich es dieses Mal mit dem Funktionsausdruck gemacht habe, anstatt wie
+
+10:28.470 --> 10:31.900
+Wir haben es das letzte Mal gemacht, das war Async-Funktion und dann der Funktionsname.
+
+10:32.040 --> 10:33.570
+Aber ich möchte dir beide Wege zeigen.
+
+10:35.350 --> 10:44.030
+Also gut, wie können wir ein "Versprechen" machen? Nun, wenn Sie sich erinnern, können wir jetzt das Schlüsselwort abwarten
+
+10:44.060 --> 10:50.400
+vor jedem Versprechen. Also können wir das "erwarten" -Schlüsselwort vor versprechen stellen
+
+10:50.570 --> 11:02.760
+Ich kann also sagen, dass Const - und das ist ein wenig ES6 Magie der Destrukturierung - ich kann Benutzer, Beiträge und Alben sagen
+
+11:03.800 --> 11:12.700
+Das, was wir erhalten werden, wird gleich "erwarten" und dann das Versprechen sein. Alles, was wir bereits haben.
+
+11:13.070 --> 11:14.450
+Lass uns das einfach kopieren.
+
+11:14.460 --> 11:19.170
+Wir werden das Versprechen übernehmen und es hier aufstellen.
+
+11:20.080 --> 11:20.680
+Gut.
+
+11:20.800 --> 11:32.750
+Und jetzt können wir einfach loggen, was wir hatten. Wir können kopieren und einfügen, direkt nachdem wir alle Versprechen "abgewartet" haben
+
+11:33.270 --> 11:42.590
+Wir werden 'Benutzer', 'Beiträge' haben, wenn ich buchstabieren kann. und dann 'Alben'. und statt Array, weil wir es mit der Destrukturierung gemacht haben
+
+11:42.830 --> 11:46.730
+wir können nur sagen "Benutzer"
+
+11:49.790 --> 11:50.480
+"Beiträge"
+
+11:53.260 --> 11:55.250
+und "Alben".
+
+11:55.510 --> 12:05.510
+Alles klar, mal sehen, ob das funktioniert. Kopieren Sie diese und fügen Sie getData ein
+
+12:08.220 --> 12:09.030
+und sieh dir das an.
+
+12:09.090 --> 12:12.920
+Wir haben genau die gleichen Ergebnisse.
+
+12:13.890 --> 12:14.670
+Sehr cool.
+
+12:15.070 --> 12:23.420
+Aber da ist vielleicht eine Sache, die Sie hier bemerkt haben, nämlich die vielversprechende Art, wie wir das .catch haben.
+
+12:23.490 --> 12:31.590
+Wenn einer dieser Fehler fehlschlägt, wollen wir diese Fehler abfangen, wie können wir das mit Async erwarten.
+
+12:31.590 --> 12:33.740
+Momentan erfassen wir keine dieser Fehler.
+
+12:35.490 --> 12:38.840
+Dies ist der Teil, an dem nicht viele Leute große Fans sind.
+
+12:39.060 --> 12:47.520
+Aber wenn wir uns erst einmal daran gewöhnen, ist es nicht so schlimm. JavaScript hat etwas namens "try catch blocks".
+
+12:47.790 --> 12:55.770
+und das ist, wenn es das "Versuch" Wort sieht, wird es automatisch automatisch laufen, was auch immer darin ist.
+
+12:55.770 --> 13:08.130
+In unserem Fall wollen wir alle Blöcke in einem try Block ausführen und dann 'try' kommt mit einem catch Block
+
+13:08.160 --> 13:09.200
+auch.
+
+13:09.540 --> 13:15.450
+Also ein Versuch, den Block zu fangen und innerhalb des Fangs, wenn irgendetwas hier fehlschlägt.
+
+13:15.690 --> 13:19.460
+Nun, wir können es hier fangen, also können wir einfach console.log
+
+13:19.550 --> 13:20.190
+'Hoppla'
+
+13:21.890 --> 13:29.760
+Also sagen wir jetzt, dass ich eine der URLs falsch geschrieben habe und lasst uns das kopieren. Lass es uns ausprobieren.
+
+13:30.020 --> 13:31.720
+Wir haben die neuen URLs.
+
+13:31.820 --> 13:37.880
+Lass mich das klären. Neue URLs mit der falsch geschriebenen URL für eine dieser URLs
+
+13:37.880 --> 13:44.270
+Wir werden die getData kopieren und einfügen und Sie werden sehen, dass wir einen Syntaxfehler bekommen.
+
+13:44.560 --> 13:53.570
+Und das ist, weil eine Sache, an die Sie sich mit Fang erinnern müssen, ist, dass der Haken einen Fehler bekommt und
+
+13:53.570 --> 13:55.390
+Diesen Fehler können Sie loggen
+
+13:55.430 --> 14:00.310
+wenn du willst. Lassen Sie uns also das Protokoll loggen und versuchen Sie es erneut.
+
+14:01.530 --> 14:07.230
+Dieses Mal nennen wir das einfach getData1 - perfekt.
+
+14:07.240 --> 14:14.770
+Nun, wenn ich das ein bisschen aufräume und getData1 mit dem try catch block bekomme bekomme ich
+
+14:15.100 --> 14:15.910
+'Hoppla'
+
+14:15.920 --> 14:17.420
+Type error konnte nicht abgerufen werden.
+
+14:17.510 --> 14:26.860
+So bekomme ich den Catch-Block mit dem Fehler, genau wie wir es mit Versprechen getan haben.
+
+14:27.400 --> 14:28.400
+Und da hast du es.
+
+14:28.420 --> 14:29.250
+Das ist es.
+
+14:29.330 --> 14:37.090
+Async erwarten zwar zunächst einschüchternd, weil es doch ein bisschen neue Syntax gibt
+
+14:37.090 --> 14:40.130
+schön und synchron aussehend.
+
+14:40.210 --> 14:48.370
+Wir haben einfach eine Variable, der wir das Erwartungsversprechen zuweisen und dann pausiert die Funktion dort
+
+14:48.370 --> 14:53.710
+bis das Versprechen zurückkehrt und dann mit der Konsolenprotokollierung fortfährt.
+
+14:53.860 --> 14:59.690
+Und Sie müssen sich nur daran erinnern, dass Sie hier versuchen, Blöcke zu fangen, um Ihre Fehler zu finden, und das war's.
+
+14:59.710 --> 15:02.280
+Du bist jetzt ein asynchroner Meister.
+
+15:02.350 --> 15:05.170
+Sie können wählen, was Sie bevorzugen.
+
+15:05.170 --> 15:12.370
+Wie ich am Ende des Tages gesagt habe, verwenden Sie Versprechen oder asynchrone Funktionen, je nachdem, was einfacher ist
+
+15:12.370 --> 15:19.510
+für dich und dein Team, aber hoffentlich, wenn du auf diese beiden triffst, bist du jetzt viel wohler.
+
+15:19.660 --> 15:21.570
+Wir sehen uns im nächsten. Tschüss.

@@ -1,0 +1,664 @@
+WEBVTT
+
+00:01.450 --> 00:08.180
+In diesem Video werden wir über Git und GitHub und Source Control sprechen.
+
+00:08.220 --> 00:14.580
+Jetzt erinnern Sie sich vielleicht an Github aus unserem vorherigen Abschnitt, wo wir die Website online gestellt haben, aber
+
+00:14.580 --> 00:18.040
+Ich werde dir zeigen, dass es so viel mehr ist.
+
+00:18.060 --> 00:24.750
+Noch wichtiger ist, dass Github von den meisten professionellen Firmen verwendet wird und es ist eine Fähigkeit, die erwartet wird
+
+00:24.750 --> 00:27.180
+jetzt von allen Entwicklern bekannt sein.
+
+00:27.300 --> 00:29.880
+Das ist also ein wichtiger Abschnitt.
+
+00:30.030 --> 00:36.000
+Eines der ersten Dinge, die die meisten Entwickler an ihrem ersten Arbeitstag machen müssen, ist etwas zu treffen
+
+00:36.000 --> 00:40.100
+eine Pull-Anfrage, die git und github verwendet.
+
+00:40.320 --> 00:42.600
+Das schaffen wir in dieser Sektion.
+
+00:42.600 --> 00:47.320
+Mach dir keine Sorgen, du wirst das alles lernen und es wird Sinn machen.
+
+00:47.670 --> 00:49.510
+Beginnen wir zunächst mit der Quellcodeverwaltung.
+
+00:49.680 --> 00:53.230
+Bis jetzt haben wir nur an kleinen Dateien gearbeitet.
+
+00:53.340 --> 00:55.930
+Keine Teammitglieder nur wir selbst.
+
+00:56.340 --> 00:58.380
+Nur ein paar Dateien.
+
+00:58.740 --> 01:02.630
+Aber im wirklichen Leben sind Sie wahrscheinlich nicht der einzige Entwickler in einem Team.
+
+01:03.450 --> 01:04.950
+Wahrscheinlich sind die Projekte riesig.
+
+01:04.950 --> 01:07.010
+Es gibt viele viele Dateien.
+
+01:07.110 --> 01:12.720
+Quellcodeverwaltung ermöglicht es uns, sicherzustellen, dass mehrere Personen an derselben Datei von verschiedenen arbeiten können
+
+01:12.720 --> 01:13.570
+Standorte.
+
+01:14.400 --> 01:21.750
+Stellen Sie es sich als Google Docs vor, das es Menschen ermöglicht, an einem Dokument zu arbeiten, aber genug zu sprechen.
+
+01:21.750 --> 01:23.500
+Lasst uns das mal überprüfen.
+
+01:23.520 --> 01:33.440
+Ich habe hier zwei Ordner angelegt. One's für mich selbst, Andrei, der gerade einen neuen Job bei X Company begonnen hat
+
+01:33.470 --> 01:40.830
+Ich habe hier Marcy, die eine Weile im Unternehmen gearbeitet hat und sie hat Projektdateien hier.
+
+01:40.830 --> 01:46.610
+Ich benutze jetzt die Dateien von unserem Hintergrundgenerator-Video jetzt ohne Git oder Github.
+
+01:46.610 --> 01:53.900
+Was ich tun kann, ist nur kopieren und einfügen diese Dateien, so dass ich was auch immer Marcy hat und wir können anfangen zu arbeiten
+
+01:53.900 --> 01:54.890
+auf diesen Dateien.
+
+01:54.950 --> 02:02.510
+Ich kann meine Entwicklerumgebung hier mit meinem Terminal und meinem erhabenen Text haben und ich kann an was auch immer arbeiten
+
+02:02.510 --> 02:09.610
+Änderungen, die an der App vorgenommen werden müssen und Marcy hier hat auch ihre eigene Version, wo sie arbeiten kann
+
+02:09.610 --> 02:13.480
+und wir arbeiten beide am selben Projekt.
+
+02:13.480 --> 02:20.200
+Aber lassen Sie uns sagen, dass sowohl Marcy als auch ich an diesem Projekt arbeiten und sie beschließt, das Projekt zu ändern
+
+02:20.200 --> 02:28.510
+Name von Gradient Hintergrund zu Super Hintergrund und gleichzeitig in meinem Projekt entscheide ich mich anzurufen
+
+02:28.510 --> 02:31.130
+dieser kühle Hintergrund.
+
+02:31.490 --> 02:39.820
+Nun, jetzt musst du ein Treffen zwischen mir und Marcy arrangieren und entscheiden, wie wir das ändern sollen
+
+02:39.820 --> 02:41.230
+Code.
+
+02:41.230 --> 02:46.520
+Und das ist ein kleines Beispiel, aber Sie können sich vorstellen, dass es verschiedene Programmierer gibt, die zusammenarbeiten
+
+02:46.540 --> 02:51.670
+Es wird immer so sein, dass eine Person eine Sache verändert und eine andere Person eine andere Sache ändert.
+
+02:51.670 --> 02:58.360
+Hier kam die Quellenkontrolle ins Spiel und die soziale Kontrolle kontrolliert, wo wir dies kontrollieren können
+
+02:58.930 --> 03:02.260
+ein Ort statt unserer eigenen Computer.
+
+03:02.380 --> 03:08.740
+In diesem Fall wird es nur durch den Ordner dargestellt, den ich hier habe. Anstatt dass jeder von uns eine hat
+
+03:09.070 --> 03:12.640
+Kopie des Projekts mit Quellcodeverwaltung.
+
+03:12.640 --> 03:14.660
+Wir haben eine Kopie der Projektdatei.
+
+03:14.740 --> 03:20.950
+Es gibt eine zentrale Stelle irgendwo im Unternehmen oder irgendwo im Internet
+
+03:21.190 --> 03:28.300
+Das hat die ultimative Version, die wir beide gesprochen haben, um sicherzustellen, dass wir alle dieselbe Version haben
+
+03:29.120 --> 03:35.110
+Github ist eine Möglichkeit, dies zu tun, um Quellcodeverwaltung verwenden zu können.
+
+03:35.170 --> 03:39.030
+Und tatsächlich ist es der de facto Weg, dies zu tun.
+
+03:39.070 --> 03:46.080
+Wie ich schon sagte, ist dies wahrscheinlich das Werkzeug, das Sie jeden Tag an Ihrem Arbeitsplatz benutzen werden.
+
+03:46.250 --> 03:54.200
+Wenn ich also hier auf die Github-Website gehe, ist es ein zentraler Ort, der es uns ermöglicht
+
+03:54.230 --> 03:58.240
+Andrei und Marcy können beide reden.
+
+03:58.280 --> 04:07.110
+Obwohl wir an den gleichen Dateien arbeiten, kann ich diesen zentralen Ort wie z.
+
+04:07.110 --> 04:07.680
+Github.
+
+04:07.800 --> 04:11.020
+Hat Marcy irgendwelche Änderungen vorgenommen?
+
+04:11.460 --> 04:14.410
+Und Marcy kann fragen, ob Andrei irgendwelche Änderungen vorgenommen hat?
+
+04:16.410 --> 04:22.050
+Und ab und zu bekommst du so etwas, wo wir Cool Background und Super Background haben
+
+04:22.320 --> 04:25.880
+wo wir einen sogenannten Merge-Konflikt haben.
+
+04:26.460 --> 04:33.320
+Was Github uns erlaubt ist zu sagen, hey, ich merke, dass es einen Merge-Konflikt gibt.
+
+04:33.360 --> 04:35.940
+Ich sehe, dass ihr beide eure Herkunft geändert habt.
+
+04:35.940 --> 04:41.090
+Ich weiß nicht wer recht hat, aber hier sind die Informationen Andrei und Marcy,
+
+04:41.340 --> 04:43.920
+Kannst du Jungs unter sich reden und es herausfinden?
+
+04:45.220 --> 04:46.180
+Das ist ziemlich viel Arbeit für.
+
+04:46.180 --> 04:48.950
+Also sehen wir mal, wie das aussieht.
+
+04:50.080 --> 04:53.390
+Als erstes möchten wir einen GitHub-Account einrichten.
+
+04:53.680 --> 04:59.400
+Wenn Sie es in den vorherigen Übungen noch nicht gemacht haben, sollten Sie unbedingt einen GitHub-Account starten.
+
+04:59.410 --> 05:00.600
+Es ist kostenlos.
+
+05:00.670 --> 05:06.870
+Und wie ich schon sagte, wenn Sie ein Entwickler sind, brauchen Sie es nur, wo jeder seine Projekte stellt.
+
+05:06.880 --> 05:12.640
+Dort arbeiten Sie, Sie verbringen viel Zeit auf dieser Website.
+
+05:12.710 --> 05:15.690
+Sie erinnern sich vielleicht daran, dass als wir das Github-Projekt hatten,
+
+05:15.860 --> 05:18.590
+Ich habe dir auch gesagt, du sollst Github für Desktop bekommen
+
+05:21.390 --> 05:24.620
+obwohl wir das verwenden, um die Dinge während dieses Videos einfacher zu machen.
+
+05:24.630 --> 05:27.560
+Dies ist eigentlich nicht der empfohlene Weg, dies zu tun.
+
+05:27.570 --> 05:34.680
+Es erlaubt Ihnen, Github visuell zu sehen und mit ihm zu interagieren, aber es wird von den Arbeitgebern heruntergeschaut
+
+05:34.680 --> 05:39.420
+und die meisten Leute benutzen das Terminal oder die Eingabeaufforderung, um es tatsächlich zu tun.
+
+05:39.420 --> 05:44.790
+Also werde ich dich nicht auf diese Weise unterrichten, nur weil ich denke, dass es eine schlechte Übung ist, sich an das Terminal zu gewöhnen
+
+05:44.880 --> 05:46.450
+ist wichtig.
+
+05:46.470 --> 05:51.360
+Ich schließe das und wir werden den Anfang machen. Das erste, was wir tun werden, sind wir
+
+05:51.360 --> 05:57.850
+Klicken Sie auf ein Projekt starten. Und hier werden wir es nennen, was wir wollen, wir nennen es
+
+05:58.070 --> 06:01.260
+Hintergrund-Generator.
+
+06:01.600 --> 06:08.020
+Und du willst es auch als public weglassen und wir wollen das mit einem lies mich initialisieren und klicken
+
+06:08.020 --> 06:09.910
+Wir klicken auf Repository erstellen.
+
+06:10.030 --> 06:10.920
+Und was das tut.
+
+06:10.930 --> 06:13.730
+Nun, wir haben ein neues Projekt auf GitHub erstellt.
+
+06:14.230 --> 06:18.950
+Und hier lesen Sie mich, das ist nur eine Datei, die Ihr Projekt beschreibt.
+
+06:18.970 --> 06:24.910
+Sie können sehen, dass es hier ist, wir können in das Lesen eintippen was auch immer wir wollen und ich werde unser Projekt beschreiben.
+
+06:25.270 --> 06:32.350
+Aber lass uns zurück gehen. Wenn Marcy sagen würde, dass Marcy schon lange in dieser Firma arbeitet.
+
+06:32.380 --> 06:34.410
+Ich werde meine Dateien hier wirklich entfernen.
+
+06:36.860 --> 06:42.770
+Marcy arbeitet seit langer Zeit in diesem Unternehmen, und der Arbeitgeber hat schließlich beschlossen, dass wir es brauchen
+
+06:42.770 --> 06:46.290
+Um Github zu benutzen, werden wir diesen neuen Typ Andrei einstellen.
+
+06:46.490 --> 06:51.270
+Wir möchten sicherstellen, dass Sie beide gemeinsam an dem Projekt ohne Probleme arbeiten können.
+
+06:51.290 --> 06:53.560
+Kannst du das Projekt auf GitHub setzen?
+
+06:54.020 --> 07:01.610
+Also wird Marcy tun, sie wird zu GitHub gehen, Hintergrundgenerator erstellen und dann wird sie es tun
+
+07:01.610 --> 07:04.510
+Klicken Sie hier, um zu klonen oder herunterzuladen.
+
+07:04.580 --> 07:08.370
+Und sie wird sicherstellen, dass es HTTPS verwendet.
+
+07:08.660 --> 07:13.510
+Und von hier aus klicken Sie einfach auf diesen Knopf, der diesen Link auf Ihre Tastatur kopiert.
+
+07:15.000 --> 07:24.570
+Dann geht Marcy zu ihrem Terminal und jetzt sind wir in Documents, wir wollen das Projekt in der
+
+07:24.570 --> 07:25.400
+Marcy Ordner.
+
+07:25.440 --> 07:28.320
+Also werde ich in Marcy einsteigen. Wenn ich auf ls klicke
+
+07:28.320 --> 07:29.330
+Ich sehe das,
+
+07:29.340 --> 07:31.630
+Ja, ich habe meine Dateien.
+
+07:31.710 --> 07:42.840
+Jetzt wird der erste Befehl, den wir lernen werden, git clone heißen und dann kopieren und einfügen, was wir kopiert haben
+
+07:42.840 --> 07:43.800
+von der Website.
+
+07:43.890 --> 07:49.430
+Wir sagen nur, dass sie dieses Projekt von github.com klonen
+
+07:49.860 --> 07:52.930
+Also drücke ich Enter und los gehts.
+
+07:53.040 --> 07:55.320
+Alles ist heruntergeladen.
+
+07:55.380 --> 08:01.740
+Wenn ich jetzt zurück in den Ordner gehe, sehe ich, dass ich einen Hintergrundgenerator habe. Wenn ich das doppelklicke, wirst du es tun
+
+08:01.740 --> 08:05.000
+Sehen Sie, dass ich hier einen .git-Ordner habe, der eigentlich versteckt ist.
+
+08:05.010 --> 08:09.870
+Sie sehen es möglicherweise nicht einmal auf Ihrem Laptop, wenn diese Funktion auf Ihrem Computer nicht aktiviert ist.
+
+08:09.960 --> 08:15.060
+Aber dieses .git erlaubt mir jetzt, mit github zu kommunizieren.
+
+08:15.120 --> 08:16.290
+Was können wir jetzt tun?
+
+08:16.350 --> 08:23.970
+Marcy kann diese Dateien kopieren und in den Hintergrundgenerator einfügen.
+
+08:23.970 --> 08:26.860
+Jetzt zeige ich dir den nächsten Git-Befehl.
+
+08:27.210 --> 08:27.840
+Marcy gerade jetzt,
+
+08:27.840 --> 08:34.200
+Wenn wir sehen, ist sie in ihrem Ordner, aber jetzt müssen wir in Hintergrund-Generator gehen, wenn wir es tun
+
+08:34.740 --> 08:36.090
+Git Befehle hier,
+
+08:36.420 --> 08:39.840
+Nun, es wird nicht funktionieren, weil es kein git-Projekt ist.
+
+08:39.840 --> 08:43.510
+Wir müssen tatsächlich in das Projekt gehen, das auf GitHub erstellt wurde.
+
+08:43.800 --> 08:45.980
+Also werde ich in dieses Verzeichnis wechseln.
+
+08:46.170 --> 08:52.650
+Beachten Sie, dass ich mein Terminal so eingestellt habe, dass es mir zeigt, an welchem ​​Ort ich bin
+
+08:52.650 --> 08:54.600
+und ich werde erklären, was Master später bedeutet.
+
+08:54.600 --> 08:58.520
+Jetzt, da wir hier sind, können wir uns alle unsere Dateien ansehen.
+
+08:58.620 --> 08:59.850
+Ja, das sehe ich.
+
+08:59.850 --> 09:02.810
+Jetzt habe ich meine README, die ich auf GitHub erstellt habe.
+
+09:03.090 --> 09:12.250
+Plus die Dateien, die ich kopiert und eingefügt habe. Wir müssen das synchronisieren, damit ich, wenn ich in meinen Hintergrund-Generator gehe,
+
+09:12.250 --> 09:20.890
+Anstelle der README-Dateien kann Marcy ihre Dateien auf GitHub aufstellen, so wie wir es tun, das ist unser zweiter Befehl
+
+09:21.610 --> 09:32.320
+Git Status. Es sagt uns, dass wir nicht nachverfolgte Dateien haben. Das ist, wir haben index.html, script.js,
+
+09:32.360 --> 09:40.140
+und Stil, die nicht verfolgt werden. Und es sagt Verwendung git Datei hinzufügen, um aufzunehmen, was begangen werden soll.
+
+09:40.490 --> 09:48.680
+So jetzt, wo wir unseren Status von dem sehen, was wir in unserem Ordner haben, können wir nicht git add und den Dateinamen so sagen
+
+09:48.680 --> 10:01.970
+Ich kann index.html, git add script.js und git add style.css hinzufügen
+
+10:02.030 --> 10:06.460
+Lasst uns das klären, damit wir es sehen können.
+
+10:06.570 --> 10:11.100
+Und jetzt kann ich wieder git status machen, nur um zu sehen, was unser Status ist.
+
+10:11.480 --> 10:16.680
+Und jetzt habe ich deine Filiale auf dem neuesten Stand, Änderungen müssen noch vorgenommen werden.
+
+10:16.700 --> 10:21.380
+Sie sehen, dass wir jetzt mit add hinzugefügt haben, dass wir diese Änderungen hinzufügen möchten.
+
+10:21.470 --> 10:27.080
+Wir haben neue Dateien, die wir hinzugefügt haben und für die wir uns verpflichtet haben.
+
+10:27.110 --> 10:35.710
+Also ist der zweite Schritt, etwas zu tun, das git commit und git commit genannt wird, hey ich begehe das
+
+10:35.720 --> 10:39.670
+Das sind die Änderungen, die ich an GitHub vornehmen möchte.
+
+10:39.890 --> 10:45.920
+Und es erlaubt Ihnen, eine Nachricht zu übergeben, so dass auf GitHub die Nachricht angezeigt wird, wenn Andrei zurückkommt
+
+10:45.920 --> 10:49.760
+Er kann sagen, oh, Marcy hat diese Dateien hinzugefügt und das ist die Nachricht.
+
+10:49.790 --> 10:52.600
+Und wir tun das, indem wir das tun.
+
+10:52.880 --> 11:02.750
+Und hier innerhalb der doppelten Anführungszeichen kann ich sagen, dass das Hinzufügen von Startprojekt die Klammer schließt (% -Angaben)
+
+11:02.750 --> 11:03.760
+Drücken Sie Enter.
+
+11:04.490 --> 11:05.830
+Ich werde das klären.
+
+11:05.960 --> 11:09.280
+Jetzt gibt es einen letzten Schritt. Wir haben hinzugefügt.
+
+11:09.470 --> 11:16.470
+Wir haben git add hinzugefügt, um unsere Änderungen hinzuzufügen, dann git commit, um zu committen und zu sagen, dass wir diese Änderungen festhalten.
+
+11:16.550 --> 11:22.600
+Und dann müssen wir github.com wissen lassen, dass dies die Änderungen sind.
+
+11:22.610 --> 11:25.190
+Also machen wir einen Push
+
+11:28.440 --> 11:38.900
+und da gehst du, es wurde jetzt zu diesem Repository geschoben. Wenn ich also zurückgehe und mich erfrische, schau dir das an
+
+11:39.260 --> 11:42.850
+Es ist das Gleiche, was wir getan haben, als wir unsere erste Website online gestellt haben.
+
+11:43.130 --> 11:49.310
+Aber anstatt die Desktop-Version von github zu verwenden, verwenden wir die Befehlszeile und jetzt haben wir unser Projekt
+
+11:49.610 --> 11:51.860
+Das ist sehr gut.
+
+11:51.860 --> 11:53.650
+Lasst uns nun zu unserem Beispiel zurückkehren.
+
+11:53.720 --> 11:55.890
+Also hat Marcy an diesem Projekt gearbeitet.
+
+11:55.910 --> 12:02.950
+Es gibt ein Git-Repository und ich bin gerade in die Firma eingetreten und jetzt muss ich anfangen, daran zu arbeiten.
+
+12:03.190 --> 12:09.020
+Was mache ich? Jetzt muss ich auf Github zugreifen und die Kopie des Hintergrundgenerators erhalten.
+
+12:09.140 --> 12:11.870
+So wie ich das gut mache, gehe ich in meinen Ordner
+
+12:15.570 --> 12:16.880
+und ich mache das Gleiche.
+
+12:16.890 --> 12:30.110
+Ich git Klon und dann kopiere ich und kopiere das Repository wie zuvor. Git klonen und klonen das Repo.
+
+12:30.540 --> 12:31.280
+Und da gehst du.
+
+12:31.560 --> 12:36.860
+Wenn ich zu meinem Ordner zurückgehe, sieh dir das an, ich habe Hintergrund-Generator.
+
+12:37.020 --> 12:43.800
+Also arbeiten wir beide jetzt am Hintergrund-Generator, aber nicht an den anderen Dateien, mit denen wir arbeiten
+
+12:44.010 --> 12:46.810
+welche Version auch immer auf Github ist.
+
+12:46.920 --> 12:47.210
+Gut.
+
+12:47.280 --> 12:50.040
+Also jetzt realistischer.
+
+12:50.040 --> 12:56.460
+Wir gehen zurück zur Arbeit und am ersten Tag meines Jobs sage ich, ich werde den Gradientenhintergrund ändern
+
+12:56.700 --> 12:57.240
+Titel, tatsächlich, das h1-Tag
+
+12:57.240 --> 13:02.900
+Kühler Generator.
+
+13:03.390 --> 13:10.070
+Wenn ich das sehe und ich git status
+
+13:10.380 --> 13:18.260
+Nun, ich bin gerade nicht in einem Git-Repository, wenn du dich erinnerst, dass ich in den Hintergrundgenerator gehen muss.
+
+13:18.450 --> 13:21.210
+Lass mich das ein bisschen aufmachen, damit du es sehen kannst.
+
+13:21.220 --> 13:22.910
+Da gehst du
+
+13:22.960 --> 13:28.240
+Auch diese Git-Befehle funktionieren nicht, wenn Sie sich nicht in einem Ordner mit dem Ordner .git befinden.
+
+13:28.450 --> 13:32.310
+Also lass mich das machen, cd in background-generator.
+
+13:32.430 --> 13:37.270
+Ich werde das klären und ich werde sagen, Git Status.
+
+13:37.480 --> 13:38.010
+Und sieh dir das an.
+
+13:38.040 --> 13:40.990
+Es sagt mir, dass ich index.html Datei geändert habe.
+
+13:41.520 --> 13:47.360
+Und wenn du dich erinnerst, werde ich sagen, git add, ich habe nur eine Datei, die ich machen kann
+
+13:47.350 --> 13:48.550
+index.html
+
+13:48.690 --> 13:53.670
+Aber wenn ich wollte, wenn ich mehrere Dateien hätte und ich wollte sie alle auf einmal begehen, kann ich es einfach tun
+
+13:53.820 --> 14:00.060
+die Periode. Also werde ich das machen und dann git commit und ich werde eine Nachricht schreiben.
+
+14:00.060 --> 14:05.910
+Titel ändern Ich drücke Enter
+
+14:06.560 --> 14:08.320
+Ich mache das klar.
+
+14:08.350 --> 14:15.850
+Und wieder, ich git push und es sieht so aus als wäre alles durchgegangen.
+
+14:15.850 --> 14:18.430
+Also lass uns unser Web öffnen und es ausprobieren.
+
+14:18.460 --> 14:19.690
+Ich aktualisiere jetzt hier,
+
+14:22.950 --> 14:31.350
+und wir haben keine Änderungen gesehen, aber wir sehen jetzt, dass wir drei Commits haben. Wir haben das erste Commit,
+
+14:31.350 --> 14:39.770
+das Hinzufügen eines Hintergrundprojekts, das Marcy gemacht hat, und es zeigt dir alle Dateien, die wir hinzugefügt haben.
+
+14:39.990 --> 14:49.560
+Und wenn ich zurückgehe, habe ich den wechselnden Titel begehen und nun sehe ich, dass yep, Andrei gerade den Background gewechselt hat
+
+14:49.560 --> 14:54.670
+Generator, der rot ist, um Generator zu kühlen.
+
+14:54.750 --> 15:00.180
+Wie Sie sehen können, haben wir eine Geschichte aller Veränderungen und wir können immer zurückgehen, wenn es irgendwelche Fehler gibt
+
+15:00.810 --> 15:03.600
+Aber jetzt gibt es ein Problem.
+
+15:03.780 --> 15:10.390
+Wenn ich zurück zum Code gehe und zu Marcys Computer gehe, sehe ich das
+
+15:10.420 --> 15:15.170
+Nun, sie hat noch Hintergrundgenerator hier.
+
+15:15.190 --> 15:15.960
+Warum das?
+
+15:16.090 --> 15:21.260
+Nun, weil ihr Computer nicht weiß, dass Github aktualisiert wurde.
+
+15:21.430 --> 15:28.150
+Der nächste Befehl, den ich dir zeigen werde, ist der letzte, den ich dir in diesem Video zeigen werde
+
+15:28.320 --> 15:29.000
+git ziehen
+
+15:29.380 --> 15:38.520
+Also, erinnere dich an Git Push? um die Änderungen an gethub.com zu pushen und git pull zu ziehen, was immer das Neueste ist.
+
+15:38.530 --> 15:42.680
+Also zieh ich los und los gehts.
+
+15:42.730 --> 15:48.470
+Sie sehen hier, dass es mir zeigt, dass index.html Datei geändert wurde.
+
+15:48.490 --> 15:54.290
+Jetzt siehst du, dass mein Titel in Cool Generator geändert wurde.
+
+15:54.540 --> 16:00.190
+Lass uns einfach sagen, dass eine Marcy meine erste Veränderung gesehen hat und sie mag wirklich einen coolen Generator.
+
+16:00.300 --> 16:03.930
+Aber ich denke, sie will es kapitalisieren,
+
+16:03.940 --> 16:05.780
+Auch das wird sie retten.
+
+16:06.100 --> 16:09.090
+Sie wird Gitstatus sagen.
+
+16:09.150 --> 16:09.450
+Gut.
+
+16:09.450 --> 16:22.980
+Ich habe meine index.html Datei, ich werde git hinzufügen, dann git commit und ich werde die Nachricht hinzufügen, Titel groß schreiben
+
+16:25.190 --> 16:29.560
+dann git push.
+
+16:29.570 --> 16:35.120
+Da gehst du. Wieder gehe ich zurück, ich erfrische mich.
+
+16:35.590 --> 16:43.020
+Und jetzt gibt es vier Commits und wir sehen, dass der Titel großgeschrieben wird.
+
+16:43.140 --> 16:44.830
+Der erste Arbeitstag ist getan.
+
+16:44.910 --> 16:53.370
+Ich komme am nächsten Tag zur Arbeit und gut, ich möchte mit dem beginnen, was auch immer das neueste Projekt ist
+
+16:53.370 --> 16:59.700
+Hintergrundgenerator. Und lassen Sie uns sagen, dass Marcy die ganze Nacht gearbeitet hat, um diesen Titel zu kühlen, zu kapitalisieren
+
+16:59.700 --> 17:02.200
+Ich möchte sicherstellen, dass ich die aktuellste Version habe.
+
+17:02.220 --> 17:07.700
+Also, was ich tue ist, wenn ich morgens in die Arbeit komme, werde ich sagen, naja, ich möchte sicherstellen, dass, wenn es da ist
+
+17:07.740 --> 17:12.170
+Irgendwelche Änderungen, die Marcy über mich erfahren hat, also werde ich sagen, dass ich sie ziehen muss
+
+17:12.270 --> 17:20.010
+Und beachten Sie hier, wie sich die Titel ändern werden, nachdem ich den Pull gemacht habe und jetzt klicke ich auf diesen erhabenen Text
+
+17:20.040 --> 17:22.210
+und da gehst du.
+
+17:22.260 --> 17:25.040
+Kühler Generator.
+
+17:25.070 --> 17:25.480
+Gut.
+
+17:25.490 --> 17:33.080
+Und das nächste Video, das wir hier zeigen werden, zeigt, was passiert, wenn Marcy und Andrei zusammen kommen
+
+17:33.140 --> 17:35.480
+die gleichen Änderungen.
+
+17:35.900 --> 17:37.640
+Was macht Github?
+
+17:37.700 --> 17:38.980
+Ich sehe dich in diesem.
+
+17:39.050 --> 17:39.320
+Tschüss

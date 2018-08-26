@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+Y una bienvenida de regreso. Sabemos cómo funciona la aplicación RoboFriends
+
+00:05.660 --> 00:14.330
+ahora, con reaccionar, eso es genial. Pero Bruno nos preguntó algo específico. Necesitamos agregar redux a nuestro
+
+00:14.330 --> 00:20.860
+Aplicación RoboFriends para que pueda escalar bien y manejar mejor la administración del estado.
+
+00:22.630 --> 00:28.960
+Ahora con estos videos siguientes vamos a trabajar juntos, paso a paso.
+
+00:28.990 --> 00:34.630
+Voy a mostrarte cómo se implementa Redux y cómo funciona y vas a estar siguiendo
+
+00:35.170 --> 00:38.320
+tratando de asegurarse de que tu código también funcione.
+
+00:38.770 --> 00:42.120
+Está bien, así que toma una pausa ahora y configura tu entorno.
+
+00:42.140 --> 00:46.470
+Entonces puedes codificar conmigo. ¿Estás todo listo?
+
+00:46.510 --> 00:46.940
+Todo bien.
+
+00:46.960 --> 00:48.300
+Voy a comenzar.
+
+00:48.370 --> 00:56.360
+Lo primero que voy a hacer es, tengo mi aplicación RoboFriends, así que voy a clonar este repositorio y
+
+00:56.360 --> 01:06.650
+Haremos nuestra configuración regular con git clone y luego voy a CD en mi RoboFriend. Perfecto.
+
+01:06.690 --> 01:09.510
+Vamos a abrir esto en tu editor de texto.
+
+01:14.630 --> 01:18.720
+Y de nuevo me encanta unirme para que se vea bien.
+
+01:19.470 --> 01:20.670
+Y limpio.
+
+01:20.720 --> 01:21.250
+Perfecto.
+
+01:22.670 --> 01:29.510
+Ahora, obviamente, lo primero que debemos hacer cuando copiamos algo es instalar npm para asegurarnos
+
+01:29.510 --> 01:32.710
+tenemos todos los paquetes
+
+01:32.920 --> 01:38.970
+Y también queremos asegurarnos de que todo funcione sin problemas y sin ningún tipo de error.
+
+01:39.190 --> 01:48.410
+Entonces, el próximo paso será ejecutar npm start.
+
+01:48.460 --> 01:49.180
+Todo bien.
+
+01:49.180 --> 01:49.690
+Perfecto.
+
+01:49.690 --> 01:50.930
+Todo está funcionando.
+
+01:51.040 --> 01:53.780
+Y deberíamos poder filtrar.
+
+01:53.780 --> 01:56.420
+Perfecto.
+
+01:56.430 --> 01:56.690
+Todo bien.
+
+01:56.700 --> 01:59.790
+Entonces, estamos familiarizados con esta base de código.
+
+02:01.120 --> 02:09.990
+Tenemos nuestra aplicación reaccionar, pero eso es todo. Simplemente una aplicación de reacción simple con contenedores y componentes.
+
+02:10.040 --> 02:20.930
+Lo primero que querríamos hacer es instalar redux. Así que voy a cerrar esto y ejecutar npm install redux.
+
+02:23.740 --> 02:30.990
+Este paquete redux nos dará algunas herramientas para incorporar redux a nuestra aplicación reaccionar.
+
+02:32.220 --> 02:33.840
+Pero esta es la parte buena.
+
+02:33.840 --> 02:37.630
+Con el paquete redux, y por qué soy tan fanático.
+
+02:38.690 --> 02:45.680
+Es que el 90% de tu código seguirá siendo Javascript. Redux te dará algunos ayudantes
+
+02:46.070 --> 02:48.620
+pero todavía estás escribiendo Javascript.
+
+02:48.740 --> 02:52.280
+Todavía está mejorando sus habilidades de Javascript.
+
+02:52.280 --> 02:57.470
+Cuando escribes redux y se enseñan principios realmente buenos, por eso soy tan fanático de
+
+02:57.530 --> 03:05.630
+la biblioteca. Es posible que no siempre necesite reducir sus proyectos, pero es una buena y buena herramienta para aprender
+
+03:05.960 --> 03:13.070
+porque tiene conceptos tan geniales que utilizará a lo largo de su carrera.
+
+03:13.220 --> 03:19.010
+Ahora lo segundo que necesitamos, y esto es algo similar con reaccionar, recuerda cómo instalamos el
+
+03:19.010 --> 03:25.730
+reaccionar paquete, y luego también necesitábamos algo llamado el paquete de reacción a dom para conectar reaccionar a
+
+03:25.730 --> 03:29.130
+el dom? Bueno, de manera similar.
+
+03:29.140 --> 03:38.770
+Necesitamos conectar el redux para reaccionar porque redux teóricamente podría funcionar con cualquier otra biblioteca agregando
+
+03:38.980 --> 03:40.240
+otro paquete
+
+03:40.300 --> 03:46.600
+De nuevo, podemos dejar que reaccionemos para saber que oye, vamos a utilizar Redux contigo.
+
+03:46.600 --> 03:48.050
+Entonces eso es muy fácil de hacer.
+
+03:48.070 --> 03:53.080
+Simplemente instalaremos npm y el paquete se llamará reaccionar.
+
+03:59.260 --> 04:06.570
+Y la forma en que reaccionará redux va a funcionar es que va a conectar solo los contenedores.
+
+04:06.760 --> 04:14.410
+Entonces, en este caso, app.js a lo que llamamos una tienda redux o ese gran objeto JavaScript estamos hablando
+
+04:14.410 --> 04:14.820
+acerca de.
+
+04:14.860 --> 04:21.110
+Eso describe el estado de nuestra aplicación y se van a comunicar, el contenedor se va a comunicar
+
+04:21.200 --> 04:23.770
+con la tienda y viceversa.
+
+04:24.900 --> 04:31.410
+Ahora los otros componentes, lo que llamamos componentes tontos o de presentación,
+
+04:31.530 --> 04:34.250
+no sabrá que existe el redux.
+
+04:34.320 --> 04:41.010
+La única conexión será entre algo llamado contenedor o componente inteligente y el
+
+04:41.100 --> 04:42.650
+tienda redux.
+
+04:42.660 --> 04:44.130
+Así que déjame mostrarte lo que quiero decir.
+
+04:45.280 --> 04:51.040
+Si recuerdas este diagrama, acabamos de instalar el paquete redux que puedes pensar que es
+
+04:51.040 --> 04:51.990
+aqui.
+
+04:52.000 --> 04:58.300
+Esta caja roja que nos permite crear una tienda y un par de otras funciones de ayuda.
+
+04:58.300 --> 05:10.310
+También descargamos reaccionar redux que nos permite conectar estas dos piezas y reaccionar redux es capaz
+
+05:10.310 --> 05:17.090
+para ser utilizado con el fin de decir oye, queremos que estos componentes amarillos sean conscientes de que estamos utilizando redux y
+
+05:17.090 --> 05:20.650
+obtener su estado de la tienda redux.
+
+05:22.380 --> 05:28.020
+Así que solo piensa en este diagrama, ya que estamos trabajando en todo lo que estamos haciendo es esencialmente conectar
+
+05:28.020 --> 05:30.710
+estas dos bibliotecas juntas.
+
+05:30.770 --> 05:37.630
+Muy bien, ahora que tenemos estos dos paquetes podemos comenzar a importarlos y usarlos dentro de nuestro
+
+05:37.630 --> 05:43.660
+aplicación, pero eso es para los próximos videos. Te veré en el próximo.
+
+05:43.770 --> 05:44.010
+Adiós.

@@ -1,0 +1,350 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+Und willkommen zurück.
+
+00:02.830 --> 00:10.710
+In diesem Video werden wir über ein wichtiges Konzept in JavaScript sprechen, das 'Scope' genannt wird.
+
+00:10.840 --> 00:20.890
+Jetzt Was ist Umfang? scope bedeutet Variablenzugriff, auf welche Variablen habe ich Zugriff, wenn ein Code läuft?
+
+00:21.710 --> 00:29.600
+In Javascript sind Sie also standardmäßig im 'root scope', dem 'window' Objekt.
+
+00:29.600 --> 00:30.410
+Lass mich dir zeigen, wovon ich rede.
+
+00:31.700 --> 00:36.560
+Wenn ich in meiner Konsole etwas wie 'Funktion aa ()' mache
+
+00:39.820 --> 00:49.160
+'console.log ("test")' und wir schließen diese Funktion ab.
+
+00:49.230 --> 00:58.530
+Nun, die 'Funktion aa' ist Teil des 'Fensterbereichs'.
+
+00:58.630 --> 01:09.120
+Wenn ich hier 'Fenster' gehe und 'Fenster' öffne, wirst du sehen
+
+01:09.330 --> 01:11.250
+dass die 'aa' Funktion zum 'Fensterumfang' hinzugefügt wurde.
+
+01:11.290 --> 01:15.610
+Wenn Sie also in einem Browser arbeiten, wird dies als "root scope" bezeichnet.
+
+01:15.610 --> 01:19.600
+Also der übergeordnete Bereich.
+
+01:19.760 --> 01:28.890
+Was nun, wenn ich so etwas mache. Wenn ich 'Funktion bb' gehe.
+
+01:29.680 --> 01:33.930
+Und innerhalb dieser Funktion werden wir tun.
+
+01:34.180 --> 01:34.870
+Variable "a" entspricht "Hallo"
+
+01:39.820 --> 01:47.050
+Funktioniert das, wenn ich das in der Konsole ausführe,
+
+01:47.230 --> 01:54.460
+Wenn ich jetzt 'console.log (a)' mache, wird das funktionieren.
+
+01:54.550 --> 02:03.280
+Nein, weil 'a' nur in 'function bb' lebt, befindet sich der scope innerhalb der Funktion.
+
+02:03.280 --> 02:12.330
+Der einzige Weg, wie wir 'console.log (a)' machen können, ist innerhalb der Funktion hinzuzufügen, oops!
+
+02:12.460 --> 02:20.060
+Muss das nochmal versuchen, innerhalb der Funktion 'console.log (a)' hinzuzufügen.
+
+02:20.070 --> 02:24.000
+Also wenn ich jetzt die Funktion ausführe,
+
+02:24.060 --> 02:24.930
+Ich habe 'Hallo'.
+
+02:25.410 --> 02:32.850
+Jetzt ist das Interessante, dass Funktionen Zugriff auf haben
+
+02:32.850 --> 02:34.110
+eine beliebige Variable im Root-Bereich.
+
+02:34.380 --> 02:51.080
+Also zum Beispiel, wenn ich 'Variable (var) b gleich kann ich auf diese zugreifen?' Wird 'Funktion bb' Zugang dazu haben?
+
+02:51.250 --> 03:05.920
+Denn wie Sie wissen, existiert 'window.bb' und die Variable 'b' lebt auf dem Fensterobjekt.
+
+03:05.960 --> 03:13.990
+Sie haben also beide das gleiche Elternteil. Lass mich dir zeigen, was ich meine,
+
+03:13.990 --> 03:15.760
+indem Sie dies kopieren und in die Konsole einfügen
+
+03:15.940 --> 03:22.180
+Jetzt in 'Funktion bb', wenn wir 'console.log (b)' machen
+
+03:27.450 --> 03:39.780
+Nun, wir haben Zugang dazu
+
+03:39.860 --> 03:40.170
+OK, was ist, wenn ich etwas in der Art der Variablen (var) 'b' mache, kann ich darauf zugreifen.
+
+03:40.170 --> 03:45.150
+Ich bin "b" gleich "Hallo", wenn ich das kopiere.
+
+03:45.280 --> 03:47.940
+Und jetzt tue ich es
+
+03:48.020 --> 03:50.230
+'console.log (b)' Nun, ich habe
+
+03:50.230 --> 03:56.840
+Kann ich darauf zugreifen, weil ich die Funktion nicht ausgeführt habe, aber wenn ich die Funktion 'bb ()' ausführe.
+
+03:57.020 --> 03:57.890
+Nun, wenn ich es tue.
+
+03:57.890 --> 04:02.330
+'console.log (b)'
+
+04:02.420 --> 04:03.190
+Ich bekomme 'Hallo'.
+
+04:03.470 --> 04:08.860
+Weil 'b' die gleiche Variable ist.
+
+04:09.290 --> 04:14.550
+Ok, machen wir etwas komplizierter.
+
+04:14.880 --> 04:23.540
+Wenn wir wissen, was wir wissen, wissen wir, dass dies der Wurzelbereich in unserem Fall ist.
+
+04:23.540 --> 04:25.150
+Innerhalb hier können wir eine Variable deklarieren.
+
+04:25.210 --> 04:27.480
+"Spaß" sagen wir gleich fünf.
+
+04:28.280 --> 04:30.290
+Und wir werden auch erklären
+
+04:32.840 --> 04:35.550
+eine Funktion, wir nennen es Fun Function.
+
+04:35.870 --> 04:41.940
+Und innerhalb dieser Funktion, sobald wir diese geschweiften Klammern '{}' erstellen, haben wir hier ein Kind-Scoping erstellt.
+
+04:46.280 --> 04:55.170
+Also hier sage ich Variable (var) 'Spaß' entspricht 'hellooo' und wird 'console.log (Spaß)' hier
+
+05:00.410 --> 05:07.650
+und wir werden eine andere Funktion erstellen, außer dass diese "Funnerfunction" nennen wird.
+
+05:07.810 --> 05:15.030
+Und in diesem wird man 'Byee' sagen und wird das loggen.
+
+05:15.180 --> 05:24.110
+Und dann schaffen wir endlich eine dritte Funktion und wir nennen das die 'funnestFunction'.
+
+05:24.110 --> 05:32.670
+Und hier werden wir die Variable entfernen und wir werden 'AHHHHHH' sagen.
+
+05:32.850 --> 05:40.370
+Und unten werden wir auch 'console.log (fun)' machen.
+
+05:40.400 --> 05:41.020
+Gut.
+
+05:41.160 --> 05:42.390
+Also lass uns das besprechen.
+
+05:42.390 --> 05:44.020
+Wir deklarieren eine Variable
+
+05:44.130 --> 05:45.440
+Spaß ist gleich fünf.
+
+05:45.480 --> 05:51.800
+Wir haben drei Funktionen erstellt und jede dieser Funktionen erstellt einen eigenen Bereich
+
+05:54.770 --> 05:58.240
+und jede dieser Funktionen 'console.log (fun)'.
+
+05:58.340 --> 06:06.580
+Aber was "Spaß" in jedem von ihnen bedeutet, ist abhängig von ihrem Umfang unterschiedlich.
+
+06:07.430 --> 06:18.510
+Der erste wird es "1" nennen, nur damit wir wissen, dass der zweite "2", "dritter (3)" und dann endlich hier heißt
+
+06:18.510 --> 06:22.590
+Wir können nur 'Fenster' sagen.
+
+06:22.690 --> 06:24.880
+Lassen Sie uns diese Funktion ausführen und sehen, was passiert.
+
+06:25.800 --> 06:28.730
+Sehen Sie, wenn Sie raten können,
+
+06:29.000 --> 06:29.480
+was wird hier passieren, OK.
+
+06:29.610 --> 06:34.970
+Also haben wir ein Fenster 5, was diese Linie hier drüben bedeutet.
+
+06:35.200 --> 06:37.700
+Die Spaßvariable ist "5".
+
+06:37.720 --> 06:39.770
+Nichts wurde ausgeführt.
+
+06:39.810 --> 06:44.910
+Wir lesen das Skript durch und wir sehen, dass der variable Spaß gleich 5 ist, und dann sehen wir diese Funktionen aber
+
+06:44.910 --> 06:46.660
+keiner von ihnen wird ausgeführt.
+
+06:46.830 --> 06:55.400
+Und jetzt, wenn ich 'FunFunction' mache, um diese tatsächlich auszuführen, machen wir 'funnerFunction'.
+
+06:55.650 --> 07:06.920
+Und schließlich die 'funnestFunction'. Ich kopiere und füge dies ein und führe es erneut aus
+
+07:06.920 --> 07:09.650
+wir sehen, wir haben Fenster 5, Zeile 24, die ausgeführt wurde, die Variable 5 ist.
+
+07:10.070 --> 07:18.350
+Jetzt innerhalb der ersten Funktion haben wir die Variable Spaß gleich "Hellooo", weil wir gut gemacht haben
+
+07:19.710 --> 07:25.620
+Ein neuer Umfang und innerhalb dieser Funktion lebt variabler Spaß, der "Hellooo" hat.
+
+07:25.640 --> 07:27.940
+Also wird das übersteuert.
+
+07:28.190 --> 07:35.630
+Und dann haben wir die zweite Funktion, die "Byee" wieder dasselbe wie oben hat, weil wir einen neuen Bereich haben
+
+07:35.660 --> 07:36.880
+eine neue Variable.
+
+07:37.050 --> 07:38.480
+Spaß entspricht "Buyee".
+
+07:38.870 --> 07:44.410
+Und dann sieht der dritte, dass wir Spaß haben, gleich "AHHHHHH".
+
+07:44.930 --> 07:47.330
+Und wieder wird das geändert.
+
+07:47.870 --> 07:50.550
+Und das entspricht dem Spaß.
+
+07:50.690 --> 07:52.550
+Hier ist der spaßige Teil.
+
+07:52.580 --> 07:56.330
+Wenn ich jetzt 'console.log (Spaß)' mache
+
+07:59.610 --> 08:12.670
+es ist nun gleich "AHHHHHH", weil wir in der dritten Funktion modifiziert haben
+
+08:12.720 --> 08:13.550
+Spaß, der diese Variable zu "AHHHHHH" gleich ist.
+
+08:14.000 --> 08:22.480
+Eine Sache, die ich Ihnen zeigen möchte, ist, dass ich in den ersten beiden Funktionen nicht auf die Variable 'Spaß' zugreifen kann
+
+08:22.480 --> 08:29.750
+im root-Bereich, weil ich sie im Wesentlichen innerhalb der 'Fun Function' und 'FunnerFunction' überschrieben habe
+
+08:30.810 --> 08:35.010
+"Spaß" entspricht etwas, das ihre eigene Bedeutung hat.
+
+08:35.010 --> 08:40.890
+In dieser Funktion entspricht Fun also "Hellooo" innerhalb der Funer Fun Function gleich "Byee".
+
+08:41.190 --> 08:49.590
+Und egal was, wir haben keinen Zugriff auf den root-Bereich und das nennt man einen Namenskonflikt,
+
+08:49.590 --> 08:56.610
+wo wir die Dinge auf die gleiche Weise benennen, ein etwas, das lebt, sagen wir im übergeordneten Bereich
+
+08:56.610 --> 08:57.120
+und wir werden den Zugang dazu verlieren.
+
+08:58.070 --> 09:04.710
+Um diesen Punkt zu vervollständigen, lassen Sie uns das einfach löschen und besprechen Sie, was hier passiert.
+
+09:04.800 --> 09:08.640
+Also lasst uns das auch löschen und wir werden hier nur die "console.log" sagen.
+
+09:09.260 --> 09:16.090
+Wenn jemand 'funnestFunction' ausführt, führen wir dies aus und Javascript atmet den Konsolenprotokollspaß.
+
+09:16.530 --> 09:18.660
+Ok Spaß, machen wir,
+
+09:18.660 --> 09:22.060
+Kennen wir sie? und wir schauen uns den Umfang hier an.
+
+09:22.060 --> 09:22.830
+Sie schauen sich diese Funktion an.
+
+09:22.840 --> 09:25.840
+Hey, weißt du was "Spaß" ist?
+
+09:25.930 --> 09:32.840
+Und die Funktion sagt:"Tut mir leid, Freund, ich weiß nicht, was Spaß macht", frage aber meine Eltern.
+
+09:33.070 --> 09:37.110
+So, jetzt gehen wir außerhalb der Funktion.
+
+09:37.210 --> 09:38.890
+In diesem Fall der Bereich der Wurzeln.
+
+09:38.890 --> 09:42.650
+Jetzt sagen wir:Hey, weißt du 'Spaß'?
+
+09:42.700 --> 09:44.830
+Und sie sind wie, Yah yah! Wir haben einen variablen Spaß.
+
+09:44.830 --> 09:46.170
+Es ist gleich fünf.
+
+09:46.570 --> 09:51.000
+Jetzt kann 'console.log' 5 protokollieren.
+
+09:51.180 --> 09:59.760
+Aber wenn 'Spaß' nicht existiert, haben wir die Eltern gefragt und der Elternteil sagt:Tut mir leid, ich habe keine Ahnung, was 'Spaß' ist.
+
+09:59.810 --> 10:03.410
+Dann bekommen wir, nun bekommen wir einen Fehler.
+
+10:03.470 --> 10:07.060
+Die letzte Überprüfung ist also immer der Grundumfang,
+
+10:07.190 --> 10:09.410
+In unserem Fall das Fensterobjekt, wenn wir es nicht finden können.
+
+10:09.410 --> 10:11.360
+Wir bekommen diesen Fehler in der Konsole.
+
+10:11.360 --> 10:12.630
+Wir sehen immer.
+
+10:12.830 --> 10:15.560
+Es tut uns leid! Deine Freund-Variable existiert nicht.
+
+10:15.650 --> 10:19.340
+Ich glaube, du hast sie erfunden, und das war es für den Umfang.
+
+10:19.340 --> 10:22.390
+Ich habe direkt nach diesem Video eine lustige Übung für dich.
+
+10:22.400 --> 10:25.030
+Probieren Sie es aus und wir sehen uns im nächsten.
+

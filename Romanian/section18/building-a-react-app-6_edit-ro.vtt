@@ -1,0 +1,313 @@
+WEBVTT
+
+00:01.470 --> 00:07.810
+Vreau să adaug un ultim lucru pe care l-am trecut cu vederea până acum, pentru că, bine, nu știu
+
+00:07.810 --> 00:10.300
+doriți să vă împușcați cu prea multe lucruri.
+
+00:10.300 --> 00:21.520
+Dacă ne uităm la proiectul nostru. Ei bine, e ... o mulțime de dosare. Chiar dacă este o aplicație simplă,
+
+00:21.520 --> 00:26.380
+vă puteți imagina cum (mult) mai mare și mai mare și mai mare acest fișier sursă poate obține.
+
+00:26.530 --> 00:31.010
+Și organizarea este o mare parte a lucrărilor pe proiecte.
+
+00:31.030 --> 00:36.940
+Cele mai multe aplicații vor fi mult mai mari decât cele pe care le-am construit și avem nevoie de o modalitate bună de organizare
+
+00:36.940 --> 00:40.640
+acestea și structura folderului este unul dintre cele mai importante lucruri.
+
+00:40.660 --> 00:42.520
+Deci, să clarificăm acest cod.
+
+00:42.580 --> 00:48.780
+Vă voi arăta ce aș face dacă am lucra la această aplicație și vreau să o fac mai extensibilă
+
+00:48.790 --> 00:52.660
+care este mai curat atunci când alți oameni vin pe echipa pe care o înțeleg.
+
+00:52.660 --> 00:56.110
+Și, de asemenea, pot continua să crească această bază de cod.
+
+00:59.270 --> 01:09.350
+Primul lucru pe care îl voi face este să creez câteva dosare. Unul va fi numit "componente" și acestea sunt
+
+01:09.350 --> 01:14.240
+componentele pe care le-am construit, cum ar fi "CardList", "SearchBox" și "Scroll".
+
+01:14.300 --> 01:20.560
+Al doilea va fi numit "containere". Și containere
+
+01:20.990 --> 01:29.030
+sunt aceste componente inteligente componentele care conțin, care au stat în ele, care au cârlige de ciclu de viață,
+
+01:29.120 --> 01:31.880
+care au sintaxa de clasă.
+
+01:31.880 --> 01:35.660
+Vedeți aceste componente sau aceste containere,
+
+01:35.660 --> 01:39.680
+nu putem folosi o funcție pură cu ei, deoarece din punct de vedere tehnic ei nu sunt puri.
+
+01:39.740 --> 01:45.630
+Ei au spus că modifică în cadrul acestor funcții și că este OK.
+
+01:45.680 --> 01:52.700
+Este imposibil să avem doar funcții pure, pentru că de cele mai multe ori vom avea nevoie de cereri
+
+01:52.820 --> 01:58.600
+în lumea exterioară. Dar aceste componente sunt speciale și le vom numi containerele pe care le conțin
+
+01:58.600 --> 02:03.560
+lucruri și doar trec de la stat la componente.
+
+02:03.570 --> 02:14.920
+Acum putem spune că vom muta "App.css" acum să fie în "containere".
+
+02:14.920 --> 02:21.800
+De asemenea, vom spune "App.js", o vom muta și în "containere".
+
+02:25.440 --> 02:30.030
+Și apoi componentele, funcțiile simple, funcțiile pure pe care le-am creat
+
+02:30.090 --> 02:33.370
+"CăutareBox", "Scroll" și "CardList"
+
+02:33.390 --> 02:42.370
+Ei bine, acestea pot fi în "componente". Să deschidem dosarul și să facem acest lucru mai simplu. mergând să închideți fila,
+
+02:42.370 --> 02:54.740
+deschideți robofriends și să deschidem sursa. Vom spune că "Scroll", "SearchBox", "Card" și "CardList"
+
+02:54.790 --> 02:58.350
+care sunt doar funcții pure sunt în interiorul "componentelor".
+
+02:59.420 --> 03:05.420
+Acum, dacă vă aduceți aminte că fontul nostru face parte și din fișierul "App.css".
+
+03:05.450 --> 03:11.550
+Așa că o să mutăm și acolo, pentru că este definită acolo. Cu asta să ne întoarcem la aplicația noastră,
+
+03:12.650 --> 03:20.290
+și bine - acum avem o mulțime de eșecuri, deoarece acestea se referă acum la diferite părți. Aplicațiile noastre
+
+03:20.300 --> 03:27.590
+trăiește într-un director diferit de "CardList" și "SearchBox" și "Scroll". Felul în care facem asta este
+
+03:27.590 --> 03:37.940
+noi folosim ".." ceea ce înseamnă să părăsiți dosarul sau să mergeți la dosar și apoi de acolo, du-te în containere
+
+03:40.390 --> 03:44.140
+Oh, îmi pare rău - intră din containere -
+
+03:44.200 --> 03:48.950
+astfel încât în ​​cazul în care "App.js" este, am de gând să plece, care este ".."
+
+03:49.210 --> 03:57.070
+Și atunci când voi ieși aici la nivel de dosar, voi spune "componente" și pot face același lucru
+
+03:57.610 --> 03:58.660
+și restul acestora.
+
+04:05.410 --> 04:11.300
+Salvați și avem și "index.js"
+
+04:11.640 --> 04:15.360
+care se referă acum la "App" care trăiește în containere.
+
+04:15.360 --> 04:21.540
+Deci, din nou, pentru că acum trăim un dosar, suntem în același cartier în timp ce putem doar să
+
+04:22.350 --> 04:25.390
+"./containers/App"
+
+04:25.610 --> 04:30.220
+Să salvăm ... oh, și am spus greșit.
+
+04:30.220 --> 04:31.630
+Bună ortografie de mine.
+
+04:31.760 --> 04:32.920
+Totul arată bine.
+
+04:33.080 --> 04:36.090
+Să ne întoarcem la site-ul nostru.
+
+04:36.090 --> 04:36.840
+Acolo te duci.
+
+04:36.840 --> 04:38.670
+Totul se plimba frumos.
+
+04:39.880 --> 04:40.090
+O.K.
+
+04:40.100 --> 04:43.640
+Deci avem o structură de dosare frumoasă aici.
+
+04:43.650 --> 04:45.360
+Lucrurile s-au curățat.
+
+04:45.370 --> 04:47.750
+Și avem, de asemenea, "Scroll.js"
+
+04:48.470 --> 04:55.500
+Și cred că avem doar o copie suplimentară a acesteia, așa că putem doar ... ar fi putut face o copie a acestui lucru.
+
+04:55.770 --> 04:57.730
+Asigurați-vă că totul funcționează,
+
+04:57.990 --> 04:59.160
+Da, totul funcționează.
+
+05:01.650 --> 05:05.440
+Vrem să eliminăm câteva spații aici pe care le-am făcut.
+
+05:05.460 --> 05:10.120
+De asemenea, observăm câteva erori, deci nu neapărat erori, ci lucruri stilistice.
+
+05:10.140 --> 05:16.710
+De exemplu, cu filtru, spun că filtrează roboții și iterează prin roboți, nu
+
+05:16.710 --> 05:18.270
+are sens, nu-i așa? Ar trebui să fie
+
+05:18.270 --> 05:23.470
+fiecare element este un utilizator "robot" pe care îl obținem.
+
+05:23.610 --> 05:28.380
+Așa că am salvat că încă nu același lucru nici o eroare.
+
+05:28.410 --> 05:35.690
+De asemenea, văd un pic de curățare care se poate face cu - cu utilizarea "this.state" foarte mult,
+
+05:35.770 --> 05:39.490
+putem spune - din nou, folosind distrugerea, putem spune
+
+05:42.100 --> 05:44.320
+"robote const" și "câmp de căutare"
+
+05:44.350 --> 05:45.610
+facem distrugeri -
+
+05:45.700 --> 05:50.810
+este egal cu "acest stat".
+
+05:51.000 --> 05:54.780
+Și acum pot elimina "thisstate" de aici.
+
+05:54.780 --> 06:04.140
+Pot elimina "this.state" de aici și de toate celelalte locuri pe care le folosim "this.state" și
+
+06:04.140 --> 06:08.630
+"face". Dacă salvez, totul funcționează.
+
+06:08.750 --> 06:11.680
+Dar codul este mult mai curat.
+
+06:11.700 --> 06:19.050
+De asemenea, am observat că aici termenul "robots.length" este egal cu zero, de fapt există o modalitate mai ușoară de a face acest lucru.
+
+06:19.050 --> 06:21.150
+Și din nou este doar stilist.
+
+06:21.150 --> 06:23.930
+Aceasta va fi egală cu zero.
+
+06:23.970 --> 06:29.070
+Deci, dacă acest lucru este zero, asta va evalua în JavaScript la fals.
+
+06:29.070 --> 06:31.250
+Așa că putem spune exact opusul.
+
+06:31.300 --> 06:36.470
+Amintiți-vă de sintaxă? deci daca aceasta este zero, care va fi falsa,
+
+06:36.480 --> 06:45.390
+Transformați-l în adevărat, astfel încât dacă nu există roboți, suntem "Încărcați". Salvați și ar trebui să funcționeze în continuare.
+
+06:45.390 --> 06:56.220
+Și apoi, în cele din urmă, dacă vedeți o declarație "în caz contrar", putem să ne întoarcem sau nu putem? putem spune-
+
+06:56.470 --> 06:58.960
+"roboți de întoarcere". Dacă sunt roboți
+
+07:02.540 --> 07:07.060
+"returnați acest lucru", să vedem dacă funcționează încă.
+
+07:09.040 --> 07:10.180
+Nu avem nevoie de acel suport suplimentar.
+
+07:14.200 --> 07:15.630
+Uită-te la asta, încă mai funcționează.
+
+07:15.970 --> 07:19.210
+Și puteți vedea acum că lucrurile sunt mult mai curate.
+
+07:19.210 --> 07:26.670
+Avem o aplicație care ne face toate lucrurile pentru noi.
+
+07:26.670 --> 07:34.800
+Și pentru a termina, amintiți-vă? "Packaged.json"? cum am avut niște scenarii pre-construite? Și am avut această "construire"
+
+07:35.510 --> 07:36.130
+comanda.
+
+07:36.300 --> 07:48.700
+Dacă o opresc acum și fac "NPM build" sau "NPM run build", verificați acest lucru. În timp ce aceasta se construiește
+
+07:48.910 --> 07:57.200
+ei au creat un nou folder numit "build" și aici, avem toate fișierele noastre
+
+07:57.400 --> 08:00.090
+Dar de data aceasta, optimizat. Ce inseamna asta?
+
+08:00.100 --> 08:10.420
+Dacă mergem la "static" și mergem la "js", uită-te la asta, totul este minificat pentru noi, CSS-ul nostru este optimizat
+
+08:11.320 --> 08:19.540
+și tot ceea ce avem nevoie pentru a implementa site-ul web este în acest dosar. Deci, putem să luăm acum acest dosar "construi"
+
+08:19.840 --> 08:21.060
+și pune-l oriunde.
+
+08:21.070 --> 08:24.540
+Deci, este pe internet și chiar vă oferă câteva informații bune.
+
+08:24.700 --> 08:28.780
+Deci, acum avem această optimizată "construire", nu trebuie să o minimalizăm,
+
+08:28.810 --> 08:31.420
+nu trebuie să facem toate aceste optimizări.
+
+08:31.510 --> 08:35.240
+Aceasta trece prin babel, astfel încât să putem folosi declarațiile de import în browsere.
+
+08:35.290 --> 08:40.370
+Și acum acest dosar "construi" poate fi acum pus în aplicare oriunde.
+
+08:40.410 --> 08:44.670
+Asa cum am spus "crea reacție app" ia tot durerea de configurare.
+
+08:44.820 --> 08:51.120
+Totul se face pentru tine, poti scrie doar codul Foloseste componente React din jurul paginii web
+
+08:51.360 --> 08:55.250
+pentru a construi site-uri web frumoase.
+
+08:55.280 --> 08:57.560
+Sper că sunteți entuziasmat de React cum sunt eu.
+
+08:57.560 --> 09:02.680
+Acesta este motivul pentru care este un instrument atât de popular și de aceea multe companii o utilizează acum.
+
+09:03.710 --> 09:04.760
+Ne vedem în următorul.
+
+09:04.970 --> 09:05.350
+Pa! Pa

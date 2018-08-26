@@ -1,0 +1,877 @@
+WEBVTT
+
+00:00.900 --> 00:02.410
+Bine ai revenit.
+
+00:02.420 --> 00:10.380
+Există o ultimă piesă a puzzle-ului de care avem nevoie cu redux și ceva pe care l-am evitat
+
+00:10.710 --> 00:12.600
+până în acest moment.
+
+00:12.750 --> 00:15.620
+Vedeți dacă mergem la App.js
+
+00:16.130 --> 00:21.840
+Vă amintiți că facem această solicitare de preluare a componenteiDidMount.
+
+00:22.000 --> 00:23.890
+Avem o cerere asincronă.
+
+00:23.890 --> 00:34.690
+Facem o cerere către un API prin care să-i apucă pe utilizatori și, în final, stabilind acel stat la roboți.
+
+00:34.730 --> 00:39.890
+Dar cum ar funcționa asta în redux.
+
+00:39.970 --> 00:49.070
+Deoarece ne amintim până acum, tot ce am făcut a fost sincron, pentru că dacă o facem
+
+00:49.070 --> 00:57.850
+același lucru ca și în cazul câmpului de căutare, nu ar funcționa cu preluarea roboților, deoarece trimitem
+
+00:57.850 --> 01:05.860
+o acțiune de a spune să aducem roboți, dar pentru că este asincronă, va merge în altă parte
+
+01:05.860 --> 01:07.810
+lume în API.
+
+01:08.700 --> 01:17.720
+Și încercați să obțineți roboții. Între timp, reductorul va verifica roboții și va spune că există
+
+01:17.730 --> 01:22.880
+niciun robot încă pentru că se află în API-land (și cererea / acțiunea) nu a revenit încă.
+
+01:22.890 --> 01:24.050
+Ca o promisiune.
+
+01:24.090 --> 01:29.070
+Deci reductorul continuă și nu face nicio schimbare deoarece statul nu sa schimbat.
+
+01:29.100 --> 01:36.690
+Deci, cum putem crea acțiuni care sunt asincrone, care încă mai trec prin reductorul magazinului și apoi
+
+01:36.690 --> 01:37.860
+fa schimbari.
+
+01:39.640 --> 01:44.180
+Și aici folosim aplicația middleware.
+
+01:45.500 --> 01:54.400
+Putem folosi ceva numit redux-thunk pentru a gestiona acțiuni asincrone ca apelurile AJAX.
+
+01:54.560 --> 02:04.170
+Este un middleware care oferă funcții de obținere de stare și de expediere care sunt transmise. Tu poți
+
+02:04.170 --> 02:08.840
+gestionați ceva numit efecte secundare precum apelurile AJAX
+
+02:09.000 --> 02:10.440
+cu acest pachet.
+
+02:10.440 --> 02:12.020
+Așa că vă vom arăta cum funcționează.
+
+02:13.520 --> 02:18.050
+Primul lucru pe care vrem să-l facem este să instalați pachetul redux-thunk.
+
+02:18.130 --> 02:22.690
+Așa că am de gând să spun NPM instala redux-thunk.
+
+02:22.940 --> 02:29.380
+Și, la fel ca și în orice, există multe alte modalități de a face față acțiunii asincrone
+
+02:29.400 --> 02:34.190
+Redux. Nu este doar construit în afara porții, deci aveți nevoie de niște pachete.
+
+02:34.190 --> 02:42.450
+Există alte opțiuni, dar redux-thunk este cel mai bun și mai simplu pentru a începe cu.
+
+02:45.140 --> 02:45.820
+In regula.
+
+02:45.980 --> 02:52.320
+Avem un redux-thunk acum și putem pur și simplu să începem să îl folosim accesând index.js
+
+02:52.390 --> 03:07.230
+și aici putem spune că vrem să importăm ceva numit thunkMiddleware de la redux-thunk.
+
+03:07.760 --> 03:13.920
+Din nou, puteți citi totul despre acest lucru și există o documentație despre Github. Think middleware,
+
+03:13.970 --> 03:18.780
+deja știm cum să aplicăm middleware aplicației noastre redux, corect.
+
+03:18.800 --> 03:23.330
+Avem functia noastra applyMiddleware.
+
+03:23.510 --> 03:31.480
+Putem pur și simplu să adăugăm aplicația aplicată sau nu - aplicația thunkMiddleware.
+
+03:31.690 --> 03:35.200
+Și lasă-mă să o pun pe o linie nouă, ca să o puteți vedea mai bine.
+
+03:36.000 --> 03:40.500
+thunkMiddleware pentru aplicația noastră de aplicațieMiddleware.
+
+03:40.500 --> 03:41.360
+Și aceasta este ordonată,
+
+03:41.370 --> 03:48.630
+așa că va trece prin programul thunkMiddleware și apoi pe middleware-ul loggerului. Perfect.
+
+03:48.840 --> 03:54.980
+Deci, să începem NPM.
+
+03:55.250 --> 04:00.820
+Și voi salva și asta, arată bine că totul se desfășoară fără probleme.
+
+04:02.330 --> 04:05.280
+Avem implementat acest middleware acum.
+
+04:05.840 --> 04:11.850
+Dar cum îl folosim de fapt? Ei bine, să începem cu primii pași.
+
+04:11.970 --> 04:21.310
+Primul lucru pe care dorim să-l facem este să creăm o constantă, deci constantă, pentru a cere roboților noștri.
+
+04:21.450 --> 04:28.160
+Amintiți-vă în fișierul app.js că avem acest matrice de roboți care este populat după componentDidMount
+
+04:28.160 --> 04:34.980
+cu, după ce vom face apelul la preluare și vom stabili statul cu noii utilizatori.
+
+04:35.040 --> 04:39.460
+Deci în constanță putem face ceva similar celui de mai sus.
+
+04:39.470 --> 04:49.990
+Putem exporta const REQUEST_ROBOTS. Acum,
+
+04:50.840 --> 04:53.780
+pentru că aceasta va fi o promisiune.
+
+04:53.900 --> 04:58.030
+Va avea trei stări.
+
+04:58.190 --> 05:06.490
+Deci, primul va fi PENDING ceea ce este prima dată când trimitem acea solicitare
+
+05:06.490 --> 05:09.470
+vor aștepta promisiunea de a reveni.
+
+05:09.790 --> 05:22.130
+Deci vom folosi din nou același șir și vom avea și două stări după așteptare
+
+05:22.340 --> 05:25.150
+se întoarce, care este SUCCES
+
+05:30.250 --> 05:31.240
+și, de asemenea, FAILED.
+
+05:39.690 --> 05:45.860
+Această solicitare are trei acțiuni:în așteptare, succes, eșuat.
+
+05:45.930 --> 05:47.250
+Că vrem să urmărim.
+
+05:47.730 --> 05:53.280
+Și din nou, acest lucru este destul de standard, cu toate acțiunile asincrone ca apelurile AJAX.
+
+05:53.520 --> 06:01.670
+Deci, să salvăm asta, iar următorul pas, după cum știm, este de a crea acțiunile care utilizează aceste lucruri.
+
+06:01.710 --> 06:10.080
+Deci, să ne întoarcem la acțiuni și de data aceasta să nu importăm doar CHANGE_SEARCH_FIELD
+
+06:10.080 --> 06:11.260
+mai multe lucruri.
+
+06:17.720 --> 06:22.770
+Voi importa, să copiem și să lipim doar aici pentru că este o mulțime de scriere.
+
+06:23.030 --> 06:27.920
+Să mergem la Constanți.
+
+06:28.180 --> 06:29.590
+Vom importa în așteptare
+
+06:32.400 --> 06:38.150
+succes și apoi a eșuat în cele din urmă.
+
+06:42.720 --> 06:45.140
+Să salvăm.
+
+06:45.380 --> 06:48.320
+Și când primești un avertisment că nu suntem - nu le folosim.
+
+06:48.590 --> 06:57.790
+Deci, să creăm aceste acțiuni acum, așa cum am făcut mai sus, vom exporta const și vom numi
+
+06:57.790 --> 07:06.340
+această cerereRobots și această acțiune ia.
+
+07:06.380 --> 07:08.830
+Ce va face?
+
+07:08.830 --> 07:17.810
+Ei bine, acest lucru este un pic dificil, dar va lua expedierea. Și expedierea,
+
+07:17.840 --> 07:20.650
+Dacă vă aduceți aminte și mergeți la App.js,
+
+07:20.720 --> 07:30.580
+este ceva pe care îl folosim în mapDispatchToProps pe care îl obținem de la redux pentru a trimite acțiunile către
+
+07:30.670 --> 07:32.150
+reductorul.
+
+07:32.380 --> 07:39.100
+Și când ne întoarcem aici, veți vedea că de fapt vom trece la acțiunea noastră.
+
+07:39.100 --> 07:40.780
+Deci avem acces la ea.
+
+07:40.960 --> 07:50.030
+Dar din nou, pentru moment, doar știți că vom avea o expediere, iar aici vom face a
+
+07:50.030 --> 07:53.540
+câteva lucruri care sunt puțin diferite de cele de mai sus.
+
+07:53.540 --> 08:03.820
+Primul lucru când cerem roboți Ei bine, vrem să expediem acțiunea în așteptare și din nou
+
+08:03.820 --> 08:12.430
+poate face doar sintaxa standard a expedierii unui obiect care este de așteptare pentru tipul de cerere al robotului
+
+08:15.020 --> 08:16.700
+și sarcina utilă.
+
+08:17.060 --> 08:19.390
+Ei bine, nu există nici o sarcină reală.
+
+08:19.460 --> 08:26.780
+Avem doar o cerere în așteptare, așa că o putem lăsa așa cum este acum, fără o sarcină utilă.
+
+08:28.340 --> 08:35.220
+Apoi avem ceva ce este asincron.
+
+08:35.220 --> 08:38.230
+Trebuie să facem un apel.
+
+08:38.340 --> 08:41.710
+Așa că avem funcția noastră de preluare.
+
+08:42.060 --> 08:44.690
+Și dacă vă amintiți că mergem la App.js
+
+08:44.730 --> 08:52.650
+Avem acest API pe care trebuie să-l sunăm, dar trebuie de asemenea să răspundeți răspunsul answer.json peste tot
+
+08:52.650 --> 08:52.950
+din nou.
+
+08:52.950 --> 09:02.580
+Deci, voi copia toate astea, mergi la acțiuni și copiezi și lipiți acest lucru.
+
+09:02.830 --> 09:12.600
+Așadar, utilizatorii pe care îi facem pe .then și json le folosim, folosind metoda json pe răspuns.
+
+09:12.600 --> 09:17.750
+Și apoi, în cele din urmă, avem două opțiuni.
+
+09:17.880 --> 09:23.920
+Avem capturile .then și .catch în cazul în care există o eroare sau ceva nu reușește.
+
+09:25.060 --> 09:30.800
+În .Then primim un fel de date care vor fi utilizatori.
+
+09:31.300 --> 09:38.530
+Și odată ce am primit că putem spune expedierea, vom expedia. Ce crezi că mergem
+
+09:38.530 --> 09:40.050
+a trimite, a livra.
+
+09:40.060 --> 09:47.870
+Obiectul care este de tip REQUEST_ROBOTS_SUCCESS
+
+09:50.660 --> 09:53.360
+și de data aceasta încărcătura utilă pentru asta va fi
+
+09:56.160 --> 10:04.310
+datele pe care le primim de la API și cu captura foarte asemănătoare.
+
+10:04.310 --> 10:11.120
+Vom primi un fel de eroare și această eroare se va expedia din nou
+
+10:14.800 --> 10:19.610
+și va avea un tip de REQUEST_ROBOTS_FAILED
+
+10:22.460 --> 10:30.500
+cu o sarcină utilă să-i dăm eroarea pe care o primim.
+
+10:30.500 --> 10:30.950
+In regula.
+
+10:30.950 --> 10:39.260
+Permiteți-mi să fac acest lucru un pic mai mic pentru a putea vedea. Așa că salvăm asta și acum avem acțiunile noastre și asta
+
+10:39.260 --> 10:43.220
+acțiunea este mult mai complicată decât setSearchField.
+
+10:43.220 --> 10:50.240
+Avem o - imediat, când numim această acțiune, o expediere care REQUEST_ROBOTS_PENDING și apoi noi
+
+10:50.330 --> 10:58.490
+prelua utilizatorii, primim utilizatorii, și apoi avem succes fie cu sarcina utilă a utilizatorilor
+
+10:59.000 --> 11:04.180
+sau o eroare cu sarcina utilă de eroare.
+
+11:04.230 --> 11:12.480
+În cele din urmă mergem în reductoare și în reductor știm că vrem să importăm din constante
+
+11:12.780 --> 11:14.270
+aceleași acțiuni pe care le-am avut.
+
+11:14.270 --> 11:21.870
+Deci, hai să mergem la Constance sau să mergem la acțiuni și să copiem exact ceea ce avem aici, de asemenea.
+
+11:24.720 --> 11:27.080
+Pentru că vom avea nevoie de toate acele constante.
+
+11:28.020 --> 11:35.640
+Și acum, aici vom crea un nou reductor deoarece, în loc să combinăm toți acești reductori
+
+11:35.640 --> 11:39.280
+vrem să le facem fiecare specific cazului lor de utilizare.
+
+11:39.480 --> 11:48.490
+Acest reductor se îngrijorează cu privire la robotul de căutare, noul reductor se va îngrijora de cerere.
+
+11:48.630 --> 11:57.660
+Roboții și încă o dată cu aceeași sintaxă avem statul care va egala starea inițială
+
+11:58.560 --> 12:06.220
+și apoi acțiunea care va avea obiect gol implicit.
+
+12:06.430 --> 12:14.390
+Și în interiorul unui obiect sau în interiorul lui vom avea din nou o declarație de comutare care ascultă tipul de acțiune
+
+12:14.390 --> 12:22.070
+și acest tip de acțiune va avea trei stări posibile.
+
+12:22.100 --> 12:32.590
+Un caz este REQUEST_ROBOTS_PENDING caz în care returnăm object.assign
+
+12:32.680 --> 12:38.080
+Din nou, un obiect gol.
+
+12:38.180 --> 12:39.770
+Statul.
+
+12:39.980 --> 12:47.000
+Și apoi, în sfârșit, vom crea un nou stat numit isPending.
+
+12:47.330 --> 12:50.240
+Și aceasta este Pending va fi setat la adevărat
+
+12:53.840 --> 13:00.600
+deoarece roboții de solicitare sunt în așteptare în prezent.
+
+13:00.600 --> 13:01.350
+In regula.
+
+13:01.680 --> 13:08.850
+Următorul lucru pe care îl vom face din nou este că vom avea un caz pentru acest moment.
+
+13:09.240 --> 13:19.130
+Succesul și acest lucru va reveni la obiect. Atribuiți unui obiect gol o stare.
+
+13:19.600 --> 13:34.310
+Și acest nou roboți de proprietate care este action.payload și, de asemenea, dorim să schimbăm starea isPending
+
+13:34.700 --> 13:36.440
+să fii falsă acum
+
+13:39.550 --> 13:43.270
+pentru că am primit răspunsul din promisiune
+
+13:50.350 --> 13:56.470
+și apoi al treilea caz este atunci când există o eroare.
+
+13:57.040 --> 14:00.670
+Și în acest caz vom reveni la obiect
+
+14:04.180 --> 14:16.550
+state și vom avea doar o stare de eroare pe care o vom crea care are acțiunea.payload.
+
+14:16.690 --> 14:23.260
+Și încă o dată vom dori să schimbăm isPending pentru a fi egal cu falsul
+
+14:26.050 --> 14:34.010
+și închideți obiectul. Și amintiți-vă întotdeauna, cu un reductor,
+
+14:34.420 --> 14:43.810
+Vrem să avem la sfârșit, întoarce întotdeauna statul dacă nu corespunde niciunui criteriu.
+
+14:43.810 --> 14:49.250
+Așa că reveniți din nou la stat. Minunat.
+
+14:49.620 --> 14:53.860
+Acum te-ai gândi la starea inițială.
+
+14:54.020 --> 14:59.990
+Avem acest lucru, dar REQUEST_ROBOTS nu-i pasă de câmpul de căutare.
+
+14:59.990 --> 15:06.860
+Și în acest caz vrem să creăm două stări inițiale diferite:una pentru roboții de căutare și una pentru
+
+15:06.860 --> 15:08.460
+roboții cererii.
+
+15:08.600 --> 15:14.560
+Deci, să redenumim acest lucru la inițialStateSearch
+
+15:17.420 --> 15:29.000
+și să creeze un new stateStateRobots de stat care are acum aceste trei stări pe care le-am menționat aici
+
+15:29.570 --> 15:43.360
+care este isPending false pentru a porni cu, o matrice de robot care este în prezent gol, și un șir de eroare
+
+15:43.570 --> 15:45.350
+care este, de asemenea, gol.
+
+15:49.020 --> 15:50.010
+Deci, să salvăm asta.
+
+15:52.910 --> 15:58.810
+Și să vedem câteva erori pe care le avem aici și avem doar o eroare de sintaxă.
+
+16:02.360 --> 16:04.970
+Pentru că nu avem nevoie de acest suport curat.
+
+16:04.970 --> 16:08.220
+Acolo te duci.
+
+16:08.280 --> 16:11.060
+Și din nou vrem să schimbăm setul inițialRoboti.
+
+16:11.080 --> 16:16.050
+în funcție de aceasta.
+
+16:18.250 --> 16:21.420
+Salvăm și totul arată bine.
+
+16:21.430 --> 16:26.770
+Lasă-mă să fac asta puțin mai mic.
+
+16:26.830 --> 16:28.920
+Acum avem o problemă.
+
+16:29.410 --> 16:32.970
+Trebuie să reducătoare acum și dacă mergem la index.js
+
+16:33.060 --> 16:40.360
+vedem că în funcția createStore pur și simplu folosim căutareaRobots reductor.
+
+16:40.780 --> 16:42.760
+Deci, să importăm acum.
+
+16:42.790 --> 16:52.640
+Celălalt reducător pe care îl avem, care este requestRobots și acum adăugați acest lucru și în magazin.
+
+16:53.020 --> 16:55.740
+Dar cum facem asta?
+
+16:58.080 --> 17:08.180
+Ei bine, avem o funcție care vine din nou cu redux numit combineReduceri. Și asta combinăReducerii,
+
+17:08.180 --> 17:15.160
+destul de auto-explicativ, combină toate reductoare într-un reductor rădăcină.
+
+17:15.290 --> 17:16.380
+Deci, să facem asta.
+
+17:16.400 --> 17:23.380
+Am de gând să spun rădăcina lui constReducer va fi egal cu cei dedicațiReducerii.
+
+17:23.750 --> 17:32.120
+Și asta se întâmplă și acceptăm, într-o formă obiectuală, toți reductorii.
+
+17:32.240 --> 17:38.180
+În cazul meu este căutareaRoboturi și requestRobots.
+
+17:38.390 --> 17:44.630
+Și acum acest rootReducer poate fi folosit în magazin pentru a include ambii reductori
+
+17:47.720 --> 17:51.880
+Să salvăm.
+
+17:51.880 --> 17:53.110
+In regula.
+
+17:53.110 --> 17:54.040
+Suntem aproape acolo.
+
+17:55.720 --> 17:58.930
+Acum, pentru că am folosit doar reductoare combinate.
+
+17:58.930 --> 18:03.180
+Este ceva pe care l-am menționat mai devreme, și asta dacă merg în app.js
+
+18:03.340 --> 18:14.950
+și parcurgeți tot drumul până la mapStateToProps, starea noastră nu mai are acum un câmp de căutare ca parte
+
+18:14.950 --> 18:16.200
+din proprietatea sa.
+
+18:16.240 --> 18:25.780
+În schimb, vor avea două proprietăți searchRobots și requestRobots care au fiecare propriile lor
+
+18:25.780 --> 18:26.920
+proprietăți.
+
+18:26.920 --> 18:29.680
+Deci, acum trebuie să actualizăm searchRobots
+
+18:33.370 --> 18:40.190
+ca aceasta, care are proprietatea searchField.
+
+18:40.250 --> 18:50.460
+Deci, aceasta este ceea ce veți vedea cel mai probabil atunci când lucrați în redux în mapStateToProps.
+
+18:50.490 --> 18:58.270
+Acum piesa finală a puzzle-ului:redux-thunk. Cum funcţionează asta?
+
+18:58.680 --> 19:10.740
+Ei bine, redux-thunk este un middleware care asteapta si vede vede daca orice actiune returneaza o functie in loc de
+
+19:10.740 --> 19:12.050
+un obiect.
+
+19:12.440 --> 19:13.360
+Ce inseamna asta?
+
+19:13.740 --> 19:25.740
+Dacă mergem la acțiuni, vedem că acest lucru întoarce un obiect, dar aici nu ne întoarcem un obiect
+
+19:26.100 --> 19:33.930
+suntem, de fapt, nu ne întoarcem nimic acum.
+
+19:34.070 --> 19:36.820
+Think middleware așteaptă o funcție.
+
+19:36.920 --> 19:43.880
+Și dacă vreodată o acțiune care trece prin ea - să ia în considerare un middleware este doar un tunel care acțiunile trec prin
+
+19:44.660 --> 19:49.050
+și observă o funcție pe care o va acționa.
+
+19:49.100 --> 19:53.130
+Deci, să o facem mai întâi și o să explic în detaliu cum funcționează.
+
+19:54.030 --> 19:57.350
+Mai întâi trebuie să mergem la App.js.
+
+19:57.420 --> 20:01.850
+Și în interiorul nostru vrem să actualizăm câteva lucruri.
+
+20:01.900 --> 20:16.610
+Mai întâi dorim să actualizăm starea pentru a include și roboții pentru a avea stat.requestRobots.robots
+
+20:16.640 --> 20:19.960
+Din nou, acesta este statul de la reductor.
+
+20:20.010 --> 20:29.630
+Există și statul isPending din nou prin cererea lorRobots.isPending.
+
+20:30.050 --> 20:43.030
+Și apoi, în cele din urmă, starea de eroare de la încă o dată cere cereriRobots.error
+
+20:43.060 --> 20:51.510
+A doua parte și cea mai importantă parte este acțiunea robotului de cerere.
+
+20:51.680 --> 20:58.240
+Din nou, ceva care înlocuiește această solicitare componentDidMount.
+
+20:58.390 --> 21:05.650
+Modul în care putem face acest lucru este aici, adăugăm o altă proprietate pe care o vom transmite și o putem numi
+
+21:05.650 --> 21:11.000
+orice dorim să spunem peRequestRobots
+
+21:11.000 --> 21:17.820
+și aceasta va fi o funcție și această funcție.
+
+21:17.950 --> 21:23.320
+Amintiți-vă că nu vrem să ne trimitem în mod necesar.
+
+21:23.670 --> 21:28.670
+Vrem să - returnez o funcție de la ea.
+
+21:28.740 --> 21:43.410
+În cazul nostru, este cerereaRobots reductor și această cerereRobots reductor sau acțiune are
+
+21:43.980 --> 21:47.480
+metoda de expediere.
+
+21:47.510 --> 21:48.090
+In regula.
+
+21:48.090 --> 21:49.000
+Știu că sunt multe.
+
+21:48.990 --> 21:51.480
+Deci, hai să trecem prin asta încă o dată.
+
+21:52.800 --> 21:55.770
+Chiar acum avem nevoie de cerereRobots
+
+21:59.230 --> 22:10.620
+acțiune și această cerereRobots acțiune necesită o metodă de expediere pentru a expedia efectiv aceste acțiuni.
+
+22:10.920 --> 22:22.120
+Deci, în App.js trebuie mai întâi să importăm acțiunea noastră care este requestRobots din fișierul actions and
+
+22:22.120 --> 22:30.750
+această cerereRobots trebuie să aibă metoda de expediere.
+
+22:30.760 --> 22:42.580
+Acest lucru este același lucru cu a face acest lucru.
+
+22:43.190 --> 22:54.870
+Și acum această expediție va funcționa atâta timp cât vom folosi redux-tThunk pentru că va prinde
+
+22:54.870 --> 23:00.140
+faptul că aceasta va reveni la o funcție.
+
+23:00.170 --> 23:07.390
+Dacă ne întoarcem la acțiunile noastre, putem face acest lucru acum.
+
+23:13.770 --> 23:25.280
+Bine, ce sa întâmplat? Ei bine, am creat o funcție de ordin superior:o funcție care returnează o funcție.
+
+23:25.280 --> 23:28.810
+Și știu că acest lucru poate deveni un pic confuz, dar un thunk.
+
+23:28.880 --> 23:34.950
+Deoarece acum requestRobots se va întoarce din nou din cauza funcțiilor de eroare.
+
+23:35.000 --> 23:42.800
+Aceasta va însemna că se întoarce acest lucru, va oferi funcția de dispecerizare la acest lucru
+
+23:42.950 --> 23:47.040
+al doilea strat, astfel încât să îl putem folosi aici.
+
+23:47.420 --> 23:55.430
+Din nou, acesta este un lucru la care trebuie doar să vă obișnuiți, dar în cele din urmă, dacă salvați acest lucru, să vedem dacă
+
+23:55.430 --> 23:56.120
+functioneaza.
+
+23:56.140 --> 24:01.530
+Acum știu că e prima oară în jur, așa că probabil am stricat ceva, dar să-l verificăm.
+
+24:04.000 --> 24:07.490
+Refresh și totul funcționează.
+
+24:07.490 --> 24:08.890
+Nu primim erori.
+
+24:09.020 --> 24:19.380
+Dar rețineți că, de fapt, trebuie să conectăm aplicația noastră. Dacă ne întoarcem acum, putem merge la app.js și noi
+
+24:19.380 --> 24:21.690
+au toate aceste elemente de recuzită pe care le putem folosi acum.
+
+24:21.960 --> 24:31.530
+Deci, componentaDidMount nu mai are nevoie să primească apelul de preluare. Tot ce are nevoie este acest lucru.
+
+24:32.760 --> 24:38.940
+și acțiunea pe care o avem cererile noastre roboți peRequestRobots
+
+24:41.590 --> 24:42.200
+perfect.
+
+24:42.430 --> 24:46.670
+De asemenea, nu mai avem nevoie de constructor pentru noi.
+
+24:46.750 --> 24:53.110
+Deoarece nu mai există stări, aceste roboți vor fi acum returnate ca parte a recuzităților
+
+24:53.380 --> 24:56.930
+onRequestRobots.
+
+24:57.040 --> 25:01.100
+Deci, din nou, vom schimba acest stat
+
+25:03.790 --> 25:15.540
+roboți și putem obține, de asemenea, isPending pentru a verifica dacă isPending este adevărat.
+
+25:19.140 --> 25:25.770
+Pentru a reda dacă este adevărat, atunci vrem să facem încărcarea.
+
+25:25.950 --> 25:30.950
+Dacă nu vrem să facem doar prietenii noștri robo.
+
+25:30.970 --> 25:33.660
+Deci, aceștia vin de la popi
+
+25:34.780 --> 25:39.230
+Și acum avem doar componentDidMount în aplicația noastră.
+
+25:39.440 --> 25:45.360
+Să salvăm și să ne întoarcem la aplicația noastră.
+
+25:45.380 --> 25:47.490
+Bine, uită-te la asta.
+
+25:47.780 --> 25:53.990
+Asta nu se întâmplă foarte des, dar am reușit cumva să codific fără să fac nici un fel - fără a face nici o eroare.
+
+25:53.990 --> 25:55.250
+Din nou, aceasta este o raritate.
+
+25:55.250 --> 25:56.210
+Bucură-te de această clipă.
+
+25:56.210 --> 25:57.780
+Cu siguranță mă bucur.
+
+25:57.800 --> 26:05.090
+Vedem aici că suntem concediați "REQUEST_ROBOTS_PENDING" și apoi SUCCESS este concediat din nou.
+
+26:06.760 --> 26:09.070
+Să ne reîmprospătăm rapid.
+
+26:09.070 --> 26:09.400
+In regula.
+
+26:09.400 --> 26:11.300
+Ce se întâmplă dacă cererea nu reușește.
+
+26:11.320 --> 26:14.500
+Să ne întoarcem aici și să mergem la acțiunea noastră
+
+26:14.560 --> 26:18.280
+Și să notăm doar ceva greșit aici, vom spune așa.
+
+26:18.280 --> 26:19.510
+Salvați-l.
+
+26:19.510 --> 26:23.020
+Du-te înapoi și mergeți acolo.
+
+26:23.120 --> 26:27.170
+Avem "REQUEST_ROBOTS_FAILED".
+
+26:27.190 --> 26:31.560
+Foarte tare.
+
+26:31.730 --> 26:32.640
+Să rezolvăm asta.
+
+26:33.620 --> 26:37.040
+Și salvați.
+
+26:37.090 --> 26:37.780
+In regula.
+
+26:37.960 --> 26:44.020
+Avem aplicația noastră care face exact același lucru ca înainte.
+
+26:45.220 --> 26:51.080
+Nimic prea nebun doar ne-a filtrat roboții.
+
+26:51.310 --> 27:02.760
+Dar singura diferență este că avem această abilitate extraordinară de înregistrare și folosim redux.
+
+27:02.850 --> 27:07.340
+Foarte tare.
+
+27:07.350 --> 27:10.180
+Vreau să mai trec peste asta.
+
+27:11.850 --> 27:16.450
+Și acest lucru se datorează faptului că este un pic de punct de lipit pentru majoritatea oamenilor.
+
+27:18.640 --> 27:25.720
+Amintiți-vă această cerereRobots, cum are aceste două funcții.
+
+27:25.930 --> 27:29.210
+CerereaRobot, chiar acum redux,
+
+27:29.220 --> 27:36.160
+din cutie, nu ar înțelege acest lucru, pentru că nu întoarcem un obiect, deoarece se așteaptă la o acțiune.
+
+27:36.220 --> 27:46.090
+Vom reveni la o funcție și această funcție nu va însemna nimic. Prin adăugarea middleware redux-thunk,
+
+27:46.240 --> 27:47.980
+acum ascultăm acțiunile.
+
+27:48.040 --> 27:54.490
+Și de fiecare dată când acțiunea requestobobots se declanșează, va reveni la o funcție și va declanșa redux-thunk
+
+27:54.490 --> 28:00.780
+și redux-thunk va spune - oh aceasta este o funcție pe care o voi da, aici este expedierea
+
+28:00.790 --> 28:08.350
+astfel încât să puteți numi de fapt niște acțiuni și, în final, putem să ne purtăm astfel de acțiuni.
+
+28:08.350 --> 28:15.240
+Deci, dacă revenim la diagrama noastră, am creat un sistem în care acțiunile sunt declanșate.
+
+28:15.390 --> 28:17.310
+Ei trec prin orice middleware.
+
+28:17.370 --> 28:24.030
+Dacă este vorba despre o schimbare a termenului de căutare, va merge direct la reductor, va trece printr-o funcție drăguță
+
+28:24.450 --> 28:32.730
+actualizați magazinul și modificați viziunea noastră. Dacă cerem roboți, va observa că este a
+
+28:32.730 --> 28:39.120
+funcția va intra în middleware, iar redux-thunk va spune.
+
+28:39.140 --> 28:47.250
+În primul rând, trimiteți doar în așteptare la reductor și vă voi anunța când voi termina cu promisiunea
+
+28:48.000 --> 28:50.490
+și vă anunț dacă am roboți.
+
+28:50.740 --> 28:59.080
+Iar când se întoarce, va trimite succesul, va trece prin reductor, va actualiza magazinul și va face
+
+28:59.230 --> 29:00.010
+schimbări.
+
+29:01.410 --> 29:03.570
+Pfiu! A fost foarte mult.
+
+29:03.630 --> 29:09.550
+Dar dacă ai ajuns atât de departe și înțelegi că ai obținut destul de mult redux.
+
+29:09.600 --> 29:10.440
+Asta e.
+
+29:10.440 --> 29:13.730
+Aceasta este întreaga bibliotecă redux.
+
+29:13.980 --> 29:15.230
+Este foarte simplu.
+
+29:15.240 --> 29:20.340
+Și odată ce începeți să o utilizați de câteva ori și vă simțiți confortabil cu ea este cu adevărat frumoasă
+
+29:20.370 --> 29:21.850
+modul în care funcționează totul.
+
+29:21.870 --> 29:24.150
+Dar pentru moment, hai să facem o pauză.
+
+29:24.150 --> 29:26.240
+Mulțumesc că te uiți și te văd în următoarea.
+
+29:26.550 --> 29:27.000
+Pa! Pa

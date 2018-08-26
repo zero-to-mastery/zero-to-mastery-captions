@@ -1,0 +1,677 @@
+WEBVTT
+
+00:01.610 --> 00:02.320
+In Ordung.
+
+00:02.360 --> 00:10.460
+Hoffentlich hatte jeder eine Chance, das kleine Rätsel des Advents von Code Santa zu lösen, das er hier hat.
+
+00:10.610 --> 00:18.590
+Ich werde Ihnen jetzt zeigen, was ich tun würde, wenn ich diese Frage lese oder wenn ich mir das anschaue
+
+00:18.590 --> 00:24.980
+logisches Problem, das wiederum in Interviews oft gefragt wird.
+
+00:25.130 --> 00:33.410
+Und heute, wenn Sie komplexe Probleme lösen, sind es normalerweise die kleinen Brocken logischer Fragen
+
+00:33.410 --> 00:35.190
+die gefragt werden und du lösen willst.
+
+00:35.600 --> 00:38.320
+Also werde ich durchgehen, was ich tun würde.
+
+00:38.330 --> 00:43.130
+Es ist nicht der einzige Weg, aber was ich tun würde, um diese Probleme zu lösen.
+
+00:44.520 --> 00:44.880
+In Ordung.
+
+00:44.910 --> 00:47.520
+Inzwischen haben Sie alle die Frage gelesen.
+
+00:47.520 --> 00:57.630
+Und was wir tun müssen, also würde ich nach dem Lesen der Frage meinen Puzzle-Input bekommen, den ich hier habe.
+
+00:57.660 --> 01:05.230
+Ich werde das alles kopieren und genau hier habe ich meinen 'genialen Knoten' Ordner, in dem nichts ist.
+
+01:05.310 --> 01:14.830
+Ich werde nur eine 'santa.txt'-Datei erstellen und in dieser Textdatei werde ich die Anweisungen kopieren und einfügen.
+
+01:14.860 --> 01:18.400
+Nun, wir haben keine Ahnung, was vor sich geht.
+
+01:19.810 --> 01:21.290
+Lass mich das schließen.
+
+01:21.760 --> 01:29.140
+Wenn ich jetzt die Frage lese, möchte ich zuerst sicherstellen, dass ich eine Skriptdatei habe
+
+01:29.950 --> 01:33.750
+dass ich rennen kann. In Ordung.
+
+01:33.750 --> 01:39.610
+Bevor ich jetzt anfange, etwas zu programmieren, muss alles in meinem Kopf Sinn machen.
+
+01:39.840 --> 01:41.710
+Und ich mag es, Dinge organisiert zu halten.
+
+01:41.910 --> 01:48.570
+Das erste, was ich normalerweise tue, ist, dass ich das sage und sage - wenn wir die Frage lesen, wissen wir das
+
+01:48.570 --> 01:50.530
+Es gibt zwei Teile.
+
+01:50.790 --> 01:53.810
+Es gibt Frage Nummer eins.
+
+01:54.030 --> 01:55.660
+Frage Nummer zwei.
+
+01:55.840 --> 02:09.670
+Wir werden uns also nur auf den ersten konzentrieren, der lautet:"In welchem ​​Stock landet der Weihnachtsmann?"
+
+02:09.740 --> 02:16.800
+Und die zweite Frage ist, wenn wir hier sind, der erste Charakter, der ihn dazu bringt, den Keller zu betreten.
+
+02:16.820 --> 02:27.150
+Wir wollen also sagen "Wann kommt der Weihnachtsmann zuerst in den Keller".
+
+02:27.170 --> 02:27.560
+In Ordung.
+
+02:27.560 --> 02:29.680
+So, jetzt habe ich alles klar.
+
+02:29.780 --> 02:32.480
+Und wir wissen auch, dass es ein paar Regeln gibt.
+
+02:32.660 --> 02:47.190
+Die Regeln lauten:Dieses Zeichen bedeutet, dass "es" oder "nicht" - "Weihnachtsmann" ein Stockwerk höher gehen sollte.
+
+02:47.320 --> 02:56.680
+Und ich weiß auch, dass dieser Charakter das Gegenteil ist und eine Etage tiefer gehen sollte. Und ich weiß, dass das ist
+
+02:56.680 --> 03:02.980
+albern, aber es ist wirklich wichtig für dich, Dinge zu schreiben und zu verstehen, was du machst und was
+
+03:02.980 --> 03:04.540
+Deine Ziele sind.
+
+03:04.570 --> 03:15.000
+Wir wissen, dass wir diese Frage anhand dieser Parameter, die wir von unseren Eingaben erhalten, lösen wollen
+
+03:15.000 --> 03:17.700
+ist jetzt gut jibberish.
+
+03:19.450 --> 03:19.660
+Recht.
+
+03:19.670 --> 03:25.120
+Also Frage Nummer eins immer gerne mit einer netten Funktion starten und wir werden nur sagen.
+
+03:25.120 --> 03:26.870
+'Frage 1'.
+
+03:28.650 --> 03:34.930
+Und in 'question1' werde ich unsere Lesedatei machen.
+
+03:34.980 --> 03:38.760
+Also lass uns nach oben gehen und machen.
+
+03:38.790 --> 03:45.040
+'const fs = erfordern (' fs ')'
+
+03:45.170 --> 03:49.380
+Alles klar und wir haben das schon gemacht, also sollte das ziemlich einfach sein.
+
+03:49.520 --> 03:53.140
+fs.readFile
+
+03:53.220 --> 03:58.050
+Wir werden die 'santa.txt'-Datei lesen.
+
+03:59.010 --> 04:04.290
+Und die Datei santa.txt wird einen Fehler oder Daten bekommen
+
+04:07.350 --> 04:10.580
+und hier werden wir "Irrtum" ignorieren.
+
+04:10.620 --> 04:23.480
+Ich bin mir sicher, dass es funktionieren wird, also werde ich nur sagen, 'const directions' werden 'data.toString ()'
+
+04:25.120 --> 04:29.780
+und das an sich bedeutet, dass die 'Richtungen' Variable
+
+04:30.190 --> 04:31.120
+jetzt hat
+
+04:33.810 --> 04:35.020
+die Richtungen, die wir wollen.
+
+04:35.040 --> 04:38.540
+Lass mich das einfach laufen lassen, um sicherzugehen, dass alles in Ordnung ist.
+
+04:39.840 --> 04:46.900
+Und Sie haben hier gesehen, dass nichts gedruckt wird, weil diese Funktion nie ausgeführt wurde - also machen wir das.
+
+04:46.920 --> 04:47.610
+Wir werden sagen.
+
+04:47.610 --> 04:49.630
+'Frage 1()'.
+
+04:49.980 --> 04:51.000
+Lass es uns laufen.
+
+04:54.140 --> 05:00.990
+Es sieht so aus, als würden wir all diese Informationen ausdrucken, was genau das ist, was wir wollen.
+
+05:00.990 --> 05:02.630
+Das sind die Richtungen.
+
+05:02.820 --> 05:09.390
+Und das ist eine andere Sache. Ich mag es, Dinge Schritt für Schritt zu erledigen, um sicherzustellen, dass alles funktioniert, bevor ich schreibe
+
+05:09.390 --> 05:14.210
+alles raus und dann "äh-oh, irgendwas stimmt nicht, aber ich weiß nicht, was los ist."
+
+05:14.220 --> 05:21.780
+Ich gehe einen Schritt nach dem anderen und logisiere es logisch in meinem Kopf, um sicherzustellen, dass es Sinn macht. So wie ich bin
+
+05:21.780 --> 05:23.010
+dies zu schreiben,
+
+05:23.010 --> 05:25.690
+alles fließt, als würde ich sprechen.
+
+05:25.740 --> 05:33.030
+Wir haben die erste Frage, die wir lesen Datei (santa.txt) und von der "santa.txt", wir bekommen die Anweisungen.
+
+05:33.030 --> 05:33.650
+In Ordung.
+
+05:33.810 --> 05:35.820
+Was wollen wir als nächstes machen?
+
+05:36.120 --> 05:41.600
+Nun, wir sahen in der Ausgabe, dass diese, nun, es ist nur eine große Zeichenfolge.
+
+05:41.610 --> 05:44.320
+Aber im Idealfall können wir sie teilen.
+
+05:44.670 --> 05:50.460
+Also, wenn wir sie teilen, können wir jede einzeln analysieren, wie ein Array, vielleicht können wir das in einem
+
+05:50.460 --> 06:02.470
+Array, so eine hinterhältige Art, dies zu tun, können wir einfach sagen 'Const RichtungenArray' und diese Richtungen
+
+06:02.470 --> 06:13.460
+Array wird in Arrays aufgeteilt, indem man '.split' tut und es so aufteilt.
+
+06:13.580 --> 06:17.180
+Und es gibt nur ein kleines Stenogramm.
+
+06:17.570 --> 06:21.500
+Also nochmal wenn ich 'console.log (directionsArray)'
+
+06:27.710 --> 06:31.400
+Da gehst du, ich habe alles in einer Reihe.
+
+06:31.400 --> 06:35.500
+Das sind viele Elemente im Array, aber jetzt ist alles einzeln aufgeteilt.
+
+06:35.700 --> 06:41.810
+Alles klar, nächster Schritt. Ich habe also jedes Array, also wollen wir jedes davon lesen, weil jedes gleich ist
+
+06:41.810 --> 06:45.680
+entweder auf 1 oder auf 1.
+
+06:45.740 --> 06:52.820
+Und wir wollen das überblicken, wir wollen über jeden von ihnen gehen, aber wir sammeln etwas richtig.
+
+06:52.820 --> 06:57.980
+Wir sagen "Eins", wenn wir zwei Stockwerke höher haben, sind das "Zwei".
+
+06:58.070 --> 07:02.930
+Wenn wir eins runter gehen, ist das "Eins" - wir addieren und subtrahieren ständig.
+
+07:02.930 --> 07:06.560
+In diesem Fall können wir tatsächlich reduzieren.
+
+07:06.860 --> 07:19.260
+Also, mit Reduce, kann ich sagen "const antwort" in diesem Fall wird "directionArray. (Reduzieren)" und dies reduzieren
+
+07:19.470 --> 07:21.870
+übernimmt die erste Funktion.
+
+07:21.870 --> 07:30.990
+Der erste Parameter ist also eine Funktion und diese Funktion nimmt den Akkumulator und ich mache einfach 'acc'.
+
+07:30.990 --> 07:33.600
+jetzt, nur weil es kürzer ist.
+
+07:33.840 --> 07:38.110
+Und dann ist der zweite der aktuelle Wert.
+
+07:38.190 --> 07:43.690
+Lass mich das kleiner machen, damit du es sehen kannst - und das ist eine Funktion
+
+07:46.560 --> 07:48.560
+dass wir hier ein paar Sachen machen werden.
+
+07:48.570 --> 07:53.700
+Aber der zweite Parameter ist, womit wir anfangen wollen, im Akkumulator.
+
+07:53.700 --> 07:55.080
+Also fangen wir mit Null an.
+
+07:55.080 --> 08:01.150
+Der Weihnachtsmann ist also im Erdgeschoss, hier im Erdgeschoss
+
+08:01.200 --> 08:11.690
+Wir können nur sagen, wenn der aktuelle Wert - weil Karten über jedes dieser Elemente und wenn die aktuelle
+
+08:11.690 --> 08:20.410
+Wert '===' und sagen wir mal, das ist 1 Etage.
+
+08:20.410 --> 08:29.440
+Wenn das der Fall ist, können wir einfach 'zurückkommen'.
+
+08:29.540 --> 08:36.750
+'+ = 1', das ist Kurzform für Akkumulator plus 1.
+
+08:37.160 --> 08:40.770
+Das addiert also einen zum Akkumulator.
+
+08:40.850 --> 08:48.060
+Wenn also das erste Element hier eine kleine Klammer ist, wird es 0 plus 1 sein.
+
+08:48.070 --> 08:57.000
+Also wird der Weihnachtsmann eine Stufe nach oben gehen und dann sagen wir 'sonst, wenn'
+
+08:57.610 --> 08:59.320
+'aktuellerWert ==='
+
+09:02.520 --> 09:06.330
+die entgegengesetzte Klammer ')', als wir das genaue Gegenteil tun.
+
+09:06.330 --> 09:12.490
+Und wir gehen zu unserem 'Return acc - = 1'.
+
+09:12.540 --> 09:13.920
+Also wird es einen runter gehen
+
+09:17.250 --> 09:17.890
+In Ordung.
+
+09:18.300 --> 09:22.460
+Lassen Sie uns das also einfach aus Neugierde sehen und sehen, was passiert.
+
+09:22.480 --> 09:32.380
+Ich werde 'klar' und renne dieses Mal und wir bekommen nichts, weil wir nichts gesagt haben.
+
+09:33.430 --> 09:37.790
+Also lasst uns am Ende dieses Protokolls loggen:Wir haben die Antwort.
+
+09:37.900 --> 09:42.510
+Also lass uns einfach 'console.log'
+
+09:45.720 --> 09:46.570
+'Antworten:'
+
+09:47.490 --> 09:52.980
+Und wir werden sagen, dass die "Antwort:" oder wir werden einfach "Boden" sagen:09:53.760 --> 10:00.750
+also wenn ich das nochmal durchführe. Oh, oh, ich bekomme einen kleinen Fehler, weil ich vergessen habe, hierher zu kommen.
+
+10:00.750 --> 10:01.660
+Wie dumm von mir.
+
+10:01.710 --> 10:09.490
+Lassen Sie uns das noch einmal ausführen, lassen Sie mich klar und ich bekomme 'Boden:280' und das ist die Antwort.
+
+10:09.490 --> 10:11.920
+Dort endet der Weihnachtsmann.
+
+10:12.010 --> 10:18.020
+Er endet auf 280, wenn er der Richtung bis zum Ende folgt.
+
+10:19.230 --> 10:20.490
+Sehr cool.
+
+10:20.490 --> 10:32.600
+Also noch einmal aus reiner Neugier, lass uns Zeit hinzufügen, um herauszufinden, wie lange das dauert - und wir werden "console.time" sagen
+
+10:32.690 --> 10:37.540
+Hoppla Whoa.
+
+10:37.670 --> 10:40.410
+Mein kleiner Tab funktioniert heute nicht gut.
+
+10:40.520 --> 10:48.370
+Und wir werden in dieser Funktion "Santa-Time" und diese "Santa-Time" sagen.
+
+10:48.470 --> 10:58.960
+Bis wir die Antwort bekommen, werden wir 'Santa-Time' sagen - und wenn ich das mache, läuft unsere Funktion vierhundert
+
+10:59.530 --> 11:02.910
+siebenunddreißig, 0.437ms
+
+11:02.980 --> 11:07.570
+Also ziemlich schnell, weil wir nichts zu verrückt machen.
+
+11:07.570 --> 11:09.640
+So neugierig, warum du hierher gekommen bist.
+
+11:09.640 --> 11:15.110
+Denken Sie daran, dass dies wirklich von der Art der Maschine abhängt, von der Art der Maschine, auf der Sie arbeiten.
+
+11:15.130 --> 11:20.400
+Aber es macht auch wieder Spaß darüber nachzudenken, wie man seinen Code strukturiert.
+
+11:20.650 --> 11:23.680
+So ist es, zuerst macht es Sinn.
+
+11:23.740 --> 11:25.030
+Es läuft gut.
+
+11:25.450 --> 11:32.170
+Und Sie wollen auch sicherstellen, dass es effizient ist - und das betrachten.
+
+11:32.200 --> 11:34.820
+Wir machen nichts zu ineffizient.
+
+11:35.020 --> 11:42.230
+Okay, lass uns zur zweiten Frage übergehen. Und Frage Nummer zwei - machen wir Platz für diese Frage
+
+11:42.230 --> 11:47.270
+Nummer 2 fragt, wann der Weihnachtsmann das Kellergeschoss betritt.
+
+11:47.270 --> 11:54.650
+Also, das ist gut, diese Schleife hier zu benutzen - wenn der Weihnachtsmann anfängt Richtung zu bekommen.
+
+11:54.650 --> 11:59.030
+Wann geht Akkumulator in die negative Zahl?
+
+11:59.170 --> 12:05.030
+Jetzt kann ich das einfach kopieren und in Frage Nummer zwei einfügen.
+
+12:06.650 --> 12:10.750
+Und vielleicht fügen Sie hier eine 'if'-Anweisung hinzu.
+
+12:10.910 --> 12:19.120
+Vielleicht kann ich sagen, wenn acc weniger als null ist.
+
+12:20.170 --> 12:25.730
+Dann wissen Sie, wir können 'console.log' die Antwort sagen.
+
+12:25.870 --> 12:27.750
+Und das funktioniert gut.
+
+12:28.620 --> 12:34.550
+Aber wenn wir wieder über die Frage nachdenken, reduziert dies die Übersicht über alles.
+
+12:34.650 --> 12:40.320
+Und Sie erinnern sich, dass dies eine ziemlich große Gruppe ist, die wir aus den Richtungen erstellen.
+
+12:40.350 --> 12:45.900
+Also, wenn Santa, auf den ersten Zug, in den Keller geht.
+
+12:46.020 --> 12:50.290
+Und dann gehen wir immer noch durch jedes Element in dem Array.
+
+12:50.370 --> 12:52.530
+Das ist ein bisschen verschwendete Zeit.
+
+12:52.770 --> 12:53.310
+Recht.
+
+12:53.310 --> 13:00.750
+Also wollen wir über die Probleme auf eine Art und Weise nachdenken, die für uns Sinn ergibt und effizient ist; und das ist etwas
+
+13:00.810 --> 13:02.630
+wieder, dass du üben willst.
+
+13:02.630 --> 13:07.680
+Macht es Sinn in deinem Kopf, wenn du das manuell machen sollst?
+
+13:07.920 --> 13:17.250
+Würdest du Schritt für Schritt durch alles gehen, oder würdest du einfach aufhören, wenn der Weihnachtsmann in den Keller kommt?
+
+13:17.250 --> 13:19.080
+in die negative Zahl.
+
+13:19.080 --> 13:21.700
+Also lass uns einen besseren Weg finden
+
+13:21.720 --> 13:26.280
+Frage Nummer zwei. Wieder mit Frage Nummer zwei
+
+13:26.290 --> 13:41.420
+Ich werde 'function question2 ()' sagen, und hier werden wir 'fs.readFile' noch einmal sagen.
+
+13:44.490 --> 13:50.550
+Und diese gelesene Datei wird './santa.txt' lesen.
+
+13:50.760 --> 13:52.530
+Auch dies ist das gleiche wie oben.
+
+13:52.650 --> 14:01.800
+Also werde ich das schnell machen, und als allererster Teil sind das die Richtungen und das Erhalten
+
+14:01.800 --> 14:08.280
+sie in ein Array, das ist das gleiche, also werde ich nur das kopieren, wieder die Richtungen zu machen
+
+14:08.280 --> 14:10.230
+in ein Array, indem Sie es teilen.
+
+14:10.350 --> 14:18.300
+Und jetzt werde ich eine kleine Funktion hinzufügen, die in diesem Fall besser ist, als zu reduzieren. Also gehe ich
+
+14:18.300 --> 14:24.000
+sagen wir 'const answer = directionsArray.some ()'
+
+14:24.200 --> 14:33.960
+Und etwas, was es tut, wird durch das Array schauen, Schritt für Schritt gehen und wenn es etwas findet
+
+14:33.960 --> 14:37.600
+das passt, es wird aufhören zu loopen.
+
+14:37.800 --> 14:46.260
+Mit 'directionsArray.some' werde ich den aktuellen Wert und diesen aktuellen Wert haben.
+
+14:46.800 --> 14:52.800
+Das ist also der Gegenstand oder die Klammer, die wir bekommen.
+
+14:54.140 --> 14:55.570
+Also dieser aktuelle Wert.
+
+14:56.000 --> 15:01.250
+Wieder werden wir dies tun if-Anweisung, aktueller Wert und aktueller Wert, wir werden einen oder hinzufügen
+
+15:01.250 --> 15:02.540
+subtrahiere eins.
+
+15:02.540 --> 15:05.820
+Also nochmal ich kopiere es und füge es hier ein.
+
+15:05.820 --> 15:14.160
+Aber wieder haben wir in dieser Funktion nicht wirklich ac. Und weil wir nicht wirklich eine Reduzierung verwenden, aber
+
+15:14.160 --> 15:19.820
+wir wollen einen Zähler im Auge behalten, um zu sehen, wann der Weihnachtsmann den Keller betreten wird.
+
+15:19.830 --> 15:24.600
+Also außerhalb der Funktion werde ich "Akku lassen" sagen.
+
+15:24.720 --> 15:35.890
+Lassen Sie mich dieses Mal nur beschreibender sein, und wir sagen 0 und dieser Akkumulator wird inkrementiert
+
+15:36.010 --> 15:37.410
+basierend auf den Anweisungen.
+
+15:37.420 --> 15:37.880
+In Ordung.
+
+15:38.050 --> 15:45.080
+Also, lass uns sehen, was meine 'console.log antwort' sein wird.
+
+15:45.190 --> 15:51.520
+Also werden wir noch mal sagen 'Keller betreten bei:'
+
+15:54.670 --> 16:01.060
+und wir sagen 'antwort' und lassen mich einfach entfernen
+
+16:01.060 --> 16:06.860
+Frage 1 für jetzt und nur Frage zwei ausführen.
+
+16:07.070 --> 16:12.940
+Lass uns das laufen lassen, "Keller betreten bei:true".
+
+16:13.160 --> 16:19.760
+Und wir haben hier einen Fehler gemacht, denn was wir von "etwas" machen wollen, ist, dass wir etwas zurückgeben wollen, was wir wollen
+
+16:19.760 --> 16:22.930
+zurückkommen, wenn ein Ziel erreicht wird.
+
+16:22.940 --> 16:26.600
+Also werden wir am Ende sagen "Rückholakku"
+
+16:29.060 --> 16:32.930
+und wenn der Akkumulator größer als Null ist.
+
+16:32.960 --> 16:41.720
+Remember return beendet die Funktion; Wir werden sagen "Stop, was auch immer du tust" und dann geht das
+
+16:41.720 --> 16:43.040
+um die Funktion zu beenden.
+
+16:43.100 --> 16:48.080
+Aber wir wollen wissen wann der Weihnachtsmann den Keller betritt.
+
+16:48.080 --> 16:54.490
+Das ist also a:Welche Anzahl von Richtungen macht der Weihnachtsmann, bevor er den Keller betritt?
+
+16:54.500 --> 16:57.730
+Also brauchen wir auch einen Zähler.
+
+16:57.840 --> 17:00.390
+Also wird dieser Zähler gleich Null sein.
+
+17:00.600 --> 17:03.830
+Und ich habe hier ein paar Semikolons verpasst, aber das ist in Ordnung.
+
+17:04.020 --> 17:14.520
+Und wir werden den Zähler jedesmal erhöhen, wenn er einen Gegenstand durchläuft.
+
+17:14.680 --> 17:23.540
+Und jetzt die Antwort, nun, nicht das, aber die Antwort wird der Zähler selbst sein.
+
+17:23.540 --> 17:32.780
+Wenn ich also zähle, spare, okay und lass uns das laufen lassen. Und ich habe hier einen Fehler gemacht, weil es so ist
+
+17:32.780 --> 17:39.740
+immer noch Null, weil der Zähler nach der Return-Anweisung inkrementiert wird.
+
+17:39.740 --> 17:44.710
+Also 'currentValue', nennen wir das 'currentItem'.
+
+17:44.750 --> 17:52.630
+Es ist viel aussagekräftiger:"currentItem".
+
+17:52.710 --> 17:55.820
+Dies wird zurückgegeben, bevor Sie überhaupt den Schalter schlagen.
+
+17:55.890 --> 18:01.570
+In unserem Fall brauchen wir, anders als oben, die Rückmeldung nicht wirklich.
+
+18:04.640 --> 18:09.330
+Wir werden sparen, rennen und los gehts.
+
+18:09.570 --> 18:14.210
+Und die Antwort in diesem Fall ist ein tausend siebenhundertzweiundneunzig.
+
+18:15.770 --> 18:16.390
+Genial.
+
+18:16.400 --> 18:24.260
+Also, um es noch einmal zu testen, lasst uns jetzt unsere 'Santa-Zeit' benutzen, um von oben zu kopieren und wir werden es einfach aufstellen
+
+18:24.260 --> 18:35.210
+die Spitze für 'console.time' und das Ende für 'console.timeEnd'. Mal sehen, wie schnell diese Funktion läuft.
+
+18:35.370 --> 18:38.910
+Wir haben wieder ziemlich schnell.
+
+18:38.910 --> 18:47.200
+Aber wenn ich reduzieren würde, was in unserem Fall das ist, was wir für die erste Frage verwenden.
+
+18:47.200 --> 18:52.470
+Lasst uns das einfach durchgehen, das sehen wir
+
+18:52.640 --> 18:59.090
+Nun, die erste Runde von console.time ('santa-time') ', die Frage 1 ist
+
+18:59.130 --> 19:12.790
+Lass mich hier einfach ein q1 hinzufügen, damit wir sehen können, und q2, um sicherzustellen, dass die Labels übereinstimmen
+
+19:18.460 --> 19:19.940
+Lass uns das nochmal machen.
+
+19:30.390 --> 19:32.040
+Das ist viel besser in Ordnung.
+
+19:32.040 --> 19:35.930
+So sehen wir diese Frage 1.
+
+19:36.050 --> 19:42.540
+Definitiv lang, läuft ein wenig länger als Frage 2, weil wir beim ersten Durchlauf durchschleifen müssen
+
+19:42.540 --> 19:43.520
+alles.
+
+19:43.530 --> 19:47.540
+Beim zweiten Mal ist es viel weniger Zeit. Nur zum Spaß
+
+19:47.550 --> 19:50.690
+wieder, wie es ist, unsere Annahmen zu testen.
+
+19:50.730 --> 19:52.980
+Also wenn die erste Richtung war
+
+19:56.000 --> 20:01.160
+nach unten gehen. Mal sehen was passiert.
+
+20:01.160 --> 20:06.890
+Alles klar, das ist ein bisschen schneller als vorher.
+
+20:06.900 --> 20:12.720
+Nicht viel, weil wir immer noch ein bisschen rechnen, aber immer noch viel schneller als gehen
+
+20:12.720 --> 20:19.600
+durch diese vielen Gegenstände. Für den Fall, dass Sie sich fragen, warum in diesem Fall die Frage 2 endete
+
+20:19.650 --> 20:23.400
+vor Frage eins und nicht so in den anderen Fällen,
+
+20:23.400 --> 20:30.890
+Denken Sie daran, dass die Datei lesen asynchron ist. Welches auch immer zuerst zurückkehrt, wird zurückgegeben.
+
+20:30.930 --> 20:31.470
+In Ordung.
+
+20:31.470 --> 20:33.480
+Hoffe, du hast Spaß mit den Herausforderungen.
+
+20:33.670 --> 20:40.800
+Wenn dir das gefallen hat, empfehle ich dir, das Aufkommen von Code und hoffentlich als Gruppe zu erleben,
+
+20:40.920 --> 20:42.010
+mit unserer Gemeinschaft.
+
+20:42.210 --> 20:49.100
+Wenn der Dezember herumrollt, sind wir alle bereit, die Einführung des Codes für dieses Jahr zu folgen.
+
+20:49.170 --> 20:50.730
+Wir sehen uns im nächsten. Tschüss

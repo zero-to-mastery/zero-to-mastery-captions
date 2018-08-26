@@ -1,0 +1,272 @@
+WEBVTT
+
+00:01.730 --> 00:10.480
+Wenn wir nun '/ profile /:id' betrachten, ist das nicht wirklich nützlich, um nach 'home' zu gehen, oder? Denn einmal
+
+00:10.480 --> 00:23.150
+wir melden uns an, wir haben unsere Benutzerinformationen und vielleicht '/ profile /:id' wird nützlich sein, um unsere zu erfassen
+
+00:23.150 --> 00:29.920
+Profil und vielleicht aktualisieren Sie unseren Namen oder unsere E-Mail.
+
+00:30.010 --> 00:34.600
+Das können wir vielleicht in Zukunft in unsere App einbauen.
+
+00:35.870 --> 00:45.110
+Aber die eine, auf die ich mich wirklich konzentrieren möchte, ist unsere letzte Route, die "Bild" ist, die uns erlaubt, zu erhöhen
+
+00:45.500 --> 00:48.400
+die Anzahl unserer 'Einträge'.
+
+00:48.460 --> 00:50.350
+Lasst uns in diesem Video daran arbeiten.
+
+00:50.350 --> 00:59.290
+Jedes Mal, wenn wir am Front-End senden, möchten wir, dass der Benutzer diesen Weg einschlägt, damit wir ihn erhöhen können
+
+00:59.380 --> 01:03.750
+Einträge zählen. Lass uns das versuchen.
+
+01:04.010 --> 01:15.450
+Wenn wir zu unserer React-App zurückkehren, können wir unsere App.js aufrufen und wir haben unsere Clarifai-API.
+
+01:15.470 --> 01:16.320
+Das ist, wenn wir es tun
+
+01:16.330 --> 01:22.210
+'onButtonSubmit' und das ist spezifisch für diesen Homescreen von uns.
+
+01:26.860 --> 01:35.860
+Wenn wir das betrachten, dann wollen wir, wenn es klar ist, uns in diesem Fall eine Antwort geben
+
+01:35.860 --> 01:41.970
+Anzeigen und Berechnen, solange wir eine Antwort haben
+
+01:48.790 --> 01:59.370
+In diesem Fall würden wir die Localhost-Route bei 3000 abholen wollen.
+
+01:59.590 --> 02:02.570
+Und diesmal laufe '/ image'.
+
+02:07.450 --> 02:09.380
+Dies ist eine POST-Anfrage.
+
+02:09.490 --> 02:16.990
+Also, um eine POST-Anfrage zu machen - und zwar als PUT-Anfrage.
+
+02:17.050 --> 02:24.240
+Ich denke, das ist, was wir ursprünglich geplant haben und weil wir die Informationen des Benutzers PUT aktualisieren werden
+
+02:24.250 --> 02:27.800
+eine bessere Nutzung sein, aber es wird in beide Richtungen funktionieren.
+
+02:27.880 --> 02:34.390
+Ist nur ein Weg für uns, mit den Standards zu bleiben - das PUT ist der Weg, um die Dinge zu aktualisieren.
+
+02:35.920 --> 02:39.760
+Und ein PUT? Die Anfrage funktioniert genauso wie zuvor.
+
+02:39.760 --> 02:45.250
+Anstatt die Methode POST zu setzen, werden wir tatsächlich haben
+
+02:48.610 --> 02:49.780
+die Methode PUT.
+
+02:53.820 --> 02:54.850
+Wieder dasselbe
+
+02:54.850 --> 03:04.590
+'application / json als unser' Content-Type 'und wir wollen innerhalb des Körpers senden - nun, fordern wir irgendwelche Informationen an?
+
+03:04.590 --> 03:09.460
+Das einzige, was die Put-Anfrage benötigt, ist 'id'.
+
+03:09.750 --> 03:10.910
+Also lass uns das tun.
+
+03:10.950 --> 03:18.130
+Wir werden nur 'ID' senden, die wir vom Benutzer haben, wenn sie sich anmelden.
+
+03:18.390 --> 03:29.600
+Und das ist 'this.state.user.id'.
+
+03:29.740 --> 03:30.890
+Mal sehen, ob das funktioniert.
+
+03:31.870 --> 03:32.870
+Ich werde sparen
+
+03:37.710 --> 03:48.410
+Geh zurück zu unserer App und melde dich jetzt als unser bester Freund an, John. Ich klicke auf Anmelden und lass uns wieder ein Gesicht finden.
+
+03:53.250 --> 03:57.390
+Mache dieses Gesicht diesmal.
+
+03:57.480 --> 04:02.050
+Bild ansehen. Wenn ich zu "hier" gehe und ich auf "Erkennen" klicke ...
+
+04:06.770 --> 04:08.570
+Ich bekomme das Gesicht.
+
+04:08.570 --> 04:13.090
+Aber unser aktueller Rang wird nicht aktualisiert.
+
+04:13.320 --> 04:15.840
+Und wenn du dich erinnerst, ist unser Rang mehr von den "Einträgen".
+
+04:15.970 --> 04:18.590
+Lassen Sie uns die Formulierung dort ändern, damit wir uns nicht verwirren.
+
+04:20.670 --> 04:33.140
+"Ihr aktueller Eintrag ist ..." und wir möchten die "Einträge" aktualisieren. Wenn wir hier einmal hinfahren, schicken wir uns das
+
+04:33.140 --> 04:38.440
+Ich will das noch einmal sagen. Dann () 'bekommen wir eine Antwort.
+
+04:40.320 --> 04:45.080
+Und diese Antwort wird durch die Laufbewegungen gehen
+
+04:45.210 --> 04:49.040
+'json'
+
+04:49.550 --> 05:02.640
+Und schließlich werden wir sagen, dass 'count' nun aktualisiert werden muss, indem 'this' 'setState' 'users' verwendet wird.
+
+05:05.700 --> 05:10.470
+'id' oder 'entries' zur 'count' Nummer.
+
+05:10.800 --> 05:14.720
+Lass es uns nochmal versuchen.
+
+05:17.420 --> 05:18.970
+Ich melde mich als John an.
+
+05:22.560 --> 05:26.610
+'Kekse'. Lassen Sie uns das Gesicht erneut kopieren und einfügen
+
+05:30.130 --> 05:30.700
+Erkennen
+
+05:34.420 --> 05:35.750
+Schauen wir uns die Konsole an.
+
+05:35.770 --> 05:39.340
+Lass uns einfach durch das Netzwerk gehen und sehen, was wir hatten.
+
+05:43.290 --> 05:44.520
+Ich sehe das Bild
+
+05:47.980 --> 05:52.160
+Die Payload, die wir erhalten, ist '123'.
+
+05:52.260 --> 05:57.990
+Wenn wir uns die Antwort anschauen, haben wir '2'. In Ordnung, so sieht alles aus.
+
+05:57.990 --> 06:01.240
+Wir haben dies zweimal gesendet, aber es wurde nicht aktualisiert.
+
+06:03.920 --> 06:15.530
+Schauen wir uns unsere - und wir wollen sicherstellen, dass es "Benutzer" nicht "Benutzer" ist.
+
+06:15.670 --> 06:17.250
+Und versuchen wir es noch einmal.
+
+06:17.800 --> 06:18.270
+Wir haben
+
+06:18.310 --> 06:26.740
+"john@gmail.com" und es werden "Cookies". Wenn ich auf Anmelden klicke
+
+06:27.180 --> 06:27.920
+Gut.
+
+06:27.960 --> 06:29.600
+"Ihre aktuelle Anzahl ist 3".
+
+06:29.610 --> 06:30.980
+Wenn ich ein anderes Bild hinzufüge
+
+06:34.200 --> 06:34.800
+Sieh dir das an.
+
+06:34.900 --> 06:38.090
+Ich bekomme "Ihre aktuelle Anzahl ist 4".
+
+06:38.160 --> 06:46.570
+Ah, aber du siehst, wie sich der Name in 'undefiniert' ändert? Nun, es ist so, weil wir es hier sehen
+
+06:46.570 --> 06:51.090
+Wie ändert 'this.setState' nur das gesamte Benutzerobjekt?
+
+06:52.300 --> 07:02.030
+Das ist nicht gut, oder? Weil wir sicherstellen müssen, dass "Benutzer" immer noch derselbe ist, aber wir aktualisieren nur
+
+07:02.960 --> 07:05.030
+das Objekt 'Benutzer'.
+
+07:08.850 --> 07:15.420
+Jetzt ist der Weg, um dies zu umgehen - denn wie ich schon sagte, wir ändern nur das Benutzerobjekt
+
+07:15.660 --> 07:19.870
+Wir können etwas namens "Object.assign" verwenden.
+
+07:21.880 --> 07:23.210
+Und Sie können darüber nachlesen.
+
+07:23.210 --> 07:28.120
+Es ist Teil der JavaScript-Spezifikation, aber Sie erhalten das Zielobjekt.
+
+07:28.120 --> 07:32.560
+In unserem Fall ist es "this.state.user".
+
+07:32.560 --> 07:36.670
+Und der zweite Parameter ist, wo Sie es erweitern möchten.
+
+07:36.820 --> 07:43.040
+In unserem Fall die "Einträge" und "zählen". Wenn wir es so machen und sparen
+
+07:47.590 --> 07:57.900
+und lasst uns 'john@gmail.com' 'cookies' anmelden.
+
+07:58.050 --> 08:00.460
+Wir mussten den Server neu starten, jetzt ist es bei Null.
+
+08:00.540 --> 08:04.200
+Aber wenn ich ein Bild hätte ...
+
+08:08.350 --> 08:12.560
+Sieh dir das an. "John, deine aktuelle Eintragszahl ist 1".
+
+08:12.790 --> 08:14.600
+Und da gehst du.
+
+08:14.740 --> 08:18.690
+Der Name ändert sich nicht.
+
+08:18.810 --> 08:20.300
+Also können wir uns abmelden.
+
+08:20.490 --> 08:21.710
+Wir können uns registrieren.
+
+08:21.870 --> 08:24.070
+Wir können uns anmelden.
+
+08:24.240 --> 08:33.270
+Wir haben unsere Endpunkte und mit dieser können Sie sich vorstellen, wie Sie Ihre App erweitern können - Sie können hinzufügen
+
+08:33.300 --> 08:39.810
+LÖSCHEN Sie zum Beispiel auf '/ profile /:id', um Ihr Konto zu löschen.
+
+08:39.810 --> 08:44.410
+Sie können eine PUT-Methode hinzufügen, um Ihr Konto zu aktualisieren.
+
+08:44.430 --> 08:51.420
+Es gibt viele Dinge, die wir tun können, aber ich hoffe, Sie haben die Leistung des Servers und des Front-Ends gesehen
+
+08:51.480 --> 08:55.750
+Endlich Verbindung durch "Fetch", um echte Funktionalität zu schaffen.
+
+08:57.320 --> 08:58.860
+Wir sehen uns im nächsten.
+

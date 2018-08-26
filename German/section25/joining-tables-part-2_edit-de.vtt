@@ -1,0 +1,175 @@
+WEBVTT
+
+00:00.570 --> 00:09.900
+Willkommen zurück im vorherigen Video haben wir jetzt eine Log-in-Tabelle erstellt, in der wir diese beiden Tabellen zusammen haben.
+
+00:09.930 --> 00:12.900
+Ich möchte Ihnen die wahre Stärke von relationalen Datenbanken zeigen.
+
+00:15.440 --> 00:22.200
+Zurück zu unserer Zeichnung ist der wichtigste Teil relationaler Datenbanken diese Idee von Schemata, von
+
+00:22.200 --> 00:29.520
+Tabellen haben, die nur daran interessiert sind, spezifische Informationen wie Benutzer oder Tweets zu speichern
+
+00:29.580 --> 00:38.030
+und folgen und verbinden sie durch einen Primärschlüssel und einen Fremdschlüssel. Ich werde dir zeigen, wie
+
+00:38.030 --> 00:39.250
+das zu tun.
+
+00:39.680 --> 00:41.170
+Nun, wir haben es schon gemacht.
+
+00:41.180 --> 00:46.940
+Aber wie greifen wir Informationen von hier ab? Wenn wir zurück zu unserem Tisch gehen
+
+00:47.080 --> 00:49.470
+wir erinnern uns, dass wir unsere Abfrage ausgeführt haben,
+
+00:54.920 --> 01:04.070
+Wir haben hier die Create login table erstellt und eine Namensvariable erstellt, die wir geplant hatten
+
+01:04.070 --> 01:10.680
+Wir wollen mit allem übereinstimmen, was die Benutzer-Tabelle hatte, und wir können etwas namens JOINs verwenden.
+
+01:10.720 --> 01:18.510
+jetzt mit unseren Abfragen. Und das ist ein neues Wort in SQL und wahrscheinlich einer der mächtigsten, weil wir
+
+01:18.510 --> 01:24.890
+Ich möchte nicht unbedingt eine riesige Tabelle mit Hunderten von Spalten und Hunderten von Zeilen haben.
+
+01:24.900 --> 01:31.350
+Datenbanken sind nicht so angelegt, dass sie einfach wie eine Excel-Tabelle Tonnen von Zeilen und Spalten haben und alle haben
+
+01:31.350 --> 01:34.740
+diese Informationen an einem Ort, weil es nicht effizient ist.
+
+01:34.770 --> 01:36.110
+Es wird viel langsamer sein,
+
+01:36.160 --> 01:37.670
+es wird wirklich sehr schwer zu verwalten sein.
+
+01:37.680 --> 01:41.960
+Und je größer und größer Ihr Unternehmen wird, desto wahrer wird es wirklich hart.
+
+01:42.000 --> 01:48.150
+Ein guter Weg, um eine Datenbank zu entwerfen, ist, diese kleinen kleinen Tabellen zu haben, die genauso betroffen sind
+
+01:48.150 --> 01:53.500
+Trennung von Anliegen, die sich mit ihren minimal benötigten Informationen befassen.
+
+01:53.550 --> 02:00.180
+Und wenn etwas anderes benötigt wird, können wir einfach Tabellen zusammenfügen, um Informationen zu sammeln.
+
+02:00.180 --> 02:01.270
+Lass mich dir zeigen, was ich meine.
+
+02:02.850 --> 02:09.830
+Wir haben hier unsere Testdatenbank und lassen uns \ d sehen.
+
+02:09.840 --> 02:12.230
+Alles klar, wir haben drei Dateien hier.
+
+02:12.420 --> 02:16.140
+Wir haben den Benutzernamen und die Benutzer, die wir erstellt haben.
+
+02:16.140 --> 02:20.130
+Aber was ist die Login-ID-Sequenz?
+
+02:20.160 --> 02:26.480
+Denken Sie daran, wie wir einen Primärschlüssel erstellt haben. Die Funktionsweise von relationalen Datenbanken ist, wenn Sie eine Primärdatenbank erstellen
+
+02:26.480 --> 02:35.320
+Schlüssel es erstellt eine andere Datei, die diesen Primärschlüssel enthält. Und Sie können sehen, dass der Typ Sequenz ist.
+
+02:36.570 --> 02:44.280
+Nun, das ist eine Datei, auf die wir wahrscheinlich nicht zugreifen werden, aber intern wird Postgres dafür sorgen, dass
+
+02:44.280 --> 02:50.330
+Wir setzen diesen Primärschlüssel und es wird sehr, sehr schnell sein, wenn wir Daten aus der Logindatei holen
+
+02:50.330 --> 02:50.890
+fordere es an.
+
+02:51.100 --> 02:58.890
+Aber sagen wir, ich wollte Informationen von Login und Benutzern erhalten. Vielleicht möchte ich Sallys Informationen bekommen
+
+02:59.640 --> 03:08.320
+aber ich brauche ihren Geburtstag, ihre Punktzahl, ihr Alter und ihr Geheimnis. Mit JOINs können wir dies tun.
+
+03:09.110 --> 03:11.850
+Ich kann SELECT Stern sagen,
+
+03:11.990 --> 03:15.370
+Also alles von Benutzern.
+
+03:15.690 --> 03:20.900
+Und jetzt, wenn ich JOIN mache, kann ich einen anderen Tabellennamen sagen, den ich mit den Benutzern verbinden möchte.
+
+03:20.900 --> 03:27.580
+In unserem Fall loggen wir uns ein und wir müssen sagen, auf was wir kommen werden oder nicht.
+
+03:27.590 --> 03:33.370
+Wie wird es herausfinden, was mit Login übereinstimmt?
+
+03:33.470 --> 03:41.400
+Denn wenn ich hier zurück gehe, woher soll die Datenbank wissen, dass ich mit der ersten Zeile übereinstimmen möchte?
+
+03:41.400 --> 03:41.760
+Andrei,
+
+03:41.760 --> 03:48.690
+die zweite Linie mit Sally, eine dritte Linie mit John. Mit dem ON-Schlüsselwort können wir sicherstellen, dass wir übereinstimmen
+
+03:48.690 --> 03:49.280
+auf etwas.
+
+03:49.320 --> 03:56.360
+In unserem Fall ist hier der Name der Primärschlüssel und hier der Fremdschlüssel.
+
+03:56.470 --> 03:59.730
+Also lass uns das ON Benutzer tun
+
+03:59.920 --> 04:07.820
+.name entspricht login.name
+
+04:10.500 --> 04:11.290
+Semikolon.
+
+04:11.340 --> 04:12.080
+Lass uns das tun.
+
+04:13.230 --> 04:14.080
+Und sieh dir das an.
+
+04:14.280 --> 04:21.810
+Wir haben Name, Alter, Geburtstag, Partitur, aber auch ID, Geheimnis, Name insgesamt.
+
+04:21.980 --> 04:29.750
+Wir haben uns gerade diesen Werten angeschlossen und sie stimmen alle überein, weil wir login.name und users.name und
+
+04:29.750 --> 04:30.810
+mit JOINs
+
+04:31.010 --> 04:40.170
+kommt jetzt große Kraft, wir können kleine kleine Tische haben, basierend auf was wir eigentlich brauchen und jederzeit etwas
+
+04:40.170 --> 04:46.710
+Spezifisch ist notwendig, wir verbinden nur Tabellen und wir können mehrere Tabellen, mehrere JOINs, um zu wählen
+
+04:46.710 --> 04:48.720
+die Informationen, die wir brauchen.
+
+04:48.720 --> 04:54.030
+In Ordnung, ich denke, wir haben wirklich sehr gute Arbeit geleistet, um SQL und die Macht der Beziehung zu verstehen
+
+04:54.030 --> 04:54.940
+Datenbanken.
+
+04:56.890 --> 04:57.890
+Wir sehen uns im nächsten.
+
+04:57.940 --> 04:59.980
+Und gute Arbeit, so weit zu kommen, auf Wiedersehen.

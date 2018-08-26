@@ -1,0 +1,838 @@
+WEBVTT
+
+00:01.270 --> 00:02.500
+Willkommen zurück.
+
+00:02.500 --> 00:06.490
+Wir werden über einige fortgeschrittene "Objekt" -Konzepte sprechen.
+
+00:06.490 --> 00:13.840
+Nun, wie gesagt, sowohl mit Arrays als auch mit Funktionen sind das fortgeschrittene Konzepte, die Sie wahrscheinlich nicht ausführen werden
+
+00:13.840 --> 00:21.490
+Holen Sie es einfach ein 100 Prozent beim ersten Mal, aber verwenden Sie diese Videos als eine Referenz, um wieder wie Sie zu kommen
+
+00:21.490 --> 00:22.980
+Fortschritt durch Ihre Karriere.
+
+00:24.250 --> 00:30.020
+In diesem Video werde ich nun über drei Dinge sprechen, die bei Objekten wichtig sind.
+
+00:30.110 --> 00:35.260
+Wir werden über 'Referenztyp' sprechen.
+
+00:35.350 --> 00:38.040
+Wir werden über 'Kontext' sprechen.
+
+00:38.620 --> 00:41.350
+Und schließlich werden wir über "Instanziierung" sprechen.
+
+00:45.000 --> 00:51.690
+Lasst uns also mit der ersten Zeile beginnen. 'Referenztyp'. Was ich meine, wenn ich einen "Referenztyp" sage?
+
+00:51.690 --> 00:58.810
+Nun, ich wollte sehen, ob ich erraten kann, was passieren wird, wenn ich Array '[]' gleich Array '[]' mache.
+
+00:58.830 --> 01:00.530
+Was denkst du wird die Antwort sein?
+
+01:00.570 --> 01:02.860
+Mal schauen.
+
+01:02.890 --> 01:05.930
+Hmm! interessant.
+
+01:05.930 --> 01:14.160
+OK, was, wenn ich Array eins gleich Array eins mache? interessant.
+
+01:14.260 --> 01:15.270
+OK noch eine Frage.
+
+01:15.550 --> 01:18.280
+Was ist mit so etwas?
+
+01:19.650 --> 01:20.620
+"Objekt1"
+
+01:21.060 --> 01:25.090
+entspricht dem Wert 10,
+
+01:29.230 --> 01:37.220
+und wir sagen 'object2' ist gleich 'object1'.
+
+01:39.120 --> 01:49.450
+Und wir sagen schließlich, dass eine Variable (var) 'object3' gleich 10 ist.
+
+01:49.460 --> 01:54.710
+Wenn ich mir diese anschaue, werde ich es hier kopieren, damit du es auch sehen kannst.
+
+01:59.260 --> 02:00.180
+Mit Blick darauf,
+
+02:00.310 --> 02:07.420
+Was passiert, wenn 'objekt1' gleich 'objekt2' ist?
+
+02:07.450 --> 02:08.510
+Was denkst du wird passieren?
+
+02:09.560 --> 02:10.100
+Wahr.
+
+02:10.300 --> 02:10.750
+OK.
+
+02:10.880 --> 02:15.580
+Das macht Sinn, ich meine "object2" ist "object1".
+
+02:15.760 --> 02:22.780
+Aber was ist, wenn ich 'object1' gleich 'object3' bin?
+
+02:22.860 --> 02:25.710
+Hier bekomme ich, falsch.
+
+02:25.900 --> 02:29.160
+Aber warum ist das? Wir haben Wert 10, Wert 10.
+
+02:29.180 --> 02:30.990
+Sie sind beide dasselbe.
+
+02:31.240 --> 02:32.060
+Recht.
+
+02:32.460 --> 02:33.190
+Lass uns etwas anderes überprüfen.
+
+02:33.200 --> 02:37.010
+Was ist, wenn ich 'object1.value' mache?
+
+02:38.230 --> 02:42.430
+ist gleich 15, OK.
+
+02:42.610 --> 02:45.340
+Und jetzt mache ich 'object2.value'
+
+02:48.390 --> 02:50.020
+es ist gleich 15.
+
+02:50.150 --> 02:59.590
+Aber wenn ich 'object3.value' mache, bekomme ich 10. Nun, das war richtig verwirrend.
+
+03:00.000 --> 03:02.280
+Schauen wir uns an, was eigentlich vor sich geht.
+
+03:02.430 --> 03:07.010
+Und das ist das erste Thema, über das wir sprechen, nämlich "Referenztyp".
+
+03:07.110 --> 03:08.220
+Schauen wir uns ein Diagramm an.
+
+03:11.020 --> 03:16.700
+Objekte sind sogenannte Referenztypen in Javascript.
+
+03:16.940 --> 03:25.000
+Bis zu diesem Punkt haben wir alle anderen Javascript-Typen, die wir gelernt haben, einschließlich 'Zahlen', 'Null', wir haben
+
+03:27.530 --> 03:39.610
+'undefiniert', 'boolesch', 'Zeichenketten', selbst 'Symbole' sind alle durch die Programmiersprache definiert.
+
+03:39.600 --> 03:48.150
+So sagt Javascript, die Person, die Javascript und ECMAScript den Standard schrieb, dass diese primitiven Typen sind.
+
+03:48.150 --> 03:57.990
+Wir sagen dir, was sie sind. Nun wird ein 'Referenztyp', der ein nicht primitiver Typ ist, nicht durch den definiert
+
+03:57.990 --> 03:59.900
+Programmiersprachen.
+
+03:59.910 --> 04:06.380
+Was das bedeutet ist, dass sie vom Programmierer erstellt wurden.
+
+04:06.410 --> 04:08.750
+Schauen wir uns hier ein Beispiel an.
+
+04:09.760 --> 04:10.930
+Wenn ich Variable sage.
+
+04:10.930 --> 04:13.200
+Nummer eins entspricht eins.
+
+04:13.330 --> 04:15.170
+Javascript weiß, was man ist.
+
+04:15.170 --> 04:16.470
+Es ist eine Nummer.
+
+04:16.480 --> 04:17.500
+Es ist ein primitiver Typ.
+
+04:17.500 --> 04:19.450
+Es ist immer das Gleiche.
+
+04:19.590 --> 04:25.340
+Es ist jedes Mal unveränderlich, wenn es dasjenige verwendet, das das selbe ist, das Javascript kennt.
+
+04:25.460 --> 04:31.460
+Wenn ich die Variable Nummer zwei mache, verwendet sie dieselbe Nummer, die JavaScript kennt.
+
+04:33.260 --> 04:40.750
+Wenn wir jedoch 'object1' erstellt haben, ist 'value 10' und 'object2' ist gleich 'object1' und 'object3' ist gleich
+
+04:40.770 --> 04:45.620
+der "Wert 10", also diese werden vom Programmierer erstellt.
+
+04:45.630 --> 04:47.190
+Es gibt "Referenztypen".
+
+04:47.190 --> 04:55.310
+Also was wir sagten war ich will 'object1' ein neues Objekt erstellen, wird diese Box hier drüben diesen Aktenschrank sagen
+
+04:56.560 --> 05:06.590
+und geben Sie in diese Box "Wert 10" ein. 'object2' sagt, ich möchte, dass du dich nur darauf beziehst und das ist wo
+
+05:06.590 --> 05:07.680
+Wort kommt von,
+
+05:07.760 --> 05:19.360
+Referenz 'object1', sag hey! Ich will was auch immer in dieser Box ist. Wenn 'Objekt3' erstellt wird,
+
+05:19.470 --> 05:22.770
+Es ist ein neues Objekt, weil wir die neuen Klammern haben.
+
+05:23.660 --> 05:27.770
+Und es heißt "lege 10" in dieses Feld.
+
+05:27.770 --> 05:35.320
+Im Wesentlichen sagen wir, wenn wir eine Variable (var) 'object1' erstellen, wenn wir nur eine Referenz speichern
+
+05:35.330 --> 05:40.520
+eine Adresse, an der wir den 'Wert 10' speichern, der 'Box1' ist.
+
+05:40.520 --> 05:43.780
+Also sagen wir 'object1',
+
+05:43.970 --> 05:49.660
+Ich lasse Sie nur wissen, dass dies die Adresse aller gewünschten Inhalte ist
+
+05:49.730 --> 05:55.710
+und das ist in "Box1". 'object2' sagt, ich will was auch immer ein 'object1' ist
+
+05:55.730 --> 06:01.220
+und wir sehen ein 'object1', ein 'object1' hat nur die Information von 'box1'.
+
+06:01.430 --> 06:08.110
+Es verweist also darauf, dass ein "Objekt3" ein neues Objekt erzeugt.
+
+06:08.120 --> 06:15.140
+Also sage ich, ich werde meine Inhalte in "Box3" legen und ich werde nur die Adresse der Box haben
+
+06:15.470 --> 06:18.070
+sag 'Box3', das ist gleich hier drüben.
+
+06:19.500 --> 06:21.090
+Also zurück zu unserem Beispiel,
+
+06:24.280 --> 06:28.040
+das macht Sinn, wenn wir den Wert 'object1' auf 15 setzen,
+
+06:28.090 --> 06:31.150
+Wir ändern den Inhalt von "Box1".
+
+06:31.150 --> 06:39.330
+Wenn wir also "object2.value" verwenden, das auf das gleiche Feld wie "object1" verweist, das 15 ist,
+
+06:39.340 --> 06:45.730
+aber "object3.value" ändert sich nicht, weil das Interesse an einer komplett anderen Box, Box3, besteht.
+
+06:46.720 --> 06:48.740
+und gehe zurück zum ersten Beispiel.
+
+06:50.920 --> 06:58.970
+Arrays, und wie ich bereits in früheren Videos erwähnt habe, Arrays sind nur Objekte am Ende des Tages.
+
+06:59.090 --> 07:05.220
+Wenn Sie also ein Array erstellen, ist es dasselbe, indem Sie eine Box, eine Datenstruktur erstellen.
+
+07:05.510 --> 07:09.100
+Und das schafft eine zweite Datenstruktur.
+
+07:09.120 --> 07:09.800
+Recht.
+
+07:09.860 --> 07:16.820
+Das ist also ein 'Referenztyp'. Ein sehr wichtiges Konzept, aber ich denke, ich denke, Sie haben es richtig gemacht.
+
+07:17.670 --> 07:18.980
+Kommen wir zum nächsten.
+
+07:18.990 --> 07:21.010
+Das wird ein wenig komplizierter.
+
+07:21.060 --> 07:30.090
+Dieser "Kontext" und "Kontext" wird oft mit "Geltungsbereich" verwechselt.
+
+07:30.190 --> 07:37.230
+Wenn Sie sich erinnern, haben wir gesagt, dass 'scope' erstellt wird, wenn geschweifte Klammern angezeigt werden, richtig !.
+
+07:37.270 --> 07:45.040
+Wir haben das gesagt, wenn wir eine Funktion erstellen, sobald wir diese Funktion erstellt haben
+
+07:45.040 --> 07:45.880
+Es gibt einen neuen "Bereich", der erstellt wurde.
+
+07:46.450 --> 07:57.550
+So können wir haben, "lass a" gleich "a" und das lebt in diesem Universum.
+
+07:57.560 --> 08:02.180
+Es weiß nichts über den Root-Bereich, der hier ist.
+
+08:02.180 --> 08:06.680
+Also, wenn ich 'console.log (a)' mache, wird es nicht funktionieren.
+
+08:06.880 --> 08:11.940
+Oh! und wir müssen etwas zuweisen, und wir müssen es benennen, damit wir einfach 'b' sagen können.
+
+08:12.320 --> 08:16.380
+Also, wenn ich das tue, gut 'console.log (a)'.
+
+08:16.590 --> 08:20.710
+Nun, gib 'ReferenceError' zurück, weil es nicht existiert.
+
+08:20.810 --> 08:22.370
+Das ist also "Umfang".
+
+08:22.400 --> 08:31.520
+Wie unterscheidet sich "Kontext"? 'Kontext' sagt dir, wo wir innerhalb des Objekts sind.
+
+08:31.520 --> 08:32.650
+Lassen Sie mich erklären.
+
+08:32.990 --> 08:38.760
+Wenn, sagen wir 'console.log (this)'.
+
+08:39.110 --> 08:45.350
+Nun, Sie sehen, ich bekomme ein paar Hervorhebung, und das ist das erste Mal, dass wir "das" sehen,
+
+08:45.350 --> 08:46.340
+und es ist ein spezielles Wort in Javascript.
+
+08:46.340 --> 08:52.220
+Wahrscheinlich das verwirrendste Wort, dass viele Leute Probleme haben und sogar Leute, in denen ich war
+
+08:52.220 --> 08:57.150
+Die Industrie hat es mit "diesem" seit Jahren immer noch schwer. Aber lass uns sehen, was es ist.
+
+08:57.560 --> 09:03.950
+'Dies' ist, wie Sie sehen können, das 'Fensterobjekt'.
+
+09:03.990 --> 09:14.610
+Also, nur um zu überprüfen, wenn ich "console.log (this)" gleich "window" mache, werde ich wahr.
+
+09:14.840 --> 09:23.990
+Und ich kann auf 'this.alert ("hallo") zugreifen'
+
+09:24.030 --> 09:35.670
+Also, was "das" bedeutet, ist die Objektumgebung, in der wir gerade sind, der beste Weg darüber nachzudenken ist,
+
+09:35.670 --> 09:42.500
+Was ist links vom Punkt?
+
+09:42.510 --> 09:49.860
+Im Moment kann ich Alarm geben, weil ich mich im Fensterobjekt befinde.
+
+09:50.190 --> 09:54.060
+Das "Fenster" zu tun oder "das" zu tun, ist dasselbe.
+
+09:54.210 --> 09:57.170
+Warum ist das wichtig?
+
+09:57.330 --> 10:04.110
+Nun, wenn wir zu "Instanziierung" kommen, werde ich Ihnen zeigen, warum es so ist? aber es ist ein sehr wichtiges Konzept
+
+10:04.110 --> 10:05.490
+das wirst du immer wieder sehen.
+
+10:05.550 --> 10:17.440
+Aber denken Sie daran:"Dies" bezieht sich nur auf das Objekt, in dem es sich befindet. Zwei weitere Beispiele, um dies zu demonstrieren.
+
+10:17.480 --> 10:23.450
+Einer ist, wenn ich 'a' () 'funktioniere, mit der Funktion' a ',
+
+10:26.240 --> 10:29.140
+werde 'console.log (this)' sagen.
+
+10:29.170 --> 10:30.840
+Also, wenn ich 'a' rufe, was denkst du passiert?
+
+10:33.620 --> 10:35.660
+Mal schauen. immer noch das Fensterobjekt 'this'
+
+10:35.660 --> 10:39.280
+bezieht sich immer noch auf die Funktion.
+
+10:39.410 --> 10:47.240
+Und wenn du dich daran erinnerst, weil ich sagte, es muss das Objekt sein, in dem wir gerade sind.
+
+10:47.240 --> 10:47.970
+Technisch funktioniert 'a'.
+
+10:48.020 --> 10:52.260
+Ich kann 'window.a' gehen und die Funktion ausführen.
+
+10:52.520 --> 11:02.940
+Also links vom Punkt, nun, das ist das 'Fenster', um einen neuen Wert für 'dieses' zu erstellen.
+
+11:03.070 --> 11:06.450
+Du musst so etwas tun.
+
+11:10.430 --> 11:13.560
+"Objekt", "eine" Funktion "a".
+
+11:13.580 --> 11:14.960
+Nun, wenn ich 'Funktion ()'
+
+11:19.930 --> 11:23.240
+und hier mache ich eine 'console.log (this)'.
+
+11:23.230 --> 11:32.550
+Nun, in diesem Fall, wenn ich das kopiere und "object4.a" starte
+
+11:35.600 --> 11:36.340
+Gut,
+
+11:36.620 --> 11:45.780
+Jetzt ist das das Objekt, das 'Objekt4' ist.
+
+11:45.850 --> 11:49.910
+Warum ist das für uns wichtig?
+
+11:50.080 --> 11:54.510
+Nun, zuerst werden Sie es in anderen Codebasen sehen, also ist es gut zu wissen.
+
+11:54.730 --> 12:01.840
+Aber es ist wirklich wichtig, wenn wir "Instanziierung" machen, "Instanziierung" ist, wenn Sie eine Kopie eines Objekts erstellen
+
+12:02.470 --> 12:05.320
+und den Code wiederverwenden.
+
+12:05.320 --> 12:11.950
+Stellen Sie sich vor, Sie bauen ein großes Multiplayer-Spiel online, und dieses Spiel wird viele viele Spieler haben
+
+12:11.950 --> 12:17.170
+Sie können Zauberer haben, die Sie Trolle, Hexenmeister, Elfen haben können.
+
+12:17.200 --> 12:24.130
+Wenn Sie nun für jeden einzelnen Spieler ein Objekt erstellen müssen, das viel wiederholten Code enthält,
+
+12:24.130 --> 12:28.040
+Das ist eine Menge Ärger und das ist viel Zeit und es ist nicht sehr effizient.
+
+12:29.410 --> 12:32.320
+Um das zu lösen, können Sie etwas tun, das "Instanziierung" genannt wird.
+
+12:32.320 --> 12:37.490
+Sie erstellen Instanzen oder mehrere Kopien eines Objekts.
+
+12:37.510 --> 12:42.990
+Lassen Sie mich Ihnen zeigen, wie wir Javascript instanziieren.
+
+12:43.040 --> 12:49.340
+Auch das wird wieder etwas komisch aussehen, genau wie "for" loops, genau wie 'functions'
+
+12:49.340 --> 12:54.000
+am Anfang, aber es ist nur die Syntax, und Sie werden sich daran gewöhnen.
+
+12:54.380 --> 12:59.290
+Nehmen wir an, wir haben eine "Player" -Klasse.
+
+12:59.430 --> 13:05.540
+Jetzt sehen Sie bereits die neue Syntax, und ich kapitalisiere eine 'Klasse'.
+
+13:05.590 --> 13:10.060
+Denken Sie jetzt an eine "Klasse" als etwas, von dem ich eine Kopie machen möchte.
+
+13:10.210 --> 13:18.130
+Wenn ich jemals eine Kopie eines "Objekts" machen möchte, ist es eine gute Idee, so etwas zu tun, also gut, du wirst es tun
+
+13:18.130 --> 13:20.060
+Sehen Sie, wie einfach es ist, dies jetzt zu kopieren.
+
+13:20.070 --> 13:22.000
+So machen wir es.
+
+13:22.010 --> 13:23.680
+"Klassenspieler".
+
+13:25.650 --> 13:28.650
+Und hier wird "Konstrukteur" sagen
+
+13:31.360 --> 13:35.570
+und ich weiß, das sieht komisch aus, aber es ist nur Syntax.
+
+13:35.590 --> 13:45.650
+Lassen Sie es uns geben, dieser 'Player' kann einen 'Namen' und einen 'Typ' haben und im Konstruktor 'this.name' ist gleich
+
+13:45.740 --> 13:51.350
+'name' und 'this.type' entsprechen 'type'.
+
+13:55.940 --> 13:58.150
+Oh Junge! Was ist gerade hier passiert?
+
+13:58.160 --> 14:00.890
+'Konstruktor', wenn Sie eine 'Klasse', einen 'Player', 'Klasse' erstellen.
+
+14:01.190 --> 14:08.330
+Jedes Mal, wenn ich eine Kopie eines "Players" mache, wird als Erstes die Funktion "Konstruktor" ausgeführt und
+
+14:08.330 --> 14:14.760
+Diese "Konstruktorfunktion" erstellt diese Eigenschaften für das Objekt "Player".
+
+14:14.990 --> 14:17.530
+Also "Name" und ein "Typ".
+
+14:17.660 --> 14:21.500
+Und jetzt kann ich alles, was ich will, für den 'Player' erstellen.
+
+14:21.500 --> 14:30.730
+Nehmen wir an, wir möchten eine Methode wie 'introduce ()' erstellen, die 'console.log (s)'
+
+14:33.650 --> 14:42.980
+mit Back-Ticks (`), 'Hallo, ich bin' und wieder, wenn Sie sich an diese Syntax-Template-Strings erinnern,
+
+14:43.420 --> 14:54.190
+'this.name', 'Ich bin ein', 'this.type'. Genial!
+
+14:54.280 --> 15:02.560
+Also, jetzt sage ich, diese "Spieler" -Klasse, jeder Spieler, den ich erstelle, wird sich immer vorstellen können
+
+15:02.560 --> 15:07.880
+Sie haben auch 'diesen' 'Namen' und 'this.type'.
+
+15:07.900 --> 15:14.930
+Und der Grund, warum wir hier 'this' verwenden, ist, dass wir, wenn wir einen 'Player' erstellen, auf die Eigenschaft name und type zugreifen können.
+
+15:14.980 --> 15:17.090
+Ich werde Ihnen später zeigen, wie das funktioniert.
+
+15:17.320 --> 15:24.580
+Aber das ist nur die Syntax, an die Sie sich gewöhnen werden. Um darauf zuzugreifen
+
+15:24.580 --> 15:25.090
+der 'Player' und Kopien davon machen.
+
+15:25.120 --> 15:29.290
+Sie müssen einen 'Konstruktor' ausführen, der alle Eigenschaften und Methoden enthält
+
+15:29.290 --> 15:29.970
+dass du willst, dass der 'Player' hat.
+
+15:30.250 --> 15:38.680
+Sie können auch Methoden erstellen, die "Spieler" haben können und wann immer Sie auf eine Eigenschaft zugreifen möchten
+
+15:38.680 --> 15:47.160
+im 'Konstruktor' gut 'this.name' für (wenn ich) 'introduce' verwenden möchte, muss ich 'this.introduce' machen.
+
+15:47.190 --> 15:54.030
+OK, also haben wir einen 'Player', aber wenn wir unser Multiplayer-Spiel aufbauen
+
+15:54.030 --> 15:54.650
+Wir wollen das jetzt kopieren, aber hinzufügen.
+
+15:54.750 --> 15:59.470
+Nehmen wir an, wir haben, was wir wollen, einen Zaubererspieler, einen Spieler, der ein Zauberer ist.
+
+15:59.520 --> 16:00.570
+In diesem Fall würden wir tun,
+
+16:00.570 --> 16:04.010
+'class Wizard' wieder Großbuchstaben
+
+16:05.030 --> 16:10.780
+'erweitert' und wieder ist nur das Javascript-Keyword 'Player'.
+
+16:13.400 --> 16:14.260
+Also, was sagt das?
+
+16:14.270 --> 16:19.340
+Ich sage, ich möchte, dass Zauberer alles ausdehnt, was 'Spieler' hat.
+
+16:19.340 --> 16:26.540
+Ich möchte also hinzufügen, was auch immer 'Player' hat, da es sich um eine 'Klasse' handelt, muss ich einen 'Konstruktor' machen.
+
+16:28.410 --> 16:35.700
+Und dieser 'Wizard' wird 'Name' und 'Typ' akzeptieren und innerhalb von hier ist dies der schwierige Teil.
+
+16:35.700 --> 16:45.480
+Jedes Mal, wenn wir etwas erweitern, müssen wir auch die Konstruktorfunktion des "Players" aufrufen.
+
+16:45.480 --> 16:52.010
+Wir müssen etwas tun, das 'Super' genannt wird mit den Eigenschaften, die wir an den 'Konstruktor' übergeben wollen.
+
+16:52.080 --> 17:01.040
+In diesem Fall, "Name" und "Typ", ich weiß, das ist verwirrend, ist nur etwas, was Sie tun müssen,
+
+17:01.340 --> 17:02.410
+Wann immer du eine Klasse ausbaust,
+
+17:02.630 --> 17:09.450
+Sie möchten Super verwenden, so dass Sie im Wesentlichen Zugriff auf diese haben.
+
+17:09.460 --> 17:14.440
+OK, also sagen wir, dass wir mit dem Assistenten auch eine "Play" -Funktion haben wollen.
+
+17:14.620 --> 17:18.600
+Und die "Play" -Funktion war nur ein "console.log".
+
+17:19.060 --> 17:30.640
+'WEEEEEE Ich bin ein', 'dieser' 'Typ' und jetzt, wo wir unseren Zauberer haben, was ist die Macht?
+
+17:30.640 --> 17:31.340
+Warum haben wir das gerade gemacht?
+
+17:31.360 --> 17:37.340
+Jetzt können wir dies tun, anstatt ständig "Spieler" zu erstellen und dann zu sagen, dass sie ihre Zauberer haben
+
+17:37.450 --> 17:38.760
+und sie können spielen.
+
+17:38.770 --> 17:49.360
+Jetzt kann ich sagen, 'wizard1' entspricht 'new' 'Wizard' und wir rufen den ersten Wizard erneut an.
+
+17:49.370 --> 17:50.830
+Wir bekommen 'Name' und 'Typ'.
+
+17:51.210 --> 17:58.220
+Also werden wir 'Shelly' sagen und sie wird eine 'Heilerin' sein.
+
+18:00.220 --> 18:15.990
+Und wenn ich einen neuen Zauberer erstellen will, sage ich einfach 'Zauberer2' entspricht 'Neu' 'Zauberer' 'Shawn' und er ist 'Dunkle Magie'.
+
+18:16.270 --> 18:23.120
+Ooh !, Es gab eine Menge neuer Syntax, also lasst uns durchgehen und sicherstellen, dass wir alles verstehen.
+
+18:23.610 --> 18:29.010
+Wie wir gelernt haben, verwenden wir das Konsolenprotokoll (console.log), um wirklich zu verstehen, was wir tun.
+
+18:29.010 --> 18:34.240
+Ich werde ein Konsolenprotokoll (console.log) oben rechts hinzufügen.
+
+18:36.240 --> 18:37.620
+Und werde "das" sagen.
+
+18:37.640 --> 18:38.730
+Was ist das'.
+
+18:39.950 --> 18:46.950
+Ich werde speichern, und ich werde das tatsächlich in die Konsole kopieren.
+
+18:47.150 --> 18:48.010
+Lass es uns kopieren.
+
+18:49.100 --> 18:51.570
+Und sehen Sie, was das Konsolenprotokoll uns gibt?
+
+18:51.570 --> 18:54.430
+Wir sehen, dass wir "Zauberer" bekommen.
+
+18:54.530 --> 18:56.220
+Okay, lass uns hier alles durchgehen.
+
+18:57.580 --> 19:02.440
+Ich sage, wir haben einen "Klassenspieler" und dann einen "Klassenassistenten", der "Spieler" erweitert.
+
+19:02.830 --> 19:07.440
+Und dann haben wir zwei Variablen, die wir 'wizard1' und 'Wizard2' erstellt haben.
+
+19:07.480 --> 19:14.350
+Jetzt wird das Programm das "neue" Schlüsselwort sehen und jedes Mal, wenn es ein "neues" Schlüsselwort sieht, heißt es, oh! wurden
+
+19:14.350 --> 19:23.810
+Erstellen eines neuen 'Assistenten' und dieser 'Assistent' wird zwei Parameter 'Shelly' und 'Heiler' haben.
+
+19:23.860 --> 19:30.280
+Also wird es wieder in die "Wizard" -Klasse gehen, weil es dieses "neue" Wort hat.
+
+19:30.310 --> 19:38.740
+Er geht in die "Zauberer" -Klasse und es heißt, hey! 'Wizard' Ich möchte, dass du 'Player' auswählst.
+
+19:38.900 --> 19:47.990
+Also wird es zum "Konstruktor" gehen, und es wird das "Super" sehen und was das tut, ist es
+
+19:47.990 --> 19:51.570
+uns bis zum 'Konstruktor' des 'Players'.
+
+19:51.800 --> 20:02.510
+Und es läuft das, und jetzt fügt es 'das' als 'Wizard' hinzu und dann führt es die 'neue' Funktion ein und dann
+
+20:02.540 --> 20:03.920
+Fügt die "Play" -Funktion hinzu.
+
+20:03.920 --> 20:16.550
+Wenn ich jetzt zu "wizard1" gehe und sage "play", bekomme ich "WEEEEEEE Ich bin ein Heiler", weil Shelly eine Heilerin ist.
+
+20:16.760 --> 20:25.800
+Aber ich habe auch Zugang zu 'wizard1.introduce', 'Hi, ich bin Shelly, ich bin ein Heiler'.
+
+20:27.220 --> 20:34.580
+Und wir haben auch Zugriff auf 'wizard2', Uh! Ich muss das nochmal machen.
+
+20:34.720 --> 20:35.950
+Lassen Sie uns das nochmal ausführen.
+
+20:38.970 --> 20:42.680
+Und ich glaube nicht, dass ich den zweiten "Zauberer" letztes Mal kopiert habe.
+
+20:42.810 --> 20:47.370
+So, jetzt habe ich 'wizard2. vorstellen'.
+
+20:47.380 --> 20:48.780
+Hi, ich bin Sean
+
+20:49.260 --> 20:50.890
+"Ich bin eine dunkle Magie".
+
+20:50.920 --> 20:54.480
+Dieser Satz macht keinen Sinn Sean, aber das ist jetzt okay.
+
+20:54.970 --> 20:57.250
+Lass uns einfach etwas versuchen.
+
+20:57.250 --> 20:58.610
+Wenn ich 'log' logge '
+
+21:01.320 --> 21:02.500
+Hier.
+
+21:02.740 --> 21:05.520
+Und wir werden nur 'Zauberer' sagen
+
+21:08.190 --> 21:11.190
+und hier wird "Spieler" gesagt, nur damit wir zwischen ihnen unterscheiden können.
+
+21:12.710 --> 21:19.820
+Und ich werde nur den ersten Wizard kopieren, damit wir nicht zwei davon ausführen, weil
+
+21:19.820 --> 21:25.760
+Wir erstellen zwei "Assistenten", wir werden dies zweimal ausführen. Aber nur für unsere Vernunft werden wir rennen.
+
+21:25.820 --> 21:32.090
+"Shelly". Also werde ich hier aktualisieren und hinzufügen. Oh, ich habe vergessen, ein Komma hinzuzufügen
+
+21:35.320 --> 21:43.690
+und lassen Sie uns aktualisieren, und ich bekomme einen Fehler, 'Reference Error',
+
+21:43.690 --> 21:45.040
+'Muß den Superkonstruktor und die abgeleitete Klasse aufrufen, bevor auf' dieses 'zugegriffen wird.
+
+21:45.520 --> 21:54.430
+Was das sagt ist, dass, um auf 'dieses' zuzugreifen und 'this.type' zu erhalten, ich 'super' nennen muss, was
+
+21:54.880 --> 21:57.720
+Führt eine Konstruktorfunktion und einen "Player" aus.
+
+21:57.730 --> 21:59.260
+Das macht 'Super' also.
+
+21:59.260 --> 22:05.080
+Es klingt irgendwie komisch, aber es ist einfach etwas, das du brauchst. Ich werde das nach dem Anruf einfach unten stellen
+
+22:05.080 --> 22:08.830
+"Super" und jetzt sollte es funktionieren.
+
+22:08.830 --> 22:09.190
+Mal schauen
+
+22:14.230 --> 22:18.810
+Ich bekomme, der erste 'Spieler' 'Zauberer'.
+
+22:19.220 --> 22:24.660
+Also nennen wir 'super', sobald wir 'neuer Zauberer', 'Shelly, Heiler' sagen.
+
+22:24.930 --> 22:32.400
+Ich gehe zum "Zauberer" erweitert "Spieler", ich führe die "Konstruktor" -Funktion, die "Super" sagt, hey! führe die
+
+22:32.400 --> 22:35.280
+'Konstruktor' Funktion und der 'Spieler' und ich renne das.
+
+22:35.400 --> 22:44.570
+Aus diesem Grund loggen wir zuerst 'Konsolen-Log-Player' ein und gehen dann zu 'Konsolen-Log' 'Wizard' und laufen dann
+
+22:44.570 --> 22:46.530
+der Rest der Klasse.
+
+22:46.550 --> 22:48.180
+Sehr cool!.
+
+22:48.390 --> 22:50.730
+Jetzt nur um dir etwas zu zeigen.
+
+22:50.760 --> 22:57.950
+Dies ist eigentlich eine neue Syntax, die Sie sehen und "reagieren" und es war Teil von ES6.
+
+22:57.960 --> 23:07.090
+Aber damals haben wir es so gemacht. Den exakt gleichen Code habe ich dort oben
+
+23:11.630 --> 23:20.060
+Genau hier heißt es klassische Vererbung und es sieht nicht allzu schlecht aus, aber Sie sehen, dass es da ist
+
+23:20.520 --> 23:26.250
+Prototyp, es ist eine andere Sache, die Sie in Javascript sehen und um ehrlich zu sein,
+
+23:26.250 --> 23:27.000
+Du solltest es nicht wirklich benutzen.
+
+23:27.000 --> 23:34.320
+Es sieht nicht sehr gut aus und Sie sehen, dass wir sowohl 'wizard1' als auch 'wizard2' and 'play' anhängen müssen
+
+23:35.650 --> 23:39.210
+es sieht einfach nicht so gut aus.
+
+23:39.340 --> 23:41.950
+Und sobald du dich an alles gewöhnt hast.
+
+23:42.160 --> 23:43.820
+Es ist nicht so schlimm.
+
+23:43.840 --> 23:49.600
+Alles, was wir sagen, ist, sobald wir "Klasse" sagen, sagen wir,
+
+23:49.600 --> 23:51.060
+Hallo! Wir werden wahrscheinlich eine Kopie dieses Objekts erstellen.
+
+23:51.270 --> 23:56.820
+Wir wollen also Kopien des Players machen, wir wollen Kopien von 'Wizard' machen und das nennt man 'Instanziierung'.
+
+23:56.820 --> 24:06.020
+Wenn ich das Schlüsselwort 'new' tue, sage ich, make eine Instanz von 'wizard' und 'wizard' nutzt einige Funktionen von
+
+24:06.020 --> 24:11.270
+der Spieler und fügt seine eigene kleine "Spiel" -Funktion hinzu.
+
+24:11.270 --> 24:18.770
+Heilige Moly, das war eine Menge, wie ich schon sagte, das ist etwas, zu dem du zurückkommen musst und du wirst es nicht tun
+
+24:18.770 --> 24:19.940
+hol es gleich.
+
+24:19.940 --> 24:26.380
+Es ist wirklich sehr schwierig, das Thema vollständig zu verstehen, ohne es wirklich im realen Leben anwenden zu müssen.
+
+24:26.420 --> 24:32.900
+Denken Sie daran, jedes Mal, wenn Sie jemanden über "Referenztyp" oder "Kontext" oder sogar "Umfang" sprechen hören
+
+24:33.290 --> 24:35.780
+oder etwas "instanziieren".
+
+24:35.840 --> 24:38.790
+Nun, über diese Dinge reden sie.
+
+24:39.020 --> 24:40.980
+"Objekte" sind wirklich sehr kompliziert.
+
+24:41.000 --> 24:42.570
+Sie sind wirklich hart.
+
+24:42.680 --> 24:47.040
+Aber damit gibt es uns viel Kraft.
+
+24:47.050 --> 24:51.280
+Also, viel Glück mit den Übungen, wir sehen uns im nächsten. Buh-Tschüss.

@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00.840 --> 00:04.900
+Alles klar, lass uns unsere RoboFriends App erstellen. Ich denke, um anzufangen
+
+00:04.930 --> 00:10.730
+Wir wollen wieder über Komponenten nachdenken und welche Komponenten wollen wir bauen
+
+00:10.750 --> 00:16.720
+Wenn man diese Webseite betrachtet, ist vielleicht die kleinste Komponente, an der wir wahrscheinlich arbeiten wollen
+
+00:17.020 --> 00:19.000
+die Kartenkomponente
+
+00:19.000 --> 00:25.480
+Diese Karte hier drüben. Wenn wir eines davon bauen können, dann können wir es, wie ich bereits sagte, einfach tun
+
+00:25.720 --> 00:29.180
+kopiere alle diese Komponenten und füge sie der Seite hinzu
+
+00:29.350 --> 00:31.440
+Also fangen wir damit an
+
+00:31.660 --> 00:34.530
+Die Kartenkomponente
+
+00:34.590 --> 00:36.400
+In Ordung
+
+00:36.580 --> 00:40.610
+Jetzt werden wir die Komponente 'Hello' nicht mehr verwenden
+
+00:40.690 --> 00:43.430
+und wenn du dich erinnerst, sah es so aus
+
+00:43.780 --> 00:47.530
+Lass uns einfach - ich weiß, es ist traurig, aber wir werden es löschen
+
+00:47.680 --> 00:49.810
+Wir werden die 'hello.css' löschen
+
+00:50.290 --> 00:52.090
+Fang sauber an
+
+00:52.100 --> 00:54.830
+Also werde ich löschen. OK
+
+01:00.330 --> 01:03.810
+Und wir werden auch 'hello.css' löschen
+
+01:03.850 --> 01:09.040
+Ich weiß, dass all unsere harte Arbeit einfach weg ist
+
+01:09.210 --> 01:12.420
+Weißt du was? Wir werden anfangen, Dinge zu löschen, die wir nicht brauchen
+
+01:12.420 --> 01:16.880
+In diesem Projekt. Zum Beispiel die 'App.js', die wir ursprünglich hatten?
+
+01:16.890 --> 01:23.200
+Nun, wir können das löschen. Wir können auch 'App.css' löschen
+
+01:27.400 --> 01:28.450
+"App.test"
+
+01:32.370 --> 01:41.020
+Und das Logo
+
+01:41.050 --> 01:41.500
+In Ordung
+
+01:41.500 --> 01:44.410
+So sieht jetzt alles sehr klein aus
+
+01:44.470 --> 01:52.430
+Wir haben nur 'index.css', 'index.js' und diesen 'Register Service Worker', der mit 'Create a React App' ausgeliefert wird.
+
+01:52.430 --> 01:54.620
+das müssen wir nicht berühren
+
+01:54.950 --> 02:00.940
+OK. Offensichtlich haben wir nicht kompiliert, weil die Hello-Importe nicht wirklich funktionieren. Das haben wir nicht
+
+02:00.940 --> 02:03.970
+etwas. Also fangen wir damit an
+
+02:03.990 --> 02:08.670
+Beginnen wir mit der Erstellung einer "Karten" -Komponente
+
+02:10.330 --> 02:15.870
+Und diese Kartenkomponente müssen wir von 'card.js' importieren
+
+02:15.940 --> 02:22.860
+Wenn ich das wieder speichere, bekomme ich immer noch einen Fehler, weil es nicht existiert
+
+02:22.990 --> 02:23.740
+Also lass uns es schaffen
+
+02:23.770 --> 02:37.130
+Ich werde 'neue Datei', card.js 'sagen. Stellen Sie erneut sicher, dass dies "Babel" verwendet. Und lass uns was machen
+
+02:37.130 --> 02:38.870
+wir haben es schon mal gemacht. Wir importieren
+
+02:42.180 --> 02:46.800
+Reagieren von 'reagieren'
+
+02:47.050 --> 02:51.520
+Wir werden uns jetzt nicht darum kümmern, die Funktion zu entwickeln
+
+02:51.580 --> 02:57.440
+also werde ich "const" sagen, "Card" ist gleich -
+
+02:57.440 --> 02:59.400
+Es wird keine Eigenschaften für jetzt haben
+
+03:00.470 --> 03:05.490
+Und das wird zurückkehren - habe ein paar Klammern
+
+03:11.530 --> 03:21.110
+Und hier werden wir sagen, dass es ein "Div" hat. Innerhalb dieses 'div' werden wir ein Bild haben und dieses Bild wird es tun
+
+03:21.110 --> 03:26.180
+habe eine Art von Quelle, die - wir wissen nicht, was es ist, so dass wir es einfach so halten, wie es ist
+
+03:26.280 --> 03:29.840
+Tag wird geschlossen Und wir werden ein anderes 'div' haben
+
+03:34.780 --> 03:35.500
+das hier drin
+
+03:35.520 --> 03:46.980
+Wenn Sie sich erinnern, haben wir unseren Namen und unsere E-Mail hier. Also machen wir einfach ein H2. Wir schreiben nur hartcodiert
+
+03:46.990 --> 03:48.080
+Werte hier
+
+03:48.310 --> 03:51.890
+Wir machen Jane Doe
+
+03:52.070 --> 04:01.090
+Und schließlich ein "p" -Tag, das eine E-Mail-Adresse hat. Also lass uns Jane Doe bei gmail dot com machen
+
+04:01.550 --> 04:03.620
+Schließen Sie das Tag
+
+04:03.670 --> 04:03.970
+Gut
+
+04:03.970 --> 04:07.530
+Wir haben also nur eine einfache Komponente, die zurückkehrt
+
+04:07.540 --> 04:08.060
+'Karte'
+
+04:08.110 --> 04:10.950
+Und denken Sie daran, dass wir das exportieren möchten
+
+04:10.960 --> 04:14.530
+also wir sagen 'export', 'default', 'card'
+
+04:17.370 --> 04:18.210
+sparen
+
+04:18.490 --> 04:21.480
+Ich bekomme 'img Elemente müssen eine alt-Eigenschaft haben'
+
+04:21.630 --> 04:23.390
+Wieder gibt es mir einen schönen Hinweis
+
+04:23.400 --> 04:26.920
+Fügen wir einfach eine 'alt' Eigenschaft hinzu
+
+04:26.970 --> 04:29.540
+Wir sagen nur, was dieses Foto ist
+
+04:29.640 --> 04:38.870
+also werde ich jetzt nur 'Foto' sagen. Oder ich sage jetzt 'Roboter'. Kompilieren erfolgreich. Wenn wir auf unsere zurückblicken
+
+04:38.870 --> 04:46.130
+App haben wir Roboter Jane Doe und Jane Doe. Perfekt
+ 
+04:46.160 --> 04:52.850
+In Ordung. Wir haben die Kartenkomponente und Sie müssen sich fragen, warum wir React hier verwenden, wenn
+
+04:52.850 --> 04:54.630
+Wir benutzen es nicht wirklich
+
+04:54.860 --> 04:56.510
+Mal sehen, was passiert, wenn ich es entferne
+
+04:58.130 --> 05:05.370
+Ich bekomme eine ganze Reihe von Fehlern, die sagen, dass "React muss in Geltungsbereich sein, wenn JSX verwendet". Merken
+
+05:05.390 --> 05:07.810
+JSX ist das
+
+05:07.910 --> 05:16.680
+Wir schreiben kein HTML, wir schreiben JSX und wir müssen React importieren, damit unser Programm es versteht
+
+05:16.740 --> 05:20.070
+JSX. Diese HTML-ähnliche Syntax
+
+05:20.300 --> 05:26.470
+OK, jetzt brauchen wir ein Bild und für diese Übung habe ich etwas namens "RoboHash" für dich
+
+05:26.820 --> 05:29.100
+Es ist eine wirklich wirklich coole API
+
+05:29.100 --> 05:33.240
+Und für diejenigen, die nicht wissen, welche APIs sind - keine Sorge, ich habe einen Abschnitt mit all dem
+
+05:33.240 --> 05:35.350
+Informationen, wo Sie erfahren werden
+
+05:35.550 --> 05:45.180
+Aber das Coole an RoboHash ist, ich kann hier einfach alles sagen und es wird eine zufällige Antwort geben
+
+05:45.180 --> 05:47.420
+Roboter für mich
+
+05:47.460 --> 05:49.530
+Alles was wir brauchen ist nur das
+
+05:49.740 --> 05:59.130
+URL, und ich kann nur für jetzt sagen, "Test"
+
+05:59.370 --> 06:05.840
+Wenn ich das speichere und zu meinem Beispiel zurückkehre
+
+06:06.020 --> 06:06.610
+Da gehst du
+
+06:06.620 --> 06:08.150
+Wir haben unseren zufälligen Roboter
+
+06:08.450 --> 06:17.760
+Wenn ich das geändert habe, sagen wir "test test", dann speichere ich, nun bekomme ich einen anderen Roboter
+
+06:17.780 --> 06:18.820
+Wie cool ist das?
+
+06:20.500 --> 06:27.610
+Ok, ich möchte sicherstellen, dass die Größe etwas klein ist, damit du hier ein Fragezeichen setzen kannst
+
+06:27.610 --> 06:29.120
+gib ihm einfach Breite und Höhe
+
+06:29.200 --> 06:32.830
+Also werde ich nur 200 mal 200 machen
+
+06:32.890 --> 06:36.150
+Und das ist nur etwas, was du damit machst
+
+06:36.310 --> 06:40.950
+URL, die sie Ihnen in den hier enthaltenen Informationen geben - ich werde Sie nicht dazu bringen, sie durchzugehen
+
+06:44.940 --> 06:47.520
+Ich rette. Alles sollte gut aussehen
+
+06:49.020 --> 07:00.330
+Jetzt sagen wir, ich wollte einen Titel hinzufügen und ich werde etwas wie "div" oder "H1", "RoboFriends" hier tun
+
+07:06.950 --> 07:08.240
+Siehst du, ich bekomme hier einen Fehler?
+
+07:08.390 --> 07:17.430
+Es ist, weil - denken Sie daran, wir müssen eine Sache zurückgeben. Und wir können nicht mehrere Elemente zurückgeben, oder?
+
+07:17.610 --> 07:21.540
+Wenn wir etwas zurückgeben wollen, stellen Sie sicher, dass es eine Sache oder ein Array ist
+
+07:21.540 --> 07:25.520
+Aber für den Moment werden wir uns um den Titel kümmern
+
+07:25.530 --> 07:29.640
+Wir möchten sicherstellen, dass wir nur ein Element zurückgeben
+
+07:29.640 --> 07:35.680
+Also in diesem Fall das "div" -Element, das eine Menge Dinge enthält, die die "Karten" -Komponente sind
+
+07:35.690 --> 07:38.930
+Gut, lass uns sparen
+
+07:38.960 --> 07:39.230
+In Ordung
+
+07:39.260 --> 07:41.720
+Wir haben unsere Kartenkomponente
+
+07:41.720 --> 07:45.760
+Es sieht gut aus, aber was, wenn ich jetzt mehrere Karten haben möchte
+
+07:45.760 --> 07:50.350
+Nach dem, was wir wissen, weil wir die Kartenkomponente haben
+
+07:50.360 --> 08:00.810
+Wenn ich zu 'index.js' gehe .. Ich kann nur sagen - ich habe dies auf unsere neue Linie gesetzt, damit Sie sehen können - ich kann einfach wickeln
+
+08:00.810 --> 08:09.080
+das in einem "div". Wiederum, weil wir nur ein einzelnes Element zurückgeben wollen, und ich könnte 'Karte' sagen
+
+08:12.090 --> 08:16.040
+"Karte" und schließe das "div" -Tag
+
+08:18.650 --> 08:22.660
+Rette und sieh dir das an. Wir haben jetzt mehrere Karten
+
+08:22.650 --> 08:26.350
+Sie sind jeder ihre eigene Komponente
+
+08:26.540 --> 08:32.420
+OK, aber lass uns etwas Styling hinzufügen, um es schöner zu machen. Wiederum, weil wir Tachyonen haben
+
+08:32.750 --> 08:39.290
+Wir können eine wirklich nette Syntax verwenden. Wenn wir zu der Komponente "cards" im div gehen, kann ich "class" sagen
+
+08:39.440 --> 08:40.310
+wieder benennen
+
+08:40.340 --> 08:45.180
+Erinnere dich, dass wir die Klasse nicht benutzen können. 'BG', hellgrün
+
+08:45.200 --> 08:50.780
+Das ist "Hintergrund", "hellgrün" und dies sind nur Tachyon-Klassen, die bereits vordefiniert sind
+
+08:50.780 --> 08:51.840
+uns. Nochmal,
+
+08:52.060 --> 08:54.870
+CSS Sektion - das ist nicht so
+
+08:54.950 --> 09:00.260
+Wir konzentrieren uns also nicht zu sehr auf CSS. Ich gebe dir einfach die Stylings, die du brauchst. Wir haben das
+
+09:00.260 --> 09:07.570
+div, die Grenze, wir haben Polsterung von drei, viele Ränder auch zwei
+
+09:07.580 --> 09:10.060
+Und dann wird es "wachsen", was die Animation ist
+
+09:10.070 --> 09:16.510
+Also wenn ich das spare. Sieh dir das an. Das ist .. das ist ziemlich nett
+
+09:19.210 --> 09:21.670
+Weißt du was? Lass uns ein paar mehr hinzufügen. Wir werden es tun
+
+09:21.820 --> 09:29.560
+'Bw2' und 'shadow 5', um ihnen ein wenig Schatten hinzuzufügen
+
+09:30.010 --> 09:30.600
+Da gehst du
+
+09:30.630 --> 09:32.740
+Sie sehen jetzt mehr 3D aus
+
+09:32.740 --> 09:33.900
+Das sieht sehr gut aus
+
+09:35.200 --> 09:35.530
+Da gehst du
+
+09:35.530 --> 09:37.400
+Wir haben unsere Karten.
+
+09:37.420 --> 09:43.840
+Wieder wollen wir diese statische Karte nicht, wo es sagt, dass Jane Doe Jane Doe Jane Doe wir wollen, dass es dynamisch ist
+
+09:43.840 --> 09:44.100
+Recht?
+
+09:44.100 --> 09:53.040
+Es klingt also so, als müssten wir, was wir nennen, 'Requisiten' - Eigenschaften. Naja und ich habe eigentlich für dich ein Roboterobjekt
+
+09:53.040 --> 09:53.920
+das habe ich erstellt
+
+09:54.030 --> 10:01.140
+also werde ich hier nur eine neue Datei hinzufügen, die "robots.js" enthält und innerhalb von hier gehe ich einfach hin
+
+10:01.140 --> 10:08.910
+kopiere und füge das ein. Wie Sie sehen können, ist es nur ein konstantes Objekt, es sind Roboter, es ist eine Anordnung von Objekten
+
+10:08.910 --> 10:16.420
+und es hat ID, Name, Benutzername, E-Mail, und diese sind nur zufällig, dass ich gemacht habe
+
+10:16.530 --> 10:21.440
+Wenn Sie diese Datei möchten, können Sie die Dateien am Ende dieses Abschnitts greifen
+
+10:21.610 --> 10:26.300
+Aber auf diese Weise habe ich etwas, das ich benutzen kann und du kannst sehen, dass ich es exportiere
+
+10:26.410 --> 10:36.140
+Ich kann Roboter aus 'Punkt' importieren, weil wir im selben Verzeichnis sind
+
+10:36.500 --> 10:39.000
+Roboter
+
+10:39.060 --> 10:48.760
+Wenn ich das jetzt speichere, bekommen wir 'Roboter wie definiert, nie benutzt', sondern weil 'export' anstatt verwendet wird
+
+10:48.790 --> 10:52.630
+'Export default' Diese Datei könnte mehrere Exporte haben
+
+10:52.690 --> 10:54.620
+Es passiert einfach, dass ich nur einen habe
+
+10:54.880 --> 11:01.960
+Die Regel ist, für diese, weil es einen Standard gibt - nun, Sie können einfach 'Karte' tun. Für diejenigen, die nicht sind
+
+11:01.960 --> 11:02.650
+Standard
+
+11:02.740 --> 11:05.530
+du musst es zerstören
+
+11:05.680 --> 11:07.020
+Das ist so
+
+11:07.030 --> 11:14.930
+Wenn ich also eine andere Variable habe, sagen wir "Katzen", dann muss ich "Katzen" machen, um sie zu fangen
+
+11:16.220 --> 11:21.930
+Also haben wir Roboter und jetzt kann ich ihr einige Eigenschaften geben
+
+11:21.940 --> 11:24.340
+Ich kann sagen, dass "id" gleich ist
+
+11:24.370 --> 11:33.130
+Und wieder haben wir diese Klammern, so dass es ein Javascript-Ausdruck ist und wir sagen 'Roboter' .. 'Roboter'
+
+11:34.570 --> 11:44.070
+erstes Array .. Punkt 'ID' hat die ID dann haben wir den Namen gleich Roboter
+
+11:44.150 --> 11:58.340
+wieder, der erste Benutzer Punktname, schließen Sie die Klammer, und dann haben wir auch E-Mail gleich Robots zuerst
+
+11:58.340 --> 12:03.400
+Im Array Punkt-E-Mail
+
+12:03.440 --> 12:10.140
+Heilige Moly, das ist viel tippen. Und ich werde das kleiner machen, nur damit du es sehen kannst. ich werde
+
+12:10.140 --> 12:15.580
+Kopieren und Einfügen für die anderen außer für ..
+
+12:15.660 --> 12:23.150
+Ändern Sie dies zum zweiten Benutzer und dann zum dritten
+
+12:23.220 --> 12:31.560
+Ups .. der zweite Benutzer
+
+12:31.800 --> 12:39.750
+Wenn ich das jetzt speichere, ist es erfolgreich kompiliert, aber nichts hat sich geändert, weil wir zu Karten gehen müssen
+
+12:39.810 --> 12:47.070
+Ich werde jetzt 'robots.js' schließen. Weil Karten jetzt Parameter akzeptieren müssen und was ist
+
+12:47.070 --> 12:47.810
+Die Parameter?
+
+12:47.820 --> 13:05.620
+Nun, es ist Eigenschaften. Und diese Requisiten sind jetzt Requisiten Punkt Name und Requisiten Punkt E-Mail
+
+13:05.780 --> 13:08.650
+Ich rette das, geh zurück
+
+13:08.840 --> 13:13.340
+Hmm. Es funktioniert nicht. Nun, das ist ein Javascript-Ausdruck
+
+13:13.400 --> 13:13.950
+Recht?
+
+13:13.970 --> 13:18.050
+Also muss ich es in geschweifte Klammern einfügen
+
+13:18.820 --> 13:22.870
+So wie es in JSX funktioniert. sparen
+
+13:23.020 --> 13:23.680
+Sieh dir das an
+
+13:23.750 --> 13:29.840
+Wir haben dynamische Namen, die wir jedem als Eigenschaften übergeben
+
+13:30.000 --> 13:31.950
+Fügen wir hier 'text center' hinzu
+
+13:33.800 --> 13:34.630
+Und da gehst du
+
+13:34.670 --> 13:35.890
+Jetzt haben wir alles zentriert
+
+13:35.960 --> 13:36.800
+Das ist viel besser
+
+13:38.260 --> 13:38.490
+OK
+
+13:38.500 --> 13:42.210
+Aber wir haben auch ID übergeben. Wir können ID verwenden, um etwas Cooles zu machen
+
+13:42.250 --> 13:50.500
+Wenn Sie sich im ESX-Bereich erinnern, haben wir Template-Strings und weil dies eine Template-Zeichenfolge ist
+
+13:50.500 --> 13:55.020
+muss es in eine geschweifte Klammer einfügen, damit es ein Javascript-Ausdruck ist
+
+13:55.360 --> 14:02.780
+Und jetzt innerhalb des RoboHash können wir, anstatt den Test hier zu verwenden, randomisieren, welche Roboter wir bekommen
+
+14:02.920 --> 14:05.310
+mit der Syntax, wie Sie sich erinnern
+
+14:05.500 --> 14:08.790
+und hier können wir einfach Requisiten Punkt ID sagen
+
+14:08.920 --> 14:16.000
+So, jetzt wird dies RoboHash.org sagen, ID von was auch immer es für den Roboter mit der Seite ist
+
+14:16.000 --> 14:20.200
+So stellen wir sicher, dass die IDs immer dynamisch sind und sich ändern
+
+14:20.200 --> 14:29.010
+Wenn ich das speichere und zurückgehe. Sieh dir das an. Sie sehen, dass es wieder ein bisschen Verspätung gibt, weil wir reden
+
+14:29.010 --> 14:31.440
+an die API und die API wird zurückgegeben
+
+14:31.440 --> 14:33.800
+Antwort für uns, aber wie cool ist das?
+
+14:33.810 --> 14:39.350
+Wir haben gerade unsere eigenen dynamischen Karten erstellt
+
+14:39.380 --> 14:46.120
+Eine letzte Sache. Obwohl das funktioniert, ist es etwas Schöneres, etwas zu tun, das als Destrukturierung bezeichnet wird
+
+14:46.370 --> 14:48.500
+Wir können etwas wie "const" machen
+
+14:50.940 --> 14:57.730
+Name .. E-Mail .. gleich "Requisiten", wieder
+
+14:57.820 --> 15:05.470
+wie Sie sich vielleicht von E6 erinnern, und jetzt kann ich auch außerhalb 'ID' verwenden
+
+15:11.280 --> 15:12.430
+und es funktioniert immer noch
+
+15:14.240 --> 15:21.160
+Eine andere coole Sache, die Sie tun können, und das ist noch sauberer ist, innerhalb der Parameter können Sie Destrukturierung tun
+
+15:21.620 --> 15:23.840
+Auch hier können Sie diese hier hinzufügen
+
+15:28.740 --> 15:34.790
+Und jetzt, wenn ich es speichere, sollte es immer noch funktionieren und es tut
+
+15:34.990 --> 15:42.070
+Dies könnte verwirrend sein, wenn Sie mit dem Destrukturieren noch nicht vertraut sind, aber wie Sie Schritt für Schritt sehen, erhalten wir nur
+
+15:42.070 --> 15:46.260
+Requisiten und wir zerstören die Requisiten hier in den Klammern
+
+15:47.460 --> 15:50.440
+Das ist viel sauberer
+
+15:50.760 --> 15:51.450
+In Ordung
+
+15:51.450 --> 15:54.210
+Das hat sehr schnell sehr viel Spaß gemacht
+
+15:54.210 --> 15:57.960
+Wir haben gerade unsere eigenen Karten erstellt. Im nächsten Abschnitt
+
+15:57.990 --> 16:01.120
+Wir werden das weiter ausbauen und es noch besser machen
+
+16:01.200 --> 16:02.820
+Ich sehe dich in diesem. Tschüss

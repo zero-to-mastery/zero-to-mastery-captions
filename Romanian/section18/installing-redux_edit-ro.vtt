@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+Și un bun venit înapoi. Știm cum funcționează aplicația RoboFriends
+
+00:05.660 --> 00:14.330
+acum, cu reacție, e minunat. Dar Bruno ne-a cerut un lucru specific. Trebuie să adăugăm redux la adresa noastră
+
+00:14.330 --> 00:20.860
+Aplicația RoboFriends, astfel încât să se poată schimba bine și să se ocupe mai bine de gestionarea statului.
+
+00:22.630 --> 00:28.960
+Acum, cu aceste videoclipuri viitoare urmau să lucreze împreună, pas cu pas.
+
+00:28.990 --> 00:34.630
+Vă voi arăta cum este implementat reduxul și cum funcționează și că veți urmări
+
+00:35.170 --> 00:38.320
+încercând să vă asigurați că și codul dvs. funcționează.
+
+00:38.770 --> 00:42.120
+Bine, ia-ți o pauză acum și fă-ți mediul înființat.
+
+00:42.140 --> 00:46.470
+Deci, poți să-mi faci codul împreună cu mine. Ești gata?
+
+00:46.510 --> 00:46.940
+In regula.
+
+00:46.960 --> 00:48.300
+Am de gând să încep.
+
+00:48.370 --> 00:56.360
+Primul lucru pe care îl voi face este că am aplicația mea RoboFriends, așa că am să clonă repo și
+
+00:56.360 --> 01:06.650
+o sa facem regulat setarile noastre cu clona git si apoi ma duc la CD-ul meu in RoboFriend. Perfect.
+
+01:06.690 --> 01:09.510
+Să deschidem acest lucru în editorul dvs. de text.
+
+01:14.630 --> 01:18.720
+Și din nou îmi place să se alăture împreună, astfel încât să fie frumos.
+
+01:19.470 --> 01:20.670
+Și curat.
+
+01:20.720 --> 01:21.250
+Perfect.
+
+01:22.670 --> 01:29.510
+Acum, evident, primul lucru pe care trebuie să-l facem atunci când clonăm ceva este instalarea npm pentru a ne asigura
+
+01:29.510 --> 01:32.710
+avem toate pachetele.
+
+01:32.920 --> 01:38.970
+De asemenea, dorim să ne asigurăm că totul se desfășoară fără probleme, fără nici un fel de eroare.
+
+01:39.190 --> 01:48.410
+Deci, următorul pas va fi să începeți npm start.
+
+01:48.460 --> 01:49.180
+In regula.
+
+01:49.180 --> 01:49.690
+Perfect.
+
+01:49.690 --> 01:50.930
+Totul funcționează.
+
+01:51.040 --> 01:53.780
+Și ar trebui să putem filtra.
+
+01:53.780 --> 01:56.420
+Perfect.
+
+01:56.430 --> 01:56.690
+In regula.
+
+01:56.700 --> 01:59.790
+Deci suntem familiarizați cu această bază de coduri.
+
+02:01.120 --> 02:09.990
+Avem aplicația noastră de reacție, dar asta e tot. Doar o aplicație simplă de reacție cu containere și componente.
+
+02:10.040 --> 02:20.930
+Primul lucru pe care ar trebui să-l facem este să instalați redux. Așa că am să închid acest lucru și să rulez npm install redux.
+
+02:23.740 --> 02:30.990
+Acest pachet redux ne va da niște instrumente pentru a încorpora redux în aplicația noastră de reacție.
+
+02:32.220 --> 02:33.840
+Dar iată partea răcoroasă.
+
+02:33.840 --> 02:37.630
+Cu pachetul redux și de ce sunt un fan atât de mare.
+
+02:38.690 --> 02:45.680
+Este că 90% din codul dvs. va fi în continuare Javascript. Redux vă va oferi câteva ajutoare
+
+02:46.070 --> 02:48.620
+dar încă mai scrieți Javascript.
+
+02:48.740 --> 02:52.280
+Îți îmbunătățești abilitățile de Javascript.
+
+02:52.280 --> 02:57.470
+Când scrieți redux și învață principii cu adevărat foarte bune, de aceea sunt un mare fani
+
+02:57.530 --> 03:05.630
+Librăria. S-ar putea să nu aveți întotdeauna nevoie de redux în proiectele dvs., dar este doar un instrument bun, bun pentru a învăța
+
+03:05.960 --> 03:13.070
+pentru că are concepte atât de mari pe care le veți folosi pe tot parcursul carierei.
+
+03:13.220 --> 03:19.010
+Acum, al doilea lucru de care avem nevoie, și acest lucru este ceva similar cu reacția - amintiți-vă cum am instalat
+
+03:19.010 --> 03:25.730
+reacționați la pachet și apoi aveam nevoie și de ceva numit pachetul de reacție dom pentru a vă conecta
+
+03:25.730 --> 03:29.130
+domul? Ei bine, în mod similar.
+
+03:29.140 --> 03:38.770
+Trebuie să conectăm reduxul pentru a reacționa, deoarece teoretic redux ar putea lucra cu orice altă bibliotecă prin adăugare
+
+03:38.980 --> 03:40.240
+un alt pachet.
+
+03:40.300 --> 03:46.600
+Putem din nou să reacționăm că știm că vom folosi redux cu tine.
+
+03:46.600 --> 03:48.050
+Deci este foarte ușor de făcut.
+
+03:48.070 --> 03:53.080
+Vom instala doar npm și pachetul se numește react redux.
+
+03:59.260 --> 04:06.570
+Iar modul în care reacționează acest lucru va funcționa este că va conecta numai containerele.
+
+04:06.760 --> 04:14.410
+Deci, în acest caz app.js la, ceea ce numim un magazin redux sau acel obiect Javascript mare vorbim
+
+04:14.410 --> 04:14.820
+despre.
+
+04:14.860 --> 04:21.110
+Care descrie starea aplicației noastre și vor comunica, containerul va comunica
+
+04:21.200 --> 04:23.770
+cu magazinul și invers.
+
+04:24.900 --> 04:31.410
+Acum, celelalte componente, ceea ce numim componente nemaipomenite sau de prezentare,
+
+04:31.530 --> 04:34.250
+nu va ști că există redux.
+
+04:34.320 --> 04:41.010
+Singura conexiune va fi între ceva numit un container sau o componentă inteligentă și
+
+04:41.100 --> 04:42.650
+magazinul redux.
+
+04:42.660 --> 04:44.130
+Deci, lasă-mă să vă arăt ce vreau să spun.
+
+04:45.280 --> 04:51.040
+Dacă vă aduceți aminte de această diagramă, am instalat pachetul redux pe care îl puteți considera ca fiind
+
+04:51.040 --> 04:51.990
+aici.
+
+04:52.000 --> 04:58.300
+Această cutie roșie care ne permite să creăm un magazin și câteva alte funcții de ajutor.
+
+04:58.300 --> 05:10.310
+De asemenea, am descărcat reacx redux care ne permite să conectăm aceste două piese și să reacționăm în modul redux
+
+05:10.310 --> 05:17.090
+pentru a fi utilizate pentru a spune hei vrem ca aceste componente galbene să fie conștiente de faptul că folosim redux și să
+
+05:17.090 --> 05:20.650
+obține statul lor de la magazinul redux.
+
+05:22.380 --> 05:28.020
+Așa că gândiți-vă la această diagramă pe măsură ce lucrăm prin tot ceea ce facem este în esență conectarea
+
+05:28.020 --> 05:30.710
+aceste două biblioteci împreună.
+
+05:30.770 --> 05:37.630
+În regulă, acum că avem aceste două pachete, putem începe să le importăm și să le folosim în cadrul nostru
+
+05:37.630 --> 05:43.660
+app, dar asta e pentru următoarele două videoclipuri. Ne vedem în următorul.
+
+05:43.770 --> 05:44.010
+Pa! Pa.

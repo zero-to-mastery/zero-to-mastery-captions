@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Dar una buena acogida.
+
+00:02.210 --> 00:08.780
+Ahora que tenemos nuestras acciones constantes y reductoras, comencemos a conectar esta parte redux de nuestra aplicación
+
+00:09.170 --> 00:11.540
+a nuestra aplicación reaccionar
+
+00:13.290 --> 00:16.630
+Ahora la forma en que podemos hacer eso es bastante simple.
+
+00:17.520 --> 00:25.260
+Si recuerdas, descargamos un paquete llamado react redux y este paquete lo importamos aquí
+
+00:26.910 --> 00:32.840
+viene con API agradable y fácil de solo dos cosas.
+
+00:32.920 --> 00:40.540
+Uno es un proveedor y el otro es conectar y usar estas dos cosas vamos a poder
+
+00:40.780 --> 00:42.900
+conecta estas dos partes de nuestra aplicación.
+
+00:43.570 --> 00:52.660
+Así que voy a decir importación de react redux.
+
+00:52.870 --> 00:58.520
+Ahora en este video vamos a hablar sobre el proveedor y en el próximo video sobre Connect.
+
+00:58.540 --> 01:04.560
+Entonces, por ahora solo vamos a importar al proveedor.
+
+01:04.780 --> 01:13.300
+Ahora, aquí hay algunas cosas que debemos hacer primero es crear la tienda. Si volvemos a nuestro
+
+01:13.300 --> 01:23.510
+diagrama recordamos que hay algo llamado una tienda y redox que es la fuente de toda la verdad.
+
+01:23.800 --> 01:32.530
+Es un objeto javascript grande, objeto que describe el estado de nuestra aplicación para que la reacción pueda renderizar
+
+01:32.530 --> 01:36.010
+hace cambios y lo muestra al usuario.
+
+01:36.010 --> 01:43.330
+Así que creamos una acción que hemos creado y reducimos un reductor y también necesitamos una tienda.
+
+01:43.510 --> 01:45.900
+Entonces, hagámoslo primero.
+
+01:46.020 --> 01:53.600
+Podemos usar el paquete redux para esto y decir importación y tiene una función llamada crear tienda.
+
+01:53.670 --> 01:54.920
+Nombre agradable y fácil.
+
+01:55.170 --> 02:00.620
+Y vamos a importar eso del paquete redux.
+
+02:00.660 --> 02:06.570
+Ahora la forma en que creamos una tienda es bastante fácil y podemos decir que la tienda const es igual
+
+02:09.780 --> 02:19.940
+crea tienda y aquí ponemos el, lo que llamamos rootReducer, que es el reductor de nuestra aplicación
+
+02:20.570 --> 02:22.390
+Ahora en la vida real,
+
+02:22.460 --> 02:25.420
+tenemos muchos muchos reductores
+
+02:25.730 --> 02:34.230
+Si volvemos a nuestro archivo reductor, en este momento solo tenemos uno, el reductor de robots de búsqueda.
+
+02:34.430 --> 02:41.240
+Pero como dije antes, las aplicaciones se vuelven cada vez más complejas y vas a tener más y más acciones
+
+02:41.360 --> 02:42.450
+eso debe tomarse.
+
+02:42.890 --> 02:50.420
+Y podemos seguir enumerando las acciones relacionadas con los robots de búsqueda aquí mismo, pero más adelante en el video
+
+02:50.420 --> 02:54.840
+también necesita obtener robots de la API.
+
+02:55.280 --> 03:05.870
+Si tu recuerdas. ahora debido a eso vamos a tener muchos muchos muchos reductores y en la tienda que
+
+03:05.870 --> 03:15.820
+queremos combinar todos estos reductores para crear un reductor de raíz que vamos a hacer más adelante.
+
+03:16.650 --> 03:25.080
+Pero por ahora, porque solo tenemos un reductor, usemos el reductor de robots de búsqueda para crear
+
+03:25.080 --> 03:25.480
+la tienda
+
+03:29.650 --> 03:31.580
+y tenemos que importar esto
+
+03:31.600 --> 03:32.880
+Entonces sigamos y hagamos eso.
+
+03:33.680 --> 03:34.920
+Y digo importación
+
+03:38.010 --> 03:44.470
+buscar robots desde nuestro archivo reductor.
+
+03:44.480 --> 03:44.970
+Todo bien.
+
+03:45.020 --> 03:51.930
+Así que tengo robots de búsqueda aquí para crear la tienda y eso es todo.
+
+03:51.950 --> 04:00.560
+Tenemos una tienda Ahora se puede acceder a esta tienda y pasarla a nuestra aplicación.
+
+04:00.650 --> 04:08.110
+Recuerde que con redux hipotéticamente podemos eliminar todo estado de nuestra reacción y mantenerlo dentro de
+
+04:08.110 --> 04:11.850
+la tienda y pase por la tienda como un accesorio.
+
+04:11.890 --> 04:21.590
+Entonces veamos qué pasa si hago eso si voy a la tienda es igual a la tienda que tenemos y guardo.
+
+04:21.740 --> 04:24.460
+Y también vamos a abrir app.js
+
+04:25.360 --> 04:26.780
+Y en el
+
+04:26.810 --> 04:27.690
+componentDidMount.
+
+04:27.890 --> 04:29.240
+Vamos a consolar el registro
+
+04:32.000 --> 04:40.060
+this.props.store
+
+04:40.100 --> 04:41.460
+De acuerdo, corramos npm start
+
+04:48.270 --> 04:49.630
+Cuando abro la consola
+
+04:52.820 --> 04:57.800
+y tenemos un poco de aquí, que es solo un error de sintaxis en nuestro caso, entonces las declaraciones, así que vamos a
+
+04:57.800 --> 04:58.550
+Arregla eso.
+
+05:01.540 --> 05:03.150
+Ir a reductores.
+
+05:03.240 --> 05:09.420
+No necesitamos las comillas dobles aquí para el punto y coma aquí porque lo tenemos aquí.
+
+05:09.500 --> 05:17.770
+Vamos a guardar eso y recibimos un error que dice que el campo de búsqueda no está definido en nuestro archivo de reductores.
+
+05:17.840 --> 05:20.720
+Y de nuevo un pequeño pequeño error aquí.
+
+05:20.720 --> 05:30.370
+La forma en que queremos pasar el tercer parámetro a un object.assign es como un objeto, así que queremos ir como
+
+05:30.370 --> 05:31.020
+esta.
+
+05:32.880 --> 05:39.790
+Y nosotros a pequeño pequeño error constante aquí para salvar todo bien.
+
+05:39.840 --> 05:40.950
+Entonces todo está funcionando.
+
+05:40.950 --> 05:46.700
+Tenemos una advertencia que dice que el proveedor está definido, pero que nunca se usó, está bien.
+
+05:47.570 --> 05:49.180
+Porque mientras no estamos usando todavía
+
+05:49.250 --> 05:51.390
+Pero vayamos al registro de la consola y veamos qué sucede.
+
+05:52.750 --> 06:01.570
+Está bien, vemos que nuestra tienda de aquí se ha desconectado y tenemos algunas funciones que podemos usar
+
+06:01.870 --> 06:05.860
+incluido obtener estado. Usemos eso y veamos qué pasa.
+
+06:05.890 --> 06:15.750
+Nuevamente yendo a mi archivo de índice voy a decir o en nuestro archivo app.js voy a decir obtener estado, ir
+
+06:15.760 --> 06:20.490
+para guardar vuelve atrás y mira eso.
+
+06:20.550 --> 06:27.190
+Tenemos nuestro estado que solo tiene el campo de búsqueda en este momento.
+
+06:27.190 --> 06:27.620
+Todo bien.
+
+06:27.760 --> 06:36.910
+Así que estamos pasando por nuestra tienda como un accesorio y podemos usar obtener estado. Muy bien, eliminemos esta consola
+
+06:36.910 --> 06:37.750
+Iniciar sesión.
+
+06:37.750 --> 06:43.120
+Como no lo necesitamos, entendemos lo que está sucediendo ahora en el archivo de índice, necesitamos pasar el
+
+06:43.120 --> 06:45.820
+almacenar en la aplicación.
+
+06:45.920 --> 06:52.900
+Ahora, realmente no queremos pasar la tienda en nuestro árbol de componentes a los componentes más pequeños.
+
+06:53.200 --> 07:01.170
+una y otra vez y reaccionar redox nos da un buen componente que podemos usar para hacer esto muy fácilmente.
+
+07:01.280 --> 07:06.770
+Simplemente podemos ajustar nuestro componente de aplicación en este componente de proveedor.
+
+07:06.770 --> 07:07.770
+Deja que te enseñe.
+
+07:08.300 --> 07:24.180
+Vamos a tener un componente de proveedor y este componente de la aplicación va a estar dentro de él al igual que
+
+07:24.180 --> 07:27.150
+ese.
+
+07:27.160 --> 07:31.540
+Ahora el formato aquí está un poco apagado, pero está bien por ahora.
+
+07:31.540 --> 07:39.220
+Solo quiero ver que el proveedor está envolviendo la aplicación y ahora en lugar de pasar la tienda a
+
+07:39.220 --> 07:47.440
+la aplicación podemos simplemente incluirlo en el componente del proveedor y el componente del proveedor va a tomar
+
+07:47.440 --> 07:56.410
+cuidado de pasar la tienda a todos los componentes en el árbol de componentes desde la aplicación y usamos algo
+
+07:56.410 --> 08:02.730
+llamado Connect del que hablamos para finalizar esta conexión.
+
+08:02.750 --> 08:04.530
+Entonces ahí lo tienes.
+
+08:04.610 --> 08:14.000
+Creamos el componente de proveedor que pasa por la tienda y la tienda utiliza el reductor de raíz o lo que sea
+
+08:14.000 --> 08:19.660
+reductores que tenemos para crear la tienda y crear ese árbol de objetos de nuestro estado.
+
+08:20.820 --> 08:28.950
+Entonces, en el próximo video, déjenme guardar esto. En el siguiente video vamos a usar la otra parte de react redux
+
+08:29.100 --> 08:31.520
+para finalmente conectar todo junto.
+
+08:32.270 --> 08:34.070
+Veré ese. Adiós.

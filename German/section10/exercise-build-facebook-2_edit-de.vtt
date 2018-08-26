@@ -1,0 +1,275 @@
+WEBVTT
+
+00:00.990 --> 00:08.250
+Willkommen zurück! Mit unserem neu gewonnenen Wissen über Loops werden wir unsere Facebook-App ein wenig verbessern
+
+00:08.250 --> 00:09.000
+besser.
+
+00:09.420 --> 00:13.270
+Ich meine, weil Facebook mehr als einen Nutzer hat, oder?
+
+00:13.350 --> 00:16.660
+Es ist nicht nur ein Benutzer, es hat Millionen von ihnen.
+
+00:16.950 --> 00:25.990
+Wie können wir also jemandes Passwort überprüfen, indem wir nicht nur einen, sondern mehrere Benutzer durchlaufen?
+
+00:26.140 --> 00:30.510
+Nun, klingt wie eine perfekte Lösung für Loops, also lass es uns versuchen.
+
+00:30.520 --> 00:33.650
+Ich werde hier noch ein paar weitere Benutzer hinzufügen.
+
+00:33.740 --> 00:42.100
+Wir werden das einfach kopieren. Und wir haben 'sally' mit dem Passwort '123'.
+
+00:42.400 --> 00:49.600
+Und wir haben auch 'ingrid' mit dem Passwort '777'.
+
+00:49.820 --> 00:51.700
+Also lasst es uns auffrischen.
+
+00:51.700 --> 00:54.760
+Ich werde das in einer neuen Zeile machen, nur damit du es sehen kannst.
+
+00:54.890 --> 00:59.850
+Ich werde mich auffrischen und ingrid eingeben.
+
+01:02.570 --> 01:06.960
+"777". 'Sorry, falscher Benutzername und Passwort'.
+
+01:07.210 --> 01:13.360
+Und das macht Sinn, oder? Denn wenn wir unsere "signIn" -Funktion erstellt haben, prüft sie nur die
+
+01:13.360 --> 01:15.480
+erstes Element in der Datenbank.
+
+01:15.790 --> 01:17.260
+Aber wir wollen alle durchsehen.
+
+01:17.260 --> 01:22.800
+Wir wollen durch das erste Element im Array, das zweite und das dritte überprüfen.
+
+01:22.900 --> 01:25.510
+Sieht so aus, als müssten wir hier eine "Schleife" hinzufügen.
+
+01:26.480 --> 01:28.050
+Wie können wir das machen?
+
+01:28.430 --> 01:31.910
+Wir sollten nun eine 'for-Schleife' hinzufügen.
+
+01:31.940 --> 01:34.500
+Ich werde hier drinnen sagen.
+
+01:34.730 --> 01:44.150
+Nun, eigentlich werde ich das zuerst kommentieren, und wir werden sagen, dass wenn wir 'signIn' für var
+
+01:44.150 --> 01:47.130
+i = 0 '.
+
+01:47.170 --> 01:56.210
+Wir erinnern uns an diesen Index aus dem letzten Video, wir werden sagen "ich bin weniger als database.length".
+
+01:56.950 --> 02:09.410
+Also, 'database.length', das ist '3'. Und wir werden jedes Mal "i" erhöhen. Öffne und schließe die Klammern und dann hier
+
+02:09.410 --> 02:14.320
+wir wollen 'if (database [i])' sagen.
+
+02:14.420 --> 02:15.280
+Also statt '0'
+
+02:15.290 --> 02:22.470
+jetzt können wir 'ich' sagen, weil 'ich' '0, 1, 2' gehen werde. Damit
+
+02:22.510 --> 02:30.080
+'Wenn Datenbank [i] gleich' ist, und wir sollten auch einen 'Benutzernamen' haben.
+
+02:30.180 --> 02:42.470
+Also, wenn der 'Benutzername' gleich dem 'Benutzernamen' ist, den wir erhalten, ist das die Eingabe 'Benutzername'. Und ich werde anfangen
+
+02:42.480 --> 02:56.600
+eine neue Zeile hier. 'Datenbank [i] .password' entspricht dem 'Passwort', das wir vom 'Benutzer' erhalten. Nun, wenn das so ist
+
+02:56.810 --> 02:58.940
+der Fall, was sollen wir tun.
+
+02:59.270 --> 03:03.380
+Nun, wenn das stimmt, machen wir 'console.log (newsfeed)'.
+
+03:04.830 --> 03:05.610
+Andernfalls.
+
+03:05.910 --> 03:10.970
+Sonst machen wir Alarm.
+
+03:11.050 --> 03:17.780
+"Entschuldigung, falscher Benutzername und Passwort".
+
+03:17.920 --> 03:28.700
+Also, jetzt werde ich sparen. Lass es uns ausprobieren. 'Nutzername'? - "Ingrid", "Passwort"? - "777". 'Sorry, falscher Benutzername und Passwort'.
+
+03:28.890 --> 03:33.550
+"Entschuldigung, falscher Benutzername und Passwort", aber dann bekomme ich den "Newsfeed".
+
+03:33.670 --> 03:34.630
+Was ist gerade passiert?
+
+03:35.920 --> 03:41.680
+Nun, was wir gerade gemacht haben war, dass wir eine 'for-Schleife' gemacht haben, aber wir haben das 3 mal ausgeführt.
+
+03:41.680 --> 03:47.830
+Also, das erste Mal, dass ich 'Sorry, falscher Benutzername' bekam, das zweite Mal, dass ich 'Sorry, falscher Benutzername' bekam, weil es so ist
+
+03:47.830 --> 03:56.080
+Ich überprüfe 'andrei' und 'sally' und dann 'ingrid', was schließlich funktioniert und mir den 'Newsfeed' zurückgibt.
+
+03:57.330 --> 04:04.110
+Also ist unsere Logik hier nicht richtig. Was können wir tun, um das zu lösen?
+
+04:04.160 --> 04:08.390
+Nun, ich habe eine Idee. Lassen Sie uns eine andere Funktion erstellen.
+
+04:08.390 --> 04:16.910
+Ich werde diese Funktion 'isUserValid' nennen und diese Funktion wird 'Benutzername' erhalten
+
+04:20.330 --> 04:22.340
+und Passwort'.
+
+04:22.410 --> 04:28.550
+Und hier können wir das kopieren und hierher verschieben.
+
+04:28.550 --> 04:35.750
+Aber wir wollen nicht wirklich tun, was hier passiert ist, wo wir ständig loggen, stattdessen würden wir sagen wollen
+
+04:36.290 --> 04:39.520
+"zurück wahr".
+
+04:39.560 --> 04:50.180
+Also, wenn Benutzer gültig ist "Rückgabe wahr", wenn der Benutzer nicht gültig ist, dann sollten wir 'falsch zurückgeben', richtig?
+
+04:50.210 --> 04:52.740
+Aber wie können wir das tun?
+
+04:52.850 --> 04:58.060
+Nun, wenn ich hier 'falsch' zurückgebe - schauen wir uns die Logik an.
+
+04:58.340 --> 05:00.320
+Ich lese alles durch.
+
+05:00.620 --> 05:06.710
+Wenn zu irgendeinem Zeitpunkt der 'Benutzername' und das 'Passwort' übereinstimmen, mit dem, was wir in der Datenbank haben, 'wahr' zurückgeben.
+
+05:06.710 --> 05:11.630
+Und wir erinnern uns, dass eine Funktion stoppt und beendet wird, wenn sie 'Rückkehr' sieht.
+
+05:11.630 --> 05:13.150
+Also, es wird 'wahr' zurückgeben.
+
+05:13.580 --> 05:20.810
+Aber wenn es dreimal geloopt wird und diese 'if' Bedingung niemals besteht, wird es zur nächsten gehen
+
+05:20.810 --> 05:23.410
+Zeile, die 'falsch zurückgeben' ist.
+
+05:25.590 --> 05:28.350
+Also jetzt 'isUserValid'.
+
+05:28.350 --> 05:30.420
+Nun, lasst es uns testen!
+
+05:30.660 --> 05:40.820
+Ich werde 'console.log (isUserValid)' sagen, und wir geben es 'Benutzername' und 'Passwort'.
+
+05:41.310 --> 05:44.970
+Sie können sehen, dass der 'Benutzername' und das 'Passwort' von hier kommen.
+
+05:45.000 --> 05:47.880
+Also lass uns sehen. Ich werde speichern und aktualisieren
+
+05:50.500 --> 05:54.980
+"ingrid", "777".
+
+05:55.190 --> 05:55.870
+'wahr'.
+
+05:55.880 --> 05:56.540
+Stimmt.
+
+05:56.660 --> 05:58.550
+Lass uns etwas testen, wo es nicht stimmt.
+
+05:58.550 --> 06:03.280
+Ich werde 't' und 'unordentlich', 'falsch' sagen.
+
+06:03.380 --> 06:03.610
+OK.
+
+06:03.620 --> 06:07.160
+Es sieht so aus, als ob unsere 'isUserValid' Funktion funktioniert.
+
+06:08.810 --> 06:11.300
+Also sieh dir das an:06:11.540 --> 06:17.730
+Wir können das Protokoll entfernen und unsere ursprüngliche Funktion auskommentieren.
+
+06:19.500 --> 06:33.610
+Und anstatt all diese Kontrolle zu machen, können wir jetzt 'if (isUserValid)', 'username' und 'password' sagen, was
+
+06:33.610 --> 06:40.070
+ist wieder das 'username' und 'password', das wir hier von der 'prompt' erhalten.
+
+06:40.280 --> 06:45.230
+Wenn dies der Fall ist, führen Sie den "Newsfeed" aus.
+
+06:45.350 --> 06:51.020
+Wenn es falsch ist, gut, sonst ', sagst du' Sorry, falscher Benutzername und falsches Passwort '.
+
+06:51.500 --> 06:54.280
+Lass uns speichern und aktualisieren. OK.
+
+06:54.360 --> 06:55.170
+Lass uns gehen.
+
+06:55.170 --> 07:05.760
+'ingrid', Passwort '777'. Wir bekommen unseren "Newsfeed" und wenn wir falsche Informationen eingeben,
+
+07:08.790 --> 07:13.290
+Wir bekommen 'Sorry, falscher Benutzername und Passwort'.
+
+07:13.300 --> 07:14.730
+Wie cool ist das?
+
+07:14.770 --> 07:20.700
+Wir haben jetzt nur 2 Funktionen erstellt und es liest sich ziemlich gut, oder? Und es heißt "Anmelden".
+
+07:21.040 --> 07:24.040
+Hier ist der 'Benutzername'. Hier ist das "Passwort".
+
+07:24.040 --> 07:29.730
+Wir gehen zur 'signIn'-Funktion, es heißt:"Hey, wenn' isUserValid '?"
+
+07:30.260 --> 07:36.140
+"Ja, Benutzer ist gültig". Msgstr "" "Loggen Sie den Newsfeed ein", ansonsten "Alarm", "Sorry, falscher Benutzername und falsches Passwort".
+
+07:36.360 --> 07:42.180
+Und das ist ein wirklich wichtiges Konzept, Dinge zu benennen und Codes zu sortieren, damit man sie lesen kann
+
+07:42.180 --> 07:44.560
+wie Englisch und es macht Sinn.
+
+07:44.660 --> 07:45.940
+Und da hast du es.
+
+07:46.080 --> 07:48.780
+Wir haben unsere Facebook App.
+
+07:48.780 --> 07:50.960
+Sie können hier die Stärke von JavaScript sehen.
+
+07:51.000 --> 08:00.640
+Auch hier haben wir diese Funktionen erstellt, die in realen Web-Apps in größerem Maßstab angewendet werden können.
+
+08:00.750 --> 08:02.670
+Wir sehen uns im nächsten. Tschüss

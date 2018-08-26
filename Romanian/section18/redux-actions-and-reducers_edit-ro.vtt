@@ -1,0 +1,439 @@
+WEBVTT
+
+00:01.220 --> 00:03.020
+Și bine ai venit înapoi.
+
+00:03.020 --> 00:11.230
+Acum că avem redux și reacționați redux instalat, să începem să scriem un cod și să introducem redux.
+
+00:11.430 --> 00:19.700
+Acum, primul lucru pe care vrem să-l facem este să creezi ceva numit acțiune și, de asemenea, un reducător.
+
+00:19.980 --> 00:30.040
+Dacă vă amintiți această diagramă am menționat că redux are aceste două componente:o acțiune și un reductor.
+
+00:30.050 --> 00:33.820
+Așa că vom construi cele două și vom arăta ce vreau să spun.
+
+00:35.460 --> 00:39.440
+Primul lucru pe care vrem să îl facem este să creați un fișier nou.
+
+00:39.630 --> 00:45.930
+Să o păstrăm în dosarul sursă și vom spune că aceasta va fi numită Actions.js
+
+00:47.940 --> 00:54.020
+și aici vom crea o acțiune folosind doar javascript simplu.
+
+00:54.090 --> 01:03.680
+Vom spune că export const și prima acțiune pe care o vom face este câmpul de căutare.
+
+01:03.750 --> 01:09.810
+Deci, amintiți-vă când introducem în caseta de căutare că putem filtra roboții. Vom spune că acea acțiune care
+
+01:09.810 --> 01:17.100
+este pe căutarea modificată pe care am avut-o în aplicația de reacție, vom spune că aceasta va fi numită SetSearchField
+
+01:17.100 --> 01:31.180
+iar acest câmp de căutare va primi o intrare de text pe care utilizatorul o tipă și pentru că vrem să
+
+01:31.180 --> 01:37.840
+păstrați-l cât mai mic posibil, îl putem împacheta în paranteze curbate, astfel încât să putem evita returnarea
+
+01:37.840 --> 01:38.540
+afirmație.
+
+01:38.560 --> 01:45.100
+Pur și simplu vom întoarce un obiect și acest obiect va avea un tip
+
+01:47.810 --> 01:54.430
+numit să spunem CHANGE_SEARCHFIELD.
+
+01:57.540 --> 02:06.070
+Și vom avea, de asemenea, un volum util numit text.
+
+02:06.210 --> 02:13.980
+Așadar, această acțiune va merge - care se numește Câmp de căutare - va lua text, adică
+
+02:13.980 --> 02:20.060
+ceea ce introduce utilizatorul și va reveni la un obiect care are un tip de CHANGE_SEARCHFIELD.
+
+02:20.460 --> 02:28.200
+Deci aceasta este acțiunea care este luată și pe care o va trimite - iar sarcina utilă este un nume comun care este
+
+02:28.200 --> 02:36.750
+folosit și redox, așa că să vă obișnuiți cu asta - sarcina utilă este că trimitem toate datele necesare pentru a continua
+
+02:36.750 --> 02:41.680
+producătorul care va fi doar ceea ce intră utilizatorul.
+
+02:42.750 --> 02:43.120
+In regula.
+
+02:43.150 --> 02:45.220
+Tocmai am creat acțiunea noastră.
+
+02:45.340 --> 02:46.030
+Asta e.
+
+02:46.180 --> 02:47.800
+Asta e acțiunea noastră.
+
+02:47.800 --> 02:49.390
+Frumos și simplu.
+
+02:49.390 --> 02:57.640
+Acum, aici am capitalizat acest lucru pentru că este o constantă și o constantă este de obicei capitalizată.
+
+02:57.640 --> 03:07.720
+Toate capacele din javascript sunt doar standard, dar îmi place să folosesc o variabilă constantă reală, deoarece cu
+
+03:07.720 --> 03:12.960
+doar un șir ne putem sprima ceva și s-ar putea să nu obținem eroarea.
+
+03:13.000 --> 03:18.220
+Dar dacă folosim o variabilă și ne spunem greșit, aceasta va avea de fapt o eroare atunci când executăm aplicația.
+
+03:18.220 --> 03:21.210
+Deci este un mic truc frumos.
+
+03:21.220 --> 03:27.990
+Și cele mai multe demo-uri redux au un fișier constante și în cazul în care acestea urmăresc toate aceste acțiuni.
+
+03:28.240 --> 03:34.480
+Și este de asemenea frumos să ai un fișier în care să vezi ce acțiuni ai.
+
+03:34.480 --> 03:39.630
+Linie după linie, deoarece majoritatea aplicațiilor vor avea mai mult decât o singură acțiune după cum veți vedea.
+
+03:39.700 --> 03:46.130
+Deci, să creăm un fișier nou și îl vom numi constanta.js.
+
+03:46.330 --> 03:51.390
+Și aici, în doar exportul - să facem acest lucru un pic mai mare, astfel încât să puteți vedea.
+
+03:51.500 --> 03:52.740
+Acolo te duci.
+
+03:52.780 --> 04:02.070
+Vom exporta constant CHANGE_SEARCHFIELD.
+
+04:02.310 --> 04:04.290
+Și asta va egala șirul nostru.
+
+04:05.180 --> 04:10.250
+Din nou exact același lucru CHANGE_SEARCHFIELD, dar șirul.
+
+04:13.060 --> 04:16.520
+Pare redundant, dar este doar o bună practică.
+
+04:16.810 --> 04:23.380
+Deci acum că avem această variabilă care este o constantă și pentru că o exportăm, putem doar să importăm
+
+04:23.380 --> 04:24.510
+sus aici.
+
+04:29.680 --> 04:38.070
+Și vom spune CHANGE_SEARCHFIELD să vă asigurați că nu există erori de ortografie în acest fel și vom spune că
+
+04:38.490 --> 04:41.080
+import din fișierul Constante.
+
+04:45.710 --> 04:49.630
+Și să facem asta puțin mai mic, așa că totul se potrivește.
+
+04:49.710 --> 04:52.930
+Și tu te duci.
+
+04:52.940 --> 04:59.640
+Deci, acum putem folosi câmpul de căutare modificat în locul textului.
+
+04:59.780 --> 05:00.660
+Și tu te duci.
+
+05:00.730 --> 05:08.650
+Avem un fișier de acțiuni frumos și bun cu acțiunea SetSearchField și vă puteți imagina aici
+
+05:08.650 --> 05:14.680
+pe măsură ce obținem tot mai multe acțiuni, putem continua să adăugăm lucruri și continuăm să adăugăm toate constantele
+
+05:14.680 --> 05:18.460
+avem nevoie de acțiunile pe care le face aplicația noastră.
+
+05:18.460 --> 05:18.660
+In regula.
+
+05:18.670 --> 05:22.020
+Următorul lucru pe care îl amintim cu redux este după acțiune.
+
+05:22.030 --> 05:30.190
+Avem, de asemenea, un reductor pe care l-am spus că este o funcție mare care doar citește acțiunea și scuipă ce
+
+05:30.190 --> 05:32.420
+noi numim stat.
+
+05:32.530 --> 05:38.560
+Deci, haideți să facem acest lucru, să creăm un alt fișier aici, îl vom numi reducers.js
+
+05:42.040 --> 05:53.670
+și aici, să creăm reductorul. Mai întâi începem prin a spune const initialState.
+
+05:54.050 --> 05:56.030
+Deci avem nevoie de un punct de plecare.
+
+05:56.030 --> 06:00.790
+Deci vă puteți aminti în fișierul nostru app.js cu aplicația create react.
+
+06:00.860 --> 06:08.220
+Dacă deschid acest lucru, vedem că avem starea inițială cu câmpul de căutare care este necompletat.
+
+06:08.240 --> 06:15.400
+Deci, similar cu faptul că trebuie să spunem că starea inițială aici va avea câmpul de căutare
+
+06:18.290 --> 06:20.390
+care este egal cu un șir gol.
+
+06:22.080 --> 06:23.510
+Deci, asta e starea inițială.
+
+06:23.550 --> 06:28.050
+Acesta este obiectul inițial pe care îl vom avea în magazinul redux.
+
+06:28.530 --> 06:31.850
+Și acum trebuie să creăm reductorul. Din nou.
+
+06:31.920 --> 06:38.190
+Amintiți-vă că este o funcție foarte ușor de făcut din nou pentru că o vom folosi în alte locuri.
+
+06:38.190 --> 06:46.780
+Vom exporta și vom spune că acesta va fi numit un robot de căutare pentru că asta e
+
+06:46.780 --> 06:52.640
+acțiunea care are loc va căuta roboții folosind câmpul de căutare.
+
+06:52.660 --> 06:58.980
+Deci, acest reductor de roboți de căutare va avea câteva lucruri.
+
+06:59.030 --> 07:09.470
+Mai întâi este un stat care este starea aplicației noastre, iar apoi cel de-al doilea lucru este acțiunea.
+
+07:09.490 --> 07:11.720
+Așa sa întâmplat.
+
+07:13.630 --> 07:20.440
+Și folosind ES6 să-i dăm doar parametrii impliciți pentru a ne asigura că dacă acesta este gol sau acțiune este
+
+07:20.440 --> 07:21.890
+gol Nu primim erori.
+
+07:21.910 --> 07:30.340
+Deci, vom spune că statul va fi starea inițială, motiv pentru care avem aici și apoi acțiunea este corectă
+
+07:30.340 --> 07:32.110
+va fi un obiect gol.
+
+07:32.110 --> 07:38.790
+Amintiți-vă că acțiunile noastre sunt doar obiecte care se întorceau.
+
+07:38.820 --> 07:48.690
+Deci, de aici, folosind funcțiile de eroare, avem primul nostru reductor. Și reductorii de aici, ce fac ei sunt ei
+
+07:48.780 --> 07:52.190
+această intrare a unei stări și a unei acțiuni.
+
+07:52.230 --> 07:58.680
+Și dacă le pasă de acțiunea pe care o primesc în cazul nostru, dacă ne pasă dacă primim orice acțiune
+
+07:58.680 --> 08:04.980
+care sunt legate de căutarea de roboți vom face ceva ce vom acționa asupra statului
+
+08:04.980 --> 08:09.820
+calea pe care o vom face este că vom folosi o declarație de comutare și o să spunem în cadrul
+
+08:09.820 --> 08:12.960
+comutați declarația că vom face un act.type
+
+08:15.650 --> 08:17.370
+rețineți tipul de acțiune.
+
+08:17.480 --> 08:20.280
+Acesta este un lucru pe care îl folosim în fișierul action.js ..
+
+08:20.510 --> 08:25.480
+Rețineți că avem un câmp de căutare pentru schimbare.
+
+08:25.610 --> 08:31.390
+Privind la asta, se pare că vom avea grijă de tipul de acțiune al căutării în câmpul de căutare.
+
+08:31.430 --> 08:41.910
+Deci, hai să importăm dosarul constantelor aici pentru redux sau pentru reductorul nostru, de asemenea.
+
+08:42.050 --> 08:51.530
+Și în interiorul nostru putem spune că în cazul în care tipul de acțiune.
+
+08:51.730 --> 08:54.730
+Oricum, hai să facem CHANGE_SEARCHFIELD
+
+08:56.370 --> 09:07.100
+În acest caz, bine, dorim să revenim la un nou stat și acest lucru se întoarce la cele trei principii
+
+09:07.100 --> 09:08.060
+am vorbit despre.
+
+09:08.060 --> 09:08.850
+Hai să aruncăm o privire.
+
+09:10.240 --> 09:15.610
+Cele trei principii în care reacționăm este că avem singura sursă de adevăr, care este singurul obiect mare
+
+09:15.610 --> 09:16.690
+care descrie aplicația noastră.
+
+09:16.840 --> 09:22.490
+Așa că avem variabila de stare inițială pe care am stabilit-o. Statul este citit numai.
+
+09:22.540 --> 09:26.880
+Asta înseamnă că nu putem niciodată să modificăm obiectul.
+
+09:26.900 --> 09:37.170
+Singurul lucru pe care îl putem face este crearea unui obiect nou care are, ca și înainte, obiectul anterior
+
+09:37.200 --> 09:43.670
+starea anterioară pe care am avut-o, cu orice modificări pe care le-am avut, astfel încât statul este citit.
+
+09:43.740 --> 09:50.190
+Apoi, cel de-al treilea lucru este că schimbările se efectuează numai prin utilizarea unor funcții pure, acum amintesc că funcțiile pure sunt funcții
+
+09:50.430 --> 09:59.520
+care primesc un fel de intrare la fel ca în reducerea noastră și retur o ieșire care nu are
+
+09:59.520 --> 10:00.440
+orice efecte secundare.
+
+10:00.450 --> 10:03.120
+Asta nu modifică nimic.
+
+10:03.300 --> 10:07.940
+De fiecare dată când introducem o intrare, ea oferă întotdeauna aceeași ieșire.
+
+10:08.400 --> 10:15.310
+Deci, bazându-ne pe aceste principii, dacă ne întoarcem, știm că vrem ca acest lucru să fie o funcție pură
+
+10:15.310 --> 10:22.270
+este un fel de intrare și ar trebui să readucă o nouă stare și modul în care o facem fără
+
+10:22.270 --> 10:32.800
+doar făcând state.SearchField și modificând acea proprietate pe care o vom face object.assign.
+
+10:32.960 --> 10:43.970
+Iar modul în care facem acest lucru este parantezele curbate în virgulă pe care le primim de la starea inițială
+
+10:43.970 --> 10:50.270
+începutul și apoi, în final, orice vrem să schimbăm în obiectul respectiv.
+
+10:50.270 --> 10:58.280
+În cazul nostru, suntem interesați să modificăm proprietatea câmpului de căutare și proprietatea câmpului de căutare este
+
+10:58.280 --> 11:03.690
+va avea actiunea.payload.
+
+11:03.790 --> 11:06.800
+Din nou, permiteți-mi să fac acest lucru puțin mai mic.
+
+11:06.970 --> 11:13.920
+Vom întoarce un nou stat așa cum puteți vedea aici cu object.assign care va avea totul înăuntru
+
+11:13.920 --> 11:14.730
+statul.
+
+11:14.880 --> 11:23.070
+În plus, vom actualiza orice proprietate a câmpului de căutare, o nouă proprietate de câmp de căutare pe care o avem cu action.payload
+
+11:23.130 --> 11:28.760
+Amintiți-vă că acțiunile au două lucruri care trimit:un obiect cu tip și un obiect cu sarcină utilă.
+
+11:28.780 --> 11:32.310
+Dacă ne întoarcem, vedem tipul și sarcina utilă.
+
+11:32.450 --> 11:37.370
+Deci, aceasta pur și simplu spune că am primit o acțiune numită CHANGE_SEARCHFIELD.
+
+11:37.490 --> 11:45.280
+Dacă este cazul, atunci reveniți la noua stare cu acțiune.payload indiferent de ce a introdus utilizatorul.
+
+11:45.320 --> 11:50.510
+Știu că poate deveni puțin confuz, dar aceasta este doar sintaxa standard redux pe care o veți avea
+
+11:50.510 --> 11:51.330
+a se obisnui cu.
+
+11:52.550 --> 11:53.400
+Doar un heads-up.
+
+11:53.400 --> 11:57.050
+Există un alt mod de a face acest lucru pe care unii oameni le plac și sunt mai curate.
+
+11:57.050 --> 12:05.760
+O altă opțiune este de a face operațiunea de distrugere a obiectului sau de împrăștiere a obiectului, ceea ce înseamnă că putem face ceva
+
+12:06.150 --> 12:06.810
+asa.
+
+12:10.550 --> 12:12.370
+Care funcționează frumos, de asemenea.
+
+12:12.410 --> 12:15.230
+Pentru moment, totuși, să o păstrăm așa cum am avut-o
+
+12:18.720 --> 12:23.960
+și apoi amintiți-vă întotdeauna că o funcție pură întotdeauna trebuie să întoarcă ceva.
+
+12:23.960 --> 12:39.640
+Deci, în cazul în care tipul de acțiune nu este acest lucru, de asemenea, dorim să spunem implicit întotdeauna returnarea stării.
+
+12:39.640 --> 12:40.130
+Acolo te duci.
+
+12:40.150 --> 12:41.790
+Am creat un reductor.
+
+12:42.040 --> 12:44.830
+Aceasta este o funcție pură.
+
+12:44.830 --> 12:52.990
+Acum, am putea folosi o declarație if dacă vrem, dar îmi place să folosesc switch-ul și să reacționez și la documentație
+
+12:52.990 --> 12:59.550
+recomandă comutarea deoarece puteți avea mai multe cazuri, mai multe acțiuni care acționează asupra roboților de căutare
+
+12:59.560 --> 13:06.040
+reductor și este mult mai ușor să adăugați și să adăugați alte lucruri care afectează starea
+
+13:06.250 --> 13:08.590
+roboți.
+
+13:08.590 --> 13:09.100
+In regula.
+
+13:09.160 --> 13:10.830
+Asta nu a fost prea rău.
+
+13:10.930 --> 13:21.170
+Am creat un reductor cu o stare inițială și avem și constantele și acțiunile noastre.
+
+13:21.300 --> 13:28.530
+Așa că diagrama pe care ți-am arătat-o ​​începe să facă un pic mai mult sens. În următorul videoclip.
+
+13:28.530 --> 13:33.870
+Să conectăm de fapt, pentru că acum nu este conectat la nimic cu care nu este conectat
+
+13:33.870 --> 13:36.520
+aplicațiile noastre, să reacționăm.
+
+13:36.570 --> 13:39.850
+Tocmai am creat aceste fișiere care trăiesc singure.
+
+13:40.380 --> 13:42.030
+Ne vedem în următorul.
+
+13:42.050 --> 13:42.590
+Pa! Pa.

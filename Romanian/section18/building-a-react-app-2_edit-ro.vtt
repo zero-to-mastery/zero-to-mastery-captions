@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.480 --> 00:01.230
+Bine ai revenit
+
+00:01.410 --> 00:05.020
+Să continuăm să construim aplicația RoboFriends
+
+00:05.080 --> 00:12.460
+Acum, până la acest punct, dacă te uiți la index.js - bine a fost o mulțime de copiere și lipirea asta
+
+00:12.670 --> 00:15.640
+noi am facut. Dacă am avea mulți prieteni de robot
+
+00:15.640 --> 00:19.810
+Imaginați-vă că aveți sute dintre acestea pe care trebuie să le copiem și să le lipiți în mod constant
+
+00:19.910 --> 00:21.530
+Asta nu e foarte eficient?
+
+00:21.730 --> 00:30.160
+De asemenea, dacă vă amintiți diagrama noastră despre fluxul de date într-o singură direcție, am avut întotdeauna un părinte, cum ar fi o aplicație
+
+00:30.160 --> 00:34.980
+componenta care avea copii care au copii proprii și așa mai departe și așa mai departe
+
+00:35.050 --> 00:43.300
+Folosind astfel de cunoștințe, putem avea o componentă mare de aplicație care are copii diferiți, astfel încât să le facem pe fiecare
+
+00:43.300 --> 00:47.970
+componente mici și reutilizabile
+
+00:47.990 --> 00:57.160
+Să ne întoarcem la exemplul nostru. Acum că avem "robot.js", în mod ideal putem enumera toți cei 10 utilizatori
+
+00:58.700 --> 01:09.740
+Modul în care facem acest lucru - să avem o componentă "CardList", astfel încât dacă vom importa o componentă "CardList" care este
+
+01:09.740 --> 01:17.000
+un părinte al "Cardului", atunci putem să facem asta în loc de toate aceste cărți
+
+01:17.290 --> 01:30.390
+Deci o să spun "CardList" și din nou va trebui să o creăm. Deci, voi spune un dosar nou, "CardList.js"
+
+01:33.060 --> 01:43.050
+modificând-o din nou la sintaxa noastră "Babel" - vom face importul "React" de la "reacționează" și o voi face puțin
+
+01:43.050 --> 01:44.970
+putin mai mare
+
+01:45.020 --> 01:52.800
+Și din nou vom spune doar "const", "CardList" egal - nu va accepta nimic pentru moment
+
+01:54.360 --> 01:56.530
+Dar se va întoarce ..
+
+01:56.890 --> 02:01.700
+Ei bine, ce ar trebui să se întoarcă?
+
+02:01.850 --> 02:05.070
+Ar trebui să returneze cardurile, nu?
+
+02:05.920 --> 02:07.960
+Putem copia și lipi doar acest lucru
+
+02:11.750 --> 02:13.160
+pune asta aici
+
+02:13.480 --> 02:15.750
+Să fixăm indentarea aici puțin
+
+02:18.730 --> 02:26.660
+Acum "CardList" va fi cel care returnează aceste carduri și "index.html"
+
+02:26.710 --> 02:33.280
+va face doar "Cardlist"
+
+02:33.350 --> 02:39.330
+Dacă salvez acest lucru - bine, cred că acel "card" nu este folosit, așa că îl putem elimina
+
+02:39.770 --> 02:42.500
+Și "roboții" nu sunt utilizați
+
+02:42.620 --> 02:48.400
+Dar putem folosi "roboții" acum pentru a trece asta, deoarece "roboții"
+
+02:48.400 --> 02:59.560
+este egal cu matricea "roboților". CardList acceptă o propunere de "roboți"
+
+02:59.730 --> 03:05.880
+Dacă salvez acest lucru, totul funcționează, dar primesc această eroare, deoarece, după cum puteți vedea, nu am exportat
+
+03:06.950 --> 03:13.910
+Dacă ne întoarcem la Cardlist, exportați, implicit - și, sperăm, de acum începeți să vă agățați
+
+03:13.920 --> 03:20.040
+Există o mulțime de repetiții aici, dar de fiecare dată, atâta timp cât înveți sintaxa, le creăm
+
+03:20.520 --> 03:28.410
+componente frumos. Și avem o mulțime de erori pentru că nu avem acces la "roboți" și ID-uri și, bine
+
+03:28.830 --> 03:30.270
+carte pentru asta, fie
+
+03:30.300 --> 03:37.520
+Deci, să importăm o carte din - din nou același director -
+
+03:37.700 --> 03:38.400
+„Card.js“
+
+03:39.280 --> 03:40.960
+Roboții nu sunt definiți
+
+03:40.960 --> 03:45.540
+Știm că "CardList" primește acum roboți
+
+03:45.540 --> 03:52.540
+Așa că am acces la ea în "recuzită" sau o pot distruge și pot spune că avem acces la ea
+
+03:53.570 --> 04:04.940
+cu "roboți". Dacă salvez acest lucru, uită-te la faptul că am totul înapoi așa cum a fost
+
+04:05.080 --> 04:07.390
+Dar nu este vorba de toate?
+
+04:07.390 --> 04:10.480
+Suntem doar grabbing 0, 1, 2
+
+04:10.510 --> 04:11.800
+Numai trei
+
+04:11.800 --> 04:17.970
+Și așa cum am văzut la robots.js am 10
+
+04:18.130 --> 04:20.870
+Hm. Cum putem face asta mai bine?
+
+04:21.040 --> 04:28.410
+Să facem acest lucru un pic mai mic pentru a putea vedea. Se pare că vrem să facem un fel de buclă
+
+04:28.510 --> 04:29.410
+dreapta?
+
+04:29.410 --> 04:35.650
+Vrem să bifăm peste roboți și să creăm o componentă de card pentru fiecare
+
+04:35.650 --> 04:36.880
+Cum putem face asta aici în React?
+
+04:36.900 --> 04:45.060
+Să începem prin adăugarea unei alte variabile aici. O vom numi "const"
+
+04:47.740 --> 04:50.300
+„CardComponent“
+
+04:50.510 --> 04:56.630
+Și în cadrul "cardComponent" vrem să spunem că "roboții" - vrem să
+
+04:56.690 --> 04:59.390
+bine ce vrem să facem? Când facem o buclă
+
+04:59.420 --> 05:03.460
+după cum am spus înainte, vrem să cartografiem, nu?
+
+05:03.470 --> 05:06.740
+Am putea face câte patru, dar întotdeauna am recomandat să faci o hartă
+
+05:07.120 --> 05:09.280
+Și în cadrul acestei hărți fiecare robot
+
+05:11.820 --> 05:12.930
+primește asta
+
+05:12.990 --> 05:16.800
+Așa că noi primim un utilizator de fiecare dată când o facem prin hartă. Deci, putem spune "utilizator"
+
+05:20.070 --> 05:26.550
+ar trebui să se întoarcă din nou, pentru că o hartă trebuie să se întoarcă, ea returnează acest lucru, nu?
+
+05:26.610 --> 05:32.890
+Vrem să returnăm o componentă a cardului. Pot copia și lipi acest lucru aici
+
+05:34.500 --> 05:42.370
+și în termen de întoarcere pot spune doar acum în loc de roboți index 0 - avem indexul? Ei bine, da, pentru că
+
+05:42.450 --> 05:48.800
+vă amintiți, al doilea parametru pe care îl primim într-o hartă este indexul
+
+05:48.800 --> 05:52.730
+Deci pot spune "utilizator" și "i" pentru index
+
+05:52.790 --> 06:03.640
+Și acum, în "roboți", voi spune "i" pentru index. De fiecare dată când prima dată în jurul valorii de acest lucru va fi zero, atunci 1
+
+06:03.640 --> 06:07.610
+2 până la 9 pentru a include cei 10 roboți ai noștri
+
+06:08.840 --> 06:11.260
+Să vedem dacă funcționează de fapt
+
+06:11.360 --> 06:19.260
+Dacă am adăuga componenta de card aici .. Țineți minte că trebuie să o înfășurăm în paranteze curbate deoarece este javascript
+
+06:19.260 --> 06:22.170
+așa că știe să evalueze
+
+06:22.410 --> 06:28.270
+Dacă salvez acest lucru, pare că se compilează cu succes, mă întorc și
+
+06:28.630 --> 06:29.960
+Sfânt moly
+
+06:30.240 --> 06:33.650
+Ne-am obținut o matrice de carduri
+
+06:33.820 --> 06:35.140
+Cat de tare e asta!
+
+06:35.140 --> 06:37.160
+A fost incredibil de rapid de făcut
+
+06:37.330 --> 06:40.820
+Tocmai am folosit cunoștințele noastre de bun simț și cunoștințe despre Javascript
+
+06:41.020 --> 06:46.240
+Folosit doar "harta", pentru a returna mai multe componente
+
+06:46.240 --> 06:50.620
+Sper că îți dai seama cât de puternic este și de aceea React este atât de popular acum
+
+06:50.680 --> 06:57.510
+Putem folosi Javascript pentru a returna aceste elemente HTML și pentru a face lucrurile într-adevăr foarte repede
+
+06:59.390 --> 07:04.240
+Dacă deschid consola aici, văd că primesc un avertisment
+
+07:04.250 --> 07:11.120
+Fiecare copil dintr-un matrice sau dintr-un iterator ar trebui să aibă o cheie proprie unică și există o legătură cu el dacă ești
+
+07:11.120 --> 07:12.280
+doriți să citiți mai multe despre el
+
+07:13.370 --> 07:20.450
+Acesta este un caz special pe care tocmai trebuie să-l amintiți. Când lucrați cu reacționați în modul virtual DOM
+
+07:20.450 --> 07:23.950
+Lucrurile sunt la curent cu ceea ce reprezintă toate aceste cărți
+
+07:24.320 --> 07:35.300
+Dar fără a avea ceva numit un element cheie, dacă unele dintre aceste carduri vor fi șterse, React nu va ști
+
+07:36.720 --> 07:42.660
+care este și care va trebui să schimbăm întreg DOM. Versus dacă ar fi avut un element cheie care să spună "oh asta
+
+07:42.660 --> 07:43.230
+este eliminat "
+
+07:43.230 --> 07:49.080
+Pot să-l elimin pe DOM. Rețineți că dorim să minimalizăm cantitatea de muncă pe care o facem
+
+07:49.080 --> 07:50.190
+DOM
+
+07:50.280 --> 07:53.170
+Deci atunci când faci o buclă este doar ceva ce trebuie să-ți amintești
+
+07:53.220 --> 07:57.100
+Trebuie să-i dai o cheie unică. În cazul nostru
+
+07:57.240 --> 08:01.200
+Putem spune doar "i" care este index
+
+08:01.210 --> 08:02.250
+Dacă salvăm asta
+
+08:05.300 --> 08:10.130
+Hopa, trebuie să o împacheiem din nou în paranteze curbate
+
+08:11.000 --> 08:14.720
+pentru că este Javascript. Și tu te duci
+
+08:14.740 --> 08:22.800
+Acum nu mai avem eroarea
+
+08:23.020 --> 08:29.150
+Și să facem asta pe o linie nouă, așa că arată mai frumoasă
+
+08:33.640 --> 08:39.270
+Și pentru că ne întoarcem pe mai multe rânduri, vrem să înfășurăm acest lucru într-un suport, nu?
+
+08:39.340 --> 08:42.070
+În regulă. Și asta e mai bine
+
+08:42.120 --> 08:45.350
+Deci, aceasta funcționează frumos, așa cum o dorim
+
+08:45.420 --> 08:51.150
+Vreau să vă arăt un lucru. Pentru că acesta este Javascript - tot ce punem în aceste paranteze curl este
+
+08:51.150 --> 08:53.940
+javascript inclusiv comentarii -
+
+08:54.450 --> 08:58.730
+Ei bine, putem copia și lipi totul
+
+08:58.800 --> 09:04.080
+Eliminați constanta și adăugați-o în paranteze
+
+09:07.750 --> 09:14.360
+Dacă salvez acest lucru, ar trebui să funcționeze în continuare, așa cum se întâmplă
+
+09:14.500 --> 09:20.200
+Și aceasta este o altă putere a lui React. React te face un programator foarte bun javascript pentru că
+
+09:20.920 --> 09:25.040
+altceva decât această sintaxă JSX totul altceva este doar javascript
+
+09:25.390 --> 09:32.830
+Deci, suntem capabili să creăm o componentă CardLList care afișează cărțile și tot ce trebuie să facem este să-i transmitem o propunere
+
+09:33.310 --> 09:39.140
+de roboți. Și tocmai am făcut-o mai curată
+
+09:39.440 --> 09:40.840
+Foarte tare
+
+09:40.880 --> 09:42.880
+Bine, asta e pentru acest videoclip
+
+09:42.890 --> 09:45.490
+Mai multe lucruri se vor întâmpla în următorul
+
+09:45.500 --> 09:46.600
+Ne vedem în acel
+
+09:46.610 --> 09:46.880
+Pa! Pa

@@ -1,0 +1,299 @@
+WEBVTT
+
+00:00.920 --> 00:10.160
+Willkommen zurück. Lassen Sie uns die letzten beiden Routen in unserem Server einrichten. Wir haben zuerst das '/ profile /:userId'
+
+00:10.160 --> 00:12.420
+Das ist eine GET-Anfrage.
+
+00:12.440 --> 00:18.960
+Das wollen wir dem Nutzer für seine Homepage holen.
+
+00:19.190 --> 00:22.510
+Lass uns das tun. Ich werde eine andere Route hinzufügen.
+
+00:22.670 --> 00:32.030
+Dieses Mal wird es nur eine GET-Anfrage sein und es wird '/ profile /' und eine 'id' akzeptieren - denken Sie daran, wenn wir es tun
+
+00:32.030 --> 00:39.170
+Mit dieser Syntax [:ID] bedeutet das, dass wir alles in unseren Browser eingeben können und wir können diese "ID" holen
+
+00:39.650 --> 00:43.270
+durch die Eigentumsrechte von 'req.params'.
+
+00:43.280 --> 00:45.580
+Wir werden das Gleiche wieder tun.
+
+00:45.590 --> 00:46.670
+Anfrage, Antwort
+
+00:49.910 --> 00:52.460
+und fügen wir hier einen Platz hinzu, um die Dinge sauber zu halten.
+
+00:54.150 --> 01:06.360
+Und innerhalb dieser Anfrage, Antwort wollen wir zunächst den Parameter 'id' nehmen, also machen wir 'const', 'id'
+
+01:06.840 --> 01:11.190
+kommt von 'req.params'.
+
+01:11.450 --> 01:13.700
+Und was sollen wir hier machen?
+
+01:13.700 --> 01:21.380
+Nun, um unsere Benutzer zu erreichen, wollen wir unsere Beispieldatenbank durchlaufen und die passende 'ID' finden.
+
+01:21.710 --> 01:22.550
+Wenn es übereinstimmt
+
+01:22.550 --> 01:27.930
+Wir möchten den Benutzer zurückgeben.
+
+01:27.940 --> 01:28.170
+Gut.
+
+01:28.170 --> 01:29.470
+Wir können es vermeiden.
+
+01:29.470 --> 01:36.370
+Wir müssen hier eine Schleife machen. So wie wir das machen, können wir einfach 'Datenbankbenutzer'
+
+01:40.180 --> 01:44.800
+- Obwohl ich gerne "map" für diesen Fall benutze - wir laufen einfach durch die Benutzer und wir brauchen sie nicht wirklich
+
+01:44.800 --> 01:49.600
+um ein neues Array zu erstellen - es ist nur eine Datenbank und wir wollen diese Konstante beibehalten, also sagen wir einfach 'forEach ()'
+
+01:51.240 --> 02:01.210
+und wenn Sie sich erinnern, wird "forEach ()" die Benutzer nacheinander durchlaufen und wir werden das sagen, wenn 'user.id'
+
+02:02.670 --> 02:11.390
+Was aus dieser Datenbank kommt, entspricht der 'ID', die wir von den 'Params' erhalten haben
+
+02:11.390 --> 02:23.610
+In diesem Fall antworten wir mit JSON, diesem Benutzer [req.json (user)] - wir senden nur den Benutzer der passenden 'id' - andernfalls
+
+02:26.440 --> 02:34.180
+Wir antworten mit 'req.json' ('kein solcher Benutzer').
+
+02:38.140 --> 02:45.830
+Und wir können sogar sagen, dass es ein Status von 404 ist, was "nicht gefunden" bedeutet.
+
+02:45.840 --> 02:46.040
+Gut.
+
+02:46.050 --> 02:47.440
+Mal sehen, ob das funktioniert.
+
+02:47.630 --> 02:57.700
+Ich werde sparen, zurück zu unserem Beispiel. Nun, wir wissen, dass wir '123' und '124' haben
+
+02:57.740 --> 03:01.410
+und weil der Server neu gestartet wird, werden wir Ann nicht haben.
+
+03:01.810 --> 03:04.000
+Du willst '/ profile / 123' benutzen.
+
+03:04.410 --> 03:09.830
+Wenn wir Send klicken, bekomme ich '200 OK'.
+
+03:09.840 --> 03:10.500
+-
+
+03:10.500 --> 03:11.710
+Gut, wir haben John.
+
+03:11.880 --> 03:20.060
+Wenn ich '124' mache, bekomme ich "keinen solchen Benutzer", wenn wir zurückkommen
+
+03:22.780 --> 03:23.860
+- Hmm, Sally sollte hier sein.
+
+03:23.860 --> 03:25.220
+Wieso bekommen wir sie nicht?
+
+03:28.240 --> 03:30.880
+Und wir sehen hier, dass wir hier einen Fehler bekommen:03:30.970 --> 03:32.890
+'Kopfzeilen können nach dem Senden nicht festgelegt werden.'
+
+03:32.890 --> 03:39.590
+Das liegt daran, dass wir dies durchforsten und nicht von der Schleife zurückkehren - weil wir es erst einmal finden
+
+03:39.590 --> 03:44.480
+die Benutzer-ID - wir müssen nicht wirklich weitermachen.
+
+03:44.520 --> 03:49.830
+Also hier sollten wir nur eine 'return res.json ()' senden
+
+03:49.980 --> 03:57.180
+und wenn der Benutzer nicht gut gefunden wird, wollen Sie das nicht unbedingt in der Schleife machen, oder?
+
+03:57.390 --> 04:07.980
+Wir wollen das für jeden sagen, wenn dieser Benutzer resit res.json () findet und wir sagen das eine Variable
+
+04:09.270 --> 04:16.780
+'found', das wir standardmäßig auf 'false' setzen, wird ebenfalls mit 'true' aktualisiert
+
+04:20.610 --> 04:26.610
+und es muss ein 'Let' sein, weil wir es neu zuweisen, so 'gefunden' wird gleich 'wahr'
+
+04:26.620 --> 04:29.610
+wenn wir es finden, und ich weiß, dass es bessere Möglichkeiten gibt, es zu tun.
+
+04:29.620 --> 04:32.250
+Aber ich denke, das wird einen Punkt verdeutlichen.
+
+04:32.290 --> 04:38.030
+Wir könnten auch eine "Karte" oder einen "Filter" machen, um zu sehen, ob wir tatsächlich eine Person mit einer "ID" finden.
+
+04:38.420 --> 04:42.670
+Aber jetzt lass uns einfach 'wenn nicht gefunden' [if (! Gefunden)]
+
+04:42.700 --> 04:48.000
+Also das Gegenteil von "gefunden" - in diesem Fall werden wir nur antworten
+
+04:51.830 --> 05:00.090
+'res.status (400) .json (' nicht gefunden ')'
+
+05:00.260 --> 05:01.210
+Lass es uns gehen.
+
+05:07.130 --> 05:07.470
+Gut.
+
+05:07.490 --> 05:19.150
+Ich bekomme Sally. Wenn ich "123" gehe, bekomme ich John - perfekt und nur zum Spaß, lass uns registrieren
+
+05:19.590 --> 05:25.080
+Ann wieder. Ich werde senden und ihre 'ID' ist '125'.
+
+05:25.200 --> 05:30.970
+Wenn ich also zu '/ profile /' zurückgehe und '125' mache, bekomme ich Ann.
+
+05:31.060 --> 05:32.470
+Und wie cool ist das?
+
+05:34.600 --> 05:34.990
+Genial.
+
+05:34.990 --> 05:42.610
+Also haben wir diesen Endpunkt und wir haben einen letzten, der das Bild ist und dieses, das wir gerade wollten
+
+05:42.610 --> 05:47.020
+um den Benutzer zu aktualisieren, um sie zu erhöhen
+
+05:49.890 --> 05:53.130
+'Einträge' zählen. Jedes Mal, wenn sie ein Bild einreichen
+
+05:53.130 --> 05:55.330
+Wir wollen ihre "Einträge" erhöhen.
+
+05:57.670 --> 06:03.580
+Machen wir das, indem wir unseren endgültigen Endpunkt erstellen, der 'app.post ()' ist
+
+06:06.930 --> 06:11.330
+und wir werden es "Bild" nennen.
+
+06:11.560 --> 06:19.510
+Wir bekommen eine Anfrage, Antwort.
+
+06:19.790 --> 06:26.200
+Und wieder müssen wir die 'ID' des Benutzers wieder finden.
+
+06:27.800 --> 06:31.070
+Um ihre Einträge zu aktualisieren.
+
+06:35.860 --> 06:43.080
+In diesem Fall können wir einfach kopieren, was wir vorher gemacht haben und wann immer wir irgendeine Art von Funktion kopieren müssen
+
+06:44.140 --> 06:52.390
+Nun, es ist eine gute Zeit, um es herauszuziehen und Ihre eigene Funktion zu erstellen, so dass Sie es in beiden verwenden können
+
+06:52.390 --> 06:53.770
+von diesen.
+
+06:53.900 --> 06:57.070
+Aber jetzt lassen Sie uns einfach kopieren und einfügen
+
+07:01.410 --> 07:09.960
+und anstatt "params" in unserem Fall zu haben, erhalten wir die "id" des Benutzers vom Körper.
+
+07:10.170 --> 07:15.340
+Und jetzt wollen wir das sagen - wir wollen auch diesen unteren Teil kopieren
+
+07:19.010 --> 07:27.480
+- Wir werden sagen, wenn die ID des Benutzers übereinstimmt, werden wir in diesem Fall antworten
+
+07:29.100 --> 07:38.450
+mit den 'user.entries' und diesen 'entries' wollen wir eigentlich noch erhöhen.
+
+07:38.450 --> 07:48.070
+Also werden wir sagen, dass "user.entries ++" - erinnere dich daran, dass die kurze Form von mir plus eins tut und neu zuweist
+
+07:48.070 --> 07:48.540
+es.
+
+07:48.820 --> 07:54.010
+Also machen wir einfach '++' und jetzt sollten die Einträge des Benutzers zunehmen und dann werden wir antworten
+
+07:54.010 --> 07:59.490
+Das. Wenn das nicht funktioniert, wenn der Benutzer nicht gefunden wurde
+
+08:00.360 --> 08:05.500
+- In diesem Fall behalten wir es so, wie es ist:Der Benutzer wurde nicht gefunden.
+
+08:06.780 --> 08:12.640
+Sagen wir das und gehen zurück zu Postman. Wir sagen '/ Bild'.
+
+08:12.880 --> 08:23.010
+Und innerhalb dieses Bildes werden wir eine POST-Anfrage haben, was einen Körper bedeutet und wir können einfach an den Benutzer weitergeben
+
+08:23.450 --> 08:24.600
+"Ich würde".
+
+08:25.080 --> 08:29.560
+In unserem Fall werden wir "Id" sagen:"123", was Johns 'ID' ist.
+
+08:32.240 --> 08:34.270
+Und wir werden auf Senden klicken.
+
+08:35.750 --> 08:47.900
+Ich bekomme "1", wenn ich erneut klicke, bekomme ich "2", "3", "4", "5" und wenn ich zurück zur "Wurzel" gehe, die
+
+08:47.900 --> 08:57.370
+gibt unsere Benutzer zurück und ändert das zu GET Ich bekomme John mit fünf Einträgen und Sally mit null Einträgen.
+
+09:00.090 --> 09:02.080
+Lasst uns sicherstellen, dass es auch für Sally funktioniert.
+
+09:02.120 --> 09:14.340
+Wenn ich "124" mache, bekomme ich jetzt Einträge von "1" und gehe zurück zu den GET-Benutzern, die ich mit fünf Einträgen John bekomme
+
+09:14.370 --> 09:20.070
+und Sally mit einem Eintrag. Tolle!
+
+09:20.250 --> 09:24.200
+Wir haben uns einen netten API-Server besorgt.
+
+09:24.230 --> 09:25.430
+Es kann sich definitiv verbessern.
+
+09:25.430 --> 09:32.600
+Es gibt ein paar Dinge, die wir offensichtlich ändern wollen, zum Beispiel "signin" - nicht nur für John.
+
+09:32.900 --> 09:40.040
+Wir haben ein paar Code-Wiederholungen, die wir vielleicht in einer Funktion ausdrücken können.
+
+09:40.260 --> 09:47.970
+Aber ich wollte, dass etwas funktioniert, das wir benutzen können, damit wir es sofort verbinden können
+
+09:47.970 --> 09:48.680
+mit unserem Front-End.
+
+09:51.680 --> 09:58.150
+Wir können endlich unseren auskommentierten Bereich löschen, in dem wir geplant haben, wie unsere API aussehen wird.
+
+09:59.950 --> 10:01.710
+Gute Arbeit, so weit zu kommen.
+
+10:01.810 --> 10:03.670
+Ich werde im nächsten Video sehen. Tschüss

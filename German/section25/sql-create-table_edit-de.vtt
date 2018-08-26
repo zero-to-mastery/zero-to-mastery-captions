@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.750 --> 00:01.320
+Gut.
+
+00:01.430 --> 00:10.700
+Also lass uns eine Tabelle erstellen. Wenn Sie sich daran erinnern, zu unserer Postgres-Datenbank zu gehen, schreiben wir einfach psql
+
+00:10.700 --> 00:14.980
+dann unser Datenbankname und wir werden die Datenbank eingeben.
+
+00:15.130 --> 00:18.410
+Und jetzt können wir mit SQL kommunizieren.
+
+00:18.430 --> 00:19.950
+Jetzt erstellen wir eine Tabelle.
+
+00:20.060 --> 00:21.060
+Wie können wir das machen.
+
+00:21.940 --> 00:29.380
+Wiederum kommt SQL mit einer Sprache. Sprachsyntax, die wir verwenden können. Und um einen Tisch zu schaffen, können wir
+
+00:29.380 --> 00:30.840
+benutze so etwas.
+
+00:30.970 --> 00:34.580
+Wir sagen 'CREATE TABLE', was ein SQL-Befehl ist.
+
+00:34.870 --> 00:43.780
+Wir geben einen Tabellennamen gefolgt von eckigen Klammern ein und sagen dann, mit was wir sagen wollen
+
+00:43.780 --> 00:52.940
+der Datentyp spalte_2 mit dem Datentyp spalte_3 mit dem Datentyp und endet dann mit Semikolon.
+
+00:52.940 --> 00:56.010
+Lass mich einfach Enter drücken und sehen, was hier passiert.
+
+00:56.180 --> 01:05.030
+Ich bekomme einen Fehler 'Typ' Datentyp 'existiert nicht' und das liegt daran, dass der Datentyp sich auf Postgres bezieht
+
+01:05.060 --> 01:12.000
+oder unsere relationale Datenbank weiß, wir müssen im Voraus sagen, welche Art von Daten
+
+01:12.020 --> 01:14.400
+Spalte_1, Spalte_2 und Spalte_3 halten.
+
+01:15.590 --> 01:23.030
+Wenn wir zu unserem Chrome-Browser zurückkehren, sehen wir, dass wir für Postgres ein paar Datentypen haben, die wir können
+
+01:23.030 --> 01:29.240
+halt. String-Datentypen, numerische Datentypen und Datentypen für Datum und Uhrzeit.
+
+01:29.360 --> 01:33.180
+Und jeder von ihnen hat verschiedene Dinge. Für einen numerischen Datentyp
+
+01:33.230 --> 01:37.900
+Wir haben eine Ganzzahl, die eine 4-Byte-Ganzzahl ist.
+
+01:38.000 --> 01:43.980
+Wir haben Bigint, was eine größere Anzahl und all diese verschiedenen Dinge erlaubt,
+
+01:44.000 --> 01:49.870
+wir haben Geld, was Währungswert ist und der Grund, warum wir diesen Datentyp geben müssen, ist der
+
+01:49.880 --> 01:57.080
+wie Datenbanken funktionieren. Sie sind so optimiert, dass alles in ihrer Spalte gleich ist
+
+01:57.410 --> 02:00.840
+Sie können wirklich sehr schnell arbeiten, um Aktionen auszuführen.
+
+02:02.190 --> 02:10.550
+In unserem Fall verwenden wir einige der gebräuchlichsten. Wir können Text für die erste Spalte verwenden.
+
+02:10.620 --> 02:11.370
+Also lass uns das tun.
+
+02:11.370 --> 02:16.110
+Ich drücke auf den Pfeil nach oben und erhalte die create table.
+
+02:16.110 --> 02:21.300
+Ich werde auch diese Tabelle nennen, nennen wir sie Benutzer
+
+02:24.000 --> 02:39.550
+und Spalte_1 wird Name sein, Datentyp kann Text sein, Spalte_2 können wir sagen, dass Alter und Datentyp für eine ist
+
+02:39.550 --> 02:40.390
+Alter.
+
+02:40.390 --> 02:43.870
+Nun, wenn wir hier nach unten schauen, schauen wir uns numerische Typen an.
+
+02:43.960 --> 02:49.920
+Wir wollen etwas wie smallint verwenden, das eine 2-Byte-Ganzzahl mit Vorzeichen ist.
+
+02:50.080 --> 02:56.320
+Es bedeutet, dass ein Max für ein Smallint ist, wenn ich zu Smallint Max gehe
+
+02:58.990 --> 03:04.820
+Wir sehen, dass die maximale Reichweite 32.762 beträgt. Nun, niemand wird das sein
+
+03:04.820 --> 03:05.530
+alt, oder?
+
+03:05.530 --> 03:14.160
+Also können wir smallint für den Moment verwenden. Ich werde sagen, Alter ist Smallint.
+
+03:14.300 --> 03:24.140
+Und schließlich wird die dritte Spalte nur "Geburtstag" haben und Geburtstag kann ein Datums-Datentyp sein und wir können
+
+03:24.140 --> 03:32.460
+habe gerade ein Datum, lass uns Enter drücken und ich erstelle eine Tabelle.
+
+03:32.610 --> 03:37.670
+Schauen wir uns hier unser PSequel an. Und ich werde das minimieren.
+
+03:37.900 --> 03:48.190
+Und wenn ich auf Aktualisieren klicke, sehe ich, dass wir Nutzer haben. Schauen Sie sich das an und wir haben Spalten für die Tabellenbenutzer
+
+03:48.220 --> 03:50.470
+das ist Name, Alter, Geburtstag.
+
+03:50.520 --> 03:53.110
+Es sagt uns den Typ und die Länge.
+
+03:53.110 --> 03:56.320
+So, jetzt haben wir unseren Tisch. Genial.
+
+03:56.560 --> 04:06.700
+Es gibt auch einen Weg, es hier zu machen, wenn wir es tun, bekomme ich eine Liste von Beziehungen und sieh dir das an
+
+04:06.700 --> 04:13.600
+Habe unseren Usertisch und den Besitzer, der mich ist, sehr Cool.
+
+04:13.600 --> 04:14.210
+Da gehst du.
+
+04:14.290 --> 04:20.620
+Wir haben unsere erste Tabelle erstellt. Jetzt können wir damit beginnen, einige Informationen einzugeben.
+
+04:20.620 --> 04:24.800
+Und übrigens könnten Sie fragen, wie oft wir diese Befehle ausführen.
+
+04:25.090 --> 04:30.490
+Im Idealfall, sobald Sie Ihre Datenbank erstellen und irgendwo auf einem Computer irgendwo auf der Welt leben
+
+04:31.540 --> 04:33.740
+du machst das nur einmal, richtig.
+
+04:33.910 --> 04:40.420
+Sie erstellen eine Tabelle, wie Ihre Datenbank aussehen soll und der Rest wird nur ausgefüllt und eingefügt
+
+04:40.420 --> 04:43.180
+Information und Lesen von Informationen davon.
+
+04:43.180 --> 04:49.510
+Das ist also der Befehl, den wir einrichten werden, wenn wir unsere eigene Datenbank erstellen, um unsere Schemas einzurichten.
+
+04:49.510 --> 04:52.470
+Und dann wird es einfach von selbst laufen.
+
+04:52.660 --> 04:55.530
+Und es wird mit dem Backend kommunizieren können.
+
+04:55.720 --> 04:57.370
+Es wird sehr lustig werden.
+
+04:57.370 --> 05:00.560
+Übrigens, bevor wir ins nächste Video kommen, möchte ich dir noch einen Befehl zeigen.
+
+05:00.580 --> 05:03.980
+Wir haben gelernt, das '\ d' zeigt uns unsere Tabellen.
+
+05:04.060 --> 05:12.480
+Wenn ich '\ q' mache, gehen wir hier raus und wir sind zurück zum Terminal.
+
+05:12.490 --> 05:14.470
+In Ordnung, wir sehen uns im nächsten.
+
+05:14.860 --> 05:15.100
+Tschüss.

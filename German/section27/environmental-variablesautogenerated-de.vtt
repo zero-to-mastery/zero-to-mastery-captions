@@ -1,0 +1,227 @@
+WEBVTT
+
+00:01.430 --> 00:02.390
+Willkommen zurück.
+
+00:02.390 --> 00:08.880
+Ich wollte dir ein kurzes Video über ein wichtiges Konzept zeigen, das Umgebungsvariablen genannt wird und das ich erstellt habe
+
+00:08.880 --> 00:15.910
+eine einfache Umfrage hier, die wir vor der Verwendung des HTTP-Moduls, das mit Knoten kommt, und wir haben eine
+
+00:15.910 --> 00:18.750
+einfacher Server, der auf Port 3000 hört.
+
+00:18.970 --> 00:28.470
+Wenn ich einen Knoten-Server dot js laufen lassen wir Server auf Port 3000 hören. Dies ist jedoch nicht
+
+00:28.470 --> 00:30.060
+wirklich realistisch.
+
+00:31.180 --> 00:36.890
+Manchmal möchten wir nicht fest programmieren, welchen Port wir gerade hören.
+
+00:37.150 --> 00:43.980
+Wenn wir zum Beispiel etwas über einen anderen Dienst bereitstellen, wie wir es mit Heroku tun, können wir das nicht
+
+00:43.990 --> 00:46.960
+Wähle wirklich, welchen Port wir hören werden.
+
+00:47.020 --> 00:50.150
+Wir brauchen etwas Dynamisches, damit es verändert werden kann.
+
+00:51.490 --> 00:56.700
+Wie können wir das machen? Nun, dieses Konzept der Umweltvariablen.
+
+00:56.850 --> 01:11.160
+ist die Idee, dass es Variablen gibt, so wie wir ein const haben A gleich eins const B gleich zwei, die sind
+
+01:11.760 --> 01:13.950
+Variablen in dieser Umgebung.
+
+01:15.040 --> 01:22.330
+Es gibt eine Idee von einer Umgebungsvariablen, die eine Umgebung wie hier ist, ein Computer, der dies ist
+
+01:22.330 --> 01:25.260
+Anwendung läuft oder der Server läuft.
+
+01:25.510 --> 01:33.460
+Es kann eigene Variablen haben, und wir können diese Variablen in den spezifischen Ort in einfügen
+
+01:33.460 --> 01:35.230
+eine Datei.
+
+01:35.340 --> 01:38.550
+Und das ist nicht nur ein Knoten oder Server spezifisch.
+
+01:38.550 --> 01:42.090
+Es ist mit allen Programmen.
+
+01:42.090 --> 01:46.050
+Überall, wo Sie hinschauen, wird es Umweltvariablen geben, die verwendet werden.
+
+01:46.050 --> 01:47.640
+Es ist ein Konzept.
+
+01:47.640 --> 01:58.080
+Wie können wir das im Knoten machen? Nun, im Knoten haben wir Zugriff auf - machen wir einen Konsolen-Log-Prozess dot env
+
+01:59.440 --> 02:00.450
+und mit Prozesspunkt env,
+
+02:00.520 --> 02:10.410
+Wenn ich den Server starte, sieht man, dass es mir die Umgebung sagt, zB wo ich das herstelle
+
+02:10.770 --> 02:21.270
+Das Heim, erzählt uns, mit welchem ​​Terminalprogramm ich damit arbeite, das ist iTerm, das viele Informationen bekommt.
+
+02:21.320 --> 02:23.900
+Lasst uns das klären. Und damit
+
+02:23.900 --> 02:29.150
+Jetzt können wir unsere eigenen Variablen setzen. Wenn Sie den Port einstellen möchten.
+
+02:29.150 --> 02:37.880
+Zum Beispiel können wir Prozesspunkt env dot port sagen und jetzt ändern wir dies zu
+
+02:41.310 --> 02:44.500
+Prozesspunkt Punkt-Port.
+
+02:45.060 --> 02:55.990
+Und um es sauberer zu machen, können wir einfach PORT haben, um Punkt-env Punkt-PORT zu verarbeiten.
+
+02:56.010 --> 03:01.240
+Jetzt können wir den gleichen Anruf entfernen.
+
+03:05.980 --> 03:10.180
+Lassen Sie uns auch hier loggen, nur um sicherzustellen, dass wir es sehen.
+
+03:10.220 --> 03:23.040
+Wenn ich den Knotenserver betreibe, bekomme ich undefiniert. Aber das ist, weil diese Portnummer etwas ist, was wir nicht getan haben
+
+03:23.040 --> 03:24.190
+habe anfangs.
+
+03:24.270 --> 03:25.670
+Ich habe gerade diesen Namen gemacht.
+
+03:25.710 --> 03:33.440
+Ich hätte ABC sagen können. Es existiert nicht. Damit wir auf eine Umgebungsvariable zugreifen oder diese erstellen können
+
+03:33.530 --> 03:35.720
+in diesem Computer.
+
+03:35.720 --> 03:37.500
+Wir müssen es injizieren.
+
+03:37.610 --> 03:42.620
+Ich werde dir zeigen, wie man mit Fisch umgeht, das ist die Schale, die ich hier benutze, die ein wenig ist
+
+03:42.620 --> 03:46.700
+etwas anders als bash und am häufigsten wirst du Bash sehen.
+
+03:46.850 --> 04:00.570
+Also werde ich es dir zuerst zeigen. Mit bash machen wir einfach PORT 3000 Knotenserver dot js
+
+04:00.790 --> 04:07.740
+Und sieh dir das an. Der Server hört Port 3000 ab. Wenn ich dies zu ändern
+
+04:10.380 --> 04:17.670
+3050 Server hört 3050.
+
+04:17.930 --> 04:20.540
+Und dies ist nicht auf Port beschränkt.
+
+04:20.750 --> 04:28.680
+Sie werden in den nächsten Videos während der Produktion sehen, dass wir etwas wie eine Datenbank-URL einrichten können.
+
+04:32.890 --> 04:36.820
+Und diese Datenbank-URL kann jetzt dynamisch sein.
+
+04:36.820 --> 04:41.550
+Vielleicht wissen wir nicht, wo die Datenbank-URL sein wird. In diesem Fall.
+
+04:41.590 --> 04:44.890
+Ich kann einfach Datenbank sagen
+
+04:48.100 --> 04:56.990
+URL entspricht 123 Knoten Serverpunkt js
+
+04:57.020 --> 04:59.030
+Und wir bekommen Ports ist nicht definiert.
+
+04:59.030 --> 05:07.020
+Weil wir es hier nicht verwenden, lassen Sie uns das einfach auf Port dreitausend zurücksetzen und diesen Befehl ausführen
+
+05:07.020 --> 05:07.540
+nochmal.
+
+05:09.100 --> 05:16.060
+Und sieh dir den Server an, der Port 1 2 3 hört, denn das ist die Datenbank-URL und wir können was auch immer einstellen
+
+05:16.060 --> 05:18.030
+Umgebungsvariablen, die wir wollen.
+
+05:19.140 --> 05:24.890
+Und die Wichtigkeit von ihnen wird erst später in diesen Videos wirklich ins Spiel kommen.
+
+05:25.140 --> 05:31.410
+Aber sie sind wirklich wichtig für Dinge, die geheim oder dynamisch bleiben sollten.
+
+05:31.420 --> 05:37.570
+Zum Beispiel wissen wir vielleicht nicht, auf welchem ​​Port der Server läuft, auf dem unsere API läuft
+
+05:37.570 --> 05:37.830
+auf.
+
+05:37.870 --> 05:45.110
+Auf diese Weise kann der Benutzer den Port einstellen, ohne die Codebasis zu berühren. Aber auch für Geheimnisse
+
+05:45.120 --> 05:50.140
+zum Beispiel API-Schlüssel, die wir in unserer Codebasis möglicherweise nicht haben möchten.
+
+05:50.160 --> 05:58.830
+Wir können einfach die App starten und vielleicht API-Schlüssel oder sogar Passwörter eingeben, um sich dynamisch in die Datenbank einzuloggen
+
+05:58.860 --> 06:02.930
+durch die Umwelt, so dass es sicherer ist.
+
+06:02.940 --> 06:05.820
+Lass mich dir zeigen, wie man das bei Fischen macht.
+
+06:05.820 --> 06:13.680
+Es ist ein bisschen anders und du musst dir nicht zu viele Sorgen machen, weil es nur spezifisch ist
+
+06:13.680 --> 06:19.730
+zu fischen ist ein seltsamer Knick, aber du kannst eine Umweltdatenbank erstellen
+
+06:23.380 --> 06:34.410
+URL Will hallo Knoten Server Punkt js sagen und wir haben Server auf Port Hallo hören.
+
+06:34.440 --> 06:41.510
+Auch dies ist nur spezifisch für Fische, aber um Ihnen zu zeigen, dass es Umweltvariablen gibt
+
+06:41.810 --> 06:47.810
+die Umgebung entscheidet über die Variablen und weil die Umgebung, auf der sie läuft, eine Fischschale ist,
+
+06:47.830 --> 06:54.630
+Ich muss den speziellen Fisch verwenden, um es zu deklarieren.
+
+06:54.780 --> 06:56.250
+Aber das Ziel ist immer noch das gleiche.
+
+06:56.250 --> 07:02.370
+Wir versuchen, diese Eigenschaften und Werte in den Knoten zu injizieren, damit sie darauf zugreifen können.
+
+07:02.520 --> 07:09.240
+Und deshalb heißt es Prozesspunkt env für Umgebungsvariablen und wir werden es im nächsten verwenden
+
+07:09.240 --> 07:10.530
+ein paar Videos.
+
+07:11.400 --> 07:12.590
+Ich werde in der nächsten sehen.
+
+07:12.910 --> 07:13.200
+Tschüss.
+

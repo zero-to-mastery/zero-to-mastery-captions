@@ -1,0 +1,1228 @@
+WEBVTT
+
+00:01.050 --> 00:03.700
+Alles klar, es ist Zeit, damit anzufangen.
+
+00:03.840 --> 00:09.540
+Das erste, was ich gerne mache, ist, sich vorzustellen, was wir bauen und versuchen werden, uns zu trennen
+
+00:09.540 --> 00:13.530
+die Komponenten unserer Anwendung.
+
+00:14.190 --> 00:20.050
+Also habe ich hier ein schnelles Drahtgitter gemacht, von dem wir wollen, dass unser Projekt aussieht.
+
+00:20.270 --> 00:23.020
+Wir wollen eine Art Logo haben.
+
+00:23.110 --> 00:31.120
+Wir möchten den Namen eines Benutzers haben, der mit seinem Rang angezeigt wird und dieser Rang wird wie viele entsprechen
+
+00:31.120 --> 00:36.160
+Gesichtserkennungen, die sie getan haben, verglichen mit allen anderen Benutzern.
+
+00:36.160 --> 00:40.000
+Wir werden also eine Art von An- und Abmeldung wünschen.
+
+00:40.000 --> 00:41.970
+Das ist also die Startseite.
+
+00:41.980 --> 00:49.270
+Wenn sie jedoch auf Abmelden klicken, werden sie abgemeldet. Um sich anzumelden, wird ein Formular angezeigt.
+
+00:51.510 --> 00:57.120
+Wir haben hier eine URL-Eingabe, wo wir URL für ein Bild eingeben können.
+
+00:57.120 --> 01:06.060
+Wenn wir auf Erkennen klicken, wird das Bild mit der Gesichtserkennung auf hoffentlich das Gesicht angezeigt.
+
+01:06.300 --> 01:13.570
+Und wir wollen natürlich, dass es reagiert, aber wenn ich das hier in Komponenten aufteilen würde,
+
+01:13.600 --> 01:21.960
+Ich sehe, dass es eine Navigationskomponente gibt, vielleicht gibt es eine Benutzerinformation, vielleicht eine Rangkomponente, da ist
+
+01:22.010 --> 01:24.850
+eine Logokomponente irgendeiner Art.
+
+01:25.010 --> 01:28.290
+Es gibt eine Eingabeformularkomponente.
+
+01:28.340 --> 01:33.810
+Es gibt eine Bildkomponente. Und möglicherweise innerhalb dieses (ein)
+
+01:33.830 --> 01:38.580
+eine andere Komponente, die die Bilderkennung durchführt.
+
+01:38.660 --> 01:44.890
+OK, also denke ich, der erste Schritt, den wir machen können, ist, diese Komponenten mit create react aufzubauen
+
+01:44.890 --> 01:52.050
+App und das Anmelde- und Anmeldeformular ist vielleicht etwas, an dem wir später arbeiten können.
+
+01:52.090 --> 01:54.190
+In Ordnung, lasst uns das minimieren.
+
+01:55.600 --> 01:58.270
+Also, ich habe eigentlich nur create react app ran,
+
+01:58.420 --> 02:01.720
+Ich nannte dieses Projekt Gesichtserkennungsgehirn.
+
+02:01.930 --> 02:06.780
+Du kannst das gleiche auch tun, aber wie du sehen kannst, habe ich nichts verändert, wenn ich 'npm start' mache
+
+02:10.650 --> 02:14.640
+Ich habe das Skelett von dem, was 'create react app' uns gibt.
+
+02:18.720 --> 02:24.150
+Alles klar, um anzufangen, ich werde anfangen, einige der Dinge zu entfernen, die ich nicht brauche,
+
+02:24.150 --> 02:27.440
+Ich weiß, dass ich ihr Logo nicht brauche, also werde ich es tun
+
+02:29.450 --> 02:32.060
+lösche das, OK.
+
+02:32.080 --> 02:33.610
+Und dann, wenn wir zu app.js gehen
+
+02:33.850 --> 02:41.520
+und wir könnten einfach das Logo entfernen, und wir können einfach alles entfernen, was hier drin ist.
+
+02:41.710 --> 02:45.120
+Es bleibt also nur ein 'Div' mit der 'Klassenname' "App".
+
+02:45.610 --> 02:49.990
+Und lasst uns einfach einige Komponenten aufbauen, obwohl wir sie nicht erstellt haben, lassen Sie uns sie einfach als erstellen
+
+02:50.010 --> 02:51.680
+also haben wir sie in unseren Köpfen.
+
+02:51.820 --> 02:54.450
+Wir haben eine Navigationskomponente.
+
+02:55.400 --> 02:57.960
+Dort haben wir dieses Schild.
+
+02:58.070 --> 03:01.840
+Wir haben eine "Logo" -Komponente.
+
+03:03.340 --> 03:06.090
+Das wird schaffen.
+
+03:06.120 --> 03:20.190
+Wir haben vielleicht auch eine 'ImageLinkForm', die unser Eingabeformular ist, und schließlich haben wir unsere
+
+03:20.850 --> 03:26.360
+"FaceRecognition" ist das Bild mit der Gesichtserkennung.
+
+03:26.430 --> 03:31.240
+Wenn ich diese vier Komponenten betrachte, denke ich, dass wir sie ziemlich schnell bauen können.
+
+03:31.440 --> 03:32.940
+Also fangen wir an, das zu tun.
+
+03:33.000 --> 03:40.020
+Ich werde eigentlich kommentieren, ich werde diese in eine geschweifte Klammer wickeln, so dass es ein Javascript ist
+
+03:40.020 --> 03:46.490
+Ausdruck, und kommentieren sie dann in der Standard-Javascript-Art aus.
+
+03:46.740 --> 03:52.920
+Also können wir mit der Navigation beginnen. Wie wir wissen, wird dieses Projekt ein bisschen groß werden.
+
+03:52.950 --> 03:59.790
+Wir werden nur einen neuen Ordner erstellen, wir nennen ihn Komponenten und innerhalb dieser Komponenten werden wir erstellen
+
+03:59.790 --> 04:04.330
+ein neuer Ordner und wir nennen es Navigation.
+
+04:05.010 --> 04:09.510
+Und dieser Navigationsordner enthält alles, was mit unserer Navigationskomponente zu tun hat.
+
+04:09.510 --> 04:15.420
+Also, das ist CSS, Javascript, in unseren Fällen nur Javascript für jetzt, also werden wir nur tun
+
+04:15.460 --> 04:18.020
+Navigationspunkt js (navigation.js).
+
+04:18.040 --> 04:21.580
+Alles klar, wir haben unsere Datei jetzt eingerichtet.
+
+04:22.460 --> 04:29.600
+Also hier machen wir den Standard 'Import React from react'
+
+04:33.080 --> 04:36.380
+und es wird eine einfache Komponente ohne Zustände sein.
+
+04:36.380 --> 04:38.960
+Also wieder können wir es tun, eine reine Funktion,
+
+04:44.820 --> 04:46.500
+und es akzeptiert keine Parameter
+
+04:46.500 --> 04:56.290
+Im Moment werden wir einfach zurückkehren, einfach etwas wie ein 'Nav' machen und diese Navigation, weil wir arbeiten
+
+04:56.290 --> 05:00.310
+auf unserem Home-Bildschirm für jetzt, wir werden nur ein "P" -Tag haben
+
+05:03.690 --> 05:06.200
+das sagt "Abmelden",
+
+05:10.700 --> 05:19.670
+und wir wollen natürlich 'Standard-Navigation exportieren', speichern Sie das, gehen wir hier zurück
+
+05:19.670 --> 05:20.290
+und importiere das jetzt.
+
+05:20.480 --> 05:26.680
+Also importieren wir Navigation aus dem aktuellen Verzeichnis (./).
+
+05:26.790 --> 05:33.390
+Willst du auf die Components Ordner - Navigation zugreifen, dann navigiere dot js, wir brauchen das nicht zu setzen
+
+05:33.390 --> 05:47.060
+js am Ende. Rette das. Oh! und ich habe Kapitalkomponenten, sollte Kleinbuchstaben sein und es sollte so sein.
+
+05:47.060 --> 05:53.240
+Lass uns zurück gehen, wir haben ein nettes kleines Zeichen, mach dir keine Sorgen, es wird viel besser aussehen.
+
+05:53.330 --> 05:57.040
+Wir möchten, dass dies auf der rechten Seite angezeigt wird.
+
+05:57.260 --> 06:02.400
+Also eine schöne einfache Art, das zu tun, können wir einfach ein "Stil" Attribut für jetzt hinzufügen.
+
+06:03.950 --> 06:13.610
+Und wieder geben wir es an einem Objekt weiter und wir werden nur sagen, das 'Display' wird 'flex' und 'justify' sein und
+
+06:13.760 --> 06:15.870
+erinnern Sie sich, weil dies ein Javascript-Objekt ist,
+
+06:15.920 --> 06:16.880
+Wir können das schaffen,
+
+06:16.880 --> 06:24.390
+es ist Kamelfall. Also (begründe) Inhalt und reagiere einfach auf camel case, immer wenn du einen Bindestrich verwenden musst, um
+
+06:24.410 --> 06:28.470
+'justifyContent', wird 'flex-end',
+
+06:28.600 --> 06:36.220
+also ist es am Ende rechts. Speichern Sie das, und es ist rechts, Sie brauchen ein wenig Polsterung, aber für jetzt
+
+06:36.580 --> 06:38.080
+das ist gut.
+
+06:38.080 --> 06:42.390
+Und weißt du was, wenn ich das ansehe, habe ich das Gefühl, wir brauchen etwas CSS.
+
+06:42.400 --> 06:48.430
+Ich werde also Tachyons installieren, damit Sie sich nicht allzu viele Gedanken über CSS machen müssen
+
+06:48.430 --> 06:55.510
+geben Sie die "Tachyonen" -Eigenschaften, denn wiederum ist CSS etwas, das sehr abhängig von der spezifischen ist
+
+06:55.510 --> 06:57.780
+Projekt und weil wir es bereits abgedeckt haben,
+
+06:57.820 --> 06:59.710
+wir wollen nicht zu viel Zeit damit verbringen.
+
+06:59.760 --> 07:03.690
+Also benutze ich 'Tachyons', ich werde es nur benutzen, Ups !,
+
+07:04.270 --> 07:05.610
+Ich muss es installieren.
+
+07:06.100 --> 07:06.900
+Lass uns das klären,
+
+07:12.630 --> 07:21.960
+und auf diese weise, wenn wir zu app dot js gehen, können wir gerade oder in unserem index dot js, können wir einfach "tachyons" importieren.
+
+07:27.120 --> 07:33.780
+Perfekt, also benutze ich 'Tachyonen', ich fange an, das zu stylen und du kannst das Video einfach pausieren und kopieren
+
+07:33.780 --> 07:39.130
+und fügen Sie das ein, wenn Sie an Ihrem Projekt oder an den Projektdateien danach interessiert sind.
+
+07:39.300 --> 07:41.490
+Also, basierend auf der Größe, werde ich das tun.
+
+07:41.490 --> 07:43.080
+Es wird ein Link sein.
+
+07:43.230 --> 07:46.960
+Es wird "dunkel", wenn ich darauf klicke, wird es schwarz.
+
+07:47.220 --> 07:53.030
+Es wird unterstrichen werden, drei und Zeiger auffüllen,
+
+07:53.130 --> 07:57.230
+wenn wir darüber schweben. Art liest gut mit "Tachyonen".
+
+07:57.240 --> 07:59.400
+Ich bin ein großer Fan von ihnen. Lass uns 'npm starten'
+
+08:05.860 --> 08:06.750
+Gut, sieh dir das an.
+
+08:06.770 --> 08:14.270
+Das ist viel besser, alles bereit. Und weisst du was? wenn wir diesen weißen Bildschirm betrachten,
+
+08:14.280 --> 08:17.150
+Es ist etwas entmutigend und fühlt sich an, als hätten wir nicht viel getan.
+
+08:17.220 --> 08:24.450
+Lasst uns einen schönen Hintergrund hinzufügen, damit wir wieder schauen, wir machen ein bisschen Fortschritte und wir sind jetzt
+
+08:24.450 --> 08:25.800
+Blick auf einen leeren Bildschirm.
+
+08:26.130 --> 08:31.360
+Auch wenn das Styling in einer App nicht das Wichtigste ist, möchte ich ein bisschen Fortschritte machen, wenn wir ein neues starten
+
+08:31.380 --> 08:35.120
+Projekte, nur für diesen Vertrauensboost.
+
+08:35.270 --> 08:39.100
+Also im Indexpunkt css,
+
+08:39.290 --> 08:44.900
+Ich werde der Familie einen Hintergrund hinzufügen, und das ist ein Farbverlauf, den ich wirklich sehr mag, also bin ich einfach
+
+08:44.900 --> 08:46.640
+werde es hier kopieren und einfügen.
+
+08:46.730 --> 08:49.460
+Sie können Ihren eigenen Farbverlauf finden und entscheiden, was gut für Sie ist.
+
+08:50.330 --> 08:55.340
+Ich werde das speichern, sehen wir nur linearen Gradienten verwenden.
+
+08:55.510 --> 08:57.880
+Sieh dir das an, das ist schon viel besser anzuschauen.
+
+08:59.870 --> 09:05.120
+Alles klar, also Navigation, von dem, was ich sehen kann, ist es so ziemlich alles, was wir jetzt wollen.
+
+09:05.160 --> 09:08.930
+Wir müssen keine Funktionalität hinzufügen, wir bauen nur das Skelett auf.
+
+09:09.090 --> 09:17.470
+Lasst uns also zum Aufbau der Eingabe übergehen. Also die Eingabe nennen wir das 'ImageLink Form'.
+
+09:17.490 --> 09:24.960
+Oh! eigentlich machen wir zuerst das 'Logo', weil ich es hier sehe, und ich habe die Kommentare hier veröffentlicht. Nochmal,
+
+09:24.980 --> 09:26.680
+wir werden dasselbe tun.
+
+09:26.720 --> 09:28.550
+Also werde ich das kopieren und einfügen
+
+09:31.920 --> 09:41.550
+und wir sagen einfach "Logo" von "components / logo" und "logo.js", wir werden nur einen neuen Ordner erstellen
+
+09:41.550 --> 09:42.380
+nochmal.
+
+09:44.650 --> 09:52.080
+Und darin haben wir eine neue Datei, "Logo.js".
+
+09:52.210 --> 09:58.420
+Und übrigens, wenn Sie genug davon haben, ständig auf Javascript zu klicken, dann stellen Sie sicher, dass
+
+09:58.980 --> 10:03.370
+"Babel" ist der Standard anstelle des normalen Javascript, so dass Sie jsx sehen können
+
+10:03.370 --> 10:11.950
+Nun, wenn Sie auf Ansichten in erhabenen gehen, und dann zur Syntax gehen, können Sie tun, "alle mit der aktuellen Erweiterung öffnen als ..."
+
+10:11.980 --> 10:16.400
+'Bable' Javascript und auf diese Weise jedes Mal, wenn Sie eine Javascript-Datei öffnen,
+
+10:16.420 --> 10:20.130
+Nun, das wird die Standard-Erweiterung sein.
+
+10:20.150 --> 10:22.800
+Okay, mit dem Logo wollen Sie nicht schnell machen.
+
+10:22.800 --> 10:32.370
+Ich werde nur die Navigation kopieren, hier einfügen, und ich werde nur "Navigation" in "Logo" ändern
+
+10:33.480 --> 10:37.340
+Und offensichtlich wollen wir etwas anderes zurückgeben.
+
+10:37.580 --> 10:40.190
+So wird sagen, dieser wird ein 'div' haben,
+
+10:43.020 --> 10:48.900
+und gebe ihm wieder einen 'Klassennamen' mit 'Tachyonen', einigen Rändern, die schön sind.
+
+10:48.930 --> 10:51.210
+Und das ist Marge oben auf Null.
+
+10:54.180 --> 10:59.220
+Und dann für das Logo, wir haben noch nichts, aber ich möchte dir diese coole Bibliothek zeigen, die ich gefunden habe
+
+10:59.220 --> 11:03.850
+ist 'react-tilt', und es erlaubt dir tatsächlich,
+
+11:06.470 --> 11:09.670
+etwas wie das.
+
+11:09.980 --> 11:18.590
+Es kann schweben und kippen. Wiederum, Schönheit von "reagieren" und "npm" ist, dass Sie diese Pakete verwenden können
+
+11:19.160 --> 11:22.700
+Mach dein Projekt ein bisschen schöner.
+
+11:22.730 --> 11:29.210
+Ich werde also einfach diesen Befehl kopieren, 'npm install dash dash ich rette react-tilt', und falls du dich fragst
+
+11:29.210 --> 11:29.720
+Was,
+
+11:32.760 --> 11:43.440
+was ist der Strich Strich (-) speichern? vorher in den früheren Versionen von 'npm', wenn Sie wollten, das Paket installiert
+
+11:43.560 --> 11:45.300
+auf 'Paketpunkt json' (package.json)
+
+11:45.420 --> 11:48.530
+und die Abhängigkeiten, die du machen musstest "--Save".
+
+11:48.570 --> 11:53.680
+Jetzt macht es das standardmäßig, also musst du nicht mehr den 'Dash Dash Save' (- Save) speichern und das kannst du sehen
+
+11:53.730 --> 11:57.490
+"React-Tilt" und "Tachyons" sind in unserem Paket enthalten.
+
+11:57.640 --> 11:59.970
+Okay, fangen wir damit an.
+
+12:02.750 --> 12:09.860
+Und wenn wir hier zur Dokumentation gehen, gibt es Ihnen genau das, was Sie brauchen.
+
+12:09.870 --> 12:13.780
+Du importierst nur, neige 'von' react-tilt '.
+
+12:13.940 --> 12:17.730
+Also machen wir das.
+
+12:17.770 --> 12:26.260
+Also haben wir jetzt die "Tilt" -Komponente und kopieren und fügen diese "Tilt" -Komponente einfach ein,
+
+12:29.710 --> 12:31.210
+das haben sie für uns geschaffen.
+
+12:31.270 --> 12:37.780
+Wieder die Kraft und ein Webentwickler zu sein und generell nur allgemein, es ist schön Dinge nutzen zu können
+
+12:37.780 --> 12:42.760
+dass Leute gebaut haben und auch in der Lage sind, Dinge zu teilen, die du erstellt hast. So können Sie Ihre eigenen erstellen
+
+12:42.760 --> 12:49.510
+"react-component", das andere Leute benutzen können und es macht Dinge wie ich schon sagte, wiederverwendbar.
+
+12:49.510 --> 12:51.250
+Wenn man das betrachtet, ist alles gut.
+
+12:51.250 --> 12:57.560
+Ich werde die Höhe und Breite ändern, vielleicht ein bisschen kleiner, und jetzt haben wir dieses Alien
+
+12:57.560 --> 13:05.190
+Abbildung, obwohl wir es wahrscheinlich mit unserem / zu unserem eigenen Logo ändern werden, aber ich werde das retten
+
+13:06.440 --> 13:08.270
+und wir bekommen unsere Narrowboat Emojis.
+
+13:08.350 --> 13:09.730
+Aber es ist im Moment in Ordnung.
+
+13:09.890 --> 13:11.410
+Wenn ich zurückgehe.
+
+13:11.510 --> 13:14.440
+In Ordnung, es sieht ein bisschen aus.
+
+13:14.450 --> 13:18.040
+Mal sehen, was hier vor sich geht.
+
+13:18.090 --> 13:23.210
+Also, wenn wir zu 'Logo' gehen, fügen wir einfach 'Tachyonen' hinzu,
+
+13:23.680 --> 13:31.310
+Ich sehe den 'Grenzradius zwei (br2)' und 'shadow-2', so kann ich klarer sehen, wo es ist.
+
+13:31.350 --> 13:31.990
+OK.
+
+13:32.020 --> 13:33.500
+Gut. Also es funktioniert,
+
+13:33.660 --> 13:38.330
+aber unsere Farben sind ein bisschen weg, es sieht so aus, als müssten wir etwas Hintergrund dazu hinzufügen.
+
+13:38.330 --> 13:40.840
+Aber schau dir das an, es funktioniert schon gut.
+
+13:41.930 --> 13:44.440
+Also werde ich eine neue Datei erstellen,
+
+13:44.450 --> 13:49.280
+"logo.css", und wir werden den Hintergrund machen
+
+13:51.910 --> 13:58.610
+Ich benutze den Klassennamen "Tilt", also können wir einfach auf das "Tilt"
+
+14:03.730 --> 14:09.070
+und ich werde den gleichen Hintergrund wie in unserer Datei 'index.css' verwenden,
+
+14:09.070 --> 14:11.860
+nur weil ich denke, dass es gut aussieht, werde ich das kopieren,
+
+14:14.880 --> 14:22.350
+Setzen Sie den gleichen "Hintergrund" hier ein, und das einzige, was wir tun müssen, ist einfach "importieren"
+
+14:26.120 --> 14:27.790
+"Logo dot css (Logo.css)"
+
+14:30.650 --> 14:33.700
+aus dem aktuellen Verzeichnis (./).
+
+14:33.740 --> 14:34.880
+Lass es uns überprüfen.
+
+14:34.910 --> 14:35.880
+Sieh dir das an.
+
+14:36.020 --> 14:36.900
+Das sieht gut aus.
+
+14:37.790 --> 14:43.760
+Eines der coolen Dinge, die Sie mit 'Tilt' tun können, ist, dass Sie ihm ein paar Optionen hinzufügen können, die auf Ihrer Grundlage basieren
+
+14:43.760 --> 14:44.670
+möchte tun.
+
+14:44.780 --> 14:47.200
+So können Sie das selbst durchlesen.
+
+14:47.630 --> 14:50.790
+Aber ich möchte, dass das ein bisschen übertrieben ist.
+
+14:51.750 --> 14:57.060
+Und wir können das tun, indem wir das Maximum auf etwas ein bisschen höher ändern, wenn ich das speichere,
+
+15:03.220 --> 15:03.570
+gut,
+
+15:03.570 --> 15:10.130
+das sieht aus, das sieht eigentlich nett aus. Okay, das nächste, was wir tun wollen ist, dass wir dieses Alien Emoji ändern wollen,
+
+15:10.130 --> 15:11.910
+Wir wollen ein echtes Logo haben.
+
+15:12.110 --> 15:14.960
+Also nehmen wir ein kostenloses Logo, das wir online finden können.
+
+15:15.230 --> 15:23.200
+Also lass uns einfach hinzufügen, lass uns ein lizenzfreies Icon finden und ich möchte ein Gehirn als Icon haben.
+
+15:23.270 --> 15:25.750
+Also lass uns sehen, ob wir hier etwas finden können.
+
+15:34.530 --> 15:39.820
+Alles klar, das ist meine größere Liste, um herauszufinden, ob wir coole Icons finden können.
+
+15:39.870 --> 15:40.570
+Oh! Da gehts.
+
+15:40.590 --> 15:42.200
+Das könnte ein netter sein.
+
+15:42.210 --> 15:46.440
+Lass uns 'Png' machen und wird ah! 100 Pixel oder wenig,
+
+15:46.470 --> 15:47.210
+das funktioniert tatsächlich.
+
+15:47.220 --> 15:52.000
+Wir können verschiedene Dateien haben, aber wir machen nur 'png', 100 Pixel.
+
+15:52.110 --> 15:53.160
+Wir werden es herunterladen.
+
+15:57.010 --> 15:58.260
+Schön das sieht gut aus.
+
+15:58.970 --> 16:05.670
+Und verschiebe es einfach in unseren Projektordner, der sich auf unserem Desktop befindet.
+
+16:09.460 --> 16:15.150
+und wir können es einfach öffnen und in den Ordner legen, den wir wollen.
+
+16:15.150 --> 16:23.990
+In unserem Fall wird es die Logo-Komponente sein. Also lass uns das einfach rein und wir nennen es brain.png, perfekt.
+
+16:29.080 --> 16:39.190
+Dann schließe ich das, jetzt da wir dort ein 'brain.png' haben, können wir einfach 'importieren',
+
+16:39.200 --> 16:39.720
+Wir können es einfach anrufen
+
+16:42.270 --> 16:48.630
+"Gehirn" aus dem "./brain.png".
+
+16:48.700 --> 16:53.260
+Und das wäre der vorgegebene Name.
+
+16:53.260 --> 16:58.570
+Also können wir hier einfach ein Image-Tag erstellen, wir werden dieses kleine Alien entfernen und wir werden es tun
+
+16:58.570 --> 17:08.800
+tun Sie einfach Bild (img) und dieses Bild hat eine Quelle (src), offensichtlich und diese Quelle wird nur unser "Gehirn" sein.
+
+17:11.460 --> 17:13.110
+Mal sehen, ob das funktioniert.
+
+17:14.030 --> 17:16.930
+Stellen Sie sicher, dass wir die Tags hier schließen,
+
+17:16.930 --> 17:22.950
+sparen. Wir erhalten auch eine Fehlermeldung, dass wir ein "alt" -Tag haben sollten.
+
+17:23.040 --> 17:24.050
+Also lass uns das tun.
+
+17:24.050 --> 17:33.250
+"alt" entspricht "Logo". Rette das.
+
+17:33.360 --> 17:34.090
+Sieh dir das an!
+
+17:34.110 --> 17:34.660
+Da gehst du.
+
+17:34.860 --> 17:39.440
+Wir brauchen unser Gehirn etwas tiefer, also werde ich das schnell mit etwas CSS machen.
+
+17:41.190 --> 17:45.130
+Wir machen 'Padding' von 3 (pa3).
+
+17:45.300 --> 17:50.430
+Und nur weil ich das schon mal gemacht habe und ich weiß, brauchen wir ein bisschen Polsterung.
+
+17:50.880 --> 18:01.490
+Ich füge einfach einen Stil in das Bild ein, der 'paddingTop' von fünf Pixeln sagt.
+
+18:02.860 --> 18:05.080
+Und ich mache das kleiner, damit du es besser sehen kannst.
+
+18:16.050 --> 18:18.100
+Lassen Sie uns sparen, sehen Sie, wie das aussieht.
+
+18:19.130 --> 18:19.400
+Da gehst du.
+
+18:19.410 --> 18:23.040
+Sieht gut aus, haben wir uns ein schönes Logo gemacht.
+
+18:24.340 --> 18:30.360
+Sie können sehen, dass wir uns ziemlich schnell durchsetzen, es ist schön, zu reagieren, es ist so lange, wie Sie denken
+
+18:30.360 --> 18:31.680
+deine Stile aus,
+
+18:31.680 --> 18:38.020
+Es ist schön, all diese verschiedenen Komponenten verwenden zu können, um Ihre Website aufzubauen. Alles geht zurück auf
+
+18:38.050 --> 18:38.430
+App
+
+18:38.480 --> 18:39.190
+Punkt js (app.js)
+
+18:39.250 --> 18:40.630
+und sehen, was wir sonst noch haben.
+
+18:40.630 --> 18:43.720
+Wir brauchen die 'ImageLinkform'.
+
+18:43.860 --> 18:56.110
+Also noch einmal, lassen Sie uns die Kommentare entfernen, und rufen Sie die "ImageLinkForm", wird wieder eine neue Komponente erstellen,
+
+18:59.530 --> 19:00.580
+das ist das
+
+19:04.010 --> 19:04.600
+"ImageLinkForm",
+
+19:29.140 --> 19:31.060
+wir benutzen unsere gute alte Kopie und Paste
+
+19:46.510 --> 19:51.400
+und wir werden nicht die 'Tilt' oder das 'Logo' brauchen.
+
+19:51.450 --> 20:02.380
+Wir werden ein 'ImageLinkForm', 'ImageLinkForm' haben.
+
+20:02.480 --> 20:04.750
+Also, lasst uns darüber nachdenken, was wir hier brauchen.
+
+20:04.760 --> 20:13.280
+Wir wollen definitiv einen Absatz haben, der ihm einen 'className' gibt.
+
+20:13.280 --> 20:15.310
+So hat es, Größe von drei,
+
+20:19.410 --> 20:27.150
+und hier werden wir nur sagen, und ich mag, anstatt Text auf diese Weise zu verwenden, weil es Javascript ist
+
+20:27.240 --> 20:37.330
+wie es in geschweifte Klammern zu wickeln und dann die Anführungszeichen zu schreiben und wir sagen 'Diese Magie', ich kann buchstabieren:'Gehirn
+
+20:37.730 --> 20:51.350
+erkennt Gesichter in Ihren Bildern. Versuche es.'
+
+20:51.350 --> 21:00.030
+Alles klar, also haben wir den Absatz, wir wollen auch ein anderes 'div' haben, wo wir eine Eingabe und eine Schaltfläche haben
+
+21:00.630 --> 21:01.390
+vielleicht.
+
+21:01.440 --> 21:02.880
+Also machen wir einfach 'div',
+
+21:05.630 --> 21:10.330
+Wir werden eine 'Eingabe' von 'Typ' haben, wird nur 'Text' sein.
+
+21:10.340 --> 21:13.120
+Hier werden wir unsere "URL" eingeben
+
+21:16.170 --> 21:17.250
+Schließen dieser Klammer.
+
+21:17.270 --> 21:28.330
+Und dann haben wir einen 'Button', der 'Detect' sagt und wieder können wir ein paar Klassennamen hinzufügen
+
+21:28.330 --> 21:32.020
+nur um es schöner zu machen, mit 'tacheons'.
+
+21:32.500 --> 21:40.630
+Ich werde sagen, eine Größe von 4 (f4), "Polsterung" von 2 (Pa2), Breite wird 70 Prozent sein,
+
+21:40.930 --> 21:49.220
+es wird "zentriert" sein und weil ich Breite 70 Prozent gesagt habe, kann ich etwas in dieser Richtung tun,
+
+21:50.180 --> 21:53.080
+Ich kann sagen, die Breite beträgt 30 Prozent.
+
+21:53.090 --> 22:03.070
+Also insgesamt 100 Prozent dafür, wenn du darüber schwebst, "f4" wird es einen Link geben.
+
+22:03.260 --> 22:09.750
+Und das ist, wie ich schon sagte, wenn du 'tacheon' Befehle hast, die du nachsehen kannst,
+
+22:09.880 --> 22:16.750
+es ist mehr aus stilistischen Gründen, also müssen wir uns nicht allzu viele Sorgen machen, aber die meisten von ihnen
+
+22:16.750 --> 22:19.620
+sollte ziemlich selbsterklärend sein.
+
+22:19.630 --> 22:24.620
+'Hintergrund (bg) hellviolett'.
+
+22:24.850 --> 22:29.730
+Lass uns das speichern und sehen, ob das funktioniert.
+
+22:29.770 --> 22:31.490
+Alles klar, großartig.
+
+22:31.560 --> 22:34.420
+Wir möchten, dass diese in einer Linie zusammen liegen.
+
+22:35.640 --> 22:42.770
+Ein guter Weg, dies zu tun, ist wieder das 'Div', das Eltern-'div ', das sie umhüllt, und wir können einfach geben
+
+22:42.770 --> 22:44.030
+Es ist ein 'Klassenname'.
+
+22:44.030 --> 22:52.840
+Wir werden 'display', 'flex' und 'budget-content', 'center' machen, wir können einfach eine Klasse auf der app.css erstellen,
+
+22:52.900 --> 23:03.710
+weil ich das Gefühl habe, dass wir das oft benutzen werden. Und es wird nur sagen "Zentrum" ist "Display", "Flex"
+
+23:05.090 --> 23:11.180
+und "justify-content" wird "center" sein. Du wirst das viel benutzen,
+
+23:11.180 --> 23:15.570
+Also, wie ich schon sagte, es ist besser, es einfach dort zu haben.
+
+23:15.740 --> 23:16.660
+Und ich denke, ich,
+
+23:16.670 --> 23:19.560
+In Ordnung, Sie setzen Komma anstelle eines Semikolons ein.
+
+23:19.830 --> 23:20.570
+Da gehst du.
+
+23:26.250 --> 23:27.950
+Wenn ich jetzt hier "zentriere",
+
+23:28.060 --> 23:29.090
+da gehst du,
+
+23:29.120 --> 23:33.200
+das sieht viel besser 70 Prozent Breite mit 30 Prozent Breite aus,
+
+23:33.200 --> 23:35.650
+aber wir brauchen etwas, um es hier einzupacken.
+
+23:35.650 --> 23:37.170
+Mach es ein bisschen kleiner.
+
+23:38.630 --> 23:39.910
+Also werde ich ein weiteres 'div' hinzufügen,
+
+23:43.970 --> 23:58.240
+und dieses 'div' wird 'className' von 'tacheon' magic haben, welches 'pa4', border radius three (br3) sein wird,
+
+23:58.560 --> 24:06.880
+und 'Schatten', das ist eine meiner Lieblingseigenschaften, weil es einen schönen Schatten gibt.
+
+24:08.560 --> 24:12.040
+In Ordnung, es sieht ein bisschen aus.
+
+24:12.100 --> 24:14.020
+Wir müssen ein paar Dinge reparieren.
+
+24:15.910 --> 24:20.610
+Und weißt du was? Ich denke, für diesen werden wir ein paar mehr css-Eigenschaften brauchen.
+
+24:20.650 --> 24:24.900
+Also werde ich eine neue Datei erstellen, in unserem Image-Link-Formular,
+
+24:28.860 --> 24:40.870
+dot css (.css) und innerhalb von hier können wir einfach eine, eine 'Form', 'Klasse' erstellen und wird es eine Breite von 700 Pixeln geben.
+
+24:40.880 --> 24:41.710
+Wenn ich das rette,
+
+24:46.510 --> 24:48.830
+und ich gebe es auch hier die "Center" -Eigenschaft.
+
+24:51.370 --> 24:51.750
+Gut.
+
+24:51.790 --> 24:53.020
+Das sieht besser aus.
+
+24:54.310 --> 24:57.850
+Nun, für den Hintergrund möchte ich nicht genau so sein.
+
+24:57.850 --> 25:04.080
+Hoffentlich können wir ein schönes Muster verwenden und ich habe eine meiner Lieblings-Muster-Galerien hier, wo Sie wählen können
+
+25:04.080 --> 25:07.500
+CSS-Muster.
+
+25:07.610 --> 25:12.260
+Also die, die ich wirklich mag, ist die Wabe, und wir können das einfach kopieren und einfügen
+
+25:15.430 --> 25:18.670
+was Paul Salentiny für uns geschaffen hat.
+
+25:18.670 --> 25:23.530
+Danke Paul, und nur um es hier einzufügen.
+
+25:26.940 --> 25:37.820
+Lassen Sie uns das speichern und zu unserem Projekt zurückkehren, und wir sollten eigentlich hier 'Formular' hinzufügen.
+
+25:39.920 --> 25:50.890
+Oh! und wir sehen keine Unterschiede, weil wir unsere Datei "importieren" müssen.
+
+25:50.930 --> 25:51.830
+Gut.
+
+25:51.930 --> 25:53.330
+Perfekt.
+
+25:53.340 --> 26:01.770
+Ah! wieder sollten wir hier 'display', 'flex' hinzufügen, also ist alles in einer Zeile, also können wir einfach 'center', class verwenden
+
+26:01.770 --> 26:02.190
+Name.
+
+26:02.990 --> 26:03.910
+Und da gehst du.
+
+26:03.960 --> 26:05.190
+Sieh dir das an.
+
+26:05.190 --> 26:06.330
+Wir haben unser Muster,
+
+26:06.600 --> 26:16.720
+wir haben unseren Knopf, der wächst, und ich will das Aah !, die Maus, um tatsächlich so zu sein, ein Zeiger und ich weiß das für
+
+26:16.720 --> 26:20.570
+alle Schaltflächen, die ich hier erstelle, das ist das Standardverhalten, das ich möchte.
+
+26:20.950 --> 26:28.960
+Also kann ich tatsächlich den ganzen Weg bis zur Spitze der Indexpunkt-CSS-Datei gehen und nur sagen, dass die Buttons gehen
+
+26:28.960 --> 26:35.490
+'Cursor' von 'Zeiger' zu haben, so dass es jeden Knopf auf der Seite beeinflusst.
+
+26:35.690 --> 26:36.350
+Da gehst du.
+
+26:36.410 --> 26:42.520
+Das ist viel besser.
+
+26:42.520 --> 26:42.880
+Gut.
+
+26:42.880 --> 26:44.670
+Wir bauen das ziemlich schnell.
+
+26:44.700 --> 26:45.850
+Ich bin beeindruckt, was wir machen,
+
+26:45.850 --> 26:47.520
+Wir machen einen guten Job.
+
+26:47.830 --> 26:55.000
+So haben wir die Eingabe und das letzte ist das Bild.
+
+26:55.150 --> 26:59.430
+Aber ich denke, wir brauchen etwas Funktionalität, bevor wir das Bild tatsächlich anzeigen können.
+
+26:59.530 --> 27:05.410
+Wir haben vergessen, den "Rang" zu machen, den wir oben haben wollen. Also lass uns das tun, fügen wir eine "Rang" -Komponente hinzu.
+
+27:06.580 --> 27:12.970
+Und diese "Rang" -Komponente gibt uns unseren Benutzernamen und unseren Rang im Vergleich zu allen anderen Nutzern
+
+27:12.970 --> 27:17.630
+haben Bilder eingereicht.
+
+27:17.700 --> 27:24.590
+Wir können einfach, kopieren und einfügen und Sie können sehen, dass es hier viele Wiederholungen gibt.
+
+27:24.600 --> 27:31.350
+Aber wir bauen Dinge wirklich sehr schnell auf, weil wir eine gemeinsame Möglichkeit haben, diese Komponenten zu erstellen,
+
+27:31.980 --> 27:33.330
+Das ist wirklich sehr nett.
+
+27:49.320 --> 27:50.500
+Kopiere die "Ränge",
+
+27:53.300 --> 27:58.910
+und indem Sie 'command control g' ausführen, können Sie tatsächlich alle Instanzen von image link form auswählen und ändern
+
+27:58.910 --> 28:00.530
+es wieder mit Logo.
+
+28:00.740 --> 28:09.160
+Ziemlich tolle Eigenschaft des erhabenen Textes, oh! und anstelle von Rang sollte das sagen, oder anstelle von Logo sollte dies
+
+28:09.160 --> 28:16.700
+sagen Sie "Rank" und innerhalb hier, wir werden nur eine nette kleine Komponente erstellen,
+
+28:19.640 --> 28:22.580
+Übrigens, wenn Sie sich fragen, wie ich diese Stile so schnell hinzufügen,
+
+28:22.670 --> 28:27.800
+Vertrauen Sie mir, es hat viel zu lange gedauert, um herauszufinden, was gut aussieht und was nicht.
+
+28:27.800 --> 28:34.430
+Ich vermeide nur den Schmerz, mich zu beobachten, finde heraus, welche Zellen am besten aussehen und komme hin und her
+
+28:34.430 --> 28:36.320
+die Google Chrome-Entwicklertools.
+
+28:36.320 --> 28:43.790
+Wie ich schon sagte, ist das Styling für jede App so spezifisch, dass, sobald Sie Ihre spezifische App erreicht haben,
+
+28:43.790 --> 28:49.160
+sehr abhängig von Ihren spezifischen Bedürfnissen. Also, solange Sie die Grundlagen kennen, können Sie sich weiterentwickeln und
+
+28:49.160 --> 28:53.090
+Ändern Sie den Stil der App, ganz wie Sie wollen.
+
+28:53.090 --> 28:57.590
+Also wieder hier, wir haben nur für jetzt,
+
+28:57.590 --> 29:00.460
+Das wird dynamisch, aber für den Moment brauchen wir nur etwas Text.
+
+29:00.470 --> 29:09.620
+Ich sage nur 'Andrei, Andrei, dein jetziger Rang ist', und darunter wird es dasselbe tun.
+
+29:10.110 --> 29:12.290
+Vielleicht ein bisschen größer diesmal.
+
+29:12.570 --> 29:14.260
+Oder tu 'f1',
+
+29:14.310 --> 29:20.080
+Das ist ein bisschen größer und ich werde Nummer 5 (# 5) sagen
+
+29:20.270 --> 29:24.240
+für jetzt, speichern Sie das.
+
+29:24.720 --> 29:26.310
+Lass mich das zurücklegen.
+
+29:27.180 --> 29:30.030
+Speichern und in Ordnung.
+
+29:30.050 --> 29:31.150
+Es fängt an, besser auszusehen.
+
+29:31.280 --> 29:36.080
+Ich denke, das letzte, was wir tun wollen, bevor wir ins nächste Video gehen und etwas Funktionalität hinzufügen,
+
+29:36.080 --> 29:40.850
+ist, diese Schriftarten ziemlich generisch, also wollen wir das ein bisschen ändern.
+
+29:41.180 --> 29:48.770
+Also werde ich die Schrift im Index dot css ändern, denn das wird unser gesamtes betreffen
+
+29:48.770 --> 29:54.750
+App und Sie können Ihre eigenen wählen, aber ich mag 'Courier New'.
+
+29:58.410 --> 30:06.710
+Für den Fall, dass ein Webbrowser oder der Computer, auf dem er installiert ist, nicht über diese Daten verfügt, habe ich ein Backup.
+
+30:11.420 --> 30:12.500
+Und yah !, diese Schrift,
+
+30:12.500 --> 30:15.230
+Ich bin ein großer Fan von, lass es uns überprüfen.
+
+30:15.230 --> 30:20.710
+Schau dir das an, sehr nett. Baue das ziemlich schnell.
+
+30:20.720 --> 30:21.390
+Recht. Weißt du was?
+
+30:21.410 --> 30:27.050
+Das allerletzte, was ich tun werde, auch wenn ich sagte, dies sei das Letzte, ist eines meiner Lieblingsdinge
+
+30:27.140 --> 30:28.860
+sind diese Teilchen
+
+30:28.890 --> 30:30.360
+dot js (particle.js) Bibliothek.
+
+30:30.500 --> 30:35.660
+Sie sehen es tatsächlich in einer Vielzahl von Websites, die verwendet werden. Partikel dot js,
+
+30:35.750 --> 30:38.390
+Ja! Sie können so etwas tun.
+
+30:40.280 --> 30:42.740
+So können Sie einen Hintergrund haben, der interaktiv ist.
+
+30:43.900 --> 30:49.230
+Und Sie können ändern, wie viele Teilchen Sie haben, und all diese coolen Dinge tun.
+
+30:51.690 --> 30:54.570
+Und ich denke, es macht Ihre Webapps wirklich sehr schön.
+
+30:54.600 --> 30:55.760
+Also werden wir das verwenden.
+
+30:55.800 --> 31:06.010
+Sie haben tatsächlich eine reaktive Version, die wir verwenden können, also können wir einfach sagen:"Partikel reagieren npm",
+
+31:06.290 --> 31:12.720
+und es gibt ein paar, die Sie auswählen können, aber das ist das, das ich vorher verwendet habe, also werden wir bei diesem bleiben.
+
+31:14.810 --> 31:18.380
+Und wieder können wir einfach die 'npm install' kopieren und einfügen
+
+31:21.660 --> 31:28.770
+und nur so, ich muss nicht weiter anhalten und starten, wenn Sie 'Befehl d' mit Terminal Sie bekommen
+
+31:28.770 --> 31:30.170
+ein neues Fenster
+
+31:30.180 --> 31:36.590
+Aber wenn Sie wollen, dass es unten ist, wenn Sie 'Befehl' + 'Shift' + 'd', erhalten Sie ein Fenster direkt darunter.
+
+31:37.000 --> 31:46.090
+Also hier kann ich einfach 'npm install' machen
+
+31:46.280 --> 31:54.500
+So, jetzt, das ist heruntergeladen, wenn wir hier runter gehen, können wir genau sehen, wie wir es benutzen können.
+
+31:54.760 --> 32:04.080
+Also können wir einfach kopieren und einfügen, diese Partikel Komponente, wird es hinzufügen, weil es die Rückseite rechts unter dem ist
+
+32:04.080 --> 32:07.160
+Hauptelement "div".
+
+32:07.230 --> 32:09.630
+Und wie Sie sehen können, gibt es hier ein paar Optionen.
+
+32:10.020 --> 32:15.180
+Und es gibt ein paar Dinge, die du hier nicht wirklich brauchst, also werde ich diese entfernen und für die
+
+32:15.180 --> 32:22.210
+Ich mag es nicht, wenn unsere Rendermethode so hässlich ist, also nehme ich gerne die Parameter heraus,
+
+32:25.320 --> 32:37.530
+und eine "Konstante" namens, nennen wir das, 'particlesOptions' und außerhalb von hier können wir einfach erstellen
+
+32:37.530 --> 32:40.700
+diese Variable, nur um die Dinge sauber zu halten.
+
+32:44.960 --> 32:47.480
+Und dieses Objekt konfigurierbar haben.
+
+32:48.050 --> 32:50.770
+Wenn wir das also speichern, sehen wir, wie das aussieht.
+
+32:51.170 --> 32:56.210
+Hoppla! Ich erhalte einen Fehler, weil ich die 'particles'-Bibliothek noch nicht importiert habe.
+
+32:56.690 --> 33:02.450
+Also, wenn ich wieder hierher zurückkomme, kann ich einfach die 'Import'-Syntax kopieren und einfügen.
+
+33:02.540 --> 33:03.520
+Speichere es,
+
+33:04.890 --> 33:05.990
+und schließe das für jetzt.
+
+33:06.100 --> 33:08.910
+Lass uns zurück zu unserer App gehen.
+
+33:09.020 --> 33:15.760
+Du siehst hier drüben, dass es über allem steht und alles andere darunter ist.
+
+33:18.360 --> 33:26.550
+Dies erfordert ein wenig Konfiguration, und es ist ein bisschen schwierig, aber wir können etwas hinzufügen, wie ein neues
+
+33:26.550 --> 33:39.460
+'className' und wir nennen es 'particles', und wir werden diese 'particles' Klasse und unsere CSS erstellen, weißt du was?
+
+33:39.460 --> 33:40.770
+all das hier drüben benutzen wir nicht,
+
+33:40.780 --> 33:46.060
+also werde ich löschen, nur um die Dinge sauber zu halten, und wir werden "Partikel" speichern.
+
+33:46.750 --> 33:50.200
+Und das ist eine neue CSS-Syntax, die Sie vielleicht nicht gesehen haben.
+
+33:50.260 --> 33:51.950
+Es heißt "repariert".
+
+33:52.210 --> 33:53.560
+So bleibt alles,
+
+33:53.590 --> 34:01.990
+selbst wenn du scrollst, bleibst du genau da, wo es ist. Und Sie können diese Eigenschaften tatsächlich erhalten
+
+34:01.990 --> 34:04.470
+die Website "Partikel".
+
+34:04.480 --> 34:12.510
+Also, wenn Sie mehr darüber lesen möchten, können Sie es überprüfen, aber es stellt sicher, dass alles im Vollbildmodus ist.
+
+34:12.580 --> 34:22.780
+Der Hintergrund ist behoben und schließlich, um sicherzustellen, dass alles unter unseren ist, der Rest unserer App,
+
+34:23.140 --> 34:28.650
+Wir machen etwas, das 'Z-Index' und 'Z-Index' genannt wird. Sie dürfen es verwenden, wenn Sie die Position 'Fest' oder Position verwenden
+
+34:28.690 --> 34:34.240
+'absolut'. Und es sagt Ihnen, auf welcher Ebene das Bild sein soll.
+
+34:34.270 --> 34:41.110
+In unserem Fall fügen wir 'minus 1' hinzu, weil wir sagen, dass dies unter so ziemlich alles liegen sollte
+
+34:41.110 --> 34:42.680
+sonst auf unserer Website.
+
+34:42.700 --> 34:45.260
+Wenn wir zurückgehen.
+
+34:45.300 --> 34:45.680
+Gut.
+
+34:45.690 --> 34:51.440
+Und aah!, Sie können hier sehen, dass die Muster ein bisschen komisch sind und ich schon damit herumgespielt habe
+
+34:51.450 --> 34:56.070
+um herauszufinden, welche "Partikel" -Optionen ich genieße.
+
+34:56.280 --> 34:59.480
+Und Sie können dies anpassen und selbst damit spielen.
+
+35:00.730 --> 35:04.970
+Hauptsache ich möchte die Anzahl der Teilchen haben,
+
+35:05.920 --> 35:07.210
+um definitiv viel mehr zu haben.
+
+35:07.220 --> 35:11.240
+Also werde ich sagen:"Wert:30" und "Dichte"
+
+35:13.990 --> 35:16.680
+wird ein paar Optionen haben.
+
+35:26.380 --> 35:32.450
+Das sollte unsere App viel schöner aussehen lassen, schau dir das an. Wieder alle diese Möglichkeiten,
+
+35:32.450 --> 35:35.350
+Sie können sie über "Partikel" nachlesen
+
+35:35.370 --> 35:35.790
+Punkt js (particle.js),
+
+35:35.810 --> 35:42.200
+und das 'npm-Paket' selbst, du kannst es interaktiv machen, wenn du willst, aber es gibt definitiv ein
+
+35:42.200 --> 35:43.430
+Viele Optionen für Sie.
+
+35:45.740 --> 35:46.100
+Gut.
+
+35:46.190 --> 35:47.720
+Das ist ziemlich unglaublich, oder?
+
+35:47.720 --> 35:55.440
+Wir haben das ziemlich schnell gemacht und das Coole ist, dass alles reaktionsfähig ist.
+
+35:55.540 --> 35:56.130
+Sieh dir das an.
+
+35:57.390 --> 36:03.460
+So, wie ich dies bewege, können wir diese App auch auf unserem Handy anzeigen.
+
+36:03.750 --> 36:07.360
+Und all diese mobilen Geräte, sehr cool.
+
+36:07.360 --> 36:11.660
+Also haben wir uns vorerst um die Sicht und die grundlegenden Komponenten gekümmert.
+
+36:11.860 --> 36:17.050
+Im nächsten Video werden wir anfangen, etwas Funktionalität hinzuzufügen.
+
+36:17.180 --> 36:17.940
+Wir sehen uns im nächsten. Buh-Tschüss

@@ -1,0 +1,496 @@
+WEBVTT
+
+00:01.260 --> 00:02.200
+Bem vindo de volta.
+
+00:02.430 --> 00:09.270
+Neste vídeo vamos falar um pouco sobre algo avançado e não cobrimos muito neste
+
+00:09.270 --> 00:15.030
+Claro e nós definitivamente vamos na próxima seção, mas eu quero começar com isso para que, mesmo que
+
+00:15.030 --> 00:20.070
+pode ser novo e confuso no início no momento em que entrarmos na próxima seção, vamos voltar e
+
+00:20.070 --> 00:22.020
+revise exatamente o que estamos fazendo.
+
+00:22.820 --> 00:27.880
+Eu quero tornar este aplicativo mais realista em um aplicativo da vida real.
+
+00:27.950 --> 00:35.010
+Nós não teríamos necessariamente esses robôs escritos aqui como eu tenho em robots.js.
+
+00:35.210 --> 00:36.370
+Eu acabei de criar este arquivo
+
+00:36.380 --> 00:42.120
+mas na vida real, bem, não estamos inserindo manualmente os usuários.
+
+00:42.250 --> 00:46.610
+Nós usaríamos algo como uma API.
+
+00:46.830 --> 00:48.050
+E o que isso significa.
+
+00:48.060 --> 00:56.460
+Bem, nós queremos, quando este site for carregado, fazer um pedido em algum lugar lá fora, no mundo do
+
+00:56.460 --> 01:06.710
+internet e pegue esses robôs de um servidor. Bem, nós podemos realmente fazer isso. Nós temos aqui algo
+
+01:06.710 --> 01:12.690
+chamado "JSONPlaceholder" e você não precisa se preocupar muito com isso, mas eles realmente têm um realmente
+
+01:12.690 --> 01:21.030
+URL legal que podemos usar, e eles retornam o que precisamos:um nome, um ID e um nome de usuário.
+
+01:21.060 --> 01:23.570
+O resto da informação bem, nós realmente não precisamos disso.
+
+01:23.580 --> 01:30.910
+Mas como você pode ver apenas digitando este URL eu entendo isso.
+
+01:30.910 --> 01:35.440
+Então, usando isso, vamos tornar nosso aplicativo um pouco mais realista.
+
+01:37.050 --> 01:37.910
+Vamos começar.
+
+01:39.830 --> 01:45.900
+Se eu fechar meus arquivos CSS, já que não precisamos mais deles.
+
+01:46.100 --> 01:48.260
+E vamos fechar o resto das abas também.
+
+01:49.920 --> 01:59.340
+Olhando para este componente de aplicativo, vemos que é o que chamamos de componente inteligente, diferente da caixa de pesquisa ou
+
+01:59.420 --> 02:06.440
+cardlist, que são apenas funções puras como você pode ver aqui.
+
+02:06.620 --> 02:15.200
+App.js na verdade tem estado, um dado que descreve nosso aplicativo e, como eles têm estado, nós os chamamos
+
+02:15.200 --> 02:16.910
+componentes inteligentes.
+
+02:17.820 --> 02:20.720
+E componentes inteligentes tendem a ter essa sintaxe de classe.
+
+02:21.300 --> 02:30.460
+Agora, na vida real, quando iniciamos este aplicativo, esses robôs seriam, na verdade, um array vazio, porque há
+
+02:30.480 --> 02:31.160
+nada ali.
+
+02:31.200 --> 02:33.420
+Nós não pegamos os usuários.
+
+02:33.420 --> 02:42.710
+Então, o mais provável é que, se eu salvar isso, os robôs não sejam exibidos até que eu carregue o site e, em seguida, assim que
+
+02:42.710 --> 02:47.400
+o site fica carregado eu peço para os usuários de algum lugar através da internet
+
+02:50.020 --> 02:53.450
+em algum lugar esperançoso aqui.
+
+02:53.490 --> 02:54.340
+Então vamos fazer isso.
+
+02:56.610 --> 03:06.660
+O React vem com algumas outras coisas dentro dos componentes que podemos usar e são chamados ciclo de vida
+
+03:06.810 --> 03:07.450
+métodos.
+
+03:10.250 --> 03:12.530
+E parece algo como isto.
+
+03:13.990 --> 03:15.320
+Não fique muito sobrecarregado.
+
+03:15.400 --> 03:23.570
+Estes são apenas métodos que podemos usar aqui que vem com reagir e eles são chamados ganchos do ciclo de vida
+
+03:23.570 --> 03:32.240
+porque o que eles fazem é que, se os executarmos, eles serão acionados automaticamente quando este aplicativo for carregado no
+
+03:32.240 --> 03:32.960
+Local na rede Internet.
+
+03:32.960 --> 03:33.700
+Deixe-me explicar.
+
+03:34.760 --> 03:37.490
+Nós vemos que temos três seções.
+
+03:37.670 --> 03:45.860
+Temos montagem, atualização e desmontagem. A maneira como reage funciona é que fazemos algo chamado montagem.
+
+03:45.940 --> 03:58.920
+Quando clico em atualizar aqui, o componente do aplicativo - este componente aqui mesmo - é montado no documento
+
+03:59.820 --> 04:01.220
+com o id de 'rota'.
+
+04:01.320 --> 04:09.960
+Se voltarmos ao nosso arquivo index.html, nossa página da Web não passa de um div com um id de root.
+
+04:10.080 --> 04:21.350
+Quando dizemos que montamos um componente, estamos substituindo isso e adicionando todo o nosso aplicativo - isso é montagem. Então, montando
+
+04:21.350 --> 04:31.480
+é o começo do aplicativo. Agora, ao montar, esses são os ganchos do ciclo de vida que são atingidos e estão em ordem.
+
+04:31.510 --> 04:37.990
+Então, a primeira coisa é verificar se o componente tem um construtor? Este aplicativo terá um construtor?
+
+04:37.990 --> 04:38.360
+Sim.
+
+04:38.390 --> 04:45.730
+OK, em seguida, execute este pedaço de código. tem componentWillMount ()?
+
+04:45.740 --> 04:47.840
+Não, não. Então ignore isso.
+
+04:47.900 --> 04:53.240
+Tem render ()? Sim, foi renderizado - rode isto.
+
+04:53.240 --> 04:55.760
+Tem componentDidMount ()?
+
+04:55.760 --> 05:01.910
+Não, não tem componentDidMount () - ignore-o. E isso apenas passa por isso toda vez.
+
+05:01.910 --> 05:08.200
+Também tem algo chamado atualização e isto é, sempre que um componente é alterado.
+
+05:08.240 --> 05:18.160
+Por exemplo, quando tínhamos a lista sempre que eu digito alguma coisa, o componente da lista de cartões fica
+
+05:18.170 --> 05:24.090
+re-renderizada porque temos novas informações, a função recebe novas entradas.
+
+05:24.090 --> 05:27.240
+O mesmo com o componente de entrada.
+
+05:27.240 --> 05:36.020
+Então, novamente, dentro desses componentes, se quisermos, podemos adicionar componentWillReceiveProps (), shouldComponentUpdate (),
+
+05:36.040 --> 05:38.600
+e assim por diante.
+
+05:39.390 --> 05:50.010
+E, finalmente, com a desmontagem é quando um componente é removido de uma página, por exemplo, se mudarmos para um
+
+05:50.040 --> 05:58.290
+página diferente aqui, o componente será desmontado, o componente do aplicativo será excluído da página.
+
+05:58.290 --> 06:05.400
+Estes são chamados ganchos do ciclo de vida porque são executados toda vez que um componente faz algo e
+
+06:05.400 --> 06:06.720
+com reagir.
+
+06:06.720 --> 06:12.470
+Então você pode simplesmente colocá-los em seu componente de classe e eles serão automaticamente acionados.
+
+06:12.480 --> 06:16.310
+Você não precisa se preocupar em chamá-los. Deixe-me demonstrar isso.
+
+06:17.890 --> 06:24.280
+Queremos usar componentDidMount, que é chamado depois da renderização. Isso diz que sim,
+
+06:24.310 --> 06:31.190
+o componente do aplicativo é montado na página da web e é renderizado, ou seja, está exibindo algo.
+
+06:31.310 --> 06:43.840
+Bem, podemos fazer isso dizendo componentDidMount e, como isso faz parte da reação,
+
+06:43.890 --> 06:48.910
+Observe que não estou usando as funções de seta aqui.
+
+06:49.050 --> 06:50.570
+Agora dentro de componentDidMount.
+
+06:50.580 --> 06:52.240
+Eu posso dizer console.log ('check')
+
+06:55.570 --> 07:05.240
+Se eu atualizar isso e abrir o console, você verá que eu tenho que verificar se eu atualizar.
+
+07:05.240 --> 07:05.870
+Ai está.
+
+07:05.870 --> 07:06.670
+Isso foi muito rápido.
+
+07:06.680 --> 07:11.210
+Mas você vê que isso é chamado automaticamente mesmo que eu não tenha dito nada.
+
+07:12.320 --> 07:15.030
+Usando isso, podemos fazer algo interessante.
+
+07:15.110 --> 07:26.490
+Agora, quando componentDoesMount eu posso dizer this.setState para agora ter robôs para os robôs que nós
+
+07:26.490 --> 07:32.440
+obter do arquivo javascript.
+
+07:32.690 --> 07:38.730
+Se eu fizer isso e salvar, vamos atualizar e ver o que acontece.
+
+07:40.070 --> 07:45.280
+É realmente muito rápido, mas você percebe que estamos pegando nossos robôs.
+
+07:45.280 --> 07:52.710
+Estou dizendo executar o construtor com uma matriz vazia apenas para mostrar a ordem de execução aqui.
+
+07:52.720 --> 07:57.190
+Se eu adicionar um log de console e nós vamos apenas dizer um aqui
+
+08:01.230 --> 08:08.090
+nós vamos dizer dois aqui, e nós vamos dizer três.
+
+08:08.710 --> 08:24.150
+Se eu salvar isso e abrir o console eu tenho 1 3 2 3. Vamos apenas verificar isso. Nós temos um - que é executado primeiro
+
+08:25.510 --> 08:35.250
+então três, que é render. Em seguida, dois, que é componentDidMount e, em seguida, três é executado novamente.
+
+08:35.250 --> 08:43.390
+Na verdade, vamos mudar isso para palavras reais para que você veja melhor o que realmente está acontecendo.
+
+08:46.120 --> 08:53.250
+Se salvarmos e atualizarmos, olhemos para isso:temos um construtor que é executado primeiro, depois renderiza, em seguida, componentDidMount
+
+08:53.250 --> 08:57.070
+assim como este pedido.
+
+08:57.220 --> 09:00.500
+Mas agora também temos render.
+
+09:00.820 --> 09:03.840
+Por que a renderização foi executada novamente?
+
+09:03.890 --> 09:14.970
+Se você lembrar que criamos o construtor, nós executamos o render e, em seguida, atualizamos o estado e o componentDidMount.
+
+09:15.060 --> 09:24.470
+Então, porque nós atualizamos o estado, toda vez que o estado muda - Lembre-se que passamos pelo ciclo de vida - está atualizando
+
+09:24.950 --> 09:26.150
+ele executa render novamente.
+
+09:26.150 --> 09:37.210
+Então, porque vai de um array vazio para a lista de um robô, o render é reexecutado e o Dom virtual
+
+09:37.840 --> 09:47.240
+percebe que há uma diferença e repinta nosso navegador da Web para incluir os robôs. Muito legal. Sabendo
+
+09:47.240 --> 09:48.680
+o que acabamos de fazer
+
+09:48.870 --> 09:56.050
+podemos remover isso e finalmente tornar isso mais realista.
+
+09:56.050 --> 10:03.980
+Em vez de usar o arquivo do robô, eu vou remover isso e aqui vou mostrar a você
+
+10:04.850 --> 10:09.200
+uma maneira legal de pegar essa lista daqui.
+
+10:09.200 --> 10:18.710
+Eu vou copiar o link e vou dizer buscar o que vamos aprender na próxima seção.
+
+10:18.730 --> 10:25.680
+Estamos apenas dizendo para fazer essa solicitação HTTP, e buscar recebe isso.
+
+10:26.000 --> 10:31.570
+Mais uma vez estamos apenas dizendo ir para aqui, então.
+
+10:31.690 --> 10:33.800
+Isso vai receber uma resposta
+
+10:38.910 --> 10:43.320
+e essa resposta é ... Bem, essa parte é um pouco complicada.
+
+10:43.320 --> 10:46.500
+Você só tem que se acostumar com isso.
+
+10:46.690 --> 10:53.560
+response.json - nós apenas temos que converter a resposta, novamente algo sobre o que falaremos na próxima sessão.
+
+10:53.570 --> 10:56.990
+Por enquanto apenas, você pode copiar e colar este seguimento.
+
+10:56.990 --> 10:59.350
+Nós vamos voltar a isso e explicar o que está acontecendo.
+
+10:59.720 --> 11:05.220
+E a partir daqui, vamos adicionar isso em uma nova linha para que saibamos exatamente o que está acontecendo.
+
+11:06.860 --> 11:14.660
+Nós vamos dizer. Então robôs ou podemos dizer usuários porque neste caso estamos recebendo usuários, e aqui nós podemos
+
+11:14.660 --> 11:15.080
+dizer
+
+11:18.440 --> 11:27.900
+robôs this.setState para usuários iguais, e temos que nos certificar de que retornamos isso. Salve .
+
+11:27.940 --> 11:29.000
+Vamos ver se isso funciona.
+
+11:30.300 --> 11:31.040
+Olhe para isso.
+
+11:31.140 --> 11:40.650
+Vamos refrescar e você vê aquele pequeno atraso, agora está funcionando.
+
+11:40.730 --> 11:47.210
+Então, aqui nós podemos realmente fazer isso menor e reduzi-lo a uma linha.
+
+11:47.290 --> 11:48.810
+Devemos nos lembrar de como fazer isso.
+
+11:50.270 --> 11:52.730
+E nós vemos que somos simplesmente
+
+11:55.440 --> 11:56.460
+estado de atualização
+
+11:59.370 --> 12:01.910
+depois vamos buscar.
+
+12:01.950 --> 12:04.780
+Então, buscamos o que os usuários são.
+
+12:05.070 --> 12:06.750
+Estamos recebendo uma resposta.
+
+12:06.810 --> 12:10.750
+Estamos fazendo alguma mágica aqui com o Json sobre o qual falaremos mais tarde.
+
+12:10.890 --> 12:17.890
+E então estamos recebendo os usuários e atualizando os usuários com setState. Então, se eu atualizar
+
+12:17.890 --> 12:18.270
+novamente.
+
+12:21.040 --> 12:28.260
+Se eu não fizer isso, digamos que eu apenas, aqui não faça nada, e retorne um objeto vazio.
+
+12:28.390 --> 12:36.730
+Você vê que eu não recebo os robôs, só recebo os robôs depois de atualizar com esses usuários.
+
+12:37.120 --> 12:38.060
+Quão legal é isso.
+
+12:42.250 --> 12:43.030
+Tudo bem.
+
+12:43.030 --> 12:43.840
+Isso foi muito.
+
+12:43.870 --> 12:51.010
+E isso provavelmente parece bastante assustador. Para fazer você se sentir um pouco mais confortável, porque eu estou usando
+
+12:51.010 --> 12:54.160
+buscar e não há nada ligado a ele,
+
+12:54.160 --> 12:58.070
+Isso significa que é parte do objeto da janela?
+
+12:58.300 --> 13:06.000
+Vamos verificar:se eu abrir o console e fizer window.fetch.
+
+13:06.490 --> 13:07.210
+Sim, olhe isso.
+
+13:07.330 --> 13:12.190
+Buscar é um método no objeto da janela.
+
+13:12.190 --> 13:14.160
+Ele vem com todos os navegadores agora.
+
+13:14.380 --> 13:17.120
+É uma ferramenta para nós fazermos pedidos.
+
+13:18.050 --> 13:26.480
+Para servidores, e como você pode ver, este é um servidor que retorna para nós quando fazemos uma lista de usuários
+
+13:26.480 --> 13:35.280
+usuários que podemos usar, o que é perfeito para nosso aplicativo.
+
+13:35.320 --> 13:41.890
+E finalmente você está se perguntando, e se isso foi realmente lento ou o que quer que isso demore Eu não sei cinco segundos
+
+13:41.950 --> 13:44.460
+e nós tivemos uma tonelada de usuários.
+
+13:44.860 --> 13:56.870
+Bem, nesse caso, você pode fazer algo como uma instrução IF:se robots.lenth for zero.
+
+13:57.040 --> 14:03.510
+Nesse caso, podemos retornar um 'h1' que diz que o carregamento
+
+14:09.880 --> 14:13.090
+mais podemos apenas dizer retorno
+
+14:15.850 --> 14:19.360
+esta. Mais uma vez é apenas javascript.
+
+14:19.360 --> 14:20.800
+Isso é uma beleza em reagir.
+
+14:22.490 --> 14:27.720
+E você vê como conseguimos robôs não é definido porque é this.state.robots.
+
+14:27.920 --> 14:29.910
+Mais uma vez estamos nos referindo ao estado do aplicativo.
+
+14:30.350 --> 14:36.380
+E aqui se eu atualizar, vamos apenas dizer que não estamos atualizando o estado e eu vou apenas retornar
+
+14:36.380 --> 14:37.310
+um objeto vazio
+
+14:41.370 --> 14:48.610
+enquanto nesse caso eu apenas recebo carregamento.
+
+14:48.730 --> 14:50.240
+Muito legal.
+
+14:50.290 --> 14:58.450
+E é assim que você constrói aplicativos reais com reagir, você tem uma barra de carregamento, eles podem apenas adicionar aqui, fazer pedidos
+
+14:58.450 --> 15:04.260
+em componentDidMount e interaja com componentes.
+
+15:05.300 --> 15:06.110
+Muito legal.
+
+15:07.950 --> 15:16.370
+Você sabe o que, nós mesmos temos nosso aplicativo. Há uma última coisa que eu vou te mostrar com reagir e
+
+15:16.370 --> 15:18.860
+você aprendeu o básico e reagiu.
+
+15:18.860 --> 15:22.180
+Você pode levar isso agora para criar qualquer aplicativo que você deseja.
+
+15:22.340 --> 15:24.140
+Então mais uma coisa para ir.
+
+15:24.170 --> 15:28.130
+Mais uma pequena peça para obter nosso conhecimento de reabastecimento concluído.
+
+15:28.550 --> 15:29.740
+Eu vejo você no próximo.
+
+15:29.970 --> 15:30.180
+Tchau tchau

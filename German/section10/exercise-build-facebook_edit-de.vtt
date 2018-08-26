@@ -1,0 +1,386 @@
+WEBVTT
+
+00:00.890 --> 00:08.310
+Hallo! Willkommen zurück. In diesem Video werden wir alles kombinieren, was wir gerade gelernt haben
+
+00:08.310 --> 00:10.540
+warum JavaScript nützlich ist.
+
+00:10.620 --> 00:18.380
+Weil ich weiß, dass einige von euch denken:OK, wir haben eine ganze Reihe neuer Möglichkeiten zum Schreiben von JavaScript gelernt
+
+00:18.390 --> 00:25.120
+und wir lernten Arrays und Objekte kennen, aber ich weiß nicht wirklich, wie das mit meinem Aufbau zusammenhängt
+
+00:25.120 --> 00:27.560
+Webseiten oder Web-Apps?
+
+00:28.110 --> 00:34.280
+Nun, ich werde Ihnen zeigen, dass wir mit dem, was wir gerade gelernt haben, eine vereinfachte Version von Facebook erstellen können.
+
+00:35.240 --> 00:36.510
+Also lasst uns anfangen.
+
+00:36.830 --> 00:43.010
+Wir werden eine Datenbank mit Benutzernamen und Passwörtern haben. Wir werden einen Newsfeed haben und wir sind
+
+00:43.010 --> 00:44.780
+werde Benutzer haben.
+
+00:44.840 --> 00:51.020
+Beginnen wir also damit, darüber nachzudenken, wie Facebook funktioniert. Mit Facebook
+
+00:51.020 --> 00:55.420
+Wir haben normalerweise ein Anmeldeformular. Wir müssen uns anmelden.
+
+00:56.000 --> 01:03.330
+Und wenn wir uns angemeldet haben, geht es zu unserem Profil, wo wir unseren "Newsfeed" sehen können.
+
+01:03.380 --> 01:10.180
+Also lass uns das bauen. Wir können damit beginnen, eine so genannte "Datenbank" zu haben.
+
+01:10.180 --> 01:12.520
+Also haben wir eine variable 'Datenbank'.
+
+01:12.520 --> 01:16.810
+Und in dieser 'Datenbank' können wir mehrere Benutzer haben.
+
+01:16.810 --> 01:17.230
+Recht?
+
+01:17.350 --> 01:23.210
+Also, was brauchen wir hier? Wir brauchen ein Array - eine Liste von Benutzern.
+
+01:23.230 --> 01:24.790
+So kann ich jetzt sagen
+
+01:28.110 --> 01:36.000
+Ich habe einen "Nutzernamen" und dies könnte aus unseren vorherigen Lektionen bekannt sein. Wir haben einen 'Benutzernamen' von 'andrei'
+
+01:37.140 --> 01:42.740
+und ein "Passwort" von "supersecret".
+
+01:42.800 --> 01:46.700
+Im Moment werden wir es nur bei einem Benutzer belassen.
+
+01:46.700 --> 01:50.670
+Wir haben eine "Datenbank" und wir wollen auch einen "Newsfeed" haben, oder?
+
+01:50.720 --> 01:56.730
+Also lass uns eine Variable namens "Newsfeed" haben und hier einen Newsfeed,
+
+01:56.740 --> 02:15.350
+Nun, es ist wieder eine Liste, eine Reihe von Neuigkeiten. Also können wir einen 'Benutzernamen' haben - 'Bobby', der auf seiner Zeitleiste vielleicht hat,
+
+02:15.590 --> 02:26.200
+"So müde von all dem Lernen!". Wir haben auch, wir haben mehr als einen Artikel in der Regel in einem "Newsfeed".
+
+02:26.200 --> 02:39.330
+Wir können das 'Benutzername', 'Sally' sagen. 'Sally' auf ihrer Zeitlinie gerade gepostet "Javascript ist soooooo cooooool!".
+
+02:41.660 --> 02:42.240
+OK.
+
+02:42.560 --> 02:53.070
+Wir haben also einen 'Newsfeed', der eine Reihe von Objekten hat und wir haben eine 'Datenbank', die ein Array von nur einem ist
+
+02:53.070 --> 02:55.980
+einzelnes Objekt gerade jetzt:ein "Benutzername" und "Passwort".
+
+02:56.950 --> 03:01.190
+Wie können wir nun eine Anmeldeform erstellen?
+
+03:01.360 --> 03:10.500
+Nun, wir möchten eine Aktion ausführen, um die Anmeldeinformationen eines Benutzers zu überprüfen:den 'Benutzernamen' und das 'Passwort'.
+
+03:10.550 --> 03:12.000
+Nun, wir haben das schon mal gemacht, oder?
+
+03:12.020 --> 03:24.170
+Wir haben zuvor 'prompt' verwendet, akzeptiert eine Benutzereingabe. Also können wir die Variable 'userNamePrompt' ausführen
+
+03:24.500 --> 03:29.320
+Wir werden gleich "prompt" sagen:03:29.680 --> 03:32.310
+"Wie ist dein Nutzername?"
+
+03:34.500 --> 03:35.370
+OK.
+
+03:35.760 --> 03:36.930
+Wir haben auch
+
+03:36.930 --> 03:39.300
+Und ich werde das kleiner machen, nur damit alles hier hineinpasst.
+
+03:39.300 --> 03:53.050
+Hoffentlich kannst du noch sehen. Wir haben die Variable 'passwordPrompt', die gleich 'Prompt' ist ("Was ist Ihr Passwort?")
+
+03:54.080 --> 03:57.680
+"?" OK.
+
+03:57.860 --> 04:00.970
+Also, wir haben das funktioniert.
+
+04:01.250 --> 04:10.590
+Wenn wir diese Datei öffnen und aktualisieren:HTML wird Zeile für Zeile geladen. Und wir sehen, oh, wir haben
+
+04:10.590 --> 04:11.280
+ein Skript.
+
+04:11.340 --> 04:17.590
+Lassen Sie mich das Skript laden und dann liest der Browser Zeile für Zeile.
+
+04:17.670 --> 04:19.030
+Wir haben eine 'Datenbank'.
+
+04:19.260 --> 04:20.500
+Wir haben einen Newsfeed.
+
+04:20.970 --> 04:26.540
+Und dann wird es sagen, "usernamePrompt" entspricht "prompt". Und es wird uns fragen:"Was ist dein Benutzer?
+
+04:26.540 --> 04:26.930
+Name?"
+
+04:27.150 --> 04:30.310
+Und dann fragt es uns nach "Wie lautet dein Passwort?"
+
+04:30.460 --> 04:32.400
+Nun, lasst uns das einfach testen.
+
+04:32.490 --> 04:35.410
+Ich werde sparen und auffrischen und los gehts.
+
+04:35.460 --> 04:42.730
+"Wie ist dein Nutzername?" - "andrei" und "Wie lautet dein Passwort?" - "Supergeheim".
+
+04:43.260 --> 04:53.040
+Das ist sehr nett, aber wenn ich mich anmelde, möchte ich entweder wissen, dass mein Passwort falsch ist oder ob ich mich anmelde
+
+04:53.040 --> 04:54.550
+in und alles ist richtig.
+
+04:54.780 --> 04:56.830
+Ich möchte meinen Newsfeed bekommen, oder?
+
+04:57.970 --> 05:05.560
+Es klingt also so, als müssten wir eine Aktion ausführen, aber wir haben keine JavaScript-Funktion,
+
+05:05.560 --> 05:05.920
+tun wir?
+
+05:05.920 --> 05:10.310
+Es ist eine benutzerdefinierte Funktion, die wir selbst aufbauen müssen.
+
+05:11.110 --> 05:13.080
+Lasst uns darüber nachdenken.
+
+05:13.090 --> 05:20.880
+Wir wollen eine Funktion namens "signIn" erstellen und anmelden, was brauchen wir?
+
+05:20.980 --> 05:25.800
+Nun, wir brauchen einen Benutzernamen und ein Passwort.
+
+05:27.410 --> 05:32.450
+Und wir können diese benennen, was immer wir wollen, und nur um das zu beweisen, werde ich nur 'Benutzer' tun
+
+05:35.190 --> 05:36.300
+und Passwort'.
+
+05:36.730 --> 05:39.500
+Wir werden, so 'passieren'. OK.
+
+05:39.530 --> 05:43.610
+Und wenn wir uns erinnern, um eine Funktion zu erstellen, ist dies "Funktionsdeklaration"
+
+05:43.610 --> 05:48.310
+Ich habe meine geschweiften Klammern und hier kann ich etwas tun.
+
+05:48.350 --> 05:53.780
+Lasst uns nochmal logisch darüber nachdenken:Um sich anzumelden,
+
+05:53.800 --> 05:57.300
+Ich muss "Benutzername" und "Passwort" überprüfen.
+
+05:57.640 --> 06:08.990
+Nun, wenn die Funktion das erste Argument 'user' bekommt, kann ich gut 'if (username)' sagen - in diesem Fall 'user'
+
+06:10.780 --> 06:12.940
+gleich, naja, was ist es gleich?
+
+06:12.950 --> 06:16.820
+Sie müssen gegen unsere 'Datenbank' richtig nachsehen?
+
+06:17.310 --> 06:25.770
+Unsere "Datenbank", als "andrei" sich für Facebook anmeldete, hat er seinen "Benutzernamen" und "Passwort" gesenkt, also haben wir
+
+06:25.770 --> 06:32.220
+diese Information. Wir können also sagen, dass wir bei der Anmeldung "Benutzer" überprüfen, um zu sehen, dass der "Nutzer"
+
+06:32.430 --> 06:35.080
+entspricht "Datenbank".
+
+06:35.580 --> 06:36.790
+Und es ist ein Array.
+
+06:37.050 --> 06:45.660
+Also werden wir das erste Element in dem Array greifen und wir werden den "Benutzernamen" greifen
+
+06:50.170 --> 06:50.760
+OK.
+
+06:51.110 --> 06:55.310
+Und wir wollen auch das 'Passwort' überprüfen, oder?
+
+06:55.310 --> 06:57.970
+Also, was machen wir, wenn wir zwei Dinge überprüfen müssen?
+
+06:57.980 --> 07:10.120
+Nun, es ist eine Bedingung, die "&&" hat. Also hier kann ich sagen:das 'Passwort' sollte gleich 'Datenbank' sein - erstes Element in
+
+07:10.120 --> 07:11.060
+das Array.
+
+07:11.290 --> 07:15.640
+Und dieses Mal anstelle von "Benutzername" ist es "Passwort".
+
+07:15.890 --> 07:18.200
+Ich werde das auf eine neue Zeile setzen, damit Sie es sehen können.
+
+07:18.200 --> 07:18.820
+Da gehst du hin!
+
+07:20.770 --> 07:30.610
+Also, 'signIn' Funktion wird sagen, wenn 'Benutzer' gleich ist, was wir in der 'Datenbank' haben:'Benutzername' und 'Passwort'
+
+07:30.610 --> 07:36.190
+entspricht dem, was wir in der 'Datenbank' haben. Wenn das stimmt,
+
+07:36.220 --> 07:48.580
+Nun, wir können 'console.log' sagen, und wir werden sagen 'newsfeed'. Sonst, wenn das "Passwort" oder "Benutzername" nicht korrekt ist, werden wir
+
+07:48.640 --> 07:51.140
+Sag einfach 'Alarm'.
+
+07:51.550 --> 07:58.890
+"Entschuldigung, falscher Benutzername und falsches Passwort!"
+
+07:58.980 --> 08:06.800
+Also haben wir unsere Funktion, aber diese ist irgendwo verschwunden. Und wir werden das speichern.
+
+08:06.800 --> 08:09.720
+Und lass uns einfach auffrischen. OK.
+
+08:09.930 --> 08:11.470
+"Was ist Ihr Benutzername?"
+
+08:11.520 --> 08:13.680
+Wir werden sagen "andrei"
+
+08:13.790 --> 08:15.290
+Und "Was ist dein Passwort?"
+
+08:15.410 --> 08:19.750
+Nun, wir werden sagen - "supersecret". Ich drückte auf Enter.
+
+08:20.030 --> 08:20.350
+OK.
+
+08:20.360 --> 08:25.660
+Und nun passiert nichts, denn wir haben keine Callback-Funktion, oder?
+
+08:25.670 --> 08:27.670
+Wir wissen nur, dass 'signIn' existiert.
+
+08:27.820 --> 08:38.510
+Lass uns einfach überprüfen, ob 'signIn' existiert. 'signIn ist nicht definiert'. Weil ich es geschrieben habe, habe ich es falsch geschrieben
+
+08:39.230 --> 08:40.150
+Lass uns wieder 'anmelden'.
+
+08:40.190 --> 08:43.370
+Lass uns auffrischen. 'andrei'
+
+08:43.660 --> 08:46.800
+"supersecret"
+
+08:46.950 --> 08:51.370
+Und wenn ich jetzt nach einem 'SignIn' suche - da ist die Funktion.
+
+08:51.390 --> 09:05.660
+Also, lass es uns laufen. Lass uns 'anmelden'. Und wir werden sagen:'usernamePrompt', 'passwordPrompt'.
+
+09:05.810 --> 09:08.450
+Sieh dir das an. Wir haben gerade unseren "Newsfeed" erhalten.
+
+09:08.690 --> 09:09.320
+Das ist sehr cool.
+
+09:09.320 --> 09:16.090
+Lassen Sie uns das aber drinnen, also läuft das Skript einfach und dann bekommen wir sofort unsere Antwort.
+
+09:16.280 --> 09:17.340
+Also machen wir:09:17.520 --> 09:22.230
+'usernamePrompt' und 'passwordPrompt'.
+
+09:23.110 --> 09:29.780
+Nun, um Ihnen zu zeigen, was ich hier gemacht habe, rufe ich die Funktion 'signIn' auf, die zwei Parameter akzeptiert:09:29.890 --> 09:32.410
+"Benutzer" und "Passwort".
+
+09:32.440 --> 09:38.950
+Wenn ich also die Funktion aufruft, gebe ich ihr zwei Argumente, um diesen Parametern zu entsprechen.
+
+09:38.950 --> 09:43.750
+Ich werde es den 'usernamePrompt' geben, der alles enthält, was wir in der ersten 'prompt' geschrieben haben
+
+09:44.290 --> 09:49.060
+und dann 'passwordPrompt', was alles enthält was wir lesen und die zweite 'prompt'.
+
+09:49.060 --> 09:58.630
+So, jetzt, wenn ich das speichern und aktualisieren, kann ich sagen "Was ist dein Benutzername?" - 'andre', 'passwort' - 'supersecret'.
+
+10:01.270 --> 10:04.930
+Und sieh dir das an. Jetzt bin ich eingeloggt und kann sehen, dass "Bobby" ist
+
+10:04.940 --> 10:10.830
+"So müde von all dem Lernen" und "Sally", nun, Sally findet "Javascript wirklich - wirklich cool".
+
+10:12.240 --> 10:16.480
+Lassen Sie uns auch die "else" -Anweisung ausprobieren, falls wir unsere Informationen durcheinander bringen.
+
+10:16.530 --> 10:23.580
+Ich drücke Aktualisieren und ich mache "andrei", und für das Passwort werde ich einfach "1, 2, 3". Ich werde bekommen:10:23.580 --> 10:25.990
+"Entschuldigung, falscher Benutzername und falsches Passwort!"
+
+10:27.640 --> 10:28.740
+Da gehst du.
+
+10:28.780 --> 10:35.620
+Wir haben ein einfaches Facebook erstellt und das ist so erstaunlich an JavaScript, dass Sie auf Websites schauen
+
+10:35.620 --> 10:41.440
+wie Facebook, das scheint wirklich sehr kompliziert, aber sie sind alle aus diesen kleinen Brocken gemacht. Und das
+
+10:41.440 --> 10:48.990
+Funktionalität, die Sie auf Facebook sehen, ist genau das, wenn wir 'signIn' sind und sie die Unterzeichnung überprüfen
+
+10:49.000 --> 10:55.060
+Informationen gegen eine "Datenbank" und dann, wenn wir richtig oder falsch sind, bekommen wir entweder den "Newsfeed"
+
+10:55.060 --> 10:57.180
+oder wir bekommen, wissen Sie, "Bitte melden Sie sich wieder an".
+
+10:58.030 --> 11:03.430
+Und das ist die Kraft von JavaScript genau hier. Und deshalb bin ich so aufgeregt, Ihnen das Thema beizubringen
+
+11:03.460 --> 11:09.670
+weil es eine ganz neue Möglichkeit eröffnet, online so ziemlich alles zu machen.
+
+11:11.150 --> 11:12.970
+Ich habe ein anderes aufregendes Video für dich
+
+11:12.970 --> 11:14.110
+Als nächstes kommt.
+
+11:14.620 --> 11:16.260
+Ich sehe dich in diesem. Tschüss

@@ -1,0 +1,184 @@
+WEBVTT
+
+00:01.120 --> 00:01.800
+Gut.
+
+00:01.810 --> 00:06.000
+Also haben wir redux funktioniert, schön mit unserer App.
+
+00:06.100 --> 00:09.160
+Wir haben gerade eine großartige Bibliothek gelernt.
+
+00:09.580 --> 00:12.510
+Ich hoffe, es geht allen gut. Jetzt,
+
+00:13.030 --> 00:15.890
+Ich möchte ein paar Dinge hinzufügen.
+
+00:15.940 --> 00:23.530
+Offensichtlich ist dies ein einfaches Beispiel. Aber die Grundlagen sind da. Mit diesen Prinzipien können Sie
+
+00:23.530 --> 00:27.560
+los und bauen, größere und größere Anwendungen.
+
+00:27.970 --> 00:32.090
+Aber während ich das geschrieben habe, haben Sie vielleicht ein paar Dinge bemerkt.
+
+00:32.230 --> 00:32.850
+Ein,
+
+00:33.100 --> 00:42.170
+Nun, schauen wir uns hier unsere Ordnerstruktur an. Wir können uns vorstellen, wie unsere App wächst, die es werden wird
+
+00:42.410 --> 00:44.540
+größer und größer und größer.
+
+00:44.690 --> 00:49.460
+Und das werde ich Ihnen später im Kurs zeigen, wenn wir an der
+
+00:49.460 --> 00:57.920
+intelligente Gehirn-App. Wo laden wir unsere App js, mit einer Tonne von Funktionen.
+
+00:57.920 --> 01:00.100
+Und wir verwenden Redux dafür nicht.
+
+01:00.200 --> 01:06.660
+So wird diese Datei mit neuen Methoden und neuen Methoden und neuen Methoden immer länger.
+
+01:06.690 --> 01:16.350
+Jetzt haben Sie eine Container-Komponente, die eine verbundene Komponente hat. Eine Komponente, die das weiß
+
+01:16.410 --> 01:22.790
+Der Redux-Store existiert und hört Requisiten ab und leitet Aktionen von ihr ab.
+
+01:22.830 --> 01:26.100
+Nun, nur einen zu haben ist nicht wirklich realistisch.
+
+01:26.130 --> 01:33.570
+Höchstwahrscheinlich werden Sie mehrere Container haben. Aber wegen der Art, wie Redox funktioniert, das ist fair
+
+01:33.570 --> 01:34.570
+einfach zu erledigen.
+
+01:34.620 --> 01:42.300
+Wir können einfach connect verwenden und auswählen, welche Komponenten wir mit dem Redux-Speicher verbinden möchten.
+
+01:42.660 --> 01:46.960
+Und wenn wir wollen, sprechen zwei Behälter miteinander,
+
+01:47.280 --> 01:50.670
+Nun, sehr einfach, wir verbinden sie einfach miteinander.
+
+01:50.850 --> 01:58.030
+Und weil das Geschäft über allem steht, können wir diese Statusinformationen abrufen.
+
+01:58.950 --> 02:01.420
+Das macht die Kommunikation sehr einfach.
+
+02:01.770 --> 02:08.790
+Offensichtlich wollen wir Container so haben. Und einfache Präsentationskomponenten, die einfach sind
+
+02:08.790 --> 02:13.940
+reine Funktionen, die nur Requisiten erhalten und rendern.
+
+02:14.050 --> 02:20.650
+Wenn wir jedoch immer mehr Komponenten und mehr und mehr Container anbauen, wird es auch Sinn machen
+
+02:20.650 --> 02:26.710
+habe nicht nur eine 'Konstanten'-Datei, eine' Aktions'-Datei und eine 'Reduzierer'-Datei.
+
+02:27.010 --> 02:33.670
+Sie können sich vorstellen, dass diese immer größer und größer werden. Und Sie werden Projekte sehen, die eine "Aktion" haben
+
+02:33.670 --> 02:37.470
+Ordner, ein Ordner "Konstanten" und ein Ordner "Reduzierungen".
+
+02:37.630 --> 02:41.820
+Aber ich persönlich mag die Art, Dinge zu tun.
+
+02:42.160 --> 02:46.260
+Das heißt, alles nach der Komponente gruppieren.
+
+02:46.420 --> 02:53.630
+Zum Beispiel, erstellen Sie eine App Punkt js oder sagen wir, es gibt eine intelligente Suchfeldkomponente.
+
+02:54.010 --> 02:59.920
+Wir werden einen Ordner namens 'Suchfeld' erstellen und dieser 'Suchfeld' Ordner wird alle haben
+
+02:59.920 --> 03:03.670
+die DOM-Präsentationskomponenten, die es braucht.
+
+03:03.670 --> 03:06.730
+Es wird alle 'Aktionen' haben, die es in Aktionspunkt braucht
+
+03:06.790 --> 03:10.060
+js. Es wird alle "Reduzierer" haben, die es braucht.
+
+03:10.180 --> 03:12.780
+Und es wird auch die ganze Konstante haben
+
+03:13.000 --> 03:19.810
+es braucht. So wird jeder Ordner eine Komponente, einen Teil unserer Website darstellen und alles ist miteinander verbunden
+
+03:20.080 --> 03:21.760
+in einem kleinen Ordner.
+
+03:21.760 --> 03:26.400
+Also, wenn wir jemals Code teilen wollen, wird es ziemlich einfach sein.
+
+03:26.410 --> 03:32.850
+Es ist auch schön, so darüber nachzudenken. Anstatt diese massiven allgemeinen Ordnernamen zu haben.
+
+03:33.020 --> 03:35.840
+Und das sehen Sie bei den meisten großen Projekten.
+
+03:35.840 --> 03:43.190
+Diese Idee von Komponenten, die ihre eigenen Ordner haben, diese Container, die wieder eigene Ordner haben,
+
+03:43.190 --> 03:45.950
+sowie Reduzierungen und Aktionen.
+
+03:46.100 --> 03:52.130
+Auf diese Weise können Sie die Ordnerstruktur durchlesen und entscheiden, wohin Sie gehen wollen, um einen Fehler zu beheben
+
+03:52.130 --> 03:53.670
+oder erstelle ein neues Feature.
+
+03:55.690 --> 03:59.010
+Sie möchten auch vermeiden, Code so oft zu wiederholen.
+
+03:59.170 --> 04:03.940
+Zum Beispiel werden wir in den meisten Anwendungen eine Menge Aufrufe abrufen.
+
+04:04.210 --> 04:11.800
+Wäre es nicht großartig, wenn wir hier einen API-Ordner hätten, der den Abruf aufruft, vielleicht nennen wir es API,
+
+04:11.920 --> 04:20.740
+'Get API' und alles, was wir tun müssen, ist eine Funktion zu übergeben, und diese Funktion wird diese URL übergeben
+
+04:20.740 --> 04:24.130
+die Fetch-Funktion und das wird es auch tun
+
+04:24.160 --> 04:27.120
+Json für uns. Es wird also nur die Daten zurückgeben.
+
+04:27.130 --> 04:36.170
+Also behalten wir die Wiederholung, also hören wir auf, all diesen Punkt zu wiederholen, dann Punkt und Punktfang. Also, denken in Bezug auf
+
+04:36.230 --> 04:40.550
+Ordnen Sie Ihre Ordner zu etwas, das Sinn macht, etwas, das skalieren kann.
+
+04:40.760 --> 04:47.270
+Und wenn jemand zu dem Projekt kommt, ist es für sie einfach zu folgen und zu lesen, ist ein guter Weg
+
+04:47.270 --> 04:50.030
+Sachen machen.
+
+04:50.050 --> 04:52.390
+In Ordnung, das ist genug für jetzt.
+
+04:52.390 --> 04:53.900
+Wir sehen uns im nächsten Video.
+
+04:53.910 --> 04:54.380
+Tschüss

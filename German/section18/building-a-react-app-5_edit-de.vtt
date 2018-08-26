@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+Unsere Robo-Freunde sehen wirklich sehr nett aus.
+
+00:03.130 --> 00:05.780
+Ich mag diese App wirklich. Es gibt jedoch ein Problem.
+
+00:05.920 --> 00:14.580
+Wenn ich das minimiere. OK, es reagiert, es sieht gut aus. Aber wenn ich runterscrolle, naja, verliere ich meine Suchleiste um
+
+00:14.580 --> 00:14.980
+die Spitze.
+
+00:14.980 --> 00:21.540
+Wäre es nicht schön, wenn das oben wäre und ich eine Schriftrolle habe, die ich tun kann und immer noch meine Freunde suche?
+
+00:24.510 --> 00:30.150
+Nun, du denkst vielleicht - "Es gibt wahrscheinlich einen CSS-Stil, den ich hier hinzufügen kann." Aber ich möchte es illustrieren
+
+00:30.150 --> 00:39.180
+dir die Tatsache, dass Reagieren und warum Reagieren so gut ist, weil du Komponenten erstellen kannst, die sind
+
+00:39.300 --> 00:42.560
+wiederverwendbar, nicht nur Kartenkomponenten, sondern Funktionalität.
+
+00:42.600 --> 00:48.110
+Wäre es cool, wenn es vielleicht etwas gibt, was wir bei "CardList" hinzufügen könnten?
+
+00:48.120 --> 00:58.960
+Vielleicht kann ich eine "Scroll" -Komponente erstellen? Und diese "Scroll" -Komponente umschließt nur die "CardList".
+
+00:59.190 --> 01:02.130
+Und jetzt wird "CardList" vollständig scrollbar sein.
+
+01:02.220 --> 01:08.820
+Aber jetzt kann ich "Scroll" diese Komponente überall in meiner App verwenden, jedes Mal wenn ich scrollen muss, kann ich einfach wickeln
+
+01:08.820 --> 01:10.740
+es herum.
+
+01:10.790 --> 01:11.870
+Können wir das machen?
+
+01:11.930 --> 01:12.860
+Lass es uns versuchen.
+
+01:14.690 --> 01:19.030
+Ich werde eine Komponente "importieren", die wir noch nicht haben
+
+01:19.160 --> 01:28.510
+Das nennt man "Scroll" von einer Datei, die wir in der Sekunde erstellen. Lassen Sie uns eine neue Datei erstellen.
+
+01:30.610 --> 01:32.040
+Wir werden das "Scroll.js" nennen
+
+01:32.080 --> 01:42.850
+Und hier werden wir erneut die Bewegung von "Reagieren von reagieren" durchgehen.
+
+01:42.900 --> 01:44.340
+Lass uns das ein bisschen größer machen.
+
+01:46.150 --> 01:54.470
+Und wieder möchte ich dies zu Babel ändern und wir werden sagen "Const Scroll" ist gleich
+
+01:54.610 --> 02:01.790
+es wird zurückkehren- Hmm- was sollte es zurückgegeben haben?
+
+02:01.850 --> 02:11.790
+Bevor wir darüber reden, vergessen wir nicht - wir müssen "Standard Scroll" exportieren.
+
+02:11.800 --> 02:18.910
+Jetzt ist hier ein Problem. Wir wollen etwas zurückgeben, aber es macht keinen Sinn, oder?
+
+02:19.060 --> 02:20.220
+Wenn ich zu "App.js" gehe
+
+02:22.130 --> 02:22.990
+"Scroll", aber es ist keine selbstschließende Komponente,
+
+02:23.010 --> 02:27.850
+es umhüllt die Komponente.
+
+02:27.870 --> 02:33.420
+Wie können wir "Scroll" sagen zu "Hey, mach nur, was in dir ist."
+
+02:36.320 --> 02:37.370
+Bis hierhin,
+
+02:37.430 --> 02:44.280
+Wir haben etwas über "Requisiten" gelernt und wir haben etwas über "Staat" gelernt.
+
+02:44.340 --> 02:53.040
+Es gibt eine andere Sache in React, die ich dir beibringen möchte und das sind "Kinder". Und "Kinder" ist das.
+
+02:54.320 --> 03:00.310
+"Scroll" kann "children" als Möglichkeit zum Rendern seiner Children verwenden.
+
+03:00.740 --> 03:01.790
+Was meine ich damit?
+
+03:03.040 --> 03:09.710
+Nun, hier hat jedes "Requisiten" -Objekt Kinder.
+
+03:09.800 --> 03:16.540
+Also, wenn ich "props.children" gehe, schauen wir mal, was passiert.
+
+03:16.660 --> 03:28.460
+Ich spare und gehe zurück, alles ist gerendert. Aber wenn ich das entferne und ich mache nur ein "h1",
+
+03:37.000 --> 03:44.910
+Ich verstehe das einfach. Du siehst, "props.children" ist genau das.
+
+03:45.080 --> 03:49.490
+Wenn ich "console.log (Requisiten)"
+
+03:53.520 --> 03:54.860
+Lass uns die Konsole öffnen.
+
+03:54.900 --> 03:57.770
+Ich sehe, dass ich ein Objekt bekomme.
+
+03:57.780 --> 04:07.560
+Und obwohl ein Gegenstand "Requisiten" an "Scrollen" weitergibt, hat dies automatisch jede einzelne Komponente in React
+
+04:07.560 --> 04:18.050
+Eigentum, "Kinder". Und diese Kinder - sieht hier irgendwie verwirrend aus - hat aber "CardList" Typ "CardList"
+
+04:22.440 --> 04:32.800
+Mit diesem "props.children" können wir Komponenten erstellen, die andere Komponenten umschließen. Bis hierhin,
+
+04:32.800 --> 04:39.820
+Wir konnten nur diese "Kleinbuchstaben" wie die HTML-Tags verpacken.
+
+04:39.820 --> 04:44.680
+Aber jedes Mal, wenn wir eine benutzerdefinierte Komponente mit einem von uns erstellten Großbuchstaben hatten, konnten wir es nicht wirklich
+
+04:44.680 --> 04:46.000
+wickle es ein.
+
+04:46.020 --> 04:50.690
+Jetzt können wir "this.children" verwenden.
+
+04:50.780 --> 04:52.690
+Aber hier ist der coole Teil.
+
+04:52.910 --> 04:54.940
+"Props.children" verwenden
+
+04:55.160 --> 05:07.180
+Nun, ich kann eine scrollbare Komponente erstellen. Lass mich dir zeigen, wie. Schließen Sie einfach "div" das "/ div",
+
+05:07.180 --> 05:16.150
+und hier wieder geschweifte Klammern "props.children". Und alles, was wir jetzt brauchen, ist das Hinzufügen von Stilen zu diesem div.
+
+05:16.150 --> 05:22.630
+Ich könnte eine "Scroll.css" Datei erstellen und einen Stil hinzufügen, so dass scrollbar, aber ich möchte Ihnen einen anderen Weg zeigen
+
+05:22.630 --> 05:24.230
+das verwendet "Stil".
+
+05:24.550 --> 05:25.950
+Genau wie ein HTML,
+
+05:26.170 --> 05:35.200
+Mit diesem Style-Attribut und JSX kann ich Stile hinzufügen, aber doppelte geschweifte Klammern verwenden
+
+05:35.200 --> 05:43.210
+Dies ist ein JavaScript-Ausdruck und innerhalb dieses Objekts gebe ich ein Objekt zurück, das dieses Objekt haben kann
+
+05:43.240 --> 05:47.760
+CSS-Stile, z. B. eine Eigenschaft "overflowY".
+
+05:50.040 --> 05:54.450
+Das ist eine CSS-Eigenschaft, und Sie können wieder "scrollen" sagen,
+
+05:54.480 --> 06:06.870
+eine CSS-Methode, um das Element scrollbar zu machen. Wir werden sagen "Grenze" ist 1 Pixel, solide, schwarz und schließlich
+
+06:06.870 --> 06:17.670
+Wir geben ihm eine "Höhe" von 500 Pixeln. Ich werde das kleiner machen, damit du sehen kannst, ich werde sparen,
+
+06:17.670 --> 06:18.290
+Kompilieren ist in Ordnung.
+
+06:18.330 --> 06:21.560
+Wenn ich zurückgehe, sieht es so aus, als hätten wir hier eine Box.
+
+06:21.690 --> 06:26.520
+Lass es uns ein bisschen größer machen, nur damit du es sehen kannst. Ich sage 5 Pixel, obwohl es hässlich ist.
+
+06:26.610 --> 06:30.150
+Und ich habe 't' hier drin vergessen, oder?
+
+06:30.180 --> 06:36.760
+Alles klar, mal sehen. Schau dir das an, wir haben eine scrollbare Komponente.
+
+06:36.770 --> 06:44.110
+Lassen Sie uns das ein bisschen größer machen, nur damit wir ein besseres sehen können. Sieh dir das an.
+
+06:44.160 --> 06:53.650
+Wenn ich das kleiner mache, habe ich jetzt eine scrollbare Komponente darin.
+
+06:53.760 --> 06:55.250
+Sehr cool.
+
+06:55.320 --> 06:57.690
+Jetzt ist dies eine einfache App.
+
+06:57.840 --> 07:00.550
+Es ermöglicht Ihnen zu suchen.
+
+07:00.570 --> 07:07.440
+Es erlaubt Ihnen zu scrollen, aber es zeigt die Kraft von Reagieren, nicht wahr?
+
+07:08.260 --> 07:18.050
+Wir haben diese einfachen Funktionen erstellt und das Einzige, was wir sagen, ist,
+
+07:18.050 --> 07:24.880
+Nun, wir sagen ihm, in welchem ​​Zustand es ist. Die gesamte App wird durch diese beiden Dinge beschrieben.
+
+07:25.040 --> 07:34.550
+Die "Roboter" und "Suchfeld" und React kümmert sich um den Rest. Sobald sich "Suchfeld" oder "Roboter" ändert,
+
+07:35.330 --> 07:38.200
+Reaction rinnt nach unten
+
+07:38.200 --> 07:46.880
+All diese Informationen "stützen" all diese Komponenten und erschaffen auf magische Weise unsere Sicht für uns.
+
+07:46.900 --> 07:49.780
+Deshalb ist React so mächtig, dass es eine Ansichtsebene ist.
+
+07:49.870 --> 07:55.580
+Es kümmert sich um die Manipulation des DOM und alles, was wir sagen, ist "Hey, was ist der Zustand?"
+
+07:55.780 --> 07:59.610
+"Mit welchen Funktionen wollten Sie mit dem Staat arbeiten?" und der Rest?
+
+07:59.620 --> 08:06.400
+Nun, es optimiert, um sicherzustellen, dass alles super schnell ist und Sie sehen, wie unglaublich schnell alles ist
+
+08:06.400 --> 08:06.870
+ist hier.
+
+08:06.880 --> 08:12.220
+Es ist eine super bissige App und diese Komponenten sind jetzt wiederverwendbar.
+
+08:12.220 --> 08:19.570
+Ich kann "SearchBox" jetzt in einen anderen Teil der Website bringen. Ich kann "Scroll" in einen anderen Teil von hinzufügen
+
+08:19.570 --> 08:20.440
+Die Webseite.
+
+08:21.240 --> 08:27.430
+Dies hat React so mächtig gemacht und deshalb werden so viele Webseiten von React betrieben.
+
+08:27.480 --> 08:35.960
+Sobald Sie die Syntax gelernt haben und Sie sich an alles gewöhnt haben, wird React wirklich mächtig.
+
+08:35.960 --> 08:41.790
+Obwohl wir uns ein bisschen Zeit genommen haben, um diese App zu erstellen, gewöhnt man sich erst einmal daran
+
+08:41.790 --> 08:46.980
+Sie können es in, gut, weniger als einer Stunde, wahrscheinlich 30 Minuten erstellen.
+
+08:47.050 --> 08:49.980
+Okay, ich denke, wir haben hier einen tollen Job gemacht.
+
+08:49.990 --> 08:51.560
+Ich kann es kaum erwarten, dich im nächsten Video zu sehen. Tschüss

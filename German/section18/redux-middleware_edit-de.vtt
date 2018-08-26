@@ -1,0 +1,265 @@
+WEBVTT
+
+00:01.620 --> 00:03.020
+Hey du bist immer noch da.
+
+00:03.060 --> 00:04.880
+Schön dich wieder zu sehen.
+
+00:04.890 --> 00:05.290
+Gut.
+
+00:05.340 --> 00:11.550
+Also haben wir diese Aktionstypen nur über die Konsole protokolliert und das auch getan.
+
+00:11.550 --> 00:12.690
+Wo haben wir das gemacht?
+
+00:12.690 --> 00:16.260
+Wir haben auch den Aktionsteil gemacht.
+
+00:16.420 --> 00:23.660
+Aber ich meine, das ist schön zu sehen, aber wir wollen nicht überall in unserer Redux-App loggen
+
+00:23.660 --> 00:24.580
+unserer Handlungen.
+
+00:24.800 --> 00:29.300
+Also lass uns das entfernen und zurück zu dem Weg, auf dem wir Dinge hatten.
+
+00:29.390 --> 00:35.010
+Lassen Sie mich das sagen und auch im Reducer entfernen Sie unser Konsolenprotokoll.
+
+00:35.340 --> 00:44.010
+Wäre es nicht cool, wenn es einen Weg für uns gäbe, zu unserer App zurückzukehren und unsere Aktionen zu überwachen?
+
+00:44.910 --> 00:52.760
+und debuggen Sie unsere Anwendungen, indem Sie nur sehen, welche Aktion ausgelöst wurde, welcher Reducer ausgelöst wurde.
+
+00:53.220 --> 00:56.500
+Zum Glück für uns gibt es einen Weg, das zu tun.
+
+00:57.320 --> 00:58.790
+Jetzt werde ich dir zeigen, wie es ist.
+
+00:58.790 --> 01:03.250
+Aber zuerst muss ich etwas zugeben:Ich habe dich vielleicht etwas belogen.
+
+01:03.530 --> 01:13.180
+Sie sehen, es gibt tatsächlich einen anderen Teil dieses Diagramms, der Ihnen gezeigt hat, und das ist etwas, das Middleware genannt wird.
+
+01:13.490 --> 01:14.360
+Und hab keine Angst.
+
+01:14.360 --> 01:20.690
+Es ist ziemlich einfach und funktioniert ähnlich wie Middleware ein express.js funktioniert.
+
+01:21.210 --> 01:31.680
+Es hört einfach auf Aktionen und es ist ein Tunnel, den Aktionen durchlaufen und abhängig von der Middleware
+
+01:31.680 --> 01:36.660
+Es kann die Aktion ändern oder eine andere Aktion auslösen.
+
+01:36.660 --> 01:44.790
+Sie sind also wie Auslöser, die Aktionen durchlaufen, und etwas passiert in dieser blauen Box vor ihr
+
+01:44.790 --> 01:46.860
+trifft den Reduzierer.
+
+01:46.890 --> 01:50.020
+Warum könnte das für uns nützlich sein?
+
+01:50.970 --> 01:57.820
+Ich werde dir eine Sache zeigen, für die es wirklich großartig ist. Wenn wir zurück zur Datei index.js gehen,
+
+01:59.250 --> 02:05.580
+Wir können etwas installieren, das eine Middleware ist und Redox Logger genannt wird.
+
+02:05.580 --> 02:13.140
+Also machen wir das:npm install redux-logger.
+
+02:13.140 --> 02:13.840
+Alles klar perfekt.
+
+02:13.950 --> 02:20.850
+Und die Art, wie wir diesen Logger verwenden, hilft beim Einloggen in die Konsole, damit wir unsere App wirklich debuggen können
+
+02:20.850 --> 02:32.010
+leicht, wir können hier einfach etwas namens createLogger importieren, das aus dem Paket kommt, das wir gerade haben
+
+02:32.010 --> 02:40.020
+installiert, das ist das Redux-Logger-Paket und es ist sehr sehr einfach zu bedienen.
+
+02:40.290 --> 02:49.780
+Alles, was wir tun müssen, ist const Logger eqals to createLogger.
+
+02:50.000 --> 03:01.270
+Und jetzt, da wir diese Logger-Funktion haben, die eine Middleware ist, können wir das auf unsere Redux-App anwenden.
+
+03:01.660 --> 03:10.450
+Und die Art und Weise, wie wir das tun, geschieht über das Redux-Paket, das mit etwas namens applyMiddleware geliefert wird
+
+03:13.990 --> 03:19.380
+und wir wenden Middleware an, hey wir wollen etwas Middleware auf diesen Flow anwenden, den wir haben
+
+03:21.010 --> 03:28.870
+also können wir einfach in der create store funktion einen zweiten parameter haben, der applyMiddleware und sagt
+
+03:28.870 --> 03:31.160
+geben Sie uns die Middleware, an der wir interessiert sind.
+
+03:31.240 --> 03:39.050
+In unserem Fall der Logger. Also lass uns das sagen. Ich gehe zu NPM hier starten.
+
+03:47.660 --> 03:55.330
+Und wie wir den Logger erstellen, weil dies eine Funktion ist, müssen wir die Funktion ausführen.
+
+03:55.400 --> 03:59.900
+Lassen Sie uns speichern, gehen Sie zurück, wir haben keine Konsolenprotokollfehler.
+
+04:00.360 --> 04:11.900
+Aber jetzt, wenn ich etwas in die Box tippe, sieht man, dass ich gerade L und den Logger der Middleware eingetippt habe
+
+04:12.050 --> 04:19.670
+meine Aktion und sagte:Zusätzlich zu dieser Aktion, die in den Reducer gehen wird, möchte ich auch trösten
+
+04:19.670 --> 04:23.000
+log dies und das ist die Aktion.
+
+04:23.030 --> 04:29.600
+So bekam ich vorherigen Zustand searchField war leer und dann die Aktion, die wir nahmen, war CHANGE_SEARCH_FIELD
+
+04:29.960 --> 04:31.820
+mit der Nutzlast von "l".
+
+04:32.180 --> 04:35.220
+Und der nächste Zustand war searchField mit einem "l".
+
+04:35.450 --> 04:36.750
+Wie cool ist das.
+
+04:36.770 --> 04:47.400
+Wir haben uns sofort eingeloggt und dieser Logger hilft uns, besser mit unserem Code zu arbeiten.
+
+04:47.410 --> 04:55.100
+Hier ist der spannende Teil dazu. Weil es momentan schwer ist, wirklich zu sagen, warum das nützlich ist
+
+04:55.100 --> 04:58.620
+als nur ein wenig Logging zu bekommen.
+
+04:58.780 --> 05:07.420
+Aber die Schönheit mit redux ist die Tatsache, dass es so einfach für Sie gemacht hat, über Ihre App zu denken, und
+
+05:07.420 --> 05:09.290
+Überwachen Sie, warum Ihre App läuft.
+
+05:09.570 --> 05:15.540
+Sie sehen jetzt, wir haben ein sauberes System für uns zu überwachen
+
+05:15.670 --> 05:26.020
+Jede unserer Handlungen, so dass wir, egal wie viele Aktionen wir haben, immer vorhersagen können, was sie sind
+
+05:26.020 --> 05:26.890
+gehen zu tun.
+
+05:26.920 --> 05:34.110
+Wir können hören, welche Protokollierung jede dieser Aktionen ausgeführt hat, da Reducer eine reine Funktion ist.
+
+05:34.210 --> 05:39.910
+Wir wissen immer, dass es wieder den gleichen Zustand geben wird und wegen der Art und Weise, wie wir reagieren, funktionieren wir auch
+
+05:39.910 --> 05:48.660
+Wissen Sie, dass sobald sich der Zustand ändert, wird es vorhersehbare Veränderungen in unserer Sichtweise bewirken. Und mit
+
+05:48.660 --> 05:54.090
+Mit der Middleware können wir diese Aktionen protokollieren.
+
+05:54.090 --> 06:01.330
+Und theoretisch können wir sogar in die Vergangenheit zurückgehen und verschiedene Aktionen ausführen, die unsere Benutzer spielen.
+
+06:02.450 --> 06:07.840
+Weil wir eine Liste haben, eine chronologische Liste all dieser Aktionen
+
+06:07.840 --> 06:11.840
+jetzt. Deshalb unterrichte ich gerne redux.
+
+06:11.980 --> 06:15.920
+Es ist nicht, weil die Bibliothek für alle Ewigkeit da sein wird.
+
+06:16.000 --> 06:21.970
+Nein, es wird höchstwahrscheinlich durch andere Tools und Bibliotheken ersetzt werden.
+
+06:22.900 --> 06:31.210
+Aber es ist eine wirklich wichtige Bibliothek, die unsere Art, Anwendungen zu entwickeln, verändert
+
+06:31.210 --> 06:37.720
+Wir haben einfach überall unordentliche Aktionen und denken nur an Code oder etwas, das wir einfach weitermachen
+
+06:37.720 --> 06:43.320
+auf und weiter zu bauen und fügen Sie verschiedene Funktionen, redux
+
+06:43.330 --> 06:52.810
+lässt dich auf eine Art denken, wie kann ich eine App erstellen, die so skalierbar ist, dass wir Tausende haben?
+
+06:52.810 --> 06:55.590
+von Benutzerinteraktionen Millionen von Benutzerinteraktionen.
+
+06:55.660 --> 07:03.190
+Wie können wir es schaffen, dass die Information von einem zum anderen in eine vorhersehbare Sichtweise in eine fließt?
+
+07:03.190 --> 07:05.480
+System, das vorhersehbar ist.
+
+07:05.810 --> 07:12.970
+Und als leitender Entwickler möchten Sie wirklich darüber nachdenken, wie bauen Sie Systeme, die funktionieren
+
+07:12.970 --> 07:17.300
+wirklich sehr gut zusammen und sind logisch und fließen gut.
+
+07:17.350 --> 07:22.660
+Und deshalb hat sich redux vom Datenbankdesign inspirieren lassen, weil Datenbanken ähnlich sind.
+
+07:22.660 --> 07:24.670
+Sie werden immer ständig gehandelt.
+
+07:24.670 --> 07:32.590
+Es gibt Vorlese, es gab Schriftsätze, und sie brauchen einen Weg, um sicher zu stellen, dass sie all diese Leute beim Eintauchen managen
+
+07:32.590 --> 07:39.160
+ihre Hände in der Datenbank und Dinge tun, aber auch Bugs und Fehler und all diese Dinge zu vermeiden
+
+07:39.160 --> 07:41.080
+gleichzeitig.
+
+07:41.170 --> 07:47.920
+Dies ist ein bisschen eine Randnotiz, aber ich denke, es ist wichtig, dies zu verstehen, und das ist ein guter Weg
+
+07:48.190 --> 07:53.890
+Denken Sie über Dinge und Flussdiagramme nach, wie Daten durch Ihre App fließen und wie Sie Ihre Struktur strukturieren sollten
+
+07:53.890 --> 07:56.450
+App, so dass Daten reibungslos fließen.
+
+07:58.170 --> 08:06.270
+Endlich möchte ich dir ein anderes Werkzeug zeigen. Ich mag den Redux Logger, weil es einfach ist, aber Redux DevTools
+
+08:06.290 --> 08:14.000
+ist wirklich sehr gut und es nutzt diese Idee von Middleware, um auf Aktionen zu hören und sich für Sie abzumelden
+
+08:14.000 --> 08:19.400
+Tonnenweise interessante Dinge können Sie sogar Geschichten wiedergeben und was Sie in der App gemacht haben.
+
+08:19.400 --> 08:23.510
+Es ist ein wirklich wirklich gutes Werkzeug, mit dem du jetzt spielen kannst.
+
+08:24.410 --> 08:27.130
+Wir haben über Middleware erfahren.
+
+08:27.280 --> 08:34.840
+Wir haben unseren Laden erstellt und wir haben ein komplettes Bild. Oder wir?
+
+08:34.840 --> 08:39.230
+Es gibt einen weiteren Teil unserer App, den wir in redux verwandeln müssen.
+
+08:39.260 --> 08:42.860
+Also, damit einverstanden, wir sehen uns im nächsten. Tschüss

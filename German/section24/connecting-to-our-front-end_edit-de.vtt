@@ -1,0 +1,605 @@
+WEBVTT
+
+00:01.360 --> 00:02.340
+Willkommen zurück.
+
+00:02.560 --> 00:10.030
+Es ist Zeit, endlich unseren Server, den wir gerade erstellt haben, mit Node und Express in unser Front-End zu integrieren,
+
+00:11.180 --> 00:17.830
+welches mit JavaScript und React erstellt wurde. Lass uns beide Server starten und ich möchte, dass du denkst
+
+00:17.830 --> 00:24.520
+von diesen als zwei getrennte Computer, weil im wirklichen Leben höchstwahrscheinlich diese zwei getrennte Computer sein werden
+
+00:24.520 --> 00:32.380
+irgendwo, die getrennt laufen und sie kommunizieren - nun, über HTTP. Ich werde rennen
+'npm starten' hier.
+
+00:32.390 --> 00:33.260
+-
+
+00:35.050 --> 00:38.920
+Und mit der React App werde ich auch 'npm start' starten.
+
+00:39.780 --> 00:46.470
+Und Sie werden bemerken, dass es wahrscheinlich eine Warnung oder einen Vorschlag gibt, der besagt, dass bereits etwas läuft
+
+00:46.470 --> 00:52.110
+auf Port 3000 und es sagt mir sogar genau, was dort läuft.
+
+00:52.110 --> 00:58.440
+Und weil beide versuchen, auf dem gleichen Port zu laufen, können wir sie einfach auf verschiedenen laufen lassen, also ich
+
+00:58.440 --> 01:05.930
+kann meinen Server so ändern, dass er auf etwas anderem als 3000 läuft, was der Standard für create-react-app ist.
+
+01:06.120 --> 01:14.160
+Oder ich kann nur sagen "Möchten Sie die App auf einem anderen Port ausführen?" - Ich klicke auf "Y" und jetzt wird es
+
+01:14.670 --> 01:23.610
+Erstellen Sie "localhost:3001" als mein Front-End. Genial.
+
+01:23.610 --> 01:25.340
+Also haben wir unsere App hier.
+
+01:26.010 --> 01:34.850
+Wenn wir zurückgehen, haben wir die App und den Server laufen und wir wollen sie endlich verbinden. Falls du dich erinnerst
+
+01:37.260 --> 01:38.700
+unser Diagramm hier.
+
+01:38.700 --> 01:41.660
+Wir überbrücken schließlich die Lücke zwischen den beiden.
+
+01:41.850 --> 01:47.180
+Zwei separate Instanzen kommunizieren miteinander.
+
+01:47.230 --> 01:48.010
+Lass uns anfangen.
+
+01:51.820 --> 02:00.250
+Wie wir mit unserer React-App wissen, können wir mit der Back-End- oder Außenwelt kommunizieren
+
+02:00.310 --> 02:01.280
+'holen'.
+
+02:01.510 --> 02:07.350
+In unserem Fall können wir "Komponente ..." sagen und machen wir das oben.
+
+02:07.360 --> 02:15.280
+Da gehst du. 'componentDidMount' - ein Lebenszyklushaken, der mit React geliefert wird, so dass wir keine Pfeilfunktionen ausführen müssen
+
+02:16.090 --> 02:27.450
+- und wir sagen, dass wir hier 'holen' und 'localhost' machen wollen, weil dies unser Computer ist
+
+02:27.980 --> 02:30.250
+Pot '3000' muss tun
+
+02:30.260 --> 02:34.870
+HTTP hier 'localhost:3000'
+
+02:35.280 --> 02:38.730
+Und vergiss nicht, dass diese Syntax funktioniert
+
+02:38.840 --> 02:43.860
+'. Dann ()' bekommen wir eine Antwort
+
+02:46.480 --> 02:48.860
+und wir müssen rennen
+
+02:48.940 --> 02:58.230
+'response.json ()' auf, damit wir es lesen können und dann werden wir Daten bekommen. Und eine Kurzform, dies zu tun ist, wenn Sie
+
+02:58.260 --> 03:05.530
+eigentlich 'console.log' werden die Daten hier automatisch eingetragen.
+
+03:05.580 --> 03:07.480
+Also muss ich nicht tun
+
+03:07.660 --> 03:10.980
+'.dann (data => console.log (data))'
+
+03:11.010 --> 03:15.640
+Das ist gleich.
+
+03:15.650 --> 03:20.330
+Lass uns das ausprobieren und sehen, ob es funktioniert.
+
+03:20.450 --> 03:31.110
+Wenn Sie sich erinnern, ob wir die Root-Route [/] in unserem Server machen - der Root bekommt nur die Benutzer
+
+03:31.110 --> 03:38.870
+aus der Datenbank. Lass es uns gehen. Ich werde sparen. keine Fehler, was gut ist.
+
+03:40.580 --> 03:53.720
+Wenn ich zu 'localhost' gehe und die Konsole auffrische und öffne, bekomme ich 'konnte nicht laden http:// localhost:3000 /'
+
+03:53.720 --> 03:59.450
+"Kein 'Access-Control-Allow-Origin'-Header ist vorhanden" bla bla bla bla bla.
+
+03:59.810 --> 04:06.710
+Und das ist ein Fehler, der wirklich ein Sicherheitsmerkmal ist.
+
+04:06.900 --> 04:13.770
+Sie erhalten diesen Fehler, weil wir versuchen, mit Google zu kommunizieren, was wir gerade versuchen
+
+04:14.040 --> 04:23.920
+mit der Außenwelt über HTTP, aber Chrome vertraut nicht wirklich darauf, worauf wir hier zugreifen.
+
+04:24.100 --> 04:28.160
+Sie können nicht wissen, dass unser Server sicher ist.
+
+04:28.210 --> 04:35.680
+Vielleicht ist es ein Hacker, der heimlich versucht, eine Anfrage von Ihrer Webseite an ihre Website zu stellen
+
+04:35.710 --> 04:39.680
+Das lädt einige schlechte Software auf Ihrer Seite herunter.
+
+04:41.380 --> 04:46.640
+Und das nennt man "Access Control Allow Origin" und wir testen das auf "localhost"
+
+04:46.810 --> 04:54.110
+wir müssen etwas tun, das CORS genannt wird, und Sie können hier in der Fehlermeldung sehen - "stellen Sie die Anfrage ein
+
+04:54.110 --> 04:58.780
+Modus zu No-Cors "und ich werde hier mit Informationen über CORS verbunden.
+
+04:58.790 --> 05:06.830
+Aber was wir hier wollen, ist, dass wir ein npm-Paket wollen, das wieder cors genannt wird und genau wie body-parser
+
+05:06.830 --> 05:09.090
+einer dieser häufigen, die Sie überall sehen werden.
+
+05:09.110 --> 05:11.060
+Ich zeige dir genau, wie man es benutzt.
+
+05:11.090 --> 05:17.180
+Sie sehen, dass es sich um eine Middleware handelt, die wir einfach "app.use (cors)" verwenden. Also lass uns das installieren.
+
+05:17.540 --> 05:20.120
+Ich werde 'npm installieren cors'
+
+05:25.820 --> 05:27.620
+und jetzt, wo wir es haben, können wir es auch
+
+05:31.450 --> 05:40.530
+'const cors = require (' cors ')' und einfach 'app.use (cors ())'.
+
+05:44.700 --> 05:48.170
+Lassen Sie uns speichern, starten Sie 'npm start' erneut.
+
+05:52.370 --> 05:59.190
+Lass uns zurück zu unserer App gehen, aktualisieren, wenn ich die Konsole öffne
+
+05:59.320 --> 06:04.710
+Ich bekomme ein Array von zwei Benutzern. Wie großartig ist das?
+
+06:05.610 --> 06:06.570
+Es funktioniert.
+
+06:07.020 --> 06:14.640
+Arbeiten wir also an dem Schild. Wir senden die Anmeldeinformationen vom Front-End an die
+
+06:14.670 --> 06:15.060
+Back-End
+
+06:18.470 --> 06:23.530
+und die Art und Weise, wie wir uns jetzt anmelden, wird nur nach John suchen.
+
+06:23.540 --> 06:25.940
+Ich habe das minimiert, damit es ein bisschen sauberer ist.
+
+06:26.000 --> 06:34.650
+Es wird nach John suchen und uns das Passwort für "Cookies" geben.
+
+06:36.690 --> 06:43.710
+Und Sallys Passwort für die "Bananen".
+
+06:43.890 --> 06:48.210
+Ich werde sparen und arbeite jetzt an der "Anmelden" Route.
+
+06:49.410 --> 06:52.110
+Gerade jetzt, obwohl wir wissen, dass fetch funktioniert.
+
+06:52.110 --> 06:56.240
+Wir werden versuchen, den 'Sign-in' Endpunkt zu aktivieren.
+
+06:56.250 --> 07:06.780
+Lasst uns darüber nachdenken, wenn wir zu unserer Anmeldeseite zurückkehren, nun, diese Komponente hat zwei Eingänge:die E-Mail
+
+07:06.820 --> 07:14.810
+und das Passwort, dass, wenn wir auf "Anmelden" klicken, wir über "Anfragetext" senden müssen.
+
+07:14.900 --> 07:18.500
+Wir müssen das an den Server senden.
+
+07:18.500 --> 07:23.490
+Der Server wird prüfen, ob der Benutzer existiert und uns dann eine Antwort geben.
+
+07:23.690 --> 07:24.450
+Also lass uns das tun.
+
+07:28.090 --> 07:33.180
+Wir möchten componentDidMount aus der App entfernen, weil wir es nicht mehr benötigen.
+
+07:35.430 --> 07:45.540
+Und obwohl wir hier unsere Fetch-Funktion erstellen können - in der app.js - weil 'Signin' ist es ein eigenes kleines
+
+07:45.540 --> 07:51.650
+Komponente und der Rest der App nach 'Signin' ist es nicht wirklich wichtig, ob es erfolgreich war oder fehlgeschlagen ist
+
+07:51.660 --> 07:57.680
+- Ich möchte Signins Funktionalität in der Komponente behalten.
+
+07:57.680 --> 08:05.000
+Nun, das bedeutet, dass wir dies in eine intelligente Komponente umwandeln wollen, so dass es dies besagt
+
+08:05.000 --> 08:09.370
+ist der Status der Eingabe von "E-Mail" und "Passwort".
+
+08:09.860 --> 08:23.030
+Lassen Sie uns das also in eine Klasse 'Signin' umwandeln, die React.Component erweitert
+
+08:29.270 --> 08:33.290
+und das wird eine 'render ()' Methode haben
+
+08:36.050 --> 08:37.280
+das empfängt
+
+08:41.940 --> 08:47.060
+all dies [code] - ich werde das minimieren, nur damit du es sehen kannst.
+
+08:47.090 --> 08:50.000
+Wir haben die Klammer hier vergessen; stellen Sie sicher, dass wir das auch einschließen.
+
+08:59.800 --> 09:00.930
+Perfekt.
+
+09:01.120 --> 09:03.250
+Und wir wollen schließen
+
+09:06.390 --> 09:12.220
+die Klammer hier, und wir erhalten einige "Requisiten", die auf "Route Change" war
+
+09:12.300 --> 09:23.130
+also müssen wir 'this.props.onRouteChange ()' und dann 'this.props.onRouteChange ()' oder stattdessen tun
+
+09:23.130 --> 09:24.130
+das zu tun
+
+09:24.360 --> 09:33.860
+Noch schöner ist es, es einfach hier zu tun, indem man 'onRouteChange' destrukturiert.
+
+09:34.340 --> 09:40.100
+entspricht "this.props". Also sollte alles in Ordnung sein.
+
+09:40.130 --> 09:43.040
+Und wir haben die Anmeldeseite gesehen.
+
+09:43.310 --> 09:52.810
+Um nun die Eingabewerte von diesen beiden zu erhalten, erstellen wir einfach eine 'onEmailChange ()' Funktion.
+
+09:56.160 --> 10:07.840
+Und das wird dem onchange-Ereignis der E-Mail zuhören und wir werden hier sagen, dass wir diese Veranstaltung einstellen werden
+
+10:07.830 --> 10:20.280
+Staat für - nur damit wir wissen, dass wir klar sind, werden wir 'signInEmail' sagen und dies wird 'event.target.value' sein
+
+10:20.390 --> 10:27.380
+und 'onPasswordChange ()' haben wir wieder eine andere Funktion
+
+10:34.150 --> 10:40.390
+Wir aktualisieren einen Status, den wir 'signInPassword' nennen.
+
+10:43.580 --> 10:45.140
+und wir müssen diesen Status erstellen.
+
+10:45.140 --> 10:59.470
+Also machen wir unseren 'constructor ()' 'super ()' und dann 'this.state' ist gleich 'signInEmail:' was eine leere Zeichenkette sein wird
+
+10:59.470 --> 11:06.870
+für jetzt, wenn es initialisiert und 'SignInPassword:' wieder eine leere Zeichenfolge.
+
+11:06.880 --> 11:17.050
+Damit wir "Requisiten" benutzen können, wollen wir auch "Requisiten" hier weitergeben.
+
+11:17.120 --> 11:17.660
+Lass uns sparen.
+
+11:21.880 --> 11:26.110
+Und wenn das so funktioniert, wie wir es erwarten
+
+11:26.120 --> 11:42.110
+Wir können jetzt ein 'onSubmitSignIn' -Ereignis erstellen, das diesen Status nun zum Abrufen verwendet - und jetzt sind wir es
+
+11:42.110 --> 11:45.440
+nicht wirklich sicher, was wir noch holen werden.
+
+11:45.530 --> 11:49.110
+Also lass uns einfach 'console.log'
+
+11:49.440 --> 11:54.720
+"this.state.signInPassword"
+
+11:55.350 --> 11:57.560
+Oder lass uns einfach 'console.log'
+
+11:57.780 --> 11:59.220
+'Dieser Staat'.
+
+11:59.610 --> 12:07.280
+Und wenn Sie sich fragen, können wir wirklich mehr als zwei Smart-Komponenten in einer App haben, wo dies State hat
+
+12:07.310 --> 12:08.920
+dann hat App Status
+
+12:09.180 --> 12:10.600
+- Nun ja, absolut.
+
+12:10.650 --> 12:17.610
+Sie möchten Ihre App so organisieren, dass sie sinnvoll ist, zum Beispiel "Signin" ist eine eigene abgeschlossene Sache.
+
+12:17.610 --> 12:26.490
+Wenn Sie 'Signin' verwenden, obwohl es ein Kind von 'App' ist, kann es seinen eigenen Zustand haben, solange dieser Zustand gerade ist
+
+12:26.490 --> 12:33.960
+besorgt über 'Signin' dann ist es ein guter Weg, dies zu tun, anstatt 'App.js' ständig zu aktualisieren
+
+12:34.290 --> 12:38.280
+und dadurch, dass "App.js" zu vielen verschiedenen Zeilen wird.
+
+12:41.850 --> 12:43.540
+Alles klar, wir haben 'console.log'
+
+12:43.580 --> 12:49.610
+Mal sehen, ob 'onSubmitSignIn' funktioniert, lass uns zum 'Submit' Button gehen
+
+12:52.260 --> 12:58.120
+bevor wir 'onClick' machen, um die Route nach 'home' zu ändern
+
+12:58.200 --> 13:12.200
+wir werden jetzt stattdessen 'this.onSubmitSignIn' verwenden und innerhalb von diesem werden wir den 'onRouteChange' ausführen
+
+13:12.590 --> 13:17.240
+Das ist 'this.props.onRouteChange'
+
+13:20.590 --> 13:26.230
+und lasst uns das überprüfen. Lass uns sparen, zurück zu unserer App gehen.
+
+13:26.490 --> 13:33.260
+Ich werde die Konsole hier öffnen; Ich gebe 'test@gmail.com' ein
+
+13:36.500 --> 13:46.640
+"test", melde dich an und ich sehe, dass "signInPassword" leer ist, "signInEmail" leer ist, und das liegt daran, dass wir erstellt haben
+
+13:46.640 --> 13:50.130
+Diese haben wir jedoch nicht den Ereignissen hinzugefügt.
+
+13:50.540 --> 13:53.300
+Also lass uns das tun - für die E-Mail an der 'Eingabe'
+
+13:53.390 --> 13:57.530
+Ich werde 'onChange' sagen
+
+14:01.750 --> 14:13.560
+und weisst du was? Lassen Sie uns diese auf neue Zeilen hinzufügen, nur damit es sauberer ist. Sonst kann es ziemlich unordentlich werden.
+
+14:13.560 --> 14:14.260
+Da gehst du.
+
+14:14.430 --> 14:24.110
+Und jetzt kann ich sagen 'onChange' und 'onChange' nehmen 'this.onEmailChange', weil dies die Email ist.
+
+14:24.320 --> 14:25.260
+Und der nächste
+
+14:29.200 --> 14:34.510
+wird eine ähnliche Sache haben, nur nicht
+
+14:37.260 --> 14:40.930
+'onEmailChange' haben wir 'onPasswordChange'.
+
+14:40.930 --> 14:42.300
+Lass es uns nochmal ausprobieren.
+
+14:46.180 --> 14:48.110
+"test@gmail.com"
+
+14:49.000 --> 14:51.560
+"Test" anmelden
+
+14:51.580 --> 14:54.010
+Alles klar, wir haben diese Information, die großartig ist.
+
+14:54.040 --> 15:03.870
+Jetzt können wir dies an unseren Server senden und das können wir einfach durch Ausführen von 'onSubmitSignIn' tun
+
+15:04.760 --> 15:20.810
+eine Funktion - ein 'fetch ()', das wir zuvor für HTTP gesehen haben, unser 'localhost' für '3000' und ein '/ signin'.
+
+15:21.140 --> 15:24.040
+Jetzt holt standardmäßig eine GET-Anfrage
+
+15:24.110 --> 15:28.640
+Aber was wir hier machen wollen, ist eine POST-Anfrage, wie wir uns erinnern.
+
+15:28.720 --> 15:35.810
+So wie wir das machen, können wir im zweiten Parameter ein Objekt übergeben, das beschreibt, was das ist
+
+15:35.810 --> 15:37.640
+Anfrage wird sein.
+
+15:37.640 --> 15:41.690
+In unserem Fall haben wir eine "Methode" von "post"
+
+15:44.550 --> 15:49.950
+Wir haben Header und Header akzeptiert ein Objekt.
+
+15:49.960 --> 16:00.520
+In unserem Fall wollen wir "Content-Type" sehen und da diese Zeile hier steht, müssen wir sie in Anführungszeichen setzen
+
+16:02.110 --> 16:04.880
+und wir werden sagen, dass es "application / json" ist
+
+16:05.580 --> 16:06.110
+-
+
+16:09.450 --> 16:17.720
+und jetzt werden wir sagen, dass der Körper enthalten wird, was wir in diesem Zustand haben, aber denkt daran, um zu senden
+
+16:17.720 --> 16:20.530
+es zum Back-End können wir nicht einfach ein JavaScript-Objekt senden.
+
+16:20.600 --> 16:31.880
+Wir müssen 'JSON.stringify' das Objekt und das Objekt wird 'E-Mail', das ist 'this.state.email'
+
+16:31.930 --> 16:37.050
+oder eine 'signInEmail' und wir kopieren das
+
+16:39.850 --> 16:47.900
+und "password", was "this.state.password ..."
+
+16:48.460 --> 16:52.630
+Es wird "signInPassword" sein
+
+16:52.640 --> 16:52.970
+Gut.
+
+16:53.000 --> 16:55.580
+Mal sehen, ob das funktioniert.
+
+16:55.640 --> 17:07.340
+Ich werde speichern und hier werde ich "john@gmail.com" und "Cookies" sagen, wenn ich auf Anmelden klicke
+
+17:09.100 --> 17:11.330
+Ich bekomme '404 (nicht gefunden)'.
+
+17:11.800 --> 17:13.630
+Lass uns das debuggen und sehen, was passiert ist.
+
+17:17.100 --> 17:21.550
+Nun, zuerst habe ich nicht richtig geschrieben, also lass es uns nochmal versuchen.
+
+17:27.180 --> 17:30.740
+Und schau mal, ob das funktioniert.
+
+17:32.970 --> 17:38.280
+Und wir möchten hier "Cookies" sagen, melden Sie sich an.
+
+17:38.300 --> 17:44.050
+Richtig, wir haben eine 'Schlechte Anfrage'. Wenn wir hier rüberschauen
+
+17:44.280 --> 17:50.050
+Wir erhalten eine Antwort "Fehler beim Anmelden" und das ist der Fehler, den wir auf dem Server gegeben haben.
+
+17:50.340 --> 17:54.540
+Sieht so aus als ob etwas in unserer Anfrage nicht funktioniert.
+
+17:54.540 --> 17:55.380
+Lass uns einen Blick darauf werfen.
+
+17:56.300 --> 17:59.140
+Und das musste "Header" und nicht "Header" sein
+
+17:59.150 --> 18:00.830
+- Das ist ein Fehler meinerseits.
+
+18:00.890 --> 18:02.020
+Lass es uns nochmal versuchen.
+
+18:02.900 --> 18:06.180
+'John' - lassen Sie mich nur Console es hier
+
+18:06.190 --> 18:12.140
+'john@gmail.com' 'Cookies' anmelden.
+
+18:12.160 --> 18:20.530
+Alles klar, lass uns zu unserem Netzwerk-Tab gehen und sehen, worauf die "Sign-in" -Route reagiert hat.
+
+18:20.530 --> 18:22.310
+Es sagte "Erfolg".
+
+18:22.420 --> 18:30.670
+So konnten wir uns anmelden, weil wir John betraten - ein Benutzer, den wir nach unseren ganz einfachen Vorstellungen haben
+
+18:30.670 --> 18:41.450
+Anmeldeformular. Wenn wir dies jedoch ändern möchten, sagen wir jetzt, dass der Antwortstatus 400 ist.
+
+18:41.730 --> 18:44.740
+und wenn dieser Fehler uns nicht anmelden soll
+
+18:45.210 --> 18:53.980
+Nun, hier müssen wir nur tun, anstatt 'onRouteChange' zu machen, können wir '.then' machen.
+
+18:54.400 --> 19:00.700
+Und denken Sie daran, dass diese '.then' Antwort dann 'response.json ()' '.then ()'
+
+19:04.410 --> 19:04.770
+-
+
+19:04.800 --> 19:15.050
+Dann werden wir sagen, dass die Daten, die wir erhalten - und wir werden das einfach hier behalten - wenn wir es tun
+
+19:17.310 --> 19:31.270
+'if (Daten ===' Erfolg '), was wir erhalten; In diesem Fall werden wir eine Routenänderung vornehmen. Lass uns das speichern.
+
+19:31.470 --> 19:32.650
+Gut, lass uns das ausprobieren.
+
+19:33.880 --> 19:42.070
+Wenn ich hier nichts eintrage und auf Anmelden klicke, bekomme ich eine "POST" (schlechte Anfrage) und wenn wir uns die Nachricht anschauen
+
+19:42.070 --> 19:46.450
+dass wir erhalten, haben wir "Fehler beim Einloggen".
+
+19:46.560 --> 19:53.460
+Wenn wir diese Informationen verwenden, können wir hier möglicherweise eine Fehleranzeige [auf der Anmeldeseite] erstellen, aber wir lassen uns nicht einloggen.
+
+19:53.460 --> 19:55.040
+Damit wir uns einloggen können
+
+19:55.140 --> 20:08.120
+Wir müssen unser John-Beispiel verwenden und sicherstellen, dass unsere E-Mails und Passwörter übereinstimmen. Das funktioniert!
+
+20:11.270 --> 20:13.300
+Lass es uns noch einmal versuchen.
+
+20:13.510 --> 20:13.940
+Wenn ich mache
+
+20:13.940 --> 20:14.460
+'John ...'
+
+20:17.630 --> 20:26.120
+"Cookies" melden sich an und alles funktioniert. Wir bekommen keine Fehler. Nett.
+
+20:26.130 --> 20:29.340
+Das funktioniert.
+
+20:29.420 --> 20:29.870
+Gut.
+
+20:29.870 --> 20:35.660
+Also verwenden wir John nur für die Benutzer
+
+20:35.660 --> 20:41.930
+aber im Idealfall können wir alles durchfiltern und sicherstellen, dass es existiert.
+
+20:41.930 --> 20:47.540
+Wie ich schon sagte, werden wir das hier nicht machen, weil es Datenbanken sind
+
+20:47.540 --> 20:55.930
+sind wirklich sehr gut, aber ich wollte dir zeigen, wie das mit E-Mails und Passwörtern funktionieren würde.
+
+20:56.170 --> 20:56.480
+Gut.
+
+20:56.480 --> 20:58.060
+Also haben wir uns angemeldet.
+
+20:58.070 --> 21:04.420
+Lassen Sie uns auch registrieren, um zu arbeiten, und Register ist sehr sehr ähnlich zu Anmelden.
+
+21:04.610 --> 21:06.450
+Im nächsten Video werden wir das angehen.

@@ -1,0 +1,899 @@
+WEBVTT
+
+00:01.590 --> 00:04.800
+Wie funktioniert Javascript?
+
+00:04.800 --> 00:08.320
+Stellen Sie sich vor, Sie bekommen diese Frage während eines Interviews oder wie wäre es damit?
+
+00:08.340 --> 00:13.110
+erkläre den Unterschied zwischen asynchron und synchron in Javascript,
+
+00:13.200 --> 00:15.890
+oder vielleicht bitten sie dich, diese Aussage zu erklären.
+
+00:15.990 --> 00:19.560
+Javascript als einzelne Thread-Sprache, die nicht blockierend sein kann.
+
+00:20.560 --> 00:24.940
+Oh Junge! In diesem Video werden wir Ihnen helfen, diese Fragen zu beantworten.
+
+00:24.940 --> 00:28.490
+Dies ist ein Video, das du möglicherweise ein paar Mal besuchen musst, wenn du Fortschritte machst.
+
+00:28.510 --> 00:29.590
+Um es wirklich zu bekommen.
+
+00:29.620 --> 00:32.890
+Also fühlen Sie sich nicht entmutigt, wenn Sie sich nicht hundertprozentig sicher fühlen.
+
+00:32.890 --> 00:35.500
+Beobachte es einfach und du wirst es bekommen.
+
+00:35.500 --> 00:40.560
+Jetzt müssen wir nicht wissen, wie Javascript intern arbeitet, um ein Programm zu schreiben.
+
+00:40.900 --> 00:42.580
+Aber es ist wichtig zu lernen.
+
+00:42.880 --> 00:47.260
+Ich sehe viele Leute, die seit Jahren Entwickler sind, und das weiß keiner.
+
+00:47.260 --> 00:51.100
+Es ist wie ein Pilot zu sein und nicht zu wissen, wie ein Flugzeug fliegen kann.
+
+00:51.490 --> 00:55.180
+OK, das ist ein bisschen dramatisch, aber Sie verstehen, was ich meine.
+
+00:55.180 --> 01:00.180
+So lass uns anfangen. Erstens, was ist ein Programm?
+
+01:00.460 --> 01:03.470
+Nun, ein Programm muss einige einfache Dinge tun.
+
+01:03.520 --> 01:05.530
+Es muss Speicher reservieren.
+
+01:05.560 --> 01:11.100
+Andernfalls wären wir nicht in der Lage, Variablen zu haben oder gar eine Datei auf unserem Computer zu haben.
+
+01:11.110 --> 01:16.840
+Es muss auch Skripte parsen und ausführen, was bedeutet, dass es Befehle liest und ausführt.
+
+01:17.130 --> 01:17.760
+OK.
+
+01:17.920 --> 01:26.200
+Nun wissen wir auch, dass von unserer vorherigen Diskussion die JavaScript-Engine, die jeder Browser implementiert, vorhanden ist.
+
+01:26.260 --> 01:33.700
+Und in Chrome ist es der V8 und der V8-Motor liest das Javascript, das wir schreiben. Es wird zur Maschine
+
+01:33.700 --> 01:36.880
+ausführbare Anweisungen für den Browser.
+
+01:37.420 --> 01:43.330
+Jetzt besteht die Engine aus zwei Teilen, einem Speicher-Heap und einem Call-Stack.
+
+01:43.390 --> 01:45.040
+Jetzt, der Speicherhaufen,
+
+01:45.250 --> 01:48.660
+Hier findet die Speicherzuordnung statt.
+
+01:48.790 --> 01:50.640
+Und keine Sorge, wir werden darüber reden.
+
+01:50.950 --> 01:52.200
+Und dann der Call-Stack,
+
+01:52.240 --> 01:54.870
+Hier wird Ihr Code gelesen und ausgeführt.
+
+01:54.940 --> 01:57.750
+Es sagt dir, wo du im Programm bist.
+
+01:59.050 --> 02:06.250
+Lassen Sie uns das vereinfachen und Ihnen zeigen, was ich meine. Ich habe Sublimetext hier,
+
+02:06.690 --> 02:10.620
+und für uns, Speicher im Speicherhaufen zu reservieren,
+
+02:10.890 --> 02:18.950
+Nun, es ist so einfach wie 'const a equals to one'. Wir haben gerade einen Speicher reserviert.
+
+02:18.990 --> 02:28.040
+Jetzt, wenn wir dies zuweisen, wird die Javascript-Engine daran denken, dass oh! Ja, 'a' hat einen Wert von 1.
+
+02:28.170 --> 02:30.970
+Wir haben gerade den Speicher-Heap verbraucht.
+
+02:30.990 --> 02:34.530
+Und ich kann weiter so weitermachen, oder?
+
+02:34.600 --> 02:41.400
+Ich kann weiter kopieren und einfügen und diese Variablen in 'b' und 'c' ändern und ich kann die Werte ändern
+
+02:41.400 --> 02:44.460
+bis 100 und vielleicht ist es hier 10.
+
+02:45.530 --> 02:46.110
+Cool.
+
+02:46.150 --> 02:49.910
+Nun, was ist ein Problem, das wir damit sehen?
+
+02:50.020 --> 02:55.730
+Dies ist ein so genanntes Speicherleck, das Sie hören werden, wenn Sie Entwickler werden.
+
+02:56.090 --> 03:01.880
+Und was wir hier gemacht haben, ist, dass wir all diese Variablen erstellt haben. Diese globalen Variablen, die in der
+
+03:01.880 --> 03:03.070
+Speicherhaufen.
+
+03:03.230 --> 03:05.350
+Aber du siehst diese Box richtig?
+
+03:05.510 --> 03:10.910
+Und bei aller Erinnerung haben wir eine begrenzte Menge, die wir tatsächlich haben können.
+
+03:11.060 --> 03:17.930
+Also, indem wir die Anzahl der Variablen, die wir haben, erhöhen, stellen Sie sich vor, wenn ich nur diese Seite voller Variablen hätte
+
+03:17.930 --> 03:21.650
+und anstatt nur Zahlen sind sie wie sehr sehr große Arrays.
+
+03:21.980 --> 03:28.430
+Nun, Speicherlecks passieren, wenn Sie ungenutzten Speicher haben,
+
+03:28.430 --> 03:28.630
+Nehmen wir an, wir benutzen jetzt die Variable 'a',
+
+03:28.640 --> 03:33.990
+aber es ist immer noch da, naja, indem man ungenutzten Speicher einfach herumliegen lässt,
+
+03:34.220 --> 03:40.030
+es füllt diesen Speicher-Heap. Und deshalb könnten Sie hören, warum globale Variablen schlecht sind.
+
+03:40.130 --> 03:44.430
+Globale Variablen sind schlecht, weil wir nicht vergessen, nach uns selbst aufzuräumen,
+
+03:44.540 --> 03:51.230
+wir füllen diesen Speicher-Heap und eventuell wird der Browser nicht mehr funktionieren.
+
+03:51.270 --> 03:54.050
+In Ordnung, das ist die Erinnerung.
+
+03:54.060 --> 03:56.060
+Sprechen wir über den Call-Stack.
+
+03:56.190 --> 03:57.000
+Was ist das?
+
+03:58.190 --> 04:17.630
+Nun, mit einem Aufruf-Stack können wir so etwas haben, "Konsolen-Logbuch" wir gehen "1", "Konsolen-Logbuch 2" und dann
+
+04:17.660 --> 04:28.330
+schließlich 'console log 3', wenn ich diesen Code in meinem Browser-Terminal ausführen,
+
+04:28.570 --> 04:39.810
+Nun, ich bekomme '1, 2, 3'. Also, wenn Sie sich erinnern, ist der Aufruf-Stack das, was er liest und unsere Skripte ausführt.
+
+04:40.230 --> 04:45.890
+Also, was der Aufruf-Stack liest es die erste Zeile, Console Dot Log,
+
+04:46.110 --> 04:48.580
+es wird gesetzt, in den Call-Stack.
+
+04:48.870 --> 04:52.500
+Also die Javascript-Engine sagt oop !, Console Dot Log wurde hinzugefügt.
+
+04:52.650 --> 05:03.150
+Lassen Sie uns auf diesen Call-Stack zugreifen. Und dann läuft es und erstellt eins, dann sagt es, OK, ich entferne das
+
+05:03.150 --> 05:09.900
+Das erste Konsolenprotokoll, nachdem ich es gerade beendet habe, werde ich das zweite Konsolenprotokoll platzieren
+
+05:09.900 --> 05:20.310
+in meinen Call-Stack, fügt es hier hinzu und sagt, yah! führe 2 aus und dann entferne es, es springt auf und
+
+05:20.310 --> 05:23.370
+dann erhält Konsole log 3 und loggt Konsole log 3,
+
+05:23.400 --> 05:26.110
+und dann entfernt es schließlich.
+
+05:26.970 --> 05:31.920
+Aber lassen Sie uns ein bisschen mehr von einem komplexen Beispiel hier zeigen, um diesen Punkt zu demonstrieren.
+
+05:32.130 --> 05:34.740
+Stell dir vor, ich habe so etwas.
+
+05:37.430 --> 05:39.680
+Ich habe eine Funktion 'const one'
+
+05:44.410 --> 05:52.420
+und innerhalb dieser Funktion haben wir eine andere Funktion "const two" und für den Moment wird es nicht wirklich viel tun.
+
+05:52.420 --> 06:04.360
+Es wird dot log '4' trösten und dann werden wir hier einfach sagen, dass wir die 'Zwei' Funktion ausführen.
+
+06:04.390 --> 06:14.790
+Wenn ich das also kopiere und einfüge und es in unsere Konsole lege und ich 'eins' benutze, bekomme ich 4 und ignoriere diesen Fehler.
+
+06:14.820 --> 06:17.420
+hier ist es nur mit meiner App im Browser verbunden.
+
+06:17.500 --> 06:19.000
+Aber du siehst, dass wir 4 bekommen.
+
+06:19.000 --> 06:21.780
+Also, was ist nach dem Call Stack passiert?
+
+06:22.270 --> 06:30.040
+Nun, wenn wir den Call-Stack hier haben, haben wir zuerst die "One" -Funktion ausgeführt.
+
+06:30.040 --> 06:34.490
+Also oben auf dem Call-Stack wird die One-Funktion ausgeführt.
+
+06:34.750 --> 06:40.000
+Und wenn wir diesen Aufruf-Stack aufrufen, sehen wir, dass wir eine andere Funktion "Zwei" ausführen.
+
+06:40.180 --> 06:50.500
+Also "zwei" geht über den Aufruf-Stack, und jetzt führen wir die "zwei" -Funktion, die Console Dot-Protokoll ist.
+
+06:50.560 --> 07:00.090
+So haben wir, Console Dot Log '4', die innerhalb der '2' Funktion ausgeführt wird.
+
+07:00.110 --> 07:03.980
+So, jetzt, wo wir das lesen, wird der Call-Stack sagen, OK,
+
+07:04.010 --> 07:06.190
+da ist nichts anderes drin.
+
+07:06.260 --> 07:08.400
+Ich werde Konsole 4 ausführen.
+
+07:08.450 --> 07:11.390
+Also wird hier die Nummer 4 ausgedruckt.
+
+07:11.390 --> 07:22.250
+Es wird das aus dem Aufrufstapel entfernen und dann die "zwei" entfernen und dann die "Eins" entfernen, weil
+
+07:22.310 --> 07:23.370
+es wurde gerade angerufen.
+
+07:26.040 --> 07:28.860
+Und der Call-Stack ist jetzt leer.
+
+07:29.250 --> 07:30.000
+Gut.
+
+07:30.030 --> 07:30.580
+Genial.
+
+07:30.690 --> 07:34.590
+Kommen wir nun zu der Aussage vom Anfang des Videos zurück.
+
+07:34.890 --> 07:42.360
+Javascript ist eine single-threaded-Sprache, die nicht blockierend sein kann. Single-Thread bedeutet, dass es nur hat
+
+07:42.480 --> 07:43.780
+ein Aufrufstapel.
+
+07:44.570 --> 07:48.310
+Und nur ein Call-Stack, Sie können nur eine Sache auf einmal tun.
+
+07:48.350 --> 07:53.050
+Und wie Sie gesehen haben, ist ein Call-Stack der Erste.
+
+07:53.090 --> 07:59.390
+Also, was immer an der Spitze ist, wird der Call - Stack zuerst ausgeführt, dann darunter, darunter, darunter, bis die
+
+07:59.390 --> 08:02.400
+Aufruf-Stack ist leer.
+
+08:02.530 --> 08:08.840
+Jetzt können andere Sprachen mehrere Aufruf-Stapel haben und diese werden Multithread genannt.
+
+08:08.870 --> 08:14.030
+Sie können auch sehen, wie das für mehrere Anruf-Stacks vorteilhaft sein kann, so dass wir nicht warten müssen
+
+08:14.030 --> 08:15.310
+herum für Sachen.
+
+08:15.380 --> 08:21.940
+Warum wurde Javascript als single-threaded erstellt? Nun, laufender Code auf einem einzelnen Thread kann ziemlich sein
+
+08:21.940 --> 08:27.910
+einfach, da Sie sich nicht mit komplizierten Szenarien auseinandersetzen müssen, die in einer Multithread-Umgebung auftreten.
+
+08:27.910 --> 08:29.700
+Sie haben nur eine Sache, um die Sie sich sorgen müssen.
+
+08:29.920 --> 08:39.720
+Und wenn ich Probleme mit Multithread-Umgebung sage, können Sie Deadlocks haben. Jetzt rate mal was,
+
+08:40.200 --> 08:48.270
+Sie haben gerade gelernt, was synchrone Programmierung bedeutet, synchrone Programmierung bedeutet einfach, Linie eins
+
+08:48.330 --> 08:53.720
+wird ausgeführt, dann wird Zeile zwei ausgeführt und dann wird Zeile drei ausgeführt.
+
+08:55.090 --> 09:02.890
+Letzteres kann vor dem ersten Start beginnen, so dass dieses Konsolenprotokoll '2' erst beim Konsolenprotokoll gestartet wird
+
+09:03.100 --> 09:10.490
+endet. Und das Konsolenprotokoll '3' startet erst, wenn diese über zwei beendet sind. Denn wir haben uns den Anruf angesehen
+
+09:10.490 --> 09:12.410
+Stapel wegen des Aufruf-Stacks.
+
+09:12.410 --> 09:16.590
+Nun haben Sie vielleicht vom Überlauf des Standortstapels gehört.
+
+09:16.690 --> 09:19.700
+Wenn Sie ein Entwickler sind, verwenden Sie es täglich.
+
+09:20.000 --> 09:24.710
+Und haben Sie sich jemals gefragt, was Stack-Überlauf bedeutet?
+
+09:25.970 --> 09:28.310
+Gut Stapelüberlauf
+
+09:28.480 --> 09:32.410
+ist das, wenn ein Stapel überläuft.
+
+09:32.410 --> 09:39.220
+So wie wir über Speicherlecks gesprochen haben und darüber, wie der Speicherhaufen einer Javascript-Engine überlaufen kann.
+
+09:40.060 --> 09:43.270
+Nun, mit Stapelüberlauf,
+
+09:43.270 --> 09:47.980
+Dies passiert, wenn der Call-Stack einfach immer größer und größer wird, bis er einfach nicht genug hat
+
+09:47.980 --> 09:49.070
+Raum mehr.
+
+09:49.360 --> 09:52.180
+Wie können wir das machen?
+
+09:52.180 --> 09:54.560
+Können wir einen Stack-Überlauf erstellen?
+
+09:54.910 --> 09:58.990
+Yah! Ich kann dir schnell zeigen, dass um einen Stapelüberlauf zu erstellen,
+
+09:58.990 --> 10:06.180
+Alles, was Sie tun müssen, ist "foo" zu funktionieren, so wie wir es hier getan haben.
+
+10:07.740 --> 10:13.490
+Und diese Funktion wird nur 'foo' haben.
+
+10:13.490 --> 10:17.940
+Und wir haben nur unsere "Foo" -Funktion ausgeführt.
+
+10:17.950 --> 10:19.090
+Das sieht verwirrend aus.
+
+10:19.180 --> 10:21.760
+Was passiert hier?
+
+10:22.090 --> 10:24.600
+Diese so genannte Rekursion.
+
+10:27.270 --> 10:30.350
+Und Rekursion bedeutet eine Funktion, die sich selbst aufruft.
+
+10:30.660 --> 10:38.670
+Wenn Sie sich also ansehen, was diese Funktion bewirkt, führen wir 'foo' aus und 'foo' wird ausgeführt, was 'foo' tut, ist gut, wir
+
+10:38.730 --> 10:39.650
+führe 'foo' erneut aus.
+
+10:39.660 --> 10:46.990
+Es läuft also immer wieder und wieder und wieder und hat Rekursion, aber es ist kein Ende in Sicht.
+
+10:47.070 --> 10:50.520
+Wir fügen weiterhin 'foo' zum Aufruf-Stack hinzu.
+
+10:50.640 --> 10:56.930
+Wir fügen es immer wieder hinzu, immer wieder und wieder und wieder und wieder und wieder und wieder.
+
+10:57.210 --> 10:59.700
+Und wir haben einen Stapelüberlauf.
+
+11:00.060 --> 11:07.260
+Also, wenn Sie Spaß haben wollen, gehen Sie zu Ihrem Browser, gehen Sie in Ihre Konsole und führen Sie so etwas und
+
+11:07.260 --> 11:07.960
+Schau was passiert.
+
+11:07.980 --> 11:10.150
+Du wirst einen Stapelüberlauf bekommen.
+
+11:11.120 --> 11:11.850
+Gut.
+
+11:11.900 --> 11:14.280
+Hoffentlich macht das jetzt Sinn.
+
+11:14.300 --> 11:20.920
+Die Javascript-Engine, die die V-8-Engine und Chrome ist, hat einen Speicher-Heap und einen Call-Stack.
+
+11:23.120 --> 11:31.390
+Jetzt ist Javascript single-threaded, nur eine Anweisung wird ausgeführt,
+
+11:31.390 --> 11:32.190
+Aber jetzt gibt es ein Problem, nicht wahr?
+
+11:32.200 --> 11:41.260
+Was wäre, wenn die zweite Zeile eine große Aufgabe wäre, die wir erledigen müssten? vielleicht durch ein Array, das Millionen von
+
+11:41.340 --> 11:44.390
+Gegenstände, was würde dort passieren?
+
+11:44.430 --> 11:51.790
+Nun, wir würden dieses Konsolenprotokoll ausführen, dann die zweite Zeile, dann ist es ein massiver, massiver Job,
+
+11:51.840 --> 11:54.920
+gut, nur dort arbeiten und Konsole log '3'
+
+11:54.930 --> 11:57.240
+Es wird eine sehr lange Zeit dauern, um loggged zu bekommen.
+
+11:57.360 --> 12:04.230
+Und in unserem kleinen Beispiel bedeutet das nicht viel, aber wenn er das auf einer Website gut hätte, würde der Benutzer es nicht tun
+
+12:04.260 --> 12:05.530
+in der Lage sein, alles zu tun.
+
+12:05.580 --> 12:11.260
+Die Website würde so lange stehen bleiben, bis diese Aufgabe erledigt ist und der Benutzer einfach dort wartet.
+
+12:11.340 --> 12:13.320
+Das ist nicht sehr gut, oder?
+
+12:13.470 --> 12:19.650
+Nun, bei einer synchronen Aufgabe, wenn wir eine Funktion haben, die viel Zeit in Anspruch nimmt, wird es halt machen
+
+12:19.650 --> 12:20.670
+die Linie.
+
+12:20.760 --> 12:23.170
+Stellen Sie sich ein Buffetrestaurant vor,
+
+12:23.170 --> 12:29.130
+wenn alle Leute essen wollen, aber Bobby sagt, Leute,
+
+12:29.130 --> 12:29.590
+Ich muss weiter essen und einen Speck auf meinen Teller legen.
+
+12:29.640 --> 12:31.860
+Nun, jeder muss in der Schlange warten.
+
+12:32.280 --> 12:38.490
+Es klingt also so, als ob wir etwas nicht blockierendes brauchen. Erinnere dich an unsere erste Aussage, die wir in diesem Video gemacht haben.
+
+12:38.790 --> 12:43.390
+Javascript als einzelne Thread-Sprache, die nicht blockierend sein kann.
+
+12:43.710 --> 12:47.150
+Im Idealfall warten wir nicht auf Dinge, die Zeit brauchen.
+
+12:47.610 --> 12:49.050
+Wie machen wir das?
+
+12:49.980 --> 12:52.970
+Nun, asynchron zur Rettung.
+
+12:52.980 --> 13:00.060
+Stellen Sie sich asynchron vor wie ein Verhalten. Die synchrone Ausführung ist großartig, weil sie vorhersehbar ist.
+
+13:00.060 --> 13:02.490
+Wir wissen, was zuerst passiert und dann, was als nächstes passiert.
+
+13:02.490 --> 13:03.740
+Was passiert als drittes?
+
+13:04.050 --> 13:05.510
+Aber es kann langsam werden.
+
+13:05.700 --> 13:12.000
+Also wenn wir Dinge wie Bildverarbeitung oder Anfragen über das Netzwerk wie API-Aufrufe machen müssen,
+
+13:12.360 --> 13:15.210
+und keine Sorge, wir werden in zukünftigen Videos darüber reden.
+
+13:15.210 --> 13:18.990
+Wir brauchen mehr als nur synchrone Aufgaben, richtig.
+
+13:19.080 --> 13:23.660
+Also denkst du dir, Andre Wie machen wir dann asynchrone Programmierung?
+
+13:24.090 --> 13:27.820
+Nun, lassen Sie mich etwas von diesem Durcheinander entfernen.
+
+13:28.050 --> 13:35.220
+Wir können asynchrone Programmierung machen, indem wir etwas wie 'setTimeout' machen, über das wir sprechen werden
+
+13:35.220 --> 13:44.780
+about, ist eine Funktion, die in unseren Browsern enthalten ist, und es ermöglicht uns, ein Timeout zu erstellen. Und wir können einfach
+
+13:44.780 --> 13:47.740
+geben Sie den ersten Parameter ist die Funktion, die wir ausführen möchten.
+
+13:47.840 --> 13:51.010
+Und dann ist der zweite Parameter wie viele Sekunden wir warten wollen.
+
+13:51.020 --> 13:53.280
+Sagen wir also, ich möchte zwei Sekunden warten.
+
+13:53.300 --> 13:55.730
+Also 200, 2000 Millisekunden.
+
+13:56.240 --> 14:00.730
+Wenn ich das jetzt mache, lasst es uns zur Konsole laufen und sehen, was passiert.
+
+14:07.750 --> 14:19.330
+Nun, was ist gerade passiert? wir haben console log '1', dann console log '3' und console log '2',
+
+14:19.340 --> 14:20.450
+zwei Sekunden später.
+
+14:20.990 --> 14:28.410
+Es sieht so aus, als hätten wir diesen ganzen Schritt einfach übersprungen und das dann ganz am Ende gestellt.
+
+14:29.720 --> 14:36.750
+Nun, Sie haben nur asynchrone Programmierung erlebt. Um das zu verstehen und was gerade passiert ist.
+
+14:36.950 --> 14:45.930
+Ich muss dich zum nächsten Teil bringen und das ist, damit Javascript wie wir es kennen, für das laufen
+
+14:45.930 --> 14:49.520
+JavaScript-Engine mit Speicher Heap und Call-Stack zu laufen,
+
+14:49.680 --> 14:57.880
+Wir brauchen mehr als nur die JavaScript-Engine, wir brauchen eine Javascript-Laufzeitumgebung. Und
+
+14:58.150 --> 15:03.570
+Die Javascript-Laufzeitumgebung ist wiederum Teil des Browsers, der in den Browsern enthalten ist.
+
+15:03.670 --> 15:06.630
+Sie haben zusätzliche Dinge, oben auf dem Motor,
+
+15:06.640 --> 15:12.950
+Sie haben etwas namens Web-APIs, Callback-Warteschlange und eine Ereignisschleife.
+
+15:13.100 --> 15:19.000
+Und wie Sie hier sehen können, ist 'setTimeout' Teil der Web-API.
+
+15:19.100 --> 15:22.780
+Es ist nicht technisch Teil von Javascript, oder?
+
+15:23.000 --> 15:28.410
+Es ist das, was wir von den Browsern benutzen, also können wir asynchrones Programm machen.
+
+15:28.680 --> 15:29.130
+OK.
+
+15:29.210 --> 15:31.240
+Also schau dir dieses Diagramm an,
+
+15:31.280 --> 15:34.970
+Mal sehen, ob wir herausfinden können, was unser Code macht.
+
+15:36.590 --> 15:53.180
+Wir können hier unseren eigenen Call-Stack erstellen, haben Web-API und dann haben wir eine Callback-Queue und dann
+
+15:53.260 --> 15:59.290
+eine Event-Schleife, genau wie in unserer JavaScript-Laufzeitumgebung.
+
+15:59.330 --> 16:00.550
+Was passiert hier?
+
+16:00.600 --> 16:07.440
+Nun, zuerst haben wir ein Konsolenprotokoll, das in den Call-Stack geht.
+
+16:08.350 --> 16:10.690
+Und das wird gelaufen.
+
+16:10.930 --> 16:14.690
+Also protokollieren wir die Konsole log '2' im Browser.
+
+16:15.070 --> 16:17.670
+Wir bekommen dann 'setTimeout'
+
+16:18.800 --> 16:24.080
+in unseren Call-Stack, weil wir diese erste Aufgabe beendet haben, gehen wir zum zweiten. Und mit
+
+16:24.250 --> 16:30.380
+'setTimeout', was passieren wird, nun, der Call-Stack wird sagen, OK, ich habe 'setTimeout'.
+
+16:30.860 --> 16:37.610
+Und weil setTimeout nicht Teil von Javascript ist, sondern Teil der Web API ist, hat es diese spezielle Eigenschaft
+
+16:37.910 --> 16:42.620
+Was passieren wird, ist, dass es die Web-API auslöst.
+
+16:43.820 --> 16:55.010
+Und sagt, hey! 'setTimeout' wurde gerade aufgerufen. Und weil wir die Web-API benachrichtigt haben, können wir sie veröffentlichen
+
+16:55.160 --> 16:56.400
+des Aufruf-Stacks.
+
+16:56.420 --> 17:02.250
+Jetzt startet die Web-API hier mit einem Timer, einem Timer von zwei Sekunden.
+
+17:02.330 --> 17:10.350
+Es wird wissen, dass du in zwei Sekunden etwas tun musst. Und weil der Call-Stack leer ist,
+
+17:11.010 --> 17:18.970
+Die JavaScript-Engine geht nun zur Konsole log '3' und führt diese aus.
+
+17:19.110 --> 17:20.600
+Das macht Sinn, richtig.
+
+17:20.700 --> 17:24.470
+Jetzt haben wir '1' und '3' gemacht, aber wir haben immer noch 'setTimeout'
+
+17:24.660 --> 17:27.680
+2 Sekunden in der Web-API.
+
+17:27.960 --> 17:36.600
+Jetzt, nach zwei Sekunden, wenn unser Zeitlimit abgelaufen ist, wird die Web-API sagen:17:36.600 --> 17:37.220
+Okay, 'setTimeout' sollte ausgeführt werden.
+
+17:37.260 --> 17:38.550
+Mal sehen, was drin ist.
+
+17:38.670 --> 17:40.740
+Nun, wir haben ein Konsolenprotokoll 2.
+
+17:40.980 --> 17:45.220
+Was also passieren wird ist, es wird sagen, hey! Die Zeit ist fertig.
+
+17:46.630 --> 17:56.210
+Wir haben einen Rückruf, und diesen Callback von 'setTimeout' haben wir zum Callback que hinzugefügt und gesagt, hey! wir
+
+17:56.210 --> 18:00.630
+müssen etwas laufen, wir sind bereit, es auszuführen.
+
+18:00.750 --> 18:09.060
+Nun, der letzte Teil, der Eventloop, der Eventloop hierüber prüft und sagt, hey! ist der Aufruf-Stack leer,
+
+18:09.180 --> 18:10.710
+und es überprüft die ganze Zeit.
+
+18:10.710 --> 18:16.200
+Wenn der Stapel leer ist und wenn der Aufrufstapel leer ist und nichts läuft, läuft gerade das Javascript
+
+18:16.200 --> 18:20.010
+Motor, es wird sagen, hey! haben wir irgendwelche Rückrufe?
+
+18:20.040 --> 18:25.250
+Es wird den Rückruf que überprüfen und sagen, hmm! ist irgendwas drin ?, weil der Callstack leer ist,
+
+18:25.250 --> 18:28.320
+wir können etwas hineinwerfen und es arbeiten lassen.
+
+18:28.530 --> 18:31.380
+In unserem Fall sagen wir, oh yeah! Ich mache.
+
+18:31.380 --> 18:34.420
+Lass mich das in den Call-Stack legen.
+
+18:34.470 --> 18:43.170
+So, jetzt verschieben wir den Callback in den Call-Stack und dann den Callback, den wir ausführen, und indem wir laufen sehen wir
+
+18:43.170 --> 18:45.560
+dass wir das Konsolenprotokoll 2 haben.
+
+18:45.810 --> 18:55.240
+So wird es sagen, Konsole Dot Log 2, es wird diese Funktion ausführen und sobald es fertig ist, wird es gehen
+
+18:55.270 --> 18:56.850
+Öffne es aus dem Call-Stack.
+
+18:56.890 --> 19:02.890
+Und wieder sind wir mit dem Rückruf fertig, also entfernen wir ihn und da gehts los.
+
+19:02.920 --> 19:03.580
+Wir sind fertig.
+
+19:03.580 --> 19:09.170
+Alles ist leer und wir haben diese "1", "3" gerade ausgeführt.
+
+19:09.250 --> 19:13.470
+Es wird die gesamte Web-API-Rückruf-Ereignisschleife durchlaufen.
+
+19:13.570 --> 19:17.590
+Und dann wird das Konsolenprotokoll '2' ausgeführt. Hoo !.
+
+19:17.680 --> 19:19.350
+Das war eine Menge Informationen.
+
+19:19.450 --> 19:25.300
+Vielleicht müssen Sie das ein paar Mal sehen, aber hoffentlich macht das für Sie Sinn, warum wir es bemerkt haben
+
+19:25.300 --> 19:26.870
+Dieses Verhalten.
+
+19:27.460 --> 19:31.150
+Und ich möchte Ihr Verständnis hier herausfordern.
+
+19:31.420 --> 19:37.160
+Wissen was du weißt und was ich dir gerade beigebracht habe, was passiert, wenn ich das auf Null ändere?
+
+19:37.360 --> 19:39.420
+Das bedeutet null Sekunde (n).
+
+19:40.250 --> 19:43.380
+Ich gebe dir eine Sekunde, um darüber nachzudenken, was passieren wird.
+
+19:43.580 --> 19:45.430
+Und dann probieren wir das aus.
+
+19:45.850 --> 19:54.380
+Wenn ich die Konsole lösche, kopiere und füge sie ein und führe sie aus. Gut eins, drei und zwei.
+
+19:54.400 --> 19:55.540
+Hast du richtig geraten?
+
+19:56.420 --> 19:59.150
+Jetzt darüber nachdenken, warum das passiert ist?
+
+19:59.330 --> 20:04.570
+Obwohl dies keine Sekunde (n) ist, ging es trotzdem durch den Prozess.
+
+20:04.640 --> 20:09.190
+Es wurde immer noch in die Web-APIs eingegeben,
+
+20:09.350 --> 20:11.950
+und dann die Rückrufwarteschlange und dann die Ereignisschleife.
+
+20:12.050 --> 20:19.850
+Und zu der Zeit, die passierte, war der Aufrufstapel bereits zu dem Konsolenprotokoll '3' und weitergegangen
+
+20:19.850 --> 20:27.380
+Erst nachdem das Konsolenlog '3' fertig war und der Call Stack leer war, sagte die Eventschleife:Oh yeah! Wir können das Konsolenprotokoll '2' aufrufen.
+
+20:27.680 --> 20:31.430
+Hoffentlich macht das Sinn für dich.
+
+20:31.430 --> 20:36.560
+Und wenn Sie verstehen, dass Sie tatsächlich eine Menge Leute haben, die für Javascript anstellen
+
+20:36.560 --> 20:41.800
+Rollen stellen solche Fragen in einem Interview, und Sie müssen erklären, warum das so ist.
+
+20:41.810 --> 20:47.870
+Ich hoffe, dass das für Sie einen Sinn ergab und Sie dies zu Ihrem Vorteil für das nächste Jahrhundert nutzen können.
+
+20:47.900 --> 20:49.810
+Also lassen Sie uns zusammenfassen.
+
+20:53.950 --> 21:00.340
+Wenn Sie Ihre neuesten Tweets auf eine Webseite laden möchten und dies synchron tun, dann Besucher
+
+21:00.340 --> 21:04.600
+auf Ihrer Website kann nichts tun, bis diese Tweets geladen sind.
+
+21:04.600 --> 21:08.600
+Dies könnte zu einer langen Verzögerung führen, bevor sie den Inhalt seiner Website überhaupt sehen können.
+
+21:08.680 --> 21:12.620
+Sie können möglicherweise nirgendwo klicken und die Seite wird sich wie eingefroren anfühlen.
+
+21:12.760 --> 21:14.590
+Keine sehr gute User Experience, oder?
+
+21:15.420 --> 21:19.100
+Eine andere Möglichkeit, darüber nachzudenken, besteht darin, Ihren Lehrer mit einer Frage anzurufen.
+
+21:20.260 --> 21:23.140
+Synchroner Weg nennt man den Lehrer,
+
+21:23.140 --> 21:30.430
+Sie warten auf das Telefon, bis der Lehrer das Telefon beantwortet und ihm die Frage stellt und hoffentlich bekommt
+
+21:30.430 --> 21:31.080
+eine Antwort.
+
+21:31.210 --> 21:33.930
+Also lässt du das Telefon klingeln, bis er aufhört.
+
+21:34.090 --> 21:37.330
+Aber du machst sonst nichts anderes.
+
+21:37.690 --> 21:41.870
+Asynchron bedeutet, dass Sie einem Lehrer einen Text mit einer Frage senden.
+
+21:42.010 --> 21:47.820
+Und dann, wenn der Lehrer, er oder sie die Zeit hat, wird auf Sie antworten und Sie mit der Antwort anrufen.
+
+21:48.310 --> 21:55.030
+So kannst du zwischendurch andere Sachen machen. Das JavaScript ist asynchron, wenn Sie eine Nachricht hinterlassen können
+
+21:55.570 --> 22:00.390
+und ein Rückruf sagt dir, hey! Herr Lehrer hat eine Nachricht für Sie, wenn Sie nicht zu beschäftigt sind.
+
+22:02.040 --> 22:05.470
+Und deshalb nennen wir es eine Rückruffunktion
+
+22:05.520 --> 22:10.760
+und ein Rückruf que. Wir rufen zurück, um sie wissen zu lassen, dass da ein paar Sachen auf dich warten.
+
+22:11.010 --> 22:17.250
+Jetzt sehen wir, dass wir DOM, Ajax und Timeout haben. Und es gibt ein paar andere Dinge, aber Sie sehen auch in
+
+22:17.250 --> 22:20.410
+Den Callback que haben wir beim Klick auf Laden fertig gemacht.
+
+22:20.670 --> 22:23.310
+Erinnerst du dich an die Event-Listener?
+
+22:23.580 --> 22:33.090
+Nun, mit einem Event-Listener hatten wir so etwas wie ein Element und wir haben einen Event-Listener hinzugefügt.
+
+22:33.260 --> 22:40.340
+Und in diesem Event-Listener könnten wir sagen, auf einen Klick hören und es wird vielleicht eine Funktion haben
+
+22:40.590 --> 22:42.260
+Console Dot Log 'Klick'
+
+22:42.740 --> 22:50.770
+Nun, ähnlich einer asynchronen Art der Programmierung haben wir diese "Klick" -Funktion erstellt und jetzt sind wir
+
+22:50.770 --> 22:52.070
+höre nur zu.
+
+22:52.150 --> 22:55.360
+Und jedes Mal passiert ein Klick auf der Webseite.
+
+22:55.390 --> 22:57.180
+Also auf dem DOM,
+
+22:57.340 --> 23:04.970
+Gut, wir führen die Callback-Funktion, die Konsole klickt auf "klicken".
+
+23:05.460 --> 23:06.190
+Gut.
+
+23:06.480 --> 23:14.020
+Um Dinge zu beenden, wann geschieht asynchron? es passiert viel, wenn du versuchst, dazwischen zu reden
+
+23:14.020 --> 23:18.280
+Maschinen, wie mit einer Datenbank zu sprechen, die Netzwerkanfragen macht,
+
+23:18.340 --> 23:23.530
+Bildbearbeitung, Dateien lesen und keine Sorge, wir werden das in zukünftigen Videos durchgehen.
+
+23:23.680 --> 23:31.690
+Aber um zu wiederholen, was wir gerade gelernt haben, ist Javascript eine single-threaded Sprache, die nicht blockierend sein kann.
+
+23:31.690 --> 23:39.340
+Es hat einen Call-Stack und es tut eine Sache nach der anderen. Um den einzelnen Thread nicht zu blockieren,
+
+23:39.370 --> 23:48.730
+Es kann asynchron mit Callback-Funktionen sein und diese Callback-Funktionen laufen im Hintergrund durch
+
+23:48.730 --> 23:53.670
+die Rückrufwarteschlange und dann die Ereignisschleife, um sie zurück zum Aufrufstapel zu bringen.
+
+23:53.740 --> 24:00.610
+Wenn Sie das nächste Mal gefragt werden, was ist der Unterschied zwischen einem synchronen oder asynchronen Programm?
+
+24:00.910 --> 24:02.790
+Oder wie funktioniert JavaScript?
+
+24:02.830 --> 24:06.260
+Sie sollten ein bisschen mehr Selbstvertrauen haben, um diese Frage zu beantworten.
+
+24:06.660 --> 24:08.340
+Und ich hoffe, dass dies hilfreich war.
+
+24:09.070 --> 24:11.070
+Wir sehen uns im nächsten Video. Buh-Tschüss.

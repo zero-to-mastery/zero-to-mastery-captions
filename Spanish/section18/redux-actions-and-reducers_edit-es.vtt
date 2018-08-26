@@ -1,0 +1,439 @@
+WEBVTT
+
+00:01.220 --> 00:03.020
+Y bienvenido de nuevo.
+
+00:03.020 --> 00:11.230
+Ahora que tenemos redux y react redux instalados, comencemos a escribir código y a implementar redux.
+
+00:11.430 --> 00:19.700
+Ahora lo primero que queremos hacer es crear algo llamado acción y también reductor.
+
+00:19.980 --> 00:30.040
+Si recuerda este diagrama, mencionamos que redux tiene estos dos componentes:una acción y un reductor.
+
+00:30.050 --> 00:33.820
+Así que vamos a construir esos dos y te mostraré lo que quiero decir.
+
+00:35.460 --> 00:39.440
+Lo primero que queremos hacer es crear un nuevo archivo.
+
+00:39.630 --> 00:45.930
+Vamos a mantenerlo en la carpeta fuente y diremos que esto se llamará Actions.js
+
+00:47.940 --> 00:54.020
+y dentro de aquí vamos a crear una acción usando simplemente el viejo javascript.
+
+00:54.090 --> 01:03.680
+Vamos a decir que const de exportación y la primera acción que vamos a hacer es el campo de búsqueda.
+
+01:03.750 --> 01:09.810
+Así que recuerda que cuando ingresamos en el cuadro de búsqueda, podemos filtrar los robots. Diremos que esa acción que
+
+01:09.810 --> 01:17.100
+está en la búsqueda modificada que teníamos en la aplicación de reacción, diremos que esto se llamará SetSearchField
+
+01:17.100 --> 01:31.180
+y este campo de búsqueda recibirá una entrada de texto que el usuario escribe y porque queremos
+
+01:31.180 --> 01:37.840
+mantener esto lo más pequeño posible, podemos envolverlo entre llaves para que podamos evitar el retorno
+
+01:37.840 --> 01:38.540
+declaración.
+
+01:38.560 --> 01:45.100
+Estamos devolviendo un objeto y este objeto va a tener un tipo
+
+01:47.810 --> 01:54.430
+llamado digamos CHANGE_SEARCHFIELD.
+
+01:57.540 --> 02:06.070
+Y también tendremos una carga llamada texto.
+
+02:06.210 --> 02:13.980
+Entonces, esta es la acción, que se llama Establecer campo de búsqueda, va a tomar texto, que es
+
+02:13.980 --> 02:20.060
+lo que el usuario ingresa, y devolverá un objeto que tiene un tipo de CHANGE_SEARCHFIELD.
+
+02:20.460 --> 02:28.200
+Así que esa es la acción que se está tomando y que va a enviar, y la carga útil es un nombre común que es
+
+02:28.200 --> 02:36.750
+usado y redox así que acostúmbrate a eso - carga útil es que estamos enviando los datos necesarios para continuar
+
+02:36.750 --> 02:41.680
+el productor que va a ser lo que sea que ingrese el usuario.
+
+02:42.750 --> 02:43.120
+Todo bien.
+
+02:43.150 --> 02:45.220
+Acabamos de crear nuestra acción.
+
+02:45.340 --> 02:46.030
+Eso es.
+
+02:46.180 --> 02:47.800
+Esa es nuestra acción.
+
+02:47.800 --> 02:49.390
+Agradable y simple.
+
+02:49.390 --> 02:57.640
+Ahora aquí he capitalizado esto porque es una constante y una constante usualmente está en mayúscula.
+
+02:57.640 --> 03:07.720
+Todas las mayúsculas en Javascript es el estándar, pero me gusta usar una variable constante real porque con
+
+03:07.720 --> 03:12.960
+solo una cadena podemos escribir mal y es posible que no obtengamos el error.
+
+03:13.000 --> 03:18.220
+Pero si usamos una variable y escribimos mal, se producirá un error cuando ejecutamos la aplicación.
+
+03:18.220 --> 03:21.210
+Entonces es un buen truco ingenioso.
+
+03:21.220 --> 03:27.990
+Y la mayoría de las demostraciones de redux también tienen un archivo constante donde realizan un seguimiento de todas estas acciones.
+
+03:28.240 --> 03:34.480
+Y también es bueno tener un archivo donde pueda ver cuáles son sus acciones.
+
+03:34.480 --> 03:39.630
+Línea por línea, porque la mayoría de las aplicaciones tendrán más de una acción, como verán.
+
+03:39.700 --> 03:46.130
+Así que creemos un nuevo archivo y lo llamaremos constants.js.
+
+03:46.330 --> 03:51.390
+Y dentro de esto solo dentro de exportación, hagamos esto un poco más grande para que pueda ver.
+
+03:51.500 --> 03:52.740
+Ahí tienes.
+
+03:52.780 --> 04:02.070
+Vamos a exportar constante CHANGE_SEARCHFIELD.
+
+04:02.310 --> 04:04.290
+Y eso va a ser igual a nuestra cadena.
+
+04:05.180 --> 04:10.250
+De nuevo, exactamente lo mismo CHANGE_SEARCHFIELD pero la cadena.
+
+04:13.060 --> 04:16.520
+Parece un poco redundante, pero es una buena práctica tenerlo.
+
+04:16.810 --> 04:23.380
+Ahora que tenemos esta variable que es una constante y porque la estamos exportando, podemos importar
+
+04:23.380 --> 04:24.510
+por aquí.
+
+04:29.680 --> 04:38.070
+Y diremos CHANGE_SEARCHFIELD, asegúrate de que no haya errores ortográficos de esta manera y diremos que
+
+04:38.490 --> 04:41.080
+importar desde el archivo Constants.
+
+04:45.710 --> 04:49.630
+Y vamos a hacer esto un poco más pequeño para que todo encaje.
+
+04:49.710 --> 04:52.930
+Y ahí tienes.
+
+04:52.940 --> 04:59.640
+Entonces ahora podemos usar el campo de búsqueda modificado en lugar del texto.
+
+04:59.780 --> 05:00.660
+Y ahí tienes.
+
+05:00.730 --> 05:08.650
+Tenemos un archivo de acciones atractivo y atractivo con la acción SetSearchField y se puede imaginar aquí
+
+05:08.650 --> 05:14.680
+a medida que obtenemos más y más acciones podemos seguir agregando cosas y seguimos agregando todas las constantes que
+
+05:14.680 --> 05:18.460
+Necesitamos las acciones que lleva nuestra aplicación.
+
+05:18.460 --> 05:18.660
+Todo bien.
+
+05:18.670 --> 05:22.020
+Lo siguiente que recordamos con redux es después de la acción.
+
+05:22.030 --> 05:30.190
+También tenemos un reductor que dije es una gran función que simplemente lee la acción y escupe
+
+05:30.190 --> 05:32.420
+llamamos estado.
+
+05:32.530 --> 05:38.560
+Así que hagámoslo, creemos otro archivo aquí lo llamaremos reducrs.js
+
+05:42.040 --> 05:53.670
+y dentro de aquí, creemos ese reductor. Primero comenzamos diciendo const initialState.
+
+05:54.050 --> 05:56.030
+Entonces necesitamos algún tipo de punto de partida.
+
+05:56.030 --> 06:00.790
+Por lo que puede recordar en nuestro archivo app.js con la aplicación create reaccionar.
+
+06:00.860 --> 06:08.220
+Si abro eso, vemos que tenemos el estado inicial con el campo de búsqueda en blanco.
+
+06:08.240 --> 06:15.400
+De modo similar, tenemos que decir que el estado inicial aquí va a tener el campo de búsqueda
+
+06:18.290 --> 06:20.390
+eso es igual a una cadena vacía.
+
+06:22.080 --> 06:23.510
+Entonces ese es el estado inicial.
+
+06:23.550 --> 06:28.050
+Ese es el objeto inicial que tendremos en la tienda redux.
+
+06:28.530 --> 06:31.850
+Y ahora tenemos que crear el reductor. De nuevo.
+
+06:31.920 --> 06:38.190
+Recuerde que es una función que es muy fácil de hacer de nuevo porque la vamos a usar en otros lugares.
+
+06:38.190 --> 06:46.780
+Vamos a exportarlo y diremos que esto se llamará robots de búsqueda porque eso es
+
+06:46.780 --> 06:52.640
+la acción que se está llevando a cabo va a buscar los robots usando el campo de búsqueda.
+
+06:52.660 --> 06:58.980
+Por lo tanto, este reductor de robots de búsqueda tendrá en cuenta algunas cosas.
+
+06:59.030 --> 07:09.470
+Primero es un estado que es el estado de nuestra aplicación y luego el segundo es la acción.
+
+07:09.490 --> 07:11.720
+Entonces eso es lo que acaba de suceder.
+
+07:13.630 --> 07:20.440
+Y al usar ES6, solo le daremos los parámetros por defecto para asegurarnos de que si está vacío o si la acción es
+
+07:20.440 --> 07:21.890
+vacío No estamos recibiendo ningún error.
+
+07:21.910 --> 07:30.340
+Entonces diremos que el estado será el estado inicial y por eso tenemos aquí y luego la acción es solo
+
+07:30.340 --> 07:32.110
+va a ser un objeto vacío.
+
+07:32.110 --> 07:38.790
+Recuerda que nuestras acciones son solo objetos que regresaban.
+
+07:38.820 --> 07:48.690
+Entonces desde aquí usando las funciones de error tenemos nuestro primer reductor. Y reductores aquí, lo que hacen es obtener
+
+07:48.780 --> 07:52.190
+esta entrada de un estado y una acción.
+
+07:52.230 --> 07:58.680
+Y si les importa la acción que reciben en nuestro caso si nos importa si recibimos alguna acción
+
+07:58.680 --> 08:04.980
+que están relacionados con la búsqueda de robots que vamos a hacer algo que vamos a actuar sobre el estado del
+
+08:04.980 --> 08:09.820
+forma en que vamos a hacer eso es que vamos a utilizar una declaración de cambio y vamos a decir dentro de la
+
+08:09.820 --> 08:12.960
+cambiar la declaración de que vamos a hacer un action.type
+
+08:15.650 --> 08:17.370
+recuerda action.type.
+
+08:17.480 --> 08:20.280
+Eso es algo que usamos en el archivo action.js ...
+
+08:20.510 --> 08:25.480
+Recuerde que tenemos un tipo de campo de búsqueda de cambios.
+
+08:25.610 --> 08:31.390
+Entonces, al ver esto, parece que vamos a preocuparnos por el tipo de acción de campo de búsqueda de cambio.
+
+08:31.430 --> 08:41.910
+Así que vamos a importar el archivo de constantes aquí para redux o para nuestro reductor también.
+
+08:42.050 --> 08:51.530
+Y aquí dentro podemos decir que si el caso es que el tipo de acción.
+
+08:51.730 --> 08:54.730
+Vaya, solo hagamos CHANGE_SEARCHFIELD
+
+08:56.370 --> 09:07.100
+Si ese es el caso, bueno, queremos devolver un nuevo estado y esto se remonta a los tres principios que
+
+09:07.100 --> 09:08.060
+nosotros hablamos acerca de.
+
+09:08.060 --> 09:08.850
+Echemos un vistazo.
+
+09:10.240 --> 09:15.610
+Los tres principales en reaccionar es que tenemos la única fuente de verdad que es el único objeto grande
+
+09:15.610 --> 09:16.690
+que describe nuestra aplicación.
+
+09:16.840 --> 09:22.490
+Entonces tenemos nuestra variable de estado inicial que hemos establecido. El estado es de solo lectura.
+
+09:22.540 --> 09:26.880
+Eso significa que nunca podemos modificar ese objeto.
+
+09:26.900 --> 09:37.170
+Lo único que podemos hacer es crear un nuevo objeto que tenga, al igual que antes, el objeto anterior
+
+09:37.200 --> 09:43.670
+estado anterior que teníamos, con cualquier modificación que tuviéramos así, es de solo lectura.
+
+09:43.740 --> 09:50.190
+Y luego, la tercera cosa es que los cambios solo usan funciones puras, ahora recuerdan que las funciones puras son funciones
+
+09:50.430 --> 09:59.520
+que obtienen algún tipo de entrada como la que tenemos en nuestro reductor y devuelven una salida que no tiene
+
+09:59.520 --> 10:00.440
+cualquier efecto secundario.
+
+10:00.450 --> 10:03.120
+Eso es, no modifica nada.
+
+10:03.300 --> 10:07.940
+Cada vez que ingresamos una entrada, siempre da el mismo resultado.
+
+10:08.400 --> 10:15.310
+De modo que basándonos en estos principios, si volvemos, sabemos que queremos que esto se reduzca a una función pura que
+
+10:15.310 --> 10:22.270
+está tomando algún tipo de entrada y debería devolver un nuevo estado, y la forma en que lo hacemos sin
+
+10:22.270 --> 10:32.800
+simplemente haciendo state.SearchField y modificando esa propiedad vamos a hacer object.assign.
+
+10:32.960 --> 10:43.970
+Y la forma en que hacemos esto es entre paréntesis coma el estado que estamos recibiendo, que es el estado inicial
+
+10:43.970 --> 10:50.270
+el comienzo y finalmente lo que queramos cambiar en ese objeto.
+
+10:50.270 --> 10:58.280
+En nuestro caso, estamos interesados ​​en cambiar la propiedad del campo de búsqueda y la propiedad del campo de búsqueda es
+
+10:58.280 --> 11:03.690
+va a tener la action.payload.
+
+11:03.790 --> 11:06.800
+Nuevamente permítanme hacer esto un poco más pequeño.
+
+11:06.970 --> 11:13.920
+Estamos devolviendo un nuevo estado como puede ver aquí con object.assign que va a tener todo en
+
+11:13.920 --> 11:14.730
+el estado.
+
+11:14.880 --> 11:23.070
+Además, vamos a actualizar cualquier propiedad del campo de búsqueda, nueva propiedad del campo de búsqueda que tenemos con action.payload
+
+11:23.130 --> 11:28.760
+Recuerde que las acciones tienen dos cosas que enviaron:un objeto con tipo y un objeto con carga útil.
+
+11:28.780 --> 11:32.310
+Si retrocedemos, vemos el tipo y la carga útil.
+
+11:32.450 --> 11:37.370
+Entonces, esto simplemente dice que recibimos una acción llamada CHANGE_SEARCHFIELD.
+
+11:37.490 --> 11:45.280
+Si ese es el caso, devuelva el nuevo estado con action.payload lo que haya ingresado el usuario.
+
+11:45.320 --> 11:50.510
+Sé que puede ser un poco confuso, pero esto es solo una sintaxis redux estándar que tendrás
+
+11:50.510 --> 11:51.330
+acostumbrarse a.
+
+11:52.550 --> 11:53.400
+Solo un aviso.
+
+11:53.400 --> 11:57.050
+Hay otra forma de hacer esto que a algunas personas les gusta y es más limpia.
+
+11:57.050 --> 12:05.760
+Otra opción es hacer desestructuración de objetos u operador de propagación de objetos, lo que significa que podemos hacer algo
+
+12:06.150 --> 12:06.810
+Me gusta esto.
+
+12:10.550 --> 12:12.370
+Lo cual funciona muy bien también.
+
+12:12.410 --> 12:15.230
+Por ahora, solo mantengamos el camino que teníamos
+
+12:18.720 --> 12:23.960
+y siempre recuerde que una función pura siempre necesita devolver algo.
+
+12:23.960 --> 12:39.640
+Entonces, en caso de que el tipo de acción no sea esto, también queremos decir por defecto que siempre devuelva el estado.
+
+12:39.640 --> 12:40.130
+Ahí tienes.
+
+12:40.150 --> 12:41.790
+Hemos creado un reductor.
+
+12:42.040 --> 12:44.830
+Esa es una función pura.
+
+12:44.830 --> 12:52.990
+Ahora aquí podríamos usar una declaración if si queremos, pero me gusta usar la documentación de cambiar y reaccionar también
+
+12:52.990 --> 12:59.550
+recomendar el cambio porque puede tener múltiples casos, múltiples acciones que actúan sobre los robots de búsqueda
+
+12:59.560 --> 13:06.040
+reducer y es mucho más fácil simplemente agregar y agregar cosas diferentes que afectan el estado de la
+
+13:06.250 --> 13:08.590
+robots.
+
+13:08.590 --> 13:09.100
+Todo bien.
+
+13:09.160 --> 13:10.830
+Eso no fue tan malo, ¿verdad?
+
+13:10.930 --> 13:21.170
+Creamos un reductor con cierto estado inicial y también tenemos nuestras constantes y acciones.
+
+13:21.300 --> 13:28.530
+Entonces ese diagrama que te mostré está empezando a tener un poco más de sentido. En el próximo video
+
+13:28.530 --> 13:33.870
+En realidad, conectemos estos porque ahora mismo no está conectado a nada a lo que no esté conectado.
+
+13:33.870 --> 13:36.520
+nuestras aplicaciones, a nuestra reacción.
+
+13:36.570 --> 13:39.850
+Acabamos de crear estos archivos que viven en solitario.
+
+13:40.380 --> 13:42.030
+Te veré en el próximo.
+
+13:42.050 --> 13:42.590
+Adiós.

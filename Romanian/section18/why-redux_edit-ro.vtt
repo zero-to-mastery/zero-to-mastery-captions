@@ -1,0 +1,385 @@
+WEBVTT
+
+00:01.750 --> 00:02.710
+Bine ai revenit.
+
+00:02.710 --> 00:09.160
+Știu că toți suntem încântați să începem să codificăm, dar vreau să fac un ultim videoclip înainte de a începe
+
+00:09.160 --> 00:13.860
+începeți să lucrați cu un cod care este partea interesantă.
+
+00:14.010 --> 00:20.820
+Dar din nou vreau să subliniez că, înainte de a folosi ceva, trebuie să înțelegem de ce și de ce am face
+
+00:21.000 --> 00:28.780
+nevoie de ceva de genul redux. Chiar acum, on-line, și cu orice companie care lucrează cu reacție, majoritatea dintre ei
+
+00:28.780 --> 00:31.200
+au, de asemenea, redux.
+
+00:31.300 --> 00:39.220
+Deci, veți auzi reacția și aplicația redux menționată o tonă când vizionați tutoriale sau lucrați cu reacție
+
+00:39.840 --> 00:43.150
+și asta pentru că se întâmplă într-adevăr foarte bine împreună.
+
+00:43.180 --> 00:49.510
+Să mergem doar câteva lucruri despre redux pe care vrem să ne asigurăm că învățăm și un pic de avertisment
+
+00:49.510 --> 00:49.990
+aici.
+
+00:49.990 --> 00:55.730
+Unele lucruri ar putea trece peste cap sau poate puțin confuz, dar vreau să vă arăt aceste lucruri
+
+00:55.730 --> 01:01.840
+diapozitivele mai întâi pentru că după ce trecem prin codarea redux vom reveni la ele și vom fi siguri că
+
+01:02.170 --> 01:06.440
+aceste principii sunt aplicate și vă sunt sensibile.
+
+01:06.460 --> 01:07.930
+Deci, purtați-mă cu mine.
+
+01:07.960 --> 01:10.480
+Crede-mă că totul va avea sens până la sfârșit.
+
+01:12.880 --> 01:21.820
+De ce vrem să folosim redux? Așa cum am menționat mai sus, reduxul este cu adevărat bun la gestionarea statului în special
+
+01:21.850 --> 01:23.470
+stare mare.
+
+01:23.470 --> 01:29.500
+Deci redux este o bibliotecă pe care am vrea să o folosim dacă aplicațiile noastre devin mai mari și mai mari și mai mari și ele
+
+01:29.500 --> 01:31.500
+au o stare mai mare și mai mare.
+
+01:31.570 --> 01:37.690
+Amintiți-vă că vrem să folosim instrumente bazate pe problemele pe care le rezolvă și redux rezolvă problema a ceea ce
+
+01:37.690 --> 01:45.760
+se întâmplă atunci când aplicațiile reacționează într-adevăr foarte mari și folosind doar "this.state" pur și simplu nu are sens
+
+01:45.760 --> 01:46.520
+mai.
+
+01:46.540 --> 01:48.880
+Ea devine din ce în ce mai complicată.
+
+01:48.880 --> 01:51.880
+Amintiți-vă că reacționați este ceea ce numim un strat de vizualizare.
+
+01:51.880 --> 01:55.780
+Este foarte bun la vedere, dar nu neapărat la conducerea statului.
+
+01:55.900 --> 02:00.660
+Deci, folosiți redux atunci când lucrurile devin cu adevărat complicate.
+
+02:00.670 --> 02:08.670
+Al doilea punct este util pentru partajarea datelor între containere. Și acesta este un alt lucru cu când proiectează
+
+02:08.670 --> 02:14.920
+devin mari, atunci când trebuie să înceapă să împartă statul între containere.
+
+02:15.970 --> 02:22.870
+Cu reacție acest lucru este de fapt un pic dificil și trebuie să mutați statul până un strat astfel încât
+
+02:23.080 --> 02:26.290
+aveți un părinte care poate împărți un stat între cele două.
+
+02:26.710 --> 02:33.250
+Dar cu redux acest lucru devine într-adevăr foarte ușor pe măsură ce vom demonstra în secțiunea noastră de codificare.
+
+02:33.370 --> 02:40.590
+Și în cele din urmă redux are un management predictibil de stat folosind cele trei principii.
+
+02:40.740 --> 02:48.200
+Acum ce sunt cei trei principali? Acești trei directori în redux vor avea într-adevăr sens
+
+02:48.200 --> 02:52.990
+la final, dar vreau să le introduc în continuare pentru a fi conștienți de ele.
+
+02:53.960 --> 02:57.370
+Prima este ideea unei singure surse de adevăr.
+
+02:57.680 --> 03:04.490
+Și acesta este un mod fantezist de a spune că avem un singur obiect mare care descrie întregul stat
+
+03:04.550 --> 03:06.010
+din aplicație.
+
+03:06.020 --> 03:14.010
+Tine minte asta? Am avut un obiect masiv de stat care descrie totul în cadrul aplicației noastre.
+
+03:14.170 --> 03:21.940
+Așadar, avem singura noastră sursă de adevăr pentru că reacția reacționează pe baza oricărui stat.
+
+03:21.940 --> 03:29.330
+Putem avea doar un obiect mare care descrie modul în care aplicația ar trebui să arate și să reacționeze.
+
+03:29.330 --> 03:37.370
+Cel de-al doilea principiu este ideea că statul este citit numai și acest lucru încurajează ceva numit imutabilitate
+
+03:37.610 --> 03:45.380
+care nu modifică obiectul și previne astfel erori neașteptate.
+
+03:45.470 --> 03:52.060
+Deci, obiectul de stat pe care îl vom crea cu redux nu va fi niciodată modificat.
+
+03:52.130 --> 04:00.870
+În loc să creăm un nou stat după ce fiecare acțiune este luată de utilizator. Și apoi, în cele din urmă
+
+04:00.870 --> 04:08.850
+al treilea principiu este ideea că schimbările se fac numai prin utilizarea unor funcții pure, ceva despre care am vorbit
+
+04:08.850 --> 04:10.460
+despre cursul meu precedent.
+
+04:10.500 --> 04:19.080
+Ideea că o funcție pură este ceva care primește o intrare și întoarce întotdeauna o ieșire care este
+
+04:19.110 --> 04:20.220
+previzibil.
+
+04:20.220 --> 04:28.760
+Dacă introducem aceeași intrare de 1000 de ori, ne așteptăm ca această funcție să aibă aceeași ieșire de 1000 de ori. Utilizarea
+
+04:28.760 --> 04:30.220
+aceste principii,
+
+04:30.470 --> 04:36.740
+Redux are câteva cuvinte noi pe care le vom introduce în vocabularul nostru și vom fi confortabil
+
+04:36.740 --> 04:38.760
+cu ei până la sfârșitul acestei secțiuni.
+
+04:38.960 --> 04:40.360
+Prima este acțiunea.
+
+04:40.370 --> 04:46.890
+O acțiune este ceva pe care un utilizator o face, cum ar fi să facă clic pe un buton sau pe un meniu derulant.
+
+04:47.100 --> 04:54.030
+Și ceea ce se întâmplă în redux este imediat ce un utilizator face clic pe un buton și creează o acțiune.
+
+04:54.150 --> 05:02.010
+Ea trece prin ceva numit reductor și un reductor este pur și simplu o funcție, o funcție pură care primește
+
+05:02.010 --> 05:10.410
+o intrare care este acțiunea, astfel încât utilizatorul a făcut clic pe un buton și creează o ieșire și această ieșire
+
+05:10.680 --> 05:22.600
+este statul sau magazinul așa cum îl numim în redux, care este întreaga stare a aplicației.
+
+05:22.710 --> 05:31.290
+Deci, pe măsură ce trece prin funcția magazinul se actualizează și reacționează, deoarece observă această schimbare de stat
+
+05:31.680 --> 05:33.640
+modifică stratul de vizualizare.
+
+05:36.590 --> 05:40.520
+Din nou, acestea sunt războaiele pe care le vom întâlni când începem să codificăm de-a lungul timpului.
+
+05:40.580 --> 05:44.070
+De ce face asta?
+
+05:44.080 --> 05:51.270
+Vreau să spun că putem avea o acțiune și apoi se întâmplă o acțiune și apoi facem schimbări.
+
+05:52.790 --> 05:56.280
+Vreau să spun că așa funcționa ceva de genul JQuery.
+
+05:56.470 --> 05:59.200
+Și da, pare mai complicat, nu-i așa?
+
+05:59.200 --> 06:06.460
+Adăugând toți acești pași în prealabil, dar așa cum puteți vedea mai sus, dacă aveți de-a face cu multe acțiuni
+
+06:06.520 --> 06:11.990
+cu aplicații moderne care sunt foarte interactive, acest lucru se întâmplă foarte mult în cazul în care utilizatorii derulează acțiunea și apoi
+
+06:11.990 --> 06:16.090
+clic pe un buton și apoi evidențiați ceva și așa mai departe și așa mai departe.
+
+06:16.150 --> 06:21.640
+Vedeți că tot mai multe acțiuni pe care le avem mai multe schimbări pe care trebuie să le facem și acele schimbări ar putea
+
+06:21.640 --> 06:26.550
+declanșează alte acțiuni care declanșează alte modificări și așa mai departe și așa mai departe.
+
+06:26.560 --> 06:30.090
+Și poate deveni destul de complicat, după cum puteți vedea în această diagramă.
+
+06:31.820 --> 06:39.900
+Ei bine, cu redux ne asigurăm că toate acțiunile trec printr-un reductor.
+
+06:40.280 --> 06:49.570
+Totul curge prin această funcție și prin această funcție se întoarce întotdeauna, pentru că este pură
+
+06:50.290 --> 06:58.180
+aceeași stare bazată pe acțiune și actualizează magazinul și acest magazin acum, ceea ce reprezintă ceea ce
+
+06:58.180 --> 07:00.610
+aplicația ar trebui să arate ca, face schimbări.
+
+07:01.000 --> 07:08.390
+Deci, un fel de pâlnii toate aceste acțiuni într-un reductor, astfel încât totul este previzibil și frumos. Din nou,
+
+07:08.410 --> 07:13.600
+unul dintre acele lucruri care este greu de explicat cu adevărat fără a întâlni problema mai întâi, ceea ce vom face
+
+07:13.600 --> 07:16.360
+ajunge la. Acum, redux,
+
+07:16.570 --> 07:23.260
+și vreau să învăț acest lucru numai în scopuri istorice, utilizează un model arhitectural numit model de flux.
+
+07:24.220 --> 07:30.790
+Arhitectura și software-ul sunt folosite ca o modalitate de a ne asigura că suntem capabili să rezolvăm problemele într-un mod logic
+
+07:30.790 --> 07:33.300
+sens și într-un mod organizat.
+
+07:33.490 --> 07:40.930
+Și acest tipar de flux care a inspirat biblioteca redux, are această idee de a avea o acțiune și apoi a avea
+
+07:40.930 --> 07:49.520
+un dispecer care trimite această acțiune către magazinul care este statul nostru care actualizează vizualizarea.
+
+07:49.790 --> 07:53.590
+Și este un flux de date - totul curge într-un fel.
+
+07:53.660 --> 07:59.510
+Dacă vizualizarea se actualizează, revenim la acțiune și din nou mergem la dispecerul care trimite schimbarea
+
+07:59.510 --> 08:03.250
+la magazin și apoi la vizualizare.
+
+08:03.340 --> 08:06.380
+Și aceasta a fost o idee destul de revoluționară.
+
+08:07.800 --> 08:14.470
+Pentru că înainte de asta aveam ceva numit MVC sau controler de vizualizare model.
+
+08:14.710 --> 08:21.780
+Și ați auzit de ea. A fost destul de popular. Ideea cu modelul MVC este că avem un
+
+08:21.780 --> 08:26.780
+acțiune și că această acțiune este citită de un controlor.
+
+08:27.120 --> 08:34.710
+Deci, din nou, un alt fișier javascript care caută acțiuni, un utilizator face clic pe un buton și se bazează pe orice
+
+08:34.710 --> 08:38.750
+spune controlorul, actualizăm modelul sau datele
+
+08:38.790 --> 08:39.820
+în acest caz.
+
+08:40.020 --> 08:47.490
+Așa că ne putem gândi la ea ca la stat. Schimba ceva în model și apoi actualizează vizualizarea.
+
+08:47.500 --> 08:54.280
+Acum, problema cu modelul MVC este, bine, această diagramă aici. Wwe are controller-ul care se schimbă
+
+08:54.280 --> 08:56.890
+diferite piese ale modelului.
+
+08:57.100 --> 09:03.020
+Și acest model poate schimba vederea care poate declanșa o altă schimbare.
+
+09:03.070 --> 09:07.270
+Și acest model poate schimba o altă parte a vederii și așa mai departe și așa mai departe.
+
+09:07.270 --> 09:14.470
+Și avem acest lucru pe care l-am văzut înainte. Avem o nebunie de acțiuni și de a face schimbări. Toate acestea
+
+09:14.470 --> 09:17.860
+săgeți doar cruci-trecere și nu arata foarte frumos.
+
+09:18.720 --> 09:24.480
+Și, deși este posibil să nu fie rău când aplicațiile dvs. sunt mai mici, pe măsură ce aplicațiile dvs. devin mai mari, doriți să faceți ceva
+
+09:24.480 --> 09:28.190
+așa că este logic și are sens.
+
+09:28.260 --> 09:29.970
+Și asta vrem să facem cu arhitectura.
+
+09:29.970 --> 09:37.170
+Vrem să arhitectură aplicațiile noastre în feluri care, pe măsură ce cresc, deși putem adăuga câteva lucruri în cele din urmă
+
+09:37.730 --> 09:43.200
+totul este mai ușor de înțeles și de înțeles.
+
+09:43.260 --> 09:48.500
+Deci, avem modelul de flux care impune un flux de date direcțional unic.
+
+09:49.500 --> 09:57.770
+Avem modelul MVC care ar putea fi cu siguranță îmbunătățit. Dacă obțineți ceva din acest videoclip,
+
+09:57.780 --> 10:06.090
+singurul lucru pe care vreau sa-l intelegeti este ideea ca redux, la sfarsitul zilei, este destul de mult
+
+10:06.090 --> 10:14.970
+la fel ca "acest stat" în reacție. Cu redux putem înlocui "thisstate" și teoretic eliminăm
+
+10:15.120 --> 10:25.050
+toate "acest stat" să reacționeze și să se întâmple toate acestea în interiorul acestei biblioteci redux, care din nou mergem
+
+10:25.050 --> 10:25.740
+a face.
+
+10:25.920 --> 10:29.280
+Dar un avertisment.
+
+10:29.500 --> 10:39.220
+S-ar putea să aveți tehnic redux cu statul, dar să păstrați încă un pic de stare de reacție într-o
+
+10:39.220 --> 10:39.950
+componentă.
+
+10:40.060 --> 10:47.080
+Redux nu înlocuiește complet "this.state" sau "this.setState" în reacție.
+
+10:47.110 --> 10:53.710
+Totuși, le puteți folosi împreună și vă voi arăta când ați putea să faceți acest lucru atunci când este o decizie bună.
+
+10:54.130 --> 11:00.700
+Dar, așa cum am spus înainte, fără a fi trecut în codul reduxului, ar putea părea puțin
+
+11:00.760 --> 11:02.710
+copleșitoare și confuze.
+
+11:02.710 --> 11:04.710
+Îți promit că ne vom întoarce
+
+11:04.720 --> 11:07.590
+aceste diagrame și lucruri vor avea sens până la sfârșit.
+
+11:07.690 --> 11:14.110
+Înainte de a arunca codul pe ecran, vreau să vă asigur că aveți niște principii și concepte
+
+11:14.110 --> 11:15.420
+de la care lucrăm.
+
+11:15.420 --> 11:16.060
+In regula.
+
+11:16.270 --> 11:21.250
+Știu unde te gândești. Andre "Sunt bolnav și obosit de diapozitive, chiar dacă au acest lucru rece
+
+11:21.250 --> 11:25.600
+clasificarea culorilor Trebuie să văd un cod pentru că mă plictisesc aici.
+
+11:25.640 --> 11:30.440
+Ei bine, știi ce, au răspuns la rugăciunile tale în următorul videoclip.
+
+11:30.490 --> 11:35.330
+În sfârșit, vom începe să scriem niște coduri și să facem niște lucruri distractive.
+
+11:36.110 --> 11:36.880
+O să văd în acel. Pa! Pa.

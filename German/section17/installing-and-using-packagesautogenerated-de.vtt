@@ -1,0 +1,843 @@
+WEBVTT
+
+00:01.160 --> 00:05.470
+Willkommen zurück, fangen wir mit NPM an.
+
+00:05.680 --> 00:10.220
+Ich wollte noch einmal genau darüber nachdenken, was darunter passiert.
+
+00:10.600 --> 00:20.100
+Jetzt, da wir eine package.json-Datei haben, können wir alle Pakete, die wir wollen, aus NPM holen
+
+00:20.100 --> 00:21.900
+und der nächste Abschnitt wird greifen
+
+00:21.900 --> 00:28.380
+wieder eine JavaScript-Bibliothek, die verwendet wird. und diese Datei lebt auf NPM.
+
+00:28.380 --> 00:35.770
+also mit der package.json-Datei und dem neu gefundenen NPM-Befehl,
+
+00:36.010 --> 00:45.190
+Wir können reagieren und haben es als Teil unseres Projekts. Also lasst uns anfangen.
+
+00:45.210 --> 00:51.210
+Ich werde das minimieren und weil wir im nächsten Abschnitt reagieren, zeige ich euch zwei
+
+00:51.240 --> 01:01.290
+andere Pakete, die ich in NPM wirklich sehr mag. Einer heißt Live-Server und der andere ist Lodash.
+
+01:01.340 --> 01:04.300
+Ich werde durch jeden von ihnen gehen, damit Sie wissen, was sie sind.
+
+01:04.400 --> 01:10.320
+Aber ich wähle diese beiden, weil sie sich in der Art unterscheiden, wie Sie sie installieren.
+
+01:12.880 --> 01:18.890
+Zum Beispiel, mit Live-Server, habe ich 'Npm installieren -g Live-Server'
+
+01:18.990 --> 01:19.290
+OK,
+
+01:19.330 --> 01:20.980
+das scheint ziemlich einfach zu sein.
+
+01:21.100 --> 01:28.820
+Und dann, mit lodash, wenn ich zum NPM-Register gehe, sehe ich, dass es ist
+
+01:28.810 --> 01:41.440
+'npm ich --save lodash'. Hmm, naja, NPM erlaubt Ihnen, Dinge auf zwei Arten zu installieren. Eine, global oder zwei, lokal.
+
+01:41.520 --> 01:42.300
+Was bedeutet das?
+
+01:43.550 --> 01:52.220
+In unserem Projekt hier unser Hintergrundgenerator, wenn wir etwas lokal installieren, bedeutet das, dass NPM installiert wird
+
+01:53.150 --> 02:00.790
+ein Paket, das nur in diesem Ordner im Hintergrundgenerator ausgeführt werden kann.
+
+02:00.880 --> 02:06.260
+Aber wenn ich global heruntergeladen habe und das ist '-g'.
+
+02:06.490 --> 02:14.780
+Nun, ich kann Live-Server außerhalb dieses Ordners überall auf meinem Computer verwenden. Wie der Name schon sagt,
+
+02:14.840 --> 02:20.760
+global bedeutet, dass Sie es nicht überall ausführen können und normalerweise global bedeutet, dass Sie es auf Ihrem Terminal ausführen können.
+
+02:20.960 --> 02:26.390
+Also vergiss nicht, dass wenn du es mit '-g' installierst, das bedeutet, dass du dir einen Befehl gibst
+
+02:26.390 --> 02:28.690
+kann im Terminal laufen.
+
+02:29.000 --> 02:38.060
+Wenn du es nicht mit '-g' installierst, wenn es lokal ist, gibt es dir Fähigkeiten wie neue Fähigkeiten in
+
+02:38.090 --> 02:42.970
+die JavaScript-Datei. Lassen Sie uns das durchgehen, um diesen Punkt zu demonstrieren.
+
+02:44.450 --> 02:53.560
+Ich werde den Live-Server installieren und 'npm install -g live-server' installieren und jedes Mal neu installieren
+
+02:53.560 --> 03:01.580
+ein npm, es ist das gleiche. Sie führen 'npm install' und den Paketnamen aus, weil ich diese Installation global haben möchte.
+
+03:01.580 --> 03:05.280
+Ich werde '-g' und ich werde 'Live-Server' sagen
+
+03:07.110 --> 03:09.020
+Es wird hier durch die Installation laufen.
+
+03:11.320 --> 03:12.890
+Ah und da gehst du.
+
+03:12.940 --> 03:15.320
+Wir haben das, was man nennt
+
+03:15.550 --> 03:16.390
+EACCES:03:16.390 --> 03:18.030
+Erlaubnis verweigert.
+
+03:18.030 --> 03:19.050
+Erinnerst du dich, was ich gesagt habe?
+
+03:19.060 --> 03:25.910
+Wenn Sie nicht über die richtigen Berechtigungen verfügen, müssen Sie möglicherweise mit sudo arbeiten?
+
+03:25.940 --> 03:30.470
+Dies ist, was es sagt - es sagt, mein Benutzer hat keinen Zugang zu installieren.
+
+03:30.680 --> 03:37.160
+Sie müssen Administratorrechte haben und das bedeutet nur, dass Sie Ihren Benutzernamen und Ihr Passwort eingeben müssen.
+
+03:37.480 --> 03:45.860
+Sie können dies nachher auf Ihrem Computer beheben, aber jetzt können Sie es ausführen
+
+03:49.620 --> 03:50.210
+'sudo npm installieren -g Live-Server'
+
+03:53.140 --> 03:59.500
+und du siehst, dass es mich nach meinem Passwort fragt und da gehts, Live-Server wurde hinzugefügt.
+
+03:59.710 --> 04:00.550
+Lasst uns das klären.
+
+04:03.340 --> 04:03.760
+OK.
+
+04:03.980 --> 04:09.330
+Wenn ich also meine Paket.json-Datei anschaue, hat sich nichts geändert.
+
+04:10.840 --> 04:17.640
+Und nichts sollte. Weil wir das Paket global installiert haben, lebt es jetzt auf unserem Computer, aber nicht
+
+04:17.640 --> 04:18.610
+in unserem Ordner.
+
+04:18.610 --> 04:24.870
+Wie ich schon sagte. Wir haben eine coole Fähigkeit, jetzt können wir einen Befehl mit Live-Server ausführen
+
+04:24.880 --> 04:28.080
+Sie können die Dokumentation hier lesen.
+
+04:28.250 --> 04:35.170
+Aber was es uns erlaubt, ist, wenn ich Live-Server eintippe, während ich im Hintergrund-Generator-Ordner bin,
+
+04:37.950 --> 04:45.430
+Hast du das verstanden? Es hat unser Hintergrundgenerator-Projekt automatisch geladen.
+
+04:45.430 --> 04:46.760
+Was passiert hier?
+
+04:47.230 --> 04:54.760
+Nun, wir sehen hier Live-Server erstellt einen Server, einen gefälschten Server für Sie und dann auf Änderungen achten
+
+04:55.330 --> 05:03.190
+Wenn ich jetzt gehe, machen wir CSS und ich mache 'text-align:left'
+
+05:03.280 --> 05:14.080
+und ich habe gerettet. Live-Server erkennt die Änderung, die besagt, dass die CSS-Änderung dies automatisch ändert
+
+05:14.170 --> 05:19.850
+ohne dass ich es auffrische. Erinnere dich, wie nervig es war, jedes Mal, wenn ich irgendetwas an unserem Projekt änderte,
+
+05:19.860 --> 05:25.950
+Wir mussten aktualisieren, um sicherzustellen, dass die Änderungen funktionieren. Nun, Live-Server erstellt einen Server, der hält
+
+05:25.950 --> 05:33.420
+Beobachten Sie Ihre Dateien und jedes Mal, wenn eine Änderung vorgenommen wird, sieht sie es und aktualisiert das Projekt und Sie sehen vorbei
+
+05:33.420 --> 05:37.030
+Hier haben wir 127.0.0.1
+
+05:37.230 --> 05:38.990
+Und dann ist das Port 8080.
+
+05:39.240 --> 05:42.520
+Und das ist die Vorgabe, die wir lokale Hosts nennen.
+
+05:42.540 --> 05:44.980
+Darüber spreche ich später im Kurs.
+
+05:46.300 --> 05:52.680
+Aber wie Sie sehen können, sagen Sie nur, dass Sie diese Test-Website unter dieser Adresse öffnen können.
+
+05:52.870 --> 06:00.760
+Wenn ich hier localhost eingib, das ist dein lokaler Host, bist du der Server,
+
+06:00.760 --> 06:02.780
+Es ist genau dasselbe.
+
+06:02.790 --> 06:03.910
+Wie cool ist das.
+
+06:03.950 --> 06:10.680
+Ich werde das zurück auf die Art und Weise bringen, wie es war, und die Änderungen werden wieder erkannt, sobald ich alles gespeichert habe
+
+06:10.680 --> 06:12.440
+ist wiederhergestellt.
+
+06:12.480 --> 06:16.160
+Live-Server ist im nächsten Abschnitt wirklich cool. Ich werde dir etwas noch schöneres zeigen.
+
+06:16.350 --> 06:20.680
+Aber wieder ein wirklich sehr gutes Beispiel dafür, warum NPM großartig ist.
+
+06:20.700 --> 06:27.720
+Ich konnte etwas sehr schnell installieren und jetzt habe ich einen Server, der mein Computer ist
+
+06:27.870 --> 06:33.020
+diese Dateien ansehen und mein Projekt hier auf meinem Computer servieren.
+
+06:33.030 --> 06:36.160
+Wir mussten keinen Server kaufen, wir mussten ihn nicht auf Github setzen,
+
+06:36.300 --> 06:38.010
+Alles ist schon da.
+
+06:39.570 --> 06:41.670
+Jetzt, wo wir das getan haben, lass mich das einfach schließen.
+
+06:41.670 --> 06:43.670
+Ich werde das klären.
+
+06:44.520 --> 06:47.080
+Das war also ein weltweit installiertes Paket.
+
+06:47.130 --> 06:50.040
+Die andere Art von Paket, das Sie installieren können, ist lokal, wie ich schon sagte.
+
+06:50.070 --> 06:56.910
+und mit einem lokalen Paket können wir etwas wie lodash installieren und es ist tatsächlich eines der
+
+06:56.910 --> 06:59.290
+populärere Bibliotheken.
+
+06:59.370 --> 07:06.120
+Jetzt für diejenigen, die lodash nicht kennen, können Sie es als eine Erweiterung von JavaScript betrachten.
+
+07:06.120 --> 07:09.400
+Mit JavaScript haben wir alle diese Methoden, die damit einhergehen.
+
+07:09.420 --> 07:11.520
+Wir haben - Sie wissen, QuerySelector,
+
+07:11.520 --> 07:13.390
+Wir haben getElementById,
+
+07:13.680 --> 07:20.700
+Aber wäre es schön, wenn wir mehr Funktionen hätten, die wir ausführen können? Nun, lodash hat eine ganze Menge
+
+07:20.700 --> 07:21.920
+sie können sie benutzen.
+
+07:22.110 --> 07:29.400
+Und wenn Sie auf die Website gehen, wenn Sie zur Dokumentation gehen, werden Sie sehen, dass sie all diese Dinge haben
+
+07:29.470 --> 07:32.790
+Sie können mit einem Array tun, und sie haben auch wirklich gute Beispiele.
+
+07:32.800 --> 07:40.000
+Also, jedes Mal, wenn Sie ein Problem haben, ist Lodash wirklich wirklich gut, anstatt vielleicht Ihre eigenen zu schreiben.
+
+07:40.100 --> 07:42.800
+Ich möchte nicht, dass lodash auf meinem Computer ist.
+
+07:42.800 --> 07:48.520
+Ich will es nur für dieses Projekt. Was ich sagen werde ist, ich werde 'npm install lodash' sagen
+
+07:52.260 --> 07:56.580
+und ich öffne die package.json-Datei, um zu sehen, ob sich das ändert, während wir dies tun.
+
+07:56.730 --> 08:01.240
+Ich werde Enter drücken.
+
+08:01.480 --> 08:10.180
+Nun, wenn ich in meinen erhabenen Text gehe, sehen wir, dass package.json gerade eine neue Zeile hinzugefügt hat, es sagt "Abhängigkeiten",
+
+08:10.730 --> 08:15.660
+"lodash" und das ist die Version von lodash, die wir heruntergeladen haben.
+
+08:16.120 --> 08:22.630
+Und eine andere Sache, die Sie vielleicht bemerken, ist, dass wir etwas namens Knoten-Modul-Ordner haben, der gerade erstellt wurde.
+
+08:22.630 --> 08:24.550
+was bedeutet das?
+
+08:24.760 --> 08:29.230
+Wenn wir dies öffnen, sehen wir, dass lodash installiert ist.
+
+08:29.540 --> 08:35.300
+Und oh Junge, das sind viele Dateien von lodash, die wir gerade installiert haben.
+
+08:36.790 --> 08:45.950
+Sie sehen, sobald wir npm installieren dann Paketnamen, es passt lokal und wir haben eine package.json Datei
+
+08:46.070 --> 08:47.650
+seit wir 'npm init' gemacht haben,
+
+08:47.780 --> 08:56.090
+Es wird es zu unseren Abhängigkeiten hinzufügen, was Pakete bedeutet, die unsere Website arbeiten muss. Und so wie es ist
+
+08:56.090 --> 09:03.810
+Findet, dass all diese Pakete unter dem Knotenmodulordner liegen und Sie sehen, dass lodash hier ist
+
+09:03.930 --> 09:08.340
+und jetzt können wir alle ihre neuen Methoden verwenden.
+
+09:08.390 --> 09:09.140
+Also lass es uns versuchen.
+
+09:09.140 --> 09:13.380
+Mal sehen, ob wir tatsächlich ein lodash arbeiten und unser JavaScript haben.
+
+09:13.490 --> 09:14.950
+Ich werde das script.js öffnen,
+
+09:15.030 --> 09:15.990
+-
+
+09:16.040 --> 09:21.240
+Und so wie wir hier wohnen wollen, gibt es ein paar Wege.
+
+09:21.260 --> 09:25.070
+One ist zeigt Ihnen den Weg, es in Node.js zu tun,
+
+09:25.170 --> 09:27.060
+aber wir verwenden nicht Node.js,
+
+09:27.110 --> 09:36.840
+Also, wenn Sie sich mit Modulen erinnern, können wir einfach "importieren ohne" - was eine lodash-Funktion ist,
+
+09:36.920 --> 09:40.360
+Ich denke, wir können es hier ohne.js sehen,
+
+09:44.140 --> 09:53.720
+und ich sage nur 'von lodash', lass uns das schließen und nur um zu überprüfen, ob wir lodash arbeiten,
+
+09:53.720 --> 09:55.100
+Ich werde nur 'console.log (ohne)'
+
+09:56.700 --> 10:03.150
+Ich werde sparen, und weißt du was, lass uns den Live-Server starten, weil es gut für uns funktioniert hat.
+
+10:03.150 --> 10:05.660
+Lass uns die Konsole öffnen, hmm
+
+10:06.500 --> 10:07.830
+Uncaught SyntaxError,
+
+10:07.920 --> 10:09.990
+Unerwarteter Token-Import
+
+10:10.100 --> 10:18.350
+Und wenn ich das hier wirklich importiere, dann erkennt die Konsole den Import nicht, wie ich vorher schon gesagt habe
+
+10:18.620 --> 10:23.750
+Es ist eine neue Syntax, die die Browser nicht implementiert haben.
+
+10:23.900 --> 10:32.440
+Es sieht so aus, als müsste ich die "require" -Syntax verwenden und Sie könnten sich diese Syntax aus diesem Video merken
+
+10:32.440 --> 10:39.400
+Wir haben über das Modulieren von JavaScript gesprochen und wir haben darüber gesprochen, dass ES6 und dieses Ding ein Webpack genannt wird
+
+10:39.400 --> 10:40.370
+Was wir jetzt benutzen.
+
+10:41.660 --> 10:44.270
+Aber das ist für den Reaktionsabschnitt.
+
+10:44.270 --> 10:47.690
+Für den Moment wollen wir in der Lage sein, require zu verwenden.
+
+10:47.750 --> 10:52.250
+Und die Art, wie wir das können, ist browserify.
+
+10:52.270 --> 11:02.840
+Zum Glück für uns haben wir etwas namens NPM, das wir ein globales Paket installieren können, also kann ich installieren
+
+11:04.090 --> 11:05.240
+global,
+
+11:05.640 --> 11:11.520
+Und da ist browserify
+
+11:11.640 --> 11:19.480
+Und wieder habe ich den Zugriffsfehler, also muss ich 'sudo npm install -g browserify' machen
+
+11:23.740 --> 11:27.390
+lassen Sie mich klar, dass alles wieder installiert ist.
+
+11:28.160 --> 11:36.260
+Die Import-Syntax, die von ES6 kommt, konnte diese mit Webpack verwenden, aber das ist für den nächsten Abschnitt
+
+11:36.260 --> 11:38.750
+Ich möchte dir zeigen, was wir vorher gemacht haben.
+
+11:38.750 --> 11:44.920
+Wir verwenden etwas namens browserify, das uns erlaubt, dies zu verwenden, erfordert Syntax.
+
+11:45.030 --> 11:54.620
+Also kopieren wir das so, wie sie es in NPM haben und jetzt werde ich 'console.log' sagen
+
+11:56.720 --> 11:59.940
+Unterstrich (_), aber das wird eigentlich nichts tun.
+
+11:59.960 --> 12:08.660
+Wenn Sie sich erinnern, dass dies ein Modulbündler ist, und es ist ein globales Paket, das wir installiert haben.
+
+12:08.700 --> 12:16.730
+Wir geben ihm eine Skriptdatei und es gibt eine andere Skriptdatei aus, die wir im Browser verwenden können.
+
+12:16.970 --> 12:22.890
+Den Befehl dafür, weil wir es global installiert haben, können wir jetzt browserify verwenden und das kann ich sagen
+
+12:23.130 --> 12:33.150
+Meine script.js-Datei sollte bündel.js sein
+
+12:33.240 --> 12:34.210
+Hast du das gesehen?
+
+12:34.210 --> 12:37.050
+Wir haben jetzt eine bundle.js Datei.
+
+12:37.230 --> 12:45.070
+Und wenn ich darauf klicke, nun, ich habe eine ganze Menge Dinge, die wie eine große Datei aussehen, und das liegt daran
+
+12:45.070 --> 12:47.910
+Wir haben Lodash eingeschlossen.
+
+12:48.020 --> 12:56.770
+Es hat für uns eine Bundle-Datei erstellt, die das hinzufügt, was wir wollten, damit der Browser es versteht.
+
+12:57.630 --> 13:07.210
+Wir gehen einfach zur index.html-Datei und statt der script.js-Datei machen wir bundle.js, die ich speichere
+
+13:08.210 --> 13:14.700
+und lass es uns noch einmal versuchen Ich werde Live-Server machen, öffne die Konsole,
+
+13:14.710 --> 13:15.840
+Da gehst du.
+
+13:16.000 --> 13:18.300
+Es sieht so aus, als ob es funktioniert.
+
+13:18.380 --> 13:26.810
+Wenn ich jetzt mit meinem Projekt zu meiner Skriptdatei mit lodash zurückgehe, wenn ich ein Array hätte. Lass es uns Variable (var) nennen
+
+13:27.380 --> 13:40.350
+Array, das 1 2 3 4 5 6 7 8 hat. Und ich kann eine lodash-Methode verwenden, die ohne ist.
+
+13:40.500 --> 13:49.210
+Und ich kann console.log machen, antworte:innerhalb hier wird lodash sagen, welches der Unterstrich ist, den wir zugewiesen haben
+
+13:49.210 --> 13:58.780
+die Unterstreichungsvariable zu lodash, wie die Bibliothek es vorschlägt, und wir geben es ohne, was wieder ist
+
+13:58.780 --> 14:00.890
+eine Methode, die mit lodash kommt
+
+14:00.910 --> 14:03.280
+Sie können auf ihrer Website nachsehen. Innerhalb hier,
+
+14:03.280 --> 14:06.400
+Ich werde mein Array setzen,
+
+14:06.400 --> 14:12.180
+Und der zweite Parameter wird sein, was ich will, ohne es zu sein.
+
+14:12.220 --> 14:17.290
+Sagen wir, ich wollte ohne die Nummer 3 sein.
+
+14:17.420 --> 14:23.860
+In diesem Fall speichere ich das, Änderung wurde erkannt.
+
+14:23.920 --> 14:34.130
+Ich öffne die Konsole und erfrische, Ah- aber du siehst, wir sehen hier nichts, weil wir es wieder tun müssen
+
+14:34.130 --> 14:36.500
+setze es in 'bundle.js',
+
+14:36.540 --> 14:43.760
+Ich weiß, es ist nervig, aber das ist eine gute Übung für uns zu verstehen, wie das alles funktioniert.
+
+14:43.760 --> 14:51.770
+Also wieder wurde das Bundle aktualisiert und ich kann nun meinen Live-Server laufen lassen, die Konsole öffnen und schauen
+
+14:51.770 --> 14:56.620
+Ich habe ein Array mit 1, 2, 3, 4, 5, 6, 7, 8.
+
+14:56.960 --> 15:01.110
+Also kann ich lodash benutzen.
+
+15:01.150 --> 15:09.160
+Wenn Sie sich das anschauen, werden Sie vielleicht verstehen, warum NPM Node Package Manager genannt wird. Weil es ursprünglich war
+
+15:09.160 --> 15:17.770
+erstellt für Knoten, die dies akzeptieren, erfordern Syntax, aber nicht für den Browser. browserify hat uns erlaubt
+
+15:18.160 --> 15:22.410
+Verwenden Sie die Syntax, die eine Syntax erfordern würde, die in verwendet wurde
+
+15:22.490 --> 15:23.550
+node.js,
+
+15:23.950 --> 15:24.940
+im Browser.
+
+15:25.000 --> 15:33.480
+Alles, was wir tun mussten, war, unsere Skriptdateien in browserify einzugeben und dann das Paket für uns auszugeben.
+
+15:33.520 --> 15:34.450
+Sehr cool.
+
+15:34.450 --> 15:34.840
+Gut.
+
+15:34.870 --> 15:40.090
+Es gibt eine Menge Reifen, um Ihnen ein paar Dinge zu zeigen, aber Sie haben wirklich sehr gute
+
+15:40.090 --> 15:42.700
+Kontakte von dem, was wir hier zu tun versuchen.
+
+15:42.760 --> 15:50.620
+Wir haben jetzt ein System eingerichtet, in das wir all diese verschiedenen Dinge importieren können, die andere Leute haben
+
+15:50.620 --> 15:52.400
+geschrieben, um unseren Code besser zu machen.
+
+15:52.480 --> 15:55.660
+Sie werden jedoch möglicherweise zwei Probleme mit dem aktuellen Setup feststellen.
+
+15:56.560 --> 16:01.940
+Einer ist die Tatsache, dass ich das nur ohne Methode verwende, die mit lodash kommt.
+
+16:02.170 --> 16:09.070
+Aber wenn ich in der Datei bundle.js nachschaue, ist das sehr umfangreich, weil es die gesamte Bibliothek enthält
+
+16:10.920 --> 16:16.120
+und das ist etwas, mit dem Sie vorsichtig sein wollen. Wenn Sie mit NPM arbeiten,
+
+16:16.120 --> 16:22.870
+Viele Anfänger beginnen gerade damit, eine Tonne Pakete zu installieren, ohne darüber nachzudenken, wie viel Gewicht sie haben
+
+16:22.870 --> 16:24.390
+zu einem Projekt hinzufügen.
+
+16:24.430 --> 16:31.480
+Es ist eine gute Idee, wirklich zu beurteilen, ob Sie dieses Paket als Team benötigen und es dem Projekt hinzufügen.
+
+16:31.480 --> 16:36.760
+Wenn es dir Zeit spart, wenn es wirklich gut geschrieben ist, hat es eine große Gemeinschaft.
+
+16:36.760 --> 16:40.500
+Es ist etwas, das Sie immer in Betracht ziehen wollen.
+
+16:40.510 --> 16:48.220
+Die zweite Sache ist, dass wir jetzt etwas namens "Abhängigkeiten" haben, von dem unser Projekt abhängt
+
+16:48.220 --> 16:48.720
+diese Dinge.
+
+16:48.850 --> 16:57.670
+Wir müssen sicherstellen, dass unsere Website oder unsere App immer in einer bestimmten Version lodash hat
+
+16:57.670 --> 16:59.040
+Es funktioniert mit unserer Website.
+
+16:59.350 --> 17:06.730
+Es fügt auch diese zusätzliche Ebene der Komplexität hinzu, die Sie berücksichtigen sollten. Aber Paket.json Datei auch
+
+17:06.730 --> 17:09.610
+bietet dir viele tolle Dinge.
+
+17:09.700 --> 17:15.660
+Vielleicht sind sie momentan nicht offensichtlich, weil unser Projekt ziemlich klein ist, aber wenn Sie daran arbeiten
+
+17:15.660 --> 17:22.170
+Bei großen Projekten ist es eine großartige Dokumentation dafür, von welchen Paketen Ihr Projekt abhängt.
+
+17:23.230 --> 17:31.750
+Sie werden sehen, dass die meisten großen Projekte fast 100 Abhängigkeiten haben und nur einen Standort haben
+
+17:31.750 --> 17:38.350
+package.json-Datei, um alle diese Pakete zu sehen, um zu sehen, worauf das Projekt ankommt, ist wirklich wirklich nett für alle
+
+17:38.350 --> 17:45.090
+alle, die dem Team beitreten, und Sie können hier auch die Version Ihrer Abhängigkeiten angeben.
+
+17:45.100 --> 17:46.000
+Um Updates zu aktualisieren,
+
+17:46.000 --> 17:52.720
+Ich kann meine Version auch nur von dieser einen Zeile aktualisieren, ohne zur lodash Website gehen zu müssen, download
+
+17:52.720 --> 17:56.460
+die Datei und fügen Sie sie hinzu
+
+17:56.470 --> 17:57.750
+meine index.html Skriptdatei.
+
+17:58.240 --> 18:02.190
+Eine weitere Sache ist, dass wir die Skriptdateien nicht immer und immer wieder hinzufügen.
+
+18:02.260 --> 18:04.220
+Wie wir schon vorher darüber gesprochen haben.
+
+18:04.590 --> 18:10.030
+Jetzt diese Zahlen, die Sie gesehen haben, bevor es heißt und sie haben jeweils eine Bedeutung.
+
+18:10.270 --> 18:13.920
+Die rechte Nummer ist die Patch-Version.
+
+18:13.990 --> 18:16.520
+Das heißt, wenn es irgendwelche Fehlerbehebungen gibt.
+
+18:16.780 --> 18:20.330
+Sie werden es hier aktualisieren, wenn sie einen Fehler finden, und sie müssen es beheben.
+
+18:20.350 --> 18:22.110
+Dies wird fünf.
+
+18:22.300 --> 18:24.550
+Dies ist die Nebenversion.
+
+18:24.550 --> 18:30.610
+Das bedeutet, dass es einige neue Funktionen gibt, die zu lodash hinzugefügt wurden, aber es wird keine Änderungen geben
+
+18:30.610 --> 18:31.560
+das sind wichtig.
+
+18:31.600 --> 18:37.390
+Und schließlich ist dies eine große Veröffentlichung, was bedeutet, dass dies eine vierte Version der fünften Version von ist
+
+18:37.390 --> 18:38.710
+lodash wurde veröffentlicht.
+
+18:38.740 --> 18:40.870
+Nun, das ist eine Hauptversion.
+
+18:40.900 --> 18:48.280
+Das könnte ganz anders sein als in Version 4 und es könnte einige der Webseiten zerstören, die davon abhängen
+
+18:48.460 --> 18:54.880
+Mit lodash 4. package.json können Sie wirklich entscheiden, welche Versionen Sie für jede dieser Versionen benötigen
+
+18:55.300 --> 18:56.430
+Pakete.
+
+18:56.530 --> 19:02.890
+Aber wahrscheinlich der größte Vorteil, den Sie mit NPM bekommen, ist dieses Projekt viel einfacher mit anderen zu teilen
+
+19:02.890 --> 19:03.790
+Entwickler.
+
+19:03.790 --> 19:10.360
+Ich muss für diese jetzt keine Skript-Tags in HTML hinzufügen, und für einen Entwickler,
+
+19:10.360 --> 19:17.020
+damit sie alle Pakete oder Abhängigkeiten herunterladen können, die ein Projekt benötigt,
+
+19:17.180 --> 19:25.480
+Nun, ich werde niemals die Knotenmodule in mein Github Repo legen. weil alles, was Sie brauchen, ist
+
+19:25.480 --> 19:26.330
+package.json-Datei.
+
+19:26.440 --> 19:27.760
+Lass mich dir zeigen, was ich meine.
+
+19:27.910 --> 19:29.800
+Wenn ich meine Knotenpakete hier lösche
+
+19:34.810 --> 19:40.090
+und sagen wir mal, dass jemand neues bei der Firma angefangen hat und wir wollen sicherstellen, dass sie das Neueste haben
+
+19:40.090 --> 19:42.380
+Version des Projekts, damit sie anfangen können, daran zu arbeiten.
+
+19:43.060 --> 19:50.110
+Nun, obwohl es keine Knotenmodule gibt, weil wir die Datei package.json haben, ist NPM schon genug
+
+19:50.740 --> 19:59.590
+zu sagen:Lasst mich das klären, oder lasst mich diesen Server stoppen, und ich werde klären, solange die neue Person das tut
+
+19:59.600 --> 20:01.140
+'npm installieren'
+
+20:01.580 --> 20:06.620
+Und es gibt eine package.json Datei.
+
+20:06.680 --> 20:11.340
+Nun, in diesem Fall werden alle Abhängigkeiten heruntergeladen.
+
+20:11.810 --> 20:16.640
+So können sie das Projekt sofort mit der exakt gleichen Version aller Dateien starten, die jeder hat
+
+20:16.640 --> 20:17.860
+sonst hat.
+
+20:18.050 --> 20:24.440
+Und deshalb werden Sie keine bekannten Modulordner sehen, die auf Github wirklich sehr groß werden können
+
+20:24.530 --> 20:25.260
+weil wir es nicht brauchen.
+
+20:25.310 --> 20:32.020
+Wir haben alles hier in package.json beschrieben.
+
+20:32.050 --> 20:33.750
+Jetzt noch eine andere Sache.
+
+20:34.210 --> 20:41.000
+Es gibt tatsächlich eine andere Art von Abhängigkeiten, die Sie haben können, diese Abhängigkeiten sind was
+
+20:41.080 --> 20:42.940
+Hintergrundgenerator hängt davon ab.
+
+20:42.940 --> 20:50.140
+Aber es gibt eine andere Art von Abhängigkeit, die 'dev-Abhängigkeit' genannt wird, und eine dev-Abhängigkeit sind Pakete, die
+
+20:50.140 --> 20:53.520
+werden nur für Entwicklung und Tests benötigt.
+
+20:53.740 --> 21:00.850
+Es wird also niemals an eine Website gesendet, so dass ein Endbenutzer nicht sehen kann und Sie viele Dinge tun können
+
+21:00.850 --> 21:06.700
+das werden wir wieder in den Abschnitt zu reagieren, aber wir werden einen separaten Abschnitt namens 'dev Abhängigkeiten' haben
+
+21:06.700 --> 21:14.980
+Hier wird es verschiedene Dinge geben, die nur für die Entwickler verwendet werden, aber automatisch herausgenommen werden
+
+21:15.220 --> 21:21.730
+wenn wir das Produkt freigeben, damit es unserem Projekt nicht zu viel Gewicht hinzufügt.
+
+21:21.730 --> 21:22.420
+OK OK.
+
+21:22.570 --> 21:24.160
+Ich verspreche, das ist das Letzte.
+
+21:24.160 --> 21:30.870
+Lass mich das klären. Wenn ich jetzt npm laufe test
+
+21:30.870 --> 21:32.870
+Also ist die Syntax 'npm run'
+
+21:32.940 --> 21:35.450
+dann, was auch immer das Skript sagt-
+
+21:35.460 --> 21:40.470
+in diesem Fall 'Test', bekomme ich 'Echo' Fehler:kein Test
+
+21:40.480 --> 21:42.720
+angegeben."
+
+21:42.790 --> 21:45.960
+Nun, das ist genau das, was hier definiert ist.
+
+21:46.190 --> 21:51.390
+Mit NPM-Skripts können Sie Kommentare aus der Datei package.json eingeben.
+
+21:51.430 --> 22:00.200
+Lass mich es dir zeigen. Erinnern Sie sich, wie nervig es war, dass wir browserifizieren mussten, um das Bündel zu machen? nun, hier drin
+
+22:00.210 --> 22:06.530
+Ich kann sagen "bauen" und in diesem Abschnitt
+
+22:09.370 --> 22:11.570
+- Lasst mich das größer machen - in diesem Abschnitt,
+
+22:11.570 --> 22:19.850
+Ich kann sagen "browserify script.js" zu "bundle.js"
+
+22:22.620 --> 22:29.520
+und ich kann die Skripte ein Build-Skript ausführen, das dies automatisch in meinem Terminal ausführt.
+
+22:29.520 --> 22:32.100
+Lass mich dir zeigen, wenn ich hier rette.
+
+22:35.140 --> 22:45.910
+brauche klar- und ich werde 'npm run' sagen und dann, was auch immer der Name des Skripts 'build' ist
+
+22:45.930 --> 22:50.260
+Sieh dir das an. Ich habe gerade browserify aktualisiert und es führt das Skript aus.
+
+22:50.430 --> 22:51.000
+Sehr cool.
+
+22:51.090 --> 23:02.760
+Nun, was, wenn wir auch den Live-Server hinzufügen, Befehl dazu? '&& Live-Server' Ich speichere und
+
+23:02.760 --> 23:07.710
+Führen Sie den gleichen Befehl erneut aus.
+
+23:07.760 --> 23:17.410
+Sieh dir das an. Ich habe mein Array angezeigt, meine Website läuft und es führt alle Befehle direkt von meinem Terminal aus.
+
+23:17.410 --> 23:18.340
+Wie cool ist das?
+
+23:20.010 --> 23:20.500
+Gut.
+
+23:20.820 --> 23:23.880
+Ich denke, das reicht für NPM.
+
+23:24.000 --> 23:25.990
+Es ist ein sehr nützliches Werkzeug.
+
+23:26.020 --> 23:31.530
+Wir werden es sehr oft verwenden und Sie werden das viel in Ihrem Tag benutzen und Sie werden sich wohler fühlen
+
+23:31.530 --> 23:31.980
+damit.
+
+23:31.980 --> 23:39.840
+Je mehr verwenden Sie es. Im nächsten Abschnitt werden wir endlich eine Real Life App mit React erstellen.
+
+23:39.840 --> 23:43.400
+Wir werden etwas von dem Wissen verwenden, das wir bis zu diesem Punkt gesammelt haben.
+
+23:43.440 --> 23:48.010
+Wir haben jetzt eine vollständige Ansicht von Front-End.
+
+23:48.240 --> 23:53.760
+Auch wenn Sie sich nicht besonders sicher fühlen, werden Sie sehen, dass wir soweit sind, dass wir es schaffen
+
+23:53.760 --> 23:57.350
+bilde wirklich sehr schöne Apps und Webseiten.
+
+23:57.510 --> 24:02.880
+Wir haben jetzt alle Werkzeuge in unserem Arsenal, um einige erstaunliche Dinge zu erschaffen.
+
+24:02.880 --> 24:05.980
+Ich freue mich wirklich sehr auf die nächste Sitzung mit Ihnen.
+
+24:06.090 --> 24:07.510
+Ich sehe dich in diesem.
+

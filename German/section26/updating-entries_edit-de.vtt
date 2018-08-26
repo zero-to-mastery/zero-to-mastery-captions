@@ -1,0 +1,178 @@
+WEBVTT
+
+00:01.300 --> 00:02.240
+Willkommen zurück.
+
+00:02.470 --> 00:04.980
+Lassen Sie uns hier am Bildendpunkt arbeiten.
+
+00:05.230 --> 00:11.840
+Und angesichts dessen, was wir bisher getan haben, können wir ziemlich sicher sein, dass wir nichts davon brauchen werden.
+
+00:11.860 --> 00:14.840
+Wir werden es mit der Datenbank verbinden.
+
+00:14.950 --> 00:20.710
+Wenn Sie sich daran erinnern, aktualisiert der Image-Endpunkt die Einträge und erhöht die Anzahl.
+
+00:20.710 --> 00:28.560
+Also müssen wir nur aktualisieren und uns KNEX ansehen und sehen, ob sie die Update-Funktion haben
+
+00:32.790 --> 00:33.970
+Ja, sie tun es.
+
+00:33.990 --> 00:37.540
+Und sie geben uns gute Beispiele dafür, wie es geht.
+
+00:39.760 --> 00:42.170
+Lassen Sie uns das als Beispiel verwenden.
+
+00:43.030 --> 00:45.220
+Um unsere Update-Funktion zu erstellen
+
+00:48.310 --> 00:49.690
+Wir werden es nur hier kopieren.
+
+00:52.530 --> 01:04.740
+Und wir wissen das mit unserem DB-Punkt, wo wir sagen wollen, wo die ID gleich ist und es nicht 3 ist, weil
+
+01:04.740 --> 01:14.740
+Das ist SQL, wobei die ID der ID entspricht, die wir im Hauptteil erhalten haben und die Einträge aktualisieren sollen
+
+01:16.090 --> 01:21.100
+höher als die Einträge, die derzeit dort sind.
+
+01:21.140 --> 01:22.990
+Aber wie können wir das machen?
+
+01:23.160 --> 01:26.660
+Wie können wir die Einträge aus der Datenbank holen und erhöhen?
+
+01:26.660 --> 01:34.230
+Wieder ist dies ein Problem, das sehr häufig ist und gesagt wird, die ID zu wählen, was auch immer die Einträge ergreift
+
+01:34.230 --> 01:35.890
+ist und aktualisiert es.
+
+01:36.300 --> 01:46.080
+Nun, wir können einfach etwas verwenden, das Inkrement und Inkrement genannt wird, sagt uns aber nur die Spalte und die Menge
+
+01:46.080 --> 01:49.110
+wir wollen um erhöht werden. Sehr cool.
+
+01:49.230 --> 01:49.870
+Machen wir das.
+
+01:50.160 --> 02:00.200
+Nehmen wir an, dass die Benutzer-ID anstelle der Aktualisierung nur inkrementiert wurde und wir Einträge vornehmen werden
+
+02:00.200 --> 02:01.140
+es um eins.
+
+02:01.450 --> 02:06.280
+Und die Vorgabe ist eine, die ich ziemlich sicher bin, aber ich mag es immer, explizit zu sein, damit die Leute wissen, was los ist
+
+02:06.280 --> 02:09.020
+wenn sie den Code lesen und das machen wir.
+
+02:09.430 --> 02:22.110
+Wir erhöhen also um eins, und dann wollen wir sagen, dass wir die Einträge zurücksenden sollen. Dann machen wir einen Punkt und sehen was
+
+02:22.110 --> 02:22.470
+wir bekommen
+
+02:29.450 --> 02:30.530
+Konsolenprotokoll
+
+02:33.340 --> 02:44.790
+Einträge und lassen Sie uns speichern. Geh zurück zum Postboten. Lassen Sie uns unseren Bildendpunkt finden, der einen Körper von ID und hat
+
+02:44.790 --> 02:47.940
+wir müssen ihm eine ID geben, die für den Moment existiert.
+
+02:47.950 --> 02:59.840
+Also lass uns einfach eins senden. Und wenn wir zurückkommen, bekommen wir nichts, weil wir eine Put-Anfrage machen müssen.
+
+02:59.850 --> 03:07.380
+Denken Sie daran, wir haben es geändert, um es erneut zu senden, und es hängt, weil wir es nicht beantwortet haben
+
+03:07.380 --> 03:09.270
+Wir werden die Anfrage jetzt einfach abbrechen.
+
+03:09.410 --> 03:16.610
+Aber wenn wir zurück zum Server gehen, können wir sehen, dass hier ein Fehler ist und wir definitiv
+
+03:16.610 --> 03:18.600
+machte hier einen dummen Fehler.
+
+03:18.620 --> 03:22.370
+Es hat keine Ahnung, von welcher Datenbank wir sprechen.
+
+03:22.370 --> 03:29.310
+Wir müssen hier wirklich Benutzer sagen. Die SQL-Fehler können manchmal wirklich verwirrend sein.
+
+03:29.380 --> 03:33.720
+Aber wie ich schon sagte, es ist ziemlich deklarativ.
+
+03:33.720 --> 03:40.340
+So lange du es lesen kannst und es mit KNEX verstehst, sind Fehler auf ein Minimum beschränkt, es sei denn du bist wie
+
+03:40.340 --> 03:43.070
+Ich und du vergisst, den Tisch tatsächlich zu erwähnen.
+
+03:43.070 --> 03:43.970
+Lass es uns nochmal versuchen.
+
+03:44.930 --> 03:45.600
+Geschickt.
+
+03:45.720 --> 03:48.730
+Wir werden die Anfragen beantworten, weil es keine Antwort gibt.
+
+03:49.070 --> 03:52.440
+Aber jetzt habe ich eine Rückkehr.
+
+03:52.580 --> 03:56.300
+Wenn ich es erneut sende, storniere die Anfrage.
+
+03:56.370 --> 04:05.220
+Ich habe zwei. Wenn ich zurück zur Datenbank gehe und alles auswähle, sehe ich, dass Ann nun Einträge von zwei hat. Tolle.
+
+04:07.740 --> 04:08.630
+Also können wir hier zurück gehen
+
+04:08.640 --> 04:15.570
+jetzt, wissend, dass das funktioniert. Lassen Sie uns sagen, dass Einträge, wir wollen - wieder, das erste Array, weil wir
+
+04:15.570 --> 04:22.670
+Holen Sie sich einen und anstelle der Konsolenprotokollierung werden wir Antwortpunkte json-Einträge sagen.
+
+04:22.990 --> 04:32.170
+Aber wenn etwas schief geht, werden wir einen Punktfang machen, genau wie wir hier versagt haben und das können wir sagen
+
+04:32.350 --> 04:45.820
+error response dot status Wir geben es noch einmal 400 Wir sagen Json, dass wir keine Anzahl oder Einträge bekommen können
+
+04:48.180 --> 04:55.260
+Wir speichern das und ich werde es tatsächlich entfernen, um sicherzustellen, dass der Fehler funktioniert.
+
+04:55.260 --> 04:58.430
+Also sollte es mir eine 400 zurückgeben.
+
+04:58.560 --> 05:00.030
+Lass es uns nochmal versuchen.
+
+05:00.200 --> 05:04.590
+Senden. Einträge konnten nicht abgerufen werden. 400 Anfrage.
+
+05:04.840 --> 05:16.310
+Aber wenn ich das an die Benutzer repariere und Ann wieder wähle, bekomme ich drei.
+
+05:16.390 --> 05:22.660
+Alles in allem haben wir unseren Image-Endpunkt in Betrieb genommen und wir haben den letzten Endpunkt, an dem wir uns anmelden können
+
+05:24.340 --> 05:25.690
+das ist für das nächste Video.
+
+05:25.960 --> 05:26.800
+Wir sehen uns dann. Tschüss.

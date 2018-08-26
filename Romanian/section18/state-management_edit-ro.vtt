@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Bine ai revenit.
+
+00:03.570 --> 00:10.610
+Înainte de a începe să învăț despre redux, trebuie să vorbim despre ceva numit management de stat.
+
+00:10.640 --> 00:12.440
+Am auzit acest cuvânt înainte - stat.
+
+00:12.530 --> 00:13.050
+Dreapta.
+
+00:13.190 --> 00:14.690
+Atunci când construiți o aplicație de reacție.
+
+00:14.720 --> 00:24.300
+Am avut acest stat și statul descris ce ar trebui să arate aplicația noastră. Dacă ne amintim de asta, bine,
+
+00:27.630 --> 00:36.750
+reacția este pur și simplu un grup de componente care sunt redate într-o structură arborescentă.
+
+00:36.840 --> 00:41.420
+Deci, acest lucru ar fi app.js, de exemplu.
+
+00:41.560 --> 00:48.390
+Și fiecare dintre aceste componente ar avea stat, de exemplu, punctele roșii de aici.
+
+00:48.700 --> 00:49.750
+Ei au stat.
+
+00:49.750 --> 00:57.730
+Deci, de exemplu, această componentă de aplicație va avea o stare de conectare ca și, să spunem că statul este utilizator
+
+00:57.730 --> 01:06.340
+în acest caz, această componentă a utilizatorului ar putea avea o stare de utilizator "Mitch" sau dacă este conectată ca
+
+01:06.340 --> 01:14.200
+este "Admin" se poate face componenta admin și oricând veți vedea punctul albastru care înseamnă că a fost o
+
+01:14.200 --> 01:21.340
+schimbați astfel dacă există o schimbare aici, aceasta poate actualiza ceva în această componentă și vom face.
+
+01:21.640 --> 01:31.380
+Și am făcut asta în reacție și vreau să te gândești la stat ca memorie. O aplicație trebuie să-și amintească lucrurile
+
+01:31.440 --> 01:40.240
+în scopul de a lucra altfel ne-ar avea doar html pagini web ca înainte.
+
+01:40.320 --> 01:43.340
+Amintiți-vă acest site Web Keiko Corp.
+
+01:43.490 --> 01:46.940
+Aceasta într-adevăr nu are nici un stat, nu-i așa.
+
+01:48.050 --> 01:57.230
+De fiecare dată când afișăm exact aceeași pagină web pentru oricine îl folosește. Această pagină nu are nicio idee despre cine este utilizatorul
+
+01:57.230 --> 02:03.740
+este sau orice interacțiuni pe care le am - este în principal doar text.
+
+02:03.810 --> 02:07.530
+Acum, aplicația RoboFriends - este diferită.
+
+02:07.680 --> 02:08.880
+Are stat.
+
+02:09.330 --> 02:14.880
+Ei bine, mai ales pentru că am scris-o și am avut acest stat, dar putem interacționa cu el.
+
+02:14.940 --> 02:16.450
+Pot să introduc aici.
+
+02:17.400 --> 02:25.360
+Leanne și cu mine avem o stare a căsuței de căutare având L-E-A în ea.
+
+02:25.560 --> 02:36.650
+Și roboții fiind filtrați doar cu Leanne. Statul descrie modul în care ar trebui să arate aplicația noastră. Aplicația noastră, robotul nostru Robo-
+
+02:36.650 --> 02:46.520
+aplicația prietenilor chiar acum ar trebui să arate așa cu doar o singură carte robot deoarece statul este de căutare
+
+02:46.520 --> 02:50.540
+care are literele L-E-A din interiorul acesteia.
+
+02:51.570 --> 03:00.660
+Acum, cu o aplicație simplă, cum ar fi prietenii robo ap0, p stat a fost destul de ușor de înțeles, dar de management de stat
+
+03:00.900 --> 03:02.780
+este o problemă foarte dificilă
+
+03:02.880 --> 03:10.340
+deoarece aplicațiile noastre devin tot mai mari și mai mari și mai mari. Și veți vedea, de fapt, în ultima parte a cursului când
+
+03:10.340 --> 03:15.180
+începem să lucrăm la aplicația inteligentă a creierului care face recunoașterea imaginii.
+
+03:16.720 --> 03:24.430
+Veți observa cum starea devine din ce în ce mai complicată și capul începe să doară pentru că voi
+
+03:24.430 --> 03:26.770
+trebuie să țină evidența tuturor acestor lucruri.
+
+03:28.180 --> 03:35.380
+Deci, din nou, cu o aplicație de reacție simplă, putem avea vederi frumoase și poate avem stări diferite și diferite
+
+03:35.380 --> 03:39.680
+componente, dar în cele din urmă ca app noastre devine mai mare.
+
+03:39.760 --> 03:49.150
+Încheiem cu ceva de genul ăsta în care avem mai multe și mai multe componente din ce în ce mai multe state înăuntru
+
+03:49.150 --> 03:55.540
+acea componentă sau putem avea o stare masivă chiar în partea de sus, care, de asemenea, devine destul de greu și
+
+03:55.960 --> 03:59.090
+toate aceste puncte albastre, pe măsură ce actualizează,
+
+03:59.110 --> 04:04.180
+ei trebuie, de asemenea, să actualizeze statul și apoi să reevalueze.
+
+04:04.380 --> 04:11.070
+Și acest exemplu aici este doar o mică diagramă, dar puteți vedea cu toate aceste săgeți cât de confuză este
+
+04:11.070 --> 04:17.520
+pentru a obține și a urmări toate aceste stare este într-adevăr, foarte greu.
+
+04:17.550 --> 04:23.060
+Așadar, avem nevoie de o formă de conducere de stat și de redux.
+
+04:23.060 --> 04:25.070
+rezolvă această problemă pentru noi.
+
+04:25.070 --> 04:32.210
+Cum am putea face această diagramă mai simplă și să facem lucrurile mai ușor de înțeles în capul nostru ca dezvoltatori?
+
+04:32.870 --> 04:35.060
+Redux a venit cu un concept nou.
+
+04:36.470 --> 04:39.750
+Dacă am elimina tot statul,
+
+04:39.980 --> 04:43.050
+deci acest stat din toate componentele?
+
+04:43.220 --> 04:45.390
+Dacă avem doar elemente de recuzită.
+
+04:45.620 --> 04:49.650
+Deci, toate aceste componente au doar elemente de recuzită.
+
+04:50.000 --> 05:00.150
+Și acum statul, îl păstrăm într-un magazin. Și un magazin este pur și simplu doar statul care este acest stat
+
+05:00.180 --> 05:01.700
+care au reacționat.
+
+05:01.860 --> 05:05.960
+Dar într-un obiect masiv la fel cum vedeți aici.
+
+05:06.120 --> 05:14.940
+Deci, un singur obiect care descrie modul în care ar trebui să arate aplicația noastră și tot ceea ce facem este doar trecerea în jos a acelei stări
+
+05:15.300 --> 05:18.840
+pentru oricare componentă are nevoie de ea ca elemente de recuzită.
+
+05:19.750 --> 05:30.070
+Deci diagrama noastră de a arăta așa cu reacție doar poate merge la a arăta astfel cu redux în cazul în care nici unul
+
+05:30.070 --> 05:32.690
+din componente trebuie să mai dețină statul.
+
+05:32.860 --> 05:41.020
+Și putem avea un obiect masiv care să descrie întreaga noastră aplicație și orice componentă are nevoie de aceasta
+
+05:41.020 --> 05:43.440
+propul poate fi doar trecut la ea.
+
+05:44.320 --> 05:51.670
+Și toate actualizările care se întâmplă trec prin stat, statul se modifică și apoi trecem peste asta
+
+05:51.670 --> 05:59.800
+informații către componentă. Această diagramă poate fi confuză fără a codifica nimic.
+
+05:59.900 --> 06:01.010
+Și ne vom întoarce la ea,
+
+06:01.010 --> 06:02.780
+deci acest lucru are sens.
+
+06:02.990 --> 06:11.230
+Dar chiar și vizual, puteți vedea că această diagramă pare mult mai simplă decât diagrama anterioară.
+
+06:11.240 --> 06:15.630
+Avem săgeți mult mai puțin și totul curge mai bine.
+
+06:15.680 --> 06:20.910
+Deci, pe măsură ce vom trece prin videoclipurile pe care le veți cunoaște din ce în ce mai mult cu această idee de management de stat.
+
+06:20.930 --> 06:28.430
+Dar am vrut să țin cont de faptul că asta este ceea ce redux rezolvă. Redux este o bibliotecă care face stat
+
+06:28.430 --> 06:34.100
+gestionare mai ușoară, nu numai pentru reacții, ci și pentru orice instrumente pe care le folosim.
+
+06:34.220 --> 06:36.810
+Se întâmplă să lucrezi într-adevăr cu adevărat să reacționezi.
+
+06:37.400 --> 06:44.870
+Iar redux-ul sa inspirat de la design-ul bazei de date. De la lucruri cum ar fi evenimente de aprovizionare sau CQRS
+
+06:45.230 --> 06:49.400
+pe care le puteți citi mai mult. Bazele de date aveau aceeași problemă.
+
+06:49.520 --> 06:57.530
+Toate aceste actualizări și toate aceste schimbări s-au întâmplat, dar am avut nevoie de o modalitate de a ne asigura că toate aceste schimbări
+
+06:57.890 --> 07:00.950
+sunt organizate într-un mod frumos coeziv.
+
+07:02.120 --> 07:02.730
+In regula.
+
+07:02.860 --> 07:08.580
+Ei bine, haideți să intrăm în următorul videoclip și să devenim puțin mai profundă cu redux.
+
+07:08.690 --> 07:09.680
+Ne vedem în următorul. Pa! Pa.

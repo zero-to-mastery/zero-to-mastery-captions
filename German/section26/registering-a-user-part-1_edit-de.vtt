@@ -1,0 +1,163 @@
+WEBVTT
+
+00:00.520 --> 00:01.780
+Willkommen zurück.
+
+00:01.780 --> 00:08.160
+Wir haben im letzten Video mit diesem Konsolenprotokoll der KNEX-Abfrage, die wir gerade gemacht haben, aufgehört.
+
+00:08.200 --> 00:16.000
+Jetzt das hier rechts ist was KNEX tut. Es baut unsere SQL-Anweisung für uns auf.
+
+00:16.300 --> 00:26.230
+Also, was wir nur console geloggt haben, war die Abfrage-Anweisung, die postgres oder KNEX für Postgres erstellt hat.
+
+00:26.340 --> 00:32.100
+Sie können hier sehen, dass der Builder ein Objekt ist, das alle Informationen enthält, mit denen wir sprechen müssen
+
+00:32.100 --> 00:34.670
+das Smart-Brain und mache diese Abfrage.
+
+00:34.770 --> 00:43.890
+Wenn ich tatsächlich etwas von den Benutzern zugreifen möchte, muss ich unseren Freund tun
+
+00:44.010 --> 00:49.170
+Das gibt ein Versprechen und wir bekommen unsere Antwort.
+
+00:49.170 --> 00:55.950
+In unserem Fall sind es Daten, diese Daten - wieder müssen wir Json nicht tun, weil wir es nicht über HTTP senden -
+
+00:55.950 --> 01:03.040
+Wir bekommen die Daten zurück und wenn wir diese Daten nur console.log haben, sehen wir, was wir bekommen.
+
+01:03.140 --> 01:09.420
+Speichern und runter gehen und es ist ein leeres Array.
+
+01:09.460 --> 01:10.510
+Das ist ein gutes Zeichen.
+
+01:10.510 --> 01:13.480
+Wir haben noch keine Benutzer, aber wir bekommen eine Antwort.
+
+01:14.320 --> 01:15.270
+Also lass uns das tun.
+
+01:15.490 --> 01:21.960
+Lassen Sie uns eine Anweisung erstellen, um Benutzer bei der Registrierung einzufügen.
+
+01:22.090 --> 01:28.390
+Ich werde dies in die DB-Variable ändern, damit es nicht verwirrend wird.
+
+01:28.630 --> 01:31.740
+Und wir werden das als Datenbank behalten.
+
+01:31.740 --> 01:37.710
+Alles klar, lass uns zum Registrierungsendpunkt gehen und ich werde diese Datenbank minimieren, weil wir gehen
+
+01:37.710 --> 01:40.440
+um es zu stoppen und löschen Sie es danach.
+
+01:42.680 --> 01:49.490
+Und wenn wir uns registrieren, sehen wir das jetzt, anstatt die Datenbank .users.push in der Variablen zu machen
+
+01:49.730 --> 01:59.490
+wir können einfach KNEX verwenden, wir können dies entfernen und DB-Punkt tun - Nun, wir müssen einfügen,
+
+01:59.490 --> 01:59.920
+Recht.
+
+02:00.120 --> 02:06.780
+Lassen Sie uns einen Blick auf die KNEX-Dokumente werfen und sehen, und wir sehen klare Methoden - einfügen.
+
+02:06.790 --> 02:08.670
+Sehen Sie sich diese großartige Dokumentation an.
+
+02:08.670 --> 02:13.410
+Wir können genau herausfinden, was wir brauchen. Um etwas einzufügen, haben wir die Insert-Methode mit
+
+02:13.410 --> 02:17.580
+die Daten und was wir wollen oder was zurückgegeben wird.
+
+02:17.580 --> 02:28.610
+Wir können das nicht einfach kopieren und einfügen, also können wir einfach DB in Benutzer einfügen, die wir einfügen möchten, und es liest sich einfach so gut.
+
+02:28.610 --> 02:29.730
+Ich liebe KNEX.
+
+02:30.030 --> 02:38.570
+Wir wollen ein Objekt einfügen und dieses Objekt wird enthalten, was auch immer wir in den Benutzerinformationen hatten.
+
+02:38.610 --> 02:47.400
+Daher möchten wir eine E-Mail einfügen. In diesem Fall wird eine E-Mail gesendet. Wir haben den Namen, der wieder den Namen hat
+
+02:47.430 --> 02:50.010
+das sehen wir vom Körper.
+
+02:50.010 --> 02:57.600
+Wir haben auch das Passwort, aber denken Sie daran, dass wir in unserer Tabelle nicht das Passwort unter den Benutzern haben, also werden wir es tun
+
+02:57.600 --> 02:58.740
+lass das leer.
+
+02:58.740 --> 03:06.960
+Und wenn wir hier zu unserem Tabellenbeispiel zurückkehren und uns hier wieder verbinden, sehen wir automatisch die ID des Benutzers
+
+03:06.960 --> 03:12.710
+generierter Name, E-Mail, Einträge sind standardmäßig auf Null gesetzt, so dass wir nichts eingeben müssen.
+
+03:13.080 --> 03:17.780
+Und verbunden ist das Datum, an dem sie sich angemeldet haben.
+
+03:17.800 --> 03:32.320
+Also lass uns einfach ein neues Datum hinzufügen und sobald wir es einfügen, machen wir einfach eine .then (console.log), um zu sehen, was
+
+03:32.320 --> 03:34.290
+wir kommen zurück.
+
+03:34.330 --> 03:41.390
+Ich werde sparen. Wir bekommen keine Fehler, was gut ist und wir können zu unserer App zurückkehren. Eigentlich nur
+
+03:41.390 --> 03:48.350
+weil es schneller ist, anstatt sich hier zu registrieren, öffnen wir den Postboten und
+
+03:48.350 --> 03:52.870
+Postbote hat bereits alle unsere vorherigen Befehle hier, die ich liebe.
+
+03:52.940 --> 04:03.610
+Also klicken wir auf das Register und zeigen Sie mit dem Körper von Ann Apples und lassen Sie uns auf senden klicken.
+
+04:03.630 --> 04:08.790
+Alles klar, wir bekommen eine Antwort, aber denken Sie daran, wir ändern nie eine Antwort, aber wenn wir zurück zum Server gehen
+
+04:10.220 --> 04:12.550
+Wir bekommen Ergebnis einfügen.
+
+04:12.650 --> 04:13.460
+Gut.
+
+04:13.460 --> 04:14.660
+Es sieht so aus, als ob es funktioniert hat.
+
+04:14.870 --> 04:25.260
+Wenn wir zurück zur Datenbank gehen und Sterne von Nutzern auswählen, wie cool ist das?
+
+04:25.490 --> 04:34.250
+Wir haben Ann, der als unser erster Benutzer mit Standardeinträgen von 0 eingegeben wurde. Erstaunlich.
+
+04:34.340 --> 04:35.980
+Es ist wie Magie.
+
+04:35.990 --> 04:42.430
+Wie einfach war es, nur KNEX und Postgres zu verwenden und unsere erste Datenbank zu erstellen.
+
+04:42.460 --> 04:43.170
+Gut.
+
+04:43.250 --> 04:47.870
+Im nächsten Video werden wir an dieser Antwort arbeiten.
+
+04:47.870 --> 04:48.740
+Ich sehe dich in diesem.
+
+04:49.270 --> 04:49.650
+Buh-Tschüss.

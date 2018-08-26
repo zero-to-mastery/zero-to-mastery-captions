@@ -1,0 +1,364 @@
+WEBVTT
+
+00:01.910 --> 00:10.340
+Alle Unternehmen speichern Daten. Von einem einfachen Buch eines kleinen Unternehmens, vielleicht sogar auf einer Zeitschrift oder einem
+
+00:10.340 --> 00:11.580
+Stück Papier,
+
+00:11.690 --> 00:17.810
+für große Unternehmen wie Amazon, die Computer benötigen, um Petabytes an Daten zu speichern.
+
+00:17.810 --> 00:26.000
+Nun, um diese Informationen zu speichern, braucht fast jede Firma und manchmal auch Einzelpersonen etwas
+
+00:26.000 --> 00:27.940
+eine Datenbank genannt.
+
+00:28.070 --> 00:35.060
+Wir haben im letzten Abschnitt gesehen, wie schwer es war, unseren Server an einen neuen Benutzer erinnern zu lassen. Jedes Mal der Server
+
+00:35.060 --> 00:35.810
+abgestürzt
+
+00:35.810 --> 00:40.030
+Die Variable würde zurückgesetzt und dann würde alles von vorne beginnen.
+
+00:40.460 --> 00:48.400
+Oder wenn wir eine Anmeldung oder eine Anmeldung machen und die E-Mails und Passwörter durcharbeiten möchten
+
+00:48.470 --> 00:52.160
+eine Schleife durch Javascript, das ineffizient ist.
+
+00:52.160 --> 00:54.240
+Hier kommt die Datenbank zur Rettung.
+
+00:54.990 --> 00:58.850
+Also fragen wir uns, was eine Datenbank ist.
+
+00:58.890 --> 01:01.960
+Eine Datenbank ist eine Sammlung von Daten.
+
+01:02.050 --> 01:03.540
+Und was wir unter Daten verstehen
+
+01:03.850 --> 01:05.730
+Es gibt viele Formen von ihnen richtig.
+
+01:05.770 --> 01:10.360
+Es kann Zahlen geben, es kann Daten geben, es könnte Passwort-Hashes geben,
+
+01:10.360 --> 01:17.440
+Es könnte Benutzerinformationen geben. Datenbanken ermöglichen uns, diese Daten auf eine Weise zu organisieren, die nützlich ist
+
+01:17.440 --> 01:24.340
+uns und es macht Daten-Management einfach und etwas kam daraus hervor.
+
+01:24.650 --> 01:29.930
+Und es heißt Datenbank-Management-System oder kurz DBMS.
+
+01:29.990 --> 01:35.120
+Es ist eine Sammlung von Programmen, mit denen wir auf Datenbanken zugreifen und mit Daten arbeiten können.
+
+01:35.450 --> 01:39.740
+Und es ermöglicht auch kontrollierten Zugriff auf Datenbankbenutzer.
+
+01:41.600 --> 01:50.820
+Ein DBMS ist also etwas in dieser Box, das uns ein Werkzeug oder eine Software ermöglicht
+
+01:50.820 --> 01:59.420
+uns mit der Datenbank zu kommunizieren, Informationen zu speichern, die für uns nützlich sind, und uns auch zu aktualisieren,
+
+02:00.050 --> 02:05.780
+einfügen, löschen, nachsehen, was in der Datenbank ist.
+
+02:05.840 --> 02:12.980
+Und diese Idee eines DBMS nahm in den 1960er Jahren wirklich Gestalt an, und jetzt steht sie an vorderster Front
+
+02:12.980 --> 02:14.130
+spannende Sachen.
+
+02:14.150 --> 02:19.850
+Es gibt eine ganze Industrie von Ingenieuren, die nur mit Datenbanken arbeiten, weil es so wichtig ist.
+
+02:21.100 --> 02:27.130
+Jetzt gibt es zwei Arten von DBMS, die gerade sehr populär sind und über die wir sprechen werden
+
+02:27.130 --> 02:27.980
+in diesem Kurs.
+
+02:29.820 --> 02:36.310
+Und diese beiden Typen werden von Postgres und MongoDB sehr gut repräsentiert.
+
+02:36.450 --> 02:43.230
+Sprechen wir über die erste relationale Datenbank. Und das ist wahrscheinlich das beliebteste. Wie
+
+02:43.230 --> 02:44.600
+Sie können auf der rechten Seite sehen.
+
+02:44.610 --> 02:49.410
+Sie sehen, dass dies alles relationale Datenbanken sind.
+
+02:49.630 --> 02:56.890
+Postgres, Oracle, SQL Server, Sie haben vielleicht schon von mySQL, SQLite gehört.
+
+02:57.230 --> 03:03.840
+Dies sind alle Arten von Datenbanken, für die diese relationale Datenbank verwendet wird.
+
+03:04.100 --> 03:06.770
+Und die Schönheit mit ihnen ist, dass sie sich alle ziemlich ähnlich sind.
+
+03:06.770 --> 03:10.630
+Sie alle folgen einem einheitlichen Standardformat.
+
+03:10.640 --> 03:19.510
+Relationale Datenbanken bestehen aus zwei oder mehr Tabellen mit Spalten und Zeilen.
+
+03:19.530 --> 03:27.180
+Also in diesem Fall Benutzer ist eine Tabelle und full_name, Benutzername, Text, created_at sind Spalten und was auch immer
+
+03:27.180 --> 03:30.900
+Werte, die sie hier haben, sind Zeilen.
+
+03:31.230 --> 03:34.690
+Jede Zeile repräsentiert einen Eintrag und jede Spalte speichert
+
+03:34.700 --> 03:39.710
+eine sehr spezifische Art von Informationen wie Name, Adresse oder Telefonnummern.
+
+03:39.930 --> 03:48.050
+Und dann wird die Beziehung zwischen Tabellen und Feld ein Schema genannt. In einer relationalen Datenbank
+
+03:48.170 --> 03:55.480
+Das Schema muss klar definiert sein, bevor Informationen hinzugefügt werden können. Und wenn das richtig verwirrend ist
+
+03:55.480 --> 03:59.230
+Jetzt mach dir keine Sorgen, wir werden diese Datenbanken tatsächlich erstellen, damit es für dich Sinn ergibt.
+
+03:59.500 --> 04:05.470
+Wenn wir zum Beispiel Twitter hatten, können Sie hier sehen, welche Arten von Tabellen wir haben und wie wir
+
+04:05.470 --> 04:07.130
+würde es organisieren.
+
+04:07.240 --> 04:15.400
+Wir hätten eine Benutzertabelle, eine Tweets-Tabelle, eine folgende Tabelle und wir könnten all diese Informationen verbinden.
+
+04:15.420 --> 04:23.220
+Zum Beispiel durch Verbinden verschiedener Teile der Tabelle. Zum Beispiel wird der Benutzername derselbe sein
+
+04:23.220 --> 04:27.560
+Die Benutzertabelle wie in der Tweets-Tabelle.
+
+04:27.570 --> 04:37.530
+Auf diese Weise können wir sagen, dass der Benutzername in der Tweets - Tabelle der Fremdschlüssel des Benutzernamens in der
+
+04:37.530 --> 04:46.090
+Benutzer Tabelle. Und dann ist from_user der Fremdschlüssel des Benutzernamens in der folgenden Tabelle.
+
+04:46.110 --> 04:56.400
+Dinge wie vollständiger Name oder ID, etwas, das jede Zeile in einer Tabelle identifiziert, werden als Primärschlüssel bezeichnet
+
+04:57.060 --> 05:01.940
+und wir werden das später in diesem Abschnitt durchgehen.
+
+05:01.940 --> 05:07.130
+In Ordnung, all diese Datenbanken - wir werden etwas über Postgres SQL lernen, aber sie sind alle schön
+
+05:07.130 --> 05:07.670
+Ziemlich das gleiche.
+
+05:07.670 --> 05:14.810
+Sobald Sie also einen kennen, ist es ziemlich einfach, die anderen zu erfassen - wie kommunizieren sie tatsächlich?
+
+05:15.660 --> 05:22.230
+der Server mit dem Backend. Nun, alle relationalen Datenbanken verwenden etwas namens SQL.
+
+05:26.510 --> 05:34.960
+Und SQL ermöglicht uns, genau wie HTTP zwischen dem Frontend und dem Backend zu kommunizieren. Mit SQL
+
+05:34.960 --> 05:42.410
+Wir sind in der Lage mit der Datenbank zu kommunizieren und zu modifizieren oder zu bekommen oder zu aktualisieren wie auch immer wir wollen.
+
+05:43.040 --> 05:45.620
+Und wir werden ein Video zu diesem Thema haben.
+
+05:45.620 --> 05:49.820
+In Ordnung, das sind relationale Datenbanken.
+
+05:49.820 --> 05:51.740
+Was ist mit dem zweiten Typ?
+
+05:51.800 --> 05:58.870
+Der zweite Typ wird als nicht relationale Datenbank oder NoSQL-Datenbank bezeichnet.
+
+05:59.000 --> 06:05.000
+Und wieder gibt es viele verschiedene Arten von Datenbanken mit coolen Namen wie CouchDB und
+
+06:05.000 --> 06:06.680
+Sehr gut.
+
+06:06.810 --> 06:12.810
+Mit einer mongoDB oder einer nicht-relationalen Datenbank können Sie nun eine Anwendung erstellen, ohne sie definieren zu müssen
+
+06:12.810 --> 06:14.900
+das Schema zuerst
+
+06:14.970 --> 06:26.400
+im Gegensatz zu einer relationalen Datenbank. Wenn wir zur relationalen Datenbank zurückkehren, müssen dieses Schema oder diese Tabellen dies tun
+
+06:26.490 --> 06:27.750
+Art von vordefiniert richtig.
+
+06:27.750 --> 06:35.930
+Wir müssen wissen, wie unsere App aussehen wird, diese Tabellen so erstellen, dass wir, sobald die App öffentlich ist, können
+
+06:35.940 --> 06:45.030
+Beginnen Sie mit der Eingabe von Benutzerinformationen und Tweets und Followern. Mit einer NoSQL oder nicht relationalen Datenbank
+
+06:45.030 --> 06:47.050
+Wir können es einfach so definieren, wie wir es tun.
+
+06:47.340 --> 06:53.410
+Und sie alle haben unterschiedliche Arten, diese Informationen zu speichern, so dass jeder sehr, sehr anders ist.
+
+06:53.490 --> 06:58.650
+Und dies ist ein weiterer wichtiger Grund, eine nicht relationale Datenbank zu verwenden, wenn Ihre Datenanforderungen
+
+06:58.650 --> 07:05.790
+sind zu Beginn Ihres Projekts nicht klar und Sie haben möglicherweise eine große Menge an unstrukturierten Daten. Sie
+
+07:05.790 --> 07:11.390
+hat vielleicht nicht den Luxus, eine relationale Datenbank mit einem klar definierten Schema zu entwickeln.
+
+07:11.480 --> 07:18.390
+Sie bieten stattdessen eine größere Flexibilität, da eine nicht relationale Datenbank mehr wie Ordner sind
+
+07:18.390 --> 07:21.510
+Zusammenstellung von Informationen aller Art.
+
+07:22.340 --> 07:26.560
+Jetzt ist MongoDB etwas Dokumentorientiertes.
+
+07:26.600 --> 07:31.740
+Es speichert Informationen als Dokumente.
+
+07:31.750 --> 07:33.700
+Lassen Sie mich diesen Punkt für Sie veranschaulichen.
+
+07:33.700 --> 07:37.170
+Ich habe meinen Desktop hier mit zwei Ordnern.
+
+07:37.540 --> 07:40.330
+Einer ist eine relationale Datenbank.
+
+07:40.330 --> 07:48.920
+Und hier habe ich Benutzer, Tweets, Profil, folgende. Und Sie können sich relationale Datenbanken mit diesem Typ vorstellen
+
+07:48.920 --> 07:56.540
+des Speichers, in dem sich dieser Ordner irgendwo auf einem Computer befindet, der diese Informationen speichert. Und jederzeit
+
+07:56.540 --> 08:02.600
+Wir müssen eine Datenbank nach etwas fragen, na ja, wir greifen die Benutzer und wenn wir auch die greifen wollen
+
+08:02.600 --> 08:09.680
+Tweets des Benutzers. Wir finden den Nutzer, an dem wir interessiert sind. Dann finden wir die Tweets des Nutzers, der wir sind
+
+08:09.680 --> 08:17.510
+interessiert auch mit dem Fremdschlüssel, der Links zu den Nutzern gibt und wir finden auch so viele Follower
+
+08:17.540 --> 08:18.680
+Dieser Benutzer hat.
+
+08:18.680 --> 08:22.780
+Wir greifen diese Informationen auf und zeigen sie in unserer Web-App an.
+
+08:25.480 --> 08:27.360
+MongoDB auf der anderen Seite
+
+08:28.240 --> 08:37.100
+wird tatsächlich jeden Benutzer als Dokument haben. Also wenn ich den ersten User anfassen wollte.
+
+08:37.420 --> 08:43.740
+Nun, ich habe gerade dieses Dokument genommen und es hat alle Follower, die Tweets, das Profil, alles ist
+
+08:43.740 --> 08:51.590
+in diesem einen Dokument. Und Sie denken vielleicht "MongoDB scheint eine bessere Wahl zu sein, als dies zu haben
+
+08:53.100 --> 08:54.390
+Art und Weise, Dinge richtig zu machen? "
+
+08:55.560 --> 09:00.000
+Nun, es kommt auf Ihre Bedürfnisse an und deshalb sind Datenbanken ein so komplexes Thema.
+
+09:00.030 --> 09:02.460
+Es hängt wirklich, wirklich von Ihrer Situation ab.
+
+09:02.490 --> 09:08.760
+Sie können sehen, dass diese MongoDB-Methode sehr nützlich ist, wenn Sie etwas wie ein Profil oder eine Verknüpfung haben
+
+09:08.760 --> 09:09.410
+Profil.
+
+09:09.630 --> 09:15.390
+Aber wenn Sie etwas brauchen, mit dem Sie gerade arbeiten, indem Sie nur Daten folgen oder nur Daten twittern, vielleicht mit
+
+09:15.430 --> 09:19.020
+die Tweets, die Sie sehen möchten, was die durchschnittliche Tweet-Größe ist.
+
+09:19.140 --> 09:25.530
+Nun, es ist wirklich einfach, einfach diese Datei zu nehmen und diese auf diese Weise zu berechnen, wo Sie vielleicht haben
+
+09:25.530 --> 09:28.810
+um es von jedem einzelnen Benutzer zu extrahieren.
+
+09:29.010 --> 09:31.900
+Es kommt also wirklich auf Ihre Bedürfnisse an.
+
+09:32.050 --> 09:40.990
+Lassen Sie mich Ihnen ein weiteres Diagramm zeigen, das nützlich sein könnte. Wenn wir uns relational gegenüber nicht relational anschauen
+
+09:40.990 --> 09:42.000
+Datenbanken.
+
+09:42.220 --> 09:44.950
+Du kannst von relationalem als denken
+
+09:45.040 --> 09:54.250
+Jede Tabelle enthält Blog-Posts, einen Blog-Tag und Blog-Kommentare und verknüpft diese Tabellen, um Ihnen die Blog-Informationen zu geben
+
+09:55.030 --> 10:02.170
+im Vergleich zu einem nicht relationalen Objekt, das den gesamten Blockpost in einem Eintrag speichert und Kommentare, Tags und Kategorien enthält
+
+10:02.590 --> 10:04.200
+und alle anderen verwandten Daten
+
+10:04.210 --> 10:05.920
+Nur an einem einzigen Ort.
+
+10:05.950 --> 10:08.890
+Also, was benutzt MongoDB um zu kommunizieren.
+
+10:09.420 --> 10:16.130
+Wenn wir zu unserem Beispiel zurückgehen, hatten wir SQL für relationale Datenbanken wie Postgres.
+
+10:16.200 --> 10:26.760
+Nun, MongoDB hat seine eigene Abfragesprache und es ist nur die Abfragesprache von MongoDB.
+
+10:31.690 --> 10:33.690
+Beide zielen jedoch darauf ab, das Gleiche zu tun.
+
+10:33.700 --> 10:40.060
+Das heißt, mit der Datenbank zu kommunizieren, eine einfache Möglichkeit für den Server zu schaffen, mit dem zu kommunizieren
+
+10:40.060 --> 10:41.690
+Datenbank.
+
+10:41.810 --> 10:46.280
+Und in diesem Abschnitt werden wir darüber reden und wir werden endlich die Punkte verbinden
+
+10:46.850 --> 10:51.510
+und zeigen Ihnen die Leistungsfähigkeit von Datenbanken, sobald sie mit einem Server verbunden sind.
+
+10:51.560 --> 10:53.600
+Ich werde in der nächsten sehen. Tschüss.

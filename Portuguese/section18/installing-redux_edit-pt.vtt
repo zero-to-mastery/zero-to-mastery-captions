@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+E bem vindo de volta. Nós sabemos como funciona o aplicativo RoboFriends
+
+00:05.660 --> 00:14.330
+agora, com reagir, isso é ótimo. Mas Bruno nos perguntou uma coisa específica. Precisamos adicionar redux ao nosso
+
+00:14.330 --> 00:20.860
+RoboFriends app para que ele possa escalar bem e lidar melhor com gerenciamento de estado.
+
+00:22.630 --> 00:28.960
+Agora, com esses próximos vídeos, iríamos trabalhar juntos, passo a passo.
+
+00:28.990 --> 00:34.630
+Eu vou mostrar como o redux é implementado e como ele funciona e você vai acompanhar
+
+00:35.170 --> 00:38.320
+tentando se certificar de que seu código funciona também.
+
+00:38.770 --> 00:42.120
+Tudo bem, então faça uma pausa agora e configure seu ambiente.
+
+00:42.140 --> 00:46.470
+Então você pode codificar junto comigo. Você está tudo pronto?
+
+00:46.510 --> 00:46.940
+Tudo bem.
+
+00:46.960 --> 00:48.300
+Eu vou começar.
+
+00:48.370 --> 00:56.360
+A primeira coisa que vou fazer é, eu tenho meu aplicativo RoboFriends, então vou clonar este repo e
+
+00:56.360 --> 01:06.650
+nós vamos apenas fazer nosso setup regular com o git clone e então eu vou para o CD no meu RoboFriend. Perfeito.
+
+01:06.690 --> 01:09.510
+Vamos abrir isso no seu editor de texto.
+
+01:14.630 --> 01:18.720
+E mais uma vez eu adoro juntar essas coisas para que fique legal.
+
+01:19.470 --> 01:20.670
+E limpo.
+
+01:20.720 --> 01:21.250
+Perfeito.
+
+01:22.670 --> 01:29.510
+Agora, obviamente, a primeira coisa que precisamos fazer quando clonamos algo é o npm install para garantir
+
+01:29.510 --> 01:32.710
+nós temos todos os pacotes.
+
+01:32.920 --> 01:38.970
+E também queremos ter certeza de que tudo está funcionando sem erros.
+
+01:39.190 --> 01:48.410
+Então o próximo passo será executar o npm start.
+
+01:48.460 --> 01:49.180
+Tudo bem.
+
+01:49.180 --> 01:49.690
+Perfeito.
+
+01:49.690 --> 01:50.930
+Tudo está funcionando.
+
+01:51.040 --> 01:53.780
+E devemos ser capazes de filtrar.
+
+01:53.780 --> 01:56.420
+Perfeito.
+
+01:56.430 --> 01:56.690
+Tudo bem.
+
+01:56.700 --> 01:59.790
+Então, estamos familiarizados com essa base de código.
+
+02:01.120 --> 02:09.990
+Nós temos o nosso aplicativo reagir, mas é isso. Apenas um aplicativo simples reagir com recipientes e componentes.
+
+02:10.040 --> 02:20.930
+A primeira coisa que gostaríamos de fazer é instalar o redux. Então eu vou fechar isso e executar o npm install redux.
+
+02:23.740 --> 02:30.990
+Este pacote redux nos dará algumas ferramentas para incorporar o redux em nosso aplicativo reagente.
+
+02:32.220 --> 02:33.840
+Mas aqui está a parte legal.
+
+02:33.840 --> 02:37.630
+Com o pacote redux, e porque eu sou um grande fã.
+
+02:38.690 --> 02:45.680
+É que 90% do seu código ainda será JavaScript. Redux vai te dar alguns ajudantes
+
+02:46.070 --> 02:48.620
+mas você ainda está escrevendo Javascript.
+
+02:48.740 --> 02:52.280
+Ainda está melhorando suas habilidades com Javascript.
+
+02:52.280 --> 02:57.470
+Quando você escreve redux e ensina realmente bons princípios, é por isso que eu sou um grande fã de
+
+02:57.530 --> 03:05.630
+a biblioteca. Você pode nem sempre precisar redux em seus projetos, mas é apenas uma boa ferramenta para aprender
+
+03:05.960 --> 03:13.070
+porque tem conceitos tão grandes que você usará em toda a sua carreira.
+
+03:13.220 --> 03:19.010
+Agora a segunda coisa que precisamos, e isso é algo semelhante com reagir - lembre-se como instalamos o
+
+03:19.010 --> 03:25.730
+reagir pacote, e então nós também precisamos de algo chamado o pacote de dom reagir para conectar reagir a
+
+03:25.730 --> 03:29.130
+o dom? Bem, de maneira similar.
+
+03:29.140 --> 03:38.770
+Nós precisamos conectar o redux para reagir, porque o redux teoricamente poderia trabalhar com qualquer outra biblioteca adicionando
+
+03:38.980 --> 03:40.240
+outro pacote.
+
+03:40.300 --> 03:46.600
+Podemos novamente deixar reagir saber que hey vamos estar usando redux com você.
+
+03:46.600 --> 03:48.050
+Então isso é muito fácil de fazer.
+
+03:48.070 --> 03:53.080
+Vamos apenas instalar o npm e o pacote é chamado de reagir ao redux.
+
+03:59.260 --> 04:06.570
+E a maneira como esse reagente redux vai funcionar é que ele conectará apenas os contêineres.
+
+04:06.760 --> 04:14.410
+Então, neste caso, app.js para o, o que chamamos de um repositório redux ou esse grande objeto JavaScript que estamos falando
+
+04:14.410 --> 04:14.820
+sobre.
+
+04:14.860 --> 04:21.110
+Isso descreve o estado do nosso aplicativo e eles vão se comunicar, o contêiner vai se comunicar
+
+04:21.200 --> 04:23.770
+com a loja e vice-versa.
+
+04:24.900 --> 04:31.410
+Agora os outros componentes, o que chamamos de componentes burros ou de apresentação,
+
+04:31.530 --> 04:34.250
+não vai saber que o redux existe.
+
+04:34.320 --> 04:41.010
+A única conexão será entre algo chamado de container ou um componente inteligente e o
+
+04:41.100 --> 04:42.650
+loja de redux.
+
+04:42.660 --> 04:44.130
+Então deixe-me mostrar o que quero dizer.
+
+04:45.280 --> 04:51.040
+Se você se lembrar deste diagrama nós apenas instalamos o pacote redux que você pode pensar como sendo
+
+04:51.040 --> 04:51.990
+por aqui.
+
+04:52.000 --> 04:58.300
+Esta caixa vermelha que nos permite criar uma loja e algumas outras funções de ajuda.
+
+04:58.300 --> 05:10.310
+Nós também baixamos reagir redux que nos permite conectar essas duas peças e reagir redux é capaz
+
+05:10.310 --> 05:17.090
+para ser usado, a fim de dizer hey queremos esses componentes amarelos para estar ciente de que estamos usando redux e para
+
+05:17.090 --> 05:20.650
+obter seu estado da loja redux.
+
+05:22.380 --> 05:28.020
+Então, basta pensar neste diagrama como estamos trabalhando através de tudo o que estamos fazendo é essencialmente conectar
+
+05:28.020 --> 05:30.710
+essas duas bibliotecas juntas.
+
+05:30.770 --> 05:37.630
+Tudo bem, agora que temos esses dois pacotes, podemos começar a importá-los e usá-los dentro de nossos
+
+05:37.630 --> 05:43.660
+app, mas isso é para o próximo par de vídeos. Eu vejo você no próximo.
+
+05:43.770 --> 05:44.010
+Tchau tchau.

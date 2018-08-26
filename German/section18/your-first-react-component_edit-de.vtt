@@ -1,0 +1,712 @@
+WEBVTT
+
+00:01.680 --> 00:02.310
+Gut.
+
+00:02.310 --> 00:03.240
+Willkommen zurück.
+
+00:03.240 --> 00:06.540
+Wir haben unsere Hello World App, aber das sieht nicht sehr cool aus.
+
+00:06.540 --> 00:09.430
+Wir wollen unsere RoboFriends App machen.
+
+00:09.450 --> 00:16.540
+In diesem Video beginnen wir mit dem Aufbau unserer ersten Komponente. Wenn wir zurückkommen,
+
+00:16.640 --> 00:19.080
+Wir erinnern uns, dass wir das Terminal auf der rechten Seite haben.
+
+00:19.100 --> 00:25.880
+Und wir haben gerade 'npm start' ausgeführt und 'create-react-app' überprüft alle Dateien für uns, um sicherzustellen, dass es keine Fehler gibt.
+
+00:25.880 --> 00:33.680
+Es sagt, dass unsere App definiert ist, aber nie verwendet wird, lassen Sie uns dies wieder kommentieren "Befehl" "Schrägstrich" speichern Sie dies
+
+00:34.370 --> 00:37.080
+und du wirst sehen, dass alles gut funktioniert.
+
+00:38.590 --> 00:43.510
+Jetzt haben Sie vielleicht ein paar Fragen zu dieser 'index.js' Datei
+
+00:44.210 --> 00:48.920
+Eins, wir sehen, dass wir React importieren, aber wie funktioniert das?
+
+00:48.920 --> 00:55.390
+wir erinnern uns, dass es vorher nicht funktioniert hat; wir mussten "require" und dann "browserify" verwenden. Wiederum hat React a
+
+00:55.390 --> 00:59.260
+Webpack unter der Haube, die für uns bündelt.
+
+00:59.260 --> 01:03.670
+Wir dürfen also "Import" verwenden, solange wir dies oben in der Datei behalten.
+
+01:03.760 --> 01:10.650
+Wir können alle anderen Dateien, die wir wollen, oder die Pakete, die wir wollen, importieren.
+
+01:10.660 --> 01:14.360
+Wir sehen auch, dass es zwei Dinge gibt:React und ReactDOM.
+
+01:14.380 --> 01:21.200
+Wenn Sie sich erinnern, ist React eine "Ansicht" -Bibliothek.
+
+01:21.260 --> 01:25.660
+Das ist also der kleine Roboter, an den wir uns aus dem vorherigen Video erinnern.
+
+01:26.030 --> 01:31.120
+Es ist der Kern des Pakets, das die DOM-Manipulation für uns erledigt.
+
+01:31.310 --> 01:35.890
+Aber wie gesagt, React kann an mehreren Stellen verwendet werden, nicht nur im Browser.
+
+01:36.170 --> 01:38.330
+Es kann für mobile Geräte verwendet werden.
+
+01:38.330 --> 01:45.350
+Es kann für Virtual Reality verwendet werden und Sie können verschiedene Bibliotheken wie diese anschließen und spielen
+
+01:45.440 --> 01:47.850
+Welchen Bildschirm rendern Sie?
+
+01:48.000 --> 01:52.830
+Daher wird ReactDOM für die DOM (for) -Websites verwendet.
+
+01:52.940 --> 01:54.370
+Also ist es der Klebstoff von React.
+
+01:54.390 --> 01:57.620
+Aber wir können etwas wie React native haben.
+
+01:57.620 --> 02:01.950
+Das macht tatsächlich Handys.
+
+02:02.000 --> 02:04.740
+Wir haben auch:import './index.css'.
+
+02:04.760 --> 02:13.340
+Und das ist eine neue Syntax. Nun, React erlaubt uns, CSS nicht nur in einer Datei, sondern für jede andere hinzuzufügen
+
+02:13.340 --> 02:14.270
+Komponente.
+
+02:14.390 --> 02:15.960
+Wenn wir zu "App.js" gehen,
+
+02:16.110 --> 02:21.000
+Nun, wir haben 'App.css', die die App beschreibt.
+
+02:21.230 --> 02:22.890
+Wenn wir zu 'index.js' gehen,
+
+02:22.910 --> 02:32.060
+Nun, wir haben 'index.css', das seine eigenen Stile hat und diese Stile werden nur auf welche Komponenten auch immer angewendet
+
+02:32.540 --> 02:35.740
+'index.js' rendert.
+
+02:35.910 --> 02:41.550
+Und so, wie wir es benutzen, sagen wir nur "importieren", und dann im Gegensatz zu React-Paket, wo wir nur den Namen sagen
+
+02:41.550 --> 02:47.940
+von dem Paket und es erkennt automatisch, um den bekannten Modulordner zu überprüfen, wir müssen es wo sagen
+
+02:48.000 --> 02:49.770
+'index.css' lebt.
+
+02:49.830 --> 02:55.170
+Und diese Syntax von 'Punkt' 'Slash' bedeutet, dass es sich im selben Verzeichnis befindet.
+
+02:55.320 --> 03:01.690
+Also heißt es checken im Quellordner 'index.css' sollte da sein. OK.
+
+03:01.740 --> 03:05.100
+Und schließlich sehen wir 'registerServiceWorker'.
+
+03:05.100 --> 03:11.040
+Und dies ist ein fortgeschrittenes Thema, das wir in diesem Kurs nicht behandeln werden, sondern Service-Mitarbeiter als neu betrachten
+
+03:11.040 --> 03:16.660
+Feature, mit dem unsere Apps schneller werden und offline arbeiten können.
+
+03:16.800 --> 03:19.130
+Es ist etwas, um das wir uns nicht kümmern müssen.
+
+03:19.140 --> 03:26.280
+Jetzt können Sie dies auskommentieren und es wird immer noch funktionieren, aber wir werden es hier behalten, nur weil create-react-app
+
+03:26.280 --> 03:34.880
+gibt es uns kostenlos. Die Dinge, die uns wirklich wichtig sind, sind:Nun, diese Linie
+
+03:34.880 --> 03:43.160
+hier drüben. Die ganze Sache ist was React tut, es sagt:Ich möchte, dass das reactDOM-Paket die Funktion verwendet
+
+03:43.250 --> 03:52.600
+'render', und das 'render' ist, dass ich das, was immer das ist, darstellen wollte, aber wenn du dich erinnerst bevor wir App hatten,
+
+03:55.110 --> 03:59.060
+und gut, das ist nicht wirklich ein HTML-Tag ist es.
+
+03:59.220 --> 04:04.850
+Wir haben das gerade erstellt - es sieht aus wie das gleiche Verzeichnis.
+
+04:04.860 --> 04:12.450
+Es gibt etwas namens app und es hat keine .js-Datei, wie wir es hier sehen und das ist
+
+04:12.450 --> 04:19.390
+weil es automatisch sagt, dass, wenn kein '.css' oder irgendein Typ dahinter ist,
+
+04:19.410 --> 04:27.480
+Nun, es geht davon aus, dass es Javascript ist, aber das wird so gut funktionieren, wie Sie sehen können. Lass uns gehen
+
+04:27.540 --> 04:34.680
+"App.js" -Datei und sehen Sie, warum wir dieses von uns erstellte HTML-Tag verwenden können. Wenn wir in die Datei "App.js" gehen,
+
+04:34.680 --> 04:40.230
+Nun, wir sehen, dass wir etwas importieren, etwas, das wir als Destrukturierung bezeichnen
+
+04:40.230 --> 04:42.420
+hier und bekommen auch Komponente.
+
+04:43.350 --> 04:49.660
+Und wir haben ein paar Dateien wie "logo.svg" und "app.css", die wir importieren.
+
+04:49.950 --> 04:52.300
+Und wieder sehen wir, dass unsere Syntax ein wenig ausfällt.
+
+04:52.300 --> 05:03.830
+Stellen Sie also sicher, dass wir unsere Dateien in Javascript (Babel) ändern - und es sieht so aus, als ob die Klasse App die Komponente erweitert.
+
+05:04.520 --> 05:05.830
+das kommt mit React.
+
+05:05.840 --> 05:08.060
+Und das ist nur Standard-Syntax.
+
+05:08.090 --> 05:15.740
+Dies rendert - erinnere dich daran, dass eine Komponente immer die Rolle hat, dass sie zumindest etwas rendern muss.
+
+05:15.960 --> 05:21.260
+Und wie wir das machen, geben wir ein HTML-Stück der Website zurück.
+
+05:21.440 --> 05:24.870
+So sehen wir hier:"Willkommen bei React. Um zu beginnen, bearbeiten Sie ... '
+
+05:25.100 --> 05:27.940
+Nun, genau das sagt es hier drüben.
+
+05:28.100 --> 05:29.440
+Das ist die Kraft von Reagieren.
+
+05:29.450 --> 05:38.680
+Wir erstellen unsere eigenen benutzerdefinierten Komponenten, unsere eigenen benutzerdefinierten HTML-Tags, die wir einfach hinzufügen können, und wenn Sie das tun
+
+05:38.680 --> 05:45.320
+Erinnern Sie sich an das Einweg-Datenflussbild, wir haben einen Elternteil, der Kinder hat.
+
+05:45.320 --> 05:52.050
+Also, App 'hat Kinder, aber weißt du was, lass uns unsere eigene Komponente bauen, um diesen Punkt klar zu machen.
+
+05:52.370 --> 06:00.370
+Anstatt hier "Hallo Welt" zu haben, erstellen wir eine Komponente mit dem Namen "Hallo" und es ist ein Selbstschluss
+
+06:00.380 --> 06:02.500
+Tag, so dass Sie den Backslash haben möchten.
+
+06:02.700 --> 06:08.630
+Und anstatt hier eine Import-App zu sagen, importieren wir 'Hallo' aus
+
+06:08.970 --> 06:12.600
+wir werden es 'Hallo.js' nennen
+
+06:12.610 --> 06:14.710
+und Sie werden feststellen, dass es hier groß geschrieben ist.
+
+06:14.810 --> 06:19.790
+Nun, wenn Sie eine Komponente erstellen, ist der Standard, dass es groß geschrieben wird.
+
+06:19.880 --> 06:29.070
+Also heißt es "Hello.js". Wenn wir das speichern, erhalten wir einen Fehler. Es heißt:"Modul nicht gefunden:Kann nicht auflösen" ./Hello ''
+
+06:29.090 --> 06:31.070
+Weil die Datei nicht existiert.
+
+06:31.070 --> 06:32.290
+Also lass uns eins erstellen.
+
+06:32.330 --> 06:38.590
+Ich werde sagen, neue Datei 'Hello.js'. Da gehst du.
+
+06:38.670 --> 06:42.920
+Wir haben eine neue 'Hello.js' Datei und sie wurde erfolgreich kompiliert.
+
+06:43.020 --> 06:46.370
+Wenn wir auf die Website gehen, schaut euch das an.
+
+06:46.380 --> 06:51.920
+Es gibt uns sogar Fehler auf der Website, und deshalb ist 'create-react-app' einfach so großartig.
+
+06:51.990 --> 06:57.660
+Es zeigt Ihnen genau, was die Fehler sind, ohne die Konsole hier zu öffnen.
+
+06:59.520 --> 07:03.830
+Wieder haben wir nichts in 'Hallo', also müssen wir es erstellen.
+
+07:03.840 --> 07:06.030
+Lassen Sie uns die 'App.js' als Beispiel verwenden.
+
+07:06.030 --> 07:14.860
+Es sieht so aus, als ob wir 'React' und 'Component' importieren müssen, also müssen wir 'React, {Component} von' react 'eingeben und' importieren ';
+
+07:15.460 --> 07:16.170
+Okay.
+
+07:16.590 --> 07:25.080
+Und der Grund, warum wir das tun, ist wieder das Destrukturieren, anstatt "React.Component" zu machen
+
+07:25.080 --> 07:31.270
+kann jetzt einfach 'Component' tun, und es bedeutet dasselbe.
+
+07:31.400 --> 07:34.370
+Betrachtet man wieder 'App.js', sieht es so aus, als ob wir Klasse sagen
+
+07:34.430 --> 07:39.440
+'unser Komponentenname' erweitert die Komponente. Lass uns das tun.
+
+07:39.440 --> 07:41.800
+Klasse, wir nennen das wieder "Hallo",
+
+07:41.800 --> 07:47.990
+so heißt unsere Komponente, erweitert 'Komponente'.
+
+07:48.040 --> 07:58.780
+Und vergessen Sie nicht, unser Javascript in Babel zu ändern. Und wenn du dich an eine Regel erinnerst, ist das immer so
+
+07:58.780 --> 08:07.600
+möchte eine Renderfunktion haben, und innerhalb dieser Renderfunktion sagen wir ihr, was wir zurückgeben wollen.
+
+08:08.070 --> 08:13.870
+Nun, wir wollen das Beispiel 'Hallo Welt' zurückgeben, aber wir können 'h1' sagen
+
+08:16.630 --> 08:18.290
+'Hallo Welt' / h1 '.
+
+08:21.940 --> 08:27.340
+Okay, lass uns sehen, was passiert, wenn ich das tue:Ich spare,
+
+08:27.520 --> 08:31.650
+Und es heißt:export 'default' (importiert als 'Hallo') wurde nicht gefunden.
+
+08:31.650 --> 08:34.770
+Nun, weil wir das nicht exportieren.
+
+08:34.770 --> 08:42.660
+Denken Sie daran, wenn wir wollen, dass eine andere Datei es verwendet, müssen wir exportieren. Und wir verwenden 'export default', wenn wir gerade sind
+
+08:42.930 --> 08:44.760
+eine Sache exportieren.
+
+08:44.760 --> 08:50.880
+Wenn wir das Wort default verwenden, bedeutet das, dass diese Datei nur eine Sache exportiert und das ist die 'App'.
+
+08:50.880 --> 08:54.690
+Also kann ich 'Export Default' sagen
+
+08:55.310 --> 08:57.650
+'Hallo'
+
+08:57.730 --> 08:59.220
+Lass uns sparen.
+
+08:59.420 --> 09:01.100
+Sieht so aus als würde es funktionieren.
+
+09:01.160 --> 09:03.070
+Mal sehen, was auf unserer Website passiert.
+
+09:03.500 --> 09:04.470
+'Hallo Welt'.
+
+09:04.490 --> 09:12.300
+Wir haben gerade unsere allererste Komponente erstellt. Wie cool ist das! Jetzt,
+
+09:12.320 --> 09:14.290
+Im Moment haben wir nur eine Linie.
+
+09:14.300 --> 09:22.610
+Aber was, wenn ich etwas wie div machen wollte, es in ein div einwickeln und vielleicht auch hier drunter, werde ich sagen
+
+09:23.240 --> 09:31.550
+ein Absatz, der "Willkommen zu reagieren" sagt.
+
+09:31.630 --> 09:35.270
+Wenn ich das speichere, erhalte ich einen weiteren Fehler.
+
+09:38.020 --> 09:45.010
+Und das liegt daran, dass wir hier einfach mehrere Zeilen geben und "Return" erwartet eine einzige Sache.
+
+09:45.280 --> 09:47.850
+Wir müssen das in Klammern fassen.
+
+09:49.020 --> 09:55.270
+Um Javascript sagen zu lassen:"Ah, das ist ein Ausdruck."
+
+09:55.270 --> 09:57.190
+"Bewerten Sie diese ganze Sache."
+
+09:57.340 --> 10:05.690
+Wenn wir das speichern, sieht es so aus, als ob es funktioniert und dann 'Hallo Welt, Willkommen zu reagieren'.
+
+10:05.770 --> 10:06.580
+Sehr cool.
+
+10:07.710 --> 10:18.780
+Wenn Sie sich daran erinnern, dass wir "./Hello.css" importieren, können wir hier alle CSS-Stile erstellen, die wir verwenden
+
+10:18.780 --> 10:25.620
+wollen, aber wir müssen diese Datei zuerst erstellen. Also lass uns machen, neue Datei,
+
+10:26.050 --> 10:27.660
+und ich muss hier ein "o" hinzufügen.
+
+10:27.670 --> 10:32.090
+Der neue Dateiname lautet 'Hello.css'. Jetzt,
+
+10:32.100 --> 10:34.720
+in 'Hello.css' kann ich nur sagen, dass die h1.
+
+10:34.770 --> 10:40.150
+Und das ist nur Standard CSS, wird Hintergrund rot haben.
+
+10:40.470 --> 10:42.320
+Ich werde sparen,
+
+10:42.330 --> 10:43.230
+Speichern Sie das auch.
+
+10:43.230 --> 10:44.400
+Alles sieht gut aus.
+
+10:45.320 --> 10:46.490
+Und sieh dir das an.
+
+10:49.300 --> 10:55.480
+Aber weißt du was, um dies schneller zu machen und weil wir über CSS gegangen sind, möchte ich dir ein cooles Paket zeigen
+
+10:55.510 --> 11:05.080
+"Tachyons" und "Tachyonen" genannt, ermöglichen uns, ähnlich wie Bootstrap, vordefinierte Klassennamen, die wir haben
+
+11:05.080 --> 11:08.720
+kann nur Komponenten hinzufügen, um die Dinge wirklich sehr schön aussehen zu lassen.
+
+11:08.770 --> 11:09.470
+Also lass uns das tun.
+
+11:09.490 --> 11:17.750
+Ich schließe das und sage 'npm install tachyons'.
+
+11:17.800 --> 11:18.290
+In Ordung.
+
+11:18.290 --> 11:21.390
+Es ist dem Paket hinzugefügt - wir können es überprüfen, indem wir zu "package.json" gehen.
+
+11:21.410 --> 11:27.920
+Wir sehen, dass 'Tachyonen' da sind und wir können 'Tachyonen' sehr leicht benutzen, aber gehen einfach 'index.js'
+
+11:27.920 --> 11:33.200
+Datei und sagen "Import" Tachyonen ";.
+
+11:33.420 --> 11:39.150
+Und jetzt haben wir Zugang zu diesem Paket - nur um Ihnen zu zeigen, was "Tachyonen" sind,
+
+11:39.150 --> 11:42.510
+wenn ich zu "Tachyons-Stilen" gehe,
+
+11:46.820 --> 11:54.200
+das gibt uns ein paar Klassen, die wir benutzen können, zum Beispiel 'Text Center', wir sagen einfach 'tc' und so lang
+
+11:54.200 --> 12:01.220
+Da wir "Tachyonen" installiert haben, verwenden wir 'tc' als Klassennamen, damit wird unser Text ausgerichtet.
+
+12:01.330 --> 12:06.880
+Nun, da wir in dieser Datei 'index.js' 'Tachyonen' haben, können wir hier einfach sagen
+
+12:10.990 --> 12:19.230
+'class =' ​​f1 '' für Schriftart 1 und 'text center' - Ich speichere.
+
+12:19.340 --> 12:19.880
+Ich muss es tun,
+
+12:19.880 --> 12:20.960
+'npm starten' hier.
+
+12:20.960 --> 12:24.510
+Stellen Sie sicher, dass unser Server läuft, damit wir unsere Änderungen überprüfen können.
+
+12:25.220 --> 12:30.970
+Und wir bekommen 'Hallo Welt, Willkommen zu reagieren'.
+
+12:31.020 --> 12:33.210
+Aber hier gibt es einen Trick.
+
+12:33.210 --> 12:39.270
+Wenn Sie die Konsole öffnen, obwohl dies funktioniert, bekomme ich eine Warnung mit dem Hinweis 'Ungültige DOM-Eigenschaft' class ''.
+
+12:39.270 --> 12:41.330
+"Meinst du" Klassenname "? - Und Reagieren ist
+
+12:41.340 --> 12:50.810
+wirklich sehr gut darin, dir Fehler zu machen, und du fragst dich vielleicht selbst:Warum ein 'className' anstelle von
+
+12:51.050 --> 12:51.650
+'Klasse'?
+
+12:51.800 --> 12:57.840
+Denn wenn ich das speichere, gehe zurück, ich habe diesen Fehler nicht mehr.
+
+12:58.400 --> 12:59.370
+Warum das?
+
+12:59.600 --> 13:04.310
+Bis jetzt haben wir nur HTML geschrieben,
+
+13:04.610 --> 13:06.950
+aber das ist eine Javascript-Datei.
+
+13:07.040 --> 13:10.180
+Wie können wir das machen?
+
+13:10.190 --> 13:13.430
+Dies ist eigentlich etwas, das JSX genannt wird.
+
+13:13.430 --> 13:23.520
+Teil des React ist, dass Sie diese HTML-ähnliche Syntax in Ihr Javascript schreiben können. Und du könntest
+
+13:23.520 --> 13:32.790
+Fragen Sie sich, einer, bricht nicht die Regel der Trennung von Sorgen, und zwei, wie sind wir überhaupt
+
+13:32.790 --> 13:39.210
+kann HTML zu Javascript hinzufügen. Um die erste Frage der Trennung von Bedenken zu beantworten, hat React die
+
+13:39.210 --> 13:44.910
+Idee von Komponenten, und das ist:es ist besser, Funktionalität und Stile pro Komponente, so dass jeder
+
+13:44.910 --> 13:47.940
+Komponente ist ihr eigenes getrenntes Universum.
+
+13:47.940 --> 13:50.160
+Und Sie fügen nur diese Komponenten hinzu.
+
+13:50.670 --> 13:58.440
+Und die Idee der Trennung von Bedenken mit React ist, dass Komponenten, na ja, sie sind besorgt um sich selbst,
+
+13:58.470 --> 13:59.260
+nichts anderes.
+
+13:59.430 --> 14:03.570
+Also ändert sich das Paradigma hier, und es ist irgendwie nett, richtig.
+
+14:03.570 --> 14:05.090
+Ich kann mir nur die 'Hallo' Komponente anschauen.
+
+14:05.100 --> 14:06.410
+Ich weiß genau, was es macht.
+
+14:06.420 --> 14:07.900
+Ich kann auf das CSS schauen.
+
+14:08.460 --> 14:14.730
+Und jedes Mal, wenn ich etwas ändern muss, muss ich mich nur um die Dateien kümmern, die die "Hello.css" enthalten.
+
+14:14.730 --> 14:15.960
+und "Hallo.js".
+
+14:15.960 --> 14:21.510
+Die zweite Sache ist diese, diese Sache namens JSX. Unter der Haube,
+
+14:21.540 --> 14:29.040
+Was React macht, erlaubt mir, diese Syntax zu verwenden, aber es sind keine tatsächlichen HTML-Tags.
+
+14:29.160 --> 14:34.890
+Denken Sie daran, was ich über das virtuelle DOM gesagt habe und wie React ein eigenes Objekt erstellt und dann auf das
+
+14:34.890 --> 14:39.360
+DOM und vergleicht es und sagt:"Hmm, ich muss das ändern und es tut es für uns"?
+
+14:39.360 --> 14:48.110
+React verwendet JSX, um ihr virtuelles DOM, ihr falsches DOM, zu erstellen, das sie basierend auf dem erstellen, was wir ihnen geben
+
+14:48.120 --> 14:48.850
+zu ihnen.
+
+14:48.990 --> 14:55.350
+Dann betrachten sie dieses virtuelle DOM und das echte DOM und sagen, dass sich dieser Teil geändert hat.
+
+14:55.350 --> 15:01.930
+Ich werde das jetzt basierend auf dem virtuellen DOM ändern - und deshalb Reagieren als wirklich sehr schnell.
+
+15:02.070 --> 15:08.430
+Es erzeugt diese Objekte, die in Javascript wirklich schnell sind und nur ändert, was in den. Getan werden muss
+
+15:08.430 --> 15:09.020
+DOM.
+
+15:09.360 --> 15:10.790
+Also gewöhn dich einfach daran.
+
+15:10.830 --> 15:18.240
+Es ist zunächst peinlich, aber solange man es in eine Klammer wickelt, kann man hier HTML schreiben, als
+
+15:18.240 --> 15:24.180
+ebenso wie Ihre eigenen benutzerdefinierten Komponenten wie "Hello", die wir in der Datei "index.js" verwendet haben.
+
+15:28.540 --> 15:39.600
+Und jetzt macht es vielleicht Sinn, warum wir hier nicht Klasse sagen können, weil Klasse in Javascript ein reserviertes Schlüsselwort ist.
+
+15:39.940 --> 15:42.830
+Die Klasse ist Teil der Sprache, die von Javascript verwendet wird.
+
+15:42.840 --> 15:49.630
+Wenn dies also Javascript ist, macht die Tatsache, dass wir hier Klasse sagen, keinen Sinn. In der alten Version von
+
+15:49.630 --> 15:50.080
+Reagieren,
+
+15:50.080 --> 15:57.780
+Das hat React wirklich kaputt gemacht, aber jetzt gibt es uns einen schönen Fehler. Weil dies Javascript und kein HTML ist,
+
+15:57.790 --> 16:01.150
+wir müssen 'className' sagen, und daran wirst du dich gewöhnen.
+
+16:01.150 --> 16:05.890
+Du wirst am Anfang ausgetrickst, aber nach einer Weile wird es einfach.
+
+16:06.040 --> 16:12.010
+Das letzte, was ich dir zeigen werde, ist der Teil von React. Innerhalb der 'Hallo' Komponente,
+
+16:12.040 --> 16:16.320
+Ich kann jetzt etwas hinzufügen, das Requisiten oder Eigenschaften genannt wird.
+
+16:17.290 --> 16:19.270
+Und diese Requisiten können alles genannt werden.
+
+16:19.270 --> 16:21.350
+Betrachten Sie sie als HTML-Attribute.
+
+16:21.370 --> 16:27.850
+Ich kann sagen "Gruß = []", und hier drin,
+
+16:28.030 --> 16:35.520
+Ich möchte es in geschweifte Klammern einfügen und das ist ein Javascript Ausdruck, was auch immer ich will, kann ich 'Hallo' sagen
+
+16:38.980 --> 16:49.000
+'Reaction Ninja', und wenn ich das speichere, bekomme ich einen Fehler, der besagt, dass es keine nutzlose Verkettung gibt.
+
+16:49.000 --> 16:53.970
+Es heißt also:Hey, warum fügst du sogar Dinge hinzu, wenn du sie einfach zusammensetzen kannst?
+
+16:54.070 --> 17:00.100
+So ist es schlau genug, Ihnen sogar Vorschläge oder Warnungen zu geben, wenn Sie etwas tun, das nicht ist
+
+17:00.100 --> 17:00.360
+reinigen.
+
+17:00.360 --> 17:03.050
+Aber für Demonstrationszwecke ist das in Ordnung.
+
+17:03.400 --> 17:11.120
+Nun, da ich es gegeben habe, was wir eine 'Gruß'-Stütze zu' Hallo 'nennen, habe ich jetzt Zugriff in' Hello.js '
+
+17:11.130 --> 17:14.640
+zu Stützen. Ich kann jetzt sagen
+
+17:17.190 --> 17:31.820
+'this.props.greeting', ich speichere das, gehe zurück und sage 'Hello React Ninja'.
+
+17:32.050 --> 17:43.650
+Sie sehen, mit dieser Syntax, dass dieses Objekt, das 'Hallo' ist, Eigenschaften 'Requisiten' hat, das heißt 'Begrüßung'.
+
+17:44.060 --> 17:51.140
+Ich weiß, das ist verwirrend, es ist nur die Syntax, an die Sie sich gewöhnen müssen, aber jetzt haben wir Zugriff auf was auch immer
+
+17:51.350 --> 17:57.100
+Eigenschaft und welchen Wert auch immer wir haben
+
+17:57.270 --> 18:02.320
+'Hallo'. Dies ist eine Kraft, die später nützlich sein wird.
+
+18:02.390 --> 18:08.080
+Aber ich möchte, dass Sie hier Ihre eigene Komponente erstellen und sich mit der Syntax vertraut machen.
+
+18:08.230 --> 18:14.110
+Es ist wirklich sehr leistungsfähig und sobald Sie sich daran gewöhnt haben, können Sie beliebige Komponenten bauen.
+
+18:14.350 --> 18:14.650
+OK.
+
+18:14.680 --> 18:15.670
+Eine letzte Sache.
+
+18:16.760 --> 18:23.560
+Dieser Index könnte etwas schwierig sein, aber ich möchte Ihnen zeigen, dass dies eigentlich nur eine Funktion ist.
+
+18:23.730 --> 18:38.580
+Wenn ich "const Hello" mache und hier, akzeptiert diese Funktion "Requisiten". Wenn ich hier eine Fehlerfunktion mache,
+
+18:39.030 --> 18:40.620
+wickle es in geschweifte Klammern,
+
+18:40.860 --> 18:47.620
+und anstatt dieses Rendern zu tun, komme ich einfach zurück
+
+18:54.720 --> 19:02.670
+Wenn ich das gespeichert habe, bekomme ich einen Fehler, weil 'this.props.greeting' nicht wirklich existiert
+
+19:02.700 --> 19:05.220
+weil es kein Objekt mehr ist.
+
+19:05.220 --> 19:06.120
+Es ist eine Funktion.
+
+19:06.120 --> 19:07.280
+Also brauche ich die Requisiten nicht.
+
+19:07.290 --> 19:14.040
+Es erhält Requisiten, welche Parameter wir auch immer geben und "Props.Greeting" ist für uns akzeptabel.
+
+19:14.070 --> 19:16.820
+Ich rette das, gehe zurück und sieh dir das an.
+
+19:16.830 --> 19:17.710
+Es funktioniert.
+
+19:17.880 --> 19:19.820
+Es ist nur Funktionen.
+
+19:19.810 --> 19:27.510
+Denken Sie an Reagieren als das:Wir erstellen nur diese Funktionen, die Parameter und diese Parameter nehmen
+
+19:27.780 --> 19:36.460
+die durch die Angabe von Attributen und Werten gegeben werden, werden gerade gerendert.
+
+19:36.740 --> 19:43.410
+Ich habe Zugang zu "props.greeting", wenn ich ihm hier eine andere Requisite gebe, sagen wir, einen Hund, dann werde ich es haben
+
+19:43.440 --> 19:47.110
+'props.dog' auch für mich verfügbar.
+
+19:48.600 --> 19:54.210
+Und wieder hatten wir einen netten kleinen Fehler, der 'Component' sagte, wir greifen das, aber wir sind nicht wirklich
+
+19:54.210 --> 19:59.190
+Verwenden Sie es und wir verwenden unnötige String-Verkettung.
+
+19:59.190 --> 20:05.770
+Wieder wirklich nützlich, wie Sie sehen können, ziemlich einfach zu erlernen. In der nächsten Lektion
+
+20:05.780 --> 20:10.850
+Wir fangen an, an unserer RoboFriends App zu arbeiten, jetzt da wir die Grundlagen haben.
+
+20:10.880 --> 20:12.620
+Ich sehe dich in diesem. Tschüss.

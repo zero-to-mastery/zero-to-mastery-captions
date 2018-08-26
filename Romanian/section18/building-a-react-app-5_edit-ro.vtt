@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+Prietenii nostri robo se uita intr-adevar foarte frumosi.
+
+00:03.130 --> 00:05.780
+Îmi place foarte mult această aplicație. Există însă o problemă.
+
+00:05.920 --> 00:14.580
+Dacă aș minimiza acest lucru. OK, este receptiv, arată bine. Dar dacă scot în jos, îmi pierd bara de căutare la
+
+00:14.580 --> 00:14.980
+topul.
+
+00:14.980 --> 00:21.540
+Nu ar fi frumos dacă asta ar fi în partea de sus și am un parcurgere pe care pot să o fac și să caut prin prietenii mei?
+
+00:24.510 --> 00:30.150
+Ei bine, s-ar putea să vă gândiți - "Probabil că există un stil CSS pe care îl pot adăuga aici". Dar vreau să ilustrez
+
+00:30.150 --> 00:39.180
+pentru dvs. faptul că React și de ce reacționează atât de bine este pentru că puteți crea componente care sunt
+
+00:39.300 --> 00:42.560
+reutilizabile, nu doar componente ale cardurilor, ci funcționalități.
+
+00:42.600 --> 00:48.110
+Ar fi grozav dacă ar fi posibil ceva în care să putem adăuga în jurul "CardList"?
+
+00:48.120 --> 00:58.960
+Poate pot crea o componentă "Scroll"? Și această componentă "Scroll" doar împachetează "CardList".
+
+00:59.190 --> 01:02.130
+Și acum "CardList" va fi complet scrollabil.
+
+01:02.220 --> 01:08.820
+Dar acum pot folosi "Scroll" această componentă oriunde în aplicația mea, ori de câte ori am nevoie de defilare, pot să mă împachetez
+
+01:08.820 --> 01:10.740
+în jur.
+
+01:10.790 --> 01:11.870
+Putem face asta?
+
+01:11.930 --> 01:12.860
+Hai sa incercam.
+
+01:14.690 --> 01:19.030
+Voi importa o Componentă pe care nu o avem încă
+
+01:19.160 --> 01:28.510
+care se numește "Derulați" dintr-un fișier pe care îl vom crea în cel de-al doilea. Să creăm un fișier nou.
+
+01:30.610 --> 01:32.040
+Vom numi acel "Scroll.js"
+
+01:32.080 --> 01:42.850
+Și aici, din nou, vom trece prin mișcarea "React de la reacție".
+
+01:42.900 --> 01:44.340
+Să facem asta puțin mai mare.
+
+01:46.150 --> 01:54.470
+Și din nou vreau să schimb acest lucru la Babel și vom spune că "const Scroll" este egal
+
+01:54.610 --> 02:01.790
+se va întoarce ... Unde ar trebui să se întoarcă?
+
+02:01.850 --> 02:11.790
+Înainte de a vorbi despre asta doar ca să nu uităm - trebuie să "exportăm implicit Scroll".
+
+02:11.800 --> 02:18.910
+Acum este o problemă. Vrem să întoarcem ceva, dar nu are sens, nu-i așa?
+
+02:19.060 --> 02:20.220
+Dacă mă duc la "App.js"
+
+02:22.130 --> 02:22.990
+"Scroll", dar nu este o componentă de auto-închidere,
+
+02:23.010 --> 02:27.850
+acesta împachetează componenta.
+
+02:27.870 --> 02:33.420
+Deci, cum putem spune "Derulați" la "Hei, faceți doar ceea ce este în interiorul dvs.".
+
+02:36.320 --> 02:37.370
+Pana la acest punct,
+
+02:37.430 --> 02:44.280
+Am aflat despre "recuzită" și am aflat despre "stat".
+
+02:44.340 --> 02:53.040
+Există încă un lucru în React că vreau să vă învăț și asta este "copii". Și "copii" este asta.
+
+02:54.320 --> 03:00.310
+"Scroll" poate folosi "copiii" ca o modalitate de a-și face copiii.
+
+03:00.740 --> 03:01.790
+Ce vreau sa spun prin asta?
+
+03:03.040 --> 03:09.710
+Ei bine, aici, fiecare obiect "recuzită" are copii.
+
+03:09.800 --> 03:16.540
+Deci, dacă mă duc "copilași", să vedem ce se întâmplă.
+
+03:16.660 --> 03:28.460
+Salvez și mă întorc, totul este redat. Dar dacă elimin acest lucru și fac doar un "h1",
+
+03:37.000 --> 03:44.910
+Tocmai am primit asta. Vedeți, "props.children" este exact așa.
+
+03:45.080 --> 03:49.490
+Dacă eu "console.log (recuzită)"
+
+03:53.520 --> 03:54.860
+Să deschidem consola.
+
+03:54.900 --> 03:57.770
+Văd că am un obiect.
+
+03:57.780 --> 04:07.560
+Și chiar dacă elementul trece orice "recuzită" la "Scroll", în mod automat fiecare componentă din React are acest lucru
+
+04:07.560 --> 04:18.050
+proprietate, "copii". Iar acești copii - arată destul de confuz aici - dar au "CardList" de tip "CardList"
+
+04:22.440 --> 04:32.800
+Deci, folosind acest "props.children", putem crea Componente care să înfășoare alte Componente. Pana la acest punct,
+
+04:32.800 --> 04:39.820
+am reușit doar să înfășurăm aceste "componente mici", care sunt un fel de tag-uri HTML.
+
+04:39.820 --> 04:44.680
+Dar de fiecare dată când aveam o componentă personalizată cu o scrisoare de capital pe care am construit-o, bine - nu am putut
+
+04:44.680 --> 04:46.000
+împachetează-l.
+
+04:46.020 --> 04:50.690
+Acum putem folosi "acest copil".
+
+04:50.780 --> 04:52.690
+Dar iată partea răcoroasă.
+
+04:52.910 --> 04:54.940
+Utilizarea "props.children"
+
+04:55.160 --> 05:07.180
+Pot să creez o componentă scrollabilă. Lasă-mă să-ți arăt cum. Pur și simplu faceți "div" aproape că "/ div",
+
+05:07.180 --> 05:16.150
+și aici, din nou, brațele "props.children". Și tot ce avem nevoie acum este să adăugăm stiluri acestui div.
+
+05:16.150 --> 05:22.630
+Aș putea crea un fișier "Scroll.css" și să adaug un stil astfel încât să poată fi scrollat, dar vreau să vă arăt un alt mod
+
+05:22.630 --> 05:24.230
+care utilizează "stil".
+
+05:24.550 --> 05:25.950
+La fel ca un HTML,
+
+05:26.170 --> 05:35.200
+Folosind acest atribut de stil și JSX, pot adăuga stiluri, dar folosind paranteze duble înclinate, adică
+
+05:35.200 --> 05:43.210
+aceasta este o expresie JavaScript și, în cadrul acesteia, returnez un obiect și acest obiect poate avea
+
+05:43.240 --> 05:47.760
+Stiluri CSS, cum ar fi o proprietate "overflowY".
+
+05:50.040 --> 05:54.450
+care este o proprietate CSS și acest lucru puteți spune "defilați" din nou,
+
+05:54.480 --> 06:06.870
+o modalitate CSS de a face elementul scrollabil. Vom spune că "frontiera" este de 1 pixel, solid, negru și în cele din urmă
+
+06:06.870 --> 06:17.670
+îi vom da o "înălțime" de 500 de pixeli. O să fac mai mic astfel încât să poți vedea, o să salvez,
+
+06:17.670 --> 06:18.290
+compilare este bine.
+
+06:18.330 --> 06:21.560
+Dacă mă întorc, se pare că avem o cutie aici.
+
+06:21.690 --> 06:26.520
+Să facem un pic mai mare doar pentru a putea vedea. Voi spune 5 pixeli, chiar dacă e urât.
+
+06:26.610 --> 06:30.150
+Și nu am uitat aici, nu?
+
+06:30.180 --> 06:36.760
+Bine, să vedem. Uită-te la asta, avem o componentă scrollabilă.
+
+06:36.770 --> 06:44.110
+Să facem acest lucru un pic mai mare, doar pentru a putea vedea o mai bună. Uită-te la asta.
+
+06:44.160 --> 06:53.650
+Dacă fac acest lucru mai mic, acum am o componentă scrollabilă în interiorul acestui lucru.
+
+06:53.760 --> 06:55.250
+Foarte tare.
+
+06:55.320 --> 06:57.690
+Acum este o aplicație simplă.
+
+06:57.840 --> 07:00.550
+Vă permite să căutați.
+
+07:00.570 --> 07:07.440
+Vă permite să derulați, dar nu arată puterea lui React, nu-i așa?
+
+07:08.260 --> 07:18.050
+Am creat aceste funcții simple și singurul lucru pe care îi spunem să o facă este,
+
+07:18.050 --> 07:24.880
+bine, îi spunem ce stat are. Întreaga aplicație este descrisă prin aceste două lucruri.
+
+07:25.040 --> 07:34.550
+"Roboții" și "câmpul de căutare" și React se ocupă de restul. Imediat ce se schimbă "câmpul de căutare" sau "roboții"
+
+07:35.330 --> 07:38.200
+Reactul se scurge
+
+07:38.200 --> 07:46.880
+Toate aceste informații sunt "recuzită" pentru toate aceste componente și ne creează în mod magic viziunea noastră.
+
+07:46.900 --> 07:49.780
+De aceea React este atât de puternic, este un strat de vedere.
+
+07:49.870 --> 07:55.580
+Se ocupă de manipularea DOM și tot ce spunem este "Hei, care este statul?"
+
+07:55.780 --> 07:59.610
+"Care sunt funcțiile pe care ați vrut să le lucrați cu statul?" si restul?
+
+07:59.620 --> 08:06.400
+Ei bine, optimizează pentru a vă asigura că totul este foarte rapid și puteți vedea cât de uimitor de rapid totul
+
+08:06.400 --> 08:06.870
+este aici.
+
+08:06.880 --> 08:12.220
+Este o aplicație super snappy și aceste componente sunt acum reutilizabile.
+
+08:12.220 --> 08:19.570
+Pot aduce "SearchBox" acum într-o altă parte a site-ului Web. Pot adăuga "Derulați" în altă parte a paginii
+
+08:19.570 --> 08:20.440
+site-ul.
+
+08:21.240 --> 08:27.430
+Aceasta este ceea ce a făcut React atât de puternic și de aceea atât de multe site-uri Web sunt alimentate de React.
+
+08:27.480 --> 08:35.960
+Odată ce ați învățat sintaxa și vă obișnuiți cu tot ce este când React devine cu adevărat puternic.
+
+08:35.960 --> 08:41.790
+Deși am luat puțin timp pentru a crea această aplicație, odată ce vă obișnuiți cu aceasta și aplicații asemănătoare
+
+08:41.790 --> 08:46.980
+îl puteți crea în, mai bine de o oră, probabil 30 de minute.
+
+08:47.050 --> 08:49.980
+Bine, cred că am făcut o treabă bună aici.
+
+08:49.990 --> 08:51.560
+Nu pot să aștept să vă văd în următorul videoclip. Pa! Pa

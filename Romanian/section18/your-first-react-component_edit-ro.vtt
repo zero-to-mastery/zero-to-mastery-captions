@@ -1,0 +1,712 @@
+WEBVTT
+
+00:01.680 --> 00:02.310
+In regula.
+
+00:02.310 --> 00:03.240
+Bine ai revenit.
+
+00:03.240 --> 00:06.540
+Avem aplicația noastră Hello World, dar asta nu arată foarte bine.
+
+00:06.540 --> 00:09.430
+Vrem să facem aplicația noastră RoboFriends.
+
+00:09.450 --> 00:16.540
+Deci, în acest videoclip, vom începe să construim prima noastră componentă. Dacă ne întoarcem aici,
+
+00:16.640 --> 00:19.080
+ne amintim că avem terminalul din partea dreaptă.
+
+00:19.100 --> 00:25.880
+Și am rulat doar "npm start" și "create-react-app" verifică toate fișierele pentru noi, asigurați-vă că nu există erori.
+
+00:25.880 --> 00:33.680
+Se spune că aplicația noastră este definită, dar nu este folosită niciodată, să comentăm acest lucru din nou "comanda" "slash" salvați acest lucru
+
+00:34.370 --> 00:37.080
+și veți vedea că totul funcționează bine.
+
+00:38.590 --> 00:43.510
+Acum puteți avea câteva întrebări doar pe acest fișier "index.js"
+
+00:44.210 --> 00:48.920
+Unul, vedem că importăm React, dar cum funcționează,
+
+00:48.920 --> 00:55.390
+ne amintim că nu a funcționat înainte; a trebuit să folosim "cer" și apoi "browser". Din nou, React are a
+
+00:55.390 --> 00:59.260
+Webpack sub capota care face legătura pentru noi.
+
+00:59.260 --> 01:03.670
+Deci, ni se permite să folosim "import", atâta timp cât păstrăm acest lucru în partea de sus a fișierului.
+
+01:03.760 --> 01:10.650
+Putem importa orice alte fișiere dorim sau orice alte pachete vrem.
+
+01:10.660 --> 01:14.360
+De asemenea, vedem că există două lucruri:React și ReactDOM.
+
+01:14.380 --> 01:21.200
+Dacă vă aduceți aminte, React este o bibliotecă de vizualizare.
+
+01:21.260 --> 01:25.660
+Deci acesta este micul robot pe care îl amintim de videoclipul precedent.
+
+01:26.030 --> 01:31.120
+Este nucleul pachetului care face manipularea DOM pentru noi.
+
+01:31.310 --> 01:35.890
+Dar, așa cum am spus înainte, React poate fi folosit în mai multe locuri, nu doar în browser.
+
+01:36.170 --> 01:38.330
+Poate fi folosit pentru dispozitive mobile.
+
+01:38.330 --> 01:45.350
+Acesta poate fi folosit pentru realitatea virtuală și puteți conecta și reda diferite biblioteci de genul asta
+
+01:45.440 --> 01:47.850
+ecranului la care trimiteți.
+
+01:48.000 --> 01:52.830
+Deci, ReactDOM este folosit pentru site-urile DOM (for).
+
+01:52.940 --> 01:54.370
+Deci e cleiul lui React.
+
+01:54.390 --> 01:57.620
+Dar putem avea ceva de genul React nativ.
+
+01:57.620 --> 02:01.950
+Asta face realmente pe telefoanele mobile.
+
+02:02.000 --> 02:04.740
+De asemenea, avem:import './index.css'.
+
+02:04.760 --> 02:13.340
+Și aceasta este o nouă sintaxă. Ei bine, React ne permite să adăugăm CSS nu doar într-un fișier, ci pentru fiecare altul
+
+02:13.340 --> 02:14.270
+componentă.
+
+02:14.390 --> 02:15.960
+Dacă mergem la "App.js",
+
+02:16.110 --> 02:21.000
+bine, avem "App.css" care descrie aplicația.
+
+02:21.230 --> 02:22.890
+Dacă mergem la 'index.js',
+
+02:22.910 --> 02:32.060
+bine, avem "index.css" care are propriile stiluri și aceste stiluri se vor aplica numai oricăror componente
+
+02:32.540 --> 02:35.740
+"rendere index.js".
+
+02:35.910 --> 02:41.550
+Iar modul în care o folosim este că spunem doar "import" și apoi, spre deosebire de pachetul React, unde spunem doar numele
+
+02:41.550 --> 02:47.940
+din pachet și știe automat să verifice dosarul modulelor cunoscute, trebuie să-i spunem unde
+
+02:48.000 --> 02:49.770
+"index.css" trăiește.
+
+02:49.830 --> 02:55.170
+Și această sintaxă de "punct" "slash" înseamnă că este în același director.
+
+02:55.320 --> 03:01.690
+Deci, spune că verificați în directorul sursă 'index.css' ar trebui să fie acolo. O.K.
+
+03:01.740 --> 03:05.100
+Și în final vedem "registerServiceWorker".
+
+03:05.100 --> 03:11.040
+Și acesta este un subiect avansat pe care nu îl vom acoperi în acest curs, dar gândim la lucrătorii din domeniul serviciilor ca pe un nou
+
+03:11.040 --> 03:16.660
+facilitate care permite aplicațiilor noastre să devină mai rapide și potențial să lucreze offline.
+
+03:16.800 --> 03:19.130
+Este ceva de care nu trebuie să ne preocupăm.
+
+03:19.140 --> 03:26.280
+Deci, pentru moment, puteți să comentați acest lucru și acesta va funcționa în continuare, dar îl vom păstra aici doar pentru că creați-reacție-app
+
+03:26.280 --> 03:34.880
+ne oferă gratuit. Lucrurile cu care ne pasă cu adevărat sunt:​​bine, această linie
+
+03:34.880 --> 03:43.160
+aici. Tot ceea ce face React, spune:Vreau pachetul reactDOM să folosească funcția
+
+03:43.250 --> 03:52.600
+"render", iar această "render" este că am vrut să fac ceea ce este, dar dacă vă amintiți înainte de a avea aplicație,
+
+03:55.110 --> 03:59.060
+și bine, aceasta nu este cu adevărat o etichetă HTML este.
+
+03:59.220 --> 04:04.850
+Tocmai am creat acest lucru - seamănă cu același director.
+
+04:04.860 --> 04:12.450
+Există ceva numit app și nu are un fișier ".js", așa cum o vedem aici și asta este
+
+04:12.450 --> 04:19.390
+pentru că în mod automat spune că dacă nu există nici un ".css" sau orice tip după el,
+
+04:19.410 --> 04:27.480
+bine presupune că este Javascript, dar acest lucru va funcționa la fel de bine cum puteți vedea. Să mergem la
+
+04:27.540 --> 04:34.680
+Fișierul "App.js" și să vedem de ce putem folosi această etichetă HTML pe care am creat-o. Dacă mergem la fișierul "App.js"
+
+04:34.680 --> 04:40.230
+din nou, vedem că importăm ceva, facem ceva numit distrugere
+
+04:40.230 --> 04:42.420
+aici și obținerea componentei, de asemenea.
+
+04:43.350 --> 04:49.660
+Și avem câteva fișiere precum "logo.svg" și "app.css" pe care le importăm.
+
+04:49.950 --> 04:52.300
+Și din nou vedem că sintaxa noastră este puțin mai mică.
+
+04:52.300 --> 05:03.830
+Asigurați-vă că ne schimbăm fișierele în Javascript (Babel) - și se pare că "aplicația de clasă extinde componenta"
+
+05:04.520 --> 05:05.830
+care vine cu React.
+
+05:05.840 --> 05:08.060
+Și aceasta este doar o sintaxă standard.
+
+05:08.090 --> 05:15.740
+Acest lucru reda - amintiți-vă că o componentă are întotdeauna rolul că trebuie să facă cel puțin ceva.
+
+05:15.960 --> 05:21.260
+Și modul în care facem acest lucru este să returnez o bucată HTML a site-ului.
+
+05:21.440 --> 05:24.870
+Așa că vedem aici:"Bine ați venit la React. Pentru a începe, editați ... "
+
+05:25.100 --> 05:27.940
+Ei bine, exact așa se spune aici.
+
+05:28.100 --> 05:29.440
+Aceasta este puterea lui React.
+
+05:29.450 --> 05:38.680
+Creați propriile noastre componente personalizate, propriile noastre etichete personalizate HTML, pe care le putem adăuga și dacă dumneavoastră
+
+05:38.680 --> 05:45.320
+amintiți-vă într-o singură direcție fluxul de date, avem un părinte care are copii.
+
+05:45.320 --> 05:52.050
+Așa că "App" are copii, dar știi ce, să construim o componentă proprie pentru a face acest lucru clar.
+
+05:52.370 --> 06:00.370
+În loc să avem o "salut lume" aici, să creăm o componentă numită "Hello" și este o închidere automată
+
+06:00.380 --> 06:02.500
+etichetă, deci doriți să aveți spate.
+
+06:02.700 --> 06:08.630
+Și aici, în loc să spui aplicația de import, să facem importul "Salut" de la
+
+06:08.970 --> 06:12.600
+o vom numi "hello.js"
+
+06:12.610 --> 06:14.710
+și veți observa că este capitalizată aici.
+
+06:14.810 --> 06:19.790
+Ei bine, dacă construiți o componentă, standardul este că este capitalizat.
+
+06:19.880 --> 06:29.070
+Deci, se va numi "Hello.js". Dacă salvăm acest lucru, vom avea o eroare. Se spune, "Modul nu a fost găsit:Nu se poate rezolva".
+
+06:29.090 --> 06:31.070
+Deoarece fișierul nu există.
+
+06:31.070 --> 06:32.290
+Deci, să creăm una.
+
+06:32.330 --> 06:38.590
+Voi spune noul fișier "Hello.js". Acolo te duci.
+
+06:38.670 --> 06:42.920
+Avem un nou fișier "Hello.js" și este compilat cu succes.
+
+06:43.020 --> 06:46.370
+Dacă mergem la site, uitați-vă la asta.
+
+06:46.380 --> 06:51.920
+De fapt, chiar ne dă eroare pe site-ul web, și de aceea "create-react-app" este doar atât de minunat.
+
+06:51.990 --> 06:57.660
+Vă arată exact ce sunt erorile, fără a deschide consola chiar aici.
+
+06:59.520 --> 07:03.830
+Din nou nu avem nimic construit chiar acum în "Bună ziua", așa că trebuie să-l creăm.
+
+07:03.840 --> 07:06.030
+Să folosim exemplul "App.js".
+
+07:06.030 --> 07:14.860
+Se pare că trebuie să importăm "React" și "Component", deci trebuie să spunem și să "importăm React, {Component} din" reacționează ";
+
+07:15.460 --> 07:16.170
+Bine.
+
+07:16.590 --> 07:25.080
+Și motivul pentru care facem acest lucru, din nou, este distrugerea, în loc să facem "React.Component", noi
+
+07:25.080 --> 07:31.270
+poate face acum doar "Component", și înseamnă același lucru.
+
+07:31.400 --> 07:34.370
+Din nou, privind la "App.js", se pare că spunem clasă
+
+07:34.430 --> 07:39.440
+"numele Componentei" extinde componenta. Hai să facem asta.
+
+07:39.440 --> 07:41.800
+clasa, vom numi asta "Bună ziua", din nou,
+
+07:41.800 --> 07:47.990
+asta este ceea ce numim componenta noastră, extinde "Component".
+
+07:48.040 --> 07:58.780
+Și amintiți-vă din nou să vă schimbați Javascript-ul la Babel. Și dacă vă amintiți o regulă este că întotdeauna
+
+07:58.780 --> 08:07.600
+doresc să aibă o funcție de randare și în cadrul acestei funcții de redare îi spunem ce vrem să ne întoarcem.
+
+08:08.070 --> 08:13.870
+Ei bine, vrem să întoarcem exemplul "hello world", dar putem spune "h1"
+
+08:16.630 --> 08:18.290
+"Bună ziua lume" / h1 ".
+
+08:21.940 --> 08:27.340
+Bine, să vedem ce se întâmplă atunci când fac asta:salvez,
+
+08:27.520 --> 08:31.650
+Și se spune:exportul "implicit" (importat ca "Hello") nu a fost găsit.
+
+08:31.650 --> 08:34.770
+Ei bine, pentru că nu exportăm asta.
+
+08:34.770 --> 08:42.660
+Amintiți-vă dacă doriți ca un alt fișier să îl folosească, trebuie să exportați. Și noi folosim "export default" când suntem doar
+
+08:42.930 --> 08:44.760
+exportând un lucru.
+
+08:44.760 --> 08:50.880
+Dacă vom folosi cuvântul implicit, acest fișier va exporta doar un singur lucru și acesta este "aplicația".
+
+08:50.880 --> 08:54.690
+Deci pot spune "default default"
+
+08:55.310 --> 08:57.650
+'Buna'
+
+08:57.730 --> 08:59.220
+Să salvăm.
+
+08:59.420 --> 09:01.100
+Se pare că funcționează.
+
+09:01.160 --> 09:03.070
+Să vedem ce se întâmplă pe site-ul nostru.
+
+09:03.500 --> 09:04.470
+'Salut Lume'.
+
+09:04.490 --> 09:12.300
+Tocmai am creat prima noastră componentă. Cat de tare e asta! Acum,
+
+09:12.320 --> 09:14.290
+acum avem doar o linie.
+
+09:14.300 --> 09:22.610
+Dar dacă aș vrea să fac ceva de genul ăsta, o să-l împachetez într-un div și poate de dedesubt aici, voi spune
+
+09:23.240 --> 09:31.550
+un paragraf care spune "Bine ați venit la reacție".
+
+09:31.630 --> 09:35.270
+Dacă salvez acest lucru, am o altă eroare.
+
+09:38.020 --> 09:45.010
+Și pentru că noi îi oferim mai multe linii aici și "întoarcerea" se așteaptă la un singur lucru.
+
+09:45.280 --> 09:47.850
+Trebuie să o împacheiem în paranteze.
+
+09:49.020 --> 09:55.270
+Astfel, pentru a avea Javascript spune:"Ah, aceasta este o expresie."
+
+09:55.270 --> 09:57.190
+"Evaluați întregul lucru."
+
+09:57.340 --> 10:05.690
+Dacă salvăm acest lucru, se pare că funcționează și apoi "Hello World, Welcome to React".
+
+10:05.770 --> 10:06.580
+Foarte tare.
+
+10:07.710 --> 10:18.780
+În acest caz, dacă vă amintiți dacă "importăm" ./Hello.css ";", putem crea orice stiluri CSS noi
+
+10:18.780 --> 10:25.620
+doriți, dar trebuie să creați primul dosar. Deci, haideți să facem, un nou dosar,
+
+10:26.050 --> 10:27.660
+și trebuie să adaug un "o" aici.
+
+10:27.670 --> 10:32.090
+Numele noului fișier va fi "Hello.css". Acum,
+
+10:32.100 --> 10:34.720
+în "Hello.css", pot spune doar că h1.
+
+10:34.770 --> 10:40.150
+Și acesta este doar CSS standard, va avea fundal roșu.
+
+10:40.470 --> 10:42.320
+O să salvez,
+
+10:42.330 --> 10:43.230
+salvați și acest lucru.
+
+10:43.230 --> 10:44.400
+Totul arată bine.
+
+10:45.320 --> 10:46.490
+Și uită-te la asta.
+
+10:49.300 --> 10:55.480
+Dar știți ce, pentru a face acest lucru mai rapid și pentru că am trecut peste CSS, vreau să vă arăt un pachet răcoros
+
+10:55.510 --> 11:05.080
+numite "tahioni" și "tahioni", ne permite să avem nume similare de bootstrap, predefinite, pe care le
+
+11:05.080 --> 11:08.720
+poate adăuga doar componente pentru a face lucrurile să arate foarte bine.
+
+11:08.770 --> 11:09.470
+Deci, să facem asta.
+
+11:09.490 --> 11:17.750
+Am de gând să închid acest lucru și să spun "npm instala tahioni".
+
+11:17.800 --> 11:18.290
+În regulă.
+
+11:18.290 --> 11:21.390
+Se adaugă pachetului - putem verifica dacă mergem la 'package.json'.
+
+11:21.410 --> 11:27.920
+Vedem că "tahionii" sunt acolo și putem folosi "tahionii" foarte ușor, dar doar vom merge la "index.js"
+
+11:27.920 --> 11:33.200
+fișier și spunând "importă" tahioni ";".
+
+11:33.420 --> 11:39.150
+Și acum avem acces la acest pachet - doar pentru a vă arăta ce sunt "tahionii"
+
+11:39.150 --> 11:42.510
+dacă mă duc la "stiluri de tahioni"
+
+11:46.820 --> 11:54.200
+care ne oferă niște clase pe care le putem folosi, de exemplu, "centru de text", vom spune doar "tc" și atâta timp
+
+11:54.200 --> 12:01.220
+după cum am instalat "tahionii", folosim "tc" ca nume de clasă, ne va alinia textul.
+
+12:01.330 --> 12:06.880
+Deci, acum că avem "tahioni" în acest fișier index.js, putem spune doar aici
+
+12:10.990 --> 12:19.230
+'class =' ​​f1 '' pentru fontul 1 și 'text center' - salvez.
+
+12:19.340 --> 12:19.880
+Eu trebuie să fac,
+
+12:19.880 --> 12:20.960
+'npm începe' aici.
+
+12:20.960 --> 12:24.510
+Asigurați-vă că serverul nostru rulează, astfel încât să putem verifica modificările noastre.
+
+12:25.220 --> 12:30.970
+Și obținem "Hello World, Welcome to React".
+
+12:31.020 --> 12:33.210
+Dar de fapt există un șmecherie aici.
+
+12:33.210 --> 12:39.270
+Dacă deschideți consola, deși acest lucru a funcționat, primesc un avertisment care spune "Clasa de proprietate DOM de invalidă".
+
+12:39.270 --> 12:41.330
+- Ai vrut să spui "className"? - Și React este
+
+12:41.340 --> 12:50.810
+într-adevăr foarte bun la a vă oferi erori, și s-ar putea să te întrebi:de ce un "className" în loc de
+
+12:51.050 --> 12:51.650
+'clasă'?
+
+12:51.800 --> 12:57.840
+Pentru că dacă salvez asta, du-te înapoi, nu mai am această eroare.
+
+12:58.400 --> 12:59.370
+De ce este asta?
+
+12:59.600 --> 13:04.310
+Ei bine, până în acest moment, avem un fel de scriere HTML,
+
+13:04.610 --> 13:06.950
+dar acesta este un fișier Javascript.
+
+13:07.040 --> 13:10.180
+Cum putem face acest lucru?
+
+13:10.190 --> 13:13.430
+Acesta este de fapt ceva numit JSX.
+
+13:13.430 --> 13:23.520
+Parte a Reactului, este că vă permite să scrieți această sintaxă asemănătoare HTML în Javascript. Și s-ar putea
+
+13:23.520 --> 13:32.790
+să te întrebi pe tine însuți, nu întrerupe regula de separare a preocupărilor și două, cum suntem noi
+
+13:32.790 --> 13:39.210
+capabil să adauge codul HTML în Javascript. Pentru a răspunde la prima întrebare de separare a preocupărilor, React are
+
+13:39.210 --> 13:44.910
+ideea de componente, și că este:este mai bine să aibă funcționalitate și stiluri pe fiecare componentă, astfel încât fiecare
+
+13:44.910 --> 13:47.940
+componenta este propriul său univers separat.
+
+13:47.940 --> 13:50.160
+Și tocmai adăugați aceste componente.
+
+13:50.670 --> 13:58.440
+Și ideea de separare a preocupărilor cu React, este aceea a componentelor, ei sunt preocupați de ei înșiși,
+
+13:58.470 --> 13:59.260
+nimic altceva.
+
+13:59.430 --> 14:03.570
+Deci schimba paradigma aici și este un lucru frumos.
+
+14:03.570 --> 14:05.090
+Mă pot uita doar la componenta "Hello".
+
+14:05.100 --> 14:06.410
+Știu exact ce face.
+
+14:06.420 --> 14:07.900
+Mă pot uita la CSS.
+
+14:08.460 --> 14:14.730
+Și oricând trebuie să fac o schimbare, trebuie să-mi fac griji pentru fișierele care conțin "Hello.css"
+
+14:14.730 --> 14:15.960
+și "Hello.js".
+
+14:15.960 --> 14:21.510
+Cel de-al doilea lucru este acesta, acest lucru numit JSX. Sub capota,
+
+14:21.540 --> 14:29.040
+ceea ce face React este de fapt să mă lase să folosesc această sintaxă, dar nu sunt etichete HTML efective.
+
+14:29.160 --> 14:34.890
+Amintiți-vă ce am spus despre DOM-ul virtual și cum React creează propriul obiect și apoi se uită la
+
+14:34.890 --> 14:39.360
+DOM și o compară și spune:"Trebuie să schimb acest lucru și să o facă pentru noi"?
+
+14:39.360 --> 14:48.110
+React folosește JSX pentru a-și crea DOM-ul virtual, DOM-ul lor fals, pe care l-au construit în funcție de ceea ce îi oferim
+
+14:48.120 --> 14:48.850
+lor.
+
+14:48.990 --> 14:55.350
+Apoi se uită la acest DOM virtual și la DOM real și spun că această parte sa schimbat.
+
+14:55.350 --> 15:01.930
+Voi schimba acum baza virtuală DOM - și de aceea reacționează ca într-adevăr foarte rapid.
+
+15:02.070 --> 15:08.430
+Creează aceste obiecte care este foarte rapid în Javascript și modifică doar ceea ce trebuie făcut în
+
+15:08.430 --> 15:09.020
+DOM.
+
+15:09.360 --> 15:10.790
+Deci, să vă obișnuiți.
+
+15:10.830 --> 15:18.240
+Este ciudat la început, dar din nou atâta timp cât îl înfășurați într-o coloană, puteți scrie aici HTML, ca
+
+15:18.240 --> 15:24.180
+precum și propriile componente personalizate, precum "Hello" pe care le-am folosit în fișierul "index.js".
+
+15:28.540 --> 15:39.600
+Și acum poate că are sens de ce nu putem spune clasa aici, deoarece clasa este un cuvânt cheie rezervat în Javascript.
+
+15:39.940 --> 15:42.830
+Clasa face parte din limbajul folosit de Javascript.
+
+15:42.840 --> 15:49.630
+Deci, dacă acest lucru este Javascript, faptul că vorbim aici de clasă nu are sens. În vechea versiune a
+
+15:49.630 --> 15:50.080
+Reacţiona,
+
+15:50.080 --> 15:57.780
+acest lucru a rupt de fapt React, dar acum ne dă o eroare frumoasă. Deoarece acest lucru este Javascript și nu HTML,
+
+15:57.790 --> 16:01.150
+trebuie să spunem "className" și este ceva la care vă veți obișnui.
+
+16:01.150 --> 16:05.890
+Veți fi înșelat, la început, dar devine ușor după un timp.
+
+16:06.040 --> 16:12.010
+Ultimul lucru pe care vi-l voi arăta este partea lui React. În cadrul componentei "Hello"
+
+16:12.040 --> 16:16.320
+Acum pot adăuga ceva numit recuzită sau proprietăți.
+
+16:17.290 --> 16:19.270
+Și aceste elemente de recuzită pot fi numite orice.
+
+16:19.270 --> 16:21.350
+Gândiți-vă la acestea ca atribute HTML.
+
+16:21.370 --> 16:27.850
+Pot să spun "salut = []", și aici,
+
+16:28.030 --> 16:35.520
+Vreau să-l împachetez în paranteze curbate și aceasta este o expresie Javascript, orice vreau, pot spune "Buna"
+
+16:38.980 --> 16:49.000
+"React Ninja", și dacă salvez acest lucru primesc o eroare spunând că nu o concatenare inutilă.
+
+16:49.000 --> 16:53.970
+Deci, spune asta:Hei de ce adăugați lucruri chiar când le puteți pune împreună.
+
+16:54.070 --> 17:00.100
+Deci, este suficient de inteligent pentru a vă oferi sugestii sau avertismente atunci când faceți ceva ce nu este
+
+17:00.100 --> 17:00.360
+curat.
+
+17:00.360 --> 17:03.050
+Dar pentru moment, pentru scopuri demonstrative, este bine.
+
+17:03.400 --> 17:11.120
+Acum, că am dat-o, ceea ce numim propoziția "salut" la "Hello", acum am acces în "Hello.js"
+
+17:11.130 --> 17:14.640
+la recuzită. Acum pot spune
+
+17:17.190 --> 17:31.820
+"this.props.greeting", salvez acest lucru, du-te înapoi, și spun "Hello React Ninja".
+
+17:32.050 --> 17:43.650
+Vedeți, cu această sintaxă, se spune că acest obiect, care este "Hello", are proprietăți "recuzită", adică "salut".
+
+17:44.060 --> 17:51.140
+Știu că este confuz, este doar sintaxa pe care trebuie să o obișnuiți, dar acum avem acces la orice
+
+17:51.350 --> 17:57.100
+proprietate, și orice valoare de proprietate pe care o primim
+
+17:57.270 --> 18:02.320
+'Buna'. Aceasta este o putere care va veni la îndemână mai târziu.
+
+18:02.390 --> 18:08.080
+Dar vreau să vă construiți aici componenta proprie și să vă familiarizați cu sintaxa.
+
+18:08.230 --> 18:14.110
+Este într-adevăr foarte puternic și odată ce vă obișnuiți cu asta, puteți construi orice componente doriți.
+
+18:14.350 --> 18:14.650
+O.K.
+
+18:14.680 --> 18:15.670
+Un ultim lucru.
+
+18:16.760 --> 18:23.560
+Acest indice poate fi dificil, dar vreau să vă arăt că aceasta este de fapt doar o funcție.
+
+18:23.730 --> 18:38.580
+Dacă fac "const Hello", și aici, această funcție acceptă "recuzită". Dacă fac o funcție de eroare aici,
+
+18:39.030 --> 18:40.620
+împachetați-l în paranteze curbate,
+
+18:40.860 --> 18:47.620
+și în loc să fac această renderare, tocmai mă întorc
+
+18:54.720 --> 19:02.670
+Dacă am salvat acest lucru, am o eroare deoarece "this.props.greeting" nu există cu adevărat
+
+19:02.700 --> 19:05.220
+pentru că nu mai este un obiect.
+
+19:05.220 --> 19:06.120
+Este o funcție.
+
+19:06.120 --> 19:07.280
+Așa că nu am nevoie de recuzită.
+
+19:07.290 --> 19:14.040
+Primeste recuzita, indiferent de parametrii pe care ii oferim, iar "props.greeting" este acceptabil pentru noi.
+
+19:14.070 --> 19:16.820
+Salvez asta, du-te înapoi și uită-te la asta.
+
+19:16.830 --> 19:17.710
+Functioneaza.
+
+19:17.880 --> 19:19.820
+Sunt doar funcții.
+
+19:19.810 --> 19:27.510
+Gândiți-vă la reacție ca și asta:creați doar aceste funcții care iau parametrii și acești parametri
+
+19:27.780 --> 19:36.460
+care sunt date prin acordarea de atribute și valori, sunt doar redate.
+
+19:36.740 --> 19:43.410
+Am acces la "props.greeting", dacă îi dau un alt element numit aici, să zicem, un câine, atunci voi avea
+
+19:43.440 --> 19:47.110
+"props.dog" și la dispoziția mea.
+
+19:48.600 --> 19:54.210
+Și din nou am avut o mică eroare mică spunând "Componenta", o luăm pe asta, dar nu suntem cu adevărat
+
+19:54.210 --> 19:59.190
+folosind-o și folosim concatenarea inutilă a șirului.
+
+19:59.190 --> 20:05.770
+Din nou foarte util, după cum puteți vedea, destul de simplu pentru a ridica. În următoarea lecție,
+
+20:05.780 --> 20:10.850
+vom începe să lucrăm efectiv la aplicația RoboFriends, acum că avem noțiunile de bază.
+
+20:10.880 --> 20:12.620
+Ne vedem în acel. Pa! Pa.

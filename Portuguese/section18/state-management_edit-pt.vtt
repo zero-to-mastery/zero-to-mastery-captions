@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Bem vindo de volta.
+
+00:03.570 --> 00:10.610
+Antes de começarmos a aprender sobre o redux, precisamos conversar sobre algo chamado gerenciamento de estado.
+
+00:10.640 --> 00:12.440
+Nós ouvimos essa palavra antes - estado.
+
+00:12.530 --> 00:13.050
+Certo.
+
+00:13.190 --> 00:14.690
+Ao criar um aplicativo de resposta.
+
+00:14.720 --> 00:24.300
+Nós tivemos isso.estado e estado descreveram como nosso aplicativo deveria ser. Se nos lembrarmos disso, bem,
+
+00:27.630 --> 00:36.750
+Reagir é simplesmente um grupo de componentes que são renderizados em uma estrutura semelhante a uma árvore.
+
+00:36.840 --> 00:41.420
+Então, isso seria o app.js por exemplo.
+
+00:41.560 --> 00:48.390
+E cada um desses componentes teria estado, por exemplo, os pontos vermelhos aqui.
+
+00:48.700 --> 00:49.750
+Eles têm estado.
+
+00:49.750 --> 00:57.730
+Então, por exemplo, esse componente de aplicativo terá um estado de login como, e digamos que o estado seja usuário
+
+00:57.730 --> 01:06.340
+Nesse caso, esse componente de usuário pode ter um estado de usuário "Mitch" ou se assinado como
+
+01:06.340 --> 01:14.200
+é "Admin", ele pode renderizar o componente admin e, a qualquer momento, você vê o ponto azul que significa que houve um
+
+01:14.200 --> 01:21.340
+mude então se houver uma mudança aqui, pode atualizar algo para este componente e nós renderizamos.
+
+01:21.640 --> 01:31.380
+E nós fizemos isso em reação e eu quero que você pense em Estado como memória. Um aplicativo precisa lembrar de coisas
+
+01:31.440 --> 01:40.240
+a fim de trabalhar de outra forma, teríamos apenas páginas web html simples como antes.
+
+01:40.320 --> 01:43.340
+Lembre-se deste site da Keiko Corp.
+
+01:43.490 --> 01:46.940
+Isso realmente não tem nenhum estado, não é?
+
+01:48.050 --> 01:57.230
+Cada vez mostramos exatamente a mesma página para quem está usando. Esta página não tem ideia de quem é o usuário
+
+01:57.230 --> 02:03.740
+é ou quaisquer interações que eu estou tendo - é principalmente apenas texto.
+
+02:03.810 --> 02:07.530
+Agora, o aplicativo RoboFriends - isso é diferente.
+
+02:07.680 --> 02:08.880
+Tem estado.
+
+02:09.330 --> 02:14.880
+Bem principalmente porque nós escrevemos isto e nós tivemos o this.state mas nós podemos interagir com isto.
+
+02:14.940 --> 02:16.450
+Eu posso digitar aqui.
+
+02:17.400 --> 02:25.360
+Leanne e eu temos um estado da caixa de pesquisa contendo L-E-A.
+
+02:25.560 --> 02:36.650
+E os robôs sendo filtrados apenas com Leanne. Estado descreve como nosso aplicativo deve ser. Nosso aplicativo, nosso Robo-
+
+02:36.650 --> 02:46.520
+amigos app agora deve ficar assim com apenas um cartão de robô, porque o estado é de uma pesquisa
+
+02:46.520 --> 02:50.540
+caixa com as letras L-E-A dentro dele.
+
+02:51.570 --> 03:00.660
+Agora, com um aplicativo simples como o robo friends ap0, o p state era bem fácil de entender, mas o state management
+
+03:00.900 --> 03:02.780
+é um problema muito difícil
+
+03:02.880 --> 03:10.340
+como nossos aplicativos ficam cada vez maiores e maiores. E você verá na parte posterior do curso quando
+
+03:10.340 --> 03:15.180
+Começamos a trabalhar no aplicativo de cérebro inteligente que faz o reconhecimento de imagem.
+
+03:16.720 --> 03:24.430
+Você vai notar como o estado fica cada vez mais complicado e sua cabeça começa a doer porque você
+
+03:24.430 --> 03:26.770
+tem que acompanhar todas essas coisas acontecendo.
+
+03:28.180 --> 03:35.380
+Então, novamente, com um aplicativo simples, podemos ter visões agradáveis ​​e talvez ter estados diferentes e diferentes
+
+03:35.380 --> 03:39.680
+componentes, mas eventualmente, como o nosso aplicativo fica maior.
+
+03:39.760 --> 03:49.150
+Nós acabamos com algo como isso, onde temos mais e mais componentes cada vez mais estado dentro
+
+03:49.150 --> 03:55.540
+esse componente ou podemos ter um estado massivo no topo aqui que também fica muito difícil e
+
+03:55.960 --> 03:59.090
+todos esses pontos azuis, como eles atualizam,
+
+03:59.110 --> 04:04.180
+eles também precisam atualizar o estado e renderizá-lo novamente.
+
+04:04.380 --> 04:11.070
+E este exemplo aqui é apenas um pequeno diagrama, mas você pode ver com todas essas setas como é confuso
+
+04:11.070 --> 04:17.520
+ir e manter o controle de todo esse estado é muito, muito difícil.
+
+04:17.550 --> 04:23.060
+Então, precisamos de alguma forma de gerenciamento de estado e redux.
+
+04:23.060 --> 04:25.070
+resolve este problema para nós.
+
+04:25.070 --> 04:32.210
+Como poderíamos tornar esse diagrama mais simples e tornar as coisas mais fáceis de entender em nossas cabeças como desenvolvedores?
+
+04:32.870 --> 04:35.060
+Redux surgiu com um novo conceito.
+
+04:36.470 --> 04:39.750
+E se nós apenas removermos todo o estado,
+
+04:39.980 --> 04:43.050
+então this.state de todos os componentes?
+
+04:43.220 --> 04:45.390
+E se nós apenas tivermos adereços?
+
+04:45.620 --> 04:49.650
+Portanto, todos esses componentes só têm adereços sendo transmitidos.
+
+04:50.000 --> 05:00.150
+E agora o estado, nós o mantemos em uma loja. E uma loja é simplesmente o estado que é this.state
+
+05:00.180 --> 05:01.700
+aquele reagir teve.
+
+05:01.860 --> 05:05.960
+Mas em um objeto massivo como você vê aqui.
+
+05:06.120 --> 05:14.940
+Então, um único objeto que descreve como nosso aplicativo deve parecer e tudo o que fazemos é apenas passar esse estado
+
+05:15.300 --> 05:18.840
+para qualquer componente que precise como acessório.
+
+05:19.750 --> 05:30.070
+Assim, o nosso diagrama de ficar assim com apenas reagir pode ir parecendo assim com redux onde nenhum
+
+05:30.070 --> 05:32.690
+dos componentes precisa manter o estado mais.
+
+05:32.860 --> 05:41.020
+E podemos ter um objeto enorme que descreva todo o nosso aplicativo e qualquer componente que precise
+
+05:41.020 --> 05:43.440
+prop só pode ser passado para ele.
+
+05:44.320 --> 05:51.670
+E todas as atualizações que acontecem passam pelo estado, o estado é modificado e então nós passamos adiante
+
+05:51.670 --> 05:59.800
+informações para o componente. Esse diagrama pode ser confuso sem realmente codificar nada.
+
+05:59.900 --> 06:01.010
+E nós voltaremos a isso
+
+06:01.010 --> 06:02.780
+então isso faz sentido.
+
+06:02.990 --> 06:11.230
+Mas mesmo visualmente, você pode ver que esse diagrama parece muito mais simples do que o diagrama anterior.
+
+06:11.240 --> 06:15.630
+Temos muito menos flechas e tudo flui melhor.
+
+06:15.680 --> 06:20.910
+Então, enquanto passamos pelos vídeos, você vai se familiarizar cada vez mais com essa ideia de gerenciamento de estado.
+
+06:20.930 --> 06:28.430
+Mas eu queria ter em mente que isso é o que o redux está resolvendo. Redux é uma biblioteca que faz o estado
+
+06:28.430 --> 06:34.100
+gestão mais fácil, não só para o reac, mas para todas as ferramentas que usamos.
+
+06:34.220 --> 06:36.810
+Acontece que funciona muito bem com reagir.
+
+06:37.400 --> 06:44.870
+E o redux realmente se inspirou no design do banco de dados. De coisas como eventos de sourcing ou CQRS
+
+06:45.230 --> 06:49.400
+que você pode ler mais. Bancos de dados tiveram o mesmo problema.
+
+06:49.520 --> 06:57.530
+Todas essas atualizações e todas essas mudanças aconteceram, mas precisávamos de uma maneira de garantir que todas essas mudanças
+
+06:57.890 --> 07:00.950
+são organizados de uma maneira coesa e agradável.
+
+07:02.120 --> 07:02.730
+Tudo bem.
+
+07:02.860 --> 07:08.580
+Bem, vamos entrar no próximo vídeo e nos aprofundar um pouco com o redux.
+
+07:08.690 --> 07:09.680
+Eu vejo você no próximo. Tchau tchau.

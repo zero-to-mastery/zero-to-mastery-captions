@@ -1,0 +1,211 @@
+WEBVTT
+
+00:01.120 --> 00:02.140
+Willkommen zurück.
+
+00:02.140 --> 00:03.910
+Es ist Zeit, Node JS zu lernen.
+
+00:04.030 --> 00:06.950
+Jetzt Knoten JS
+
+00:07.060 --> 00:11.920
+Wir haben es in früheren Videos verwendet, aber wir haben es nicht wirklich erklärt.
+
+00:11.920 --> 00:18.070
+Also werden wir in diesem Abschnitt lernen, was es ist und es schließlich verwenden, um einen Server zu bauen.
+
+00:19.640 --> 00:27.180
+Jetzt habe ich das vielleicht schon erwähnt, aber Node ist JavaScript, das auf Ihrem Rechner läuft.
+
+00:27.180 --> 00:34.140
+Sie sehen, bis Node erstellt wurde, konnten Sie nur JavaScript im Browser ausführen, weil die Browser
+
+00:34.140 --> 00:43.990
+waren die einzigen, die eine JavaScript Engine wie V8 hatten und Node JS wurde mit der V8 Engine in erstellt
+
+00:43.990 --> 00:51.400
+Um JavaScript überall ausführen zu können, einschließlich Ihres Computers, einschließlich Robotern und überall
+
+00:51.430 --> 00:53.450
+solange Sie Knoten JS hatten.
+
+00:54.460 --> 01:00.970
+Und tatsächlich haben wir Node die ganze Zeit in unserem Terminal benutzt, als wir Befehle ausgeführt haben
+
+01:01.030 --> 01:05.420
+Das NPM gab uns wie "create-react-app".
+
+01:05.410 --> 01:10.540
+Gut, das war Node; Wir haben JavaScript außerhalb des Browsers ausgeführt.
+
+01:12.010 --> 01:17.320
+Und Knoten-JS ist wahrscheinlich am beliebtesten für den Aufbau von Servern.
+
+01:17.320 --> 01:24.040
+Es ist wirklich sehr schnell und immer mehr Unternehmen nutzen es jetzt als Back-End-Server
+
+01:24.040 --> 01:26.760
+wie es gebaut ist.
+
+01:26.770 --> 01:27.110
+-
+
+01:27.170 --> 01:31.130
+Knoten JS ist wahrscheinlich der Server der Wahl für alle Web-Anwendungen oder
+
+01:31.350 --> 01:35.230
+Mobile Apps, die eine API oder einen Server erstellen möchten.
+
+01:35.470 --> 01:40.490
+Und es ist auch sehr gut darin, Chat-Anwendungen und Echtzeit-Kommunikation aufzubauen.
+
+01:41.060 --> 01:45.970
+Sowieso, wie wir vorher erwähnt haben, solltest du das jetzt wahrscheinlich auf deinem Computer haben, aber wenn nicht du
+
+01:45.970 --> 01:47.080
+kann herunterladen
+
+01:47.110 --> 01:47.450
+-
+
+01:47.490 --> 01:47.880
+Knoten JS.
+
+01:47.920 --> 01:50.170
+Ich benutze gerne die LTS-Version.
+
+01:50.990 --> 01:56.540
+Aber solange die Version, die Sie verwenden, höher als 8.9.3 ist, demonstrieren Sie dies
+
+01:56.600 --> 01:58.070
+wird für dich arbeiten.
+
+01:58.070 --> 02:01.350
+Node ist wirklich sehr gut darin, sicherzustellen, dass alles kompatibel ist.
+
+02:01.430 --> 02:08.150
+Wenn Sie ein Windows-Betriebssystem verwenden, stellt Node das für Sie im Download-Bereich zur Verfügung
+
+02:08.150 --> 02:08.700
+auch.
+
+02:09.850 --> 02:15.950
+Und nochmal, um Node zu überprüfen, es ist sehr einfach, wir machen einfach 'node -v' um zu sehen, dass wir es haben.
+
+02:16.180 --> 02:23.490
+Und wenn Sie es haben, haben Sie die Versionsnummer für Sie auf der Konsole gedruckt. Eine letzte Sache
+
+02:23.490 --> 02:30.940
+bevor ich dir einige Node-Befehle zeige:wie ich schon sagte, kann Node überall laufen.
+
+02:32.130 --> 02:38.250
+Und eine meiner Lieblingsbeschäftigungen mit Node, abgesehen von Build-Servern, ist das Erstellen von Robotern mit
+
+02:38.250 --> 02:39.410
+JavaScript.
+
+02:39.400 --> 02:46.860
+Diese Johnny-5 ist eine JavaScript-Bibliothek, die Sie mit Node verwenden können und wenn Sie etwas wie eine Himbeere haben
+
+02:46.860 --> 02:55.310
+Pi, es hilft Ihnen, Funktionen mit JavaScript zu erstellen, die Roboter ausführen können.
+
+02:55.740 --> 03:00.640
+Daher empfehle ich es nach diesem Kurs sehr, wenn Sie mehr erkunden wollen.
+
+03:00.660 --> 03:08.370
+Johnny-5 ist eines meiner Lieblingsdinge und es ist überraschend, wie einfach es ist, einen Roboter zu bauen, der das macht
+
+03:08.370 --> 03:12.590
+was auch immer Sie wollen, nur mit JavaScript.
+
+03:12.620 --> 03:18.670
+Aber wie auch immer, lass uns zurück zu Node gehen. In deinem Terminal,
+
+03:18.670 --> 03:27.550
+Wenn Sie tatsächlich 'node' eingeben und die Eingabetaste drücken, sehen Sie, dass sich die Eingabeaufforderung nun ändert und ich Node ausführen kann
+
+03:27.960 --> 03:31.530
+im Terminal. Wenn ich 'console.log (' hi ')'
+
+03:35.250 --> 03:47.570
+Ich bekomme 'Hallo'. Wenn ich '4 + 5' mache, bekomme ich 9, und wenn ich 'Boolaen (3)' hoppe, buchstabiere ich das falsch, 'Boolean (3)'
+
+03:50.130 --> 03:51.930
+Ich werde wahr.
+
+03:52.380 --> 03:58.450
+Wie Sie sehen können, führen wir nur JavaScript aus, aber hier gibt es einen Unterschied.
+
+03:58.570 --> 04:07.510
+Wenn ich 'window' eintippe, bekomme ich 'ReferenceError:window is not defined' und lass mich das ein wenig klären.
+
+04:07.510 --> 04:14.680
+Das liegt daran, dass wir beim Ausführen von Node kein window-Objekt haben. Das Fensterobjekt wurde uns zur Verfügung gestellt
+
+04:15.070 --> 04:16.570
+durch den Browser.
+
+04:16.930 --> 04:20.800
+Und wie Sie wissen, Knoten, nun, es gibt keinen Browser, der es ausführt.
+
+04:20.800 --> 04:25.020
+Stattdessen kommt Node mit etwas namens 'global'.
+
+04:25.210 --> 04:31.780
+Und Sie können sehen, dass dieses "Globale" genau so ist wie das Fensterobjekt, eine Menge Dinge, die wir verwenden können
+
+04:32.500 --> 04:35.490
+aber es wird keine browserspezifischen Dinge haben.
+
+04:36.410 --> 04:48.260
+Zum Beispiel werden wir 'global.fetch' nicht haben können - es ist undefiniert, weil es es nicht gibt.
+
+04:48.300 --> 04:51.090
+Das wurde uns vom Browser zur Verfügung gestellt.
+
+04:51.090 --> 04:53.810
+Wir haben auch nicht das Objekt "Dokument",
+
+04:53.880 --> 05:00.120
+Falls du dich erinnerst; wenn ich wieder "dokumentiere", bekomme ich einen Referenzfehler, weil es kein Dokument gibt; so das ist
+
+05:00.120 --> 05:01.670
+etwas zu beachten.
+
+05:01.770 --> 05:08.130
+Der Knoten verfügt über eigene Eigenschaften und Methoden, die wir verwenden, aber keine browserspezifischen Dinge.
+
+05:08.130 --> 05:11.210
+Wir können mit Node alles machen, was wir wollen.
+
+05:11.310 --> 05:16.100
+Eines der globalen Objekte, die wir haben, ist etwas, das 'Prozess' genannt wird.
+
+05:16.250 --> 05:24.680
+Wenn ich noch einmal Enter drücke, habe ich eine Menge Zeug, und in Node bedeutet "Prozess" "diesen Prozess" - was ich gerade mache
+
+05:24.680 --> 05:28.890
+Gerade jetzt im Terminal ist der Prozess, was der Computer macht.
+
+05:30.330 --> 05:30.570
+Gut.
+
+05:30.580 --> 05:33.260
+Und lass uns das einfach klären.
+
+05:33.460 --> 05:43.490
+Jetzt, wenn ich "process.exit" mache, beende ich diesen Prozess und jetzt bin ich zurück zu meinem Terminal.
+
+05:43.680 --> 05:50.370
+Jetzt, da wir Node in unserer Macht haben, werden wir anfangen, ein Skript zu schreiben und Ihnen zeigen, wie es geht
+
+05:50.370 --> 05:56.090
+fange an, tatsächliches JavaScript zu schreiben, nicht im Terminal, sondern in Sublime Text.
+
+05:56.370 --> 05:58.110
+Ich werde im nächsten Video sehen.
+
+05:58.110 --> 05:58.350
+Tschüss.

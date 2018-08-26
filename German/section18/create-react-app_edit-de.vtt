@@ -1,0 +1,442 @@
+WEBVTT
+
+00:01.340 --> 00:02.130
+Willkommen zurück.
+
+00:02.180 --> 00:06.380
+Es ist Zeit, unsere Robo Friends App zu erstellen, um loszulegen.
+
+00:06.500 --> 00:08.850
+Nun, lass uns unser Terminal öffnen.
+
+00:08.870 --> 00:11.050
+Wir sollten uns jetzt damit wohl fühlen.
+
+00:11.480 --> 00:17.960
+Für diesen Abschnitt empfehle ich wirklich, entlang der Prozesse zu codieren und zu folgen, weil Sie
+
+00:17.960 --> 00:23.310
+wird viel besser lernen, wenn du das selbst machst.
+
+00:23.360 --> 00:24.530
+Und wie ich es versprochen habe.
+
+00:24.530 --> 00:28.750
+Es ist ziemlich einfach und wir werden am Ende eine schöne App haben.
+
+00:28.850 --> 00:35.450
+Aber für diejenigen, die es genießen, nur danach zuzusehen und zu arbeiten, stelle ich die letzten Robo Friends zur Verfügung
+
+00:35.540 --> 00:38.190
+App-Dateien für Sie am Ende dieses Abschnitts.
+
+00:40.150 --> 00:40.590
+OK.
+
+00:40.860 --> 00:41.940
+Wir haben also noch nichts.
+
+00:41.970 --> 00:43.470
+Wir sind auf dem Desktop.
+
+00:43.470 --> 00:52.940
+Wir müssen eigentlich einen Projektordner erstellen und wir müssen reagieren installieren.
+
+00:52.940 --> 01:01.490
+Nun, wenn Sie sich in NPM erinnern, könnten wir reagieren und es als Teil unserer Pakete in package.json installieren
+
+01:01.500 --> 01:02.350
+-
+
+01:02.530 --> 01:07.480
+Aber es gibt wieder ein Tool, weil reaktive Apps so gebräuchlich sind.
+
+01:07.480 --> 01:15.320
+Es gibt ein Tool, mit dem wir sofort eine reaktive App erstellen können, in der alle unsere Dateien bereits vorhanden sind.
+
+01:15.370 --> 01:18.050
+Es heißt create react
+
+01:20.580 --> 01:21.280
+App
+
+01:21.680 --> 01:29.780
+Dieses Tool ist ein globales Paket, das Sie von NPM installieren möchten, und es erstellt ein Starter-Projekt, das
+
+01:29.810 --> 01:36.270
+Enthält das Web Pack. Es enthält Babel, damit wir die neuesten JavaScript-Funktionen verwenden können.
+
+01:36.620 --> 01:41.860
+Es enthält Flusen und Debugging, die wir noch nicht wirklich angeschaut haben.
+
+01:41.990 --> 01:46.880
+Es schafft all diese Infrastruktur für Sie, so dass Sie sofort anfangen können, die App zu schreiben und es ist ein sehr
+
+01:46.880 --> 01:51.720
+Sehr gutes Tool, das viele Leute benutzen, also werden wir create-react-app installieren.
+
+01:51.740 --> 01:55.880
+Wenn du dich erinnerst, machen wir einfach npm install dash g
+
+01:59.110 --> 02:04.130
+und dies wird uns wieder create-react-app geben, wenn Sie diese Fehler bekommen.
+
+02:04.160 --> 02:07.220
+Denken Sie immer daran, Sudo zu machen
+
+02:14.550 --> 02:20.920
+Jetzt, da wir create-react-app haben, sagen wir einfach create-react-app und den Namen unserer App.
+
+02:20.940 --> 02:25.390
+In unserem Fall werden wir es Robo Friends nennen.
+
+02:29.180 --> 02:36.010
+Sie sehen, dass es eine Menge Dinge installiert, die wir brauchen.
+
+02:36.400 --> 02:44.260
+Es sieht so aus, als wäre es ein Erfolg, Robo Friends in meinem Verzeichnis erstellt zu haben und es gibt sogar einige gute Befehle
+
+02:44.290 --> 02:52.600
+npm start npm run build npm test npm run eject aber wir kommen später dazu.
+
+02:52.600 --> 02:55.940
+Mal sehen, was wir in unserem Desktop-Ordner haben.
+
+02:57.120 --> 03:01.250
+Wir haben Robo Friends, die bereits für uns erstellt wurden.
+
+03:01.650 --> 03:03.270
+OK, lass uns das einspielen.
+
+03:05.000 --> 03:14.690
+Und jetzt, wenn ich ls sehe, haben wir eine Menge Ordner und Dateien wie package.json
+
+03:14.690 --> 03:18.150
+bereits für uns und Node-Module erstellt, wie toll ist das.
+
+03:18.170 --> 03:23.790
+Es installiert bereits reagieren und alle Abhängigkeiten, die wir brauchen.
+
+03:23.930 --> 03:28.830
+Wenn wir auf den Desktop gehen, sehen wir den Ordner hier.
+
+03:28.970 --> 03:31.690
+Ziehen wir das also auf Sublime Text.
+
+03:31.880 --> 03:36.740
+Öffne es und ich werde die Bildschirme umstellen, nur damit wir sehen können
+
+03:40.280 --> 03:42.190
+beides zur gleichen Zeit.
+
+03:47.680 --> 03:56.180
+Jetzt, bevor ich Ihnen zeige, was in dem Ordner ist, sehen wir, dass wenn wir zu package.json gehen, wir die Abhängigkeiten sehen
+
+03:56.180 --> 03:57.530
+wir haben reagiert.
+
+03:57.530 --> 04:04.880
+Wir haben etwas namens react-dom und react-scripts und wir haben auch eine Reihe von Skripten
+
+04:04.970 --> 04:07.160
+sie haben schon für uns erstellt.
+
+04:07.160 --> 04:10.850
+Wir haben Build Test und eject gestartet.
+
+04:11.010 --> 04:16.710
+Beginnen wir mit Start, denn es sieht so aus, als ob Start die Reactionscripts liest und startet
+
+04:16.710 --> 04:18.210
+up unseren Server.
+
+04:18.210 --> 04:19.790
+Also werde ich npm anfangen zu sagen
+
+04:26.870 --> 04:35.990
+schau dir an, dass wir auf unserem localhost eine reaktions-app haben, also funktioniert alles.
+
+04:36.030 --> 04:40.200
+Wir mussten nichts tun, außer zwei Befehle wirklich auszuführen.
+
+04:40.470 --> 04:41.220
+Sehr cool.
+
+04:41.400 --> 04:41.680
+OK.
+
+04:41.700 --> 04:46.530
+Mal sehen, was create-react-app für uns geschaffen hat.
+
+04:46.530 --> 04:52.660
+Wir haben eine Readme, die nur Informationen sind, wenn Sie sich erinnern, wann wir es auf GitHub setzen
+
+04:52.710 --> 04:53.820
+Dies wird angezeigt
+
+04:53.840 --> 05:01.040
+Im Projektordner haben wir package.json, was wieder Sinn macht.
+
+05:01.280 --> 05:03.500
+Ich werde dir erklären, was die Abhängigkeiten bedeuten.
+
+05:03.530 --> 05:04.710
+im nächsten Video.
+
+05:04.940 --> 05:12.110
+Aber wir sehen, dass Skripte, für die wir zur Verfügung gestellt werden, und alle von ihnen reaktive Skripte verwenden.
+
+05:12.410 --> 05:16.540
+Jetzt reaction scripts macht create-react-app
+
+05:16.580 --> 05:22.960
+so toll, anstatt uns Dinge wie Webpack und Babel zu installieren.
+
+05:22.970 --> 05:29.330
+Erinnerst du dich, wie viel Setup wir machen mussten, damit ES6 JavaScript funktioniert?
+
+05:29.480 --> 05:36.170
+Und dann verwenden wir auch browserify, um die JavaScript-Dateien gut zu bündeln, reagiert Skripts alles
+
+05:36.170 --> 05:42.940
+für Sie und es nutzt die neuesten und besten, dass wir uns keine Sorgen machen müssen.
+
+05:42.950 --> 05:49.820
+So können die Leute wirklich sehr schnelle Apps erstellen und Sie können den Eject verwenden, wenn Sie wollen
+
+05:49.820 --> 05:53.610
+um die reaktiven Skripte anzupassen und selbstständig zu machen.
+
+05:54.020 --> 06:00.710
+Wenn dein Projekt größer und größer wird, kannst du deine App immer auswerfen und anpassen, das ist der beste Weg
+
+06:00.710 --> 06:02.450
+um ein reaktives Projekt zu starten.
+
+06:02.450 --> 06:06.920
+Es wird vom Facebook-Team verwaltet und es ist wirklich sehr gut.
+
+06:08.580 --> 06:09.060
+OK.
+
+06:09.230 --> 06:16.910
+Wir sehen auch, dass es eine package-lock.json-Datei gibt und diese Datei automatisch generiert wird
+
+06:16.910 --> 06:18.390
+von package.json
+
+06:18.620 --> 06:26.000
+Es stellt sicher, dass die Versionsnummern Ihrer Abhängigkeiten gesperrt sind, wenn ich dieses Projekt gebe
+
+06:26.000 --> 06:33.350
+zu jedem anderen irgendwo auf der Welt stellen wir sicher, dass die Versionen korrekt sind, damit es funktioniert
+
+06:34.130 --> 06:35.300
+100 Prozent der Zeit.
+
+06:36.370 --> 06:40.900
+Wir haben auch etwas namens git-ignore und es hat einen Punkt davor.
+
+06:40.900 --> 06:42.600
+Es heißt eigentlich eine Punktdatei.
+
+06:42.850 --> 06:47.230
+Und bevor wir git laufen lassen und dieses Projekt auf github schieben.
+
+06:47.560 --> 06:54.460
+Nun, es überprüft diese Datei und wenn sie hier etwas sieht, sollte sie es nicht automatisch einschließen
+
+06:54.460 --> 06:56.030
+sagt, diese Dateien ignorieren.
+
+06:56.200 --> 07:01.720
+Also erinnere dich daran, wie ich Knotenmodule gesagt habe, wir wollen das nicht zu einem Repo machen, denn wir haben package.json
+
+07:01.720 --> 07:08.950
+und es schafft unnötige Arbeit und wartet darauf, unser Projekt wieder gut zu machen, was uns egal ist
+
+07:08.950 --> 07:13.780
+node modules Ordner interessiert uns nicht den Coverage-Ordner, der wiederum über testing wir nicht brauchen
+
+07:13.780 --> 07:14.870
+um das abzudecken.
+
+07:15.100 --> 07:18.430
+Und wir kümmern uns auch nicht um die Build-Ordner.
+
+07:18.450 --> 07:25.940
+Und ein paar andere erzeugt es automatisch für uns, wir brauchen es nicht zu berühren.
+
+07:26.120 --> 07:32.810
+Wir haben dann natürlich offensichtlich unsere Knotenmodule und man sieht hier drüben eine Menge davon wieder
+
+07:32.840 --> 07:36.940
+create-react-app erstellt nur für uns automatisch.
+
+07:36.990 --> 07:41.850
+Wir haben auch einen öffentlichen Ordner und hier sollte alles vertraut sein.
+
+07:41.850 --> 07:48.730
+Wir haben index.html wir haben etwas namens manifest.json
+
+07:49.070 --> 07:56.300
+Es ist eine neue Funktion, die es Benutzern ermöglicht, eine Verknüpfung zu Ihrer Website herunterzuladen und ein Symbol auf ihrer Website zu haben
+
+07:56.300 --> 07:56.750
+Desktop.
+
+07:56.750 --> 07:58.640
+Aber wieder müssen wir uns nicht darum kümmern.
+
+07:58.760 --> 08:06.620
+Und dann haben wir favicon.ico, das ist das kleine Symbol, das oben und hier auftaucht
+
+08:06.620 --> 08:13.060
+Dies kann mit jeder gewünschten .ico-Datei geändert werden, und es gibt Online-Tools, um diese für Sie zu generieren.
+
+08:13.070 --> 08:14.970
+Wieder etwas, um das wir uns keine Sorgen machen müssen.
+
+08:16.520 --> 08:21.240
+Und schließlich haben wir den Quellordner, der der Quellordner ist.
+
+08:21.400 --> 08:25.090
+Hier geschieht die ganze Magie.
+
+08:25.370 --> 08:29.640
+Wenn Sie index.js betrachten, ist dies die Hauptskriptdatei.
+
+08:29.660 --> 08:37.100
+Wir machen ein paar Importe, von denen Sie sich erinnern, dass wir nur verschiedene Skripte importieren, und wir sind einfach
+
+08:37.100 --> 08:40.720
+Ich sage diese neue Syntax, die wir noch nie zuvor gesehen haben.
+
+08:40.730 --> 08:45.310
+ReactDOM-Render-App-Dokument erhält Element nach ID.
+
+08:45.320 --> 08:46.890
+OK, wir wissen das.
+
+08:47.000 --> 08:55.420
+Wir greifen also auf ein Element der ID-Wurzel zu und sagen ReactDOM-Render-App.
+
+08:55.700 --> 09:02.120
+Wenn wir zur index.html Datei gehen, sehen wir hier und sie haben wirklich nette Kommentare dazu
+
+09:02.130 --> 09:11.580
+Sie können lesen, wir sehen, dass innerhalb des Körpers gibt es nur ein Div diese Noscript-Datei ist im Falle eines Browsers
+
+09:11.580 --> 09:13.260
+verwendet kein JavaScript.
+
+09:13.260 --> 09:15.660
+Auch hier müssen wir uns keine Sorgen machen.
+
+09:15.690 --> 09:18.360
+Es kommt nur mit Standard, weil es eine gute Übung ist.
+
+09:18.630 --> 09:23.960
+Aber im Körper haben wir nur dieses Div mit ID root und sonst nichts.
+
+09:23.980 --> 09:26.160
+Wenn wir zu unserer App gehen, sehen wir das.
+
+09:26.370 --> 09:28.270
+Nun, da ist definitiv etwas.
+
+09:28.360 --> 09:33.310
+Es gibt mindestens Text hier und mindestens ein Logo dort. Also geh hier zurück.
+
+09:34.550 --> 09:37.010
+Ohne etwas zu wissen können wir das sagen.
+
+09:37.170 --> 09:37.840
+OK.
+
+09:38.300 --> 09:48.820
+Wir greifen diesen ID-Stamm in der index.js-Datei auf und sagen, dass wir diese App rendern möchten
+
+09:49.300 --> 09:54.750
+Komponente und das nennen wir JSX-Syntax, auf die wir später eingehen werden.
+
+09:54.910 --> 09:59.030
+Diese App ist die Art zu sagen, dass dies eine Reaktionskomponente ist.
+
+09:59.050 --> 10:06.240
+Und ich möchte, dass du das auf dem Bildschirm im Körper rendern lässt, damit ich das tatsächlich ändern kann
+
+10:06.550 --> 10:13.550
+Nun, wir können h1 Hallo Welt sagen.
+
+10:14.120 --> 10:14.520
+Hallo Welt
+
+10:18.160 --> 10:18.760
+h1
+
+10:19.680 --> 10:29.520
+Und jetzt, wenn ich das speichere, wirst du bemerken, dass die Reaktion das automatisch für uns kompiliert, also habe ich das nicht
+
+10:29.520 --> 10:32.490
+um zu aktualisieren und schauen Sie sich das auf unserer Website an
+
+10:32.670 --> 10:33.860
+Hallo Welt.
+
+10:35.280 --> 10:36.490
+Sehr cool.
+
+10:36.510 --> 10:39.450
+Jetzt noch eine tolle Sache über create-react-app
+
+10:39.450 --> 10:43.670
+Es gibt Ihnen auch Warnungen, es heißt App ist definiert, aber nie benutzt.
+
+10:43.680 --> 10:48.920
+Also, wenn ich hier rüber gehe, ja ich importiere App, aber ich benutze es nie.
+
+10:48.930 --> 10:56.740
+Wir bekommen also wirklich sehr gute Tipps in unserem Terminal, wie wir die App verbessern können.
+
+10:57.010 --> 10:57.490
+OK.
+
+10:57.750 --> 11:02.160
+Das letzte, was ich dir zeigen möchte, bevor wir in den nächsten Abschnitt kommen, in den wir uns eigentlich vertiefen
+
+11:02.160 --> 11:05.800
+Der Code, wie Sie die Färbung sehen können, ist irgendwie aus.
+
+11:05.820 --> 11:12.280
+Und das ist, weil Sublime Text nicht wirklich versteht, was hier vor sich geht.
+
+11:13.790 --> 11:21.080
+Wenn wir dies zu Babel JavaScript ändern, dann gehst du.
+
+11:21.230 --> 11:26.720
+Wir bekommen die nette Syntax und alles sieht gut aus.
+
+11:27.660 --> 11:28.500
+Perfekt.
+
+11:28.560 --> 11:33.260
+Wir haben unsere App eingerichtet Ich möchte, dass du den Tag hier umwandelst
+
+11:33.270 --> 11:33.900
+Hallo Welt
+
+11:33.900 --> 11:37.540
+Für jetzt nur um sicherzustellen, dass alles funktioniert.
+
+11:37.660 --> 11:43.880
+Aber für den Moment hast du ein Setup im nächsten Video, wir gehen durch den Rest der Dateien und
+
+11:43.880 --> 11:47.270
+eigentlich fangen wir an, unsere erste Komponente zu bauen.
+
+11:47.300 --> 11:48.430
+Es wird eine Menge Spaß machen.
+
+11:48.470 --> 11:49.410
+Ich sehe dich in diesem. Tschüss

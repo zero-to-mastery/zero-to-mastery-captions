@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00.840 --> 00:04.900
+În regulă, să construim aplicația RoboFriends. Cred că am început
+
+00:04.930 --> 00:10.730
+dorim să ne gândim din nou la componente și la ce fel de componente vrem să construim
+
+00:10.750 --> 00:16.720
+Privind la acest site web, cea mai mică componentă pe care probabil că ne-o dorim probabil să începem să lucrăm este probabil
+
+00:17.020 --> 00:19.000
+componenta cardului
+
+00:19.000 --> 00:25.480
+Cartea asta aici. Dacă putem construi unul dintre acestea, după cum am spus mai devreme, putem doar
+
+00:25.720 --> 00:29.180
+copiați toate aceste componente și adăugați-le în pagină
+
+00:29.350 --> 00:31.440
+Deci, să începem cu asta
+
+00:31.660 --> 00:34.530
+Componenta cardului
+
+00:34.590 --> 00:36.400
+bine
+
+00:36.580 --> 00:40.610
+Acum nu vom mai folosi componenta "Hello"
+
+00:40.690 --> 00:43.430
+și dacă vă aduceți aminte că arăta așa
+
+00:43.780 --> 00:47.530
+Să știi că e trist, dar o vom șterge
+
+00:47.680 --> 00:49.810
+Vom șterge "hello.css"
+
+00:50.290 --> 00:52.090
+Începeți curat
+
+00:52.100 --> 00:54.830
+Deci voi șterge. O.K
+
+01:00.330 --> 01:03.810
+Și vom șterge și "hello.css"
+
+01:03.850 --> 01:09.040
+Știu că toată munca noastră grea a dispărut
+
+01:09.210 --> 01:12.420
+Știi ce? Vom începe să ștergem lucruri de care nu avem nevoie
+
+01:12.420 --> 01:16.880
+în acest proiect. De exemplu, "App.js" pe care am avut-o inițial?
+
+01:16.890 --> 01:23.200
+Putem șterge asta. De asemenea, putem șterge "App.css"
+
+01:27.400 --> 01:28.450
+„App.test“
+
+01:32.370 --> 01:41.020
+Și sigla
+
+01:41.050 --> 01:41.500
+bine
+
+01:41.500 --> 01:44.410
+Deci totul arată foarte mic acum
+
+01:44.470 --> 01:52.430
+Avem doar "index.css", "index.js" și acest "Worker Service Register" care vine cu "Creați o aplicație reactivă"
+
+01:52.430 --> 01:54.620
+că nu trebuie să atingem
+
+01:54.950 --> 02:00.940
+O.K. Evident că nu am reușit să ne compilam pentru că importurile "Hello" nu funcționează cu adevărat. Nu avem
+
+02:00.940 --> 02:03.970
+orice. Deci, să începem cu asta
+
+02:03.990 --> 02:08.670
+Să începem prin crearea unei componente "card"
+
+02:10.330 --> 02:15.870
+Și această componentă a cardului, va trebui să o importăm din "card.js"
+
+02:15.940 --> 02:22.860
+Din nou, dacă salvez acest lucru, am încă o eroare deoarece nu există
+
+02:22.990 --> 02:23.740
+Deci, să o creăm
+
+02:23.770 --> 02:37.130
+Voi spune "fișier nou", card.js. Din nou, asigurați-vă că folosiți acest lucru "Babel". Și să facem ce
+
+02:37.130 --> 02:38.870
+am mai făcut-o înainte. Noi facem import
+
+02:42.180 --> 02:46.800
+Reacționează de la 'reacționează'
+
+02:47.050 --> 02:51.520
+În loc să facem cursul de clasă de acum, ne vom îngrijora să construim această funcție
+
+02:51.580 --> 02:57.440
+așa că am să spun "const", "Card" este egal -
+
+02:57.440 --> 02:59.400
+Acum nu va mai avea proprietăți
+
+03:00.470 --> 03:05.490
+Și asta se va întoarce - ai câteva paranteze
+
+03:11.530 --> 03:21.110
+Și aici vom spune că are un "div". În acest "div" vom avea o imagine și această imagine va
+
+03:21.110 --> 03:26.180
+au o sursă care - nu știm încă ce este, așa că o să o păstrăm așa cum este
+
+03:26.280 --> 03:29.840
+Etichetă de închidere. Și vom avea un alt "div"
+
+03:34.780 --> 03:35.500
+că aici
+
+03:35.520 --> 03:46.980
+Dacă vă aduceți aminte că avem numele și adresa de e-mail aici. Așa că vom face doar un "H2". Vom scrie doar codurile de hardcod
+
+03:46.990 --> 03:48.080
+valori aici
+
+03:48.310 --> 03:51.890
+O vom face pe Jane Doe
+
+03:52.070 --> 04:01.090
+Și în sfârșit un tag "p" care are o adresă de e-mail. Deci haideți să o facem pe Jane Doe la gmail dot com
+
+04:01.550 --> 04:03.620
+Închideți eticheta
+
+04:03.670 --> 04:03.970
+In regula
+
+04:03.970 --> 04:07.530
+Așa că avem doar o componentă simplă care se întoarce
+
+04:07.540 --> 04:08.060
+'card'
+
+04:08.110 --> 04:10.950
+Și amintim că vrem să exportim asta
+
+04:10.960 --> 04:14.530
+așa că vrem să spunem "export", "implicit", "card"
+
+04:17.370 --> 04:18.210
+Salvați
+
+04:18.490 --> 04:21.480
+Obtin elemente "img trebuie sa aiba o proprietate alt"
+
+04:21.630 --> 04:23.390
+Din nou, îmi dă un indiciu frumos
+
+04:23.400 --> 04:26.920
+așa că hai să adăugăm o proprietate "alt"
+
+04:26.970 --> 04:29.540
+Spunem doar ce este această fotografie
+
+04:29.640 --> 04:38.870
+așa că am să spun "fotografie" acum. Sau voi spune acum "roboți". Compilați cu succes. Dacă ne uităm la noi
+
+04:38.870 --> 04:46.130
+app avem robotul Jane Doe și Jane Doe. Perfect
+ 
+04:46.160 --> 04:52.850
+În regulă. Avem componenta de card și trebuie să vă întrebați de ce folosim React aici dacă
+
+04:52.850 --> 04:54.630
+nu o folosim cu adevărat
+
+04:54.860 --> 04:56.510
+Să vedem ce se întâmplă dacă îl elimin
+
+04:58.130 --> 05:05.370
+Am primit o grămadă de erori care spune că "Reacția trebuie să fie în domeniul de aplicare atunci când se utilizează JSX". Tine minte
+
+05:05.390 --> 05:07.810
+JSX este asta
+
+05:07.910 --> 05:16.680
+Nu scriem HTML scriem JSX și trebuie să importăm React pentru ca programul nostru să înțeleagă
+
+05:16.740 --> 05:20.070
+JSX. Această sintaxă asemănătoare HTML
+
+05:20.300 --> 05:26.470
+OK acum avem nevoie de o imagine și pentru acest exercițiu am ceva numit "RoboHash" pentru tine
+
+05:26.820 --> 05:29.100
+Este un API foarte cool
+
+05:29.100 --> 05:33.240
+Și pentru cei care nu știu ce sunt API - nu-ți face griji că am o secțiune care vine cu toate astea
+
+05:33.240 --> 05:35.350
+informații unde veți putea afla despre ele
+
+05:35.550 --> 05:45.180
+Dar lucrurile interesante despre RoboHash sunt, pot spune ceva aici și se va întoarce la întâmplare
+
+05:45.180 --> 05:47.420
+robot pentru mine
+
+05:47.460 --> 05:49.530
+Tot ce avem nevoie este doar asta
+
+05:49.740 --> 05:59.130
+URL, și pot spune doar pentru moment, "test"
+
+05:59.370 --> 06:05.840
+Dacă salvez acest lucru și mă întorc la exemplul meu
+
+06:06.020 --> 06:06.610
+Acolo te duci
+
+06:06.620 --> 06:08.150
+Avem robotul nostru aleator
+
+06:08.450 --> 06:17.760
+Dacă aș schimba acest lucru pentru a spune "test de testare", eu salvez, acum am un alt robot
+
+06:17.780 --> 06:18.820
+Cat de tare e asta?
+
+06:20.500 --> 06:27.610
+Bine, vreau să mă asigur că dimensiunea este oarecum mică, ca să poți face un semn de întrebare aici și
+
+06:27.610 --> 06:29.120
+dați doar lățimea și înălțimea
+
+06:29.200 --> 06:32.830
+Deci o să fac 200 de 200
+
+06:32.890 --> 06:36.150
+Și din nou, acest lucru este doar ceva ce faceți cu acest lucru
+
+06:36.310 --> 06:40.950
+URL-ul pe care ți-l dau aici în informație - nu te voi face să treci prin asta
+
+06:44.940 --> 06:47.520
+Eu salvez. Totul ar trebui să arate bine
+
+06:49.020 --> 07:00.330
+Acum să spunem că am vrut să adaug un titlu și voi face ceva de genul 'div' sau 'H1', 'RoboFriends' aici
+
+07:06.950 --> 07:08.240
+Vedeți că am o eroare aici?
+
+07:08.390 --> 07:17.430
+Este pentru că - rețineți că trebuie să ne întoarcem un lucru. Și nu putem avea mai multe elemente returnate, nu?
+
+07:17.610 --> 07:21.540
+Dacă vrem să întoarcem ceva, asigurați-vă că este un lucru sau un matrice
+
+07:21.540 --> 07:25.520
+dar deocamdată ne vom face griji mai tîrziu despre titlu
+
+07:25.530 --> 07:29.640
+Vrem să ne asigurăm că vom reveni doar la un element
+
+07:29.640 --> 07:35.680
+astfel încât în ​​acest caz acel element "div" care are o tona de lucruri în interiorul căruia este componenta "card"
+
+07:35.690 --> 07:38.930
+Bine, să salvăm
+
+07:38.960 --> 07:39.230
+bine
+
+07:39.260 --> 07:41.720
+Avem componenta noastră de carduri
+
+07:41.720 --> 07:45.760
+Arată frumos, dar dacă aș vrea să am mai multe cărți acum
+
+07:45.760 --> 07:50.350
+În funcție de ceea ce știm, pentru că avem componenta cardului
+
+07:50.360 --> 08:00.810
+Dacă mă duc la 'index.js' ... Pot să spun doar - Am pus asta pe noua noastră linie pentru a putea vedea -
+
+08:00.810 --> 08:09.080
+acest lucru într-un "div". Din nou, pentru că vrem să revenim doar la un singur element și aș putea spune "carte"
+
+08:12.090 --> 08:16.040
+'Card' și închideți eticheta 'div'
+
+08:18.650 --> 08:22.660
+Salvează și uită-te la asta. Avem mai multe carduri acum
+
+08:22.650 --> 08:26.350
+Ele sunt fiecare componentă proprie
+
+08:26.540 --> 08:32.420
+OK, dar să adăugăm un stil pentru acest lucru doar pentru a face să arate mai bine. Din nou pentru că avem tahioni
+
+08:32.750 --> 08:39.290
+putem folosi o sintaxă foarte frumoasă. Dacă mergem la componenta "cărți" din div, pot spune "clasă"
+
+08:39.440 --> 08:40.310
+nume din nou
+
+08:40.340 --> 08:45.180
+amintiți-vă că nu putem folosi clasa. "BG", verde deschis
+
+08:45.200 --> 08:50.780
+astfel că este "fundal", "verde deschis" și acesta este doar clase de tahion care sunt deja predefinite
+
+08:50.780 --> 08:51.840
+ne. Din nou,
+
+08:52.060 --> 08:54.870
+Secțiunea CSS - nu este așa
+
+08:54.950 --> 09:00.260
+așa că nu ne vom concentra prea mult pe CSS. Îți dau doar stilul de care ai nevoie. Avem
+
+09:00.260 --> 09:07.570
+div, frontiera, avem padding de trei, multe margini două, de asemenea
+
+09:07.580 --> 09:10.060
+Și apoi se va face "să crească" care este animația
+
+09:10.070 --> 09:16.510
+Deci dacă salvez asta. Uită-te la asta. Asta e .. Destul de frumos
+
+09:19.210 --> 09:21.670
+Știi ce? Să mai adăugăm și câteva. Bine facut
+
+09:21.820 --> 09:29.560
+'Bw2' și 'shadow 5' pentru a adăuga un pic de umbre la ei
+
+09:30.010 --> 09:30.600
+Acolo te duci
+
+09:30.630 --> 09:32.740
+Arată mai mult 3D acum
+
+09:32.740 --> 09:33.900
+Arată foarte frumos
+
+09:35.200 --> 09:35.530
+Acolo te duci
+
+09:35.530 --> 09:37.400
+Avem cărțile noastre.
+
+09:37.420 --> 09:43.840
+Din nou, nu dorim acest card static unde se spune Jane Doe Jane Doe Jane Doe vrem să fie dinamică
+
+09:43.840 --> 09:44.100
+Dreapta?
+
+09:44.100 --> 09:53.040
+Deci, sună de parcă avem nevoie, ceea ce noi numim, "recuzită" - proprietăți. Ei bine și am de fapt un obiect robot pentru tine
+
+09:53.040 --> 09:53.920
+pe care l-am creat
+
+09:54.030 --> 10:01.140
+așa că voi adăuga un nou fișier aici care spune "robots.js" și în interiorul aici voi fi doar de gând să
+
+10:01.140 --> 10:08.910
+copiați și lipiți acest lucru. După cum puteți vedea că este doar un obiect constant, roboții sunt o serie de obiecte
+
+10:08.910 --> 10:16.420
+și are ID-ul, numele, numele de utilizator, adresa de e-mail și acestea sunt doar aleatoare pe care le-am făcut
+
+10:16.530 --> 10:21.440
+Dacă doriți acest fișier, puteți să luați fișierele de la sfârșitul acestei secțiuni
+
+10:21.610 --> 10:26.300
+Dar pentru moment, în acest fel, am ceva ce pot folosi și puteți vedea că îl export
+
+10:26.410 --> 10:36.140
+Pot spune roboți de import de la "punct", pentru că suntem în același director
+
+10:36.500 --> 10:39.000
+roboți
+
+10:39.060 --> 10:48.760
+Acum, dacă salvez acest lucru, obținem "roboți așa cum sunt definiți de niciodată folosiți", ci pentru că aceasta folosește "export" în loc de
+
+10:48.790 --> 10:52.630
+"Export default", acest fișier ar putea avea mai multe exporturi
+
+10:52.690 --> 10:54.620
+Se întâmplă doar că am doar una
+
+10:54.880 --> 11:01.960
+Regula este, pentru aceștia pentru că există o valoare implicită - bine puteți face doar "carte". Pentru cei care nu sunt
+
+11:01.960 --> 11:02.650
+Mod implicit
+
+11:02.740 --> 11:05.530
+trebuie să o distrugi
+
+11:05.680 --> 11:07.020
+Așa e
+
+11:07.030 --> 11:14.930
+Deci, dacă am o altă variabilă să zicem, asta înseamnă "pisici", atunci va trebui să fac "pisici" ca să o iau
+
+11:16.220 --> 11:21.930
+Deci avem roboți și acum îi pot da proprietăți
+
+11:21.940 --> 11:24.340
+Pot spune că "id" este egal
+
+11:24.370 --> 11:33.130
+Și din nou avem aceste paranteze, astfel încât este o expresie javascript și vom spune "roboți" .. "roboți"
+
+11:34.570 --> 11:44.070
+prima array .. dot 'id' are ID-ul, atunci avem un nume egal cu roboții
+
+11:44.150 --> 11:58.340
+din nou, numele primului punct de utilizator, închideți paranteza, iar apoi avem de asemenea e-mailuri egale cu roboții
+
+11:58.340 --> 12:03.400
+în matrice, e-mail dot
+
+12:03.440 --> 12:10.140
+Sfânt moli care este o mulțime de tastare. Și voi face acest lucru mai mic doar pentru a putea vedea. intentionez sa
+
+12:10.140 --> 12:15.580
+copiați și inserați și pentru celelalte, cu excepția ..
+
+12:15.660 --> 12:23.150
+modificați acest lucru la cel de-al doilea utilizator și apoi la cel de-
+
+12:23.220 --> 12:31.560
+Oops .. al doilea utilizator
+
+12:31.800 --> 12:39.750
+Acum, dacă salvez acest lucru, este compilat cu succes, dar nimic nu sa schimbat pentru că trebuie să mergem la cărți
+
+12:39.810 --> 12:47.070
+Voi închide acum "robots.js". Deoarece cardurile trebuie să accepte parametrii și ce sunt
+
+12:47.070 --> 12:47.810
+parametrii?
+
+12:47.820 --> 13:05.620
+Ei bine, sunt proprietăți. Și aceste recuzită sunt acum popi numele pop, și props punct de e-mail
+
+13:05.780 --> 13:08.650
+Salvez asta, du-te înapoi
+
+13:08.840 --> 13:13.340
+Hmm. Nu functioneaza. Ei bine, deoarece aceasta este o expresie javascript
+
+13:13.400 --> 13:13.950
+Dreapta?
+
+13:13.970 --> 13:18.050
+Așa că trebuie să-l împachetez în paranteze
+
+13:18.820 --> 13:22.870
+Doar modul în care funcționează în JSX. Salvați
+
+13:23.020 --> 13:23.680
+Uită-te la asta
+
+13:23.750 --> 13:29.840
+Avem nume dinamice pe care le transmitem ca proprietăți fiecăruia
+
+13:30.000 --> 13:31.950
+Să adăugăm aici "centru de text"
+
+13:33.800 --> 13:34.630
+Și tu te duci
+
+13:34.670 --> 13:35.890
+Acum avem totul centrat
+
+13:35.960 --> 13:36.800
+E mult mai bine
+
+13:38.260 --> 13:38.490
+O.K
+
+13:38.500 --> 13:42.210
+Dar am trecut și ID-ul. Putem folosi ID-ul pentru a face ceva cool
+
+13:42.250 --> 13:50.500
+Dacă vă amintiți în secțiunea ESX avem șiruri șablon și pentru că acesta este un șir de șabloane noi
+
+13:50.500 --> 13:55.020
+trebuie să-l înfășurați într-un suport curbil, deci este o expresie javascript
+
+13:55.360 --> 14:02.780
+Și acum, în RoboHash, în loc să folosim testul aici, putem randomiza ce roboți primim
+
+14:02.920 --> 14:05.310
+utilizând sintaxa așa cum vă amintiți
+
+14:05.500 --> 14:08.790
+și aici putem spune doar elemente de recuzită
+
+14:08.920 --> 14:16.000
+Deci, acum, acest lucru va spune RoboHash.org, ID-ul a ceea ce este pentru robot cu site-ul
+
+14:16.000 --> 14:20.200
+Așadar, ne asigurăm că din nou ID-urile sunt întotdeauna dinamice și în schimbare
+
+14:20.200 --> 14:29.010
+Dacă salvez asta și mă întorc. Uită-te la asta. Vedeți că din nou avem o întârziere, pentru că vorbim
+
+14:29.010 --> 14:31.440
+la API și API se întoarce
+
+14:31.440 --> 14:33.800
+Răspundeți pentru noi, dar cât de cool este asta?
+
+14:33.810 --> 14:39.350
+Tocmai am creat propriile carduri dinamice
+
+14:39.380 --> 14:46.120
+Inca un lucru. Deși acest lucru funcționează, ceva mai frumos pe care îl puteți face este că avem ceva numit destructurare
+
+14:46.370 --> 14:48.500
+Putem face ceva de genul "const"
+
+14:50.940 --> 14:57.730
+nume .. e-mail .. este egal cu "recuzita", din nou
+
+14:57.820 --> 15:05.470
+după cum vă puteți aminti din E6, și acum pot folosi și ID-ul în afara
+
+15:11.280 --> 15:12.430
+și încă funcționează
+
+15:14.240 --> 15:21.160
+Un alt lucru minunat pe care îl puteți face și acest lucru este chiar mai curat este, în parametrii pe care îi puteți face distrugerea
+
+15:21.620 --> 15:23.840
+Din nou, puteți adăuga aceste lucruri aici acum
+
+15:28.740 --> 15:34.790
+Și acum, dacă o salvez, ar trebui să funcționeze și așa
+
+15:34.990 --> 15:42.070
+Acest lucru poate fi confuz dacă sunteți nou la distrugere, dar așa cum ați văzut pas cu pas pe care tocmai l-am primit
+
+15:42.070 --> 15:46.260
+props și distrugem recuzele chiar din interiorul brațelor
+
+15:47.460 --> 15:50.440
+Acest lucru este mult mai curat
+
+15:50.760 --> 15:51.450
+bine
+
+15:51.450 --> 15:54.210
+A fost foarte distractiv intr-un mod foarte rapid
+
+15:54.210 --> 15:57.960
+tocmai ne-am creat cărțile proprii. În secțiunea următoare
+
+15:57.990 --> 16:01.120
+vom extinde și vom face acest lucru și mai bine
+
+16:01.200 --> 16:02.820
+Ne vedem în acel. Pa! Pa

@@ -1,0 +1,880 @@
+WEBVTT
+
+00:00.570 --> 00:05.760
+In Ordnung, wir kommen unserer App immer näher, aber wir sehen es deutlich
+
+00:05.760 --> 00:07.820
+habe hier ein Suchfeld.
+
+00:07.980 --> 00:14.450
+Also werden wir in diesem Video daran arbeiten, dass wir interaktiv sind. Rückblickend auf unsere App,
+
+00:14.460 --> 00:15.170
+wir sehen das
+
+00:15.180 --> 00:21.280
+Nun, wir brauchen definitiv einen Titel und das Suchfeld, also lass uns das schaffen.
+
+00:21.360 --> 00:22.830
+Wenn ich auf index.js gehe
+
+00:23.030 --> 00:29.730
+Ich denke jetzt, dass wir offiziell eine App bauen, anstatt die "Cardlist" -Komponente hier zu haben, sollten wir das tun
+
+00:29.730 --> 00:39.390
+haben eine große Komponente namens "App", und diese "App" wird der Vater aller unserer Kinder sein, alle unsere Komponenten
+
+00:39.900 --> 00:42.890
+Lass uns das tun. Lassen Sie uns zuerst die "App" -Komponente erstellen
+
+00:47.270 --> 00:53.060
+Und diese "App" -Komponente wird wieder "Reagieren von" reagieren "importieren";
+
+00:57.620 --> 01:00.470
+und "App" wird gleich sein
+
+01:06.800 --> 01:13.130
+die Komponente "CardList", die wir einfach kopieren und einfügen können
+
+01:15.560 --> 01:20.840
+Und noch einmal, dies zu "Babel" ändern, wollen wir importieren
+
+01:23.850 --> 01:25.740
+die "CardList" -Komponente
+
+01:30.450 --> 01:37.500
+und wir wollen auch, dass unsere "Roboter" hier importiert werden
+
+01:37.540 --> 01:40.040
+also haben wir Zugang dazu
+
+01:40.150 --> 01:46.120
+Und dann wollen wir die App-Komponente nun nur noch so rendern, dass wir sie einfach zurückbringen können
+
+01:46.120 --> 01:48.490
+es war
+
+01:48.720 --> 01:54.030
+Wir sparen. Wir müssen unsere App natürlich exportieren
+
+01:54.050 --> 02:02.960
+Also sagen wir "Export Standard App;", speichern Sie dies
+
+02:03.170 --> 02:04.190
+Lass uns zurück gehen
+
+02:04.430 --> 02:04.700
+Ja
+
+02:04.760 --> 02:06.460
+Alles funktioniert noch
+
+02:07.060 --> 02:11.400
+Jetzt haben wir auch innerhalb der "CardList" einen Header
+
+02:11.470 --> 02:14.700
+Also machen wir "h1", das heißt "RoboFriends"
+
+02:17.990 --> 02:22.850
+und wieder daran denken, dass wir nur ein einziges Elternteil zurückgeben müssen
+
+02:22.850 --> 02:27.110
+ao müssen wir etwas wie ein "div" tun, um es zu verpacken
+
+02:31.560 --> 02:33.860
+und ich muss dieses "h1" -Tag schließen
+
+02:37.250 --> 02:37.680
+Gut
+
+02:37.690 --> 02:46.060
+Ich habe meine "Roboter Freunde" Titel und wir brauchen auch ein Suchfeld. Und obwohl "h1" einfach war und wir es jetzt tun müssen
+
+02:46.060 --> 02:48.160
+baue eine Komponente dafür,
+
+02:48.160 --> 02:56.700
+Es klingt, als würden wir wahrscheinlich eine Suchfeldkomponente für diese App erstellen, also machen wir das
+
+02:56.700 --> 03:08.840
+Ich werde "SearchBox importieren" aus einer Datei namens "SearchBox", die wir erstellen werden, sagen. Wir werden ein neues erstellen
+
+03:08.840 --> 03:09.200
+Datei
+
+03:19.810 --> 03:25.840
+und diese Datei wird "Import React from 'react';"
+
+03:29.030 --> 03:30.370
+und das Suchfeld
+
+03:32.570 --> 03:36.120
+wird eine Funktion haben, die zurückgibt -
+
+03:36.140 --> 03:38.130
+Lassen Sie uns darüber nachdenken, was es zurückgibt
+
+03:39.400 --> 03:43.830
+Nun, es liefert definitiv einen Input, oder?
+
+03:43.870 --> 03:47.930
+Das ist die Art von 'Suche'
+
+03:48.210 --> 03:51.490
+Und wir haben auch einen Platzhalter -
+
+03:51.620 --> 04:02.740
+Schließen wir diesen - und Platzhalter, der sagt "Roboter suchen"
+
+04:02.880 --> 04:15.080
+Wir schließen das und speichern und müssen exportieren:"default SearchBox exportieren;", speichern, "erfolgreich compiliert!"
+
+04:15.080 --> 04:16.850
+Gut! Wir haben unser Suchfeld
+
+04:16.850 --> 04:19.220
+Aber, nun, es sucht gerade nichts
+
+04:22.690 --> 04:29.130
+Lassen Sie uns das in einer neuen Zeile hinzufügen, nur damit es schöner aussieht. Und es ist immer eine gute Idee, nur für den Fall, dass Sie wollen
+
+04:29.130 --> 04:35.620
+um mehr Dinge zum Suchfeld hinzuzufügen, um alles in ein "div" zu verpacken
+
+04:35.670 --> 04:37.250
+Also werde ich das jetzt tun.
+
+04:39.660 --> 04:44.070
+Und dieses "div" wird nur einen "className" von "padding2" haben
+
+04:44.100 --> 04:50.180
+wieder mit [tag-ons], und mit der "eingabe" können wir einen "className"
+
+04:51.450 --> 04:52.920
+und ich weiß nur, dass diese gut aussehen
+
+04:52.920 --> 04:55.440
+also werde ich hier nur kopieren und einfügen
+
+04:55.460 --> 04:56.860
+nur Polsterung
+
+04:56.970 --> 05:00.240
+mit Hintergrund "Hellste-Blau"
+
+05:00.240 --> 05:02.930
+Wenn ich das tue und - gehen wir zurück
+
+05:02.940 --> 05:03.600
+Gut
+
+05:03.600 --> 05:04.800
+Das sieht besser aus -
+
+05:04.830 --> 05:06.390
+Wir wollen alles zentrieren
+
+05:06.540 --> 05:10.190
+Vielleicht können wir in der App einfach einen "className" hinzufügen
+
+05:11.220 --> 05:14.570
+entspricht "Textzentrum"
+
+05:14.580 --> 05:15.750
+Schau, ob das funktioniert
+
+05:17.010 --> 05:17.660
+Da gehst du
+
+05:17.730 --> 05:19.370
+Das ist viel besser
+
+05:19.380 --> 05:21.380
+Ich mag das schon
+
+05:21.550 --> 05:25.610
+Nun, wie können wir das interaktiv gestalten?
+
+05:25.660 --> 05:33.600
+Bis jetzt hatten wir gerade diese statischen Websites, aber echte Websites sind interaktiv, oder?
+
+05:33.660 --> 05:36.430
+Nun, lasst uns logisch darüber nachdenken
+
+05:36.570 --> 05:39.360
+Wir haben eine App
+
+05:39.600 --> 05:41.920
+Wir haben eine "SearchBox"
+
+05:42.910 --> 05:53.220
+Und wir haben eine "CardList", aber die Suchbox-Komponente muss mit der Kartenliste kommunizieren, und dasselbe
+
+05:53.220 --> 05:54.930
+mit der Kartenliste. "Kartenliste"
+
+05:54.960 --> 06:02.410
+muss wissen, was im Suchfeld ist, damit es Roboter entsprechend ausfiltern kann
+
+06:03.880 --> 06:10.030
+Gehen wir zurück zu unserem Bild, dass wir einen Einweg-Datenfluss haben. Betrachte das
+
+06:10.030 --> 06:20.430
+Wir haben die App-Komponente, und dann die Kartenliste Komponente, die Karten hat, und dann die Suchbox-Komponente
+
+06:20.910 --> 06:22.790
+das hat nun keine Kinder mehr
+
+06:22.920 --> 06:30.030
+Aber damit diese beiden kommunizieren können, haben wir einen einseitigen Datenfluss, dh sie müssen ihre Daten senden
+
+06:30.030 --> 06:36.170
+Informationen an ihre Eltern und die Eltern sagen ihnen, was zu tun ist
+
+06:37.230 --> 06:39.010
+Wie können wir das jetzt machen?
+
+06:40.300 --> 06:46.870
+Bis jetzt hatten wir nur ein paar Daten, die wir einfach heruntersickerten, aber wir hatten sie nie wo eines der Kinder
+
+06:47.020 --> 06:51.910
+musste Daten ändern oder mit einem Nachbarn kommunizieren.
+
+06:54.650 --> 06:56.740
+Nun, um dies zu tun
+
+06:56.740 --> 07:06.730
+Reaction hat eine Idee von etwas, das man "Staat" nennt. Bis jetzt haben wir über Props wie Eigenschaften erfahren
+
+07:06.730 --> 07:09.080
+dass wir weiter nach unten gehen
+
+07:09.860 --> 07:15.150
+aber wir haben sie nie geändert, weil React nur die Requisiten liest.
+
+07:15.170 --> 07:24.130
+Wenn ich zu "CardList" gehe, liest es einfach die Requisiten, die es empfängt, und es gibt nur etwas wieder. Und das hier-
+
+07:24.130 --> 07:33.340
+Weg Datenfluss ist wirklich nett, weil diese "CardList" eine reine Funktion ist. Es erhält eine Eingabe und dann
+
+07:33.400 --> 07:37.370
+Es gibt immer die gleiche Ausgabe zurück
+
+07:37.660 --> 07:42.760
+Wenn also Roboter immer gleich sind, wird immer dasselbe zurückgegeben
+
+07:42.820 --> 07:48.430
+Es sind deterministische, reine Funktionen, und darüber haben wir schon einmal gesprochen. Und das ist wirklich ein
+
+07:48.430 --> 07:49.720
+wirklich gute Sache.
+
+07:49.810 --> 07:56.200
+Diese Komponenten werden als "reine Komponenten" bezeichnet, manche sogar als "dumme Komponenten".
+
+07:56.200 --> 08:01.480
+Es bedeutet nur, dass sie nicht wirklich etwas anderes wissen müssen als die Tatsache, dass sie rein sind
+
+08:01.480 --> 08:04.680
+Funktionen, die etwas empfangen und etwas zurückgeben.
+
+08:05.200 --> 08:11.480
+Und das ist wirklich nett, weil wir immer wissen, wie das aussehen wird, und das war alles, was wir hatten
+
+08:11.540 --> 08:12.870
+bis zu diesem Punkt
+
+08:13.250 --> 08:18.640
+Aber jetzt müssen wir uns um etwas anderes als Requisiten sorgen
+
+08:18.740 --> 08:22.840
+Requisiten ändern sich nie. Requisiten sind immer nur Eingaben, die wir bekommen
+
+08:22.850 --> 08:24.370
+und wir haben sie nie modifiziert
+
+08:25.180 --> 08:29.490
+Aber in diesem Fall brauchen wir eine Erinnerung in unserer App
+
+08:29.680 --> 08:36.150
+Wir brauchen dies, um damit zu kommunizieren, und auch entsprechend zu ändern und zu aktualisieren
+
+08:36.340 --> 08:44.380
+Und das ist der Zustand in React. "State" - und das hört man oft in der Computerprogrammierung - heißt einfach
+
+08:45.340 --> 08:54.060
+die Beschreibung deiner App Ein "Zustand" ist einfach ein Objekt - ein Objekt, das Ihre Anwendung beschreibt
+
+08:54.430 --> 09:02.650
+Und dieser "Zustand", der unsere Anwendung beschreibt, sind die Roboter und alles, was in das Suchfeld eingegeben wurde
+
+09:04.110 --> 09:07.020
+und "Staat" kann sich ändern
+
+09:07.110 --> 09:13.020
+Wir können den Wert des Suchfelds und den Wert der Eingabe ändern, und wir können das ändern
+
+09:13.060 --> 09:15.190
+Roboter-Array bedeutet
+
+09:15.210 --> 09:17.190
+Was wird angezeigt?
+
+09:17.290 --> 09:19.390
+Dies ist eine Regel, an die Sie sich nur erinnern müssen
+
+09:19.570 --> 09:26.330
+Requisiten sind einfach Dinge, die aus dem "Staat" kommen
+
+09:26.440 --> 09:34.570
+So füttert ein Elternteil "Zustand" in eine Kindkomponente und sobald eine Kindkomponente (Komponente) ein
+
+09:34.580 --> 09:42.460
+"Staat" ist eine Eigenschaft. Dieses Kind kann diese Eigenschaft niemals ändern. Der Elternteil sagt ihm einfach, was der "Staat" ist
+
+09:42.460 --> 09:47.630
+ist und das Kind erhält es als "Roboter"
+
+09:47.650 --> 09:58.090
+Das erste, was wir tun müssen, ist, in unserer App "State" zu verwenden, die Beschreibung von was
+
+09:58.600 --> 10:00.650
+unser "Staat" sollte sein
+
+10:00.670 --> 10:07.960
+Lasst uns also einfach einen konstanten "Zustand" machen und euch zeigen, dass unser "Zustand" ein "Roboter" -Array haben muss
+
+10:08.410 --> 10:14.360
+und es muss haben, nennen wir es "Suchfeld"
+
+10:14.610 --> 10:18.530
+Und das ist genau das, was unser Suchfeld braucht
+
+10:18.840 --> 10:25.500
+Aber um "Zustand" zu verwenden, müssen wir zu unserer ursprünglichen Art zurückkehren, dass wir React-Komponenten erstellt haben. Ob
+
+10:25.500 --> 10:37.990
+Du erinnerst dich daran, als wir zum ersten Mal "React App" erstellt haben, erstellen wir eine Klasse und wir tun das, indem wir "export" sagen
+
+10:38.380 --> 10:40.420
+Standard "oder" App exportieren
+
+10:46.710 --> 10:51.540
+erweitert React.Component "
+
+10:51.670 --> 11:02.640
+Es erweitert die "Component" -Klasse, und wieder können wir hier Kurzschrift verwenden und einfach sagen ... So können wir jetzt einfach entfernen
+
+11:02.640 --> 11:03.630
+Reagiert von hier aus
+
+11:04.510 --> 11:14.830
+Und das hat immer eine Renderfunktion, die etwas zurückgeben muss, was das ist
+
+11:18.990 --> 11:28.750
+Wieder ist es nur die Syntax, an die Sie sich gewöhnen müssen. Also, wenn ich das - oh, und ich habe stattdessen einen Fehler gemacht
+
+11:28.750 --> 11:30.580
+von "Export" sollte das "Klasse" sagen
+
+11:30.790 --> 11:36.720
+Also, ja, "Klasse App erweitert Component" und dann "exportieren wir Standard-App;"
+
+11:36.730 --> 11:43.750
+Also erklären wir wieder eine Klasse. Ich speichere und wir haben nur etwas, das sagt "Staat ist zugewiesen
+
+11:43.750 --> 11:46.590
+ein Wert aber nie benutzt "
+
+11:46.740 --> 11:48.270
+Das ist, weil das ziemlich wahr ist
+
+11:48.270 --> 11:49.150
+wir benutzen es nicht
+
+11:49.200 --> 11:53.000
+Wie können wir also "Staat" hinzufügen? Nun, in React
+
+11:53.010 --> 11:56.030
+wir machen einfach einen Konstruktor
+
+11:56.040 --> 11:58.600
+Sie erinnern sich vielleicht daran, als wir über Objekte gesprochen haben
+
+11:59.630 --> 12:05.130
+Und dieser Konstruktor, hier können wir den Zustand erklären
+
+12:05.330 --> 12:21.400
+Wir sagen einfach "this.state =", und hier setzen wir einfach, was wir wollen, dass unser Staat hat
+
+12:21.400 --> 12:24.630
+Wenn ich das also spare, bekomme ich
+
+12:24.700 --> 12:27.610
+"Dies ist nicht erlaubt vor super ()"
+
+12:27.610 --> 12:34.010
+Noch einmal, etwas, das Sie vielleicht aus dem Video der erweiterten Objekte erinnern, um "dieses" zu verwenden
+
+12:34.300 --> 12:42.890
+wir müssen diese komische Sache machen, wo wir "super ()" nennen, was den Konstruktor der Komponente aufruft
+
+12:43.090 --> 12:49.890
+Wenn ich das mache und spare, funktioniert alles gut
+
+12:49.960 --> 13:00.810
+Und jetzt haben wir unseren "Staat", der Roboter und Suchfeld ist, und dieser "Zustand", wie ich schon sagte, ist was
+
+13:00.810 --> 13:02.220
+beschreibt unsere App
+
+13:02.220 --> 13:07.590
+Dies sind die Dinge, die sich ändern können, und das ist es, was dieser "Zustand" ist - etwas, das sich verändern und beeinflussen kann
+
+13:07.860 --> 13:08.720
+unsere App
+
+13:10.320 --> 13:17.160
+Und sie leben normalerweise in der Elternkomponente, der Komponente, die das Elternteil ist, das nur irgendwie passiert
+
+13:17.180 --> 13:19.550
+"State" zu verschiedenen Komponenten
+
+13:19.550 --> 13:29.210
+Und jetzt kann ich auf "Roboter" zugreifen, nicht von hier, sondern von "this.state.robots"
+
+13:29.310 --> 13:34.100
+Und wieder, nur React Syntax, an die Sie sich gewöhnen müssen
+
+13:34.270 --> 13:34.540
+Gut
+
+13:34.550 --> 13:37.180
+So funktioniert alles wie erwartet
+
+13:37.490 --> 13:47.210
+Und siehst du, dass unser Zustand, der "Roboter" ist, jetzt als "Requisiten" weitergegeben wird, so akzeptiert "CardList" "Roboter"
+
+13:47.330 --> 13:50.550
+als "Requisiten", obwohl in der App.js
+
+13:50.690 --> 13:59.090
+es ist ein "Staat". Und wie ich schon sagte, weil "App" jetzt "Staat" besitzt, der "Roboter" enthält
+
+13:59.180 --> 14:02.540
+Es ist erlaubt, es zu ändern. OK
+
+14:02.630 --> 14:11.530
+Nun, wie wir sie kommunizieren können, haben wir diese zwei Täler, und idealerweise habe ich im Suchfeld etwas
+
+14:11.530 --> 14:19.930
+"onSearchChange ()" genannt, was wiederum eine Funktion ist, die ich gerade erfinde
+
+14:20.500 --> 14:23.170
+Dies ist nur ein zufälliger Name, den ich erstellt habe
+
+14:23.650 --> 14:30.250
+Und "onSearchChange ()" möchte ich sagen, dass jedes Mal, wenn sich die Eingabe ändert, genau wie bei der DOM-Manipulation,
+
+14:30.670 --> 14:37.580
+wir bekommen ein Event und innerhalb dieses Events werde ich dieses Event "console.log" machen
+
+14:41.430 --> 14:44.590
+Ich habe eine Funktion erstellt, und ich möchte
+
+14:44.590 --> 14:48.740
+jedes Mal, wenn sich diese Eingabe ändert, um "console.log" auszulösen
+
+14:49.170 --> 14:58.890
+Also können wir das jetzt tatsächlich weitergeben. Ich kann sagen "searchChange = [onSearchChange]", aber wieder, weil dies
+
+14:58.890 --> 15:09.090
+ist ein Objekt, das wir "das" sagen müssen. so dass es "das" sagt (was die "App" ist) ".onSearchChange" ist "searchChange"
+
+15:10.110 --> 15:17.760
+Wenn ich das speichere und jetzt zum Suchfeld gehe, habe ich jetzt "searchChange"
+
+15:21.590 --> 15:25.910
+als Funktion, also kann ich nur sagen, genau wie in HTML -
+
+15:25.930 --> 15:32.110
+Erinnere dich an HTML, ich kann "onchange html" machen, es ist ein Event,
+
+15:32.170 --> 15:36.040
+wir hören nur "zu jeder Zeit, wenn sich die Eingabe ändert"
+
+15:36.260 --> 15:39.720
+Also kann ich sagen "onChange ="
+
+15:42.420 --> 15:43.980
+"[SucheÄndern]"
+
+15:43.980 --> 15:45.600
+Mal sehen, ob das funktioniert
+
+15:45.690 --> 15:46.730
+Ich bekomme keine Fehler
+
+15:46.740 --> 15:53.290
+Wenn ich zurück zu meiner App gehe, öffne ich die Konsole und tippe etwas ein, und sieh dir das an!
+
+15:53.340 --> 16:01.120
+Ich bekomme die Veranstaltung. Und das ist nur etwas, an das man sich erinnern muss, dass wir es immer mit einer Veranstaltung machen
+
+16:01.120 --> 16:09.170
+habe "event.target.value", was uns den Wert des Suchbegriffs geben soll
+
+16:09.190 --> 16:13.580
+Lass uns das speichern und hier etwas eingeben
+
+16:15.160 --> 16:19.960
+Sieh dir das an! Wir bemerken jetzt den Unterschied, während wir tippen
+
+16:20.000 --> 16:22.760
+Lasst uns noch einmal darüber gehen, was gerade passiert ist
+
+16:23.650 --> 16:25.640
+Und wieder weiß ich, dass das hart ist
+
+16:25.660 --> 16:31.170
+Das hat eine Weile gedauert, bis wir angefangen haben, aber dieses Diagramm erklärt es wirklich gut
+
+16:32.080 --> 16:34.180
+Ich habe meine App-Komponente
+
+16:34.180 --> 16:43.940
+Mein Suchfeld und meine Kartenliste. Jedes Mal, wenn sich das Suchfeld ändert, werde ich bei Änderung die Funktion ausführen
+
+16:43.940 --> 16:48.620
+werde diese Funktion aufrufen
+
+16:48.630 --> 16:51.020
+Und wie wir es nennen, fügen wir das hinzu
+
+16:51.100 --> 16:58.240
+Denken Sie daran, wie wir bei DOM-Ereignissen die Funktion definiert haben und dann jedes Mal, wenn das Ereignis passiert
+
+16:58.240 --> 16:59.490
+würde es nennen.
+
+16:59.920 --> 17:08.720
+Wir sagen also jedes Mal, wenn das Ereignis onchange ausgelöst wird, rufen Sie die Funktion zum Ändern der Suche auf
+
+17:08.950 --> 17:16.330
+Und wenn Sie sich an die Funktion zum Ändern der Suche erinnern, die eine Requisite ist, ist dies die Funktion "onSearchChange"
+
+17:16.330 --> 17:17.460
+ist in der App definiert
+
+17:17.470 --> 17:19.470
+So kommunizieren wir mit dem Elternteil
+
+17:19.510 --> 17:24.880
+Es löst das Ereignis aus, der Elternteil sagt:"Oh, führe diese Funktion aus"
+
+17:25.060 --> 17:29.810
+Und jetzt wird diese Funktion ausgeführt
+
+17:29.940 --> 17:39.150
+Aber jetzt, da ich den Wert der Sucheingabe habe, kann ich diese Sucheingabe jetzt direkt mitteilen
+
+17:39.330 --> 17:41.110
+die "Roboter" -Liste
+
+17:41.130 --> 17:42.660
+Mal sehen, wie das geht
+
+17:42.720 --> 17:55.950
+Wir können eine Variable erstellen, sagen wir "filteredRobots", und dies entspricht "this.state.robots"
+
+17:57.980 --> 18:00.190
+und diese "Roboter", die das Array ist
+
+18:00.230 --> 18:08.240
+- Auch hier greifen wir auf "state" zu - "filter" wird verwendet, um unser Array zu filtern
+
+18:08.410 --> 18:17.290
+Wir geben es "Robotern", und jetzt muss unser Array eine Bedingung zurückgeben, und die Bedingung wird sein
+
+18:18.820 --> 18:19.530
+"Roboter"
+
+18:19.560 --> 18:28.400
+".name" und wir werden etwas tun, das wir vorher noch nicht gesehen haben, nämlich "to.LowerCase"
+
+18:28.720 --> 18:33.850
+Und dies ist eine Methode, die mit allen Strings geliefert wird und alles nur Kleinbuchstaben macht
+
+18:33.880 --> 18:39.840
+Und das ist gut für Vergleiche, so dass wir Groß- und Kleinschreibung nicht vergleichen müssen
+
+18:39.990 --> 18:51.640
+Und wenn der "Name" von "Robotern", der jetzt kleiner ist, "beinhaltet" - es ist eine andere Methode und wieder ist es vorgefertigt
+
+18:51.700 --> 18:58.450
+in Javascript - wenn es das Suchfeld "einschließt"
+
+18:58.610 --> 19:02.940
+Und wieder wollen wir "toLowerCase" für den Fall machen
+
+19:03.140 --> 19:08.140
+Gut, wenn wir Groß- oder Kleinbuchstaben verwenden, funktioniert es in beide Richtungen
+
+19:08.510 --> 19:09.260
+Und da ist es
+
+19:09.470 --> 19:16.370
+Wenn der Name der Roboter in Kleinbuchstaben beinhaltet - und das macht den Vergleich -
+
+19:16.530 --> 19:26.400
+Wenn irgendetwas in der Zeichenkette "toLowerCase" enthält, dann gebe nur die Roboter zurück, die true zurückgeben
+
+19:26.400 --> 19:29.220
+dazu. Lass uns sparen -
+
+19:29.270 --> 19:33.240
+- Oh, und Sie sehen hier, wie Sie das "Suchfeld" dort bekommen, weil, nun, es ist ein Teil des Staates
+
+19:33.260 --> 19:38.190
+Ich muss "this.state.searchfield" machen
+
+19:38.400 --> 19:42.150
+Wenn ich das erhalte, bekomme ich das
+
+19:42.150 --> 19:44.720
+"'filteredRobots' wird ein Wert zugewiesen aber nie verwendet"
+
+19:44.850 --> 19:49.240
+Aber keine Sorge, wir können das jetzt loggen und sehen, was wir bekommen
+
+19:51.320 --> 19:59.970
+wenn ich spare, und gehen wir zurück zu unserer App, und wenn ich hier etwas suche, oh, bekomme ich einen Fehler
+
+20:00.110 --> 20:03.510
+Und das ist ein Fehler, der sehr, sehr verwirrend ist
+
+20:03.530 --> 20:05.010
+Es ist das erste Mal schwierig
+
+20:05.120 --> 20:06.490
+Aber ertrage mich hier
+
+20:06.620 --> 20:11.700
+Das Problem ist gerade, dass der Wert von "this"
+
+20:12.260 --> 20:23.090
+Nun, es bezieht sich nicht auf die "App", weil das Ereignis in der "Eingabe" passiert ist, der Wert von "this" ist, nun ja,
+
+20:23.090 --> 20:28.040
+die Eingabe und "Eingabe" hat nicht "state.robots"
+
+20:28.490 --> 20:35.050
+Und das ist ein Trick, den du immer vergisst, aber bedenke das als Faustregel
+
+20:36.060 --> 20:43.740
+Bei allem, was von React stammt, sind Konstruktor und Render in React jederzeit vordefiniert
+
+20:43.740 --> 20:54.100
+Machen Sie Ihre eigenen Methoden auf einer Komponente, verwenden Sie diese Syntax, so dass Pfeilfunktionen, und das stellt sicher, dass das "dies"
+
+20:54.100 --> 20:58.020
+Wert ist, wo es erstellt wurde, das ist die "App"
+
+20:58.210 --> 20:59.320
+Ich weiß, es ist verwirrend
+
+20:59.320 --> 21:00.610
+Sie können mehr darüber lesen
+
+21:00.610 --> 21:02.280
+Ich werde eine Ressource dafür hinterlassen
+
+21:02.290 --> 21:06.280
+Es ist ein schweres Thema zu bekommen, aber wieder, Faustregel -
+
+21:06.280 --> 21:07.260
+Verwende die Pfeile
+
+21:07.300 --> 21:16.550
+Wenn ich das jetzt mache und klicke, da gehts los - ich bekomme jetzt "Roboter"
+
+21:16.600 --> 21:18.250
+Aber hier ist die Sache
+
+21:18.250 --> 21:24.610
+Suchfeld jetzt - du siehst, dass ich immer noch 10 Roboter habe, es filtert wirklich nichts
+
+21:24.880 --> 21:31.570
+Und das ist, weil mein "Suchfeld" immer eine leere Zeichenfolge ist. Um den Zustand zu aktualisieren
+
+21:31.660 --> 21:40.890
+wieder eine andere Regel von React ist "this.setState", und es ist wieder eine Methode, die mit React kommt
+
+21:40.900 --> 21:47.680
+Und immer wenn du den Status ändern willst, tust du das immer, du machst das nicht "this.state.searchfield ="
+
+21:47.770 --> 21:49.290
+- Das tust du nie
+
+21:49.300 --> 22:00.280
+Sie müssen "this.setState" tun, und innerhalb von hier sagen wir einfach "searchfield is ..." - und wieder verwenden wir
+
+22:00.280 --> 22:06.460
+ein Objekt, also "Suchfeld wird jetzt" event.target.value "
+
+22:08.480 --> 22:20.870
+Wenn ich das speichere und zurück gehe, sieht man, dass jetzt alles gefiltert wird
+
+22:20.930 --> 22:26.130
+Also ändere ich den Status, so dass das "Suchfeld" immer aktualisiert wird
+
+22:26.150 --> 22:30.770
+und jetzt filtern wir die Roboter nach dem veränderten "Suchfeld"
+
+22:33.330 --> 22:33.620
+OK
+
+22:33.640 --> 22:37.320
+Also eine letzte Sache. Betrachte das
+
+22:37.570 --> 22:42.250
+Wir haben die Tatsache, dass Filterroboter immer noch nicht zugewiesen sind, und Sie haben Recht
+
+22:42.400 --> 22:48.400
+Wenn wir uns das ansehen, haben wir jetzt das Suchfeld mit der App kommuniziert, und wir haben das Suchfeld ständig
+
+22:48.400 --> 22:48.940
+Ändern
+
+22:48.940 --> 22:56.740
+Jetzt müssen wir es den "gefilterten Robotern" mitteilen. Was wir tun können ist, dass "filteredRobots" jetzt können
+
+22:56.740 --> 23:02.350
+anstelle von "this.state.robots" als Requisiten verwendet werden
+
+23:02.350 --> 23:03.100
+Also lass uns das tun
+
+23:03.160 --> 23:06.910
+Lass uns das hier runterziehen
+
+23:10.430 --> 23:17.060
+Und jetzt haben wir Zugriff auf "filteredRobots" und statt "this.state.robots" übergeben wir einfach
+
+23:17.690 --> 23:19.970
+"gefilterteRoboter"
+
+23:20.120 --> 23:23.670
+Wenn ich dies speichere, stelle sicher, dass der Suchteil ebenfalls gespeichert wird
+
+23:23.930 --> 23:29.940
+Und jetzt gehe ich zurück. Ich schließe den Tab und lass es uns ansehen
+
+23:33.200 --> 23:34.280
+Sieh dir das an
+
+23:34.430 --> 23:37.420
+Wir haben unsere App funktioniert
+
+23:37.610 --> 23:38.610
+Wie cool ist das
+
+23:39.960 --> 23:43.230
+Lass uns noch einmal darüber gehen, um dir genau zu zeigen, was es macht
+
+23:45.150 --> 23:52.110
+Wir haben unsere Komponente "App", die zwei Zustände hat - "Roboter" und "Suchfeld"
+
+23:52.300 --> 24:01.120
+Und da "App" den Status besitzt, verwendet jede Komponente, die "state" hat, die "class" -Syntax, so dass sie die verwenden können
+
+24:01.150 --> 24:08.930
+"Konstruktor" -Funktion, um "this.state" zu erstellen, und dieser "Status" ist, was sich in einer App ändert
+
+24:08.950 --> 24:11.380
+Es beschreibt die App
+
+24:11.380 --> 24:16.840
+Denken Sie daran, als ich sagte, das virtuelle DOM ist nur ein Javascript-Objekt? Das virtuelle DOM ist nur ein Objekt, das
+
+24:16.840 --> 24:27.190
+sammelt diesen ganzen Zustand und React benutzt diesen Zustand, um sie als Requisiten zu diesen zu rendern und weiterzugeben
+
+24:27.190 --> 24:32.740
+Komponenten, so dass diese Komponenten, die nur reine Funktionen sind, nur rendern können
+
+24:32.940 --> 24:38.010
+Und wir wissen immer, dass die App gleich aussehen wird, denn sie sind einfach nur reine Funktionen
+
+24:39.350 --> 24:44.500
+Wir verwalten diesen Zustand hier, die App ist die einzige Sache, die diesen Zustand ändern kann
+
+24:44.630 --> 24:52.880
+Aber es kann Dinge wie Requisiten weitergeben, also haben wir "onSearchChange" an die "SearchBox" weitergegeben, und die
+
+24:52.880 --> 24:56.720
+"SearchBox", jedesmal wenn ein "onChange" auf dem Eingang ist,
+
+24:56.720 --> 24:59.760
+es lässt die App wissen "Hey, da war eine Veränderung"
+
+24:59.840 --> 25:00.840
+"Führen Sie diese Funktion aus"
+
+25:01.040 --> 25:07.570
+Es führt die Funktion mit dem Ereignis aus und aktualisiert den Zustand des "Suchfelds" auf das, was wir tippen
+
+25:09.600 --> 25:15.720
+Mit den Informationen aus dem Suchfeld können wir nun mit der Kartenliste kommunizieren und
+
+25:15.720 --> 25:26.100
+sag es "Hey, ich möchte den" robots "-Zustand filtern um jetzt nur was im" Suchfeld "enthalten zu haben
+
+25:27.030 --> 25:34.970
+Und anstatt diesen "Zustand" an unsere "Roboter" zu übergeben, haben wir nur die "gefilterten Roboter" passiert.
+
+25:35.130 --> 25:39.000
+Sie könnten sich fragen:"Nun," Roboter "ändert sich nie wirklich, oder?"
+
+25:39.000 --> 25:43.620
+"Wir erstellen immer ein neues Array namens" filterRobots "und wir geben es immer weiter"
+
+25:43.680 --> 25:46.540
+"Muss das ein Teil des Staates sein"
+
+25:47.020 --> 25:53.550
+Und gerade jetzt nicht wirklich, weil wir nur einen hartcodierten "Roboter" haben, aber wenn wir später in der
+
+25:53.550 --> 25:56.080
+Natürlich wirst du sehen, dass das nicht der Fall ist
+
+25:56.220 --> 26:02.550
+Die meiste Zeit bekommt man die Benutzer oder Roboter von einem anderen Ort über das Internet, in dem
+
+26:02.550 --> 26:08.610
+Fall wir brauchen "Roboter", um von einem leeren Array zu einem Array zu wechseln
+
+26:08.610 --> 26:14.480
+nachdem wir gehen und alle unsere Benutzer greifen
+
+26:14.750 --> 26:15.410
+Whoo! Gut
+
+26:15.530 --> 26:16.850
+Das war viel
+
+26:16.880 --> 26:23.000
+Ich weiß, ich weiß, es ist eine Menge Informationen, eine Menge neuer Syntax, aber wie Sie sehen können, mit ein paar Zeilen
+
+26:23.000 --> 26:30.320
+Code haben wir eine ziemlich tolle App gebaut. Im nächsten Video werden wir das beenden und unser Projekt abschließen
+
+26:30.320 --> 26:30.660
+App
+
+26:30.680 --> 26:33.490
+also sieht es so schön aus
+
+26:33.560 --> 26:35.130
+Ich sehe dich in diesem. Tschüss!

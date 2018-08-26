@@ -1,0 +1,877 @@
+WEBVTT
+
+00:00.900 --> 00:02.410
+Dar una buena acogida.
+
+00:02.420 --> 00:10.380
+Hay una última pieza del rompecabezas que necesitamos con redux y algo que hemos estado evitando
+
+00:10.710 --> 00:12.600
+hasta este punto.
+
+00:12.750 --> 00:15.620
+Ya ves si vamos a App.js
+
+00:16.130 --> 00:21.840
+Recuerda que hacemos esta solicitud de búsqueda de componenteDidMount.
+
+00:22.000 --> 00:23.890
+Tenemos una solicitud asincrónica.
+
+00:23.890 --> 00:34.690
+Hacemos una solicitud a una API para que capture a sus usuarios y finalmente establece ese estado para los robots.
+
+00:34.730 --> 00:39.890
+Pero ¿cómo funcionaría eso en redux?
+
+00:39.970 --> 00:49.070
+Porque recuerde hasta este punto que todo lo que hemos hecho ha sido sincrónico porque si hacemos el
+
+00:49.070 --> 00:57.850
+Lo mismo que hicimos con el campo de búsqueda, no funcionaría con la búsqueda de robots, porque estamos enviando
+
+00:57.850 --> 01:05.860
+una acción de, digamos, buscar robots, pero como eso es asincrónico, va a explotar en otro
+
+01:05.860 --> 01:07.810
+mundo en la API.
+
+01:08.700 --> 01:17.720
+Y trata de obtener los robots. Mientras tanto, el reductor simplemente va a verificar los robots y decir que hay
+
+01:17.730 --> 01:22.880
+aún no hay robots porque están en API-land (y la solicitud / acción) aún no ha regresado.
+
+01:22.890 --> 01:24.050
+Como una promesa
+
+01:24.090 --> 01:29.070
+Entonces, el reductor continúa y no realiza ningún cambio porque el estado no ha cambiado.
+
+01:29.100 --> 01:36.690
+Entonces, ¿cómo podemos crear acciones que son asíncronas, que aún pasan por el reductor de la tienda y luego
+
+01:36.690 --> 01:37.860
+hacer cambios.
+
+01:39.640 --> 01:44.180
+Y aquí es donde utilizamos, aplicar el middleware de nuevo.
+
+01:45.500 --> 01:54.400
+Podemos usar algo llamado redux-thunk para manejar acciones asincrónicas como llamadas AJAX.
+
+01:54.560 --> 02:04.170
+Es un middleware que proporciona un estado get y funciones de despacho que se transmiten. Eres capaz de
+
+02:04.170 --> 02:08.840
+manejar algo llamado efectos secundarios como llamadas AJAX
+
+02:09.000 --> 02:10.440
+con este paquete
+
+02:10.440 --> 02:12.020
+Entonces, vamos a mostrarte cómo funciona eso.
+
+02:13.520 --> 02:18.050
+Lo primero que queremos hacer es instalar el paquete redux-thunk.
+
+02:18.130 --> 02:22.690
+Así que voy a decir que NPM instala redux-thunk.
+
+02:22.940 --> 02:29.380
+Y, por cierto, al igual que con cualquier cosa, hay muchas otras maneras de manejar la acción asincrónica en
+
+02:29.400 --> 02:34.190
+redux. Simplemente no está integrado en la puerta, por lo que necesita algunos paquetes.
+
+02:34.190 --> 02:42.450
+Hay otras opciones, pero redux-thunk es la mejor y más simple para empezar.
+
+02:45.140 --> 02:45.820
+Todo bien.
+
+02:45.980 --> 02:52.320
+Ahora tenemos un redux-thunk y simplemente podemos comenzar a usarlo yendo a index.js
+
+02:52.390 --> 03:07.230
+y aquí podemos decir que queremos importar algo llamado thunkMiddleware de redux-thunk.
+
+03:07.760 --> 03:13.920
+Nuevamente puedes leer todo sobre esto, y hay documentación sobre Github. Middleware Thunk,
+
+03:13.970 --> 03:18.780
+ya sabemos cómo aplicar middleware a nuestra aplicación redux, ¿verdad?
+
+03:18.800 --> 03:23.330
+Tenemos nuestra función applyMiddleware.
+
+03:23.510 --> 03:31.480
+Simplemente podemos agregar el thunkMiddleware aplicado o no aplicado.
+
+03:31.690 --> 03:35.200
+Y déjame poner esto en una nueva línea para que puedas verlo mejor.
+
+03:36.000 --> 03:40.500
+thunkMiddleware a nuestro applyMiddleware.
+
+03:40.500 --> 03:41.360
+Y esto está ordenado,
+
+03:41.370 --> 03:48.630
+por lo tanto, pasará por el thunkMiddleware y luego por el middleware del registrador. Perfecto.
+
+03:48.840 --> 03:54.980
+Entonces, ejecutemos el inicio de NPM.
+
+03:55.250 --> 04:00.820
+Y también voy a guardar esto, de acuerdo, parece que todo está funcionando sin problemas.
+
+04:02.330 --> 04:05.280
+Tenemos este middleware implementado ahora.
+
+04:05.840 --> 04:11.850
+Pero, ¿cómo lo usamos realmente? Bien, comencemos con los primeros pasos.
+
+04:11.970 --> 04:21.310
+Lo primero que queremos hacer es crear una constante así que una constante para solicitar nuestros robots.
+
+04:21.450 --> 04:28.160
+Recuerde que en el archivo app.js tenemos esta matriz de robots que se completa después de componentDidMount
+
+04:28.160 --> 04:34.980
+con, después de hacer la llamada de búsqueda y establecemos State con los nuevos usuarios.
+
+04:35.040 --> 04:39.460
+Entonces en la constante podemos hacer algo similar a lo de arriba.
+
+04:39.470 --> 04:49.990
+Podemos exportar const REQUEST_ROBOTS. Ahora,
+
+04:50.840 --> 04:53.780
+porque esto va a ser una promesa.
+
+04:53.900 --> 04:58.030
+Va a tener tres estados.
+
+04:58.190 --> 05:06.490
+Entonces, el primero será PENDIENTE, que es la primera vez que enviamos esa solicitud es
+
+05:06.490 --> 05:09.470
+va a estar pendiente, estamos esperando que vuelva la promesa.
+
+05:09.790 --> 05:22.130
+Así que volveremos a utilizar la misma cadena aquí, y también vamos a tener dos estados después de la pendiente
+
+05:22.340 --> 05:25.150
+vuelve que es ÉXITO
+
+05:30.250 --> 05:31.240
+y también FALLÓ.
+
+05:39.690 --> 05:45.860
+Esta solicitud tiene tres acciones:pendiente, exitosa, fallida.
+
+05:45.930 --> 05:47.250
+De lo que queremos hacer un seguimiento.
+
+05:47.730 --> 05:53.280
+Y de nuevo, esto es bastante estándar con todas las acciones asincrónicas, como las llamadas AJAX.
+
+05:53.520 --> 06:01.670
+Entonces, ahorremos eso, y el siguiente paso, como sabemos, es crear las acciones usando estas cosas.
+
+06:01.710 --> 06:10.080
+Regresemos a las acciones y esta vez, en lugar de importar solo CHANGE_SEARCH_FIELD, vamos a importar
+
+06:10.080 --> 06:11.260
+algunas cosas más
+
+06:17.720 --> 06:22.770
+Voy a importar, copiemos y peguemos aquí porque eso es mucho tipeo.
+
+06:23.030 --> 06:27.920
+Vayamos a Constantes.
+
+06:28.180 --> 06:29.590
+Vamos a importar pendiente
+
+06:32.400 --> 06:38.150
+éxito y luego finalmente falló.
+
+06:42.720 --> 06:45.140
+ahorremos
+
+06:45.380 --> 06:48.320
+Y cuando recibes una advertencia de que no estamos, no los estamos usando.
+
+06:48.590 --> 06:57.790
+Así que vamos a crear estas acciones ahora como lo hicimos anteriormente. Vamos a exportar const y lo llamaremos
+
+06:57.790 --> 07:06.340
+esta solicitud Roots y esta acción toma.
+
+07:06.380 --> 07:08.830
+Hmm, ¿qué va a llevar?
+
+07:08.830 --> 07:17.810
+Bueno, esto es un poco complicado pero tomará el despacho. Y despacho,
+
+07:17.840 --> 07:20.650
+Si lo recuerda, y vamos a App.js,
+
+07:20.720 --> 07:30.580
+es algo que utilizamos en mapDispatchToProps que obtenemos de redux para enviar las acciones a
+
+07:30.670 --> 07:32.150
+el reductor
+
+07:32.380 --> 07:39.100
+Y cuando volvamos aquí, verán que realmente vamos a pasar esto a nuestra acción.
+
+07:39.100 --> 07:40.780
+Entonces tenemos acceso a eso.
+
+07:40.960 --> 07:50.030
+Pero de nuevo, por ahora solo sé que vamos a tener un despacho, y aquí vamos a hacer un
+
+07:50.030 --> 07:53.540
+pocas cosas que son un poco diferentes a las anteriores.
+
+07:53.540 --> 08:03.820
+Lo primero cuando solicitamos robots Bueno, queremos enviar la acción pendiente, así que de nuevo
+
+08:03.820 --> 08:12.430
+solo puede hacer la sintaxis estándar de despachar un objeto que es de tipo petición robot pendiente
+
+08:15.020 --> 08:16.700
+y la carga útil
+
+08:17.060 --> 08:19.390
+Bueno, no hay una carga real.
+
+08:19.460 --> 08:26.780
+Solo tenemos una solicitud pendiente, por lo que podemos dejarla tal como está ahora sin una carga útil.
+
+08:28.340 --> 08:35.220
+Luego tenemos algo que es asincrónico.
+
+08:35.220 --> 08:38.230
+Necesitamos hacer una llamada de búsqueda.
+
+08:38.340 --> 08:41.710
+Entonces tenemos nuestra función de búsqueda.
+
+08:42.060 --> 08:44.690
+Y si lo recuerdas, vamos a App.js
+
+08:44.730 --> 08:52.650
+Tenemos esta API a la que tenemos que llamar, pero también debes hacer la respuesta response.json todo
+
+08:52.650 --> 08:52.950
+de nuevo.
+
+08:52.950 --> 09:02.580
+Así que voy a copiar todo eso, ir a acciones y copiar y pegar esto.
+
+09:02.830 --> 09:12.600
+Así que estamos buscando a los usuarios que estamos haciendo .then y json, usando ese método json en la respuesta.
+
+09:12.600 --> 09:17.750
+Y finalmente, finalmente aquí tenemos dos opciones.
+
+09:17.880 --> 09:23.920
+Tenemos .then y .catch en caso de que haya un error o algo falle.
+
+09:25.060 --> 09:30.800
+En el .then recibimos algún tipo de datos que serán usuarios.
+
+09:31.300 --> 09:38.530
+Y una vez que hayamos recibido eso podemos decir despacho, vamos a despachar. ¿Qué crees que estamos yendo?
+
+09:38.530 --> 09:40.050
+para el despacho.
+
+09:40.060 --> 09:47.870
+Bueno, el objeto que es de tipo REQUEST_ROBOTS_SUCCESS
+
+09:50.660 --> 09:53.360
+y esta vez la carga útil para esto va a ser
+
+09:56.160 --> 10:04.310
+los datos que recibimos de la API y con la captura son muy similares.
+
+10:04.310 --> 10:11.120
+Obtendremos algún tipo de error y este error se enviará una vez más.
+
+10:14.800 --> 10:19.610
+y tendrá un tipo de REQUEST_ROBOTS_FAILED
+
+10:22.460 --> 10:30.500
+con una carga útil de vamos a darle el error que recibimos.
+
+10:30.500 --> 10:30.950
+Todo bien.
+
+10:30.950 --> 10:39.260
+Déjame hacer esto un poco más pequeño para que puedas ver. Así que guardamos eso, y ahora tenemos nuestras acciones y esto
+
+10:39.260 --> 10:43.220
+la acción es mucho más complicada que setSearchField.
+
+10:43.220 --> 10:50.240
+Tenemos un - de inmediato, cuando llamamos a esta acción, un despacho que REQUEST_ROBOTS_PENDING y luego
+
+10:50.330 --> 10:58.490
+buscamos a los usuarios, recibimos a los usuarios, y luego tenemos éxito con la carga de los usuarios
+
+10:59.000 --> 11:04.180
+o un error con la carga de error.
+
+11:04.230 --> 11:12.480
+Finalmente entramos en los reductores y en el reductor sabemos que queremos importar de las constantes
+
+11:12.780 --> 11:14.270
+las mismas acciones que tuvimos.
+
+11:14.270 --> 11:21.870
+Así que vamos a Constanza o vamos a acciones y copiamos exactamente lo que tenemos aquí también.
+
+11:24.720 --> 11:27.080
+Porque vamos a necesitar todas esas constantes.
+
+11:28.020 --> 11:35.640
+Y ahora, aquí abajo vamos a crear un nuevo reductor porque en lugar de combinar todos estos reductores
+
+11:35.640 --> 11:39.280
+queremos hacer que cada uno sea específico para su caso de uso.
+
+11:39.480 --> 11:48.490
+Este reductor se preocupa por el robot de búsqueda, el nuevo reductor se va a preocupar por la solicitud.
+
+11:48.630 --> 11:57.660
+Robots y una vez más con la misma sintaxis tenemos estado que va a igualar el estado inicial
+
+11:58.560 --> 12:06.220
+y luego la acción que va a tener un objeto vacío predeterminado.
+
+12:06.430 --> 12:14.390
+Y aquí dentro de un objeto o dentro de aquí tendremos una vez más una instrucción switch que escucha a action.type
+
+12:14.390 --> 12:22.070
+y este action.type va a tener tres estados posibles.
+
+12:22.100 --> 12:32.590
+Uno es que el caso es REQUEST_ROBOTS_PENDING en cuyo caso devolvemos object.assign
+
+12:32.680 --> 12:38.080
+De nuevo un objeto vacío.
+
+12:38.180 --> 12:39.770
+El estado.
+
+12:39.980 --> 12:47.000
+Y finalmente vamos a crear un nuevo estado llamado isPending.
+
+12:47.330 --> 12:50.240
+Y esto es que Pending se va a establecer en true
+
+12:53.840 --> 13:00.600
+porque los robots de solicitud están pendientes actualmente.
+
+13:00.600 --> 13:01.350
+Todo bien.
+
+13:01.680 --> 13:08.850
+Lo siguiente que vamos a hacer de nuevo vamos a tener un caso para este momento.
+
+13:09.240 --> 13:19.130
+El éxito y esto va a devolver object.assign un objeto vacío un estado.
+
+13:19.600 --> 13:34.310
+Y esta nueva propiedad de los robots que es action.payload y también queremos cambiar el estado isPending
+
+13:34.700 --> 13:36.440
+ahora ser falso
+
+13:39.550 --> 13:43.270
+porque recibimos la respuesta de la promesa
+
+13:50.350 --> 13:56.470
+y luego el tercer caso es cuando hay un error.
+
+13:57.040 --> 14:00.670
+Y en ese caso, vamos a devolver object.assign
+
+14:04.180 --> 14:16.550
+estado y tendremos un estado de error que crearemos que tiene la acción.payload.
+
+14:16.690 --> 14:23.260
+Y una vez más vamos a querer cambiar el isPending para que sea igual a falso
+
+14:26.050 --> 14:34.010
+y cierra el objeto. Y recuerda siempre, con un reductor,
+
+14:34.420 --> 14:43.810
+Queremos tener al final, siempre devolver el estado si no coincide con ninguno de los criterios.
+
+14:43.810 --> 14:49.250
+Así que de nuevo regresa el estado. Increíble.
+
+14:49.620 --> 14:53.860
+Ahora puedes estar pensando en tu estado inicial.
+
+14:54.020 --> 14:59.990
+Tenemos esto, pero REQUEST_ROBOTS no se preocupa por el campo de búsqueda.
+
+14:59.990 --> 15:06.860
+Y en este caso, queremos crear dos estados iniciales diferentes:uno para los robots de búsqueda y otro para
+
+15:06.860 --> 15:08.460
+los robots de solicitud
+
+15:08.600 --> 15:14.560
+Así que cambiemos el nombre a initialStateSearch
+
+15:17.420 --> 15:29.000
+y crea un nuevo estado initialStateRobots que ahora tiene estos tres estados que mencionamos aquí
+
+15:29.570 --> 15:43.360
+es decir, se está volviendo falso con el que comenzar, la matriz de un robot que está actualmente vacía y una cadena de error
+
+15:43.570 --> 15:45.350
+eso también está vacío
+
+15:49.020 --> 15:50.010
+Entonces, ahorremos eso.
+
+15:52.910 --> 15:58.810
+Y veamos algunos errores que obtenemos aquí y solo tenemos un poco de error de sintaxis.
+
+16:02.360 --> 16:04.970
+Porque no necesitamos este corchete.
+
+16:04.970 --> 16:08.220
+Ahí tienes.
+
+16:08.280 --> 16:11.060
+Y de nuevo queremos cambiar el initialStateRobots.
+
+16:11.080 --> 16:16.050
+en la función a este.
+
+16:18.250 --> 16:21.420
+Ahorramos y todo se ve bien.
+
+16:21.430 --> 16:26.770
+Déjame hacer esto un poco más pequeño.
+
+16:26.830 --> 16:28.920
+Ahora tenemos un problema
+
+16:29.410 --> 16:32.970
+Tenemos que reducir ahora y si vamos a index.js
+
+16:33.060 --> 16:40.360
+vemos que en la función createStore solo estamos usando el buscador searchRobots.
+
+16:40.780 --> 16:42.760
+Entonces, importémoslo ahora.
+
+16:42.790 --> 16:52.640
+El otro reductor que tenemos es requestRobots y ahora agregue esto a la tienda también.
+
+16:53.020 --> 16:55.740
+Pero cómo hacemos eso.
+
+16:58.080 --> 17:08.180
+Bueno, tenemos una función que viene de nuevo con redux que se llama combineReducers. Y esto combinaReducers,
+
+17:08.180 --> 17:15.160
+Bastante autoexplicativo, combina todos los reductores en un reductor de raíz.
+
+17:15.290 --> 17:16.380
+Así que hagámoslo.
+
+17:16.400 --> 17:23.380
+Voy a decir que const rootReducer igualará los combinadosReducers.
+
+17:23.750 --> 17:32.120
+Y esto va y acepta, en forma de objeto, todos los reductores.
+
+17:32.240 --> 17:38.180
+En mi caso, es la búsqueda de Robots y solicitud de Robots.
+
+17:38.390 --> 17:44.630
+Y ahora este rootReducer se puede usar en la tienda para incluir ambos reductores
+
+17:47.720 --> 17:51.880
+Ahorremos
+
+17:51.880 --> 17:53.110
+Todo bien.
+
+17:53.110 --> 17:54.040
+Casi estámos allí.
+
+17:55.720 --> 17:58.930
+Ahora porque solo usamos reductores combinados.
+
+17:58.930 --> 18:03.180
+Es algo que hemos mencionado antes, y eso es si entro en app.js
+
+18:03.340 --> 18:14.950
+y desplazarse hasta mapStateToProps, nuestro estado ya no tiene SearchField como parte
+
+18:14.950 --> 18:16.200
+de su propiedad.
+
+18:16.240 --> 18:25.780
+En cambio, va a tener dos propiedades searchRobots y requestRobots que cada uno tiene su propio
+
+18:25.780 --> 18:26.920
+propiedades.
+
+18:26.920 --> 18:29.680
+Entonces ahora tenemos que actualizar la búsquedaRobots
+
+18:33.370 --> 18:40.190
+como este que tiene la propiedad de searchField.
+
+18:40.250 --> 18:50.460
+Así que esto es lo que probablemente verás cuando trabajes en redux en mapStateToProps.
+
+18:50.490 --> 18:58.270
+Ahora la última pieza del rompecabezas:redux-thunk. ¿Como funciona esto?
+
+18:58.680 --> 19:10.740
+Well redux-thunk es un middleware que espera y ve si alguna acción devuelve una función en lugar de
+
+19:10.740 --> 19:12.050
+un objeto.
+
+19:12.440 --> 19:13.360
+Qué significa eso?
+
+19:13.740 --> 19:25.740
+Si vamos a acciones, vemos que esto está devolviendo un objeto, pero aquí no estamos devolviendo un objeto
+
+19:26.100 --> 19:33.930
+estamos, de hecho, no estamos devolviendo nada en este momento.
+
+19:34.070 --> 19:36.820
+El middleware Thunk está esperando una función.
+
+19:36.920 --> 19:43.880
+Y si alguna vez una acción que lo atraviesa -recuerda que un middleware es solo un túnel por el que pasan las acciones
+
+19:44.660 --> 19:49.050
+y se da cuenta de una función que va a actuar sobre él.
+
+19:49.100 --> 19:53.130
+Así que hagámoslo primero y explicaré en detalle cómo funciona.
+
+19:54.030 --> 19:57.350
+Primero tenemos que ir a App.js.
+
+19:57.420 --> 20:01.850
+Y aquí queremos actualizar algunas cosas.
+
+20:01.900 --> 20:16.610
+Primero queremos actualizar el estado para que ahora también incluya los robots para tener state.requestRobots.robots
+
+20:16.640 --> 20:19.960
+De nuevo, este es el estado del reductor.
+
+20:20.010 --> 20:29.630
+También está el estado isPending nuevamente a través de su requestRobots.isPending.
+
+20:30.050 --> 20:43.030
+Y, finalmente, el estado de error de una vez más el estado solicitaRobots.error
+
+20:43.060 --> 20:51.510
+La segunda parte y la parte más importante es la acción del robot de solicitud.
+
+20:51.680 --> 20:58.240
+De nuevo, algo que reemplaza esta solicitud componentDidMount.
+
+20:58.390 --> 21:05.650
+La forma en que podemos hacer eso es agregar aquí otra propiedad que vamos a transmitir y podemos nombrar
+
+21:05.650 --> 21:11.000
+sea ​​lo que queramos, diremos onRequestRobots
+
+21:11.000 --> 21:17.820
+y esto va a ser una función y esta función.
+
+21:17.950 --> 21:23.320
+Recuerde que no queremos necesariamente solo despachar.
+
+21:23.670 --> 21:28.670
+Queremos - devolverle una función.
+
+21:28.740 --> 21:43.410
+En nuestro caso, es el requestRobots reducer y esta solicitudRobots reductor o acción tiene el
+
+21:43.980 --> 21:47.480
+método de envío.
+
+21:47.510 --> 21:48.090
+Todo bien.
+
+21:48.090 --> 21:49.000
+Sé que eso es mucho.
+
+21:48.990 --> 21:51.480
+Así que vamos a pasar por esto una vez más.
+
+21:52.800 --> 21:55.770
+En este momento necesitamos la solicitudRobots
+
+21:59.230 --> 22:10.620
+acción y esta solicitudRobot acciones necesita un método de envío para realmente despachar estas acciones.
+
+22:10.920 --> 22:22.120
+Por lo tanto, en App.js primero tenemos que importar nuestra acción que es requestRobots desde el archivo de acciones y
+
+22:22.120 --> 22:30.750
+esta solicitudRobots necesita tener el método de envío.
+
+22:30.760 --> 22:42.580
+Esto es lo mismo que hacer esto.
+
+22:43.190 --> 22:54.870
+Y ahora este despacho va a funcionar siempre que usemos redux-tThunk porque atrapará al
+
+22:54.870 --> 23:00.140
+hecho de que esto va a devolver una función.
+
+23:00.170 --> 23:07.390
+Entonces, si volvemos a nuestras acciones, ahora podemos hacer esto.
+
+23:13.770 --> 23:25.280
+De acuerdo, ¿qué acaba de pasar? Bueno, hemos creado una función de orden superior:una función que devuelve una función.
+
+23:25.280 --> 23:28.810
+Y sé que esto puede ser un poco confuso, pero un thunk.
+
+23:28.880 --> 23:34.950
+Porque ahora requestRobots va a regresar nuevamente debido a las funciones de error.
+
+23:35.000 --> 23:42.800
+Esto implicará que está devolviendo esto, proporcionará la función de envío a este
+
+23:42.950 --> 23:47.040
+función de segunda capa para que podamos usarla aquí.
+
+23:47.420 --> 23:55.430
+De nuevo, esto es algo a lo que tienes que acostumbrarte, pero al final si guardamos esto, veamos si
+
+23:55.430 --> 23:56.120
+funciona.
+
+23:56.140 --> 24:01.530
+Ahora sé que es la primera vez, así que probablemente hayamos estropeado algo, pero veámoslo.
+
+24:04.000 --> 24:07.490
+Me actualizo y todo funciona.
+
+24:07.490 --> 24:08.890
+No estamos obteniendo ningún error.
+
+24:09.020 --> 24:19.380
+Pero recuerde, de hecho necesitamos conectarnos a nuestra aplicación. Si volvemos ahora podemos ir a app.js y nosotros
+
+24:19.380 --> 24:21.690
+tener todos estos accesorios que podemos usar ahora.
+
+24:21.960 --> 24:31.530
+Por lo tanto, el componentDidMount ya no necesita tener la llamada de búsqueda. Todo lo que él necesita es esto. Props.
+
+24:32.760 --> 24:38.940
+y la acción que tenemos nuestros robots de solicitudes en RequestRobots
+
+24:41.590 --> 24:42.200
+Perfecto.
+
+24:42.430 --> 24:46.670
+Y tampoco necesitamos el constructor, ¿verdad?
+
+24:46.750 --> 24:53.110
+Debido a que no hay más estados, estos robots ahora serán devueltos como parte de los accesorios de
+
+24:53.380 --> 24:56.930
+onRequestRobots.
+
+24:57.040 --> 25:01.100
+Así que de nuevo vamos a cambiar esto. Estado a
+
+25:03.790 --> 25:15.540
+robots y también podemos obtener isPending para verificar si isPending es verdadero.
+
+25:19.140 --> 25:25.770
+Para mostrar si esto es cierto, entonces queremos renderizar la carga.
+
+25:25.950 --> 25:30.950
+Si no, solo queremos renderizar a nuestros amigos robo.
+
+25:30.970 --> 25:33.660
+Entonces esos vienen de nuestros accesorios
+
+25:34.780 --> 25:39.230
+Y ahora solo tenemos componentDidMount en nuestra aplicación.
+
+25:39.440 --> 25:45.360
+Vamos a guardar y volver a nuestra aplicación.
+
+25:45.380 --> 25:47.490
+Está bien, mira eso.
+
+25:47.780 --> 25:53.990
+Eso no ocurre muy a menudo, pero de alguna manera logré codificar sin hacer nada, sin cometer ningún error.
+
+25:53.990 --> 25:55.250
+De nuevo, eso es una rareza.
+
+25:55.250 --> 25:56.210
+Disfruta este momento.
+
+25:56.210 --> 25:57.780
+Definitivamente estoy disfrutando.
+
+25:57.800 --> 26:05.090
+Vemos aquí que tenemos "REQUEST_ROBOTS_PENDING" siendo despedidos y luego SUCCESS siendo despedidos nuevamente.
+
+26:06.760 --> 26:09.070
+Vamos a actualizar rápidamente
+
+26:09.070 --> 26:09.400
+Todo bien.
+
+26:09.400 --> 26:11.300
+¿Qué sucede si la solicitud falla?
+
+26:11.320 --> 26:14.500
+Regresemos aquí y vayamos a nuestra acción.js
+
+26:14.560 --> 26:18.280
+Y vamos a escribir algo mal aquí, diremos así.
+
+26:18.280 --> 26:19.510
+Guárdalo
+
+26:19.510 --> 26:23.020
+Vuelve y ahí tienes.
+
+26:23.120 --> 26:27.170
+Tenemos "REQUEST_ROBOTS_FAILED".
+
+26:27.190 --> 26:31.560
+Muy genial.
+
+26:31.730 --> 26:32.640
+Arreglemos eso.
+
+26:33.620 --> 26:37.040
+Y guarda.
+
+26:37.090 --> 26:37.780
+Todo bien.
+
+26:37.960 --> 26:44.020
+Tenemos nuestra aplicación que hace exactamente lo mismo que antes.
+
+26:45.220 --> 26:51.080
+Nada demasiado loco solo filtrando nuestros robots.
+
+26:51.310 --> 27:02.760
+Pero la única diferencia es que tenemos esta increíble capacidad de registro y está utilizando redux.
+
+27:02.850 --> 27:07.340
+Muy genial.
+
+27:07.350 --> 27:10.180
+Quiero repasar esto una vez más.
+
+27:11.850 --> 27:16.450
+Y esto se debe a que es un punto difícil para la mayoría de las personas.
+
+27:18.640 --> 27:25.720
+Recuerda esta petición Robots, cómo tiene estas dos funciones.
+
+27:25.930 --> 27:29.210
+El requestRobot, ahora redux,
+
+27:29.220 --> 27:36.160
+de fábrica, no lo entendería, porque no devolveremos un objeto, como espera de una acción.
+
+27:36.220 --> 27:46.090
+Estamos devolviendo una función y esta función no significará nada para ella. Al agregar middleware redux-thunk,
+
+27:46.240 --> 27:47.980
+ahora estamos escuchando acciones.
+
+27:48.040 --> 27:54.490
+Y cada vez que se activa la acción requestRobots va a devolver una función y desencadenar redux-thunk
+
+27:54.490 --> 28:00.780
+y redux-thunk va a decir - oh esta es una función que voy a darte, aquí está el despacho
+
+28:00.790 --> 28:08.350
+entonces puedes llamar algunas acciones, y finalmente podemos ejecutar nuestras acciones de esta manera.
+
+28:08.350 --> 28:15.240
+Entonces, si volvemos a nuestro diagrama, hemos creado un sistema donde las acciones se desencadenan.
+
+28:15.390 --> 28:17.310
+Pasan por cualquier middleware.
+
+28:17.370 --> 28:24.030
+Si es un cambio en el término de búsqueda, simplemente irá directamente al reductor, ejecutará una función agradable
+
+28:24.450 --> 28:32.730
+actualizar la tienda y hacer cambios a nuestra vista. Si solicitamos robots, notará que es un
+
+28:32.730 --> 28:39.120
+función va a entrar en el middleware, y redux-thunk va a decir.
+
+28:39.140 --> 28:47.250
+De acuerdo, primero solo despacho pendiente al reductor, y te avisaré cuando haya terminado con la promesa
+
+28:48.000 --> 28:50.490
+y te dejaré saber si tengo algún robot.
+
+28:50.740 --> 28:59.080
+Y cuando regrese va a enviar el éxito, pasar por el reductor, actualizar la tienda y hacer
+
+28:59.230 --> 29:00.010
+cambios.
+
+29:01.410 --> 29:03.570
+¡Uf! Eso fue mucho.
+
+29:03.630 --> 29:09.550
+Pero si llegaste hasta aquí y lo entiendes, ya casi te han reducido.
+
+29:09.600 --> 29:10.440
+Eso es.
+
+29:10.440 --> 29:13.730
+Esa es toda la biblioteca de redux.
+
+29:13.980 --> 29:15.230
+Es muy muy simple.
+
+29:15.240 --> 29:20.340
+Y una vez que comienzas a usarlo un par de veces y te sientes cómodo con él, es realmente muy hermoso
+
+29:20.370 --> 29:21.850
+la forma en que todo funciona
+
+29:21.870 --> 29:24.150
+Pero por ahora tomemos un descanso.
+
+29:24.150 --> 29:26.240
+Gracias por mirar y nos vemos en el próximo.
+
+29:26.550 --> 29:27.000
+Adiós

@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Willkommen zurück.
+
+00:02.210 --> 00:08.780
+Jetzt, wo wir unsere Aktionen Konstanten und Reduzierer haben, fangen wir an, diesen reduktiven Teil unserer Anwendung zu verbinden
+
+00:09.170 --> 00:11.540
+zu unserer Reaktion Anwendung.
+
+00:13.290 --> 00:16.630
+Jetzt können wir das ganz einfach machen.
+
+00:17.520 --> 00:25.260
+Wenn Sie sich erinnern, haben wir ein Paket namens react redux heruntergeladen und dieses Paket importieren wir es hier
+
+00:26.910 --> 00:32.840
+kommt mit netten und einfachen API von nur zwei Dingen.
+
+00:32.920 --> 00:40.540
+Einer ist ein Anbieter und der andere ist verbunden und mit diesen beiden Dingen werden wir in der Lage sein
+
+00:40.780 --> 00:42.900
+Verbinden Sie diese beiden Teile unserer Anwendung.
+
+00:43.570 --> 00:52.660
+Also werde ich sagen Import von Redox.
+
+00:52.870 --> 00:58.520
+Jetzt werden wir in diesem Video über den Provider sprechen und im nächsten Video über connect sprechen.
+
+00:58.540 --> 01:04.560
+Also lassen Sie uns jetzt den Provider importieren.
+
+01:04.780 --> 01:13.300
+Hier müssen wir zuerst ein paar Dinge tun, um den Laden zu erstellen. Wenn wir zurück zu unseren
+
+01:13.300 --> 01:23.510
+Diagramm erinnern wir uns, dass es etwas gibt, das einen Speicher und Redox genannt wird, der die Quelle aller Wahrheit ist.
+
+01:23.800 --> 01:32.530
+Das ist ein großes Objekt Javascript, Objekt, das den Zustand unserer App beschreibt, so dass reagieren kann
+
+01:32.530 --> 01:36.010
+es Änderungen vornehmen und es dem Benutzer anzeigen.
+
+01:36.010 --> 01:43.330
+Also haben wir eine Aktion erstellt, die wir erstellt haben, und einen Reduzierer reduziert, und wir brauchen auch einen Laden.
+
+01:43.510 --> 01:45.900
+Also lass uns das zuerst machen.
+
+01:46.020 --> 01:53.600
+Wir können das redux-Paket dafür verwenden und sagen importieren und es hat eine Funktion namens create store.
+
+01:53.670 --> 01:54.920
+Netter und einfacher Name.
+
+01:55.170 --> 02:00.620
+Und wir werden das aus dem redux-Paket importieren.
+
+02:00.660 --> 02:06.570
+Jetzt ist die Art und Weise, wie wir einen Laden erstellen, ziemlich einfach und wir können sagen, dass der Laden gleich ist
+
+02:09.780 --> 02:19.940
+Shop erstellen und hier setzen wir den, was wir einen rootReducer nennen, das ist der Reducer unserer App
+
+02:20.570 --> 02:22.390
+Jetzt im wirklichen Leben,
+
+02:22.460 --> 02:25.420
+Wir haben viele Reduzierungen.
+
+02:25.730 --> 02:34.230
+Wenn wir zu unserer Reducer-Datei zurückkehren, haben wir jetzt nur einen der Reducer für Suchroboter.
+
+02:34.430 --> 02:41.240
+Aber wie gesagt, Anwendungen werden immer komplexer und Sie werden mehr und mehr Aktionen haben
+
+02:41.360 --> 02:42.450
+das muss genommen werden.
+
+02:42.890 --> 02:50.420
+Und wir können weiterhin Aktionen in Bezug auf Suchroboter auflisten, aber später in unserem Video
+
+02:50.420 --> 02:54.840
+müssen auch Roboter von der API erhalten.
+
+02:55.280 --> 03:05.870
+Falls du dich erinnerst. jetzt deswegen werden wir viele, viele Reduzierer haben und im Laden wir
+
+03:05.870 --> 03:15.820
+Ich möchte alle diese Reduzierungen kombinieren, um einen Wurzelreduzierer zu schaffen, den wir später machen werden.
+
+03:16.650 --> 03:25.080
+Aber jetzt, weil wir nur einen Reduzierer haben, lassen Sie uns einfach den Suchroboter Reducer verwenden, um zu erstellen
+
+03:25.080 --> 03:25.480
+das Geschäft
+
+03:29.650 --> 03:31.580
+und wir müssen das importieren.
+
+03:31.600 --> 03:32.880
+Also lass uns voran gehen und das tun.
+
+03:33.680 --> 03:34.920
+Und ich sage Import
+
+03:38.010 --> 03:44.470
+suchen Sie Roboter aus unserer Reduzierdatei.
+
+03:44.480 --> 03:44.970
+Gut.
+
+03:45.020 --> 03:51.930
+Also habe ich Suchroboter hier, um den Laden zu erstellen und das war's.
+
+03:51.950 --> 04:00.560
+Wir haben ein Geschäft. Jetzt kann dieser Laden nun aufgerufen und in unsere App übertragen werden.
+
+04:00.650 --> 04:08.110
+Denken Sie daran, dass wir mit redux hypothetisch alle Zustände aus unserer Reaktion entfernen und sie in uns behalten können
+
+04:08.110 --> 04:11.850
+das Geschäft und übergeben Sie den Laden als Requisite.
+
+04:11.890 --> 04:21.590
+Also, lass uns sehen, was passiert, wenn ich das mache, wenn ich Shop gleich zu dem Geschäft, das wir haben, und ich spare.
+
+04:21.740 --> 04:24.460
+Und lasst uns auch app.js öffnen
+
+04:25.360 --> 04:26.780
+Und in der
+
+04:26.810 --> 04:27.690
+KomponenteDidMount.
+
+04:27.890 --> 04:29.240
+Lass uns einfach loggen
+
+04:32.000 --> 04:40.060
+this.props.store
+
+04:40.100 --> 04:41.460
+Alles klar, lass uns npm starten
+
+04:48.270 --> 04:49.630
+Wenn ich die Konsole öffne
+
+04:52.820 --> 04:57.800
+und wir haben hier ein bisschen eine enge, das ist nur ein Syntaxfehler in unserem Fall, dann Aussagen so lassen Sie uns
+
+04:57.800 --> 04:58.550
+repariere das.
+
+05:01.540 --> 05:03.150
+Geh zu Reduzierungen.
+
+05:03.240 --> 05:09.420
+Wir brauchen hier keine Anführungszeichen für das Semikolon, weil wir es hier haben.
+
+05:09.500 --> 05:17.770
+Lassen Sie uns das speichern und wir erhalten eine Fehlermeldung, dass das Suchfeld in unserer Reduzierdatei nicht definiert ist.
+
+05:17.840 --> 05:20.720
+Und wieder ein kleiner kleiner Fehler hier.
+
+05:20.720 --> 05:30.370
+Die Art, wie wir den dritten Parameter an eine object.assign übergeben wollen, ist wie ein Objekt, also wollen wir wie gehen
+
+05:30.370 --> 05:31.020
+Dies.
+
+05:32.880 --> 05:39.790
+Und wir auf konstant kleinen kleinen Fehler hier, um alles richtig zu speichern.
+
+05:39.840 --> 05:40.950
+Also alles funktioniert.
+
+05:40.950 --> 05:46.700
+Wir haben eine Warnung, die besagt, dass der Provider definiert ist, aber nie genutzt wird, das ist in Ordnung.
+
+05:47.570 --> 05:49.180
+Denn während wir noch nicht benutzen.
+
+05:49.250 --> 05:51.390
+Aber lass uns zum Konsolenprotokoll gehen und sehen, was passiert.
+
+05:52.750 --> 06:01.570
+Gut, wir sehen, dass unser Laden hier ausgeloggt ist und wir ein paar Funktionen haben, die wir nutzen können
+
+06:01.870 --> 06:05.860
+einschließlich erhalten Zustand. Lass uns das verwenden und sehen, was passiert.
+
+06:05.890 --> 06:15.750
+Wieder zu meiner Indexdatei gehend werde ich sagen oder in unserer app.js-Datei werde ich sagen, dass ich den Status bekommen soll
+
+06:15.760 --> 06:20.490
+um zu sparen gehe zurück und sieh dir das an.
+
+06:20.550 --> 06:27.190
+Wir haben unseren Staat, der gerade das Suchfeld hat.
+
+06:27.190 --> 06:27.620
+Gut.
+
+06:27.760 --> 06:36.910
+Also gehen wir unseren Laden als Requisite durch und wir können den Zustand nutzen. Sehr cool, lass uns diese Konsole entfernen
+
+06:36.910 --> 06:37.750
+Log.
+
+06:37.750 --> 06:43.120
+Da wir es nicht brauchen, verstehen wir, was jetzt in der Indexdatei passiert, die wir weiterleiten müssen
+
+06:43.120 --> 06:45.820
+in der App speichern.
+
+06:45.920 --> 06:52.900
+Jetzt wollen wir den Laden nicht wirklich den gesamten Komponentenbaum bis zu den kleineren Komponenten durchgehen
+
+06:53.200 --> 07:01.170
+immer und immer wieder und reagieren Redox gibt uns eine nette Komponente, die wir verwenden können, um dies sehr einfach zu tun.
+
+07:01.280 --> 07:06.770
+Wir können unsere App-Komponente einfach in diese Provider-Komponente integrieren.
+
+07:06.770 --> 07:07.770
+Lass mich es dir zeigen.
+
+07:08.300 --> 07:24.180
+Wir werden eine Provider-Komponente haben und diese App-Komponente wird genau darin enthalten sein
+
+07:24.180 --> 07:27.150
+Das.
+
+07:27.160 --> 07:31.540
+Jetzt ist die Formatierung hier ein bisschen aus, aber es ist in Ordnung für den Moment.
+
+07:31.540 --> 07:39.220
+Ich will nur sehen, dass der Provider die App einpackt und jetzt den Store nicht weitergibt
+
+07:39.220 --> 07:47.440
+Die App können wir einfach in die Provider-Komponente und die Provider-Komponente aufnehmen
+
+07:47.440 --> 07:56.410
+Wir kümmern uns darum, den Laden an alle Komponenten im Komponentenbaum aus der App weiterzuleiten, und wir verwenden etwas
+
+07:56.410 --> 08:02.730
+genannt Connect, über den wir gesprochen haben, um diese Verbindung zu beenden.
+
+08:02.750 --> 08:04.530
+So, da hast du es.
+
+08:04.610 --> 08:14.000
+Wir haben die Provider-Komponente erstellt, die den Store durchläuft, und der Store verwendet den Root Reducer oder was auch immer
+
+08:14.000 --> 08:19.660
+Reduzierer, die wir den Speicher erstellen und diesen Objektbaum unseres Staates erstellen müssen.
+
+08:20.820 --> 08:28.950
+Also lass mich das im nächsten Video speichern. Im nächsten Video werden wir den anderen Teil von reactive redux verwenden
+
+08:29.100 --> 08:31.520
+um endlich alles miteinander zu verbinden.
+
+08:32.270 --> 08:34.070
+Ich werde das sehen. Tschüss.

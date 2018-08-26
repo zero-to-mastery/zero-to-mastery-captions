@@ -1,0 +1,184 @@
+WEBVTT
+
+00:01.120 --> 00:01.800
+Tudo bem.
+
+00:01.810 --> 00:06.000
+Então, nós temos o redux funcionando bem com nosso aplicativo.
+
+00:06.100 --> 00:09.160
+Acabamos de aprender uma biblioteca incrível.
+
+00:09.580 --> 00:12.510
+Espero que todos estejam se sentindo bem. Agora,
+
+00:13.030 --> 00:15.890
+Eu quero adicionar algumas coisas.
+
+00:15.940 --> 00:23.530
+Obviamente, este é um exemplo simples. Mas os fundamentos estão aí. Usando esses princípios, você pode
+
+00:23.530 --> 00:27.560
+ir e construir, aplicações maiores e maiores.
+
+00:27.970 --> 00:32.090
+Mas como eu tenho escrito isso, você deve ter notado algumas coisas.
+
+00:32.230 --> 00:32.850
+1,
+
+00:33.100 --> 00:42.170
+bem, vamos dar uma olhada aqui na nossa estrutura de pastas. Podemos imaginar como o nosso aplicativo cresce que vai ficar
+
+00:42.410 --> 00:44.540
+maior e maior e maior.
+
+00:44.690 --> 00:49.460
+E isso é realmente algo que eu vou demonstrar para você mais tarde no curso, quando trabalharmos no
+
+00:49.460 --> 00:57.920
+app cérebro inteligente. Onde começamos a carregar nosso aplicativo js, ​​com uma tonelada de funções.
+
+00:57.920 --> 01:00.100
+E não estamos usando redux para isso.
+
+01:00.200 --> 01:06.660
+Portanto, esse arquivo fica mais e mais longo com novos métodos, novos métodos e novos métodos.
+
+01:06.690 --> 01:16.350
+Agora, tendo um componente contêiner, isso é ter um componente conectado. Um componente que sabe que
+
+01:16.410 --> 01:22.790
+o armazenamento do redux existe e ouve adereços e ações de despacho dele.
+
+01:22.830 --> 01:26.100
+Bem, ter apenas um não é realmente realista.
+
+01:26.130 --> 01:33.570
+Muito provavelmente você terá vários contêineres. Mas por causa da maneira como o redux funciona, isso é
+
+01:33.570 --> 01:34.570
+fácil de fazer.
+
+01:34.620 --> 01:42.300
+Podemos usar apenas conectar e escolher quais componentes, queremos nos conectar ao repositório redux.
+
+01:42.660 --> 01:46.960
+E se quisermos, dois contêineres para falar um com o outro,
+
+01:47.280 --> 01:50.670
+Bem, muito simples, nós apenas os conectamos.
+
+01:50.850 --> 01:58.030
+E como a loja está acima de tudo, conseguimos obter essas informações de estado.
+
+01:58.950 --> 02:01.420
+Por isso, torna a comunicação muito fácil.
+
+02:01.770 --> 02:08.790
+Então, obviamente, queremos ter contêineres como esse. E simples componentes de apresentação que são apenas
+
+02:08.790 --> 02:13.940
+funções puras, que apenas recebem adereços e renderizam.
+
+02:14.050 --> 02:20.650
+No entanto, à medida que crescemos mais e mais componentes e mais e mais contêineres, começa a fazer sentido
+
+02:20.650 --> 02:26.710
+não tem apenas um arquivo 'constantes', um arquivo 'actions' e um arquivo 'reducers'.
+
+02:27.010 --> 02:33.670
+Você pode imaginar estes ficando maiores e maiores e maiores. E você verá projetos que têm 'ações'
+
+02:33.670 --> 02:37.470
+pasta, uma pasta 'constantes' e uma pasta 'redutores'.
+
+02:37.630 --> 02:41.820
+Mas eu pessoalmente gosto do jeito de fazer as coisas.
+
+02:42.160 --> 02:46.260
+Ou seja, agrupe tudo de acordo com o componente.
+
+02:46.420 --> 02:53.630
+Por exemplo, crie um aplicativo dot js ou, digamos, há um componente de campo de pesquisa inteligente.
+
+02:54.010 --> 02:59.920
+Vamos criar uma pasta chamada "campo de pesquisa" e essa pasta "campo de pesquisa" terá todos os
+
+02:59.920 --> 03:03.670
+os componentes de apresentação do DOM, de que ele precisa.
+
+03:03.670 --> 03:06.730
+Vai ter todas as 'ações' que precisa em ação.
+
+03:06.790 --> 03:10.060
+js. Vai ter todo o 'redutor' de que precisa.
+
+03:10.180 --> 03:12.780
+E também vai ter toda a constante que
+
+03:13.000 --> 03:19.810
+precisa. Então, cada pasta vai representar um componente, um pedaço do nosso site e tudo é acoplado
+
+03:20.080 --> 03:21.760
+em uma pequena pasta.
+
+03:21.760 --> 03:26.400
+Então, se quisermos compartilhar código, será bem fácil de fazer.
+
+03:26.410 --> 03:32.850
+Também é muito bom pensar assim. Em vez de ter esses nomes de pasta gerais maciços.
+
+03:33.020 --> 03:35.840
+E é isso que você verá com a maioria dos grandes projetos.
+
+03:35.840 --> 03:43.190
+Essa ideia de componentes, que possuem suas próprias pastas, esses contêineres que possuem novamente suas próprias pastas,
+
+03:43.190 --> 03:45.950
+bem como redutores e ações.
+
+03:46.100 --> 03:52.130
+E desta forma você pode ler a estrutura de pastas e decidir onde você quer ir para consertar um bug
+
+03:52.130 --> 03:53.670
+ou crie um novo recurso.
+
+03:55.690 --> 03:59.010
+Você também deseja evitar repetir o código.
+
+03:59.170 --> 04:03.940
+Por exemplo, na maioria dos aplicativos, teremos muitas chamadas de busca.
+
+04:04.210 --> 04:11.800
+Então, não seria ótimo se tivéssemos uma pasta de APIs aqui, que faça a chamada, talvez chamemos API,
+
+04:11.920 --> 04:20.740
+'get API' e tudo o que precisamos fazer é passar uma função, e essa função vai passar esse URL para
+
+04:20.740 --> 04:24.130
+a função de busca e também vai fazer isso
+
+04:24.160 --> 04:27.120
+json para nós. Então é só retornar os dados.
+
+04:27.130 --> 04:36.170
+Então continuamos com o repe .., então paramos de repetir todo este ponto de busca, depois o ponto, depois o ponto de captura. Então, pensando em termos de
+
+04:36.230 --> 04:40.550
+organizar suas pastas, para algo que faz sentido, algo que pode escalar.
+
+04:40.760 --> 04:47.270
+E, se alguém entrar no projeto, fica mais fácil para eles seguirem e lerem, é uma boa maneira de
+
+04:47.270 --> 04:50.030
+fazendo coisas.
+
+04:50.050 --> 04:52.390
+Tudo bem, é o suficiente por agora.
+
+04:52.390 --> 04:53.900
+Eu vou te ver no próximo vídeo.
+
+04:53.910 --> 04:54.380
+Tchau tchau
