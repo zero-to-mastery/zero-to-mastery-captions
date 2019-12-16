@@ -1,0 +1,590 @@
+WEBVTT
+
+00:01.360 --> 00:02.340
+Ben tornato.
+
+00:02.560 --> 00:10.030
+È giunto il momento di integrare finalmente il nostro server che abbiamo appena creato utilizzando Node ed Express nel nostro front-end,
+
+00:11.180 --> 00:17.830
+che è stato creato con JavaScript e React. Iniziamo entrambi questi server e voglio che tu
+
+00:17.830 --> 00:24.520
+li pensi come due computer separati perché nella vita reale molto probabilmente questi saranno due computer separati da
+
+00:24.520 --> 00:32.380
+qualche parte che funzionano separatamente e comunicano - beh, tramite HTTP. Corro
+'npm start' qui.
+
+00:32.390 --> 00:33.260
+-
+
+00:35.050 --> 00:38.920
+E con l'app React eseguirò anche 'npm start'.
+
+00:39.780 --> 00:46.470
+E noterai che probabilmente mi darà un avvertimento o un suggerimento che dice che qualcosa è già
+
+00:46.470 --> 00:52.110
+in esecuzione sulla porta 3000 e mi dice anche esattamente cosa sta funzionando lì.
+
+00:52.110 --> 00:58.440
+E poiché entrambi stanno provando a funzionare sulla stessa porta, possiamo semplicemente eseguirli su porte diverse, quindi
+
+00:58.440 --> 01:05.930
+posso cambiare il mio server in modo che funzioni su qualcosa di diverso da 3000, che è l'impostazione predefinita per create-reazioni-app.
+
+01:06.120 --> 01:14.160
+Oppure posso solo dire "Desideri eseguire l'app su un'altra porta? "- Farò clic su" Y
+
+01:14.670 --> 01:23.610
+"e ora creerò" localhost: 3001 "come front-end. Eccezionale.
+
+01:23.610 --> 01:25.340
+Quindi abbiamo la nostra app qui.
+
+01:26.010 --> 01:34.850
+Se torniamo abbiamo l'app e il server entrambi in esecuzione e vogliamo finalmente collegarli. Se ricordi il nostro diagramma
+
+01:37.260 --> 01:38.700
+qui.
+
+01:38.700 --> 01:41.660
+Stiamo finalmente colmando il divario tra i due.
+
+01:41.850 --> 01:47.180
+Due istanze separate che comunicano insieme.
+
+01:47.230 --> 01:48.010
+Iniziamo.
+
+01:51.820 --> 02:00.250
+Come sappiamo con la nostra app React, per comunicare con il back-end o il mondo esterno possiamo usare
+
+02:00.310 --> 02:01.280
+'fetch'.
+
+02:01.510 --> 02:07.350
+Nel nostro caso possiamo dire 'componente ... 'e facciamolo in alto.
+
+02:07.360 --> 02:15.280
+Ecco qua 'componentDidMount' - un hook del ciclo di vita
+
+02:16.090 --> 02:27.450
+che viene fornito con React, quindi non dobbiamo fare funzioni freccia - e diremo che qui vogliamo 'recuperare' e facciamo 'localhost'
+
+02:27.980 --> 02:30.250
+perché questo è
+
+02:30.260 --> 02:34.870
+il nostro computer e piatto ' 3000 'dovrà fare
+
+02:35.280 --> 02:38.730
+HTTP qui' localhost: 3000 'E ricorda
+
+02:38.840 --> 02:43.860
+che sta facendo questa sintassi'. quindi () "avremo una
+
+02:46.480 --> 02:48.860
+risposta e
+
+02:48.940 --> 02:58.230
+dovremo eseguire" la risposta. json () 'su questo in modo che possiamo leggerlo e quindi avremo i dati. E un modo abbreviato per
+
+02:58.260 --> 03:05.530
+farlo è se si fa davvero 'console. log 'i dati verranno automaticamente inseriti qui.
+
+03:05.580 --> 03:07.480
+Quindi non devo farlo
+
+03:07.660 --> 03:10.980
+'. quindi (data => console. log
+
+03:11.010 --> 03:15.640
+(data)) 'È la stessa cosa.
+
+03:15.650 --> 03:20.330
+Quindi proviamo questo e vediamo se funziona.
+
+03:20.450 --> 03:31.110
+Se ricordi che eseguiamo la route root di base [/] nel nostro server - beh, la radice sta semplicemente recuperando
+
+03:31.110 --> 03:38.870
+gli utenti dal database. Facciamo un tentativo. Ho intenzione di salvare; non ottenere alcun errore, il che è positivo.
+
+03:40.580 --> 03:53.720
+Se vado su "localhost" e aggiorno e apro la console ottengo "Impossibile caricare http: // localhost: 3000 /" È presente l'intestazione
+
+03:53.720 --> 03:59.450
+"Nessun controllo di accesso-Consenti-Origine" "blah blah blah blah blah.
+
+03:59.810 --> 04:06.710
+E questo è un errore che è davvero una funzione di sicurezza.
+
+04:06.900 --> 04:13.770
+Otterrai questo errore perché con Google quello che stiamo cercando di fare in questo momento è
+
+04:14.040 --> 04:23.920
+che stiamo cercando di comunicare con il mondo esterno utilizzando HTTP ma Chrome non si fida davvero di ciò a cui stiamo accedendo qui.
+
+04:24.100 --> 04:28.160
+Non hanno modo di sapere che il nostro server è sicuro.
+
+04:28.210 --> 04:35.680
+Forse è un hacker che sta segretamente cercando di fare una richiesta dalla tua pagina Web al loro sito
+
+04:35.710 --> 04:39.680
+Web che scarica alcuni software dannosi sulla tua pagina.
+
+04:41.380 --> 04:46.640
+E questo si chiama 'Access Control Allow Origin' e per noi per testarlo su
+
+04:46.810 --> 04:54.110
+'localhost' dobbiamo fare qualcosa chiamato CORS, e puoi vedere qui nel messaggio di errore - "imposta la modalità della
+
+04:54.110 --> 04:58.780
+richiesta su no-cors" e Sarò collegato alle informazioni su CORS qui.
+
+04:58.790 --> 05:06.830
+Ma quello che vogliamo qui è che vogliamo ancora una volta un pacchetto npm chiamato cors e proprio come body-parser è uno
+
+05:06.830 --> 05:09.090
+di quelli comuni che vedrai ovunque.
+
+05:09.110 --> 05:11.060
+Ti mostrerò esattamente come usarlo.
+
+05:11.090 --> 05:17.180
+Vedi che è un middleware che semplicemente facciamo 'app. utilizzare (cors). Quindi installiamolo.
+
+05:17.540 --> 05:20.120
+Ho intenzione di 'npm install cors' e
+
+05:25.820 --> 05:27.620
+ora che ce l'abbiamo
+
+05:31.450 --> 05:40.530
+possiamo semplicemente 'const cors = require (' cors ')' e semplicemente fare 'app. uso (cors ())'.
+
+05:44.700 --> 05:48.170
+Salviamo, eseguiamo di nuovo 'npm start'.
+
+05:52.370 --> 05:59.190
+Torniamo alla nostra app, aggiorna, se apro la console ottengo un
+
+05:59.320 --> 06:04.710
+array di due utenti. Quanto è fantastico?
+
+06:05.610 --> 06:06.570
+Sta funzionando.
+
+06:07.020 --> 06:15.060
+Quindi lavoriamo sul segno. Invieremo le informazioni di accesso dal front-end al back-end e
+
+06:18.470 --> 06:23.530
+il modo in cui abbiamo impostato il "login" in questo momento controllerà solo John.
+
+06:23.540 --> 06:25.940
+L'ho minimizzato, quindi è un po 'più pulito.
+
+06:26.000 --> 06:34.650
+Controllerà John e rimettiamo la password per ora a "cookies".
+
+06:36.690 --> 06:43.710
+E la password di Sally alle "banane".
+
+06:43.890 --> 06:48.210
+Ho intenzione di salvare e ora lavoro sulla rotta di accesso.
+
+06:49.410 --> 06:52.110
+In questo momento però sappiamo che il recupero sta funzionando.
+
+06:52.110 --> 06:56.240
+Proveremo effettivamente a far funzionare l'endpoint di accesso.
+
+06:56.250 --> 07:06.780
+Quindi pensiamo a questo se torniamo alla nostra pagina di accesso, bene questo componente ha due input: l'e-mail e
+
+07:06.820 --> 07:14.810
+la password che quando facciamo clic su Accedi dovremo inviare tramite 'corpo richiesta'.
+
+07:14.900 --> 07:18.500
+Dovremo inviarlo al server.
+
+07:18.500 --> 07:23.490
+Il server verificherà se l'utente esiste e quindi ci darà una risposta.
+
+07:23.690 --> 07:24.450
+Quindi facciamolo.
+
+07:28.090 --> 07:33.180
+Vogliamo rimuovere componentDidMount dall'app perché non ne abbiamo più bisogno.
+
+07:35.430 --> 07:45.540
+E sebbene possiamo creare la nostra funzione di recupero qui - nell'app. js - perché 'Signin' è il suo piccolo componente e
+
+07:45.540 --> 07:51.650
+il resto dell'app dopo 'Signin' non si interessa davvero se ha avuto successo
+
+07:51.660 --> 07:57.680
+o meno - Mi piace mantenere la funzionalità di Signin all'interno del componente.
+
+07:57.680 --> 08:05.000
+Ciò significa che vogliamo trasformarlo in un componente intelligente in modo che abbia lo
+
+08:05.000 --> 08:09.370
+stato di input di "email" e "password".
+
+08:09.860 --> 08:23.030
+Quindi facciamolo, convertiamolo in una classe "Signin" che estende React. Il componente e questo avrà un metodo 'render ()'
+
+08:29.270 --> 08:33.290
+che riceve tutto questo [codice]
+
+08:36.050 --> 08:37.280
+-
+
+08:41.940 --> 08:47.060
+lo minimizzerò solo per poterlo vedere.
+
+08:47.090 --> 08:50.000
+Abbiamo dimenticato la parentesi qui; assicurati di includere anche quello.
+
+08:59.800 --> 09:00.930
+Perfezionare.
+
+09:01.120 --> 09:03.250
+E vogliamo chiudere qui
+
+09:06.390 --> 09:12.220
+la parentesi, e riceviamo alcuni 'oggetti di scena' che erano sul 'cambio di
+
+09:12.330 --> 09:23.130
+rotta', quindi dovremo fare 'questo. oggetti di scena. onRouteChange () 'e poi' this. oggetti di scena. onRouteChange () 'o
+
+09:23.130 --> 09:33.860
+invece di farlo ancora meglio è farlo semplicemente distruggendo' onRouteChange 'equivale a
+
+09:34.340 --> 09:40.100
+questo. oggetti di scena. Quindi tutto dovrebbe essere compilato bene.
+
+09:40.130 --> 09:43.040
+E abbiamo visto la pagina di accesso.
+
+09:43.310 --> 09:52.810
+Ora, al fine di ottenere i valori di input da questi due, è sufficiente creare una funzione 'onEmailChange ()'.
+
+09:56.160 --> 10:07.840
+E questo ascolterà l'evento onchange dell'email e diremo qui che questo evento verrà impostato per lo stato - solo così sappiamo che siamo
+
+10:07.830 --> 10:20.280
+chiari che diremo 'signInEmail' e questo sarà 'evento. bersaglio. value 'e' onPasswordChange ()
+
+10:20.390 --> 10:27.380
+'avremo di nuovo, un'altra funzione aggiorneremo uno stato
+
+10:34.150 --> 10:40.390
+che chiameremo' signInPassword 'e dovremo creare questo
+
+10:43.580 --> 10:45.140
+stato.
+
+10:45.140 --> 10:59.470
+Quindi faremo il nostro 'costruttore ()' 'super ()' e poi 'questo. state 'equals' signInEmail: 'che per ora sarà una stringa
+
+10:59.470 --> 11:06.870
+vuota quando si inizializza e' signInPassword: 'di nuovo una stringa vuota.
+
+11:06.880 --> 11:17.050
+Ora per poter usare 'oggetti di scena' vogliamo anche passare 'oggetti di scena' qui.
+
+11:17.120 --> 11:17.660
+Salviamo.
+
+11:21.880 --> 11:26.110
+E se funziona nel modo che ci
+
+11:26.120 --> 11:42.110
+aspettiamo, ora possiamo creare un evento 'onSubmitSignIn' che ora utilizzerà questo stato per recuperare - e per ora non siamo davvero sicuri di cosa
+
+11:42.110 --> 11:45.440
+avremo ancora da recuperare.
+
+11:45.530 --> 11:49.110
+Quindi andiamo solo a console. registro ''
+
+11:49.440 --> 11:54.720
+questo. stato. signInPassword "O effettivamente facciamo
+
+11:55.350 --> 11:57.560
+solo" console. registro ''
+
+11:57.780 --> 11:59.220
+questo. stato'.
+
+11:59.610 --> 12:07.280
+E se ti stai chiedendo, possiamo davvero avere più di due componenti intelligenti in un'app in cui questo ha lo stato, allora
+
+12:07.310 --> 12:08.920
+l'app ha lo stato -
+
+12:09.180 --> 12:10.600
+beh sì, assolutamente.
+
+12:10.650 --> 12:17.610
+Vuoi organizzare la tua app in modo sensato, ad esempio 'Signin' è la sua cosa chiusa.
+
+12:17.610 --> 12:26.490
+Quindi, usando 'Signin' anche se è figlio di 'App', può avere il suo stato fintanto che questo stato è solo preoccupato per 'Signin', quindi è
+
+12:26.490 --> 12:33.960
+un buon modo per farlo invece di aggiornare costantemente 'App. js "e creazione di"
+
+12:34.290 --> 12:38.280
+App. js 'cresce su molte molte righe.
+
+12:41.850 --> 12:43.540
+Va bene così abbiamo 'console. log
+
+12:43.580 --> 12:49.610
+'vediamo se' onSubmitSignIn 'funziona andiamo al pulsante' submit
+
+12:52.260 --> 12:58.120
+'prima di fare il' onClick 'per cambiare
+
+12:58.200 --> 13:12.200
+il percorso in' home 'ora andiamo invece a fare' questo. onSubmitSignIn 'e all'interno eseguiremo' onRouteChange 'che è'
+
+13:12.590 --> 13:17.240
+questo. oggetti di scena. onRouteChange
+
+13:20.590 --> 13:26.230
+"e diamo un'occhiata. Salviamo torniamo alla nostra app.
+
+13:26.490 --> 13:33.260
+Aprirò la console qui; Digiterò 'test @ gmail. com '' test ',
+
+13:36.500 --> 13:46.640
+accedi e vedo che ottengo' signInPassword 'vuoto,' signInEmail 'vuoto, ed è perché li abbiamo creati ma non
+
+13:46.640 --> 13:50.130
+abbiamo aggiunto gli eventi agli input.
+
+13:50.540 --> 13:53.300
+Quindi facciamolo:
+
+13:53.390 --> 13:57.530
+per l'e-mail su "input" dirò
+
+14:01.750 --> 14:13.560
+"onChange" e sapete cosa? Aggiungiamoli su nuove linee solo per essere più puliti. Altrimenti può diventare piuttosto disordinato.
+
+14:13.560 --> 14:14.260
+Ecco qua
+
+14:14.430 --> 14:24.110
+E ora posso dire 'onChange' e 'onChange' prenderà 'questo. onEmailChange "perché questa è l'e-mail.
+
+14:24.320 --> 14:25.260
+E
+
+14:29.200 --> 14:34.510
+il prossimo avrà una cosa simile tranne che invece
+
+14:37.260 --> 14:40.930
+di avere "onEmailChange" avremo "onPasswordChange".
+
+14:40.930 --> 14:42.300
+Proviamo di nuovo.
+
+14:46.180 --> 14:48.110
+'Test @ gmail. com
+
+14:49.000 --> 14:51.560
+'' test 'accedi.
+
+14:51.580 --> 14:54.010
+Bene, abbiamo queste informazioni, il che è fantastico.
+
+14:54.040 --> 15:03.870
+Ora possiamo inviarlo al nostro server e possiamo farlo semplicemente 'onSubmitSignIn' eseguendo
+
+15:04.760 --> 15:20.810
+una funzione - un 'fetch ()', che abbiamo visto prima per HTTP il nostro 'localhost' per '3000' e facendo un '/ registrati'.
+
+15:21.140 --> 15:24.040
+Ora recuperare per impostazione predefinita fa una richiesta
+
+15:24.110 --> 15:28.640
+GET, ma ciò che vogliamo fare qui è una richiesta POST come ricordiamo.
+
+15:28.720 --> 15:35.810
+Quindi il modo in cui lo facciamo è nel secondo parametro, qui possiamo passare un oggetto che descrive
+
+15:35.810 --> 15:37.640
+quale sarà la richiesta.
+
+15:37.640 --> 15:41.690
+Nel nostro caso avremo un 'metodo'
+
+15:44.550 --> 15:49.950
+di 'post' avremo intestazioni e le intestazioni accettano un oggetto.
+
+15:49.960 --> 16:00.520
+Nel nostro caso vogliamo vedere "Content-Type" e poiché ha questa riga qui dobbiamo racchiuderlo tra virgolette e diremo che è "application
+
+16:02.110 --> 16:06.110
+/ json" - e ora diremo che il
+
+16:09.450 --> 16:17.720
+corpo conterrà quello che abbiamo nello stato, ma ricorda che per inviarlo al back-end non possiamo
+
+16:17.720 --> 16:20.530
+semplicemente inviare un oggetto JavaScript.
+
+16:20.600 --> 16:31.880
+Dobbiamo "JSON. stringify 'l'oggetto e l'oggetto sarà' email ', che è' questo. stato. e-mail "o" signInEmail
+
+16:31.930 --> 16:37.050
+"e copiamo quella e" password "che saranno"
+
+16:39.850 --> 16:47.900
+questa ". stato. parola d'ordine ... -
+
+16:48.460 --> 16:52.970
+Sarà "signInPassword" Va bene.
+
+16:53.000 --> 16:55.580
+Vediamo se funziona.
+
+16:55.640 --> 17:07.340
+Ho intenzione di salvare e qui dirò 'john @ gmail. com 'e' cookies 'se faccio clic su Accedi ottengo' 404
+
+17:09.100 --> 17:11.330
+(Not Found) '.
+
+17:11.800 --> 17:13.630
+Eseguiamo il debug di questo e vediamo cosa è successo.
+
+17:17.100 --> 17:21.550
+Beh, prima di tutto non ho scritto correttamente l'iscrizione, quindi proviamo di nuovo.
+
+17:27.180 --> 17:30.740
+E provalo per vedere se funziona.
+
+17:32.970 --> 17:38.280
+E vogliamo dire "cookies" qui, accedi.
+
+17:38.300 --> 17:44.050
+Giusto abbiamo 'accesso' 'Richiesta non valida'. Se guardiamo qui, otteniamo una
+
+17:44.280 --> 17:50.050
+risposta "errore di accesso" e questo è l'errore che abbiamo dato sul server.
+
+17:50.340 --> 17:54.540
+Quindi sembra che qualcosa nella nostra richiesta non funzioni.
+
+17:54.540 --> 17:55.380
+Diamo un'occhiata.
+
+17:56.300 --> 17:59.140
+E questo doveva essere "header", non "header" - questo è
+
+17:59.150 --> 18:00.830
+un errore da parte mia.
+
+18:00.890 --> 18:02.020
+Proviamo di nuovo.
+
+18:02.900 --> 18:06.180
+"john" - fammi solo consolarlo
+
+18:06.190 --> 18:12.140
+qui "john @ gmail. com '' cookies 'accedi.
+
+18:12.160 --> 18:20.530
+Bene, andiamo alla nostra scheda Rete e vediamo con cosa ha risposto il percorso di accesso.
+
+18:20.530 --> 18:22.310
+Diceva "successo".
+
+18:22.420 --> 18:30.670
+Quindi siamo stati in grado di accedere perché abbiamo inserito John, un utente che abbiamo
+
+18:30.670 --> 18:41.450
+in base al nostro modulo di accesso molto semplice. Tuttavia, se vogliamo cambiare questo per dire ora che lo stato della risposta è 400 "errore di accesso" e
+
+18:41.730 --> 18:44.740
+se quell'errore non ci consente di accedere correttamente qui,
+
+18:45.210 --> 18:53.980
+tutto ciò che dobbiamo fare è invece di fare "onRouteChange", possiamo fare un " . poi'.
+
+18:54.400 --> 19:04.770
+E ricorda che questo '. quindi la risposta "dovrà fare". json () ''. then () '- Quindi
+
+19:04.800 --> 19:15.050
+diremo che i dati che riceviamo - e terremo questo semplice qui - se noi' if (data === 'successo'),
+
+19:17.310 --> 19:31.270
+che è ciò che riceviamo; in tal caso, faremo un cambio di rotta. Salviamolo.
+
+19:31.470 --> 19:32.650
+Va bene, proviamolo.
+
+19:33.880 --> 19:42.070
+Se non inserisco nulla qui e faccio clic su Accedi, visualizzo un 'POST' (Richiesta non valida) 'e se
+
+19:42.070 --> 19:46.450
+osserviamo il messaggio che riceviamo abbiamo "errore di accesso".
+
+19:46.560 --> 19:53.460
+Quindi, utilizzando queste informazioni, possiamo creare forse un errore visualizzato qui [nella pagina di accesso] ma non ci consente di accedere.
+
+19:53.460 --> 19:55.040
+Per consentirci di
+
+19:55.140 --> 20:08.120
+accedere, dobbiamo utilizzare il nostro esempio John e assicurarci che le nostre e-mail e password corrispondano. Che funzioni!
+
+20:11.270 --> 20:13.300
+Proviamo ancora una volta.
+
+20:13.510 --> 20:13.940
+Se lo faccio, John
+
+20:13.940 --> 20:14.460
+...
+
+20:17.630 --> 20:26.120
+'' cookie 'accedi e tutto funziona senza errori. Bello.
+
+20:26.130 --> 20:29.340
+Questo sta funzionando.
+
+20:29.420 --> 20:29.870
+Tutto ok.
+
+20:29.870 --> 20:35.660
+Quindi stiamo solo usando John per gli utenti,
+
+20:35.660 --> 20:41.930
+ma idealmente possiamo effettivamente filtrare tutto e assicurarci che esista.
+
+20:41.930 --> 20:47.540
+Ora, come ho detto prima, non lo faremo qui perché è qualcosa
+
+20:47.540 --> 20:55.930
+in cui i database sono davvero bravi, ma volevo mostrarti come funzionerebbe con la corrispondenza di e-mail e password.
+
+20:56.170 --> 20:56.480
+Tutto ok.
+
+20:56.480 --> 20:58.060
+Quindi abbiamo Accesso funzionante.
+
+20:58.070 --> 21:04.420
+Facciamo funzionare anche Register e Register è molto simile a Accedi.
+
+21:04.610 --> 21:06.450
+Quindi nel prossimo video lo affronteremo.

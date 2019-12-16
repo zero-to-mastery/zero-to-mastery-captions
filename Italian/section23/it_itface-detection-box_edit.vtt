@@ -1,0 +1,799 @@
+WEBVTT
+
+00:01.210 --> 00:06.990
+Ben tornato. Rivediamo ciò che abbiamo finora nella nostra app.
+
+00:07.160 --> 00:14.430
+Abbiamo creato il nostro componente app che contiene alcuni componenti di reazione
+
+00:14.450 --> 00:24.240
+personalizzati, che abbiamo creato. E nell'ultimo video siamo riusciti finalmente a ottenere la nostra risposta dall'API "Clarifai". Se torniamo a 'Clarifai', vediamo
+
+00:24.240 --> 00:32.400
+che il loro rilevamento del volto ha una piccola scatola quadrata che rileva.
+
+00:32.640 --> 00:40.010
+Ma se guardi l'API e la risposta che riceviamo, in realtà non otteniamo quella scatola quadrata.
+
+00:40.080 --> 00:48.300
+Tutto ciò che otteniamo sono questi box di delimitazione. E in base al viso e al numero di volti che
+
+00:48.500 --> 00:50.390
+rileva, ti dà questi rettangoli.
+
+00:53.100 --> 00:56.370
+E puoi leggerlo, qui.
+
+00:56.580 --> 01:05.570
+Ma questi stanno solo dicendo che la riga in alto è al 22 percento dell'immagine.
+
+01:05.580 --> 01:12.080
+Quindi queste sono percentuali che possiamo usare. Ma per poter creare la nostra
+
+01:12.330 --> 01:19.070
+scatola come questa, beh, dobbiamo solo vedere quali stili stanno usando ma facendo 'ispezionare'.
+
+01:19.110 --> 01:24.100
+Come ricordi, qui possiamo vedere che hanno una clausola "bounding box".
+
+01:24.360 --> 01:30.030
+Quindi la nostra app possiamo fare qualcosa di simile e quindi dovremo solo calcolare in base alla risposta
+
+01:30.270 --> 01:37.260
+in cui possiamo creare queste caselle perché bene, avere solo il display dei numeri per i nostri utenti non significa molto, è bello
+
+01:37.260 --> 01:38.760
+avere questo facebox .
+
+01:38.940 --> 01:41.660
+Quindi lavoriamo su questo in questo video.
+
+01:41.890 --> 01:48.700
+Se torniamo alla nostra app, vogliamo prima dirlo bene, aggiungeremo sicuramente un
+
+01:48.700 --> 01:56.240
+nuovo "stato" e lo chiameremo "box". E questa 'scatola' sarà solo un oggetto vuoto con cui iniziare.
+
+01:56.370 --> 02:00.710
+E questa 'scatola' conterrà i valori che riceviamo.
+
+02:01.580 --> 02:05.120
+Nel caso di una risposta, sarà
+
+02:07.980 --> 02:13.510
+la "riga superiore", "colonna sinistra", "riga inferiore" e quindi "colonna destra".
+
+02:14.310 --> 02:16.680
+Quindi come possiamo farlo?
+
+02:16.680 --> 02:23.980
+Ciò richiede un po 'di riflessione da parte nostra, ma possiamo iniziare con la creazione di una funzione. E questa
+
+02:23.980 --> 02:29.460
+funzione può dire "CalcolaFacciaLocalità"
+
+02:32.260 --> 02:38.010
+e "CalcolaFacciatura" riceverà alcuni "dati".
+
+02:39.330 --> 02:44.280
+E per ora lo terremo solo come una funzione vuota.
+
+02:44.510 --> 02:51.620
+Ma sappiamo che, vogliamo chiamare questa funzione 'calcolaFacciaLocalità' in base agli
+
+02:51.620 --> 02:54.910
+input che otteniamo da 'Clarifai'.
+
+02:54.930 --> 03:06.750
+Quindi, nel nostro caso, con la risposta che ci danno, vogliamo usare
+
+03:06.750 --> 03:15.910
+questa risposta e chiamare "calcolaFacciaLocalità" con i dati "risposta".
+
+03:16.040 --> 03:20.030
+E ancora perché stiamo usando le classi
+
+03:23.120 --> 03:27.030
+qui dovrà fare "questo" punto.
+
+03:27.110 --> 03:30.110
+Penso anche che questa funzione appaia un po 'confusa in questo momento.
+
+03:31.200 --> 03:33.250
+Quindi ho intenzione di spostare alcune cose in giro.
+
+03:33.420 --> 03:38.420
+Prima di tutto usando ES6 possiamo semplicemente fare le funzioni freccia qui.
+
+03:44.830 --> 03:45.600
+È molto meglio.
+
+03:49.250 --> 03:55.580
+E invece di usare questo "errore (err)", possiamo effettivamente fare una "promessa" ogni volta che hai un punto ", quindi" puoi fare
+
+03:55.580 --> 03:56.730
+un punto "cattura".
+
+03:56.900 --> 04:01.370
+E questo è un 'errore' (errore) nel caso in cui qualcosa fallisca.
+
+04:01.370 --> 04:05.600
+Nel nostro caso, possiamo semplicemente "console dot log".
+
+04:05.850 --> 04:12.330
+Questo "err" (errore).
+
+04:12.500 --> 04:14.680
+Quindi questo sembra già un po 'più pulito.
+
+04:15.640 --> 04:16.900
+Ma dobbiamo definire, oop!
+
+04:20.330 --> 04:26.730
+e ho dimenticato una parentesi qui, e ora anche noi non ne abbiamo bisogno. OK.
+
+04:27.020 --> 04:31.890
+Quindi sappiamo che questo otterrà una "risposta" che è il rettangolo di selezione.
+
+04:33.330 --> 04:41.610
+Ma questa "risposta" verrà ricevuta mentre la console si è registrata l'ultima volta, che sta ottenendo il "riquadro di selezione".
+
+04:41.610 --> 04:45.660
+Per ora non ci preoccuperemo di avere più
+
+04:45.990 --> 04:55.650
+facce nella foto, ma prenderemo solo la prima "scatola di delimitazione". Ancora una volta, se torniamo all'API "Chiarisci", vediamo che, a seconda delle regioni, otteniamo
+
+04:55.650 --> 04:56.960
+effettivamente un array.
+
+04:56.960 --> 05:03.580
+Quindi abbiamo avuto più persone nell'immagine avranno più facce.
+
+05:03.670 --> 05:10.990
+Nel nostro caso, ci preoccupiamo solo di uno, stiamo solo cercando di mettere una "scatola di delimitazione" attorno a una faccia.
+
+05:10.990 --> 05:19.560
+Quindi vogliamo cambiare questa 'risposta' per dire 'dati' e possiamo solo avere una costante chiamata 'clarifaiFace' uguale a questi 'dati',
+
+05:22.840 --> 05:24.570
+lo renderò un
+
+05:27.400 --> 05:34.570
+po 'più piccolo in modo da poter vedere. Ora dentro, cosa vogliamo fare
+
+05:34.570 --> 05:35.480
+prima.
+
+05:35.680 --> 05:38.490
+Bene, vorremmo fare un po 'di manipolazione del DOM.
+
+05:38.620 --> 05:51.700
+Quindi la cosa migliore che possiamo fare è dire 'const image' equivale a 'dot' getElementById 'e possiamo creare un elemento o
+
+05:51.700 --> 06:00.370
+possiamo creare un id chiamato' inputimage 'e questo' imputimage 'che stiamo afferrando sarà qui
+
+06:01.790 --> 06:02.520
+.
+
+06:03.270 --> 06:09.660
+Questa immagine che collega "imageUrl". Quindi l'immagine che viene visualizzata nella nostra app. Quindi
+
+06:09.660 --> 06:19.720
+possiamo creare un "id" qui e diremo "immagine" o "inputimage".
+
+06:19.730 --> 06:27.410
+Quindi ora questo "inputimage" è proprio qui che l'abbiamo preso e lo vogliamo, come ricordate,
+
+06:27.410 --> 06:32.180
+questo "riquadro di selezione" è una percentuale dell'immagine.
+
+06:32.180 --> 06:41.390
+Quindi se è il punto due due (. 22) significa che è al 20 percento di qualunque sia l'altezza o la larghezza delle immagini.
+
+06:42.050 --> 06:52.980
+Nel nostro caso, possiamo dire che vogliamo sicuramente avere la larghezza della nostra immagine dicendo la larghezza 'punto' immagine '.
+
+06:53.150 --> 06:57.600
+E poiché questa sarà una stringa e vogliamo fare alcuni calcoli su di essa, la avvolgeremo
+
+06:57.600 --> 06:58.470
+in un numero.
+
+06:58.470 --> 07:04.650
+In questo modo ci assicuriamo che sia un numero, quindi faremo "altezza" anche dell'immagine che
+
+07:04.650 --> 07:06.320
+abbiamo appena acquisito.
+
+07:09.020 --> 07:15.060
+E sai, possiamo semplicemente consolare il registro ora per vedere che abbiamo fatto tutto nel modo giusto, "larghezza" e "altezza".
+
+07:16.480 --> 07:27.550
+Quindi proviamo quello. Ho intenzione di salvare, tornare all'immagine o all'app, prendere questa immagine
+
+07:27.550 --> 07:32.800
+di esempio, posizionarla, premere 'Rileva' e diamo un'occhiata alla console.
+
+07:35.450 --> 07:37.610
+'getelement', oh! L'ho scritto male.
+
+07:39.330 --> 07:40.450
+Grazie a Dio per la console.
+
+07:40.480 --> 07:42.210
+Lo ammetto, non posso scrivere oggi.
+
+07:42.330 --> 07:43.120
+Ecco qua
+
+07:43.380 --> 07:44.390
+Proviamo di nuovo.
+
+07:48.950 --> 07:50.510
+Aprilo
+
+07:50.510 --> 07:52.740
+e vedremo cinquecentoquattrocentonovantasette.
+
+07:52.850 --> 07:53.080
+Tutto ok.
+
+07:53.090 --> 07:57.270
+Stiamo afferrando l'altezza e la larghezza dell'immagine, è perfetto.
+
+07:57.470 --> 08:04.720
+E come sai, questo è 500 perché lo abbiamo detto come 500, ricorda se andiamo a "Riconoscimento facciale" e
+
+08:04.710 --> 08:06.950
+lo abbiamo con 500 pixel.
+
+08:06.950 --> 08:12.470
+E la ragione per cui non faccio solo 500 qui è che, beh, se qualcuno arriva forse
+
+08:12.530 --> 08:16.270
+un designer e decide di cambiarlo, non sarà influenzato qui.
+
+08:16.280 --> 08:17.850
+Lo calcolerà sempre.
+
+08:18.820 --> 08:19.370
+Tutto ok.
+
+08:19.430 --> 08:22.320
+Quindi abbiamo la larghezza e l'altezza.
+
+08:22.340 --> 08:29.410
+Abbiamo anche il riquadro di selezione di 'Clarifai' che è proprio qui.
+
+08:29.480 --> 08:33.590
+Quindi riceveremo questo e dobbiamo fare un po 'di calcolo.
+
+08:35.500 --> 08:36.880
+E non mentirò.
+
+08:36.910 --> 08:42.790
+Mi ci è voluto circa un'ora e ho deciso di non includerlo in questo video perché ero solo io a
+
+08:42.790 --> 08:45.420
+battermi il cervello con un po 'di matematica.
+
+08:45.580 --> 08:53.740
+Quindi mi sto tagliando cercando di capire la matematica per la soluzione. Ma spiegherò esattamente come
+
+08:53.740 --> 08:55.260
+funziona.
+
+08:55.300 --> 09:05.010
+Vogliamo tornare qui, un oggetto, e questo oggetto sarà quello che riempirà lo stato 'box'.
+
+09:06.650 --> 09:16.100
+Ora questo oggetto dovrà prima capire il primo punto, il secondo punto, il terzo punto e il quarto punto, intorno
+
+09:16.100 --> 09:24.780
+alla faccia e poi lo avvolgeremo in un bordo. Ancora una volta, se torniamo all'API "Clarifai"
+
+09:24.790 --> 09:28.130
+e ispezioniamo, vediamo che il
+
+09:31.170 --> 09:35.900
+"riquadro di selezione" sta facendo qualcosa di simile.
+
+09:35.910 --> 09:37.640
+E useremo alcuni di questi stili.
+
+09:40.870 --> 09:52.270
+Diremo che la colonna sinistra, sinistra (lectCol) sarà la 'faccia di chiarimento' che riceviamo proprio qui.
+
+09:52.350 --> 10:02.070
+E come ricordi, questa ha una proprietà 'colonna a sinistra' e ora la colonna a sinistra (left_col) è la percentuale della
+
+10:02.070 --> 10:02.570
+larghezza.
+
+10:02.700 --> 10:05.710
+Quindi se moltiplichiamo per la 'larghezza' che abbiamo
+
+10:06.000 --> 10:12.630
+qui, beh, che è 500, otterremo la larghezza dell'immagine visualizzata effettiva e dove dovrebbe essere la
+
+10:12.630 --> 10:14.260
+colonna di sinistra.
+
+10:14.280 --> 10:20.250
+Quindi 'larghezza' e la riga successiva sarà la 'topRow'
+
+10:23.070 --> 10:31.530
+e la riga superiore avrà la colonna 'top_row' o dispiace che 'top_row' non
+
+10:31.610 --> 10:43.480
+sia la colonna e avrà la 'altezza'. Ancora una volta la riga superiore dirà che l'altezza è la percentuale della nostra altezza dell'immagine.
+
+10:44.050 --> 10:58.830
+Ora "rightColumn" sarà la sottrazione di "larghezza" da "clarifaiFace" punto "right_column" punto "larghezza" o
+
+10:59.780 --> 11:03.720
+moltiplicato per "larghezza".
+
+11:03.750 --> 11:12.240
+Quindi di nuovo perché la colonna di destra si trova su questo lato, vogliamo ottenere il numero che è la percentuale totale meno
+
+11:12.810 --> 11:15.760
+la larghezza a partire dal lato sinistro.
+
+11:19.130 --> 11:28.150
+E infine con 'bottomRow', farà qualcosa di simile ma invece con l'altezza
+
+11:28.160 --> 11:30.390
+e sarà
+
+11:34.380 --> 11:38.170
+il 'clarifaiFace' 'bottom_row' moltiplicato per 'height'.
+
+11:38.200 --> 11:38.690
+Tutto ok.
+
+11:38.800 --> 11:45.130
+Eh! era un sacco di matematica, è un, è pazzesco come avremo con la nostra matematica. E ti mostrerò come ho
+
+11:45.130 --> 11:49.720
+escogitato questi numeri, un po 'più tardi una volta che abbiamo le scatole di
+
+11:49.720 --> 11:53.190
+delimitazione e ti posso mostrare come puoi giocare nella console.
+
+11:53.200 --> 12:00.200
+Quindi ora che abbiamo questi, vogliamo riempire lo stato 'box' con questi valori.
+
+12:00.330 --> 12:12.440
+Quindi forse posso creare un'altra funzione, un altro metodo su questa classe che dice "displayFacebox". Non è il nome più importante per una funzione, ma
+
+12:12.450 --> 12:16.190
+è quello che ho appena inventato.
+
+12:16.680 --> 12:20.460
+E questo riceverà questo valore di ritorno.
+
+12:24.900 --> 12:37.230
+E dirà 'questo' punto 'setState' per eguagliare 'box', 'box'. E solo un promemoria con ES6, puoi effettivamente
+
+12:37.230 --> 12:38.730
+farlo.
+
+12:38.730 --> 12:42.920
+Ma solo perché questo è chiaro per ora lo terremo in questo modo.
+
+12:42.930 --> 12:43.700
+Tutto ok.
+
+12:43.800 --> 12:49.760
+Quindi abbiamo alcuni errori qui, quindi proviamoli.
+
+12:49.950 --> 12:52.570
+Oh! ed è, perché ho fatto i
+
+12:52.890 --> 12:57.190
+punti e virgola qui, alcuni di voi stavano guardando questo video e dicendo: perché sta mettendo dei punti e virgola?
+
+12:57.270 --> 13:01.990
+Non mi piace indossare l'ultimo. Molto meglio.
+
+13:01.990 --> 13:02.350
+Tutto ok.
+
+13:02.350 --> 13:09.170
+Quindi lo 'stato' è ora impostato con la 'scatola'.
+
+13:09.410 --> 13:12.720
+Hmmm! ma per vederlo finora tutto funziona.
+
+13:12.800 --> 13:19.610
+Tornando al nostro 'onButtonSubmit', quindi quando facciamo clic sul pulsante, vogliamo calcolare la
+
+13:19.610 --> 13:28.360
+posizione del viso con la risposta, questo 'calcolaFacciaLocalità' eseguirà questa funzione, restituirà un oggetto e questo oggetto
+
+13:30.450 --> 13:34.170
+è necessario per ' metodo displayFaceBox '.
+
+13:35.220 --> 13:43.450
+Quindi sembra, qualunque cosa questo ritorni, è questo parametro 'box'.
+
+13:43.630 --> 13:58.950
+Quindi, per rendere le cose pulite, possiamo semplicemente stampare qui dicendo "questo display FaceBox" e avvolgere questa funzione.
+
+13:58.990 --> 14:02.710
+Quindi questo 'calcolaFacciaLavoro' prende una
+
+14:03.950 --> 14:11.770
+risposta, restituisce questo oggetto e l'oggetto restituito ora va in 'displayFacebox'.
+
+14:12.140 --> 14:17.900
+Ancora una volta la bellezza di JavaScript è che possiamo usare funzioni come queste e anche leggere bene.
+
+14:17.960 --> 14:23.750
+Una volta ottenuta la risposta, calcoliamo la funzione interna che è 'calcolaFacciaLocalità'
+
+14:23.870 --> 14:25.910
+e quindi 'displayFacebox'.
+
+14:25.960 --> 14:26.880
+Dio! è un
+
+14:26.890 --> 14:28.970
+nome terribile, ma come ho detto per ora va bene.
+
+14:29.330 --> 14:29.670
+Tutto ok.
+
+14:29.710 --> 14:30.410
+Ce n'era molto.
+
+14:30.430 --> 14:33.730
+Testiamo il nostro codice per assicurarci di essere sulla strada giusta.
+
+14:33.790 --> 14:38.980
+Vado a 'log console' qui l'oggetto 'box'.
+
+14:39.230 --> 14:44.550
+E se torniamo di nuovo in faccia, incollati qui fai clic
+
+14:47.600 --> 14:49.780
+e apri la console.
+
+14:49.850 --> 14:52.490
+Abbiamo un oggetto
+
+14:52.820 --> 14:55.100
+E va bene, abbiamo alcuni numeri.
+
+14:55.340 --> 14:56.330
+Quello è buono.
+
+14:56.330 --> 15:04.340
+Proviamo ad aggiungere alcuni CSS in modo che questi numeri appaiano sul viso. Dovrebbe corrispondere alla larghezza.
+
+15:04.400 --> 15:14.610
+Ma guardando questi numeri, non sembra troppo male. Se ricordi che la larghezza dell'immagine è di 500 pixel
+
+15:14.610 --> 15:22.120
+e se la colonna di sinistra è a 131 pixel, probabilmente è qui intorno a destra.
+
+15:22.130 --> 15:23.600
+E non sembra troppo male.
+
+15:23.700 --> 15:29.790
+Ancora una volta abbiamo alcuni CSS per verificarlo. Stiamo calcolando le cose giuste.
+
+15:29.800 --> 15:37.420
+Ora, quello che vogliamo fare è sicuramente passare questo 'stato box' al nostro componente 'faceRecognition'.
+
+15:38.140 --> 15:47.640
+Quindi possiamo semplicemente fare 'box', avremo 'questo' punto 'box' punto '.
+
+15:47.810 --> 15:49.500
+E ora all'interno
+
+15:52.840 --> 16:01.910
+di "FaceRecognition", ora abbiamo un nuovo prop, che possiamo usare e questo prop può essere usato creando un nuovo "div".
+
+16:02.420 --> 16:07.010
+E questo 'div' sarà in realtà completamente vuoto, perché non stiamo mostrando altro che
+
+16:07.010 --> 16:09.030
+un bordo attorno a questo 'div'.
+
+16:09.350 --> 16:17.870
+Quindi quello che farò in realtà è, copierò ciò che ha 'clarifai', chiamando una
+
+16:18.650 --> 16:21.410
+classe 'bounding box' e
+
+16:24.370 --> 16:32.490
+creeremo un nuovo file CSS 'FaceRecognition. css 'e proprio per questo non dimenticarlo, lo importerò proprio ora.
+
+16:37.140 --> 16:42.030
+E questa classe che ha il 'bounding box', avrà bene,
+
+16:48.790 --> 16:49.410
+diamo
+
+16:49.420 --> 16:52.540
+un'occhiata a quello che hanno qui.
+
+16:52.940 --> 16:54.740
+Ho intenzione di copiarlo in
+
+16:58.590 --> 16:59.880
+realtà, incollarlo qui.
+
+17:02.800 --> 17:06.910
+E ci sono alcune cose che come vedi perché sono dialoghi incrociati non vengono effettivamente
+
+17:06.910 --> 17:07.490
+utilizzate.
+
+17:07.510 --> 17:10.020
+Quindi possiamo, possiamo rimuovere quelli.
+
+17:10.030 --> 17:16.270
+Vedi anche che per ora hanno i prefissi del browser, non siamo troppo preoccupati per l'utilizzo di
+
+17:16.270 --> 17:20.880
+altri browser, quindi possiamo eliminarlo. Se vuoi tenerli lì, va bene lo stesso.
+
+17:25.550 --> 17:27.380
+Ora che abbiamo quello, vediamo cosa succede.
+
+17:27.380 --> 17:29.870
+Ho aggiunto il "riquadro di selezione"
+
+17:32.650 --> 17:40.270
+attorno al "div" e ora se guardi alla classe "div" vedi anche che hanno aggiunto uno stile, che è quello che
+
+17:40.270 --> 17:46.650
+potremmo voler fare, con il nostro "top", Proprietà della casella 'destra', 'in basso', 'sinistra' che abbiamo appena calcolato.
+
+17:46.690 --> 17:48.100
+Quindi facciamolo.
+
+17:48.100 --> 17:53.780
+Sto per dire che "stile" è uguale, di nuovo,
+
+17:53.970 --> 18:00.950
+restituiremo un oggetto e questo avrà "top" come "box" e non
+
+18:03.590 --> 18:07.690
+ricordo il nome, quindi torniamo qui.
+
+18:09.150 --> 18:12.430
+Riga superiore sinistra, colonna sinistra, riga superiore, colonna destra,
+
+18:12.440 --> 18:13.640
+riga inferiore.
+
+18:13.940 --> 18:16.810
+Vediamo, se me lo ricordo. Colonna sinistra,
+
+18:17.910 --> 18:18.730
+Destra
+
+18:18.780 --> 18:22.300
+sarà il punto 'box' OK.
+
+18:22.320 --> 18:33.370
+Sicuramente non me lo ricordo. 'topRow' e poi sarà 'bottom', che avrà la colonna destra
+
+18:34.170 --> 18:38.530
+e sinistra che avrà la riga inferiore.
+
+18:42.930 --> 18:49.470
+Quando riesco ad aggiungere la 'scatola' perché sono proprietà dell'oggetto scatola.
+
+18:49.710 --> 18:54.220
+E hai già visto che ho fatto l'errore, qui lo vedi, a sinistra ho il fondo.
+
+18:54.280 --> 18:56.000
+Quindi ripariamolo.
+
+18:56.140 --> 19:03.210
+Vogliamo che la prima fila sia la 'topRow' qui.
+
+19:04.590 --> 19:09.500
+Vogliamo che la colonna di destra sia "colonna di destra (rightCol)".
+
+19:09.640 --> 19:14.820
+E la riga in basso sarà la 'bottomRow' e
+
+19:18.180 --> 19:25.480
+infine la colonna a sinistra (leftcol). Salviamo e vediamo cosa succede.
+
+19:25.500 --> 19:29.600
+Vuoi tornare alla nostra faccia.
+
+19:29.610 --> 19:31.910
+Vediamo se ho ancora, no non ho il link.
+
+19:31.920 --> 19:39.080
+Fammi copiare e incollare.
+
+19:39.080 --> 19:40.430
+Guarda quello.
+
+19:40.430 --> 19:43.170
+Sta funzionando.
+
+19:43.260 --> 19:46.020
+Ispezioniamo solo questo, e prima
+
+19:49.060 --> 19:54.570
+di tutto quanto è bello, che abbiamo fatto funzionare questo.
+
+19:54.880 --> 19:57.520
+Ed è perfettamente avvolto intorno al viso.
+
+19:58.060 --> 20:00.590
+Ma voglio mostrarti come l'ho capito.
+
+20:01.820 --> 20:07.940
+Ora, quando l'ho fatto per la prima volta e ancora ti sto risparmiando per un'ora nel tentativo
+
+20:07.940 --> 20:16.550
+di capire la matematica dietro questo, inizialmente avevo qualcosa in cui la scatola era un po 'spenta e tutto ciò che ho fatto è
+
+20:16.550 --> 20:22.210
+stato andare su e giù per questo modo, e capire dove dovrebbe essere la scatola.
+
+20:22.210 --> 20:27.180
+E basandomi su quello guardare la matematica e dire, hmm! OK, quindi ha senso che
+
+20:27.220 --> 20:33.610
+la colonna di sinistra dovrebbe essere la colonna di sinistra in percentuale della larghezza, perché ora
+
+20:33.610 --> 20:40.320
+sta calcolando la larghezza totale per la percentuale di dove dovrebbe essere la colonna di sinistra.
+
+20:40.420 --> 20:42.900
+E poi diciamo ad esempio la riga in
+
+20:43.090 --> 20:49.810
+basso, bene so che la riga in basso dovrebbe iniziare in fondo. Quindi la percentuale che ottengo della riga
+
+20:49.810 --> 20:56.300
+inferiore, moltiplico per l'altezza e quindi devo sottrarla dall'altezza totale perché il calcolo inizia
+
+20:56.300 --> 20:58.430
+dall'alto, non dal basso.
+
+21:00.500 --> 21:06.740
+Ma puoi giocare con questo e come puoi vedere premendo le frecce su e giù puoi regolarli.
+
+21:06.920 --> 21:10.380
+Sono davvero entusiasta che ce l'abbiamo fatta nel primo ambito.
+
+21:10.480 --> 21:12.320
+Sembra incredibile
+
+21:12.330 --> 21:22.640
+solo per testarlo, lanciamo un'altra immagine per vedere se questa casella si sposta con l'immagine.
+
+21:22.670 --> 21:27.480
+Facciamo qualcosa come Brad Pitt.
+
+21:27.660 --> 21:29.050
+E ho detto Brad Pitt,
+
+21:29.190 --> 21:30.340
+c'è un Brat Pitt?
+
+21:30.340 --> 21:30.800
+Tutto ok.
+
+21:30.870 --> 21:35.290
+Quindi una sua foto in cui non sta guardando, non è morto.
+
+21:36.080 --> 21:37.360
+Che ne dici di questa foto.
+
+21:37.390 --> 21:38.950
+Questo sembra buono.
+
+21:39.420 --> 21:40.450
+Selezioniamolo,
+
+21:40.450 --> 21:45.270
+vai sulla nostra app, inseriscilo, rileva.
+
+21:45.340 --> 21:46.430
+Beh, quanto è bello?
+
+21:46.480 --> 21:48.280
+Sta rilevando il viso.
+
+21:48.280 --> 21:48.550
+Tutto ok.
+
+21:48.550 --> 21:53.510
+Solo perché mi diverto molto, ne sceglierò un altro. Facciamo un escursionista.
+
+21:59.280 --> 22:05.180
+Forse farò uno scalatore e vediamo se riescono a rilevare questo viso.
+
+22:05.520 --> 22:06.890
+Sarà piuttosto difficile.
+
+22:06.900 --> 22:07.880
+Questa è una foto piuttosto grande. Vediamo.
+
+22:12.220 --> 22:12.950
+Guarda quello.
+
+22:12.970 --> 22:17.180
+Rileva un viso anche se il viso è molto piccolo,
+
+22:17.200 --> 22:18.540
+lo rileva.
+
+22:18.580 --> 22:20.020
+Questo è molto bello.
+
+22:23.400 --> 22:28.820
+Tutto ok. Voglio sottolineare qui, che l'ho fatto sembrare molto molto semplice.
+
+22:28.980 --> 22:35.820
+E uno dei miti che voglio davvero sballare qui è che, come sviluppatore o solo perché una certa
+
+22:35.820 --> 22:41.580
+esperienza non significa che posso farlo rapidamente. L'ho provato e mi sono assicurato
+
+22:41.580 --> 22:47.970
+di non perdere tempo mentre guardi questo video. E che mantengo gli errori e se faccio qualcosa per errore lo faccio intenzionalmente
+
+22:47.970 --> 22:48.920
+per mostrarti un punto.
+
+22:50.560 --> 22:56.140
+Ma, come ho detto, mi ci è voluto un po 'di tempo per capire come funziona questa scatola, principalmente
+
+22:56.140 --> 22:59.750
+perché ho dovuto fare un po' di matematica e vedere come "chiarisce".
+
+22:59.900 --> 23:06.800
+Ma il potere arriva semplicemente con la risposta che ne otteniamo. Usando questa risposta, ora posso aggiungere qualsiasi
+
+23:07.310 --> 23:08.800
+cosa qui.
+
+23:08.870 --> 23:12.640
+Forse volevo sostituirlo con un'emoji come un'emoji con faccina sorridente.
+
+23:12.680 --> 23:13.660
+È facile da fare.
+
+23:13.670 --> 23:17.320
+Sta semplicemente aggiungendo uno stile CSS.
+
+23:17.530 --> 23:19.840
+E solo per assicurarsi che questo sia reattivo.
+
+23:20.030 --> 23:20.400
+Si.
+
+23:20.510 --> 23:23.060
+Funziona tutto magnificamente.
+
+23:24.870 --> 23:30.330
+Ora hai un'app che puoi mostrare ai tuoi amici. Ma ci sono alcune altre cose
+
+23:30.750 --> 23:34.500
+che voglio risolvere prima di iniziare a lavorare sul back-end.
+
+23:34.660 --> 23:41.350
+Cioè, voglio assicurarmi che la funzione "Esci" funzioni e che abbiamo un modulo "Accedi".
+
+23:41.490 --> 23:44.820
+Quindi nel prossimo video faremo proprio questo.
+
+23:44.820 --> 23:45.650
+Ci vediamo in quello.

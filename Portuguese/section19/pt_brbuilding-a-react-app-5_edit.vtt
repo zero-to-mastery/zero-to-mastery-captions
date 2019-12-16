@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+Nossos amigos robos estão realmente muito legais.
+
+00:03.130 --> 00:05.780
+Eu Realmente Gosto deste Aplicativo. Há um problema, porém.
+
+00:05.920 --> 00:14.580
+Se eu minimizar isso. OK, é responsivo, parece bom. Mas se eu rolar para baixo, perco minha barra de pesquisa na parte
+
+00:14.580 --> 00:14.980
+superior.
+
+00:14.980 --> 00:21.540
+Não seria legal se isso estivesse no topo e eu tenho um pergaminho que posso fazer e ainda pesquisar entre meus amigos?
+
+00:24.510 --> 00:30.150
+Bem, você deve estar pensando: "Provavelmente, posso adicionar um estilo CSS aqui. "Mas quero ilustrar para você o
+
+00:30.150 --> 00:39.180
+fato de que o React e por que o React é tão bom é porque você pode criar componentes reutilizáveis, não
+
+00:39.300 --> 00:42.560
+apenas os componentes do cartão, mas a funcionalidade.
+
+00:42.600 --> 00:48.110
+Seria legal se houvesse algo em que possamos adicionar "CardList"?
+
+00:48.120 --> 00:58.960
+Talvez eu possa criar um componente "Scroll"? E este componente "Scroll" apenas envolve o "CardList".
+
+00:59.190 --> 01:02.130
+E agora "CardList" será completamente rolável.
+
+01:02.220 --> 01:08.820
+Mas agora eu posso usar "Scroll" esse componente em qualquer lugar do meu aplicativo, sempre que
+
+01:08.820 --> 01:10.740
+precisar rolar, basta envolvê-lo.
+
+01:10.790 --> 01:11.870
+Nós podemos fazer isso?
+
+01:11.930 --> 01:12.860
+Vamos tentar.
+
+01:14.690 --> 01:19.030
+Vou "importar" um componente que ainda não temos
+
+01:19.160 --> 01:28.510
+chamado "Scroll" de um arquivo que criaremos apenas no segundo. Vamos criar um novo arquivo.
+
+01:30.610 --> 01:32.040
+Vamos chamar isso de "Scroll".
+
+01:32.080 --> 01:42.850
+js "E aqui vamos, novamente, executar o movimento" Reagir de reagir ".
+
+01:42.900 --> 01:44.340
+Vamos tornar isso um pouco maior.
+
+01:46.150 --> 01:54.470
+E, novamente, quero mudar isso para Babel e diremos que "const Scroll" é igual
+
+01:54.610 --> 02:01.790
+a ele vai retornar - Hmm - o que deveria ter retornado?
+
+02:01.850 --> 02:11.790
+Antes de falarmos sobre isso, apenas para não esquecermos - precisamos "exportar o Scroll padrão".
+
+02:11.800 --> 02:18.910
+Agora, aqui está um problema. Queremos devolver algo, mas não faz sentido, faz?
+
+02:19.060 --> 02:20.220
+Se eu for para "App. js
+
+02:22.130 --> 02:22.990
+"" Scroll
+
+02:23.010 --> 02:27.850
+", mas não é um componente de fechamento automático, ele envolve o componente.
+
+02:27.870 --> 02:33.420
+Então, como podemos dizer "Scroll" para "Hey, apenas renderize o que estiver dentro de você. "Até este
+
+02:36.320 --> 02:44.280
+ponto, aprendemos sobre" adereços "e sobre" estado ".
+
+02:44.340 --> 02:53.040
+Há uma outra coisa no React que eu quero lhe ensinar e que são "crianças". E "filhos" é isso.
+
+02:54.320 --> 03:00.310
+"Scroll" pode usar "children" como uma maneira de renderizar seus filhos.
+
+03:00.740 --> 03:01.790
+O que quero dizer com isso?
+
+03:03.040 --> 03:09.710
+Bem, aqui, todo objeto "adereços" tem filhos.
+
+03:09.800 --> 03:16.540
+Então, se eu for "adereços. filhos ", bem, vamos ver o que acontece.
+
+03:16.660 --> 03:28.460
+Eu salvo e volto, tudo está renderizado. Mas se eu remover isso e fizer um "h1",
+
+03:37.000 --> 03:44.910
+acabei de receber. Você vê ", adereços. filhos "é exatamente isso.
+
+03:45.080 --> 03:49.490
+Se eu "consolar. log (props) "Vamos abrir
+
+03:53.520 --> 03:54.860
+o console.
+
+03:54.900 --> 03:57.770
+Vejo que recebo um objeto.
+
+03:57.780 --> 04:07.560
+E mesmo que o item passe "adereços" para "Rolar", automaticamente todos os componentes
+
+04:07.560 --> 04:18.050
+do React possuem essa propriedade, "filhos". E essas crianças - meio que parecem confusas aqui -, mas têm o
+
+04:22.440 --> 04:32.800
+tipo "CardList" "CardList". Então, use esses "adereços". children ", podemos criar componentes que envolvem outros componentes. Até o momento, só conseguimos
+
+04:32.800 --> 04:39.820
+agrupar esses 'componentes em minúsculas', que são como as tags HTML.
+
+04:39.820 --> 04:44.680
+Mas toda vez que tínhamos um componente personalizado com uma letra maiúscula que construímos, bem,
+
+04:44.680 --> 04:46.000
+não podíamos realmente envolvê-lo.
+
+04:46.020 --> 04:50.690
+Agora podemos usar "isso. crianças".
+
+04:50.780 --> 04:52.690
+Mas aqui está a parte legal.
+
+04:52.910 --> 04:54.940
+Usando "adereços. children
+
+04:55.160 --> 05:07.180
+"Bem, eu posso criar um componente rolável. Deixa-me mostrar-te como. Simplesmente "div" fecha esse "/ div" e,
+
+05:07.180 --> 05:16.150
+aqui, novamente, colchetes "adereços". crianças". E tudo o que precisamos agora é adicionar estilos a esta div.
+
+05:16.150 --> 05:22.630
+Eu poderia criar um "Scroll. css "e adicione um estilo que seja rolável, mas quero mostrar uma outra
+
+05:22.630 --> 05:24.230
+maneira de usar o" estilo ".
+
+05:24.550 --> 05:25.950
+Assim como
+
+05:26.170 --> 05:35.200
+um HTML, usando esse atributo de estilo e JSX, posso adicionar estilos, mas usando colchetes duplos, que
+
+05:35.200 --> 05:43.210
+é uma expressão JavaScript e dentro disso estou retornando um objeto e esse objeto
+
+05:43.240 --> 05:47.760
+pode ter estilos CSS, como uma propriedade "overflowY".
+
+05:50.040 --> 05:54.450
+que é uma propriedade CSS e você
+
+05:54.480 --> 06:06.870
+pode dizer "scroll" novamente, uma maneira CSS de tornar o elemento rolável. Diremos que "borda" é de 1 pixel, sólido, preto e,
+
+06:06.870 --> 06:17.670
+finalmente, forneceremos uma "altura" de 500 pixels. Vou diminuir esse tamanho para que você possa ver, vou economizar, compilar está
+
+06:17.670 --> 06:18.290
+bem.
+
+06:18.330 --> 06:21.560
+Se eu voltar, parece que temos uma caixa aqui.
+
+06:21.690 --> 06:26.520
+Vamos torná-lo um pouco maior apenas para que você possa ver. Vou dizer 5 pixels, mesmo que seja feio.
+
+06:26.610 --> 06:30.150
+E eu esqueci aqui, certo?
+
+06:30.180 --> 06:36.760
+Tudo bem, vamos ver. Olhe para isso, temos um componente rolável.
+
+06:36.770 --> 06:44.110
+Vamos tornar isso um pouco maior, para que possamos ver melhor. Olhe para isso.
+
+06:44.160 --> 06:53.650
+Se eu diminuir esse tamanho, agora tenho um componente rolável dentro dele.
+
+06:53.760 --> 06:55.250
+Muito legal.
+
+06:55.320 --> 06:57.690
+Agora este é um aplicativo simples.
+
+06:57.840 --> 07:00.550
+Permite pesquisar.
+
+07:00.570 --> 07:07.440
+Ele permite que você role, mas mostra o poder do React, não é?
+
+07:08.260 --> 07:18.050
+Criamos essas funções simples e a única coisa que dizemos para fazer é dizer o
+
+07:18.050 --> 07:24.880
+estado que ela tem. O aplicativo inteiro é descrito por meio dessas duas coisas.
+
+07:25.040 --> 07:34.550
+Os "robôs" e "campo de pesquisa" e o React cuidam do resto. Assim que o "campo de pesquisa" ou os "robôs"
+
+07:35.330 --> 07:38.200
+são alterados, o React escorre
+
+07:38.200 --> 07:46.880
+por toda essa informação como "suporte" para todos esses componentes e cria magicamente nossa visão para nós.
+
+07:46.900 --> 07:49.780
+É por isso que o React é tão poderoso que é uma camada de visualização.
+
+07:49.870 --> 07:55.580
+Ele cuida de manipular o DOM e tudo o que dizemos é "Ei, qual é o estado? "" Quais são as funções que você deseja
+
+07:55.780 --> 07:59.610
+trabalhar com o estado? " e o resto?
+
+07:59.620 --> 08:06.400
+Bem, ele otimiza para garantir que tudo esteja super rápido e você pode ver como tudo está incrivelmente rápido
+
+08:06.400 --> 08:06.870
+aqui.
+
+08:06.880 --> 08:12.220
+É um aplicativo super rápido e esses componentes agora são reutilizáveis.
+
+08:12.220 --> 08:19.570
+Eu posso trazer o "SearchBox" agora para outra parte do site. Eu posso adicionar "Scroll" em outra parte do
+
+08:19.570 --> 08:20.440
+site.
+
+08:21.240 --> 08:27.430
+Foi isso que tornou o React tão poderoso e é por isso que tantos sites são equipados com o React.
+
+08:27.480 --> 08:35.960
+Depois que você aprende a sintaxe e se acostuma a tudo, o React se torna realmente poderoso.
+
+08:35.960 --> 08:41.790
+Embora tenhamos demorado um pouco para criar esse aplicativo, uma vez que você se acostume e um aplicativo
+
+08:41.790 --> 08:46.980
+como esse, poderá criá-lo em, bem, em menos de uma hora, provavelmente em 30 minutos.
+
+08:47.050 --> 08:49.980
+Tudo bem, acho que fizemos um ótimo trabalho aqui.
+
+08:49.990 --> 08:51.560
+Mal posso esperar para vê-lo no próximo vídeo. Tchau tchau

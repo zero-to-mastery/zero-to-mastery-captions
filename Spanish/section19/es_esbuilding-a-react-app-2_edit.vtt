@@ -1,0 +1,331 @@
+WEBVTT
+
+00:00.480 --> 00:01.230
+Bienvenido
+
+00:01.410 --> 00:05.020
+de nuevo Continuemos construyendo nuestra aplicación RoboFriends
+
+00:05.080 --> 00:12.460
+Ahora, hasta este punto si mira nuestro índice. js - bueno, había muchas copias y pegados
+
+00:12.670 --> 00:15.640
+que hicimos. Si tuviéramos muchos
+
+00:15.640 --> 00:19.810
+amigos robots, imaginamos tener cientos de estos que tenemos que copiar y pegar
+
+00:19.910 --> 00:21.530
+constantemente. ¿No es muy eficiente?
+
+00:21.730 --> 00:30.160
+Además, si recuerda nuestro diagrama aquí de flujo de datos unidireccional, siempre tuvimos un padre, como un componente
+
+00:30.160 --> 00:34.980
+de la aplicación que tenía hijos que tienen sus propios
+
+00:35.050 --> 00:43.300
+hijos, y así sucesivamente. Entonces, utilizando ese conocimiento, podemos tener un gran componente de aplicación que tenga diferentes
+
+00:43.300 --> 00:47.970
+niños para que hagamos que cada componente sea pequeño y
+
+00:47.990 --> 00:57.160
+reutilizable Volvamos a nuestro ejemplo. Ahora que tenemos ‘robot. js 'idealmente podemos enumerar a
+
+00:58.700 --> 01:09.740
+todos estos 10 usuarios. La forma en que lo hacemos: tengamos un componente' CardList 'para que si importamos un componente' CardList 'que
+
+01:09.740 --> 01:17.000
+es un padre de' Card ', podamos simplemente representarlo en lugar de todas estas
+
+01:17.290 --> 01:30.390
+tarjetas Entonces diré 'CardList' y nuevamente tendremos que crearla. Entonces diré nuevo archivo, ‘CardList js 'nuevamente lo cambia a nuestra
+
+01:33.060 --> 01:43.050
+sintaxis' Babel ': importaremos' React 'de' react 'y lo haré un poco más grande Y
+
+01:43.050 --> 01:44.970
+nuevamente diremos'
+
+01:45.020 --> 01:52.800
+const ',' CardList 'es igual a - no aceptará nada por ahora
+
+01:54.360 --> 01:56.530
+Pero volverá ...
+
+01:56.890 --> 02:01.700
+Bueno, ¿qué debería devolver?
+
+02:01.850 --> 02:05.070
+Debería devolver las tarjetas, ¿verdad?
+
+02:05.920 --> 02:07.960
+Podemos simplemente copiar y pegar esto,
+
+02:11.750 --> 02:13.160
+poner esto aquí.
+
+02:13.480 --> 02:15.750
+Vamos a arreglar la sangría aquí
+
+02:18.730 --> 02:26.660
+un poco. Ahora ‘CardList’ será la que devuelva estas tarjetas e ‘index. html 'solo mostrará' Lista de tarjetas
+
+02:26.710 --> 02:33.280
+'Si guardo esto, bueno, supongo que no se está usando'
+
+02:33.350 --> 02:39.330
+tarjeta 'para que podamos eliminarla Y no se estén
+
+02:39.770 --> 02:42.500
+usando' robots 'Pero
+
+02:42.620 --> 02:48.400
+ahora podemos usar los' robots ' para pasar eso,
+
+02:48.400 --> 02:59.560
+como 'robots' es igual a la matriz 'robots'. 'CardList' está aceptando un accesorio de 'robots'. Si guardo
+
+02:59.730 --> 03:05.880
+esto, todo funciona, pero obtengo este error porque, como pueden
+
+03:06.950 --> 03:13.910
+ver, no exportamos. a estas alturas ya estás empezando a entenderlo. Hay
+
+03:13.920 --> 03:20.040
+muchas repeticiones aquí, pero cada vez que aprendes la sintaxis,
+
+03:20.520 --> 03:28.410
+estamos creando estos componentes muy bien. Y obtenemos un montón de errores porque no tenemos acceso a los "robots" y
+
+03:28.830 --> 03:30.270
+las ID y, bueno, la
+
+03:30.300 --> 03:38.400
+tarjeta tampoco. Así que importaremos una tarjeta de - nuevamente el mismo directorio - "Tarjeta".
+
+03:39.280 --> 03:40.960
+js 'Robots
+
+03:40.960 --> 03:45.540
+no está definido Sabemos que' CardList 'recibe robots
+
+03:45.540 --> 03:52.540
+ahora Así que tengo acceso a él en los' accesorios 'o puedo desestructurarlo
+
+03:53.570 --> 04:04.940
+y decir que tenemos acceso a él con' robots '. Si guardo esto, mira que tengo todo de vuelta como estaba Pero no
+
+04:05.080 --> 04:07.390
+son todos ellos, ¿verdad?
+
+04:07.390 --> 04:10.480
+Solo estamos agarrando el 0, 1, 2 Solo
+
+04:10.510 --> 04:11.800
+tres de
+
+04:11.800 --> 04:17.970
+ellos Y como vimos en los robots. js tengo 10
+
+04:18.130 --> 04:20.870
+Hm. ¿Cómo podemos hacer esto mejor?
+
+04:21.040 --> 04:28.410
+Hagamos esto un poco más pequeño para que pueda ver. Parece que queremos hacer una especie de bucle,
+
+04:28.510 --> 04:29.410
+¿verdad?
+
+04:29.410 --> 04:35.650
+Queremos recorrer los robots y crear un componente de tarjeta para cada uno. ¿Cómo podemos hacer eso
+
+04:35.650 --> 04:36.880
+aquí en React?
+
+04:36.900 --> 04:45.060
+Comencemos agregando otra variable aquí. Lo llamaremos "const", "cardComponent" y
+
+04:47.740 --> 04:50.300
+dentro del "cardComponent"
+
+04:50.510 --> 04:56.630
+queremos decir que "robots": ¿queremos saber qué queremos
+
+04:56.690 --> 04:59.390
+hacer? Cuando hacemos
+
+04:59.420 --> 05:03.460
+un bucle como he dicho antes, queremos mapear, ¿verdad?
+
+05:03.470 --> 05:06.740
+También podríamos hacer cuatro cada uno, pero siempre recomiendo hacer un mapa. Y
+
+05:07.120 --> 05:09.280
+dentro de este mapa, cada robot obtiene esto.
+
+05:11.820 --> 05:12.930
+Así que tenemos un
+
+05:12.990 --> 05:16.800
+usuario cada vez que hacemos un mapa. Entonces, podemos decir
+
+05:20.070 --> 05:26.550
+que "usuario" debería regresar nuevamente, porque un mapa necesita regresar, devuelve esto, ¿verdad?
+
+05:26.610 --> 05:32.890
+Queremos devolver un componente de la tarjeta. Puedo copiar y pegar esto aquí y dentro del retorno
+
+05:34.500 --> 05:42.370
+solo puedo decir ahora en lugar del índice de robots 0: ¿tenemos el índice? Bueno, sí, porque recuerdas, el segundo parámetro
+
+05:42.450 --> 05:48.800
+que obtenemos en un mapa es el índice. Entonces puedo decir
+
+05:48.800 --> 05:52.730
+"usuario" e "i" para índice.
+
+05:52.790 --> 06:03.640
+Y ahora dentro de "robots" diré "i" para índice. Cada vez, la primera vez será cero, luego 1 y luego
+
+06:03.640 --> 06:07.610
+2 hasta 9 para incluir nuestros 10 robots.
+
+06:08.840 --> 06:11.260
+Veamos si esto realmente
+
+06:11.360 --> 06:19.260
+funciona si agrego un componente de tarjeta aquí. Recuerda que tenemos que envolverlo entre llaves porque
+
+06:19.260 --> 06:22.170
+es JavaScript, por lo que
+
+06:22.410 --> 06:28.270
+sabe evaluar. Si guardo esto, parece que se está compilando con éxito,
+
+06:28.630 --> 06:29.960
+vuelvo y Holy
+
+06:30.240 --> 06:33.650
+Moly. Tenemos un conjunto de tarjetas. ¡Qué
+
+06:33.820 --> 06:35.140
+bueno!
+
+06:35.140 --> 06:37.160
+Eso fue increíblemente rápido de hacer.
+
+06:37.330 --> 06:40.820
+Solo usamos nuestro sentido común y conocimiento de Javascript.
+
+06:41.020 --> 06:46.240
+Solo usamos 'mapa', para devolver múltiples componentes. Espero que se den cuenta de lo poderoso
+
+06:46.240 --> 06:50.620
+que es y es por eso que React es tan popular en
+
+06:50.680 --> 06:57.510
+este momento. Podemos usar Javascript. para devolver estos elementos HTML y hacer las cosas realmente muy rápido. Si abro
+
+06:59.390 --> 07:04.240
+la consola aquí, veré que recibo una advertencia. Cada niño en una matriz
+
+07:04.250 --> 07:11.120
+o iterador debe tener un accesorio de clave único y hay un enlace a él si lo desea. lea
+
+07:11.120 --> 07:12.280
+más sobre
+
+07:13.370 --> 07:20.450
+esto Este es un caso especial que solo debe recordar. Cuando se trabaja con Rea la forma en que
+
+07:20.450 --> 07:23.950
+funciona el DOM virtual es que realiza un seguimiento
+
+07:24.320 --> 07:35.300
+de lo que son todas estas tarjetas Pero sin tener algo llamado accesorio clave, si algunas de estas tarjetas se eliminan, Reaccionar no sabrá cuál es cuál y
+
+07:36.720 --> 07:42.660
+tendremos para cambiar todo el DOM. En comparación con si tuviera un accesorio clave que
+
+07:42.660 --> 07:43.230
+diga
+
+07:43.230 --> 07:49.080
+"oh, este se elimina", puedo eliminarlo del DOM. Recuerde que queremos minimizar la cantidad de trabajo que le
+
+07:49.080 --> 07:50.190
+hacemos al DOM.
+
+07:50.280 --> 07:53.170
+Entonces, cuando realiza un ciclo, es algo que debe
+
+07:53.220 --> 07:57.100
+recordar. Debe darle una clave única. En nuestro caso,
+
+07:57.240 --> 08:01.200
+solo podemos decir "i", que es índice.
+
+08:01.210 --> 08:02.250
+Si
+
+08:05.300 --> 08:10.130
+guardamos esto, ¡Ups! Tenemos que envolverlo nuevamente entre corchetes
+
+08:11.000 --> 08:14.720
+porque es Javascript. Y ya
+
+08:14.740 --> 08:22.800
+está. Ahora ya no tenemos el error. Y hagamos esto en una nueva línea,
+
+08:23.020 --> 08:29.150
+para que se vea más bonito. Y porque lo devolvemos
+
+08:33.640 --> 08:39.270
+en varias líneas, queremos envolverlo en un paréntesis, ¿verdad?
+
+08:39.340 --> 08:42.070
+Bien. Y eso
+
+08:42.120 --> 08:45.350
+es mejor. Así que esto funciona bien, ya
+
+08:45.420 --> 08:51.150
+que lo queremos, quiero mostrarles una cosa. Debido a que esto es Javascript,
+
+08:51.150 --> 08:53.940
+todo lo que ponemos entre
+
+08:54.450 --> 08:58.730
+estos corchetes es javascript, incluidos los comentarios. Bueno, simplemente
+
+08:58.800 --> 09:04.080
+podemos copiar y pegar todo esto. Eliminar la constante y simplemente
+
+09:07.750 --> 09:14.360
+agregarla entre los corchetes. Si guardo esto, aún debería funcionar, como lo hace Y
+
+09:14.500 --> 09:20.200
+este es otro poder de React. React lo convierte en un programador de
+
+09:20.920 --> 09:25.040
+JavaScript realmente bueno porque, aparte de esta sintaxis JSX, todo lo
+
+09:25.390 --> 09:32.830
+demás es solo JavaScript. Por lo tanto, podemos crear un componente CardLList que enumere las tarjetas y todo lo que tenemos
+
+09:33.310 --> 09:39.140
+que hacer es pasarle un accesorio de robots. Y acabamos de hacer esto mucho más limpio Muy
+
+09:39.440 --> 09:40.840
+bien Muy bien, eso
+
+09:40.880 --> 09:42.880
+es todo para este video Más
+
+09:42.890 --> 09:45.490
+cosas sucederán en el próximo Nos vemos en
+
+09:45.500 --> 09:46.880
+ese Adiós

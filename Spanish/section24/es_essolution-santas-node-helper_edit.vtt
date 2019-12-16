@@ -1,0 +1,676 @@
+WEBVTT
+
+00:01.610 --> 00:02.320
+Bien.
+
+00:02.360 --> 00:10.460
+Esperemos que todos hayan tenido la oportunidad de resolver el pequeño rompecabezas de Adviento de Code Santa que tiene aquí.
+
+00:10.610 --> 00:18.590
+Voy a mostrarle ahora qué haría si estuviera leyendo esta pregunta o si estuviera viendo este problema
+
+00:18.590 --> 00:24.980
+lógico, que nuevamente es algo que en las entrevistas se le pregunta mucho.
+
+00:25.130 --> 00:33.410
+Y en su día de hoy, cuando resuelve problemas complejos, generalmente son pequeños trozos de preguntas lógicas que se hacen
+
+00:33.410 --> 00:35.190
+y que desea resolver.
+
+00:35.600 --> 00:38.320
+Así que voy a pasar por lo que haría.
+
+00:38.330 --> 00:43.130
+No significa que sea la única forma, sino lo que haría para resolver estos problemas.
+
+00:44.520 --> 00:44.880
+Bien.
+
+00:44.910 --> 00:47.520
+Por ahora todos han leído la pregunta.
+
+00:47.520 --> 00:57.630
+Y lo que necesitamos hacer, así que después de leer la pregunta, obtendría mi entrada de rompecabezas que tengo aquí.
+
+00:57.660 --> 01:05.230
+Voy a copiar todo esto y aquí mismo tengo mi carpeta 'nodo impresionante' sin nada dentro.
+
+01:05.310 --> 01:14.830
+Solo voy a crear un 'santa. txt 'y en este archivo de texto, copiaré y pegaré las instrucciones.
+
+01:14.860 --> 01:18.400
+Bueno, no tenemos idea de lo que está pasando.
+
+01:19.810 --> 01:21.290
+Déjame cerrar eso.
+
+01:21.760 --> 01:29.140
+Ahora, leyendo la pregunta, lo primero que quiero hacer es asegurarme de tener un archivo de
+
+01:29.950 --> 01:33.750
+script que pueda ejecutar. Bien.
+
+01:33.750 --> 01:39.610
+Ahora, antes de comenzar a codificar cualquier cosa, todo en mi cabeza debe tener sentido.
+
+01:39.840 --> 01:41.710
+Y me gusta mantener las cosas organizadas.
+
+01:41.910 --> 01:48.570
+Entonces, lo primero que suelo hacer es comentar y decir que, al leer la pregunta, sabemos
+
+01:48.570 --> 01:50.530
+que hay dos partes.
+
+01:50.790 --> 01:53.810
+Hay una pregunta número uno.
+
+01:54.030 --> 01:55.660
+Pregunta número dos.
+
+01:55.840 --> 02:09.670
+Así que solo nos vamos a centrar en el primero, que es "¿En qué piso termina Santa?" Y la segunda pregunta es, bueno, si
+
+02:09.740 --> 02:16.800
+vamos aquí, el primer personaje que lo hace entrar al sótano.
+
+02:16.820 --> 02:27.150
+Entonces queremos decir "¿Cuándo entra Santa por primera vez al sótano?".
+
+02:27.170 --> 02:27.560
+Bien.
+
+02:27.560 --> 02:29.680
+Entonces ahora tengo todo claro.
+
+02:29.780 --> 02:32.480
+Y también sabemos que hay algunas reglas.
+
+02:32.660 --> 02:47.190
+Las reglas son las siguientes: este personaje significa que 'eso' o, no 'eso', 'Santa' debería subir un piso.
+
+02:47.320 --> 02:56.680
+Y también sé que este personaje es lo opuesto y debería bajar un piso. Y sé que esto es una tontería, pero es
+
+02:56.680 --> 03:02.980
+muy importante que escribas cosas y entiendas lo que estás haciendo y cuáles
+
+03:02.980 --> 03:04.540
+son tus objetivos.
+
+03:04.570 --> 03:15.000
+Sabemos que queremos resolver esta pregunta usando estos parámetros que obtenemos de nuestra entrada, lo cual es
+
+03:15.000 --> 03:17.700
+bastante obvio por ahora.
+
+03:19.450 --> 03:19.660
+Correcto.
+
+03:19.670 --> 03:25.120
+Entonces, la pregunta número uno siempre le gusta comenzar con una buena función y solo diremos.
+
+03:25.120 --> 03:26.870
+'Pregunta 1'.
+
+03:28.650 --> 03:34.930
+Y dentro de 'question1' voy a hacer nuestro archivo de lectura.
+
+03:34.980 --> 03:38.760
+Así que vamos a la cima y hagámoslo.
+
+03:38.790 --> 03:45.040
+'const fs = require (' fs ')' Bien y ya hemos hecho esto
+
+03:45.170 --> 03:49.380
+antes, así que esto debería ser bastante simple.
+
+03:49.520 --> 03:53.140
+fs. readFile Vamos
+
+03:53.220 --> 03:58.050
+a leer el 'santa. txt 'archivo.
+
+03:59.010 --> 04:04.290
+Y la santa. El archivo txt obtendrá un error o datos
+
+04:07.350 --> 04:10.580
+y dentro de aquí, vamos a ignorar 'err' por ahora.
+
+04:10.620 --> 04:23.480
+Estoy seguro de que va a funcionar, así que solo voy a decir que 'direcciones constantes' serán 'datos'. toString () 'y eso en sí mismo significa
+
+04:25.120 --> 04:29.780
+que la variable' direcciones
+
+04:30.190 --> 04:35.020
+'ahora tiene las direcciones que queremos.
+
+04:35.040 --> 04:38.540
+Así que déjenme ejecutar eso para asegurarme de que todo esté bien.
+
+04:39.840 --> 04:46.900
+Y viste aquí que no se imprime nada porque esta función nunca se ejecutó, así que hagámoslo.
+
+04:46.920 --> 04:47.610
+Vamos a decir
+
+04:47.610 --> 04:49.630
+'Pregunta 1()'.
+
+04:49.980 --> 04:51.000
+Vamos a ejecutarlo.
+
+04:54.140 --> 05:00.990
+Parece que estamos imprimiendo toda esta información, que es exactamente lo que queremos.
+
+05:00.990 --> 05:02.630
+Esas son las direcciones.
+
+05:02.820 --> 05:09.390
+Y esto es otra cosa. Me gusta hacer las cosas paso a paso, asegurándome de que todo funcione antes de escribir todo
+
+05:09.390 --> 05:14.210
+y luego "uh-oh, algo está mal, pero no sé qué está mal". "Voy paso a paso, lógicamente
+
+05:14.220 --> 05:21.780
+hablando en mi cabeza para asegurarme de que tenga sentido. Mientras escribo esto, todo fluye
+
+05:21.780 --> 05:23.010
+como
+
+05:23.010 --> 05:25.690
+si estuviera hablando.
+
+05:25.740 --> 05:33.030
+Tenemos la primera pregunta que estamos leyendo archivo (santa. txt) y de la 'santa. txt ', estamos recibiendo las instrucciones.
+
+05:33.030 --> 05:33.650
+Bien.
+
+05:33.810 --> 05:35.820
+Entonces, ¿qué queremos hacer a continuación?
+
+05:36.120 --> 05:41.600
+Bueno, vimos en la salida que estos, bueno, es solo una gran cadena.
+
+05:41.610 --> 05:44.320
+Pero idealmente podemos dividirlos.
+
+05:44.670 --> 05:50.460
+Entonces, si los dividimos, podemos analizar cada uno, uno por uno como
+
+05:50.460 --> 06:02.470
+una matriz, tal vez podamos mapear en una matriz, por lo que una forma astuta de hacer esto es simplemente decir 'const directionsArray' y esta
+
+06:02.470 --> 06:13.460
+matriz de direcciones se dividirá arriba en matrices haciendo '. dividir 'y dividirlo así como así.
+
+06:13.580 --> 06:17.180
+Y solo hay un pequeño truco abreviado.
+
+06:17.570 --> 06:21.500
+Así que de nuevo si 'consola. log (directionsArray) 'ahí
+
+06:27.710 --> 06:31.400
+lo tienes, tengo todo en una matriz.
+
+06:31.400 --> 06:35.500
+Hay muchos elementos en la matriz, pero ahora todo se divide individualmente.
+
+06:35.700 --> 06:41.810
+Muy bien el siguiente paso. Así que tengo cada matriz, por lo que queremos leer
+
+06:41.810 --> 06:45.680
+cada una de ellas, porque cada una equivale a arriba 1 o abajo 1.
+
+06:45.740 --> 06:52.820
+Y queremos hacer un mapa sobre esto, queremos revisar cada uno de ellos, pero estamos acumulando algo bien.
+
+06:52.820 --> 06:57.980
+Estamos diciendo "uno", entonces si tenemos dos pisos más arriba, eso es "dos".
+
+06:58.070 --> 07:02.930
+Si bajamos uno, ese es "uno", estamos sumando y restando constantemente.
+
+07:02.930 --> 07:06.560
+Entonces, en ese caso, podemos reducir.
+
+07:06.860 --> 07:19.260
+Entonces, con Reducir, puedo decir 'respuesta constante' en este caso será 'direccionesArray. (reducir) 'y esta reducción toma la
+
+07:19.470 --> 07:21.870
+primera función.
+
+07:21.870 --> 07:30.990
+Entonces, el primer parámetro es una función y esta función toma el acumulador y simplemente haré 'acc'.
+
+07:30.990 --> 07:33.600
+por ahora solo porque es más corto.
+
+07:33.840 --> 07:38.110
+Y luego el segundo es el valor actual.
+
+07:38.190 --> 07:43.690
+Déjame hacer esto más pequeño para que puedas ver, y esta es una función en la
+
+07:46.560 --> 07:48.560
+que haremos algunas cosas aquí.
+
+07:48.570 --> 07:53.700
+Pero el segundo parámetro es con lo que queremos comenzar, en el acumulador.
+
+07:53.700 --> 07:55.080
+Entonces comenzaremos con cero.
+
+07:55.080 --> 08:01.150
+Entonces, Santa está en el piso cero, en la planta
+
+08:01.200 --> 08:11.690
+baja, aquí podemos decir si el valor actual, porque reduce los mapas sobre cada uno de estos elementos
+
+08:11.690 --> 08:20.410
+y si el valor actual es '===' y digamos, esto, que está arriba 1 piso.
+
+08:20.410 --> 08:29.440
+Si ese es el caso, bueno, podemos simplemente 'regresar acc'.
+
+08:29.540 --> 08:36.750
+'+ = 1', que es la abreviatura de hacer acumulador más 1.
+
+08:37.160 --> 08:40.770
+Entonces esto agrega uno al acumulador.
+
+08:40.850 --> 08:48.060
+Entonces, si el primer elemento es este pequeño soporte aquí, será 0 más 1.
+
+08:48.070 --> 08:57.000
+Entonces Santa va a subir un nivel y luego diremos 'más si' 'currentValue ===' el
+
+08:57.610 --> 08:59.320
+paréntesis opuesto
+
+09:02.520 --> 09:06.330
+')', que hacemos exactamente lo contrario.
+
+09:06.330 --> 09:12.490
+Y vamos a nuestro 'return acc - = 1'.
+
+09:12.540 --> 09:13.920
+Entonces va a bajar uno
+
+09:17.250 --> 09:17.890
+bien.
+
+09:18.300 --> 09:22.460
+Entonces, solo por curiosidad, ejecutemos esto y veamos qué sucede.
+
+09:22.480 --> 09:32.380
+Voy a 'despejar' y ejecutar esta vez y no obtenemos nada, porque bueno, no hemos dicho nada.
+
+09:33.430 --> 09:37.790
+Entonces, solo registremos el registro de la consola al final de esto: tenemos la respuesta.
+
+09:37.900 --> 09:42.510
+Así que vamos a la consola. log '' answer:
+
+09:45.720 --> 09:46.570
+'Y
+
+09:47.490 --> 09:52.980
+diremos que' answer: '' o simplemente diremos 'floor:' así
+
+09:53.760 --> 10:00.750
+que si ejecuto esto nuevamente. Uh-oh, me sale un poco de error y es porque lo olvidé, ven aquí.
+
+10:00.750 --> 10:01.660
+Tonto de mí.
+
+10:01.710 --> 10:09.490
+Ejecutemos eso nuevamente, déjenme aclarar y obtengo 'floor: 280' y esa es la respuesta.
+
+10:09.490 --> 10:11.920
+Ahí es donde termina Santa.
+
+10:12.010 --> 10:18.020
+Él termina en el piso 280 si sigue la dirección hasta el final.
+
+10:19.230 --> 10:20.490
+Muy genial.
+
+10:20.490 --> 10:32.600
+De nuevo, solo por curiosidad, agreguemos tiempo para calcular cuánto tiempo lleva esto, y diremos 'consola'. tiempo 'Uy
+
+10:32.690 --> 10:37.540
+Whoa.
+
+10:37.670 --> 10:40.410
+Mi pequeña pestaña no funciona bien hoy.
+
+10:40.520 --> 10:48.370
+Y diremos 'santa-time' y este 'santa-time' dentro de esta función.
+
+10:48.470 --> 10:58.960
+Hasta que obtengamos la respuesta, diremos 'santa-time', y si ejecuto esto, nuestra función ejecuta cuatrocientos treinta y
+
+10:59.530 --> 11:02.910
+siete, 0. 437 ms
+
+11:02.980 --> 11:07.570
+Muy rápido, porque no estamos haciendo nada demasiado loco.
+
+11:07.570 --> 11:09.640
+Tan curioso por qué llegaste aquí.
+
+11:09.640 --> 11:15.110
+Tenga en cuenta que esto realmente depende del tipo de máquina, el tipo de máquina en la que se encuentra.
+
+11:15.130 --> 11:20.400
+Pero de nuevo es bastante divertido pensar en cómo estructurar su código.
+
+11:20.650 --> 11:23.680
+Entonces, en primer lugar, tiene sentido.
+
+11:23.740 --> 11:25.030
+Funciona muy bien.
+
+11:25.450 --> 11:32.170
+Y también, quiere asegurarse de que sea eficiente, y mirando esto.
+
+11:32.200 --> 11:34.820
+No estamos haciendo nada demasiado ineficiente.
+
+11:35.020 --> 11:42.230
+Muy bien, pasemos a la pregunta número dos. Y la pregunta número dos, hagamos espacio para esto,
+
+11:42.230 --> 11:47.270
+la pregunta número 2 pregunta cuándo entra Santa por primera vez al sótano.
+
+11:47.270 --> 11:54.650
+Así que está bien usar este bucle aquí, ya que Santa comienza a obtener dirección.
+
+11:54.650 --> 11:59.030
+¿Cuándo entra el acumulador en el número negativo?
+
+11:59.170 --> 12:05.030
+Ahora puedo simplemente copiar y pegar esto en la pregunta número dos.
+
+12:06.650 --> 12:10.750
+Y tal vez solo agregue una declaración 'if' aquí.
+
+12:10.910 --> 12:19.120
+Tal vez pueda decir 'si acc es menor que cero'.
+
+12:20.170 --> 12:25.730
+Entonces sabes, podemos decir 'consola. log 'la respuesta.
+
+12:25.870 --> 12:27.750
+Y eso funciona bien.
+
+12:28.620 --> 12:34.550
+Pero de nuevo pensando en la pregunta, esto reduce ir al mapa sobre todo.
+
+12:34.650 --> 12:40.320
+Y recuerda que este es un conjunto bastante grande que estamos creando a partir de las instrucciones.
+
+12:40.350 --> 12:45.900
+Entonces, si Santa, en el primer movimiento, entra al sótano.
+
+12:46.020 --> 12:50.290
+Y luego aún revisamos cada elemento de la matriz.
+
+12:50.370 --> 12:52.530
+Eso es un poco de tiempo perdido.
+
+12:52.770 --> 12:53.310
+Correcto.
+
+12:53.310 --> 13:00.750
+Por lo tanto, queremos pensar en los problemas de manera que tengan sentido para nosotros y sean eficientes; y eso es algo
+
+13:00.810 --> 13:02.630
+que quieres practicar de nuevo.
+
+13:02.630 --> 13:07.680
+¿Tiene sentido en tu cabeza si se supone que debes hacer esto manualmente?
+
+13:07.920 --> 13:17.250
+¿Irías paso a paso a través de todo o simplemente te detendrías cuando Papá Noel entre al sótano en
+
+13:17.250 --> 13:19.080
+el número negativo?
+
+13:19.080 --> 13:21.700
+Así que busquemos una mejor manera de
+
+13:21.720 --> 13:26.280
+hacer la pregunta número dos. De nuevo con la
+
+13:26.290 --> 13:41.420
+pregunta número dos, voy a decir 'function question2 ()', y dentro de aquí diremos 'fs. readFile 'una vez más.
+
+13:44.490 --> 13:50.550
+Y este archivo de lectura leerá '. / santa. TXT'.
+
+13:50.760 --> 13:52.530
+De nuevo, esto es lo mismo que arriba.
+
+13:52.650 --> 14:01.800
+Así que voy a hacer esto rápidamente, y como la primera parte, que son las instrucciones y ponerlas en una matriz,
+
+14:01.800 --> 14:08.280
+es lo mismo, así que solo voy a copiar eso, nuevamente obteniendo las instrucciones formando
+
+14:08.280 --> 14:10.230
+una matriz por dividiéndolo
+
+14:10.350 --> 14:18.300
+Y ahora voy a agregar una pequeña función que creo que es mejor que reducir en este caso. Así que voy a decir el
+
+14:18.300 --> 14:24.000
+'const answer = directionsArray. some () 'Y algo
+
+14:24.200 --> 14:33.960
+de lo que hace va a ver a través de la matriz, ir paso a paso y si
+
+14:33.960 --> 14:37.600
+encuentra algo que coincida, dejará de repetirse.
+
+14:37.800 --> 14:46.260
+Entonces con 'directionArray. algunos ', voy a tener el valor actual y este valor actual.
+
+14:46.800 --> 14:52.800
+Ese es el elemento o el soporte que estamos obteniendo.
+
+14:54.140 --> 14:55.570
+Entonces este valor actual.
+
+14:56.000 --> 15:01.250
+Nuevamente haremos esto si la declaración, el valor actual y el valor actual, vamos a sumar uno
+
+15:01.250 --> 15:02.540
+o restar uno.
+
+15:02.540 --> 15:05.820
+Así que nuevamente lo copio y lo pego aquí.
+
+15:05.820 --> 15:14.160
+Pero de nuevo, realmente no tenemos acc en esta función. Y debido a que realmente no estamos usando una reducción,
+
+15:14.160 --> 15:19.820
+pero queremos hacer un seguimiento de un contador para ver cuándo Santa entrará al sótano.
+
+15:19.830 --> 15:24.600
+Entonces, fuera de la función, voy a decir 'dejar acumulador'.
+
+15:24.720 --> 15:35.890
+Permítanme ser más descriptivo esta vez, y diremos 0 y este acumulador se incrementará en función de
+
+15:36.010 --> 15:37.410
+las instrucciones.
+
+15:37.420 --> 15:37.880
+Bien.
+
+15:38.050 --> 15:45.080
+Entonces, usando eso, veamos cuál es mi consola. respuesta de registro 'será.
+
+15:45.190 --> 15:51.520
+Entonces diremos nuevamente 'sótano ingresado en:' y diremos
+
+15:54.670 --> 16:01.060
+'responder' y déjenme simplemente eliminar la pregunta 1 por
+
+16:01.060 --> 16:06.860
+ahora y simplemente ejecutar la pregunta dos.
+
+16:07.070 --> 16:12.940
+Ejecutemos esto, 'sótano ingresado en: verdadero'.
+
+16:13.160 --> 16:19.760
+Y cometimos un error aquí porque lo que queremos hacer de '. algunos 'queremos devolver algo que queremos devolver
+
+16:19.760 --> 16:22.930
+cuando se cumple un objetivo.
+
+16:22.940 --> 16:26.600
+Así que al final vamos a decir 'acumulador
+
+16:29.060 --> 16:32.930
+de retorno' y cuando el acumulador sea mayor que cero.
+
+16:32.960 --> 16:41.720
+Recuerde que return finaliza la función; vamos a decir "Detén lo que sea que estés haciendo" y luego eso terminará
+
+16:41.720 --> 16:43.040
+la función.
+
+16:43.100 --> 16:48.080
+Pero queremos saber cuándo entra Santa por primera vez al sótano.
+
+16:48.080 --> 16:54.490
+Entonces esa es una: ¿cuántas direcciones toma Santa antes de entrar al sótano?
+
+16:54.500 --> 16:57.730
+Entonces también necesitamos un contador.
+
+16:57.840 --> 17:00.390
+Entonces este contador va a ser igual a cero.
+
+17:00.600 --> 17:03.830
+Y he extrañado un montón de punto y coma aquí, pero está bien.
+
+17:04.020 --> 17:14.520
+Y vamos a aumentar el contador, cada vez que pase por un elemento.
+
+17:14.680 --> 17:23.540
+Y ahora la respuesta, bueno, no esto, pero la respuesta será el contador en sí.
+
+17:23.540 --> 17:32.780
+Entonces, si contrarresto, guardo, está bien y ejecutemos esto. Y en realidad cometí un error aquí porque todavía
+
+17:32.780 --> 17:39.740
+es cero porque el contador se está incrementando después de la declaración de devolución.
+
+17:39.740 --> 17:44.710
+Entonces 'currentValue', nombremos realmente este 'currentItem'.
+
+17:44.750 --> 17:52.630
+Es mucho más descriptivo: 'currentItem'.
+
+17:52.710 --> 17:55.820
+Esto se devuelve incluso antes de que golpees el mostrador.
+
+17:55.890 --> 18:01.570
+Entonces, en nuestro caso, a diferencia de lo anterior, realmente no necesitamos la declaración de devolución.
+
+18:04.640 --> 18:09.330
+Vamos a salvar, correr, y ahí lo tienes.
+
+18:09.570 --> 18:14.210
+Y la respuesta en este caso es mil setecientos noventa y siete.
+
+18:15.770 --> 18:16.390
+Increíble.
+
+18:16.400 --> 18:24.260
+Así que de nuevo para probarlo, usemos nuestro 'tiempo de santa' ahora, para copiar desde arriba y lo colocaremos
+
+18:24.260 --> 18:35.210
+en la parte superior para 'consola'. tiempo 'y el final de' consola. timeEnd '. Veamos qué tan rápido se ejecuta esa función.
+
+18:35.370 --> 18:38.910
+Tenemos de nuevo, bastante rápido.
+
+18:38.910 --> 18:47.200
+Pero si reduje, que en nuestro caso eso es lo que usamos para la primera pregunta.
+
+18:47.200 --> 18:52.470
+Así que vamos a pasar por eso, vemos que Bueno,
+
+18:52.640 --> 18:59.090
+la primera ronda de 'consola. time ('santa-time') ', que es la
+
+18:59.130 --> 19:12.790
+pregunta 1 es Déjenme agregar un q1 aquí para que podamos ver, y q2, agregue eso para asegurarse de que las etiquetas coincidan. Hagámoslo
+
+19:18.460 --> 19:19.940
+de nuevo.
+
+19:30.390 --> 19:32.040
+Eso está mucho mejor bien.
+
+19:32.040 --> 19:35.930
+Entonces vemos esa pregunta 1.
+
+19:36.050 --> 19:42.540
+Definitivamente largo, corre un poco más que la Pregunta 2 porque la primera vez tenemos que
+
+19:42.540 --> 19:43.520
+recorrer todo.
+
+19:43.530 --> 19:47.540
+La segunda vez es mucho menos tiempo. Solo por diversión otra
+
+19:47.550 --> 19:50.690
+vez, cómo es como probar nuestras suposiciones.
+
+19:50.730 --> 19:52.980
+Entonces, si la primera
+
+19:56.000 --> 20:01.160
+dirección era bajar las escaleras. Veamos qué pasa.
+
+20:01.160 --> 20:06.890
+Bien, eso es un poco más rápido que antes.
+
+20:06.900 --> 20:12.720
+No por mucho porque todavía estamos haciendo un poco de cálculos, pero aún así mucho
+
+20:12.720 --> 20:19.600
+más rápido que pasar por todos estos elementos. En caso de que se pregunte por qué en este
+
+20:19.650 --> 20:23.400
+caso la pregunta 2 terminó antes de la pregunta uno y no así
+
+20:23.400 --> 20:30.890
+en los otros casos, recuerde nuevamente que el archivo Leer es asíncrono. Cualquiera que regrese primero, se devuelve.
+
+20:30.930 --> 20:31.470
+Bien.
+
+20:31.470 --> 20:33.480
+Espero que te diviertas con los desafíos.
+
+20:33.670 --> 20:40.800
+Si te ha gustado esto, te recomiendo que sigas con el advenimiento del código y, con suerte, como grupo, con
+
+20:40.920 --> 20:42.010
+nuestra comunidad.
+
+20:42.210 --> 20:49.100
+Cuando llegue diciembre, estamos listos para seguir el advenimiento del código para este año.
+
+20:49.170 --> 20:50.730
+Nos vemos en la próxima. Adiós

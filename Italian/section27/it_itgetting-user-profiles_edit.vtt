@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.700 --> 00:09.660
+Usiamo KNEX per finire alcune delle nostre altre rotte. Se andiamo all'ID della barra del profilo.
+
+00:09.790 --> 00:11.500
+Non lo usiamo ancora sulla nostra app.
+
+00:11.500 --> 00:14.440
+È qualcosa per lo sviluppo futuro.
+
+00:14.440 --> 00:20.260
+Questo è un buon esempio perché a volte gli ingegneri di backend sviluppano endpoint che potrebbero
+
+00:20.260 --> 00:25.750
+non essere utilizzati per il front-end, ma potrebbero essere necessari in installazioni future come
+
+00:25.750 --> 00:33.250
+questa, dove forse potremmo avere una pagina del profilo per ognuno dei nostri utenti e possono modificare questo e forse
+
+00:33.250 --> 00:36.240
+possono avere un post, un'eliminazione, un put.
+
+00:36.270 --> 00:42.240
+Quindi lavoriamo su questo con l'ID punto profilo, che voglio afferrare l'utente.
+
+00:42.240 --> 00:45.580
+Questa è un'operazione molto semplice con il nostro database giusto.
+
+00:45.600 --> 00:53.040
+Possiamo semplicemente rimuoverlo ora e dire che DB dot seleziona tutto perché vogliamo tutto
+
+00:55.700 --> 01:05.830
+dalla tabella degli utenti dalla tabella degli utenti. Sembra un po 'troppo facile, giusto.
+
+01:05.840 --> 01:07.910
+Vediamo se funziona, allora farò un punto.
+
+01:10.040 --> 01:11.420
+Restituirò l'utente.
+
+01:13.260 --> 01:23.510
+E di nuovo il log della console solo per testare tutto, ci sarà l'utente del log della console.
+
+01:23.550 --> 01:24.960
+Andiamo al profilo.
+
+01:24.960 --> 01:26.050
+ID barra.
+
+01:26.220 --> 01:36.760
+E ricorda che se torniamo al nostro database abbiamo l'ID 1, 2, 3, 6, quindi facciamo solo l'ID 1. Usando il nostro postino prenderemo il
+
+01:37.880 --> 01:40.890
+profilo. Vedremo se ne abbiamo uno qui.
+
+01:40.890 --> 01:41.340
+Ecco qua
+
+01:41.340 --> 01:45.670
+C'è una richiesta, e faremo il profilo 1, invia.
+
+01:45.920 --> 01:54.630
+E se torniamo alla console, d'accordo, stiamo ottenendo tutti i nostri utenti. Ma ricorda che con l'ID profilo vogliamo
+
+01:54.630 --> 02:01.220
+assicurarci che sia l'ID e non tutti i singoli utenti che stiamo afferrando.
+
+02:01.450 --> 02:11.200
+Quindi possiamo semplicemente dire punto dove e all'interno della clausola WHERE se torniamo a KNEX e voglio dimostrarvi qui che questo
+
+02:11.200 --> 02:14.170
+è ciò che fa uno sviluppatore.
+
+02:14.170 --> 02:20.120
+Non conoscono ogni singola specifica di una libreria o di un pacchetto.
+
+02:20.140 --> 02:26.080
+Semplicemente sei davvero bravo a leggere la documentazione e vedere perché ne hai bisogno, come qui,
+
+02:26.080 --> 02:32.940
+e passiamo un oggetto di ciò che vogliamo verificare. Quindi nome Test cognome Utente.
+
+02:32.980 --> 02:46.650
+Nel nostro caso vogliamo un oggetto in cui ID sia l'ID che abbiamo ricevuto nei parametri. Se salviamo ed eseguiamo nuovamente questo postgres, torniamo
+
+02:46.650 --> 02:52.120
+al nostro esempio e guardalo.
+
+02:52.220 --> 03:04.840
+Abbiamo Ann. E vogliamo afferrare l'array dell'utente, così possiamo semplicemente fare - oops, e possiamo semplicemente fare zero.
+
+03:04.860 --> 03:05.280
+Stupefacente.
+
+03:06.550 --> 03:08.390
+Solo per farla breve,
+
+03:08.400 --> 03:16.000
+con ES6 possiamo fare proprio questo perché sia l'id che la proprietà e il valore sono gli stessi.
+
+03:16.060 --> 03:27.040
+Ho intenzione di salvare, e ora, invece della registrazione della console, eseguiremo il punto di risposta dell'utente Json, che sarà l'utente che
+
+03:27.040 --> 03:28.040
+otterremo.
+
+03:28.330 --> 03:30.560
+E non abbiamo più bisogno di quello trovato, vero.
+
+03:30.700 --> 03:32.160
+Ripuliamo il codice ora.
+
+03:32.360 --> 03:40.080
+E se questo non si trova bene, in quel caso avremo un array vuoto.
+
+03:41.230 --> 03:46.960
+Ma vediamo prima cosa otteniamo con la nostra risposta e poi toccheremo il caso di errore. Salveremo indietro al
+
+03:47.920 --> 03:53.390
+postino, invieremo e avremo un errore.
+
+03:53.410 --> 03:57.480
+Found non è definito e dovremmo commentarlo.
+
+03:57.670 --> 04:01.380
+Proveremo di nuovo facendo clic su Invia.
+
+04:02.370 --> 04:04.220
+Bene, abbiamo Ann.
+
+04:04.530 --> 04:05.540
+Questo è veramente forte.
+
+04:06.750 --> 04:08.250
+E se
+
+04:11.430 --> 04:21.990
+facciamo 2 otteniamo Anne con una e. Se ne facciamo sei abbiamo Amy e se ne faccio tre ottengo John. Cosa succede se faccio un numero che
+
+04:21.990 --> 04:23.010
+non esiste.
+
+04:25.000 --> 04:27.360
+Ottengo 200 OK senza risposta.
+
+04:28.600 --> 04:36.770
+Perché bene, non abbiamo quell'utente. Ma consoliamo semplicemente il log della console e vediamo se riusciamo a recuperare un utente da questo.
+
+04:36.890 --> 04:43.450
+Se salvo e invio ottengo un array vuoto.
+
+04:43.750 --> 04:49.350
+Quindi sta ancora restituendo qualcosa, mi sta solo dicendo che non c'è nessun utente.
+
+04:49.540 --> 04:54.770
+Se eseguo una cache punti qui, fammi solo correggere l'allineamento qui.
+
+04:58.250 --> 05:11.880
+E faccio l'errore con Json o rispondo a quello stato 400 e semplicemente non lo troveremo se lo salvo e torno a postino, fai clic
+
+05:12.780 --> 05:16.640
+su Invia di nuovo con l'ID errato.
+
+05:16.770 --> 05:32.270
+Ottengo ancora 200 OK non l'errore che rileviamo perché in JavaScript se apro di nuovo Chrome. Trucco di JavaScript.
+
+05:32.280 --> 05:35.860
+Se faccio un array booleano un array vuoto.
+
+05:36.120 --> 05:39.030
+È tecnicamente vero.
+
+05:39.070 --> 05:51.380
+Quindi il modo in cui vogliamo verificare con l'array vuoto diciamo semplicemente se la lunghezza del punto dell'utente esiste
+
+05:51.380 --> 06:01.420
+in quel caso sarà maggiore di 1 o uguale a 1 risponderà con l'utente.
+
+06:01.540 --> 06:05.150
+Altrimenti risponderemo con il
+
+06:09.840 --> 06:14.130
+nostro stato non trovato e forse
+
+06:17.250 --> 06:26.730
+qui possiamo anche dire errore nell'ottenere l'utente. Se salviamo ora e torniamo a - rimuoviamo la console perché non ne abbiamo più bisogno.
+
+06:27.050 --> 06:28.040
+Torna al postino.
+
+06:30.920 --> 06:34.090
+Fai clic su Invia. Non trovato.
+
+06:34.130 --> 06:35.040
+È fantastico
+
+06:35.180 --> 06:41.150
+Abbiamo ricevuto una pessima richiesta 400 ma se prendiamo qualcuno che vogliamo ora funziona.
+
+06:42.320 --> 06:45.900
+Molto bello. Ora possiamo rimuovere questo brutto codice.
+
+06:46.790 --> 06:50.540
+Abbiamo una sintassi molto migliore qui ora.
+
+06:50.910 --> 06:53.150
+E abbiamo anche fatto il registro.
+
+06:53.640 --> 06:55.630
+Lasceremo l'accesso fino alla fine.
+
+06:55.980 --> 06:59.580
+Ma lavoriamo sull'endpoint dell'immagine nel prossimo.
+
+07:00.780 --> 07:02.160
+Vedrò su quello. Ciao ciao.

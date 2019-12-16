@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+Nuestros amigos robo se ven muy, muy bien.
+
+00:03.130 --> 00:05.780
+Realmente me gusta esta aplicación. Sin embargo, hay un problema.
+
+00:05.920 --> 00:14.580
+Si minimizo esto. OK, responde, se ve bien. Pero si me desplazo hacia abajo, bueno, pierdo mi barra de búsqueda en la parte
+
+00:14.580 --> 00:14.980
+superior.
+
+00:14.980 --> 00:21.540
+¿No sería bueno si esto estuviera en la parte superior y tengo un pergamino que puedo hacer y aún buscar entre mis amigos?
+
+00:24.510 --> 00:30.150
+Bueno, quizás estés pensando: "Probablemente haya un estilo CSS que pueda agregar aquí. "Pero quiero ilustrarle el hecho
+
+00:30.150 --> 00:39.180
+de que React y por qué React es tan bueno es porque puede crear Componentes que son reutilizables,
+
+00:39.300 --> 00:42.560
+no solo componentes de tarjeta sino funcionalidad.
+
+00:42.600 --> 00:48.110
+¿Sería genial si hubiera algo en lo que pudiéramos agregar "CardList"?
+
+00:48.120 --> 00:58.960
+¿Tal vez pueda crear un componente "Scroll"? Y este componente "Desplazamiento" simplemente envuelve la "Lista de tarjetas".
+
+00:59.190 --> 01:02.130
+Y ahora "CardList" será completamente desplazable.
+
+01:02.220 --> 01:08.820
+Pero ahora puedo usar "Desplazar" este componente en cualquier lugar de mi aplicación, cada vez que necesito
+
+01:08.820 --> 01:10.740
+desplazarme, simplemente puedo envolverlo.
+
+01:10.790 --> 01:11.870
+¿Podemos hacer esto?
+
+01:11.930 --> 01:12.860
+Hagamos un intento.
+
+01:14.690 --> 01:19.030
+Voy a "importar" un Componente que aún no tenemos y
+
+01:19.160 --> 01:28.510
+que se llama "Desplazar" desde un archivo que crearemos en el segundo. Vamos a crear un nuevo archivo.
+
+01:30.610 --> 01:32.040
+Llamaremos a eso "Desplazarse.
+
+01:32.080 --> 01:42.850
+js "Y aquí, nuevamente, veremos el movimiento de" Reaccionar de reaccionar ".
+
+01:42.900 --> 01:44.340
+Hagamos esto un poco más grande.
+
+01:46.150 --> 01:54.470
+Y de nuevo, quiero cambiar esto a Babel y diremos "const Scroll" es
+
+01:54.610 --> 02:01.790
+igual a que va a regresar, Hmm, ¿qué debería haber devuelto?
+
+02:01.850 --> 02:11.790
+Antes de hablar de eso para no olvidarnos, tenemos que "exportar Scroll predeterminado".
+
+02:11.800 --> 02:18.910
+Ahora aquí hay un problema. Queremos devolver algo, pero no tiene sentido, ¿verdad?
+
+02:19.060 --> 02:20.220
+Si voy a "App. js
+
+02:22.130 --> 02:22.990
+"" Scroll
+
+02:23.010 --> 02:27.850
+", pero no es un componente de cierre automático, envuelve el componente.
+
+02:27.870 --> 02:33.420
+Entonces, ¿cómo podemos decir "Desplazar" a "Oye, solo muestra lo que esté dentro de ti". "Hasta este momento,
+
+02:36.320 --> 02:37.370
+hemos
+
+02:37.430 --> 02:44.280
+aprendido sobre" accesorios "y hemos aprendido sobre" estado ".
+
+02:44.340 --> 02:53.040
+Hay otra cosa en React que quiero enseñarte y es "niños". Y "niños" es esto.
+
+02:54.320 --> 03:00.310
+"Scroll" puede usar "children" como una forma de representar sus hijos.
+
+03:00.740 --> 03:01.790
+¿Qué quiero decir con eso?
+
+03:03.040 --> 03:09.710
+Bueno, aquí, cada objeto de "accesorios" tiene hijos.
+
+03:09.800 --> 03:16.540
+Entonces si voy "accesorios. niños ", bueno, veamos qué pasa.
+
+03:16.660 --> 03:28.460
+Ahorro y vuelvo, todo está rendido. Pero si elimino esto y solo hago un "h1",
+
+03:37.000 --> 03:44.910
+solo obtengo esto. Ya ves, "accesorios. niños "es exactamente eso.
+
+03:45.080 --> 03:49.490
+Si yo "consola. log (props) "Abramos la
+
+03:53.520 --> 03:54.860
+consola.
+
+03:54.900 --> 03:57.770
+Veo que consigo un objeto.
+
+03:57.780 --> 04:07.560
+Y aunque el elemento pase cualquier "accesorio" a "Desplazamiento", automáticamente cada componente
+
+04:07.560 --> 04:18.050
+en React tiene esta propiedad, "hijos". Y estos niños -un poco se ve confuso aquí- pero tiene el tipo
+
+04:22.440 --> 04:32.800
+"CardList" "CardList" Así que usando estos "accesorios". hijos ", podemos crear componentes que envuelvan otros componentes. Hasta este punto, solo pudimos
+
+04:32.800 --> 04:39.820
+envolver estos 'componentes en minúsculas' que son algo así como las etiquetas HTML.
+
+04:39.820 --> 04:44.680
+Pero cada vez que teníamos un componente personalizado con una letra mayúscula que construíamos, bueno,
+
+04:44.680 --> 04:46.000
+realmente no podíamos envolverlo.
+
+04:46.020 --> 04:50.690
+Ahora podemos usar "esto". niños".
+
+04:50.780 --> 04:52.690
+Pero aquí está la parte genial.
+
+04:52.910 --> 04:54.940
+Usando "accesorios. children
+
+04:55.160 --> 05:07.180
+"Bueno, puedo crear un componente desplazable. Déjame enseñarte como. Simplemente haga "div", cierre ese "/ div", y aquí,
+
+05:07.180 --> 05:16.150
+de nuevo, los accesorios ". niños". Y todo lo que necesitamos ahora es agregar estilos a este div.
+
+05:16.150 --> 05:22.630
+Podría crear un "Desplazamiento. css "y agrega un estilo para que se pueda desplazar, pero quiero mostrarte
+
+05:22.630 --> 05:24.230
+otra forma de usar" style ".
+
+05:24.550 --> 05:25.950
+Al igual
+
+05:26.170 --> 05:35.200
+que un HTML, usando este atributo de estilo y JSX, puedo agregar estilos pero usando llaves dobles, es decir,
+
+05:35.200 --> 05:43.210
+esta es una expresión de JavaScript y dentro de esto estoy devolviendo un objeto y este
+
+05:43.240 --> 05:47.760
+objeto puede tener estilos CSS, como una propiedad "desbordante".
+
+05:50.040 --> 05:54.450
+que es una propiedad CSS y esto puede decir
+
+05:54.480 --> 06:06.870
+"scroll" nuevamente, una forma CSS para hacer que el elemento se pueda desplazar. Diremos que "borde" es 1 píxel, sólido, negro y finalmente
+
+06:06.870 --> 06:17.670
+le daremos una "altura" de 500 píxeles. Voy a hacer esto más pequeño para que pueda ver, voy a guardar, compilar está
+
+06:17.670 --> 06:18.290
+bien.
+
+06:18.330 --> 06:21.560
+Si regreso, parece que tenemos una caja aquí.
+
+06:21.690 --> 06:26.520
+Hagámoslo un poco más grande para que puedas ver. Voy a decir 5 píxeles aunque sea feo.
+
+06:26.610 --> 06:30.150
+Y olvidé 't' aquí, ¿verdad?
+
+06:30.180 --> 06:36.760
+Muy bien, veamos. Mira eso, tenemos un componente desplazable.
+
+06:36.770 --> 06:44.110
+Hagamos esto un poco más grande, solo para que podamos ver mejor. Mira eso.
+
+06:44.160 --> 06:53.650
+Si hago esto más pequeño, ahora tengo un componente desplazable dentro de esto.
+
+06:53.760 --> 06:55.250
+Muy genial.
+
+06:55.320 --> 06:57.690
+Ahora esta es una aplicación simple.
+
+06:57.840 --> 07:00.550
+Te permite buscar.
+
+07:00.570 --> 07:07.440
+Te permite desplazarte pero muestra el poder de React, ¿no?
+
+07:08.260 --> 07:18.050
+Hemos creado estas funciones simples y lo único que le decimos que haga es, bueno,
+
+07:18.050 --> 07:24.880
+le decimos qué estado tiene. La aplicación completa se describe a través de estas dos cosas.
+
+07:25.040 --> 07:34.550
+Los "robots" y el "campo de búsqueda" y React se encargan del resto. Tan pronto como el "campo de búsqueda" o los
+
+07:35.330 --> 07:38.200
+"robots" cambien, React filtra
+
+07:38.200 --> 07:46.880
+toda esta información como "accesorios" para todos estos componentes y mágicamente crea nuestra visión para nosotros.
+
+07:46.900 --> 07:49.780
+Es por eso que React es tan poderoso que es una capa de vista.
+
+07:49.870 --> 07:55.580
+Se encarga de manipular el DOM y todo lo que decimos es "Oye, ¿cuál es el estado? "" ¿Cuáles son las funciones que quería
+
+07:55.780 --> 07:59.610
+trabajar con el estado? " ¿y el resto?
+
+07:59.620 --> 08:06.400
+Bueno, se optimiza para asegurarse de que todo sea súper rápido y se puede ver lo increíblemente rápido que está todo
+
+08:06.400 --> 08:06.870
+aquí.
+
+08:06.880 --> 08:12.220
+Es una aplicación súper rápida y estos componentes ahora son reutilizables.
+
+08:12.220 --> 08:19.570
+Puedo llevar "SearchBox" ahora a otra parte del sitio web. Puedo agregar "Desplazar" en otra parte del sitio
+
+08:19.570 --> 08:20.440
+web.
+
+08:21.240 --> 08:27.430
+Esto es lo que hizo que React fuera tan poderoso y es por eso que tantos sitios web funcionan con React.
+
+08:27.480 --> 08:35.960
+Una vez que aprendes la sintaxis y te acostumbras a todo lo que ocurre cuando React se vuelve realmente poderoso.
+
+08:35.960 --> 08:41.790
+Aunque nos tomamos un poco de tiempo para crear esta aplicación, una vez que te acostumbras a
+
+08:41.790 --> 08:46.980
+una aplicación como esta, puedes crearla en menos de una hora, probablemente 30 minutos.
+
+08:47.050 --> 08:49.980
+Muy bien, creo que hemos hecho un gran trabajo aquí.
+
+08:49.990 --> 08:51.560
+No puedo esperar para verte en el próximo video. Adiós

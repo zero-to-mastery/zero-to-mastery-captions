@@ -1,0 +1,169 @@
+WEBVTT
+
+00:00.570 --> 00:09.900
+Bienvenido de nuevo al video anterior, hemos creado una tabla de inicio de sesión ahora que tenemos estas dos tablas juntas.
+
+00:09.930 --> 00:12.900
+Quiero mostrarte el verdadero poder de las bases de datos relacionales.
+
+00:15.440 --> 00:22.200
+Volviendo a nuestro dibujo, la parte más importante de las bases de datos relacionales es esta idea de
+
+00:22.200 --> 00:29.520
+esquemas, de tener tablas que solo se preocupan por almacenar información específica para ellos, como usuarios, tweets y seguidores, y
+
+00:29.580 --> 00:38.030
+conectarlos a través de una clave primaria y una clave externa. Te voy a mostrar cómo
+
+00:38.030 --> 00:39.250
+hacerlo.
+
+00:39.680 --> 00:41.170
+Pues ya lo hemos hecho.
+
+00:41.180 --> 00:46.940
+Pero, ¿cómo tomamos información de aquí? Si volvemos a nuestra tabla, recordamos
+
+00:47.080 --> 00:49.470
+que ejecutamos nuestra consulta,
+
+00:54.920 --> 01:04.070
+creamos la tabla Crear inicio de sesión aquí y creamos una variable de nombre que, cuando planeamos, coincidiría con
+
+01:04.070 --> 01:10.680
+lo que tuviera la tabla de usuarios y podemos usar algo llamado JOIN.
+
+01:10.720 --> 01:18.510
+ahora con nuestras consultas. Y esta es una nueva palabra en SQL y probablemente una
+
+01:18.510 --> 01:24.890
+de las más poderosas, porque no necesariamente queremos tener una tabla masiva con cientos de columnas, cientos de filas.
+
+01:24.900 --> 01:31.350
+Las bases de datos no están diseñadas solo para tener, al igual que una hoja de Excel toneladas de filas y columnas y
+
+01:31.350 --> 01:34.740
+tienen toda esa información en un solo lugar porque no es eficiente.
+
+01:34.770 --> 01:36.110
+Será mucho más lento,
+
+01:36.160 --> 01:37.670
+será muy, muy difícil de manejar.
+
+01:37.680 --> 01:41.960
+Y cuanto más grande y más grande sea su empresa, será muy, muy difícil.
+
+01:42.000 --> 01:48.150
+Una buena manera de diseñar una base de datos es tener estas pequeñas tablas pequeñas que solo están
+
+01:48.150 --> 01:53.500
+relacionadas, al igual que la separación de las preocupaciones, relacionadas con su información mínima necesaria.
+
+01:53.550 --> 02:00.180
+Y si se necesita algo más, podemos unir tablas para obtener información.
+
+02:00.180 --> 02:01.270
+Déjame mostrarte lo que quiero decir.
+
+02:02.850 --> 02:09.830
+Tenemos aquí nuestra base de datos de prueba y hagamos \ d para ver.
+
+02:09.840 --> 02:12.230
+Muy bien, tenemos tres archivos aquí.
+
+02:12.420 --> 02:16.140
+Tenemos el inicio de sesión y los usuarios que creamos.
+
+02:16.140 --> 02:20.130
+Pero, ¿cuál es la secuencia de identificación de inicio de sesión?
+
+02:20.160 --> 02:26.480
+Recuerda cómo creamos una clave primaria. La forma en que funcionan las bases de datos relacionales
+
+02:26.480 --> 02:35.320
+es cuando crea una clave primaria, crea otro archivo que contiene esta clave primaria. Y puedes ver que el tipo es secuencia.
+
+02:36.570 --> 02:44.280
+Ahora, este es un archivo al que probablemente no tendremos acceso, pero internamente Postgres se asegurará de que, debido a que configuramos esta
+
+02:44.280 --> 02:50.330
+clave primaria, será muy, muy rápido capturar datos de la tabla de inicio de sesión cuando lo
+
+02:50.330 --> 02:50.890
+solicitemos.
+
+02:51.100 --> 02:58.890
+Pero digamos que quería obtener información de inicio de sesión y usuarios. Quizás quiero obtener la información de Sally,
+
+02:59.640 --> 03:08.320
+pero necesito su cumpleaños, puntaje, edad y su secreto. Al usar JOINs podemos hacer esto.
+
+03:09.110 --> 03:11.850
+Puedo decir SELECT star,
+
+03:11.990 --> 03:15.370
+así que TODO DE los usuarios.
+
+03:15.690 --> 03:20.900
+Y ahora, si me UNO, puedo decir otro nombre de tabla al que quiero unirme con los usuarios.
+
+03:20.900 --> 03:27.580
+En nuestro caso, inicie sesión y tengamos que decir ON a qué nos vamos a unir o no.
+
+03:27.590 --> 03:33.370
+¿Cómo va a saber qué coincide con Login?
+
+03:33.470 --> 03:41.400
+Porque si vuelvo aquí, ¿cómo va a saber la base de datos que quiero hacer coincidir la primera línea con Andrei, la
+
+03:41.400 --> 03:48.690
+segunda línea con Sally, una tercera línea con John?
+
+03:48.690 --> 03:49.280
+La palabra clave ON nos permite asegurarnos de que coincidamos con algo.
+
+03:49.320 --> 03:56.360
+En nuestro caso es el nombre de su clave principal aquí y la clave externa aquí.
+
+03:56.470 --> 03:59.730
+Así que hagamos eso a los usuarios. nombre es igual a inicio de sesión. nombre
+
+03:59.920 --> 04:07.820
+punto y coma.
+
+04:10.500 --> 04:11.290
+Vamos a hacer eso.
+
+04:11.340 --> 04:12.080
+Y mira eso.
+
+04:13.230 --> 04:14.080
+Tenemos nombre, edad, fecha de nacimiento, puntaje, pero también ID, secreto, nombre por completo.
+
+04:14.280 --> 04:21.810
+Acabamos de unir estos valores y todos coinciden porque hemos iniciado sesión. nombre y usuarios. nombre, y con JOINs viene un gran poder ahora, podemos tener pequeñas tablas
+
+04:21.980 --> 04:29.750
+pequeñas basadas en lo
+
+04:29.750 --> 04:30.810
+que
+
+04:31.010 --> 04:40.170
+realmente necesitamos y cada vez que se necesita algo específico simplemente unimos tablas y podemos hacer
+
+04:40.170 --> 04:46.710
+múltiples tablas, múltiples JOINs para seleccionar la información que queremos necesitar.
+
+04:46.710 --> 04:48.720
+De acuerdo, creo que hemos
+
+04:48.720 --> 04:54.030
+hecho un muy buen trabajo entendiendo SQL y el poder de las bases de datos relacionales.
+
+04:54.030 --> 04:54.940
+Nos vemos en la próxima.
+
+04:56.890 --> 04:57.890
+Y buen trabajo llegando hasta aquí, adiós.

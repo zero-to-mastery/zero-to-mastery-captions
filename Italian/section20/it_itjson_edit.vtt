@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.900 --> 00:06.940
+Bentornato, manca un pezzo con il diagramma che abbiamo creato nel video
+
+00:06.980 --> 00:08.620
+precedente su HTTP.
+
+00:08.790 --> 00:16.860
+Abbiamo parlato di parametri URL come "google. com / about "e interrogare i parametri della stringa che
+
+00:16.860 --> 00:20.480
+possiamo fare con GET, ma per quanto riguarda i
+
+00:20.490 --> 00:23.960
+dati quando pubblichiamo qualcosa. Possiamo pubblicare qualcosa?
+
+00:24.000 --> 00:31.970
+Beh, non proprio. Quando si scambiano dati tra un browser e un server, i dati possono essere solo di testo.
+
+00:32.070 --> 00:40.940
+Quindi non possiamo semplicemente inviare un oggetto JavaScript come un utente con il nome John e il cognome doe.
+
+00:41.010 --> 00:44.070
+Uno perché HTTP non lo capirà.
+
+00:44.460 --> 00:49.070
+Ma anche se stessimo inviando questi dati ai server di Google
+
+00:49.220 --> 00:56.700
+- A differenza del Front-End, il browser Web in cui HTML, CSS e Javascript sono uno standard quando invio
+
+00:56.700 --> 00:58.980
+un oggetto utente al server.
+
+00:59.190 --> 01:02.500
+Un server può usare
+
+01:02.640 --> 01:13.010
+qualsiasi tipo di linguaggio come Python, Go, PHP. Se inviamo loro un tipo di script java, come un oggetto, saranno davvero confusi perché non avrebbero
+
+01:13.010 --> 01:14.890
+idea di cosa si tratti.
+
+01:15.260 --> 01:16.790
+Non è proprio la loro lingua.
+
+01:17.820 --> 01:22.410
+Il testo d'altra parte può essere compreso da tutti.
+
+01:22.440 --> 01:28.050
+Quindi abbiamo bisogno di un modo per avere un modo standard per inviare dati attraverso i fili e riceverli.
+
+01:28.050 --> 01:32.360
+Questo è ciò che è JSON e di cui parleremo in questo video.
+
+01:32.580 --> 01:40.620
+JSON sta per notazione oggetto javascript. È una sintassi per l'archiviazione e lo scambio di dati ed è
+
+01:40.800 --> 01:43.540
+un testo scritto con notazione di oggetti javascript.
+
+01:43.650 --> 01:45.180
+Diamo un'occhiata al secondo punto qui.
+
+01:45.270 --> 01:49.320
+JSON è una sintassi per l'archiviazione e lo scambio di dati.
+
+01:49.320 --> 01:52.530
+Viene utilizzato per inviare dati tra la macchina.
+
+01:52.650 --> 02:05.800
+È l'unico modo? No, c'è anche XML. Sia XML che JSON possono essere utilizzati per ricevere dati da un
+
+02:05.860 --> 02:06.760
+server web.
+
+02:07.920 --> 02:10.020
+E puoi vedere le differenze tra i due.
+
+02:10.020 --> 02:12.630
+Questi sono gli stessi dati.
+
+02:12.630 --> 02:16.970
+Solo nomi e cognomi dei dipendenti e XML usano questo HTML
+
+02:16.980 --> 02:25.740
+come sintassi mentre JSON usa bene un oggetto - oggetto javascript come sintassi. Ma lo standard ora è più orientato verso JSON perché quando
+
+02:25.740 --> 02:31.740
+si scrive codice front-end in Javascript, il recupero dei dati JSON semplifica il caricamento di
+
+02:31.740 --> 02:37.560
+tali dati in una struttura ad albero perché è così simile a un oggetto
+
+02:37.560 --> 02:40.130
+JavaScript che a un XML.
+
+02:40.880 --> 02:48.500
+E il formato JSON è un modo più conciso che consente di risparmiare larghezza di banda e migliorare i tempi di risposta
+
+02:48.740 --> 02:51.590
+durante l'invio di messaggi tra client e server.
+
+02:53.030 --> 03:00.810
+E XML non è solo molto efficiente. Quindi JSON ora è più uno standard che vedrai ancora XML ma
+
+03:00.810 --> 03:04.300
+è obsoleto, quindi non ne parleremo in questo video.
+
+03:04.470 --> 03:13.770
+Ma entrambi vengono utilizzati per trasferire dati tra due macchine che potrebbero non parlare la stessa lingua.
+
+03:14.190 --> 03:20.330
+JSON, sebbene sembri simile a Javascript, è leggermente diverso.
+
+03:20.340 --> 03:24.210
+Ha queste doppie virgolette per proprietà pari.
+
+03:24.210 --> 03:28.440
+Tutto deve essere una stringa e racchiuso tra virgolette doppie.
+
+03:28.920 --> 03:38.120
+E beh sembra che sia una sintassi dell'oggetto. Ma JSON può essere letto da qualsiasi lingua.
+
+03:39.100 --> 03:45.250
+Se i server di Google eseguivano una lingua diversa, capiranno JSON che saranno in grado
+
+03:45.760 --> 03:50.550
+di modificare quel JSON che è solo testo nella loro versione.
+
+03:50.560 --> 03:59.100
+Quindi ora possiamo convertirlo in un oggetto JSON, inviarlo su HTTP.
+
+04:00.390 --> 04:06.780
+E poi i server di Google o qualunque cosa sia lo cambieranno nella loro lingua, lo capiranno e quindi
+
+04:06.780 --> 04:08.010
+invieranno una risposta.
+
+04:08.010 --> 04:13.270
+Ancora una volta diciamo ad esempio che stava tornando - l'utente ha soldi 345 dollari.
+
+04:13.620 --> 04:22.330
+Bene, lo modificherà in JSON, lo invierà via cavo e quindi il browser Web lo cambierà
+
+04:22.330 --> 04:25.080
+da JSON a javascript.
+
+04:25.270 --> 04:26.540
+Ma come possiamo farlo?
+
+04:26.590 --> 04:31.550
+Fortunatamente per noi javascript viene fornito con la sua funzione JSON.
+
+04:33.350 --> 04:39.440
+Abbiamo JSON. parse e JSON. stringify con JSON. parse se
+
+04:39.440 --> 04:50.150
+avessimo di nuovo JSON questo modulo, lo avvolgiamo semplicemente come parametro di parse e restituirà un oggetto.
+
+04:50.210 --> 04:53.100
+Al contrario con stringify possiamo
+
+04:53.270 --> 04:58.750
+dargli un oggetto come quello che abbiamo appena creato e restituirà JSON.
+
+04:59.300 --> 05:09.490
+Quindi questa variabile myJSON ora può essere inserita nella richiesta HTTP per inviarla via cavo o il server può
+
+05:09.490 --> 05:11.410
+rispondere con myJSON.
+
+05:11.410 --> 05:20.380
+Quindi esaminiamo JSON come testo e possiamo convertire qualsiasi oggetto javascript in JSON e inviare JSON al
+
+05:20.380 --> 05:21.060
+server.
+
+05:21.070 --> 05:29.080
+Possiamo anche convertire qualsiasi JSON ricevuto dal server in oggetti javascript. In questo modo possiamo lavorare con i dati come
+
+05:29.080 --> 05:36.940
+oggetti javascript senza traduzione complicata e questo testo può essere utilizzato come formato di dati per qualsiasi
+
+05:36.940 --> 05:38.640
+linguaggio di programmazione.
+
+05:38.770 --> 05:40.620
+Quindi lasciamo passare
+
+05:40.620 --> 05:48.530
+il flusso ancora una volta con questo completo. L'oggetto utente prima di inviarlo con HTTP
+
+05:48.610 --> 05:51.030
+farò "JSON. stringify (utente);
+
+05:51.070 --> 06:02.210
+"Quindi ora viene convertito in una stringa JSON e questa stringa JSON verrà inviata su HTTP ai server di
+
+06:02.210 --> 06:02.940
+Google.
+
+06:03.080 --> 06:08.840
+Quindi dirà JSON. analizzare questo utente in modo che lo capisca.
+
+06:08.870 --> 06:11.620
+Diciamo che stava eseguendo Javascript o Node.
+
+06:11.930 --> 06:19.790
+Ora capirà l'utente. Diranno - oh, vuole l'importo in denaro per questo utente.
+
+06:19.990 --> 06:29.860
+Quindi ora ottiene soldi 345 dall'account. Si stringe la variabile del denaro. Lo invia con un codice
+
+06:29.860 --> 06:32.070
+di stato di
+
+06:32.240 --> 06:42.880
+200 E ora il browser web può analizzare questa stringa che ha ricevuto e vedere che oh
+
+06:42.880 --> 06:52.060
+sì ho un denaro variabile di $ 345. E non preoccuparti quando arriveremo alla sezione backend in alcuni
+
+06:52.060 --> 07:01.000
+video che ti mostreremo esattamente come farlo nel codice. Come fare richieste HTTP, usare JSON, usare i metodi GET, POST, PUT,
+
+07:01.000 --> 07:03.540
+DELETE e ti mostrerò come farlo anche
+
+07:03.640 --> 07:05.720
+nel nostro progetto finale.
+
+07:05.860 --> 07:11.830
+Ma ora questo diagramma, anche se un po 'disordinato, dovrebbe avere un po' più senso e
+
+07:11.830 --> 07:14.930
+ora dovresti capire come funzionano le cose.
+
+07:16.290 --> 07:23.120
+Nel prossimo video ti presenterò qualcosa che ha cambiato la navigazione web nel 2006.
+
+07:23.410 --> 07:25.060
+Ci vediamo in quello. Ciao ciao.

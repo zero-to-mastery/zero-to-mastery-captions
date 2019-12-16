@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Selamat datang kembali.
+
+00:03.570 --> 00:10.610
+Sebelum kita mulai belajar tentang redux, kita perlu membicarakan tentang sesuatu yang disebut manajemen negara.
+
+00:10.640 --> 00:12.440
+Kami telah mendengar kata ini sebelumnya - nyatakan.
+
+00:12.530 --> 00:13.050
+Kanan.
+
+00:13.190 --> 00:14.690
+Saat membangun aplikasi reaksi.
+
+00:14.720 --> 00:24.300
+Kami punya ini. negara bagian dan negara bagian menggambarkan seperti apa tampilan aplikasi kita. Jika kita ingat
+
+00:27.630 --> 00:36.750
+ini, well, reaksi hanyalah sekelompok komponen yang dirender dalam struktur mirip pohon.
+
+00:36.840 --> 00:41.420
+Jadi ini adalah aplikasinya. js misalnya.
+
+00:41.560 --> 00:48.390
+Dan masing-masing komponen ini akan memiliki status misalnya titik merah di sini.
+
+00:48.700 --> 00:49.750
+Mereka memiliki negara.
+
+00:49.750 --> 00:57.730
+Jadi misalnya komponen aplikasi ini akan memiliki status masuk sebagai, dan katakanlah negara adalah pengguna dalam
+
+00:57.730 --> 01:06.340
+hal ini komponen pengguna ini mungkin memiliki keadaan pengguna "Mitch" atau jika masuk seperti "Admin" itu mungkin membuat
+
+01:06.340 --> 01:14.200
+komponen admin dan setiap kali Anda melihat titik biru itu berarti ada perubahan jadi jika ada
+
+01:14.200 --> 01:21.340
+perubahan di sini dapat memperbarui sesuatu ke dalam komponen ini dan kami render.
+
+01:21.640 --> 01:31.380
+Dan kami melakukan ini sebagai reaksi dan saya ingin Anda menganggap negara sebagai memori. Aplikasi perlu mengingat hal-hal agar berfungsi
+
+01:31.440 --> 01:40.240
+jika tidak kita hanya akan memiliki halaman web html sederhana seperti sebelumnya.
+
+01:40.320 --> 01:43.340
+Ingat situs Web Keiko Corp ini.
+
+01:43.490 --> 01:46.940
+Ini benar-benar tidak memiliki keadaan apa pun, bukan.
+
+01:48.050 --> 01:57.230
+Setiap kali kami menampilkan halaman web yang sama persis kepada siapa pun yang menggunakannya. Halaman ini tidak tahu siapa pengguna itu
+
+01:57.230 --> 02:03.740
+atau interaksi apa pun yang saya alami - utamanya hanya teks.
+
+02:03.810 --> 02:07.530
+Sekarang aplikasi RoboFriends - itu berbeda.
+
+02:07.680 --> 02:08.880
+Ia memiliki keadaan.
+
+02:09.330 --> 02:14.880
+Yah sebagian besar karena kami menulisnya dan kami punya ini. nyatakan tetapi kita bisa berinteraksi dengannya.
+
+02:14.940 --> 02:16.450
+Saya bisa mengetik di sini.
+
+02:17.400 --> 02:25.360
+Leanne dan saya memiliki kondisi kotak pencarian dengan L-E-A di dalamnya.
+
+02:25.560 --> 02:36.650
+Dan robot disaring hanya dengan Leanne. Negara menjelaskan bagaimana tampilan aplikasi kita. Aplikasi kami, aplikasi Robo-teman
+
+02:36.650 --> 02:46.520
+kami sekarang akan terlihat seperti ini hanya dengan satu kartu robot karena keadaan kotak pencarian
+
+02:46.520 --> 02:50.540
+yang memiliki huruf L-E-A di dalamnya.
+
+02:51.570 --> 03:00.660
+Sekarang dengan aplikasi sederhana seperti robo friends ap0, p state itu cukup mudah dimengerti, tetapi manajemen negara adalah masalah yang sangat sulit
+
+03:00.900 --> 03:02.780
+karena aplikasi kita menjadi
+
+03:02.880 --> 03:10.340
+lebih besar dan lebih besar, dan lebih besar. Dan Anda akan benar-benar melihat di bagian akhir kursus
+
+03:10.340 --> 03:15.180
+ketika kita mulai bekerja pada aplikasi otak cerdas yang melakukan pengenalan gambar.
+
+03:16.720 --> 03:24.430
+Anda akan melihat bagaimana keadaan menjadi semakin rumit dan kepala Anda mulai sakit karena Anda harus melacak
+
+03:24.430 --> 03:26.770
+semua hal ini terjadi.
+
+03:28.180 --> 03:35.380
+Jadi sekali lagi, dengan aplikasi reaksi sederhana kita dapat memiliki tampilan yang bagus dan mungkin memiliki status dan
+
+03:35.380 --> 03:39.680
+komponen yang berbeda tetapi akhirnya seiring dengan bertambahnya aplikasi kita.
+
+03:39.760 --> 03:49.150
+Kita berakhir dengan sesuatu seperti ini di mana kita memiliki semakin banyak komponen semakin banyak keadaan dalam komponen itu atau kita dapat
+
+03:49.150 --> 03:55.540
+memiliki satu keadaan masif di bagian paling atas di sini yang juga menjadi sangat sulit
+
+03:55.960 --> 03:59.090
+dan semua titik biru ini, saat
+
+03:59.110 --> 04:04.180
+mereka memperbarui, mereka juga harus memperbarui negara dan kemudian membuat ulang.
+
+04:04.380 --> 04:11.070
+Dan contoh ini di sini hanyalah diagram kecil tetapi Anda dapat melihat dengan semua
+
+04:11.070 --> 04:17.520
+panah ini betapa membingungkannya mendapatkan dan melacak semua keadaan ini benar-benar sangat sulit.
+
+04:17.550 --> 04:23.060
+Jadi kita memerlukan beberapa bentuk manajemen negara, dan redux.
+
+04:23.060 --> 04:25.070
+Memecahkan masalah ini untuk kita.
+
+04:25.070 --> 04:32.210
+Bagaimana kita bisa membuat diagram ini lebih sederhana dan membuat hal-hal lebih mudah dipahami di kepala kita sebagai pengembang?
+
+04:32.870 --> 04:35.060
+Redux datang dengan konsep novel.
+
+04:36.470 --> 04:39.750
+Bagaimana jika kita menghapus semua status,
+
+04:39.980 --> 04:43.050
+jadi ini. negara dari semua komponen?
+
+04:43.220 --> 04:45.390
+Bagaimana jika kita hanya memiliki alat peraga.
+
+04:45.620 --> 04:49.650
+Jadi semua komponen ini hanya memiliki alat peraga yang diturunkan.
+
+04:50.000 --> 05:00.150
+Dan sekarang negara, kita menyimpannya di toko. Dan sebuah toko hanyalah negara bagian di mana ini. negara yang bereaksi
+
+05:00.180 --> 05:01.700
+punya.
+
+05:01.860 --> 05:05.960
+Tetapi dalam satu objek besar seperti yang Anda lihat di sini.
+
+05:06.120 --> 05:14.940
+Jadi satu objek tunggal yang menggambarkan bagaimana tampilan aplikasi kita dan semua yang kita lakukan hanyalah menurunkan status itu ke
+
+05:15.300 --> 05:18.840
+komponen mana pun yang membutuhkannya sebagai alat peraga.
+
+05:19.750 --> 05:30.070
+Jadi diagram kita dari tampak seperti ini hanya dengan reaksi dapat pergi ke tampak seperti ini dengan redux di mana tidak ada
+
+05:30.070 --> 05:32.690
+komponen yang perlu tahan lagi.
+
+05:32.860 --> 05:41.020
+Dan kita dapat memiliki satu objek besar yang menggambarkan seluruh aplikasi kita dan komponen mana pun yang membutuhkan prop
+
+05:41.020 --> 05:43.440
+yang dapat diturunkan ke sana.
+
+05:44.320 --> 05:51.670
+Dan setiap pembaruan yang terjadi melalui negara, negara akan dimodifikasi dan kemudian
+
+05:51.670 --> 05:59.800
+kami meneruskan informasi itu ke komponen. Diagram ini mungkin membingungkan tanpa benar-benar mengkodekan apa pun.
+
+05:59.900 --> 06:01.010
+Dan kita akan
+
+06:01.010 --> 06:02.780
+kembali ke sana, jadi ini masuk akal.
+
+06:02.990 --> 06:11.230
+Tetapi bahkan hanya secara visual Anda dapat melihat bahwa diagram ini terlihat jauh lebih sederhana daripada diagram sebelumnya.
+
+06:11.240 --> 06:15.630
+Kami memiliki panah yang jauh lebih sedikit dan semuanya mengalir dengan lebih baik.
+
+06:15.680 --> 06:20.910
+Jadi, saat kita melihat video, Anda akan semakin terbiasa dengan gagasan manajemen negara ini.
+
+06:20.930 --> 06:28.430
+Tetapi saya ingin mengingatnya, itulah yang dipecahkan oleh redux. Redux adalah perpustakaan yang membuat manajemen negara lebih
+
+06:28.430 --> 06:34.100
+mudah, tidak hanya untuk reac tetapi untuk alat apa pun yang kami gunakan.
+
+06:34.220 --> 06:36.810
+Kebetulan bekerja dengan sangat baik dengan reaksi.
+
+06:37.400 --> 06:44.870
+Dan redux sebenarnya mendapat inspirasi dari desain basis data. Dari hal-hal seperti sumber acara atau CQRS yang dapat
+
+06:45.230 --> 06:49.400
+Anda baca lebih lanjut. Basis data memiliki masalah yang sama.
+
+06:49.520 --> 06:57.530
+Semua pembaruan ini dan semua perubahan ini terjadi tetapi kami membutuhkan cara untuk memastikan bahwa semua perubahan ini
+
+06:57.890 --> 07:00.950
+diatur dengan cara kohesif yang bagus.
+
+07:02.120 --> 07:02.730
+Baiklah.
+
+07:02.860 --> 07:08.580
+Baiklah mari kita masuk ke video berikutnya dan sedikit lebih dalam dengan redux.
+
+07:08.690 --> 07:09.680
+Sampai jumpa di yang berikutnya. Sampai jumpa.

@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.760 --> 00:07.620
+Bem-vindo de volta, como mencionei antes, os desenvolvedores são realmente muito bons em garantir que eles não continuem
+
+00:07.620 --> 00:09.630
+fazendo a mesma coisa repetidamente.
+
+00:09.900 --> 00:15.940
+E se há algo que é feito repetidamente, eles criam uma ferramenta para ela, para que ela se torne mais simples.
+
+00:17.810 --> 00:20.170
+Bem, construir servidores era um deles.
+
+00:20.170 --> 00:23.290
+É algo que todo mundo usa.
+
+00:23.450 --> 00:29.360
+Portanto, as pessoas usam bibliotecas exatamente como usamos o React no front-end sobre JavaScript
+
+00:29.360 --> 00:34.260
+para facilitar nossa vida e criar servidores mais rápidos e robustos.
+
+00:34.270 --> 00:39.690
+E existem muitas bibliotecas que as pessoas usam com o Node para criar um servidor.
+
+00:40.340 --> 00:47.630
+Mas o mais popular e prático o melhor agora é o Express e eu tenho aqui a pesquisa State of JavaScript 2017
+
+00:47.630 --> 00:54.290
+- é uma pesquisa famosa que é realizada todos os anos no final do ano e pergunta aos desenvolvedores quais
+
+00:54.350 --> 00:57.740
+são suas ferramentas favoritas ferramentas de front-end que eles usam.
+
+00:57.740 --> 00:59.880
+E eu recomendo que você dê uma olhada.
+
+01:00.050 --> 01:07.910
+Mas você pode ver aqui que, para o back-end, a biblioteca mais popular é o Express, e essa barra roxa
+
+01:07.910 --> 01:10.710
+significa 'eu usei antes e usaria novamente'.
+
+01:11.430 --> 01:17.500
+Existem outros como Koa, Meteor, Hapi, mas seu uso é muito pequeno.
+
+01:17.510 --> 01:24.370
+Express é apenas experimentado e testado; há muitas ferramentas e informações on-line para isso. Se você
+
+01:24.370 --> 01:29.140
+ficar preso, poderá encontrar uma resposta para o seu problema imediatamente.
+
+01:29.260 --> 01:33.160
+O So Express é o caminho a seguir.
+
+01:33.160 --> 01:40.130
+Vamos aprender um pouco do Express e mostrar como é mais fácil criar nosso próprio servidor.
+
+01:41.610 --> 01:48.510
+Então, vamos excluir o servidor que criamos anteriormente no último vídeo e instalar o Express.
+
+01:48.860 --> 01:55.680
+Vamos instalar o 'npm' e, novamente, através do npm, temos o pacote Express.
+
+01:58.930 --> 02:01.620
+E agora temos Express disponível para nós.
+
+02:01.660 --> 02:03.070
+Então vamos pegar.
+
+02:03.110 --> 02:13.230
+A maneira como você cria um servidor Express é muito simples: você simplesmente 'const express = require (' express ');'.
+
+02:13.550 --> 02:25.800
+Temos que fazer um 'app const' e, em seguida, para criar esse aplicativo, para executar o Express, simplesmente fazemos o
+
+02:25.970 --> 02:27.650
+aplicativo 'express
+
+02:27.650 --> 02:32.710
+()' E, finalmente, ''. listen (3000) 'e é isso.
+
+02:32.730 --> 02:35.710
+Temos Express em execução.
+
+02:36.010 --> 02:44.920
+Deixe-me fazer 'npm start' e vemos que nosso servidor Node está em execução.
+
+02:45.150 --> 02:51.140
+E se eu voltar ao localhost: 3000, tenho 'Cannot GET'.
+
+02:51.370 --> 02:54.150
+E isso é porque, novamente, não estamos fazendo nada.
+
+02:54.470 --> 03:01.580
+Porém, em apenas três linhas, temos um servidor e quero mostrar que o Express oferece um ótimo
+
+03:04.510 --> 03:09.600
+guia para começar e uma tonelada de informações sobre como usá-lo.
+
+03:10.680 --> 03:14.120
+E documentação para que você possa conferir por conta própria.
+
+03:14.250 --> 03:15.630
+Mas, por enquanto, vamos construir o nosso.
+
+03:18.440 --> 03:20.890
+Bem expresso é realmente muito bom em roteamento.
+
+03:21.030 --> 03:29.690
+Se você se lembra em nosso host local, obtemos 'Não é possível obter'. Para fazer uma solicitação GET com o Express, basta
+
+03:29.930 --> 03:34.450
+fazer o aplicativo '. get () '- no primeiro parâmetro é o caminho; nós apenas faremos o caminho da rota ['/'].
+
+03:36.710 --> 03:43.580
+E o segundo parâmetro recebe uma solicitação e uma resposta e, no Express, em vez de escrever
+
+03:43.580 --> 03:56.620
+tudo, a maneira comum de fazer isso é 'req' e 'res' e aqui podemos dizer 'res. send () 'e enviaremos apenas' hellooooo ', como
+
+03:56.720 --> 04:06.780
+fizemos no vídeo anterior, onde usamos o módulo HTTP que acompanha o Node.
+
+04:06.920 --> 04:19.750
+Então, vamos verificar isso; vamos ver se isso funciona. Vou salvar, atualizar e recebo 'hellooooo'. Se eu abrir o console aqui
+
+04:19.750 --> 04:28.560
+e a guia Rede e atualizar novamente, vejo que a resposta é 'hellooooo'.
+
+04:28.690 --> 04:40.520
+Vemos 'Tipo de conteúdo: texto / html' que foi convertido automaticamente para nós. Eu também posso, em vez de enviar [ing]
+
+04:40.730 --> 04:43.710
+apenas um HTML.
+
+04:43.880 --> 04:47.150
+Então, ao invés de fazer algo como
+
+04:49.990 --> 04:51.010
+'&lt;h1>'
+
+04:54.400 --> 05:06.080
+e '&lt;/h1>', que nos dá um &lt;h1> 'Hellooooo', agora também posso enviar JSON. 'const user' novamente e desta vez o nome do usuário
+
+05:06.080 --> 05:08.300
+será Sally e
+
+05:13.590 --> 05:23.470
+seu hobby será futebol e precisamos adicionar um '=' aqui e depois passar 'user' se eu salvar
+
+05:26.370 --> 05:31.430
+isso e voltar e atualizar. Olhe para isso!
+
+05:31.780 --> 05:37.180
+Ele executa automaticamente o 'JSON. stringify () 'para mim e retorna um Tipo de conteúdo JSON e
+
+05:37.280 --> 05:46.000
+um Tipo de conteúdo' application / json 'com a resposta que é JSON. Muito legal. Assim, você pode ver o
+
+05:46.000 --> 05:49.400
+poder do Express apenas neste exemplo simples.
+
+05:49.690 --> 05:56.420
+Isso tira muito da repetição e torna nossa vida muito mais fácil.
+
+05:56.440 --> 06:01.990
+Agora só fizemos GET aqui, mas você também pode fazer solicitações POST.
+
+06:01.990 --> 06:05.920
+Então, por exemplo, se eu fiz 'post' '/
+
+06:06.190 --> 06:11.440
+profile', bem, agora, se eu atualizar, recebo um erro porque porque agora
+
+06:14.390 --> 06:19.410
+eu fiz o método de solicitação, que foi obtido no navegador.
+
+06:19.640 --> 06:30.950
+Mas aqui eu só aceito uma solicitação POST de 'profile'. Se eu fizer '/ profile' aqui, obtenho 'Cannot GET
+
+06:35.620 --> 06:45.060
+/ profile' porque, apesar de estarmos indo para o URL correto, agora estamos fazendo uma solicitação GET.
+
+06:45.070 --> 06:46.750
+Sempre que atualizamos um navegador,
+
+06:46.780 --> 06:48.290
+é uma solicitação GET.
+
+06:48.790 --> 06:56.530
+E, para fazer isso, precisamos enviar alguns dados e mostrarei como fazer isso nos
+
+06:56.620 --> 06:58.200
+próximos vídeos.
+
+06:58.240 --> 07:07.890
+Mas apenas para mostrar como o Express funciona, posso continuar adicionando essas rotas - vamos 'obter' um '/ perfil'
+
+07:12.790 --> 07:15.460
+que retorna "obtendo perfil".
+
+07:15.640 --> 07:17.110
+E se eu
+
+07:21.230 --> 07:26.760
+fizer um outro 'get' dessa vez para o URL 'root' [/] e este,
+
+07:29.580 --> 07:30.630
+eu apenas
+
+07:30.620 --> 07:43.340
+direi "obtendo root" se eu salvar isso agora e atualizar '/ profile', receberei um '200 OK 'com a resposta de' ficar profissional e se eu não fizer '/ profile' e apenas
+
+07:43.340 --> 07:45.830
+o URL 'root', eu receberei 'root'.
+
+07:48.950 --> 07:53.780
+E a maneira como o Express funciona é verificar cada linha por linha.
+
+07:53.790 --> 08:01.670
+Por exemplo, ele verificará: "Ei, a solicitação GET tinha o URL 'root' [/]? "
+
+08:02.100 --> 08:05.160
+"A solicitação GET possui '/ profile'.
+
+08:05.160 --> 08:07.760
+A solicitação POST possui '/ profile'.
+
+08:07.980 --> 08:10.150
+E se ele corresponder a
+
+08:10.260 --> 08:14.640
+algum desses itens, ele executará qualquer que seja a função dentro dele.
+
+08:14.940 --> 08:28.280
+Se eu criar um URL que não existe, recebo um '404 Não Encontrado' porque fizemos uma solicitação GET para esse
+
+08:28.280 --> 08:33.660
+URL que não existe. Então, usando isso, podemos usar
+
+08:33.670 --> 08:41.830
+o método GET, o método POST, o método PUT e o método DELETE que vamos demonstrar nos
+
+08:41.830 --> 08:43.210
+próximos vídeos.
+
+08:43.210 --> 08:49.990
+Mas, como podemos ver, é simples dizer que, se você for para esta rota, faça isso, se for para esta, faça
+
+08:50.200 --> 08:54.510
+isso e tudo é apenas lógico e escorre por todo o caminho.
+
+08:56.040 --> 08:58.480
+Tudo bem, vejo você no próximo vídeo.
+
+08:58.480 --> 08:58.930
+Tchau tchau.

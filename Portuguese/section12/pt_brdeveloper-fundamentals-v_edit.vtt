@@ -1,0 +1,172 @@
+WEBVTT
+
+00:01.110 --> 00:07.120
+Bem-vindo ao quinto desenvolvedor fundamental. Você ainda está forte e tenho orgulho de você.
+
+00:07.170 --> 00:10.770
+Você acabou de passar pela seção mais difícil, que é a manipulação de DOM.
+
+00:10.800 --> 00:17.760
+Mas antes de prosseguir, quero falar com você sobre outro desenvolvedor fundamental, que está acessando
+
+00:17.970 --> 00:26.110
+o DOM. Javascript e oh desculpe, acho que temos John. Como vai o John? "Você e que exército? " Tudo certo.
+
+00:26.180 --> 00:32.270
+Voltando ao que estamos falando - o Javascript no HTML torna as coisas na Web muito empolgantes com tudo o que
+
+00:32.270 --> 00:33.230
+você pode fazer.
+
+00:33.440 --> 00:36.530
+Mas também introduziu uma série de problemas.
+
+00:36.710 --> 00:39.110
+Um deles era innerHTML aqui.
+
+00:39.620 --> 00:45.820
+Toda vez que o innerHTML é definido, o HTML deve ser
+
+00:46.100 --> 00:51.000
+analisado, um DOM construído e inserido no documento.
+
+00:51.020 --> 00:52.420
+Agora, o que isso significa?
+
+00:52.430 --> 01:01.740
+Bem, precisamos recriar essa árvore, adicioná-la ao navegador da Web e exibir tudo aqui na
+
+01:01.750 --> 01:03.660
+página da Web.
+
+01:03.910 --> 01:08.110
+Quero dizer, os navegadores da Web são rápidos, mas ainda precisam trabalhar.
+
+01:08.200 --> 01:09.620
+Isso leva tempo.
+
+01:09.640 --> 01:17.200
+Por exemplo, se o elemento digamos aqui tiver a tag 'a', e
+
+01:17.290 --> 01:26.190
+houver milhares deles na árvore DOM, se você chamar esse ponto innerHTML, fará com
+
+01:26.190 --> 01:30.870
+que o Analisador analise novamente tudo novamente.
+
+01:31.230 --> 01:37.450
+E isso pode quebrar as referências a talvez clicar em eventos e causar outro caos.
+
+01:37.470 --> 01:42.760
+Na realidade, tudo o que você quer fazer é anexar um único novo elemento ao final.
+
+01:43.950 --> 01:51.070
+E o innerHTML também é suscetível a alguns ataques chamados scripts entre sites, o que é um problema de segurança.
+
+01:52.260 --> 01:58.680
+Agora, à medida que mais e mais sites tentam fazer com que sua página da Web faça mais do que apenas mostrar uma página, pense
+
+01:58.680 --> 02:01.170
+em um aplicativo da Web, como o Udemy aqui.
+
+02:01.560 --> 02:06.570
+Obviamente, há muito mais do que apenas texto e estilo.
+
+02:06.700 --> 02:13.050
+Eles acessam o DOM e mudam bastante as coisas, mas esse é um enorme problema de desempenho.
+
+02:13.300 --> 02:19.060
+Nos vídeos anteriores, aprendemos que queremos criar sites com desempenho rápido e rápido hoje em
+
+02:19.060 --> 02:23.500
+dia, minimizando a quantidade de solicitações de back-end que fazemos.
+
+02:23.500 --> 02:32.070
+Portanto, se você se lembrar, aprendemos que a localização dos servidores é importante, quantas viagens realizamos para obter todos os arquivos
+
+02:32.280 --> 02:36.560
+são importantes e o tamanho dos arquivos é importante.
+
+02:36.560 --> 02:44.980
+Agora nesta lição, queremos minimizar a quantidade de manipulação de DOM que fazemos. Se mudarmos, digamos uma lista suspensa, não queremos que
+
+02:44.980 --> 02:45.750
+a
+
+02:45.810 --> 02:48.340
+página inteira seja renderizada novamente.
+
+02:48.540 --> 02:55.200
+Queremos ter um site interativo, mas não necessariamente fazer o navegador da Web funcionar, porque
+
+02:55.200 --> 03:00.400
+estamos constantemente mudando as coisas para o objeto do documento.
+
+03:00.410 --> 03:01.700
+Vamos ver do
+
+03:01.700 --> 03:03.650
+que estou falando, mostrando um exemplo.
+
+03:03.650 --> 03:11.450
+Se eu abrir o console aqui, e eu puder realmente pressionar escape, você verá que ele alterna uma nova barra e
+
+03:12.770 --> 03:18.380
+talvez você não veja a renderização. Talvez seja necessário clicar aqui e selecione a renderização
+
+03:18.380 --> 03:21.340
+que poderá fazer algo chamado Paint piscando.
+
+03:21.520 --> 03:33.430
+E agora, se eu minimizar isso, toda vez que isso ficar verde, significa que algo está sendo repintado na página da Web e você pode
+
+03:34.150 --> 03:37.450
+ver por aqui, enquanto estou percorrendo tudo,
+
+03:40.410 --> 03:43.080
+todas as ações verdes acontecendo.
+
+03:43.350 --> 03:46.590
+E isso é muitas coisas.
+
+03:46.600 --> 03:53.320
+E a Udemy faz um bom trabalho ao garantir que, quando faço isso, apenas esta seção
+
+03:53.320 --> 04:01.830
+que estou tocando seja ... fica pintado. Então brinque com ele, se quiser, e confira alguns sites diferentes. Alguns sites que
+
+04:01.830 --> 04:04.040
+você notará ao rolar ...
+
+04:04.270 --> 04:08.330
+ele renderiza a coisa toda em vez de apenas a barra, como você pode ver aqui.
+
+04:09.780 --> 04:12.170
+Mas essa é a sua lição.
+
+04:12.540 --> 04:17.870
+Você deseja minimizar a quantidade de manipulação e eventos do DOM.
+
+04:17.920 --> 04:24.160
+É um conceito muito importante na criação de aplicativos da Web, e você também deseja ser inteligente e usar os melhores
+
+04:24.580 --> 04:27.190
+métodos para minimizar isso. Agora, felizmente
+
+04:27.280 --> 04:32.350
+para você, é exatamente por isso que o REACT foi criado.
+
+04:32.350 --> 04:36.220
+Você aprenderá mais sobre isso nessa seção, mas ficará empolgado.
+
+04:36.220 --> 04:40.340
+Isso tornará as coisas realmente muito rápidas e muito simples de construir.
+
+04:41.650 --> 04:42.220
+ESTÁ BEM.
+
+04:42.520 --> 04:43.750
+Por enquanto é isso.
+
+04:44.020 --> 04:44.710
+Até a próxima vez. Tchau tchau

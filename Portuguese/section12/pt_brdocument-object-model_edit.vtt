@@ -1,0 +1,265 @@
+WEBVTT
+
+00:00.810 --> 00:01.730
+Bem vindo de volta.
+
+00:01.890 --> 00:05.450
+É hora de voltar a criar páginas da web.
+
+00:05.670 --> 00:09.050
+Mas desta vez com JavaScript.
+
+00:09.330 --> 00:15.030
+Até agora, aprendemos HTML e CSS e, em seguida, aprendemos
+
+00:15.240 --> 00:22.380
+JavaScript, mas separadamente. O verdadeiro poder vem quando combinamos todas essas três tecnologias. Agora, nos vídeos anteriores, mencionei como
+
+00:22.380 --> 00:29.370
+o JavaScript permitia que ações fossem executadas na página da web. Bem, o que eles quiseram dizer
+
+00:29.370 --> 00:30.030
+lá?
+
+00:31.040 --> 00:37.090
+Ao adicionar JavaScript às nossas páginas da web, agora temos o poder que
+
+00:37.130 --> 00:43.790
+nunca tivemos com HTML e CSS. Podemos mudar todos os elementos HTML
+
+00:43.980 --> 00:51.120
+da página, alterar todos os atributos HTML da página, alterar todos os estilos
+
+00:51.120 --> 00:59.400
+CSS da página, remover elementos e atributos HTML existentes, adicionar novos elementos e atributos HTML e
+
+00:59.400 --> 01:08.570
+o JavaScript também pode reagir a eventos HTML existentes ou pode criar seus próprios eventos HTML na página.
+
+01:08.580 --> 01:15.370
+Agora, algumas dessas coisas, como alterar blocos CSS ou atributos e elementos HTML.
+
+01:15.380 --> 01:24.710
+Bem, nós poderíamos fazê-los antes, mas com JavaScript, podemos fazer isso enquanto o usuário estiver na página.
+
+01:24.720 --> 01:27.410
+Vamos olhar para o diagrama.
+
+01:27.580 --> 01:34.300
+Solicitamos o HTML e, em seguida, o navegador viu a tag do link.
+
+01:34.700 --> 01:46.320
+Pegue o CSS e antes de usar o JavaScript, se quisermos mudar o estilo ou a aparência do HTML.
+
+01:46.320 --> 01:49.100
+Talvez desejemos clicar na página "Sobre".
+
+01:49.120 --> 02:01.530
+Embora solicitássemos o HTML e o CSS novamente para alterar a aparência da página da Web, mas agora com JavaScript tudo o que
+
+02:02.190 --> 02:10.650
+você precisa é este e o JavaScript pode fazer isso por você, se desejar na
+
+02:10.650 --> 02:12.070
+mesma página.
+
+02:12.120 --> 02:16.260
+Agora, nesta seção, vamos aprender tudo isso. Para fazer isso,
+
+02:16.260 --> 02:21.090
+precisamos voltar aos nossos diagramas e entender duas coisas.
+
+02:21.150 --> 02:26.780
+Um é o DOM e o segundo é o mecanismo JavaScript.
+
+02:26.850 --> 02:34.140
+Até esse ponto, falamos como o HTML é solicitado e depois o CSS, e o navegador faz algo
+
+02:34.140 --> 02:36.340
+especial, cria algo chamado DOM.
+
+02:36.480 --> 02:39.160
+Esse tipo de aparência é assim.
+
+02:39.340 --> 02:45.860
+Quando uma página da web é carregada, o navegador cria o DOM, que significa Modelo de Objeto de Documento.
+
+02:46.060 --> 02:50.880
+Você vê aqui que temos um documento com o elemento raiz HTML.
+
+02:51.070 --> 02:56.460
+Temos um elemento head, body com algumas tags 'a' e 'h1'.
+
+02:56.470 --> 02:58.000
+O que isso realmente significa?
+
+02:58.030 --> 03:01.520
+Você pode realmente ver a mesma coisa no console, então vamos verificar isso.
+
+03:03.110 --> 03:08.990
+Portanto, o DOM ou o Modelo de Objeto do Documento é simplesmente 'documento'.
+
+03:09.040 --> 03:12.490
+Então aqui se abrirmos o documento, lá vai você.
+
+03:12.560 --> 03:17.440
+Temos a mesma coisa que vimos na guia Elementos. Deixe-me fechar o estilo aqui.
+
+03:18.530 --> 03:24.890
+Bem no console.
+
+03:24.990 --> 03:27.580
+Agora, por que precisamos do DOM?
+
+03:27.720 --> 03:37.050
+Bem, precisávamos de uma maneira de obter, alterar, adicionar ou excluir elementos HTML, para que o DOM foi criado para que
+
+03:37.050 --> 03:39.070
+possamos fazer algo assim.
+
+03:39.240 --> 03:42.530
+'documento. write ("helloooo") 'e
+
+03:44.170 --> 03:51.590
+observe o que acontece com a página da web, ela muda para
+
+03:51.730 --> 03:52.590
+"helloooo".
+
+03:52.600 --> 04:00.700
+Portanto, o DOM é algo que um navegador cria para nos permitir modificar o HTML e CSS.
+
+04:00.970 --> 04:04.420
+OK agora e a outra frase que eu mencionei,
+
+04:04.420 --> 04:07.770
+o mecanismo JavaScript? Até esse ponto,
+
+04:07.770 --> 04:14.540
+falamos sobre como cada navegador carrega o JavaScript e ele é magicamente lido.
+
+04:14.570 --> 04:16.490
+Afinal, o que isso quer dizer?
+
+04:16.690 --> 04:24.110
+Bem, cada navegador tem uma coisa chamada 'mecanismo JavaScript' e todos eles têm nomes bem legais.
+
+04:24.110 --> 04:35.710
+O Chrome possui o 'motor V8', o Edge o 'Chalker Core', o Safari o 'Nitro' e o Firefox o 'SpiderMonkey'. E o que eles fazem é que olham para
+
+04:35.720 --> 04:43.670
+o arquivo JavaScript e o lêem linha por linha e executam o
+
+04:43.670 --> 04:44.830
+JavaScript.
+
+04:44.840 --> 04:48.300
+Então, como esses dois se unem?
+
+04:48.530 --> 04:53.400
+Bem, agora podemos usar JavaScript para conversar com o DOM.
+
+04:53.540 --> 04:56.960
+Você vê quando documentamos a gravação de pontos (documento. escrever) que
+
+05:00.220 --> 05:02.110
+era JavaScript, não era?
+
+05:02.140 --> 05:09.390
+Isso parece um objeto e tinha o método de gravação
+
+05:09.430 --> 05:18.250
+que aceitava um argumento 'helloooo'. Os navegadores da Web nos permitem acessar o DOM através do objeto de documento e é isso que
+
+05:18.250 --> 05:19.330
+é, é um objeto.
+
+05:19.420 --> 05:26.710
+E agora temos o poder que mencionamos antes de fazer todas as coisas para modificar essencialmente a
+
+05:26.830 --> 05:29.410
+aparência da nossa página da web.
+
+05:29.410 --> 05:38.530
+Então, sabendo o que fazemos, o documento é a tela que vemos no navegador. Bem aqui e o documento como mencionei é
+
+05:38.650 --> 05:41.210
+apenas um objeto.
+
+05:41.500 --> 05:48.940
+Agora ele tem um objeto pai? Bem, na verdade, ele faz.
+
+05:48.940 --> 05:51.850
+É chamado de janela.
+
+05:52.090 --> 05:59.610
+E você vê aqui uma janela é um objeto com uma tonelada de propriedades.
+
+05:59.810 --> 06:08.130
+Mas se rolarmos até aqui, veremos que uma das propriedades é documento e até a destaca para
+
+06:08.130 --> 06:13.790
+nós e, se abrirmos o documento, ele terá mais propriedades.
+
+06:13.830 --> 06:24.730
+Além disso, lembre-se de 'alert' e 'prompt' verificando se o objeto da janela tem alerta.
+
+06:24.790 --> 06:26.570
+Então, vamos tentar algo.
+
+06:26.790 --> 06:34.960
+Se eu fiz 'janela. alert ("check check") 'isso ainda funcionará?
+
+06:34.960 --> 06:39.920
+Vamos ver? Sim, ainda funciona.
+
+06:39.960 --> 06:49.790
+A razão pela qual 'alert' funcionou dessa maneira foi porque 'window' é - você pode pensar nisso como o principal
+
+06:49.800 --> 06:59.680
+pai de tudo e uma janela do navegador é um objeto que descreve esse navegador e sempre que você usa
+
+07:00.070 --> 07:08.210
+um método como 'alert' se não especifique nada que assuma que você está falando sobre o
+
+07:08.370 --> 07:16.410
+objeto window, o maior pai. Mas lembre-se do documento. escrever'?
+
+07:17.730 --> 07:25.340
+Podemos fazer isso no objeto da janela?
+
+07:25.460 --> 07:31.100
+Vamos verificar isso. Eu recebo uma janela de erro. write 'não é
+
+07:31.110 --> 07:36.410
+uma função porque não existe como uma propriedade de' window
+
+07:36.420 --> 07:43.310
+'tt existe como uma propriedade do documento que é uma propriedade de' window '.
+
+07:43.320 --> 07:54.580
+Então, vamos recapitular. Um navegador da web possui um objeto de janela que possui uma propriedade 'document' que
+
+07:54.580 --> 07:58.390
+especifica o que deve ser exibido para decidir o que
+
+07:58.390 --> 08:10.030
+deve ser exibido no objeto de documento, o modelo de objeto de documento lê o HTML e CSS e, em seguida, o JavaScript que é lido linha por linha por
+
+08:10.360 --> 08:13.590
+algo como um mecanismo JavaScript - no
+
+08:13.600 --> 08:17.380
+Google Chrome, esse é o mecanismo V-8 - o lê.
+
+08:17.770 --> 08:27.400
+E se precisar mudar alguma coisa, o JavaScript pode falar com o objeto do documento e
+
+08:27.600 --> 08:33.850
+modificar o HTML e CSS. Usando nosso novo poder encontrado, no
+
+08:33.940 --> 08:40.510
+próximo vídeo, começaremos a manipular o DOM para tornar nossos sites mais interativos com JavaScript.
+
+08:40.510 --> 08:42.100
+Vamos começar. Tchau tchau

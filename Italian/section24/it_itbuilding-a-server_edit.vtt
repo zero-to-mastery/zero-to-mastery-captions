@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.670 --> 00:04.770
+Ben tornato. Penso che sia ora di creare il nostro server ora.
+
+00:06.270 --> 00:09.620
+Quindi creiamo un nuovo file chiamato 'server. js'.
+
+00:09.660 --> 00:11.470
+[server touch. js]
+
+00:11.700 --> 00:15.540
+E affinché nodemon ascolti "server". js'.
+
+00:15.540 --> 00:19.630
+Digitiamo 'nodemon' e quindi 'server. js'.
+
+00:19.830 --> 00:27.450
+Ora, se salvo questo nodemon, ascolterò questo fino a quando dico 'npm start' Come ho già
+
+00:31.120 --> 00:33.070
+detto prima, Node
+
+00:34.360 --> 00:42.250
+arriva con il suo modulo HTTP ed è quello che useremo per creare il nostro server.
+
+00:42.250 --> 00:44.080
+Ed è molto molto semplice da usare.
+
+00:44.260 --> 00:56.600
+Prendiamo semplicemente il modulo HTTP e quindi creiamo un server definendolo dicendo "http. createServer ()'. In questo "createServer" creeremo
+
+00:56.600 --> 01:05.940
+una funzione freccia e all'interno per ora eseguiamo semplicemente la
+
+01:05.970 --> 01:11.100
+console. log ('Ti sento! grazie per la
+
+01:12.910 --> 01:20.660
+richiesta) "E poi finalmente dobbiamo fare" server. hear () 'e assegnagli il numero di porta che vogliamo ascoltare.
+
+01:20.770 --> 01:23.930
+Quindi fai 3000 per ora, ma di nuovo puoi
+
+01:23.930 --> 01:27.710
+fare qualsiasi cosa, puoi fare 3001 se vuoi, ma 3000 è bello.
+
+01:27.940 --> 01:31.160
+Facciamo un 'nodo server. js '- E
+
+01:31.180 --> 01:32.020
+sembra
+
+01:34.690 --> 01:37.000
+che sia solo appeso lì.
+
+01:38.000 --> 01:43.680
+Ma andiamo alla porta 3000 sul nostro localhost che è la nostra macchina e vediamo cosa succede.
+
+01:45.140 --> 01:51.910
+Se apro una nuova scheda e vado su localhost 3000 hmm, non succede nulla.
+
+01:52.180 --> 01:59.160
+Se apro la console non c'è nulla, ma se torno vedo "Ti sento.
+
+01:59.230 --> 02:05.080
+Grazie per la richiesta "ed è perché ricorda 'server. js 'è in esecuzione in Node.
+
+02:05.230 --> 02:11.350
+Funziona qui nel Terminal. Ma sta ascoltando le connessioni.
+
+02:11.350 --> 02:19.570
+Quindi quando premo 'aggiorna' qui o premo Invio e provo a connettermi, ascolterà e
+
+02:19.870 --> 02:24.410
+eseguirà 'console. log () 'e puoi vedere il secondo "Ti sento. Grazie per la richiesta "proprio qui.
+
+02:24.520 --> 02:25.180
+Se
+
+02:25.180 --> 02:26.300
+aggiorno altre due volte.
+
+02:28.190 --> 02:31.260
+Bene, ne ottengo altri due.
+
+02:31.480 --> 02:36.150
+Ma in questo momento il browser è sospeso perché non stiamo facendo nulla.
+
+02:36.190 --> 02:37.800
+Non stiamo rispondendo con nulla.
+
+02:37.800 --> 02:40.760
+In basso puoi vedere "in attesa di localhost".
+
+02:40.960 --> 02:44.080
+Stiamo solo registrando la console da parte nostra, ma non otteniamo alcuna risposta.
+
+02:46.060 --> 02:47.050
+Facciamolo.
+
+02:47.050 --> 02:53.950
+Ho intenzione di rimuovere il registro della console e utilizzare i parametri che "createServer" ci fornisce.
+
+02:53.980 --> 03:02.510
+Quindi ogni volta che proviamo a connetterci, abbiamo un parametro 'richiesta' quindi un 'risposta' che possiamo usare e
+
+03:02.510 --> 03:07.240
+rendiamolo un po 'più piccolo solo così possiamo vedere.
+
+03:07.430 --> 03:16.700
+E qui dentro possiamo fare qualcosa come "risposta". setHeader () '...
+
+03:19.760 --> 03:26.010
+"Content-Type": ti stiamo facendo sapere che tipo di contenuto avremmo inviato e sarà "text / html" - e
+
+03:26.580 --> 03:37.950
+questo è solo il modo standard di dichiarare il tipo di contenuto e diremo "risposta . end () 'con un tag' &lt;h1> 'che
+
+03:39.470 --> 03:42.200
+dice' Helloooooo '.
+
+03:46.740 --> 03:50.730
+Se lo salvo e rieseguo bene, dobbiamo
+
+03:54.350 --> 03:57.530
+riavviare nuovamente il nostro server.
+
+03:57.620 --> 04:02.840
+Quindi coinvolgiamo i nodemon qui in modo che ascoltino le modifiche ai file.
+
+04:02.880 --> 04:05.000
+Vado al 'pacchetto. json 'Lo salverò.
+
+04:05.000 --> 04:10.340
+E ora corro 'npm start' per vedere che tutto è in esecuzione.
+
+04:10.340 --> 04:12.150
+Torniamo al nostro 'server. file js.
+
+04:12.410 --> 04:19.560
+Se torno indietro e aggiorno ricevo 'ciaoooooo'; se vado nella scheda Rete vedo che
+
+04:20.350 --> 04:28.670
+localhost ottengo una risposta 200; se faccio clic su questo, vedo che la risposta è stata "&lt;h1>
+
+04:28.900 --> 04:39.970
+ciaoooooo &lt;/h1>" Se vado alle intestazioni vedo che era un codice di stato 200 e il tipo di contenuto era "text / html".
+
+04:40.150 --> 04:41.230
+Molto bello.
+
+04:41.260 --> 04:43.940
+Posso anche ascoltare le richieste.
+
+04:43.990 --> 04:51.720
+Quindi, per esempio, qui avrei potuto dire "console". log (richiesta. headers) "Avrei anche
+
+04:54.700 --> 05:05.880
+potuto dire, avrei anche potuto dire" metodo "e infine qualcosa come" richiesta "url" ci fornisce
+
+05:05.880 --> 05:10.430
+molte informazioni sulle richieste che riceviamo.
+
+05:10.530 --> 05:13.700
+E proprio così siamo chiari su ciò che ciascuno di questi è.
+
+05:13.710 --> 05:25.680
+Posso dire "header", "method" e "url". Se lo salvo e rieseguo
+
+05:28.820 --> 05:36.680
+vedo che le intestazioni sono "localhost: 3000".
+
+05:36.850 --> 05:42.310
+Vediamo che "user-agent" era Mozilla, Macintosh. Quindi è quello che abbiamo usato.
+
+05:42.610 --> 05:44.180
+Abbiamo usato una Apple per fare quella richiesta.
+
+05:44.180 --> 05:44.930
+Tutto ok.
+
+05:46.050 --> 05:51.830
+E il metodo era un metodo "GET" e l'URL era solo la barra rovesciata [\].
+
+05:51.900 --> 05:55.890
+Commentiamo solo le intestazioni per ora e mostriamo come cambiano le cose.
+
+05:55.890 --> 06:01.020
+Se ora inserisco 'localhost: 3000 / profile / 123' Ottengo 'metodo GET' e
+
+06:04.450 --> 06:07.930
+'url' era '/ profilo / 123' Quindi otteniamo
+
+06:07.990 --> 06:12.530
+informazioni sulla richiesta fatta dal front-end, il che è molto bello.
+
+06:13.560 --> 06:22.240
+Ora con la nostra risposta abbiamo risposto con 'text / html' ma ricordi JSON giusto? Abbiamo parlato di quanto sia utile JSON
+
+06:22.240 --> 06:26.260
+quando si fanno richieste AJAX.
+
+06:26.370 --> 06:27.630
+Possiamo farlo qui?
+
+06:27.690 --> 06:35.870
+Ovviamente se vado e cambio 'Content-Type' in 'application / json', allora dovrai solo abituarti a questo, ma questo è il modo
+
+06:35.870 --> 06:39.980
+in cui dici che il tipo di contenuto è JSON.
+
+06:40.040 --> 06:50.270
+Ora possiamo inviare un oggetto JavaScript come 'user' e diremo "name:
+
+06:53.210 --> 06:57.280
+'John'" "hobby: 'Skating'".
+
+06:57.320 --> 07:05.360
+Ora questo utente, posso passare qui, ma ricorda che per trasferire tra
+
+07:05.510 --> 07:12.980
+i fili dobbiamo usare 'JSON. stringify "e assicurati di controllare il video JSON se questo ti confonde.
+
+07:13.040 --> 07:22.090
+Ma di nuovo stiamo cambiando questo oggetto in una stringa JSON in modo da poterlo inviare tramite i fili.
+
+07:22.230 --> 07:33.390
+Se salvo e torniamo indietro e aggiorna ottengo - guarda quello! - una risposta JSON di nuovo "nome: 'John', hobby: 'pattinaggio'" e se
+
+07:33.960 --> 07:40.560
+clicco sulla scheda Rete qui vedo che il 'Content-Type' è 'application / json' e
+
+07:40.620 --> 07:43.610
+la risposta è in formato JSON.
+
+07:43.640 --> 07:47.740
+Quindi sul front-end eseguiremo 'json. parse () 'E quindi questo
+
+07:47.750 --> 07:52.520
+[{"name:" John "," hobby ":" Skating "}] per convertirlo in un oggetto JavaScript.
+
+07:52.580 --> 07:53.340
+Molto bello.
+
+07:54.340 --> 08:03.670
+Abbiamo appena creato il nostro primo server ma questo HTTP è piuttosto semplice; come puoi immaginare, la costruzione di server è qualcosa che tutti fanno
+
+08:03.670 --> 08:11.670
+con un sito Web e ci sono molti strumenti che possiamo usare ora che sono più eleganti rispetto all'esecuzione di HTTP
+
+08:11.790 --> 08:12.780
+e il
+
+08:12.840 --> 08:19.500
+più popolare e il migliore da usare con Node. js è qualcosa chiamato
+
+08:19.500 --> 08:23.510
+Express, di cui parleremo nel prossimo video.
+
+08:23.620 --> 08:25.360
+Ci vediamo in quello. Ciao ciao

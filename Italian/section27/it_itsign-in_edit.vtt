@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00.640 --> 00:01.750
+Ben tornato.
+
+00:01.870 --> 00:04.070
+Abbiamo il nostro punto finale.
+
+00:04.090 --> 00:09.010
+Accedi dove finalmente siamo in grado di accedere agli utenti.
+
+00:09.120 --> 00:14.110
+Ora potrebbe esserci qualcosa che hai realizzato quando stavamo lavorando al registro.
+
+00:14.490 --> 00:26.590
+Cioè stiamo inserendo l'utente con e-mail, nome e iscrizione, ma non aggiorneremo mai la nostra tabella di accesso.
+
+00:26.800 --> 00:36.190
+Se seleziono la stella dal login, non abbiamo nulla lì.
+
+00:37.080 --> 00:38.010
+Non va bene.
+
+00:38.010 --> 00:43.980
+Vogliamo creare qualcosa ogni volta che un nuovo utente accede e in realtà cattura le proprie password o l'hash
+
+00:43.980 --> 00:45.300
+delle loro password.
+
+00:46.470 --> 00:51.810
+Quindi lavoriamo su questo in questo video. Per consentirci di farlo.
+
+00:51.850 --> 00:58.300
+Per prima cosa dobbiamo registrare un utente e acquisire le loro password.
+
+00:59.650 --> 01:05.650
+Ora per fare questo dobbiamo inserire in un altro database.
+
+01:05.720 --> 01:10.000
+Ma prima usiamo bcrypt per estrarre una password che otteniamo.
+
+01:10.200 --> 01:17.730
+Se ricordi che abbiamo già installato bcrypt ed è da un video precedente
+
+01:17.970 --> 01:24.540
+possiamo tornare al nodo bcrypt. pacchetto js e sebbene ti abbia mostrato il modo asincrono
+
+01:24.540 --> 01:27.970
+di fare le cose faremo quello sincrono perché è più semplice.
+
+01:28.200 --> 01:33.120
+Basta tenere presente che con sincrono significa che mentre funziona javascript
+
+01:33.120 --> 01:39.120
+non verrà eseguito sulla riga successiva rispetto a asincrono se si esegue hash bcrypt,
+
+01:39.120 --> 01:41.080
+Javascript continua a funzionare.
+
+01:41.220 --> 01:44.130
+E poi quando tornerà tornerà qui.
+
+01:45.050 --> 01:48.200
+In questo modo è solo un po 'più pulito per ora.
+
+01:48.200 --> 01:50.510
+Quindi useremo questo esempio di codice.
+
+01:51.080 --> 01:59.700
+Copieremo questo, andremo al nostro registro e qui - non vogliamo ancora confrontare.
+
+01:59.750 --> 02:10.250
+Vogliamo solo archiviare, quindi possiamo dire const hash che vogliamo crittografare la password.
+
+02:10.280 --> 02:15.360
+Quindi cambiamo questo in password.
+
+02:15.580 --> 02:22.780
+E ora che abbiamo l'hash della password dobbiamo assicurarci di aggiornare gli utenti e la
+
+02:22.780 --> 02:28.480
+tabella di accesso in modo da non avere un problema come
+
+02:32.880 --> 02:36.020
+questo in cui abbiamo questi utenti.
+
+02:36.240 --> 02:44.640
+Ma se andiamo all'accesso Beh, non abbiamo assolutamente nulla.
+
+02:44.640 --> 02:54.090
+Quindi, per evitare ciò, abbiamo un importante concetto di transazioni e le transazioni sono questi blocchi di codice che possiamo
+
+02:54.180 --> 03:01.740
+aggiungere per assicurarci che quando si eseguono più operazioni su un database in caso di errore,
+
+03:01.740 --> 03:02.750
+tutte falliscono.
+
+03:02.880 --> 03:09.600
+Se per qualche motivo, non riesco a inserire qualcosa nella tabella degli utenti, ma posso accedere, purché sia racchiuso
+
+03:09.600 --> 03:14.410
+in una transazione, entrambi falliscono in modo da non avere mai queste incongruenze.
+
+03:14.670 --> 03:15.950
+Lascia che ti mostri come farlo.
+
+03:17.060 --> 03:25.390
+Con la tabella degli utenti voglio avere questa parte. Sto per rientrare un po '.
+
+03:25.450 --> 03:34.810
+E prima di fare gli utenti, voglio creare una transazione. Sto per dire transazione punto DB e ora abbiamo
+
+03:34.810 --> 03:42.940
+una transazione in KNEX e se andiamo al KNEX hanno transazioni e puoi leggere su di esse
+
+03:42.940 --> 03:46.230
+qui e anche SQL ha transazione.
+
+03:49.450 --> 03:59.680
+Se torniamo indietro, questa transazione ottiene un parametro trx che ora possiamo usare invece del set del DB per
+
+03:59.680 --> 04:09.460
+assicurarci che qualunque cosa facciamo sia una transazione. La prima transazione che vogliamo fare è che vogliamo
+
+04:11.460 --> 04:24.960
+inserire negli utenti o nel login l'hash nell'e-mail, quindi possiamo dire e-mail di hash o hash di hash che abbiamo appena ricevuto da bcrypt e quindi
+
+04:24.960 --> 04:30.870
+e-mail da cui abbiamo appena ricevuto richiedere il corpo del punto.
+
+04:34.470 --> 04:37.530
+Invece di fare solo questa sintassi che possiamo fare anche noi.
+
+04:37.800 --> 04:39.420
+Possiamo
+
+04:42.950 --> 04:53.590
+effettuare l'accesso e infine restituire l'e-mail dell'utente.
+
+04:53.720 --> 05:01.650
+Ora che abbiamo restituito questo, possiamo dire punto quindi e-mail perché stiamo restituendo l'e-mail.
+
+05:03.590 --> 05:11.170
+E solo per tenerlo separato dalla richiesta o dal corpo, diremo che questa è l'e-mail di accesso e questa
+
+05:11.170 --> 05:17.020
+e-mail lunga verrà ora utilizzata qui. Quindi possiamo semplicemente copiarlo e incollarlo
+
+05:21.690 --> 05:22.620
+qui.
+
+05:24.510 --> 05:33.400
+Assicurati solo che la spaziatura sia corretta. E possiamo usare l'e-mail di accesso dopo aver aggiornato
+
+05:33.400 --> 05:40.450
+il registro e la tabella per aggiornare l'e-mail di accesso in modo da non cambiare nulla.
+
+05:40.450 --> 05:49.210
+L'unica cosa che abbiamo fatto è stato che questo blocco lo abbiamo spostato all'interno di un punto, quindi per
+
+05:49.210 --> 05:58.430
+prima cosa aggiorniamo la tabella di accesso otteniamo l'e-mail di accesso e per assicurarci che entrambi facciano parte della transazione invece
+
+05:58.830 --> 06:02.910
+di fare DB qui abbiamo il Oggetto TRX.
+
+06:02.970 --> 06:08.820
+Quindi faremo TRX e salviamo e vediamo cosa succede.
+
+06:11.610 --> 06:16.860
+E poi torno al nostro esempio qui, il nostro NodeMon.
+
+06:16.860 --> 06:18.400
+Abbiamo un registro con John.
+
+06:18.480 --> 06:21.430
+Se faccio clic su Invia.
+
+06:21.550 --> 06:31.690
+Va bene ricevo l'ID 11 John, ricevo e-mail se entro nel login.
+
+06:31.960 --> 06:33.940
+Non ho accesso qui.
+
+06:34.060 --> 06:37.030
+Se vado negli utenti non ho neanche John.
+
+06:37.060 --> 06:38.630
+Quindi qualcosa deve essere andato storto.
+
+06:39.880 --> 06:47.950
+L'ultima cosa che vogliamo fare è alla fine, e puoi leggere questo nella sezione KNEX, possiamo fare quindi il
+
+06:48.240 --> 06:49.940
+commit TRX, perché
+
+06:50.150 --> 06:57.520
+non siamo stati in grado di inviarli perché non abbiamo detto che se tutti questi passano quindi
+
+06:57.640 --> 07:00.310
+eseguono il commit invia questa transazione tramite.
+
+07:00.820 --> 07:04.300
+E se faccio dot
+
+07:04.300 --> 07:08.670
+catt, farò il rollback di TRX
+
+07:08.700 --> 07:11.800
+Quindi ora proviamo.
+
+07:11.830 --> 07:19.770
+Ho intenzione di fare clic su Invia, ho una risposta. Se vado agli utenti.
+
+07:19.770 --> 07:28.000
+Ho John e se vado per accedere ho John con l'hash.
+
+07:28.000 --> 07:35.010
+L'unica cosa che non va qui è che ho questa sintassi per l'e-mail, che non è ciò che vogliamo.
+
+07:35.030 --> 07:38.590
+Questa è una soluzione semplice perché stiamo fornendo l'e-mail di accesso qui.
+
+07:38.590 --> 07:42.620
+Ricorda che stiamo restituendo un array.
+
+07:42.670 --> 07:49.790
+Quindi, se vado in questo modo, inviamo John 1 al nostro esempio
+
+07:53.460 --> 07:55.170
+di accesso.
+
+07:55.290 --> 07:56.270
+Sembra bello.
+
+07:56.490 --> 08:01.670
+E accedi ai nostri utenti abbiamo John1 su gmail dot com.
+
+08:01.770 --> 08:02.300
+Stupefacente.
+
+08:04.020 --> 08:09.220
+Quindi questa transazione è probabilmente la parte più difficile a cui abituarsi.
+
+08:09.420 --> 08:11.300
+E puoi vedere qui che è un po '.
+
+08:11.310 --> 08:14.800
+Ma una volta ottenuta la sintassi diventa molto semplice.
+
+08:14.970 --> 08:22.440
+Si crea una transazione quando è necessario eseguire più di due operazioni contemporaneamente e si utilizza questo oggetto
+
+08:22.620 --> 08:26.370
+TRX anziché il DB per eseguire queste operazioni.
+
+08:26.370 --> 08:36.570
+Nel mio caso lo inserisco nel login, ha restituito l'e-mail e quindi usiamo l'e-mail di login per restituire anche
+
+08:36.570 --> 08:46.810
+un'altra transazione TRX da inserire negli utenti e abbiamo risposto con Json e quindi affinché questo venga aggiunto Dobbiamo assicurarsi
+
+08:46.840 --> 08:54.610
+che ci impegniamo e, nel caso in cui qualcosa non riesca, ripristiniamo le modifiche.
+
+08:54.880 --> 09:04.390
+Se inserisco di nuovo lo stesso utente, non riesco a registrarmi. Se invio informazioni errate, non riesco a registrarmi.
+
+09:04.390 --> 09:04.390
+Perfezionare.
+
+09:07.610 --> 09:15.280
+Ora che abbiamo questo lavoro, possiamo finalmente andare al nostro accesso. stiamo contenendo l'hash ora sulla nostra tabella
+
+09:15.280 --> 09:20.290
+e tutto ciò che dobbiamo fare ora è, beh, rimuoviamolo.
+
+09:20.710 --> 09:38.950
+E in questo accesso possiamo fare un DB, faremo una selezione, selezioneremo e-mail e hash dall'accesso.
+
+09:38.980 --> 09:43.040
+Dot quindi avremo l'e-mail e l'hash.
+
+09:43.040 --> 09:46.820
+Quindi otteniamo una risposta o in questo caso eseguiamo semplicemente i dati e facciamo
+
+09:51.520 --> 09:53.950
+solo il log della console per vedere cosa
+
+09:57.440 --> 10:06.400
+riceviamo, andrò ad accedere e vedere se abbiamo ancora qualcosa. Ecco qua Facciamo il login cookie
+
+10:06.610 --> 10:13.350
+John John questo lo dico. Non sto rispondendo con nulla, quindi si blocca.
+
+10:13.500 --> 10:21.630
+Ma se torno vedo che ricevo e-mail e hash e ricevo tutto perché non ho selezionato alcun
+
+10:21.990 --> 10:23.400
+criterio specifico.
+
+10:23.520 --> 10:33.220
+Possiamo dire che ora vogliamo fare la clausola WHERE in cui l'e-mail
+
+10:37.440 --> 10:41.930
+è uguale all'e-mail del punto
+
+10:42.000 --> 10:50.110
+punto corpo della richiesta. In tal caso, salviamo e riproviamo, invia.
+
+10:50.280 --> 10:55.060
+Si è verificato un errore di sintassi perché non è necessario un oggetto qui.
+
+10:55.060 --> 10:56.200
+Ecco qua
+
+10:56.530 --> 10:57.410
+Proviamo di nuovo.
+
+10:57.410 --> 10:59.030
+Fai clic su Invia.
+
+10:59.250 --> 11:01.600
+Questo si bloccherà quindi annulleremo.
+
+11:01.770 --> 11:02.700
+E il gioco è fatto.
+
+11:02.700 --> 11:05.840
+Abbiamo l'e-mail e l'hash di John.
+
+11:06.270 --> 11:11.760
+E ora dobbiamo verificare se John ha inserito la password giusta.
+
+11:12.040 --> 11:21.220
+Quindi, all'interno dei dati qui possiamo prendere l'array che è il primo.
+
+11:21.480 --> 11:31.140
+E ora usa bcrypt. E ricorda che con bcrypt abbiamo confrontato la sincronizzazione.
+
+11:31.340 --> 11:37.040
+Possiamo semplicemente dire che bcrypt dot compare sync con qualunque cosa l'utente abbia inserito.
+
+11:37.030 --> 11:48.910
+In questo caso richiedi una password punto body con l'hash, nel nostro caso possiamo semplicemente dire hash punto zero
+
+11:49.060 --> 11:50.040
+dati.
+
+11:50.230 --> 11:55.200
+Se questo ritorna vero bene, basta avere una const valida.
+
+11:59.110 --> 12:01.520
+In tal caso, rendiamolo un po 'più piccolo in
+
+12:05.960 --> 12:07.990
+modo da poter vedere che diremo se
+
+12:10.910 --> 12:12.710
+è valido restituirà vero o falso.
+
+12:12.740 --> 12:17.130
+Faremo un punto di risposta Json con le informazioni dell'utente.
+
+12:17.210 --> 12:24.830
+Quindi dovremo fare un punto DB selezionare la
+
+12:27.370 --> 12:30.520
+stella dal punto
+
+12:33.390 --> 12:46.220
+utenti in cui l'e-mail è uguale a richiedere l'e-mail punto corpo punto quindi avremo l'utente.
+
+12:46.300 --> 12:49.090
+E finalmente all'interno di
+
+12:54.020 --> 13:02.740
+questo possiamo spostare questo elemento di risposta nel primo elemento dell'array di utenti Json.
+
+13:03.150 --> 13:06.810
+E se c'è qualche problema a risolverlo,
+
+13:11.070 --> 13:11.760
+diremo
+
+13:11.790 --> 13:26.370
+catturare il punto di risposta dell'errore Json faremo di nuovo lo stato 400 Json incapace di ottenere l'utente, e anche qui perché stiamo ancora facendo la ricerca
+
+13:26.370 --> 13:29.090
+del database proprio qui.
+
+13:29.250 --> 13:35.190
+E questa non deve essere una transazione perché, beh, stiamo solo controllando, non stiamo modificando nessuno degli elementi
+
+13:35.190 --> 13:37.950
+del database qui. Possiamo dire dot catt in
+
+13:41.760 --> 13:42.990
+caso di errore.
+
+13:43.290 --> 13:55.910
+Possiamo solo rispondere allo stato punto 400 Questa volta possiamo dire credenziali sbagliate.
+
+13:56.120 --> 13:57.130
+Va bene, proviamolo.
+
+13:57.140 --> 14:01.110
+Non ho intenzione di salvare nessun errore qui.
+
+14:01.110 --> 14:04.800
+Bene, torna al postino e fai clic.
+
+14:04.820 --> 14:08.360
+Invio di biscotti John.
+
+14:08.550 --> 14:09.600
+Ho capito 200.
+
+14:09.620 --> 14:15.320
+OK ma non ho ricevuto un utente, quindi eseguiamo il log della console qui.
+
+14:20.410 --> 14:22.780
+E questo è un errore semplice.
+
+14:22.930 --> 14:31.680
+Vogliamo sempre assicurarci di restituirlo in modo che questo database ne sia a conoscenza.
+
+14:31.680 --> 14:33.150
+Vogliamo sempre assicurarci di tornare.
+
+14:33.150 --> 14:34.800
+Proviamo di nuovo.
+
+14:34.800 --> 14:40.780
+Ho intenzione di inviare con le giuste informazioni con i cookie delle password.
+
+14:40.780 --> 14:42.850
+Bene, ne ho 200.
+
+14:43.000 --> 14:45.310
+Ma facciamo un registro della console qui.
+
+14:46.710 --> 14:51.120
+È valido. Salveremo e vedremo cosa arriveremo qui.
+
+14:51.120 --> 14:55.190
+Stiamo per inviare OK.
+
+14:55.350 --> 14:59.820
+È valido è in esecuzione e quindi gli utenti è zero.
+
+14:59.820 --> 15:03.750
+Quindi non stiamo afferrando correttamente gli utenti.
+
+15:03.750 --> 15:04.420
+Vediamo perché.
+
+15:07.060 --> 15:09.580
+E questo perché la nostra e-mail per John.
+
+15:09.580 --> 15:14.410
+Ricorda che abbiamo fatto un errore nel non restituirlo correttamente.
+
+15:14.410 --> 15:19.420
+Quindi registriamo un nuovo utente e assicuriamoci che abbiano la password giusta.
+
+15:19.900 --> 15:33.460
+Torneremo per registrarci, ci registreremo con la password Eddy, sarà ciao e il suo nome sarà Andy. Faremo clic
+
+15:33.490 --> 15:37.770
+su Invia. Perfezionare.
+
+15:37.960 --> 15:40.810
+E ora se eseguiamo l'accesso con Eddy
+
+15:44.540 --> 15:47.870
+non è necessario inviare il nome solo la password.
+
+15:48.390 --> 15:51.840
+Se facciamo clic su Invia.
+
+15:51.940 --> 15:54.770
+Bene, ne abbiamo 200.
+
+15:54.820 --> 15:56.150
+Sembra che funzioni.
+
+15:57.510 --> 16:02.320
+Ma se Eddy inserisce la password errata.
+
+16:02.390 --> 16:02.610
+Tutto ok.
+
+16:02.630 --> 16:03.740
+Questo è ancora sospeso.
+
+16:03.770 --> 16:08.420
+Perché non abbiamo mai dichiarato se questo è falso cosa dovrebbe accadere.
+
+16:09.550 --> 16:23.230
+Nel nostro caso vogliamo dire lo stato del punto di risposta 400 punti Json ha credenziali errate e assicuriamoci di
+
+16:23.230 --> 16:26.330
+fare un'altra dichiarazione qui.
+
+16:27.420 --> 16:30.160
+E mettilo qui.
+
+16:32.430 --> 16:33.000
+Salviamo
+
+16:36.170 --> 16:40.080
+Fare clic su Invia. Credenziali errate.
+
+16:40.180 --> 16:41.350
+Ma se
+
+16:45.190 --> 16:47.020
+clicco ciao ottengo Eddy.
+
+16:47.140 --> 16:48.240
+Questo è impressionante.
+
+16:48.370 --> 16:52.060
+Abbiamo tutto il nostro flusso di accesso funzionante.
+
+16:52.210 --> 16:54.080
+Siamo in grado di
+
+16:56.960 --> 17:04.380
+rimuovere i registri della console qui e ora che abbiamo tutto funzionante, abbiamo i nostri utenti il nostro nuovo utente
+
+17:04.380 --> 17:13.700
+Eddy ed è anche parte dell'accesso con l'hash con l'archiviazione di tutto in modo sicuro perché nel nostro database non memorizziamo mai la password di Eddy.
+
+17:13.740 --> 17:19.110
+E finalmente abbiamo i nostri registri funzionanti. Nel prossimo video testeremo finalmente tutto questo
+
+17:19.110 --> 17:26.310
+con il nostro front-end e speriamo che tutto funzioni bene e sembra che non abbiamo più bisogno di questo database.
+
+17:26.460 --> 17:27.630
+Buon lavoro a tutti.
+
+17:27.660 --> 17:29.150
+Ci vediamo al prossimo.
+
+17:29.150 --> 17:29.630
+Ciao ciao.

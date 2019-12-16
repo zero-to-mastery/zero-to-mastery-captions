@@ -1,0 +1,364 @@
+WEBVTT
+
+00:01.910 --> 00:10.340
+Todas as empresas armazenam dados. Desde um simples livro de registros de uma pequena empresa, talvez até em
+
+00:10.340 --> 00:11.580
+um diário ou
+
+00:11.690 --> 00:17.810
+um pedaço de papel, a grandes empresas como a Amazon, que precisam de computadores para armazenar Petabytes de dados.
+
+00:17.810 --> 00:26.000
+Agora, para armazenar essas informações praticamente todas as empresas e, às vezes, os indivíduos também precisam de algo
+
+00:26.000 --> 00:27.940
+chamado banco de dados.
+
+00:28.070 --> 00:35.060
+Vimos na última seção o quão difícil era fazer com que nosso servidor se lembrasse de um novo usuário. Toda vez que o servidor travava,
+
+00:35.060 --> 00:35.810
+a
+
+00:35.810 --> 00:40.030
+variável era redefinida e começava do zero.
+
+00:40.460 --> 00:48.400
+Ou, se quiséssemos fazer um login ou uma verificação de login e iterar pelos e-mails e senhas, fazendo
+
+00:48.470 --> 00:52.160
+um loop pelo javascript que é ineficiente.
+
+00:52.160 --> 00:54.240
+É aí que o banco de dados vem em socorro.
+
+00:54.990 --> 00:58.850
+Então, vamos nos perguntar o que é um banco de dados.
+
+00:58.890 --> 01:01.960
+Um banco de dados é uma coleção de dados.
+
+01:02.050 --> 01:03.540
+E o que queremos dizer
+
+01:03.850 --> 01:05.730
+com dados - existem muitas formas certas.
+
+01:05.770 --> 01:10.360
+Pode haver números, datas, hashes de
+
+01:10.360 --> 01:17.440
+senha, informações do usuário. Os bancos de dados nos permitem organizar esses dados
+
+01:17.440 --> 01:24.340
+de uma maneira que é útil para nós e facilita o gerenciamento de dados e algo surgiu disso.
+
+01:24.650 --> 01:29.930
+E é chamado de sistema de gerenciamento de banco de dados ou DBMS, para abreviar.
+
+01:29.990 --> 01:35.120
+É uma coleção de programas que nos permite acessar bancos de dados e trabalhar com dados.
+
+01:35.450 --> 01:39.740
+E também permite acesso controlado aos usuários do banco de dados.
+
+01:41.600 --> 01:50.820
+Portanto, um DBMS é algo nesta caixa, algo que nos permite uma ferramenta ou um software que nos permite
+
+01:50.820 --> 01:59.420
+comunicar com o banco de dados, armazenar informações úteis para nós e também nos permite atualizar, inserir,
+
+02:00.050 --> 02:05.780
+excluir e procurar o que estiver no base de dados.
+
+02:05.840 --> 02:12.980
+E essa ideia de um DBMS realmente começou a tomar forma nos anos 1960 e agora está na vanguarda de
+
+02:12.980 --> 02:14.130
+muitas coisas interessantes.
+
+02:14.150 --> 02:19.850
+Existe toda uma indústria de engenheiros que apenas trabalha com bancos de dados porque é muito importante.
+
+02:21.100 --> 02:27.130
+Agora, existem dois tipos de DBMS realmente populares no momento e sobre os quais falaremos
+
+02:27.130 --> 02:27.980
+neste curso.
+
+02:29.820 --> 02:36.310
+E esses dois tipos são representados muito bem pelo Postgres e MongoDB.
+
+02:36.450 --> 02:43.230
+Vamos falar sobre o primeiro, que é o banco de dados relacional. E este é provavelmente o mais popular. Como você pode ver no
+
+02:43.230 --> 02:44.600
+lado direito.
+
+02:44.610 --> 02:49.410
+Você vê que todos esses são bancos de dados relacionais.
+
+02:49.630 --> 02:56.890
+Postgres, Oracle, SQL server, você pode ter ouvido falar de mySQL, SQLite.
+
+02:57.230 --> 03:03.840
+Esses são todos os tipos de bancos de dados que possuem essa marca de banco de dados relacional.
+
+03:04.100 --> 03:06.770
+E a beleza deles é que eles são todos muito parecidos.
+
+03:06.770 --> 03:10.630
+Todos eles seguem o mesmo formato padrão.
+
+03:10.640 --> 03:19.510
+Os bancos de dados relacionais consistem em duas ou mais tabelas com colunas e linhas.
+
+03:19.530 --> 03:27.180
+Portanto, nesse caso, os usuários são uma tabela e nome completo, nome de usuário, texto, created_at são colunas e
+
+03:27.180 --> 03:30.900
+quaisquer valores que eles têm aqui são linhas.
+
+03:31.230 --> 03:34.690
+Cada linha representa uma entrada e cada coluna
+
+03:34.700 --> 03:39.710
+armazena um tipo muito específico de informações como nome, endereço ou números de telefone.
+
+03:39.930 --> 03:48.050
+E então a relação entre tabelas e campo é chamada de esquema. Em um banco de dados relacional, o esquema deve ser
+
+03:48.170 --> 03:55.480
+claramente definido antes que qualquer informação possa ser adicionada. E se isso é confuso agora, não se preocupe,
+
+03:55.480 --> 03:59.230
+vamos criar esses bancos de dados, então faz sentido para você.
+
+03:59.500 --> 04:05.470
+Se tivéssemos o Twitter, por exemplo, você pode ver aqui os tipos de tabelas que
+
+04:05.470 --> 04:07.130
+teríamos e como organizá-lo.
+
+04:07.240 --> 04:15.400
+Teríamos uma tabela de usuários, uma tabela de tweets, uma tabela a seguir e podemos conectar todas essas informações.
+
+04:15.420 --> 04:23.220
+Por exemplo, conectando diferentes partes da tabela. Por exemplo, o nome de usuário será o
+
+04:23.220 --> 04:27.560
+mesmo na tabela de usuários e na tabela de tweets.
+
+04:27.570 --> 04:37.530
+Dessa forma, podemos dizer que o nome de usuário na tabela de tweets é a chave estrangeira do
+
+04:37.530 --> 04:46.090
+nome de usuário na tabela de usuários. E from_user será a chave estrangeira do nome de usuário na tabela a seguir.
+
+04:46.110 --> 04:56.400
+Agora, coisas como nome completo ou ID, algo que identifica cada linha de uma tabela, são chamadas de chave
+
+04:57.060 --> 05:01.940
+primária e abordaremos isso mais adiante nesta seção.
+
+05:01.940 --> 05:07.130
+Tudo bem, então todos esses bancos de dados - vamos aprender sobre o Postgres SQL, mas todos são praticamente
+
+05:07.130 --> 05:07.670
+iguais.
+
+05:07.670 --> 05:14.810
+Portanto, quando você conhece um, é bastante fácil escolher os outros - como eles realmente se
+
+05:15.660 --> 05:22.230
+comunicam com o servidor com o back-end. Bem, todos os bancos de dados relacionais usam algo chamado SQL.
+
+05:26.510 --> 05:34.960
+E o SQL nos permite comunicar como o HTTP fez entre o front-end e o back-end. Com o SQL, podemos nos comunicar
+
+05:34.960 --> 05:42.410
+com o banco de dados e modificar ou obter ou atualizar como desejamos.
+
+05:43.040 --> 05:45.620
+E teremos um vídeo sobre esse tópico também.
+
+05:45.620 --> 05:49.820
+Tudo bem, então são bancos de dados relacionais.
+
+05:49.820 --> 05:51.740
+E o segundo tipo.
+
+05:51.800 --> 05:58.870
+O segundo tipo é chamado de banco de dados não relacional ou banco de dados NoSQL.
+
+05:59.000 --> 06:05.000
+E mais uma vez, existem muitos tipos diferentes de bancos de dados com alguns nomes interessantes,
+
+06:05.000 --> 06:06.680
+como CouchDB e HYPERTABLE.
+
+06:06.810 --> 06:12.810
+Agora, um mongoDB ou um banco de dados não relacional permite criar
+
+06:12.810 --> 06:14.900
+um aplicativo sem precisar
+
+06:14.970 --> 06:26.400
+definir o esquema primeiro, diferente de um banco de dados relacional. Se voltarmos ao banco de dados relacional, esse esquema ou essas tabelas terão que
+
+06:26.490 --> 06:27.750
+ser predefinidas corretamente.
+
+06:27.750 --> 06:35.930
+Precisamos saber a aparência do aplicativo, criar essas tabelas para que, quando o aplicativo for público, possamos
+
+06:35.940 --> 06:45.030
+começar a inserir informações do usuário, tweets e seguidores. Com um banco de dados NoSQL ou não relacional, podemos apenas defini-lo
+
+06:45.030 --> 06:47.050
+à medida que avançamos.
+
+06:47.340 --> 06:53.410
+E todos eles têm maneiras diferentes de armazenar essas informações, de modo que cada um é muito, muito diferente.
+
+06:53.490 --> 06:58.650
+E esse é outro motivo poderoso para usar um banco de dados não relacional: se seus requisitos de dados não estiverem claros no
+
+06:58.650 --> 07:05.790
+início do seu projeto e talvez você tenha uma enorme quantidade de dados não estruturados. Você pode não ter o luxo de
+
+07:05.790 --> 07:11.390
+desenvolver um banco de dados relacional com um esquema claramente definido.
+
+07:11.480 --> 07:18.390
+Em vez disso, eles oferecem uma maior flexibilidade, pois um banco de dados não relacional se parece mais com pastas,
+
+07:18.390 --> 07:21.510
+apenas reunindo informações relacionadas de todos os tipos.
+
+07:22.340 --> 07:26.560
+Agora, o MongoDB é algo chamado orientado a documentos.
+
+07:26.600 --> 07:31.740
+Ele armazena informações como documentos.
+
+07:31.750 --> 07:33.700
+Deixe-me ilustrar esse ponto para você.
+
+07:33.700 --> 07:37.170
+Eu tenho minha área de trabalho aqui com duas pastas.
+
+07:37.540 --> 07:40.330
+Um é um banco de dados relacional.
+
+07:40.330 --> 07:48.920
+E aqui eu tenho usuários, tweets, perfil, seguindo. E você pode pensar em bancos de dados relacionais com esse tipo de armazenamento em
+
+07:48.920 --> 07:56.540
+que essa pasta fica em algum lugar do computador que armazena essas informações. E sempre que precisamos pedir alguma coisa
+
+07:56.540 --> 08:02.600
+ao banco de dados, agarramos os usuários e se também queremos receber
+
+08:02.600 --> 08:09.680
+os tweets do usuário. Encontramos o usuário em que estamos interessados. Em seguida, encontre os tweets do
+
+08:09.680 --> 08:17.510
+usuário em que também estamos interessados com a chave estrangeira que vincula os usuários e também podemos encontrar quantos seguidores esse
+
+08:17.540 --> 08:18.680
+usuário possui.
+
+08:18.680 --> 08:22.780
+Pegamos essas informações e as exibimos em nosso aplicativo da web.
+
+08:25.480 --> 08:27.360
+Por outro lado,
+
+08:28.240 --> 08:37.100
+o MongoDB terá cada usuário como um documento. Então, se eu quisesse pegar o primeiro usuário.
+
+08:37.420 --> 08:43.740
+Bem, eu apenas peguei este documento e ele tem todos os seguidores,
+
+08:43.740 --> 08:51.590
+tweets, o perfil, tudo está neste documento. E você pode estar pensando "O MongoDB parece uma escolha melhor do que ter essa maneira de fazer as
+
+08:53.100 --> 08:54.390
+coisas corretamente? "Bem, depende
+
+08:55.560 --> 09:00.000
+da sua necessidade e é por isso que os bancos de dados são um tópico tão complexo.
+
+09:00.030 --> 09:02.460
+Realmente, realmente depende da sua situação.
+
+09:02.490 --> 09:08.760
+Você pode ver essa maneira do MongoDB sendo muito útil se você tiver algo como um perfil, talvez um perfil
+
+09:08.760 --> 09:09.410
+do linkedin.
+
+09:09.630 --> 09:15.390
+Mas se você precisava de algo em que trabalhava apenas com os dados a seguir ou apenas com os tweets, talvez
+
+09:15.430 --> 09:19.020
+com os tweets que deseja ver qual é o tamanho médio dos tweets.
+
+09:19.140 --> 09:25.530
+Bem, é realmente fácil apenas pegar esse arquivo e calculá-lo dessa forma, em que você
+
+09:25.530 --> 09:28.810
+pode extraí-lo de cada um dos usuários.
+
+09:29.010 --> 09:31.900
+Então, realmente depende das suas necessidades.
+
+09:32.050 --> 09:40.990
+Deixe-me mostrar outro diagrama que pode ser útil. Quando olhamos para bancos de dados relacionais versus não
+
+09:40.990 --> 09:42.000
+relacionais.
+
+09:42.220 --> 09:44.950
+Você pode pensar em relacional como Cada tabela
+
+09:45.040 --> 09:54.250
+possui postagens de blog, tag de blog e comentários de blog e vincula essas tabelas para fornecer as informações do blog versus um não relacional
+
+09:55.030 --> 10:02.170
+que armazena toda a postagem em bloco em uma entrada e possui comentários, tags , categorias e todos os
+
+10:02.590 --> 10:04.200
+outros dados relacionados
+
+10:04.210 --> 10:05.920
+Apenas em um único local.
+
+10:05.950 --> 10:08.890
+Então, o que o MongoDB usa para se comunicar.
+
+10:09.420 --> 10:16.130
+Se voltarmos ao nosso exemplo aqui, tínhamos SQL para bancos de dados relacionais, como o Postgres.
+
+10:16.200 --> 10:26.760
+Bem, o MongoDB possui o que chamamos de linguagem de consulta e é apenas a linguagem de consulta do MongoDB.
+
+10:31.690 --> 10:33.690
+Mas ambos pretendem fazer a mesma coisa.
+
+10:33.700 --> 10:40.060
+Isso é para se comunicar com o banco de dados, fornecer uma maneira fácil para o servidor se comunicar com
+
+10:40.060 --> 10:41.690
+o banco de dados.
+
+10:41.810 --> 10:46.280
+E nesta seção, falaremos sobre isso e, finalmente, conectaremos os pontos e
+
+10:46.850 --> 10:51.510
+mostraremos o poder dos bancos de dados quando eles estiverem conectados a um servidor.
+
+10:51.560 --> 10:53.600
+Verei no próximo. Tchau tchau.

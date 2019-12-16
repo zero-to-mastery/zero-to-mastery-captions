@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.700 --> 00:09.660
+Vamos usar o KNEX para concluir algumas de nossas outras rotas. Se formos para a barra ID do perfil.
+
+00:09.790 --> 00:11.500
+Ainda não o usamos realmente em nosso aplicativo.
+
+00:11.500 --> 00:14.440
+É algo para o desenvolvimento futuro.
+
+00:14.440 --> 00:20.260
+Este é um bom exemplo porque, às vezes, os engenheiros de back-end desenvolvem pontos de extremidade que
+
+00:20.260 --> 00:25.750
+podem não ser usados para o front-end, mas podem ser necessários em instalações futuras como esta,
+
+00:25.750 --> 00:33.250
+onde talvez possamos ter uma página de perfil para cada um de nossos usuários e eles possam editar isso e talvez eles
+
+00:33.250 --> 00:36.240
+possam ter uma postagem, uma exclusão, uma publicação.
+
+00:36.270 --> 00:42.240
+Então, vamos trabalhar nisso com o ID do ponto do perfil, que eu quero pegar no usuário.
+
+00:42.240 --> 00:45.580
+Essa é uma operação muito simples com nosso banco de dados corretamente.
+
+00:45.600 --> 00:53.040
+Podemos simplesmente remover isso agora e dizer que o ponto do banco de dados selecione tudo, porque
+
+00:55.700 --> 01:05.830
+queremos tudo da tabela de usuários da tabela de usuários. Parece um pouco fácil demais né.
+
+01:05.840 --> 01:07.910
+Vamos ver se isso funciona. Vou fazer um ponto então.
+
+01:10.040 --> 01:11.420
+Eu retornarei o usuário.
+
+01:13.260 --> 01:23.510
+E apenas console o log novamente, apenas para testar tudo, vamos consolar o usuário do log.
+
+01:23.550 --> 01:24.960
+Vamos ao perfil.
+
+01:24.960 --> 01:26.050
+ID da barra.
+
+01:26.220 --> 01:36.760
+E lembre-se, se voltarmos ao nosso banco de dados, temos o ID 1, 2, 3, 6, então vamos apenas o ID 1. Usando nosso carteiro, pegaremos o
+
+01:37.880 --> 01:40.890
+perfil. Vamos ver se temos um desses aqui.
+
+01:40.890 --> 01:41.340
+Ai está.
+
+01:41.340 --> 01:45.670
+Há uma solicitação get e faremos o perfil 1, enviar.
+
+01:45.920 --> 01:54.630
+E se voltarmos ao console, tudo bem, estamos recebendo todos os nossos usuários. Mas lembre-se, com o ID do perfil, queremos ter
+
+01:54.630 --> 02:01.220
+certeza de que é o ID e não todos os usuários que estamos capturando.
+
+02:01.450 --> 02:11.200
+Portanto, podemos simplesmente dizer ponto onde e dentro da cláusula WHERE se voltarmos ao KNEX e quero demonstrar aqui que
+
+02:11.200 --> 02:14.170
+é isso que um desenvolvedor faz.
+
+02:14.170 --> 02:20.120
+Eles não conhecem todas as especificações de uma biblioteca ou pacote.
+
+02:20.140 --> 02:26.080
+Você simplesmente fica muito bom lendo a documentação e vendo por que precisa, como aqui,
+
+02:26.080 --> 02:32.940
+e passamos um objeto do que queremos verificar. Então, primeiro nome Teste o sobrenome Usuário.
+
+02:32.980 --> 02:46.650
+No nosso caso, queremos um objeto em que ID é o ID que recebemos nos parâmetros. Se salvarmos e executarmos isso novamente no postgres, volte
+
+02:46.650 --> 02:52.120
+ao nosso exemplo e veja isso.
+
+02:52.220 --> 03:04.840
+Nós temos Ann. E queremos pegar a matriz do usuário, para que possamos fazer oops, e podemos fazer zero.
+
+03:04.860 --> 03:05.280
+Surpreendente.
+
+03:06.550 --> 03:08.390
+Apenas para manter isso
+
+03:08.400 --> 03:16.000
+breve novamente, com o ES6, podemos fazer exatamente isso porque o ID da propriedade e o valor são os mesmos.
+
+03:16.060 --> 03:27.040
+Vou salvar e agora, em vez do log do console, faremos o usuário Json com ponto de resposta, que será o usuário
+
+03:27.040 --> 03:28.040
+que obteremos.
+
+03:28.330 --> 03:30.560
+E não precisamos mais disso, precisamos?
+
+03:30.700 --> 03:32.160
+Vamos limpar o código agora.
+
+03:32.360 --> 03:40.080
+E se isso não for encontrado bem, nesse caso, obteremos uma matriz vazia.
+
+03:41.230 --> 03:46.960
+Mas vamos ver primeiro o que obtemos com nossa resposta e, depois, tocaremos no caso de erro. Vamos salvar voltar
+
+03:47.920 --> 03:53.390
+para carteiro, enviaremos e obteremos um erro.
+
+03:53.410 --> 03:57.480
+Encontrado não está definido e devemos comentar isso.
+
+03:57.670 --> 04:01.380
+Vamos tentar novamente, clique em enviar.
+
+04:02.370 --> 04:04.220
+Tudo bem, temos Ann.
+
+04:04.530 --> 04:05.540
+Isso é tão legal.
+
+04:06.750 --> 04:08.250
+E se
+
+04:11.430 --> 04:21.990
+fizermos 2, obteremos Anne com um e. Se fizermos seis, temos Amy e, se eu fizer três, recebo John. E se eu fizer um número que
+
+04:21.990 --> 04:23.010
+não existe.
+
+04:25.000 --> 04:27.360
+Eu recebo 200 OK sem resposta.
+
+04:28.600 --> 04:36.770
+Porque bem, não temos esse usuário. Mas vamos apenas consolar o log e ver se recuperamos um usuário disso.
+
+04:36.890 --> 04:43.450
+Se eu salvar e enviar, recebo uma matriz vazia.
+
+04:43.750 --> 04:49.350
+Então, ainda está retornando algo, está apenas me dizendo que não há usuário.
+
+04:49.540 --> 04:54.770
+Se eu fizer um cache de pontos aqui - deixe-me corrigir o alinhamento aqui.
+
+04:58.250 --> 05:11.880
+E eu cometo o erro com Json ou respondo esse status 400 e simplesmente não encontramos se eu salvar isso e voltar ao carteiro, clique
+
+05:12.780 --> 05:16.640
+em enviar novamente com o ID errado.
+
+05:16.770 --> 05:32.270
+Ainda recebo 200 OK, não o erro que detectamos, porque em javascript se eu abrir o chrome novamente. Truque de javascript.
+
+05:32.280 --> 05:35.860
+Se eu fizer uma matriz booleana, uma matriz vazia.
+
+05:36.120 --> 05:39.030
+É tecnicamente verdade.
+
+05:39.070 --> 05:51.380
+Portanto, da maneira como queremos verificar a matriz vazia, simplesmente dizemos que, se o comprimento do ponto do usuário
+
+05:51.380 --> 06:01.420
+existir, nesse caso, será maior que 1 ou igual a 1 e responderá ao usuário.
+
+06:01.540 --> 06:05.150
+Caso contrário, responderemos com nosso
+
+06:09.840 --> 06:14.130
+status não encontrado e talvez também
+
+06:17.250 --> 06:26.730
+possamos aqui dizer erro ao obter usuário. Se salvarmos agora e voltarmos para - vamos remover o console porque não precisamos mais dele.
+
+06:27.050 --> 06:28.040
+Volte para o carteiro.
+
+06:30.920 --> 06:34.090
+Clique em enviar. Não encontrado.
+
+06:34.130 --> 06:35.040
+Fantástico.
+
+06:35.180 --> 06:41.150
+Recebemos 400 pedidos ruins, mas se pegarmos alguém que queremos, ele está funcionando agora.
+
+06:42.320 --> 06:45.900
+Muito legal. Agora podemos remover esse código feio.
+
+06:46.790 --> 06:50.540
+Temos uma sintaxe muito melhor aqui agora.
+
+06:50.910 --> 06:53.150
+E também temos o registro feito.
+
+06:53.640 --> 06:55.630
+Deixaremos o sinal até o fim.
+
+06:55.980 --> 06:59.580
+Mas vamos trabalhar no ponto final da imagem no próximo.
+
+07:00.780 --> 07:02.160
+Vou ver nessa. Tchau tchau.

@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.620 --> 00:01.370
+Welcome back.
+
+00:02.230 --> 00:08.970
+I've just put our robo friends project on GitHub but let's say you're downloading this project.
+
+00:09.110 --> 00:15.950
+Maybe you're sharing a project with other developers but this project let's say was written last year.
+
+00:15.950 --> 00:21.500
+How can we update this project if you remember when we look at the package.
+
+00:21.500 --> 00:23.090
+Dot Jason File.
+
+00:23.090 --> 00:30.020
+We have the react version as sixteen point two but the react version is now higher.
+
+00:30.020 --> 00:35.750
+So let's update this project as you would on any other project.
+
+00:35.750 --> 00:39.670
+I'm going to clone this repo and I'm going to use SS H.
+
+00:39.710 --> 00:46.260
+You might have to use HDP s if you haven't had that setup but I'm going to use SSA just so I don't have
+
+00:46.260 --> 00:48.500
+to enter my password every time.
+
+00:48.750 --> 00:56.820
+So I'm going to clone this repo say get clone robo friends awesome.
+
+00:56.860 --> 01:03.600
+Now if I go into my robo friends folder and I open this and sublime.
+
+01:03.670 --> 01:05.120
+There we go.
+
+01:05.170 --> 01:09.620
+We have our package dot Jason File which we can see over here.
+
+01:09.670 --> 01:13.650
+Now when I usually download a project I want to make sure it starts.
+
+01:13.650 --> 01:20.990
+So I'm going to say NPM start and make sure that everything is still working and I get an error because
+
+01:20.990 --> 01:23.270
+I have to first do npm install
+
+01:27.910 --> 01:28.460
+Oh boy.
+
+01:28.600 --> 01:36.730
+And we get a bunch of errors or warnings saying we've audited some of your packages and there's a few
+
+01:36.730 --> 01:37.720
+vulnerabilities.
+
+01:37.780 --> 01:38.820
+Actually quite a lot.
+
+01:38.830 --> 01:49.170
+And two critical one and we can run NPM audit fix to fix the so let's copy that and run that again
+
+01:55.110 --> 02:01.130
+and now I get another issue that twenty seven vulnerabilities required manual review.
+
+02:01.740 --> 02:07.140
+And you see here that it's mainly because some of them require what we call breaking changes it might
+
+02:07.230 --> 02:08.850
+break our app.
+
+02:08.850 --> 02:16.660
+And this is the tradeoff when updating libraries you are using an older version of a library that may
+
+02:16.660 --> 02:24.470
+have changed and now breaks your app completely so sometimes you want to go one by one to actually check
+
+02:24.890 --> 02:28.670
+and see what the changes are in these libraries.
+
+02:28.670 --> 02:31.400
+Now if I run NPM plot it here
+
+02:35.160 --> 02:42.550
+it'll actually give me some idea of what my issues are now.
+
+02:42.690 --> 02:54.520
+Before I do NPM audit fix and then do dash dash force to force all those changes I want to talk a little
+
+02:54.520 --> 02:56.530
+bit about this package that Jason
+
+02:59.670 --> 03:07.800
+you see the react scripts which is the create react app script that runs is outdated.
+
+03:07.800 --> 03:14.800
+There's a way higher version of React scripts a bigger version of the CIA create react.
+
+03:15.000 --> 03:17.190
+And same with react.
+
+03:17.190 --> 03:26.540
+So one thing I can do is say NPM update and if I run this and when I click on this file check this out
+
+03:27.930 --> 03:29.060
+did you see that.
+
+03:29.340 --> 03:38.820
+My version's got updated now and p.m. update what it does is it looks at this version and says What's
+
+03:38.820 --> 03:44.790
+the highest version that I can upgrade to in my case because I use that card.
+
+03:44.790 --> 03:51.970
+It said hey you can upgrade to whatever the highest version is in the minor release.
+
+03:52.050 --> 03:59.960
+So if there was a react version 17 well this wouldn't upgrade to 17 because we're using the carrot.
+
+03:59.970 --> 04:10.150
+Remember we can use greater than if we want to but this way we make sure that we only update whatever
+
+04:10.150 --> 04:14.690
+is in the minor release which tends to not have any breaking changes.
+
+04:14.740 --> 04:19.610
+For example when we have react 17 that's most likely going to have some breaking changes.
+
+04:19.720 --> 04:19.960
+Okay.
+
+04:19.990 --> 04:29.120
+So we have the react version updated but we still have these vulnerabilities that we need to fix let's
+
+04:29.120 --> 04:36.680
+now run the audit fix and force assuming that we've looked through the changes and we assume that it's
+
+04:36.710 --> 04:38.990
+ok everything should still work.
+
+04:39.290 --> 04:45.080
+So I'm going to run this and again keep in mind that when using force you want to make sure that you
+
+04:45.080 --> 04:47.520
+actually review the updates.
+
+04:47.540 --> 04:53.290
+Now while this is going another thing I could have done with react is actually gone to the react Web
+
+04:53.310 --> 05:01.340
+site and checked the actual version and instead of having that cared just or doing NPM update I could
+
+05:01.430 --> 05:09.800
+just change the version let's say version 17 comes out in react seventeen point zero point two.
+
+05:09.890 --> 05:16.160
+Well I can just change that and package that Jason and run npm install again
+
+05:19.150 --> 05:21.370
+let's clear this.
+
+05:21.370 --> 05:28.310
+We see here that our ReACT script is now updated to version three point two.
+
+05:28.330 --> 05:31.460
+That is the latest version of create react.
+
+05:31.840 --> 05:32.850
+That's awesome.
+
+05:32.920 --> 05:40.020
+If I do NPM audit once again I have zero vulnerabilities.
+
+05:40.020 --> 05:40.470
+All right.
+
+05:40.470 --> 05:45.290
+Looks like everything is looking fine but we have one issue right.
+
+05:45.310 --> 05:48.540
+We've updated everything that we have.
+
+05:48.540 --> 05:57.770
+There's no vulnerabilities but because we've updated all these things will our project still work while
+
+05:57.770 --> 05:58.910
+there's one way to find out.
+
+05:59.120 --> 06:03.090
+Let's do NPM start.
+
+06:03.110 --> 06:03.770
+All right.
+
+06:03.800 --> 06:11.910
+The new create react app asked me for a target browser so I'll click yes here and look at that.
+
+06:11.920 --> 06:14.710
+Looks like things are still working.
+
+06:14.710 --> 06:16.090
+Good job robo friends.
+
+06:16.090 --> 06:21.460
+If I open up the developer tools and I go to console there's no errors.
+
+06:21.520 --> 06:30.570
+That's great so just like that I was able to update my project upgrade my project with all the latest
+
+06:31.320 --> 06:38.470
+react all the latest react on the react scripts which is what create react app uses.
+
+06:38.700 --> 06:43.860
+We have TAC yarns updated as well and everything is working fine.
+
+06:45.080 --> 06:50.810
+So I can now push this change to get hub so that we don't have those security warnings.
+
+06:50.810 --> 06:51.890
+Let's do that.
+
+06:51.890 --> 06:57.280
+I'm going to say get ad get commit.
+
+06:57.510 --> 07:07.590
+I'll say fixing security issues updated libraries
+
+07:10.400 --> 07:20.770
+to get push origin master because while I'm the only one on this project so I can just push to Max sir.
+
+07:20.930 --> 07:32.030
+Now if I go back to my github page and I refresh let's check out the security tab and look at that we
+
+07:32.030 --> 07:40.410
+have zero closed zero open because our project is now fully up to date.
+
+07:40.440 --> 07:42.380
+How cool is that.
+
+07:42.420 --> 07:49.590
+This is a great way to keep your projects updated and the security vulnerabilities fixed.
+
+07:49.890 --> 07:57.750
+But the more libraries you have the more dependencies you have the more maintenance you have to do to
+
+07:57.750 --> 08:04.380
+make sure that every time you update a library that it doesn't break your app.
+
+08:04.380 --> 08:10.920
+Our robo friends app was fairly small but you can imagine this being a bigger and bigger issues as applications
+
+08:10.980 --> 08:11.290
+grow.
+
+08:11.940 --> 08:17.550
+But I hope you learned one little trick that took me a long time to actually learn and my developer
+
+08:17.550 --> 08:18.300
+career.
+
+08:18.390 --> 08:26.400
+That is the easiest way to keep your projects up to date and secure is to just simply update the package.
+
+08:26.530 --> 08:27.690
+On file.
+
+08:27.930 --> 08:29.520
+I'll see in the next one by.

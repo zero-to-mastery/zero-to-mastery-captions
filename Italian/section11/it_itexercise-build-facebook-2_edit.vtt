@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.990 --> 00:08.250
+Ben tornato! Usando la nostra nuova conoscenza dei loop, renderemo la nostra app di Facebook un
+
+00:08.250 --> 00:09.000
+po 'migliore.
+
+00:09.420 --> 00:13.270
+Voglio dire perché Facebook ha più di un utente, giusto?
+
+00:13.350 --> 00:16.660
+Non è solo un utente, ne ha milioni.
+
+00:16.950 --> 00:25.990
+Quindi, come possiamo controllare la password di qualcuno passando non solo da un utente, ma da più utenti?
+
+00:26.140 --> 00:30.510
+Bene, sembra una soluzione perfetta per i loop, quindi proviamo.
+
+00:30.520 --> 00:33.650
+Aggiungerò altri utenti qui.
+
+00:33.740 --> 00:42.100
+Copieremo questo. E abbiamo "sally" con la password "123".
+
+00:42.400 --> 00:49.600
+E abbiamo anche 'ingrid' con password '777'.
+
+00:49.820 --> 00:51.700
+Quindi aggiorniamolo.
+
+00:51.700 --> 00:54.760
+Lo farò su una nuova linea solo per vederlo.
+
+00:54.890 --> 00:59.850
+Ho intenzione di aggiornare e digitare "ingrid".
+
+01:02.570 --> 01:06.960
+'777'. "Siamo spiacenti, nome utente e password errati".
+
+01:07.210 --> 01:13.360
+E questo ha senso, giusto? Perché quando abbiamo creato la nostra funzione 'signIn', beh, controlla
+
+01:13.360 --> 01:15.480
+solo il primo elemento nel database.
+
+01:15.790 --> 01:17.260
+Ma vogliamo controllarli tutti.
+
+01:17.260 --> 01:22.800
+Vogliamo controllare il primo elemento dell'array, il secondo e il terzo.
+
+01:22.900 --> 01:25.510
+Sembra che qui dobbiamo aggiungere un "looping".
+
+01:26.480 --> 01:28.050
+Quindi come possiamo farlo?
+
+01:28.430 --> 01:31.910
+Dovremmo, beh, aggiungere un 'for loop'.
+
+01:31.940 --> 01:34.500
+Sto per dire qui.
+
+01:34.730 --> 01:44.150
+Bene, in realtà lo commenterò per primo, e diremo che quando in 'signIn' vogliamo fare 'per
+
+01:44.150 --> 01:47.130
+var i = 0'.
+
+01:47.170 --> 01:56.210
+Ricordiamo questo indice dell'ultimo video, diremo 'io sono inferiore al database. lunghezza'.
+
+01:56.950 --> 02:09.410
+Quindi, 'database. lunghezza 'che è' 3 '. E incrementeremo 'i' ogni volta. Apri e chiudi parentesi,
+
+02:09.410 --> 02:14.320
+quindi qui vogliamo dire 'if (database [i])'.
+
+02:14.420 --> 02:15.280
+Quindi invece
+
+02:15.290 --> 02:22.470
+di '0' ora possiamo dire 'i', perché 'i' andrà '0, 1, 2'. Quindi 'if database [i]
+
+02:22.510 --> 02:30.080
+è uguale', e dovremmo avere un 'username' anche qui.
+
+02:30.180 --> 02:42.470
+Quindi, se il 'nome utente' è uguale al 'nome utente', che riceviamo, che è l'input 'nome utente'. E ho intenzione di iniziare una
+
+02:42.480 --> 02:56.600
+nuova linea qui. 'Database [i]. password "è uguale alla" password ", che riceviamo dall '" utente ". Bene, se è così che
+
+02:56.810 --> 02:58.940
+cosa dovremmo fare.
+
+02:59.270 --> 03:03.380
+Bene, se è corretto, faremo 'console. log (newsfeed)'.
+
+03:04.830 --> 03:05.610
+Altrimenti.
+
+03:05.910 --> 03:10.970
+Altrimenti faremo "alert".
+
+03:11.050 --> 03:17.780
+"Siamo spiacenti, nome utente e password errati".
+
+03:17.920 --> 03:28.700
+Quindi, ora ho intenzione di salvare. Proviamo questo. 'nome utente'? - "ingrid", "password"? - "777". "Siamo spiacenti, nome utente e password errati".
+
+03:28.890 --> 03:33.550
+"Siamo spiacenti, nome utente e password errati", ma viene visualizzato il messaggio "newsfeed".
+
+03:33.670 --> 03:34.630
+Cosa è appena successo?
+
+03:35.920 --> 03:41.680
+Bene, quello che abbiamo appena fatto è stato fare un "for loop", ma lo abbiamo eseguito 3 volte.
+
+03:41.680 --> 03:47.830
+Quindi, la prima volta che ho ricevuto "Mi dispiace, nome utente sbagliato", la seconda volta che ho
+
+03:47.830 --> 03:56.080
+ricevuto "Mi dispiace, nome utente sbagliato", perché controlla "andrei" e "sally", quindi controlla "ingrid", che alla fine funziona e dà io di nuovo il "newsfeed".
+
+03:57.330 --> 04:04.110
+Quindi la nostra logica qui non è giusta. Cosa possiamo fare per risolvere questo?
+
+04:04.160 --> 04:08.390
+Beh, ho un'idea. Creiamo un'altra funzione.
+
+04:08.390 --> 04:16.910
+Chiamerò questa funzione 'isUserValid' e questa funzione riceverà 'username'
+
+04:20.330 --> 04:22.340
+e 'password'.
+
+04:22.410 --> 04:28.550
+E qui possiamo copiarlo e spostarlo qui.
+
+04:28.550 --> 04:35.750
+Ma non vogliamo davvero fare quello che è successo qui in cui registriamo costantemente,
+
+04:36.290 --> 04:39.520
+invece vorremmo dire 'return true'.
+
+04:39.560 --> 04:50.180
+Quindi se l'utente è valido 'return true', se l'utente non è valido, allora dovremmo 'return false', giusto?
+
+04:50.210 --> 04:52.740
+Ma come possiamo farlo?
+
+04:52.850 --> 04:58.060
+Bene, se "restituisco false" qui - diamo un'occhiata alla logica.
+
+04:58.340 --> 05:00.320
+Sto facendo il giro di tutto.
+
+05:00.620 --> 05:06.710
+Se in qualsiasi momento "username" e "password" corrispondono, con quello che abbiamo nel database "return true".
+
+05:06.710 --> 05:11.630
+E ricordiamo che una funzione si interrompe ed esce quando vede "ritorno".
+
+05:11.630 --> 05:13.150
+Quindi, tornerà "vero".
+
+05:13.580 --> 05:20.810
+Ma se esegue il looping 3 volte e questa condizione "if" non passa mai, passerà alla riga
+
+05:20.810 --> 05:23.410
+successiva che è "return false".
+
+05:25.590 --> 05:28.350
+Quindi ora "isUserValid".
+
+05:28.350 --> 05:30.420
+Bene proviamolo!
+
+05:30.660 --> 05:40.820
+Sto per dire 'console. log (isUserValid) ', e gli forniremo' username 'e' password '.
+
+05:41.310 --> 05:44.970
+Puoi vedere che "username" e "password" provengono da qui.
+
+05:45.000 --> 05:47.880
+Quindi vediamo. Ho
+
+05:50.500 --> 05:54.980
+intenzione di salvare e aggiornare "ingrid", "777".
+
+05:55.190 --> 05:55.870
+'vero'.
+
+05:55.880 --> 05:56.540
+Giusto.
+
+05:56.660 --> 05:58.550
+Proviamo qualcosa in cui non è giusto.
+
+05:58.550 --> 06:03.280
+Sto per dire 't' e 'garblegarblegarble', 'false'.
+
+06:03.380 --> 06:03.610
+OK.
+
+06:03.620 --> 06:07.160
+Sembra che la nostra funzione 'isUserValid' funzioni.
+
+06:08.810 --> 06:11.300
+Quindi ora guarda questo:
+
+06:11.540 --> 06:17.730
+possiamo rimuovere il registro e rimuovere il commento dalla nostra funzione originale.
+
+06:19.500 --> 06:33.610
+E invece di fare tutto questo controllo ora possiamo dire 'if (isUserValid)', 'username' e 'password', che è ancora questo
+
+06:33.610 --> 06:40.070
+'username' e 'password', che riceviamo qui dal 'prompt'.
+
+06:40.280 --> 06:45.230
+Se questo è "vero", esegui il "newsfeed".
+
+06:45.350 --> 06:51.020
+Se è falso, bene "altrimenti" dici "Mi dispiace, nome utente e password errati".
+
+06:51.500 --> 06:54.280
+Salviamo e aggiorniamo. OK.
+
+06:54.360 --> 06:55.170
+Andiamo.
+
+06:55.170 --> 07:05.760
+'ingrid', password '777'. Riceviamo il nostro "newsfeed" e se inseriamo informazioni errate, otteniamo
+
+07:08.790 --> 07:13.290
+"Siamo spiacenti, nome utente e password errati".
+
+07:13.300 --> 07:14.730
+Quant'è fico?
+
+07:14.770 --> 07:20.700
+Ora abbiamo appena creato 2 funzioni e si legge abbastanza bene, giusto? E dice "accedi".
+
+07:21.040 --> 07:24.040
+Ecco il "nome utente". Ecco la 'password'.
+
+07:24.040 --> 07:29.730
+Andiamo alla funzione 'signIn', dice: "Ehi, se 'isUserValid'? "" Sì,
+
+07:30.260 --> 07:36.140
+l'utente è valido ". "Di" registra newsfeed ", altrimenti" avviso "" Spiacente, nome utente e password errati ".
+
+07:36.360 --> 07:42.180
+E questo è un concetto davvero importante di denominare le cose e ordinare i codici in modo da
+
+07:42.180 --> 07:44.560
+poterlo leggere come l'inglese e ha senso.
+
+07:44.660 --> 07:45.940
+E il gioco è fatto.
+
+07:46.080 --> 07:48.780
+Abbiamo la nostra app di Facebook.
+
+07:48.780 --> 07:50.960
+Puoi vedere qui la potenza di JavaScript.
+
+07:51.000 --> 08:00.640
+Ancora una volta abbiamo creato queste funzionalità che possono essere applicate su larga scala su app Web reali.
+
+08:00.750 --> 08:02.670
+Ci vediamo nel prossimo. Ciao ciao

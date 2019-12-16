@@ -1,0 +1,511 @@
+WEBVTT
+
+00:00.890 --> 00:02.130
+Bem vindo de volta.
+
+00:02.150 --> 00:10.820
+Vamos falar sobre passado por referência versus passado por valor para concluir nossa discussão sobre tipos de
+
+00:11.030 --> 00:12.110
+JavaScript.
+
+00:12.230 --> 00:17.330
+Agora, no vídeo anterior, eu disse que os tipos primitivos são imutáveis.
+
+00:17.330 --> 00:18.350
+O que isso significa.
+
+00:18.350 --> 00:23.090
+Bem, isso significa que não podemos realmente alterá-los para alterá-los.
+
+00:23.090 --> 00:31.140
+Precisamos remover completamente o tipo primitivo e, digamos, se a variável A for igual a cinco.
+
+00:31.220 --> 00:40.070
+Bem, para que eu mude esse valor de cinco, tenho que literalmente movê-lo da memória e criar algo novo como
+
+00:40.070 --> 00:49.020
+um igual a 10 Eu posso realmente modificá-lo, apenas algo novo é criado e os tipos primitivos são exatamente assim quando
+
+00:49.020 --> 00:57.480
+atribuo uma variável um a cinco em algum lugar na variável de memória a irá conter e referenciar o
+
+00:57.480 --> 01:06.120
+valor cinco se eu fizer a variável B igual a dois, digamos 10 novamente a mesma coisa e eles realmente
+
+01:06.990 --> 01:10.390
+não sabem da existência um do outro.
+
+01:11.230 --> 01:19.530
+Isso é o que chamamos de objetos passados por valor. Por outro lado, é o que chamamos passados por referência. Vamos escrever um
+
+01:19.530 --> 01:22.550
+código para descobrir o que isso realmente significa.
+
+01:22.650 --> 01:36.850
+Se eu fizer a variável A igual a cinco e depois a variável B igual a 10, a agora terá um endereço de onde
+
+01:36.910 --> 01:41.450
+esse valor primitivo cinco fica na memória.
+
+01:41.650 --> 01:49.450
+E o mesmo com b b tem um endereço de onde o valor primitivo 10 fica na memória.
+
+01:49.450 --> 01:50.880
+E se eu fizer B.
+
+01:50.890 --> 01:53.090
+Muito Bobbie é igual a dois.
+
+01:53.160 --> 02:03.830
+Ei, o que acontece, lembre-se dos tipos primitivos que passam por valor quando passamos por valor.
+
+02:04.300 --> 02:08.350
+Bem, e se eu fizer algo como B plus plus aqui.
+
+02:08.350 --> 02:24.190
+Portanto, adicione um a b se eu console o log de pontos a eu tiver cinco e se o console do log de pontos BI tiver seis, e isso é por valor
+
+02:24.310 --> 02:34.460
+passado que tudo o que fiz ou o mecanismo JavaScript fez foi copiar o valor do tipo primitivo cinco como se
+
+02:34.760 --> 02:45.180
+eu estivesse fazendo B igual a cinco, de modo que agora B tenha uma referência ao valor primitivo do tipo cinco,
+
+02:45.390 --> 02:55.510
+tudo o que fizemos foi copiar o valor, portanto, olhando para este diagrama deve fazer sentido a qualquer momento, mesmo
+
+02:55.510 --> 03:06.650
+que B seja igual a um, simplesmente copiamos o valor e coloque-o em um novo espaço de memória em nossa máquina, lembre-se de
+
+03:06.650 --> 03:14.900
+nossa pilha de memória ou pilha onde armazenamos informações, simplesmente fizemos uma cópia, elas realmente não têm
+
+03:14.900 --> 03:18.860
+nenhuma conexão e foi isso que aconteceu.
+
+03:18.860 --> 03:27.620
+O valor atende à passagem pelo valor significa simplesmente que copiamos o valor e criamos esse valor em outro lugar
+
+03:27.620 --> 03:28.770
+da memória.
+
+03:28.900 --> 03:35.350
+Agora vamos ver como os objetos são diferentes do que tínhamos antes
+
+03:35.350 --> 03:46.240
+ou vamos mantê-lo aqui por enquanto, para que você possa ver se eu crio um objeto, digamos que o Objeto 1
+
+03:46.240 --> 03:57.120
+e o objeto 1 têm o nome Yao e digamos que este é um usuário que também possui uma senha com
+
+03:57.120 --> 04:07.430
+1 2 3 como a senha super segura agora e também vamos criar outro objeto para deixar o objeto e
+
+04:08.240 --> 04:19.230
+isso vai ficar bem, podemos apenas copiar o primeiro objeto para que o objeto em um objeto seja o mesmo certo, mas
+
+04:19.410 --> 04:33.990
+e se eu for em frente e com o objeto 2 eu mudar a senha para igual fácil, o que acontecerá se eu console o diálogo Object 1 e
+
+04:35.010 --> 04:35.790
+eu
+
+04:38.640 --> 04:51.900
+também console o objeto de log e eu corro whoa o que aconteceu, a senha foi alterada a senha do objeto e a senha do objeto
+
+04:51.900 --> 04:54.670
+dois foi atualizada fazendo isso.
+
+04:56.190 --> 05:01.060
+E isso deve passar por referência.
+
+05:01.110 --> 05:11.320
+Você vê objetos em javascript são armazenados na memória e são passados por referência, o que significa que não copiamos os
+
+05:11.590 --> 05:15.450
+valores como fizemos com os tipos primitivos.
+
+05:15.760 --> 05:26.350
+Simplesmente, quando atribuímos o objeto um a um, simplesmente dizemos: ei, é aqui que o objeto está
+
+05:26.380 --> 05:27.860
+na memória.
+
+05:27.910 --> 05:35.900
+Se voltarmos ao código, o objeto 1 e o objeto 2 apontam para algum lugar da memória.
+
+05:35.920 --> 05:36.840
+Nós não sabemos onde.
+
+05:36.880 --> 05:43.990
+Em algum lugar na memória, amontoe uma prateleira que contenha essas informações.
+
+05:43.990 --> 05:54.930
+Então, tudo o que fiz dizendo que objeto é igual a desejo de objeto é: ei, digamos, o endereço na memória de onde
+
+05:54.960 --> 05:57.450
+quer que isso esteja localizado.
+
+05:57.720 --> 06:07.200
+Então, o que isso significa é que, quando altero a senha do ponto do objeto como esta, estou dizendo: bem, altere a senha
+
+06:07.440 --> 06:15.270
+desse objeto na memória que também o objeto um está apontando para sua referência, de onde vem a
+
+06:15.270 --> 06:17.010
+referência passada por referência.
+
+06:17.010 --> 06:19.890
+Agora, por que você acha que é uma boa ideia?
+
+06:19.930 --> 06:21.060
+Vamos pensar sobre isso.
+
+06:21.060 --> 06:23.080
+Por que isso é bom?
+
+06:23.140 --> 06:26.150
+Quero dizer, é meio legal, certo.
+
+06:26.230 --> 06:32.110
+Porque, tendo apenas um objeto aqui, estamos economizando espaço e memória.
+
+06:32.110 --> 06:37.640
+Não estamos copiando e clonando o objeto criando várias versões.
+
+06:37.660 --> 06:46.240
+Podemos simplesmente salvar a referência de memória em apenas um local, em vez de apenas carregar nosso heap de memória.
+
+06:47.050 --> 06:50.040
+Mas por que isso também pode ser ruim?
+
+06:50.930 --> 06:58.100
+Bem, porque ao contrário de um tipo primitivo, podemos ter esse problema em que, por
+
+06:58.130 --> 07:02.180
+engano, alguém altera uma propriedade nesse objeto referenciado.
+
+07:02.250 --> 07:07.450
+Então isso é algo que precisamos ter cuidado, vamos fazer outro exemplo.
+
+07:07.450 --> 07:12.930
+E só para provar, como eu disse antes, que matrizes são simplesmente objetos.
+
+07:12.940 --> 07:14.770
+Vamos tentar isso com uma matriz.
+
+07:15.460 --> 07:26.830
+Se eu fizer a variável C e essa variável C tiver um dois três quatro cinco e, em seguida, a variável D for
+
+07:28.480 --> 07:40.080
+igual a C, finalmente diremos que D pressiona um número gigante para garantir que seja um número e não uma string, se eu
+
+07:40.080 --> 07:48.190
+console o log C ou vamos console o log D primeiro e eu corro isso.
+
+07:48.620 --> 07:49.430
+Eu vejo isso.
+
+07:49.430 --> 07:49.770
+Sim.
+
+07:49.790 --> 07:58.160
+Modificamos a matriz, mas como matrizes são objetos, elas são passadas pela referência C também devem ter mudado
+
+07:58.160 --> 07:59.370
+à direita.
+
+07:59.460 --> 08:05.600
+Combine o log do console C e eu corro o Yep C também mudou, percebemos
+
+08:08.510 --> 08:10.210
+algo aqui certo.
+
+08:10.370 --> 08:11.000
+Isso é bom.
+
+08:11.000 --> 08:12.860
+Estamos economizando memória.
+
+08:12.860 --> 08:14.930
+Não estamos apenas copiando constantemente as coisas.
+
+08:14.930 --> 08:18.970
+Imagine se C fosse um objeto massivo.
+
+08:19.040 --> 08:26.440
+Se copiarmos sempre duas partes diferentes do código.
+
+08:26.690 --> 08:34.220
+Isso criaria muita memória, mas há momentos em que talvez desejemos possuir um objeto para copiá-lo,
+
+08:34.220 --> 08:36.840
+para não modificá-lo dessa maneira.
+
+08:37.610 --> 08:41.150
+Como podemos fazer isso bem com algo como uma matriz.
+
+08:41.180 --> 08:48.950
+Existem diferentes maneiras de fazer isso, mas eu posso simplesmente fazer uma matriz vazia e, em seguida, usar o método
+
+08:49.070 --> 08:57.380
+cone cat que empurra tudo o que tenho em C para essa matriz vazia, para que, quando eu corro aqui, você veja
+
+08:57.470 --> 08:59.940
+que C ainda é o mesmo.
+
+09:00.050 --> 09:04.010
+Mas se eu for para D, tenho uma nova matriz.
+
+09:04.010 --> 09:06.070
+É clonado uma matriz.
+
+09:06.350 --> 09:09.320
+Os objetos são um pouco mais difíceis.
+
+09:09.410 --> 09:10.970
+Digamos que tivemos um objeto.
+
+09:12.930 --> 09:20.480
+Isso é igual a um, digamos que B é dois.
+
+09:20.570 --> 09:30.350
+Isso é um pouco confuso, vamos fazer a e então B B e, finalmente, c é igual a C
+
+09:33.510 --> 09:37.780
+e esse objeto eu quero uma cópia.
+
+09:37.780 --> 09:40.750
+Eu quero ter esse pedaço de código.
+
+09:40.750 --> 09:45.590
+Este objeto em um local diferente na memória.
+
+09:45.610 --> 09:47.240
+Como podemos fazer isso.
+
+09:47.260 --> 09:57.660
+Bem, eu não posso fazer outro objeto como este, porque ele simplesmente passa por referência e ainda vamos fazer referência ao
+
+09:57.660 --> 10:05.830
+mesmo objeto. Em vez disso, podemos clonar um objeto fazendo algo como esse objeto, faça
+
+10:06.550 --> 10:15.920
+um sinal aqui, o primeiro parâmetro é o objeto a ser copiado para o qual é um objeto vazio.
+
+10:16.030 --> 10:18.600
+E então qual é a fonte.
+
+10:18.610 --> 10:22.510
+Então é disso que você pode copiar as propriedades.
+
+10:22.510 --> 10:36.310
+Portanto, no meu caso, eles serão o objeto, de modo que agora, se eu mudar, digamos que um objeto C muito menos novo seja
+
+10:36.970 --> 10:49.090
+igual a cinco, se eu console o log do ponto do objeto clone e corro bem, cometi um pequeno erro.
+
+10:49.090 --> 10:50.770
+Vamos ver aqui.
+
+10:50.860 --> 10:54.220
+A faca tinha um ponto e vírgula em vez de uma vírgula.
+
+10:54.330 --> 10:54.820
+Aqui vamos nós.
+
+10:55.080 --> 11:01.890
+Se eu executar essa olhada, o objeto clonado não foi afetado.
+
+11:01.890 --> 11:04.940
+Mesmo mudando C para cinco.
+
+11:05.580 --> 11:12.060
+Lembre-se, se não fizemos isso, não o clonamos e apenas fizemos o objeto que teria sido passado
+
+11:12.060 --> 11:17.770
+por referência e veríamos a mudança que vimos no objeto original, mas por causa do
+
+11:17.770 --> 11:21.510
+objeto, um sinal, fomos capazes de clonar o objeto.
+
+11:21.540 --> 11:23.000
+Muito legal.
+
+11:23.070 --> 11:28.110
+Também há outra maneira de fazer isso: usar o operador de propagação.
+
+11:28.170 --> 11:35.010
+Eu posso fazer muito menos dois objetos iguais ou não realmente.
+
+11:35.070 --> 11:46.180
+Nós apenas criamos um objeto e, em seguida, dot dot dot e, em seguida, o objeto agradável e limpo, e esse é um novo recurso
+
+11:46.180 --> 11:53.590
+que obtivemos na linguagem javascript, que é realmente muito legal e, mais uma vez, se eu executar
+
+11:53.590 --> 12:00.460
+esse código, vejo que o clone não tem ' não foi modificado e se eu
+
+12:03.570 --> 12:11.280
+clonar para isso não foi modificado apenas como referência, adicionarei o objeto original também para ver que, de
+
+12:11.670 --> 12:15.150
+fato, é diferente do que tínhamos antes.
+
+12:15.180 --> 12:15.770
+Impressionante.
+
+12:15.780 --> 12:23.220
+Portanto, a clonagem é excelente, mas deixe-me perguntar o que você acha que acontecerá com o
+
+12:23.700 --> 12:29.640
+código que temos se tivermos um objeto dentro de um objeto.
+
+12:29.860 --> 12:39.220
+Por exemplo, se C, em vez de apenas ser uma string, é outro objeto de referência
+
+12:39.220 --> 12:50.020
+de passagem que, digamos, tem deep como uma propriedade e esse deep vai ser igual a tentar me copiar.
+
+12:50.200 --> 12:51.100
+Espero que faça sentido.
+
+12:51.100 --> 12:54.500
+Deixe-me ajustar o recuo aqui para vê-lo melhor.
+
+12:54.520 --> 12:56.840
+Quanto ao que está acontecendo.
+
+12:57.030 --> 12:59.650
+Então, o que acontece aqui.
+
+12:59.700 --> 13:06.960
+Temos um objeto que é referenciado em algum lugar na memória e dentro desse objeto há novamente
+
+13:06.960 --> 13:14.170
+outro ponteiro para outro lugar na memória que faz referência a esse objeto, vamos executar esse
+
+13:17.870 --> 13:19.790
+código bem, nada mudou.
+
+13:19.790 --> 13:20.380
+Direita.
+
+13:20.420 --> 13:23.690
+Quero dizer, C mudou obviamente e.
+
+13:23.960 --> 13:26.060
+Bem, isso é algo que já vimos antes.
+
+13:26.150 --> 13:37.120
+Mas e se eu mudar d desta vez em vez de C E se eu fizer um objeto ponto c
+
+13:37.120 --> 13:50.630
+ponto profundo e profundo agora vou dizer hahaha, o que você acha que vai acontecer aqui, vamos executar esse código e, oh, não, nós clonamos
+
+13:51.230 --> 13:59.560
+tudo mas foi sobrescrito. Pensei que clonamos tudo o que aconteceu aqui, lembre-se de que cada
+
+13:59.920 --> 14:03.220
+objeto é passado por referência.
+
+14:03.370 --> 14:09.010
+Portanto, embora tenhamos clonado o objeto, o objeto inicial.
+
+14:09.280 --> 14:15.340
+Isso é o que chamamos de clone superficial, que é o primeiro nível.
+
+14:15.340 --> 14:24.100
+Portanto, esse é o endereço de memória nesse objeto, mas dentro desse objeto havia outro endereço para outro
+
+14:24.100 --> 14:24.690
+objeto.
+
+14:24.700 --> 14:32.280
+Então, lembre-se de que este é apenas outro endereço que tínhamos em algum lugar da memória e desse endereço.
+
+14:32.310 --> 14:34.000
+Bem, isso nunca mudou.
+
+14:34.050 --> 14:37.200
+Sempre referenciava esse objeto.
+
+14:37.260 --> 14:44.330
+Portanto, essa é uma clonagem superficial, onde só podemos clonar a primeira camada.
+
+14:44.390 --> 14:45.890
+Esse é um grande problema, certo.
+
+14:45.890 --> 14:53.020
+Como podemos fazer uma clonagem profunda e como podemos fazer isso?
+
+14:53.210 --> 15:06.770
+Bem, um pouco descolados, usamos Jason, dizemos deixe super clone e vamos usar o método Jason dot pass, e isso está além do
+
+15:08.630 --> 15:10.820
+escopo do curso.
+
+15:10.820 --> 15:13.800
+Você pode ler sobre o que o Jason Pass faz.
+
+15:13.940 --> 15:24.580
+Mas esse objeto de Jason vai dizer que Jason é muito exigente, vamos deixar isso um pouco maior.
+
+15:24.590 --> 15:25.550
+Ai está.
+
+15:25.550 --> 15:33.270
+Nós vamos colocar o ify, que é transformar tudo aqui em um string, e depois que transformarmos tudo
+
+15:33.270 --> 15:40.920
+em um string, nós o passaremos e o transformaremos novamente em um objeto, para que, se eu
+
+15:40.920 --> 15:41.490
+fizer
+
+15:44.600 --> 15:55.530
+um super clone agora no aqui embaixo vamos fazer o super clone e eu corro olha pra essa tentativa e me copia o super clone.
+
+15:55.610 --> 15:58.540
+Vamos tornar isso um pouco menor.
+
+15:58.550 --> 15:59.320
+Ai está.
+
+15:59.390 --> 16:09.340
+A versão Super Clone fez um clone profundo do objeto muito, muito legal agora antes.
+
+16:09.360 --> 16:13.740
+E este vídeo que espero que seja passado por referência e passado por valor faz sentido para você.
+
+16:13.740 --> 16:16.720
+Agora, quero lhe dar um aviso.
+
+16:16.800 --> 16:26.920
+No entanto, se você estiver executando um clone profundo, tenha cuidado, pois isso pode ter
+
+16:26.920 --> 16:33.720
+implicações no desempenho se esse objeto for extremamente profundo.
+
+16:33.850 --> 16:38.240
+Vai levar muito tempo para clonar tudo certo.
+
+16:38.320 --> 16:43.540
+Portanto, você não verá muito isso na natureza se estiver clonando objetos como esse.
+
+16:43.690 --> 16:47.320
+Provavelmente, existem outras maneiras pelas quais você deve fazer as coisas.
+
+16:47.410 --> 16:54.520
+Mas eu queria mostrar a você a ideia de passar por referência a idéia de clonagem superficial
+
+16:54.610 --> 17:01.590
+e profunda e algumas das maneiras pelas quais podemos usar objetos para obter o desejado.
+
+17:01.600 --> 17:03.790
+Tudo bem, espero que tenha sido divertido.
+
+17:03.790 --> 17:05.820
+Vejo você no próximo vídeo de.

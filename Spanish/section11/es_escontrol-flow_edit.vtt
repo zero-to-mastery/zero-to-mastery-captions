@@ -1,0 +1,586 @@
+WEBVTT
+
+00:01.490 --> 00:08.000
+Y bienvenido de nuevo! Con suerte, esos ejercicios no fueron demasiado duros y los superaste.
+
+00:09.110 --> 00:12.800
+Vamos a hablar sobre algo llamado 'Control Flow'.
+
+00:12.890 --> 00:17.640
+Hasta ahora hemos estado haciendo esto: esta pequeña 'flecha'.
+
+00:17.900 --> 00:23.750
+Escribimos una línea de código, luego otra línea de código, luego otra línea de código, luego otra línea
+
+00:24.080 --> 00:27.130
+de código y todo se ejecuta en una línea.
+
+00:27.150 --> 00:29.740
+Simplemente fluye, como agua, si
+
+00:29.750 --> 00:33.520
+vierte agua. Simplemente va hacia abajo.
+
+00:33.950 --> 00:37.210
+Pero, ¿y si tuviéramos condiciones?
+
+00:37.250 --> 00:43.040
+¿Qué pasa si queremos decir algo como "Si el nombre de usuario es 'Bob'? Di
+
+00:43.460 --> 00:44.340
+'Hola, Bob'".
+
+00:44.360 --> 00:54.230
+Si no, di "No te conozco". Tal vez "Iniciar sesión de nuevo" o "No tenemos este usuario". Eso se llama 'ejecución condicional' y se
+
+00:54.230 --> 01:02.150
+ve más o menos así, donde llegamos a un punto en el programa y tenemos dos opciones,
+
+01:02.330 --> 01:07.960
+donde queremos ir en un sentido u otro, y luego continuar ejecutando.
+
+01:07.970 --> 01:13.470
+Entonces, en esta lección, vamos a hablar exactamente sobre eso: 'ejecución condicional'.
+
+01:14.350 --> 01:15.270
+Probemos un poco.
+
+01:19.340 --> 01:21.780
+Entonces, los 'condicionales' de JavaScript,
+
+01:21.780 --> 01:22.810
+así se
+
+01:22.920 --> 01:27.090
+llaman, comenzaremos con lo que se llama una declaración 'si'.
+
+01:28.130 --> 01:34.000
+Y una declaración de tipo 'si' se lee, como en inglés. Podemos hacer algo similar
+
+01:34.010 --> 01:42.920
+a esto: digo 'si el nombre' es igual, recuerde los signos '===' aquí, porque
+
+01:42.920 --> 01:51.020
+no estamos asignando variables, estamos comparando. [if (name === "Billy")] - cierra el soporte.
+
+01:51.040 --> 01:56.050
+Y esta es solo una notación a la que tendrá que acostumbrarse. Nuevamente, es como aprender un idioma,
+
+01:56.200 --> 02:01.870
+solo debes saber que cuando estás haciendo una declaración 'si', tienes que tener estos corchetes,
+
+02:01.870 --> 02:05.530
+cerrar los corchetes y luego hacer el corchete '{'.
+
+02:05.530 --> 02:12.310
+Mantenga presionada 'Shift' y (presione) 'Enter', para que el programa no se ejecute. Y diremos, he agregado una pestaña para que pueda
+
+02:12.310 --> 02:13.930
+ver la sangría.
+
+02:14.200 --> 02:19.360
+Puedo decir 'alerta ("hola Billy! ")
+
+02:23.990 --> 02:33.270
+'Y cierro el soporte. Y nuevamente, como dije, cada expresión, algo que produce un valor, debe tener
+
+02:33.490 --> 02:34.920
+un punto y coma.
+
+02:35.140 --> 02:40.930
+Y podría pensar que necesita un punto y coma aquí, pero de nuevo, con una declaración 'si' no agrega uno.
+
+02:41.230 --> 02:42.230
+Pero 'alerta'.
+
+02:42.250 --> 02:45.180
+Esa es una expresión, teníamos un punto y coma aquí.
+
+02:45.190 --> 02:51.490
+Ahora es posible que se pregunte "Bueno, todavía no hemos asignado una variable a 'nombre'". ¡Entonces hagamos eso!
+
+02:51.700 --> 03:04.990
+Voy a decir nombre - 'nombre var' es igual. Diremos 'Billy'. Y voy a presionar 'Enter'.
+
+03:04.990 --> 03:05.800
+Veamos qué pasa.
+
+03:07.430 --> 03:09.150
+'hola Billy! ' OKAY.
+
+03:09.160 --> 03:13.070
+Entonces, parece que está funcionando solo para verificar dos veces.
+
+03:13.070 --> 03:15.800
+¿Qué pasa si cambio 'nombre' a 'Susy'?
+
+03:19.430 --> 03:20.550
+oops - 'punto y coma', no 'dos puntos'.
+
+03:21.800 --> 03:22.260
+OKAY.
+
+03:22.520 --> 03:26.780
+Y ahora si ejecutamos este programa nuevamente. Solo voy a copiarlo.
+
+03:28.430 --> 03:34.580
+Si 'nombre' es igual a 'Billy' - 'alerta ("hola Billy! ")". No pasa nada.
+
+03:34.700 --> 03:35.960
+Acabo de "indefinido".
+
+03:36.770 --> 03:40.010
+Y sin alerta.
+
+03:40.060 --> 03:41.820
+Entonces esa es una 'declaración condicional'.
+
+03:42.220 --> 03:44.160
+Pero seamos realistas aquí.
+
+03:44.200 --> 03:50.350
+A menudo no solo tendrá código, que se ejecuta cuando una condición es 'verdadera', sino también código, que
+
+03:50.770 --> 03:57.610
+maneja otros casos, como cuando el 'nombre' no es 'Billy'. Tal vez cuando el "nombre" es "Susy".
+
+03:57.660 --> 04:02.490
+Entonces, si recuerdas, esta ruta alternativa se muestra en el diagrama
+
+04:02.490 --> 04:10.080
+junto a la flecha alternativa, donde necesitas tener una ruta alternativa en caso de que el nombre
+
+04:10.140 --> 04:12.620
+no sea igual a 'Billy'.
+
+04:12.620 --> 04:16.640
+Así que volvamos de nuevo y veamos qué podemos hacer.
+
+04:16.640 --> 04:21.880
+Entonces, la segunda palabra clave que vamos a aprender es 'else'.
+
+04:21.950 --> 04:34.360
+Entonces puede hacer algo como 'if (name === "Billy")' y solo presiono la flecha derecha aquí, y aquí nuevamente. Google Chrome es lo suficientemente inteligente como para saber
+
+04:34.360 --> 04:42.360
+que has escrito esto antes. Y ahora, en lugar de dejarlo así, ahora
+
+04:42.360 --> 04:44.420
+presiono 'Space', 'else'.
+
+04:44.460 --> 04:51.360
+Entonces 'si el nombre' es igual a 'Billy', 'alerta ("hola Billy! "); 'else' - se lee como inglés, ¿verdad?
+
+04:51.480 --> 05:05.520
+Y luego otra vez 'else', abriendo el corchete, cerrando el corchete, y dentro de aquí voy a decir,
+
+05:05.530 --> 05:09.910
+'alerta ("hmmm no te conozco");'.
+
+05:09.930 --> 05:12.190
+Así que ahora veamos qué pasa.
+
+05:14.980 --> 05:16.200
+'hmmmm no te conozco' y por qué es eso?
+
+05:16.200 --> 05:23.030
+Porque si recuerdas 'nombre' es igual a 'Susy'. Si cambio 'nombre' a
+
+05:26.590 --> 05:32.630
+'Billy' Bueno, y rehago el programa obtendrás: 'Hola
+
+05:32.960 --> 05:33.970
+Billy'.
+
+05:34.340 --> 05:37.670
+Entonces eso es lo que se llama una declaración 'if-else'.
+
+05:37.670 --> 05:40.960
+Escribe una condición 'si' algo es igual a
+
+05:42.270 --> 05:46.140
+'verdadero', luego haz algo. 'else': haz otra cosa.
+
+05:46.620 --> 05:49.180
+Y esta es solo una sintaxis que tendrás que aprender.
+
+05:49.200 --> 05:53.850
+Pero, como puedes ver, es bastante fácil, lo escribes un par de veces y te acostumbras.
+
+05:55.380 --> 05:58.920
+OKAY. Pero ahora puede que tengas otra pregunta.
+
+06:00.370 --> 06:10.300
+¿Qué pasa si, qué pasa si tienes algo como esto, algo, algo un poco más complicado, como
+
+06:10.300 --> 06:13.440
+este, donde tienes múltiples condiciones?
+
+06:13.450 --> 06:16.780
+Veamos de qué estoy hablando mostrándote otro ejemplo.
+
+06:19.160 --> 06:23.890
+En este, vamos a usar algo llamado 'else-if'.
+
+06:24.050 --> 06:33.360
+Así que nuevamente voy a decir 'si el nombre' es igual a 'Billy'. De nuevo, solo voy a presionar la tecla 'derecha (flecha)' aquí y cargará lo
+
+06:33.360 --> 06:34.960
+que he escrito antes.
+
+06:35.130 --> 06:38.080
+Entonces 'si el nombre' es igual a 'Billy' - 'alerta'.
+
+06:38.280 --> 06:41.980
+'hola Billy! ',' else '-' alerta '.
+
+06:42.030 --> 06:43.200
+'hmmmm no lo sé' - 'hmmmm no
+
+06:43.560 --> 06:44.060
+te conozco'.
+
+06:44.130 --> 06:47.240
+Pero, ¿qué pasa si también queremos verificar el nombre 'Susy'?
+
+06:47.460 --> 06:49.960
+Bueno, puedo hacer algo como.
+
+06:50.040 --> 06:52.470
+'else if'
+
+06:53.160 --> 07:00.040
+'nombre' es igual a 'Susy', cierre el corchete '}'.
+
+07:00.040 --> 07:00.760
+Voy
+
+07:04.060 --> 07:06.890
+a decir 'hola Susy! '.
+
+07:07.060 --> 07:09.930
+Y al final aquí puede dejarlo como está
+
+07:10.030 --> 07:12.880
+o nuevamente podemos agregar una 'declaración else'.
+
+07:12.880 --> 07:18.380
+Entonces, con ambas fallas, ambas comparaciones
+
+07:18.450 --> 07:25.230
+fallan, puedo decir 'más', 'alerta' 'No te conozco'.
+
+07:29.030 --> 07:29.990
+Cierre el soporte '}'.
+
+07:30.020 --> 07:32.390
+Nuevamente, no olvide cerrar el soporte.
+
+07:32.390 --> 07:42.450
+Presione 'Enter' y vea 'hola Billy', porque recuerde que mi 'nombre' es 'Billy', pero si hago 'nombre' es igual a 'Susy' y
+
+07:45.560 --> 07:50.960
+vuelvo a ejecutar el programa. Nuevamente presione la tecla 'flecha' y presione 'Enter' nuevamente.
+
+07:51.110 --> 07:53.040
+'hola Susy! '.
+
+07:53.130 --> 07:54.750
+Eso es genial, ¿verdad?
+
+07:54.750 --> 07:58.400
+Puedes pensar en esto como funcionan las contraseñas, ¿verdad?
+
+07:58.410 --> 08:04.800
+Esto es lo que están haciendo los formularios allí, revisando su correo electrónico y su contraseña, usando una lógica
+
+08:04.800 --> 08:05.820
+simple como esta.
+
+08:06.700 --> 08:13.960
+Ahora quiero mostrarte también con condicionales, lo que es muy útil y eso es algo
+
+08:14.230 --> 08:15.760
+llamado 'operadores lógicos'.
+
+08:15.820 --> 08:20.340
+Te voy a mostrar los tres. Si puedo comentar esto.
+
+08:20.350 --> 08:21.010
+¡Aqui tienes!
+
+08:21.250 --> 08:33.900
+Y estos son los tres, así que limpiemos esto e intentemos algo. Puedo ir 'if (name === Billy ")'.
+
+08:37.390 --> 08:41.820
+'o': estas dos líneas "||", así que está justo encima de la tecla 'Enter'.
+
+08:43.750 --> 08:50.660
+Esto significa 'o' en JavaScript. o '|| nombre
+
+08:54.410 --> 09:01.240
+'=== "Ann"), luego' alerta '"¡Hola Billy o
+
+09:01.510 --> 09:04.120
+Ann! "Cierra
+
+09:07.200 --> 09:08.630
+tu soporte '}'.
+
+09:08.730 --> 09:10.070
+¿Qué crees que pasará aquí?
+
+09:10.170 --> 09:13.960
+¡Veamos! 'nombre' es igual a
+
+09:20.420 --> 09:20.970
+'Billy'.
+
+09:21.020 --> 09:24.280
+Ejecutamos el programa, presionamos 'Enter'.
+
+09:25.650 --> 09:29.950
+Me sale "Hola Billy o Ann! "pero si ahora el 'nombre'
+
+09:32.770 --> 09:37.080
+es 'Ann' y vuelvo a ejecutar el programa, presione 'Enter' nuevamente.
+
+09:37.150 --> 09:41.140
+'Hola Billy o Ann! '. Eso es genial.
+
+09:41.140 --> 09:44.050
+Puedo hacer 'o' comparación.
+
+09:45.020 --> 09:46.670
+¿Qué otro que podemos hacer?
+
+09:46.700 --> 09:48.110
+Bueno, también podemos hacer: 'y', que
+
+09:51.760 --> 10:00.980
+son dos de estos signos (ampersand) y esto significa, si 'nombre' es igual a 'Billy' y 'nombre' es igual a 'Ann'. Hmm, veamos si esto funciona.
+
+10:02.000 --> 10:09.740
+Ahora, 'nombrar' es igual a 'Ann' y hacemos el programa. Hmmm, y no consigo nada. ¿Qué pasa si hago 'Billy' y
+
+10:14.310 --> 10:15.280
+ejecuto?
+
+10:15.460 --> 10:16.880
+No, nada
+
+10:16.890 --> 10:17.580
+¿Porqué es eso?
+
+10:17.580 --> 10:20.850
+Bueno, esto no tiene sentido, ¿verdad?
+
+10:20.850 --> 10:23.750
+Me refiero a 'nombre' es igual a 'Billy' y 'nombre' es
+
+10:23.760 --> 10:24.730
+igual a 'Ann'.
+
+10:24.750 --> 10:30.750
+Pero, como hemos discutido, una variable tiene, bueno, tiene un valor.
+
+10:30.780 --> 10:36.480
+Es un cajón en su escritorio y tiene un cierto tipo de aspecto.
+
+10:36.480 --> 10:44.940
+Tiene un bolígrafo o un montón de archivos, no puede tener tanto 'Billy' como 'Ann', al menos ahora con lo que hemos
+
+10:44.940 --> 10:46.170
+aprendido hasta ahora.
+
+10:46.260 --> 10:54.790
+Entonces esto no tiene sentido. Donde usarías 'y' es quizás para verificar el nombre de alguien. Entonces puedo hacer:
+
+10:54.930 --> 11:01.050
+'if firstName', recuerde que estoy usando 'camel case' aquí.
+
+11:01.270 --> 11:14.920
+'Bob y apellido' es igual a 'Smith', cierra tu llave '}', llaves.
+
+11:14.920 --> 11:16.610
+Y voy a decir 'alerta'.
+
+11:16.870 --> 11:18.850
+"Hola Bob Smith".
+
+11:20.980 --> 11:28.380
+Cierre sus corchetes, llaves, presione 'Enter' y parece que cometí un error aquí, y dice: 'nombre no está definido' y bueno,
+
+11:28.380 --> 11:30.380
+eso es cierto porque nunca
+
+11:30.420 --> 11:35.760
+he dicho qué es 'nombre' y 'apellido' es. Antes de definir lo que era 'nombre', pero
+
+11:35.820 --> 11:42.550
+necesita saber cuáles son estas variables, de lo contrario dice "Hola, soy JavaScript y nunca me he encontrado con
+
+11:42.550 --> 11:46.390
+estas palabras antes. ¿De qué estás hablando? "Entonces,
+
+11:46.390 --> 11:54.140
+antes de hacer esto. Tenemos que decir 'var firstName =
+
+11:56.740 --> 12:06.370
+"Bob";' y 'var lastName' es igual a 'Smith'.
+
+12:06.370 --> 12:06.370
+OKAY.
+
+12:06.790 --> 12:11.980
+De hecho, quiero llamar su atención sobre el error: obtendrá esto mucho y
+
+12:11.980 --> 12:15.430
+cuando comience 'ReferenceError: firstName no está definido'.
+
+12:15.430 --> 12:16.700
+Es bastante buen error.
+
+12:16.710 --> 12:22.930
+Pero tenga esto en cuenta: 'ReferenceError' solo significa 'No sé cuál es este valor. No hace referencia a
+
+12:22.930 --> 12:24.490
+nada '.
+
+12:24.500 --> 12:30.960
+OKAY. Entonces, cuando tenemos definidos 'firstName' y 'lastName', presionamos nuevamente para llegar a nuestra pequeña pieza de ejecución aquí.
+
+12:30.970 --> 12:41.800
+Y voy a presionar 'Enter' y me sale 'Hola Bob Smith'. Si cambio 'firstName' o 'lastName' para decir
+
+12:41.860 --> 12:47.350
+'Jones', presione 'Enter' y vuelva a ejecutar este código.
+
+12:48.490 --> 12:54.950
+No obtengo nada, porque 'firstName' y 'lastName' deben coincidir. OKAY.
+
+12:55.010 --> 13:01.180
+Tengo uno último aquí y ese es el 'punto de exclamación' o 'signo de exclamación' no punto.
+
+13:02.250 --> 13:03.550
+Um, veamos qué hace.
+
+13:03.600 --> 13:07.190
+Esto es un poco complicado, pero mira si puedes seguirlo aquí.
+
+13:07.410 --> 13:30.510
+'Si (! (nombre === "Bob")), abriendo los corchetes '{', 'alert ("Hola Bob");' y ciérrelo '}', presione 'Enter' y me
+
+13:30.510 --> 13:32.680
+sale "Hola Bob".
+
+13:32.930 --> 13:36.220
+OKAY. Recordemos qué era 'nombre'.
+
+13:36.290 --> 13:37.440
+Es 'Billy'
+
+13:37.440 --> 13:48.750
+¿Por qué obtengo 'High Bob' cuando 'Billy' es el 'nombre'? Claramente 'nombre' no es igual a 'Bob'. Debido a esto '! '.
+
+13:48.860 --> 13:54.710
+Este es el operador 'no'. Entonces es todo lo contrario.
+
+13:54.770 --> 14:03.740
+Entonces convierte esta expresión que es 'nombre' es igual a 'Bob', que es 'falso' a 'verdadero'.
+
+14:03.740 --> 14:10.260
+Así que solo para mostrarte si voy esto y luego 'falso' [! falso], me pongo "verdadero".
+
+14:10.450 --> 14:14.710
+Y si digo esto 'verdadero' [! cierto], me sale 'falso'.
+
+14:14.780 --> 14:17.250
+Entonces es por eso que uso los corchetes aquí.
+
+14:17.270 --> 14:25.970
+Estoy diciendo: "Evalúa esto, y una vez que lo hagas, agrega lo contrario a no".
+
+14:26.590 --> 14:31.240
+Y parece que, "¿por qué querría hacer eso?
+
+14:31.240 --> 14:32.850
+¿Cuándo usaría esto? "Y
+
+14:32.950 --> 14:40.270
+es bueno usarlo siempre que, digamos, quiera apagar un interruptor.
+
+14:40.270 --> 14:48.980
+Entonces, tal como te mostré si digo "no es cierto", puedo decir que ahora está apagado, "no es falso": la luz se enciende.
+
+14:49.510 --> 14:55.700
+Entonces verá casos en los que usamos esto y le prometo que es muy, muy importante que lo
+
+14:55.700 --> 14:57.310
+tengamos en el idioma.
+
+14:57.490 --> 15:01.380
+Así que repasemos lo que hemos aprendido hasta este punto.
+
+15:01.450 --> 15:08.090
+Para que en el próximo video tengamos una idea de dónde hemos estado y hacia dónde vamos.
+
+15:08.240 --> 15:10.130
+Hemos hablado sobre los tipos de JavaScript.
+
+15:10.340 --> 15:16.540
+Hemos aprendido sobre 'Números', 'Cadenas', 'Booleanos' y 'Indefinido'.
+
+15:16.590 --> 15:23.520
+También hemos aprendido acerca de las comparaciones de JavaScript que usamos a veces en
+
+15:23.520 --> 15:30.910
+declaraciones condicionales, como las declaraciones 'if'. Aprendimos sobre variables de JavaScript, aprendimos sobre condicionales
+
+15:30.960 --> 15:40.090
+de JavaScript, las declaraciones 'if', 'else', 'else if' y aprendimos sobre operadores lógicos de JavaScript: 'y', 'o', y
+
+15:40.100 --> 15:44.950
+' signos de exclamación'. Y hay algunos más que aún no hemos cubierto y no se preocupe, lo haremos.
+
+15:45.040 --> 15:46.370
+Sé que esto es confuso.
+
+15:46.370 --> 15:53.880
+Esta nueva sintaxis es aprender un nuevo idioma, pero no está tan mal.
+
+15:53.940 --> 15:57.690
+Definitivamente no tiene tantas palabras como un idioma real.
+
+15:57.690 --> 16:03.020
+Solo tiene que acostumbrarse a esto y practicar escribir en la consola y practicar
+
+16:03.090 --> 16:10.200
+con los problemas y familiarizarse con la ejecución de estas sintaxis y hará clic y se convertirá en una segunda naturaleza.
+
+16:10.200 --> 16:12.570
+Como dije, todos pasan por esto.
+
+16:12.720 --> 16:13.840
+¡Ya lo entenderás!
+
+16:13.860 --> 16:19.510
+Lo prometo, sé que sigo diciendo esto, pero solo lo digo porque lo sé, cuando comencé a aprender estas cosas.
+
+16:19.800 --> 16:21.030
+Así me sentí.
+
+16:21.270 --> 16:22.760
+Y así es como se sienten todos los demás.
+
+16:22.780 --> 16:26.850
+Solo quiero asegurarme de que (tú) no te preocupes, llegarás allí.
+
+16:26.850 --> 16:32.040
+Serás un maestro de JavaScript al final de este curso, así que nos vemos en el próximo.
+
+16:32.040 --> 16:35.140
+No puedo esperar para mostrarte más. Hablamos entonces.
+
+16:35.400 --> 16:35.710
+Adiós

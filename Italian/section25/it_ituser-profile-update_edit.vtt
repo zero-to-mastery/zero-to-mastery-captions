@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.730 --> 00:10.480
+Ora, se guardiamo '/ profile /: id', beh, questo non è davvero utile per andare a 'home', vero? Perché una volta effettuato l'accesso
+
+00:10.480 --> 00:23.150
+abbiamo le nostre informazioni utente e forse '/ profile /: id' ci sarà utile per prendere il nostro profilo
+
+00:23.150 --> 00:29.920
+e forse aggiornare il nostro nome o la nostra e-mail.
+
+00:30.010 --> 00:34.600
+È qualcosa che forse potremo incorporare nella nostra app in futuro.
+
+00:35.870 --> 00:45.110
+Ma quello su cui voglio davvero concentrarmi è questo nostro ultimo percorso, che è "immagine", che ci consente di aumentare
+
+00:45.500 --> 00:48.400
+il numero delle nostre "voci".
+
+00:48.460 --> 00:50.350
+Quindi lavoriamo su questo in questo video.
+
+00:50.350 --> 00:59.290
+Ogni volta che inviamo sul front-end vogliamo che l'utente percorra questa strada in modo da poter aumentare
+
+00:59.380 --> 01:03.750
+il conteggio delle voci. Proviamo.
+
+01:04.010 --> 01:15.450
+Se torniamo alla nostra app di reazione, possiamo andare nella nostra app. js e abbiamo la nostra API Clarifai.
+
+01:15.470 --> 01:16.320
+Questo
+
+01:16.330 --> 01:22.210
+è quando facciamo 'onButtonSubmit' e questo è specifico per quella nostra schermata iniziale.
+
+01:26.860 --> 01:35.860
+Osservando ciò, ciò che vorremmo fare è se in questo caso Clarifai ci
+
+01:35.860 --> 01:41.970
+dà una risposta oltre alla visualizzazione e al
+
+01:48.790 --> 01:59.370
+calcolo fintanto che abbiamo una risposta in quel caso vorremmo recuperare la route localhost a 3000.
+
+01:59.590 --> 02:02.570
+E questa volta esegui '/ image'.
+
+02:07.450 --> 02:09.380
+Questa è una richiesta POST.
+
+02:09.490 --> 02:16.990
+Quindi, al fine di fare una richiesta POST - e in realtà consente di farlo come una richiesta PUT.
+
+02:17.050 --> 02:24.240
+Penso che sia quello che avevamo pianificato inizialmente e poiché stiamo aggiornando le informazioni dell'utente, PUT ne farà un
+
+02:24.250 --> 02:27.800
+uso migliore, ma funzionerà in entrambi i modi.
+
+02:27.880 --> 02:34.390
+È solo un modo per mantenere gli standard: PUT è il modo di aggiornare le cose.
+
+02:35.920 --> 02:39.760
+E un PUT? richiesta funziona come abbiamo fatto prima.
+
+02:39.760 --> 02:45.250
+Invece di mettere il metodo POST avremo effettivamente il metodo
+
+02:48.610 --> 02:49.780
+PUT.
+
+02:53.820 --> 02:54.850
+Ancora una
+
+02:54.850 --> 03:04.590
+volta, la stessa cosa 'application / json del nostro' Content-Type 'e vogliamo inviare all'interno del corpo - beh, chiediamo qualche informazione?
+
+03:04.590 --> 03:09.460
+L'unica cosa di cui ha bisogno la richiesta put è 'id'.
+
+03:09.750 --> 03:10.910
+Quindi facciamolo.
+
+03:10.950 --> 03:18.130
+Invieremo semplicemente "id", che abbiamo dell'utente al momento dell'accesso.
+
+03:18.390 --> 03:29.600
+E questo è 'questo. stato. utente. id'.
+
+03:29.740 --> 03:30.890
+Vediamo se funziona.
+
+03:31.870 --> 03:32.870
+Ho intenzione
+
+03:37.710 --> 03:48.410
+di salvare tornare alla nostra app, accedere come nostro migliore amico ormai, John. Farò clic su Accedi e troveremo di nuovo una faccia.
+
+03:53.250 --> 03:57.390
+Questa volta faccia questo.
+
+03:57.480 --> 04:02.050
+Guarda l'immagine. Se vado su "qui" e faccio clic su Rileva ...
+
+04:06.770 --> 04:08.570
+Ho la faccia.
+
+04:08.570 --> 04:13.090
+Ma il nostro rango attuale non è aggiornato.
+
+04:13.320 --> 04:15.840
+E se ricordi che il nostro rango è più delle "voci".
+
+04:15.970 --> 04:18.590
+Quindi cambiamo la formulazione lì in modo che non ci confonda.
+
+04:20.670 --> 04:33.140
+"il tuo attuale conteggio delle voci è ... "e vogliamo aggiornare le" voci ". Se torniamo qui una volta che lo inviamo,
+
+04:33.140 --> 04:38.440
+vogliamo dirlo di nuovo '. then () 'avremo una risposta.
+
+04:40.320 --> 04:45.080
+E questa risposta passerà attraverso
+
+04:45.210 --> 04:49.040
+i movimenti di esecuzione
+
+04:49.550 --> 05:02.640
+di 'json'. Infine diremo che 'count' dovrà ora essere aggiornato usando 'this' 'setState' 'id' utenti
+
+05:05.700 --> 05:10.470
+'o' entry 'per' count 'numero.
+
+05:10.800 --> 05:14.720
+Proviamo di nuovo.
+
+05:17.420 --> 05:18.970
+Ho intenzione di accedere come John.
+
+05:22.560 --> 05:26.610
+'biscotti'. Copia e incolla di nuovo quel viso
+
+05:30.130 --> 05:30.700
+Rileva
+
+05:34.420 --> 05:35.750
+Diamo un'occhiata alla console.
+
+05:35.770 --> 05:39.340
+Passiamo attraverso la rete e vediamo cosa abbiamo avuto.
+
+05:43.290 --> 05:44.520
+Vedo che
+
+05:47.980 --> 05:52.160
+l'immagine del payload che riceviamo è "123".
+
+05:52.260 --> 05:57.990
+Quando guardiamo la risposta abbiamo '2'. Va bene, quindi sembra che tutto funzioni.
+
+05:57.990 --> 06:01.240
+L'abbiamo inviato due volte ma non è stato aggiornato.
+
+06:03.920 --> 06:15.530
+Diamo un'occhiata al nostro - e vogliamo assicurarci che sia "utente" non "utenti".
+
+06:15.670 --> 06:17.250
+E proviamo di nuovo.
+
+06:17.800 --> 06:26.740
+Abbiamo "john @ gmail.
+
+06:26.740 --> 06:26.740
+com "e saranno" cookies ". Se faccio clic su Accedi.
+
+06:27.180 --> 06:27.920
+Tutto ok.
+
+06:27.960 --> 06:29.600
+"Il tuo conteggio attuale è 3".
+
+06:29.610 --> 06:30.980
+Se aggiungo un'altra foto Guarda
+
+06:34.200 --> 06:34.800
+quello.
+
+06:34.900 --> 06:38.090
+Viene visualizzato il messaggio "il conteggio delle voci corrente è 4".
+
+06:38.160 --> 06:46.570
+Ah, ma vedi come il nome viene cambiato in "indefinito"? Beh, è perché il modo in cui l'abbiamo qui
+
+06:46.570 --> 06:51.090
+si vede come 'questo. setState 'cambia semplicemente l'intero oggetto utente?
+
+06:52.300 --> 07:02.030
+Non va bene vero? Perché dobbiamo assicurarci che "user" sia sempre lo stesso ma stiamo
+
+07:02.960 --> 07:05.030
+solo aggiornando l'oggetto "user".
+
+07:08.850 --> 07:15.420
+Ora il modo per aggirare questo problema, perché come ho detto prima, stiamo solo cambiando l'oggetto utente.
+
+07:15.660 --> 07:19.870
+Possiamo usare qualcosa chiamato 'Oggetto. assegnare'.
+
+07:21.880 --> 07:23.210
+E puoi leggerlo.
+
+07:23.210 --> 07:28.120
+Fa parte delle specifiche JavaScript ma ottieni l'oggetto target.
+
+07:28.120 --> 07:32.560
+Nel nostro caso è 'questo. stato. utente'.
+
+07:32.560 --> 07:36.670
+E il secondo parametro è dove si desidera estenderlo.
+
+07:36.820 --> 07:43.040
+Nel nostro caso "voci" e "conta". Se lo facciamo in
+
+07:47.590 --> 07:57.900
+questo modo, salviamo e facciamo "john @ gmail. com '' cookies 'Accedi.
+
+07:58.050 --> 08:00.460
+Abbiamo dovuto riavviare il server, quindi ora è a zero.
+
+08:00.540 --> 08:04.200
+Ma se avessi una foto ...
+
+08:08.350 --> 08:12.560
+Guarda quello. "John, il conteggio delle voci corrente è 1".
+
+08:12.790 --> 08:14.600
+E il gioco è fatto.
+
+08:14.740 --> 08:18.690
+Il nome non cambia.
+
+08:18.810 --> 08:20.300
+Quindi possiamo uscire.
+
+08:20.490 --> 08:21.710
+Siamo in grado di registrarci.
+
+08:21.870 --> 08:24.070
+Possiamo accedere.
+
+08:24.240 --> 08:33.270
+Abbiamo i nostri punti finali e, usando questo, puoi immaginare come puoi espandere la tua app - puoi aggiungere un
+
+08:33.300 --> 08:39.810
+ELIMINA ad esempio a "/ profile /: id" per eliminare il tuo account.
+
+08:39.810 --> 08:44.410
+Puoi aggiungere un metodo PUT per aggiornare il tuo account.
+
+08:44.430 --> 08:51.420
+Ci sono molte cose che possiamo fare, ma spero che tu abbia visto la potenza del server e il front-end
+
+08:51.480 --> 08:55.750
+che si è finalmente connesso tramite 'fetch' per creare alcune funzionalità reali.
+
+08:57.320 --> 08:58.860
+Ci vediamo nel prossimo.

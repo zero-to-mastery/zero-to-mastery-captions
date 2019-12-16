@@ -1,0 +1,223 @@
+WEBVTT
+
+00:01.430 --> 00:02.390
+Bem vindo de volta.
+
+00:02.390 --> 00:08.880
+Eu queria mostrar um vídeo rápido sobre um conceito importante chamado variáveis ambientais e criei aqui
+
+00:08.880 --> 00:15.910
+uma pesquisa simples que fizemos antes de usar o módulo http que acompanha o nó e temos um
+
+00:15.910 --> 00:18.750
+servidor simples que escuta a porta 3000.
+
+00:18.970 --> 00:28.470
+Se eu executei um ponto js do servidor de nós, o servidor está escutando na porta 3000. No entanto, isso não é realmente
+
+00:28.470 --> 00:30.060
+realista.
+
+00:31.180 --> 00:36.890
+Às vezes, não queremos codificar em que porta estamos ouvindo.
+
+00:37.150 --> 00:43.980
+Por exemplo, quando estamos implantando algo através de outro serviço, como faremos com o Heroku, não podemos
+
+00:43.990 --> 00:46.960
+realmente escolher qual porta vamos ouvir.
+
+00:47.020 --> 00:50.150
+Precisamos de algo dinâmico para que possa ser alterado.
+
+00:51.490 --> 00:56.700
+Como podemos fazer isso? Bem, este conceito de variáveis ambientais.
+
+00:56.850 --> 01:11.160
+é a ideia de que existem variáveis, assim como temos uma const A igual a uma const B igual a duas que são
+
+01:11.760 --> 01:13.950
+variáveis nesse ambiente.
+
+01:15.040 --> 01:22.330
+Há uma ideia de uma variável ambiental que é um ambiente como aqui, um computador em que este
+
+01:22.330 --> 01:25.260
+aplicativo está sendo executado ou o servidor.
+
+01:25.510 --> 01:33.460
+Pode ter suas próprias variáveis e podemos injetar essas variáveis no local específico em
+
+01:33.460 --> 01:35.230
+um arquivo.
+
+01:35.340 --> 01:38.550
+E isso não é apenas um nó ou servidor específico.
+
+01:38.550 --> 01:42.090
+É com toda a programação.
+
+01:42.090 --> 01:46.050
+Em todo lugar que você olha, haverá variáveis ambientais que estão sendo usadas.
+
+01:46.050 --> 01:47.640
+É um conceito.
+
+01:47.640 --> 01:58.080
+Então, como podemos fazer isso no nó. Bem, no nó ao qual temos acesso - vamos fazer um processo
+
+01:59.440 --> 02:00.450
+de log
+
+02:00.520 --> 02:10.410
+do console dot env e com process dot env, se eu executar o servidor, você verá que ele me diz o ambiente, como o
+
+02:10.770 --> 02:21.270
+local em que estou executando isso em casa, nos diz o que programa terminal com o qual estou executando, que é o iTerm, obtendo muitas informações.
+
+02:21.320 --> 02:23.900
+Vamos esclarecer isso. E com
+
+02:23.900 --> 02:29.150
+isso agora podemos definir nossas próprias variáveis. Se você deseja definir a porta.
+
+02:29.150 --> 02:37.880
+Por exemplo, podemos dizer processar ponto env env ponto e agora alteramos isso para
+
+02:41.310 --> 02:44.500
+processar ponto env ponto ponto.
+
+02:45.060 --> 02:55.990
+E apenas para tornar esse limpador mais simples, podemos ter PORT igual ao processo dot env dot PORT.
+
+02:56.010 --> 03:01.240
+Então agora podemos remover a mesma chamada.
+
+03:05.980 --> 03:10.180
+Vamos apenas consolar o registro aqui também, apenas para ter certeza de que o vemos.
+
+03:10.220 --> 03:23.040
+Se eu executar o servidor do nó, fico indefinido. Mas isso ocorre porque esse número da porta é algo que não
+
+03:23.040 --> 03:24.190
+tínhamos inicialmente.
+
+03:24.270 --> 03:25.670
+Acabei de inventar esse nome.
+
+03:25.710 --> 03:33.440
+Eu poderia ter dito ABC. Isso não existe. Para acessar ou criar uma variável
+
+03:33.530 --> 03:35.720
+ambiental dentro deste computador.
+
+03:35.720 --> 03:37.500
+Temos que injetar.
+
+03:37.610 --> 03:42.620
+Vou mostrar a você como lidar com o peixe, que é a concha que estou usando aqui, um
+
+03:42.620 --> 03:46.700
+pouco diferente do bash e o mais comum que você verá no Bash.
+
+03:46.850 --> 04:00.570
+Então, eu vou te mostrar dessa maneira primeiro. Com o bash, simplesmente executamos o servidor PORT 3000 node dot js
+
+04:00.790 --> 04:07.740
+E olha isso. O servidor está ouvindo a porta 3000. Se eu
+
+04:10.380 --> 04:17.670
+mudar isso para 3050, o servidor está ouvindo 3050.
+
+04:17.930 --> 04:20.540
+E isso não se limita à porta.
+
+04:20.750 --> 04:28.680
+Você verá nos próximos vídeos durante a produção que podemos configurar algo como um URL de banco de dados.
+
+04:32.890 --> 04:36.820
+E esse URL do banco de dados agora pode ser dinâmico.
+
+04:36.820 --> 04:41.550
+Talvez não saibamos onde será o URL do banco de dados. Nesse caso.
+
+04:41.590 --> 04:44.890
+Eu posso simplesmente dizer que o
+
+04:48.100 --> 04:56.990
+URL do banco de dados é igual a 123 nós do servidor ponto js E obtemos portas
+
+04:57.020 --> 04:59.030
+não está definido.
+
+04:59.030 --> 05:07.020
+Como não estamos usando aqui, vamos revertê-lo para a porta três mil e executar esse comando
+
+05:07.020 --> 05:07.540
+novamente.
+
+05:09.100 --> 05:16.060
+E observe o servidor que está ouvindo a porta 1 2 3 porque essa é a URL do banco de dados e podemos
+
+05:16.060 --> 05:18.030
+definir as variáveis ambientais que queremos.
+
+05:19.140 --> 05:24.890
+E a importância deles não entrará em jogo até mais tarde nesses vídeos.
+
+05:25.140 --> 05:31.410
+Mas eles são realmente importantes para coisas que devem ser mantidas em segredo ou dinâmicas.
+
+05:31.420 --> 05:37.830
+Por exemplo, porta, talvez não saibamos em qual porta o servidor que estará executando nossa API será executado.
+
+05:37.870 --> 05:45.110
+Portanto, quem estiver executando o programa pode simplesmente definir a porta sem tocar na base de código. Mas também para segredos, por exemplo, chaves
+
+05:45.120 --> 05:50.140
+de API que talvez não desejemos ter em nossa base de código.
+
+05:50.160 --> 05:58.830
+Podemos simplesmente iniciar o aplicativo e fornecer talvez chaves de API ou até senhas para fazer login no banco de dados
+
+05:58.860 --> 06:02.930
+dinamicamente através do ambiente, para que fique mais seguro.
+
+06:02.940 --> 06:05.820
+Deixe-me mostrar como fazer isso em peixes.
+
+06:05.820 --> 06:13.680
+É um pouco diferente e você não precisa se preocupar muito com isso, porque é
+
+06:13.680 --> 06:19.730
+específico para pescar, é meio estranho, mas você pode fazer o
+
+06:23.380 --> 06:34.410
+URL do banco de dados do ambiente Dirá Olá servidor de nó ponto js e temos servidores ouvindo na porta Olá.
+
+06:34.440 --> 06:41.510
+Novamente, isso é específico para pescar, mas para demonstrar a você que existem variáveis de ambiente,
+
+06:41.810 --> 06:47.810
+o ambiente decide as variáveis e, como o ambiente em que ele está
+
+06:47.830 --> 06:54.630
+rodando é uma concha de peixe, eu tenho que usar a maneira específica de declará-lo.
+
+06:54.780 --> 06:56.250
+Mas o objetivo ainda é o mesmo.
+
+06:56.250 --> 07:02.370
+Estamos tentando injetar essas propriedades e valores no nó para que ele tenha acesso a ele.
+
+07:02.520 --> 07:09.240
+E é por isso que é chamado de processo dot env para variáveis ambientais e as usaremos nos
+
+07:09.240 --> 07:10.530
+próximos dois vídeos.
+
+07:11.400 --> 07:12.590
+Verei no próximo.
+
+07:12.910 --> 07:13.200
+Tchau tchau.

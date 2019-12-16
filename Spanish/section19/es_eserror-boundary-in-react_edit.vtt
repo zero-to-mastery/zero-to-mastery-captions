@@ -1,0 +1,271 @@
+WEBVTT
+
+00:01.650 --> 00:10.830
+Agreguemos una herramienta más a nuestro conocimiento en React y React 16, que era una nueva versión de react,
+
+00:11.010 --> 00:18.780
+introdujo algo llamado "límites de error" y resolvió el problema que React tenía anteriormente, que era si
+
+00:19.110 --> 00:25.110
+había algún tipo de error dentro de un componente por cualquier razón
+
+00:25.110 --> 00:32.370
+no había una manera elegante de manejarlo. en el siguiente render obtendría todos estos errores crípticos y las cosas simplemente
+
+00:32.370 --> 00:34.710
+no funcionarían bien. Para un usuario
+
+00:35.130 --> 00:42.900
+Desea asegurarse de que, incluso si una parte de su árbol de componentes se rompe, aún puede tener una buena experiencia de interfaz de usuario,
+
+00:42.910 --> 00:48.780
+tal vez un fragmento de texto que diga que algo salió mal, pero que no se rompa la aplicación.
+
+00:48.780 --> 00:54.520
+Entonces, en este video, vamos a hablar sobre los límites de error y aplicarlo a nuestra aplicación RoboFriends.
+
+00:54.600 --> 00:55.500
+Empecemos.
+
+00:57.140 --> 01:04.370
+Lo primero que quiero hacer es en el componente que voy a agregar un
+
+01:04.760 --> 01:13.330
+nuevo archivo y llamaremos a este componente ErrorBoundry. js y solo un recordatorio de que necesitas React 16 o superior para que esto funcione.
+
+01:13.430 --> 01:21.930
+Así que asegúrese de eso en su paquete. archivo json que tiene la versión correcta de React. Ahora aquí podemos hacer
+
+01:22.110 --> 01:25.980
+nuestro componente de reacción de importación regular
+
+01:28.960 --> 01:33.620
+y lo estamos importando desde el paquete de reacción.
+
+01:34.050 --> 01:41.000
+Y finalmente tenemos una clase de ErrorBoundry que extiende el componente de reacción y
+
+01:43.830 --> 01:45.840
+aquí tenemos el constructor
+
+01:48.960 --> 01:51.460
+y nuevamente llamamos super aquí.
+
+01:52.610 --> 02:03.420
+Y para que tengamos acceso a los accesorios, tendremos que, dentro del constructor, tener los accesorios paramater.
+
+02:03.560 --> 02:11.880
+Y finalmente, por esto. estado vamos a crear una propiedad llamada hasError.
+
+02:12.370 --> 02:16.190
+Y por ahora va a ser falso.
+
+02:16.260 --> 02:26.310
+Y tampoco olvidemos exportar ErrorBoundry predeterminado para que tengamos acceso a él y tengamos aquí nuestro
+
+02:26.520 --> 02:29.760
+render predeterminado que nos devolverá.
+
+02:30.830 --> 02:32.760
+Hmm, ¿qué debería devolver?
+
+02:33.170 --> 02:41.300
+Bien, idealmente con este componente ErrorBoundry podemos envolver el componente o podemos envolver un componente como
+
+02:41.300 --> 02:48.890
+el componente CardList con un componente ErrorBoundry y si el componente CardList falla podemos
+
+02:48.890 --> 02:51.340
+atraparlo en el ErrorBoundry.
+
+02:52.390 --> 02:57.790
+Sé que esto es un poco difícil de seguir. React tiene muy buena documentación sobre esto, por lo que
+
+02:57.790 --> 02:59.520
+siempre puede leerlo más adelante.
+
+02:59.530 --> 03:01.150
+Pero quédate conmigo.
+
+03:01.150 --> 03:03.220
+Confía en mí, tendrá sentido.
+
+03:03.220 --> 03:14.080
+Entonces, lo primero que queremos hacer es verificar si esto. estado. hasError es igual a verdadero.
+
+03:14.150 --> 03:23.000
+Entonces, si hay algún tipo de error, entonces queremos devolver este estado predeterminado de cómo podemos mostrarle algo al usuario con gracia, lo
+
+03:24.330 --> 03:29.670
+que lo hace significativo para ellos, a pesar de que no pudimos mostrar lo
+
+03:29.670 --> 03:31.190
+que pretendíamos originalmente.
+
+03:32.040 --> 03:44.590
+En nuestro caso, podemos decir que tenemos un &lt;h1> de "Oooops". Eso no es bueno "para que el usuario lo vea.
+
+03:44.620 --> 03:52.760
+Entonces estamos diciendo aquí que si, por alguna razón, hay un error, vamos a escupir una etiqueta h1.
+
+03:53.940 --> 03:54.870
+De
+
+03:55.100 --> 03:58.460
+lo contrario, podemos hacer una devolución aquí.
+
+03:58.560 --> 04:06.150
+Vamos a decir que esto. accesorios. los niños se renderizarán, de nuevo recuerde,
+
+04:06.150 --> 04:09.070
+porque los niños serán cualquier cosa que esté entre ErrorBoundry.
+
+04:09.090 --> 04:16.050
+En nuestro caso, probablemente será la lista de tarjetas. Así que renderice los hijos, lo que sea que esté
+
+04:16.140 --> 04:17.410
+dentro de ErrorBoundry,
+
+04:17.470 --> 04:19.330
+de lo contrario renderice &lt;h1>.
+
+04:19.710 --> 04:28.390
+Ahora, ¿cómo vamos a poder cambiar este hasError? Bueno, con React 16 tenemos un nuevo método
+
+04:28.390 --> 04:38.270
+de ciclo de vida que se introdujo y se llama componentDidCatch y este componenteDidCatch es como el bloque try
+
+04:38.270 --> 04:49.390
+catch en javascript si algo falla, ejecutará este gancho de ciclo de vida y este gancho de ciclo de vida realmente
+
+04:49.400 --> 04:52.420
+recibe un par de parámetros
+
+04:52.450 --> 04:55.690
+Ese es el error y la información.
+
+04:55.830 --> 05:03.540
+Pero en nuestro caso solo queremos decir que esto. setState va a ahora, si este
+
+05:03.590 --> 05:08.230
+componente falla, tendrá un error igual a verdadero.
+
+05:08.280 --> 05:13.760
+Entonces, si eso alguna vez se activa, representaría la etiqueta H-1.
+
+05:13.870 --> 05:14.190
+Todo bien.
+
+05:14.230 --> 05:17.490
+Vamos a guardar y vamos a la aplicación. js Vamos a
+
+05:17.580 --> 05:20.730
+importar nuestro errorBoundry de nuestros
+
+05:25.190 --> 05:26.630
+componentes.
+
+05:32.210 --> 05:34.030
+Y ahora podemos usar esto.
+
+05:34.100 --> 05:38.740
+Vamos a usarlo aquí para la lista de tarjetas.
+
+05:38.900 --> 05:46.370
+Entonces, si algo sucede con la Lista de tarjetas, queremos tener algún tipo de límite de salida elegante.
+
+05:46.580 --> 05:55.340
+Entonces diremos ErrorBoundary y porque estamos renderizando estos apoyos de punto hijos de punto, si lo ajustamos
+
+05:55.340 --> 05:55.970
+así.
+
+05:57.250 --> 06:00.450
+Y no pasa nada, todavía representará CardList.
+
+06:00.490 --> 06:03.030
+Así que vamos a guardar Veamos si cometimos algún error.
+
+06:03.130 --> 06:04.570
+Hasta aquí todo bien.
+
+06:04.690 --> 06:08.320
+Volvamos a nuestra aplicación y.
+
+06:08.380 --> 06:10.400
+Muy bien, echemos un vistazo a la consola.
+
+06:10.410 --> 06:17.280
+No hay errores aquí, si actualizamos no hay errores aquí si escribo cosas, no hay errores, eso es bueno.
+
+06:19.190 --> 06:26.840
+Ahora con este límite de error, si algo falla en CardList, lo detectará y mostrará nuestro mensaje
+
+06:26.840 --> 06:28.000
+de error.
+
+06:28.070 --> 06:29.420
+Así que veamos a qué me refiero.
+
+06:29.710 --> 06:39.420
+Si entro en CardList aquí y ahora aquí si decimos, si por ahora solo diremos verdadero.
+
+06:39.660 --> 06:48.440
+Vamos a suponer que en CardList hubo un error, por lo que podemos hacerlo diciendo lanzar un nuevo error y decir
+
+06:51.790 --> 06:54.850
+"NOOOOOOO" Si guardamos esto, todo sigue funcionando.
+
+06:54.850 --> 06:59.750
+Si vuelvo, verá que todavía recibo el error, dice error no detectado.
+
+06:59.800 --> 07:00.620
+No.
+
+07:00.910 --> 07:07.030
+Y en la parte inferior dice que el error anterior ocurrió en el componente CardList. React intentará recrear este árbol de componentes desde
+
+07:07.030 --> 07:11.950
+cero utilizando el errorBoundry que proporcionó. ErrorBoundry.
+
+07:12.360 --> 07:16.670
+OK, eso es genial, pero aún veo el error.
+
+07:16.900 --> 07:23.770
+Y eso es porque estamos corriendo ahora en modo de desarrollo. Para crear reaccionar aplicación.
+
+07:23.770 --> 07:29.780
+Quieren mostrarnos cada vez que hay un error en nuestro componente. Los límites de error son realmente útiles cuando pone
+
+07:29.780 --> 07:38.750
+sus aplicaciones en producción donde no tiene estos registros detallados de los errores que tiene. Sus usuarios nunca verán
+
+07:38.750 --> 07:40.540
+esto.
+
+07:40.550 --> 07:45.040
+Entonces, si actualizo aquí muy rápido, ¿lo ves aquí?
+
+07:45.050 --> 07:48.320
+Cómo dijo: ¡Vaya! Eso no es bueno.
+
+07:48.470 --> 07:49.010
+Ups
+
+07:49.100 --> 07:50.450
+Eso no es bueno.
+
+07:50.450 --> 07:54.820
+Entonces, en producción, los usuarios van a ver eso.
+
+07:55.040 --> 08:01.640
+Pero para nuestro caso, el comportamiento previsto para crear React App en desarrollo es mostrarnos los errores, pero con
+
+08:01.910 --> 08:05.770
+límites de error tenemos esa seguridad adicional durante la producción.
+
+08:07.830 --> 08:08.890
+Eso es todo por ahora.
+
+08:08.890 --> 08:10.800
+Ya veré en la próxima. Adiós.

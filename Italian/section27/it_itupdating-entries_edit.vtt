@@ -1,0 +1,175 @@
+WEBVTT
+
+00:01.300 --> 00:02.240
+Ben tornato.
+
+00:02.470 --> 00:04.980
+Lavoriamo sull'endpoint dell'immagine qui.
+
+00:05.230 --> 00:11.840
+E dato ciò che abbiamo fatto finora, possiamo praticamente essere sicuri che non avremo bisogno di nulla di tutto ciò.
+
+00:11.860 --> 00:14.840
+Lo collegheremo al database.
+
+00:14.950 --> 00:20.710
+Ora l'endpoint dell'immagine, se ricordi, aggiorna le voci e aumenta il conteggio.
+
+00:20.710 --> 00:28.560
+Quindi tutto ciò che dobbiamo fare è aggiornare e diamo un'occhiata a KNEX e vediamo se hanno la funzione di
+
+00:32.790 --> 00:33.970
+aggiornamento Sì.
+
+00:33.990 --> 00:37.540
+E ci danno buoni esempi di come farlo.
+
+00:39.760 --> 00:42.170
+Quindi usiamo questo come esempio.
+
+00:43.030 --> 00:45.220
+Per creare la nostra funzione di aggiornamento,
+
+00:48.310 --> 00:49.690
+la copieremo qui.
+
+00:52.530 --> 01:04.740
+E sappiamo che con il nostro punto DB in cui vogliamo dire che dove l'ID è uguale e non è 3 uguale a perché
+
+01:04.740 --> 01:14.740
+questo è SQL dove l'ID è uguale all'ID che abbiamo ricevuto nel corpo che vogliamo aggiornare le voci per
+
+01:16.090 --> 01:21.100
+essere superiore a le voci che è attualmente lì.
+
+01:21.140 --> 01:22.990
+Ma come possiamo farlo.
+
+01:23.160 --> 01:26.660
+Come possiamo prendere le voci dal database e aumentarle.
+
+01:26.660 --> 01:34.230
+Ancora una volta, questo è un problema molto comune e si dice che selezioni l'ID afferrando qualunque sia la
+
+01:34.230 --> 01:35.890
+voce e aggiornandola.
+
+01:36.300 --> 01:46.080
+Bene, possiamo semplicemente usare qualcosa chiamato incremento e incremento, ci dice solo la colonna e la quantità che
+
+01:46.080 --> 01:49.110
+vogliamo incrementare. Molto bello.
+
+01:49.230 --> 01:49.870
+Facciamolo.
+
+01:50.160 --> 02:00.200
+Diciamo che l'ID utente anziché l'aggiornamento è stato solo per incrementare e faremo le voci e lo vogliamo solo per
+
+02:00.200 --> 02:01.140
+uno.
+
+02:01.450 --> 02:06.280
+E quello predefinito è abbastanza sicuro, ma mi piace sempre essere esplicito, in modo che le persone
+
+02:06.280 --> 02:09.020
+sappiano cosa succede quando leggono il codice e facciamolo.
+
+02:09.430 --> 02:22.110
+Quindi incrementiamo di uno e poi vogliamo dire restituendo le voci, facciamo un punto e
+
+02:22.110 --> 02:30.530
+vediamo cosa otteniamo le voci del registro dei punti
+
+02:33.340 --> 02:44.790
+della console e salviamo. Torna al postino. Troviamo il nostro endpoint di immagine che ha un corpo di ID e
+
+02:44.790 --> 02:47.940
+dovremo dargli un ID che esiste attualmente per ora.
+
+02:47.950 --> 02:59.840
+Quindi facciamo solo un invio. E tornando qui non otteniamo nulla perché anche noi dobbiamo fare una richiesta put.
+
+02:59.850 --> 03:07.380
+Ricorda che l'abbiamo modificato per rimandare l'invio ed è sospeso perché non gli abbiamo dato una risposta, quindi per
+
+03:07.380 --> 03:09.270
+ora annulleremo la richiesta.
+
+03:09.410 --> 03:16.610
+Ma se torniamo al server Bene possiamo vedere che c'è un po 'di errore qui e abbiamo sicuramente fatto
+
+03:16.610 --> 03:18.600
+un errore sciocco qui.
+
+03:18.620 --> 03:22.370
+Non ha idea di quale database stiamo parlando.
+
+03:22.370 --> 03:29.310
+Dobbiamo effettivamente dire gli utenti qui. Gli errori SQL a volte possono essere davvero confusi.
+
+03:29.380 --> 03:33.720
+Ma come ho detto, è piuttosto dichiarativo.
+
+03:33.720 --> 03:40.340
+Quindi, finché puoi leggerlo e capirlo con gli errori KNEX sono al minimo a meno che tu non sia come me
+
+03:40.340 --> 03:43.070
+e ti dimentichi di menzionare effettivamente la tabella.
+
+03:43.070 --> 03:43.970
+Proviamo di nuovo.
+
+03:44.930 --> 03:45.600
+Inviato.
+
+03:45.720 --> 03:48.730
+Assisteremo le richieste perché non c'è risposta.
+
+03:49.070 --> 03:52.440
+Ma ora ho un ritorno.
+
+03:52.580 --> 03:56.300
+Se lo invio di nuovo, annulla la richiesta.
+
+03:56.370 --> 04:05.220
+Ne ho due. Se torno al database e seleziono tutto, vedo che Ann ora ha voci di due. Stupefacente.
+
+04:07.740 --> 04:08.630
+Quindi
+
+04:08.640 --> 04:15.570
+ora possiamo tornare qui, sapendo che funziona. Diciamo che le voci, vogliamo - di nuovo, restituiscono il
+
+04:15.570 --> 04:22.670
+primo array, perché ne otteniamo una e al posto della registrazione della console diremo le voci json del punto di risposta.
+
+04:22.990 --> 04:32.170
+Ma se qualcosa fallisce, faremo un punto cattura proprio come abbiamo fallito qui e possiamo dire
+
+04:32.350 --> 04:45.820
+che lo stato del punto di risposta dell'errore gli daremo altri 400 diremo che Json non è in grado di ottenere il conteggio o le
+
+04:48.180 --> 04:55.260
+voci. Salveremo questo e io lo rimuoverò per assicurarsi che l'errore funzioni.
+
+04:55.260 --> 04:58.430
+Quindi dovrebbe restituirmi un 400.
+
+04:58.560 --> 05:00.030
+Proviamo di nuovo.
+
+05:00.200 --> 05:04.590
+Inviare. Impossibile ottenere voci. 400 richiesta.
+
+05:04.840 --> 05:16.310
+Ma se aggiusto questo agli utenti e seleziono di nuovo Ann, ne ottengo tre.
+
+05:16.390 --> 05:22.660
+Bene, abbiamo fatto funzionare il nostro endpoint di immagine e abbiamo il nostro endpoint finale su cui lavorare per
+
+05:24.340 --> 05:25.690
+accedere al video successivo.
+
+05:25.960 --> 05:26.800
+Ci vediamo su quello. Ciao ciao.

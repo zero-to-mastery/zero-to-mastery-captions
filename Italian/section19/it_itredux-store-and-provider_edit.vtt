@@ -1,0 +1,265 @@
+WEBVTT
+
+00:01.100 --> 00:02.210
+Ben tornato.
+
+00:02.210 --> 00:08.780
+Ora che abbiamo le nostre costanti e riduzioni, iniziamo a connettere questa parte redux della
+
+00:09.170 --> 00:11.540
+nostra applicazione alla nostra risposta.
+
+00:13.290 --> 00:16.630
+Ora il modo in cui possiamo farlo è abbastanza semplice.
+
+00:17.520 --> 00:25.260
+Se ti ricordi che abbiamo scaricato un pacchetto chiamato react redux e questo pacchetto lo importiamo
+
+00:26.910 --> 00:32.840
+qui viene fornito con API semplice e facile di due sole cose.
+
+00:32.920 --> 00:40.540
+Uno è un provider e l'altro è connesso e utilizzando queste due cose saremo in grado di collegare queste
+
+00:40.780 --> 00:42.900
+due parti della nostra applicazione.
+
+00:43.570 --> 00:52.660
+Quindi dirò import da react redux.
+
+00:52.870 --> 00:58.520
+Ora in questo video parleremo del provider e nel prossimo video parleremo di connect.
+
+00:58.540 --> 01:04.560
+Quindi per ora facciamo solo importare il provider.
+
+01:04.780 --> 01:13.300
+Ora qui dentro ci sono alcune cose che dobbiamo prima fare è creare il negozio. Se torniamo al nostro diagramma,
+
+01:13.300 --> 01:23.510
+ricordiamo che c'è qualcosa chiamato negozio e redox che è la fonte di ogni verità.
+
+01:23.800 --> 01:32.530
+Si tratta di un oggetto grande javascript, oggetto che descrive lo stato della nostra app in modo che reagisca
+
+01:32.530 --> 01:36.010
+possa renderlo apportare modifiche e mostrarlo all'utente.
+
+01:36.010 --> 01:43.330
+Quindi abbiamo creato un'azione che abbiamo creato e ridotto un riduttore e abbiamo anche bisogno di un negozio.
+
+01:43.510 --> 01:45.900
+Quindi facciamolo prima.
+
+01:46.020 --> 01:53.600
+Possiamo usare il pacchetto redux per questo e dire import e ha una funzione chiamata create store.
+
+01:53.670 --> 01:54.920
+Bel nome e facile
+
+01:55.170 --> 02:00.620
+E lo importeremo dal pacchetto redux.
+
+02:00.660 --> 02:06.570
+Ora il modo in cui creiamo un negozio è abbastanza semplice e possiamo
+
+02:09.780 --> 02:19.940
+dire che const store equivale a creare un negozio e qui mettiamo il, quello che chiamiamo rootReducer, ovvero il riduttore della nostra
+
+02:20.570 --> 02:22.390
+app. Ora nella
+
+02:22.460 --> 02:25.420
+vita reale, abbiamo molti molti riduttori.
+
+02:25.730 --> 02:34.230
+Se torniamo al nostro file di riduttore, in questo momento ne abbiamo uno solo per il riduttore dei motori di ricerca.
+
+02:34.430 --> 02:41.240
+Ma come ho detto prima le applicazioni diventano sempre più complesse e avrai sempre più azioni
+
+02:41.360 --> 02:42.450
+da intraprendere.
+
+02:42.890 --> 02:50.420
+E possiamo continuare a elencare le azioni relative ai robot di ricerca proprio qui, ma più
+
+02:50.420 --> 02:54.840
+avanti nel video dobbiamo anche ottenere robot dall'API.
+
+02:55.280 --> 03:05.870
+Se ti ricordi. ora a causa di questo avremo molti molti riduttori
+
+03:05.870 --> 03:15.820
+e nel negozio vogliamo combinare tutti questi riduttori per creare un riduttore di radice che faremo in seguito.
+
+03:16.650 --> 03:25.080
+Ma per ora perché abbiamo un solo riduttore, usiamo il riduttore dei robot
+
+03:25.080 --> 03:31.580
+di ricerca per creare il negozio e dobbiamo importarlo.
+
+03:31.600 --> 03:32.880
+Quindi andiamo avanti e farlo.
+
+03:33.680 --> 03:34.920
+E dico
+
+03:38.010 --> 03:44.470
+robot per la ricerca delle importazioni dal nostro file di riduzione.
+
+03:44.480 --> 03:44.970
+Tutto ok.
+
+03:45.020 --> 03:51.930
+Quindi ho qui dei robot di ricerca per creare il negozio e basta.
+
+03:51.950 --> 04:00.560
+Abbiamo un negozio. Ora questo negozio è ora accessibile e trasmesso nella nostra app.
+
+04:00.650 --> 04:08.110
+Ricorda con riduttivo ipoteticamente che possiamo rimuovere tutti gli stati dalla nostra reazione e tenerli all'interno
+
+04:08.110 --> 04:11.850
+del negozio e tramandare il negozio come sostegno.
+
+04:11.890 --> 04:21.590
+Quindi vediamo cosa succede se lo faccio se vado a negozio uguale al negozio che abbiamo e salvo.
+
+04:21.740 --> 04:24.460
+E apriamo anche l'app. js
+
+04:25.360 --> 04:27.690
+E nel componenteDidMount.
+
+04:27.890 --> 04:29.240
+Facciamo solo
+
+04:32.000 --> 04:40.060
+il log della registrazione. puntelli. store Va bene, eseguiamo npm start Quando apro
+
+04:40.100 --> 04:41.460
+la console e abbiamo
+
+04:48.270 --> 04:49.630
+un po 'di spazio
+
+04:52.820 --> 04:57.800
+qui, questo è solo un errore di sintassi nel nostro caso quindi le istruzioni quindi risolviamo
+
+04:57.800 --> 04:58.550
+il problema.
+
+05:01.540 --> 05:03.150
+Vai a riduttori.
+
+05:03.240 --> 05:09.420
+Non abbiamo bisogno delle virgolette qui per il punto e virgola qui perché ce l'abbiamo qui.
+
+05:09.500 --> 05:17.770
+Salviamo quello e otteniamo un errore che dice che il campo di ricerca non è definito nel nostro file di riduttori.
+
+05:17.840 --> 05:20.720
+E ancora un piccolo errore qui.
+
+05:20.720 --> 05:30.370
+Il modo in cui vogliamo passare il terzo parametro a un oggetto. assegnare è come un oggetto, quindi vogliamo andare
+
+05:30.370 --> 05:31.020
+così.
+
+05:32.880 --> 05:39.790
+E noi a costante piccolo piccolo errore qui per salvare tutto bene.
+
+05:39.840 --> 05:40.950
+Quindi tutto funziona.
+
+05:40.950 --> 05:46.700
+Abbiamo un avvertimento che dice che il provider è definito ma che non è mai stato usato va bene.
+
+05:47.570 --> 05:49.180
+Perché mentre non stiamo ancora usando.
+
+05:49.250 --> 05:51.390
+Ma andiamo al log della console e vediamo cosa succede.
+
+05:52.750 --> 06:01.570
+Bene, vediamo che il nostro negozio qui è uscito e abbiamo alcune funzioni che possiamo usare,
+
+06:01.870 --> 06:05.860
+incluso lo stato. Usiamolo e vediamo cosa succede.
+
+06:05.890 --> 06:15.750
+Di nuovo andando al mio file di indice che sto per dire o nella nostra app. js file Sto per dire ottenere lo stato,
+
+06:15.760 --> 06:20.490
+andare a salvare tornare indietro e guardarlo.
+
+06:20.550 --> 06:27.190
+Abbiamo il nostro stato che ha appena il campo di ricerca in questo momento.
+
+06:27.190 --> 06:27.620
+Tutto ok.
+
+06:27.760 --> 06:36.910
+Quindi stiamo passando per il nostro negozio come supporto e possiamo usare lo stato Get. Molto interessante, rimuoviamo questo log della
+
+06:36.910 --> 06:37.750
+console.
+
+06:37.750 --> 06:43.120
+Dal momento che non ne abbiamo bisogno, capiamo cosa sta succedendo ora nel file
+
+06:43.120 --> 06:45.820
+indice e dobbiamo passare il negozio all'app.
+
+06:45.920 --> 06:52.900
+Ora non vogliamo davvero passare il negozio fino in fondo al nostro albero dei componenti per i componenti
+
+06:53.200 --> 07:01.170
+più piccoli più e più volte e reagire redox ci dà un buon componente che possiamo usare per farlo molto facilmente.
+
+07:01.280 --> 07:06.770
+Possiamo semplicemente avvolgere il nostro componente app in questo componente del provider.
+
+07:06.770 --> 07:07.770
+Lascia che ti mostri.
+
+07:08.300 --> 07:24.180
+Avremo un componente del provider e questa componente dell'app sarà all'interno di esso
+
+07:24.180 --> 07:27.150
+proprio così.
+
+07:27.160 --> 07:31.540
+Ora la formattazione qui è un po 'spenta ma per ora va bene.
+
+07:31.540 --> 07:39.220
+Voglio solo vedere che il provider sta avvolgendo l'app e ora invece di passare il
+
+07:39.220 --> 07:47.440
+negozio all'app possiamo solo includerlo nel componente del provider e il componente del provider si occuperà
+
+07:47.440 --> 07:56.410
+di passare il negozio a tutti i componenti verso il basso l'albero dei componenti dall'app e usiamo
+
+07:56.410 --> 08:02.730
+qualcosa chiamato Connect di cui abbiamo parlato per completare questa connessione.
+
+08:02.750 --> 08:04.530
+Così il gioco è fatto.
+
+08:04.610 --> 08:14.000
+Abbiamo creato il componente provider che trasmette il negozio e lo store utilizza il riduttore root o qualsiasi altro riduttore che abbiamo
+
+08:14.000 --> 08:19.660
+per creare il negozio e creare quell'albero degli oggetti del nostro stato.
+
+08:20.820 --> 08:28.950
+Quindi nel prossimo video permettimi di salvarlo. Nel prossimo video useremo l'altra parte di react redux
+
+08:29.100 --> 08:31.520
+per collegare finalmente tutto insieme.
+
+08:32.270 --> 08:34.070
+Lo vedrò. Ciao ciao.

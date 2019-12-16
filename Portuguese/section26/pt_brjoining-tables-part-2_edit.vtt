@@ -1,0 +1,169 @@
+WEBVTT
+
+00:00.570 --> 00:09.900
+Bem-vindo de volta ao vídeo anterior, criamos uma tabela de login agora que temos essas duas tabelas juntas.
+
+00:09.930 --> 00:12.900
+Quero mostrar o verdadeiro poder dos bancos de dados relacionais.
+
+00:15.440 --> 00:22.200
+Voltando ao nosso desenho, a parte mais importante dos bancos de dados relacionais é essa ideia de esquemas,
+
+00:22.200 --> 00:29.520
+de ter tabelas que se preocupam apenas em armazenar informações específicas para eles, como usuários, tweets e seguir, e
+
+00:29.580 --> 00:38.030
+conectá-las através de uma chave primária e uma chave estrangeira. Eu vou te mostrar como fazer
+
+00:38.030 --> 00:39.250
+isso.
+
+00:39.680 --> 00:41.170
+Bem, nós já fizemos isso.
+
+00:41.180 --> 00:46.940
+Mas como captamos informações daqui. Se voltarmos à nossa tabela,
+
+00:47.080 --> 00:49.470
+lembramos que executamos nossa
+
+00:54.920 --> 01:04.070
+consulta, criamos a tabela Criar login aqui e criamos uma variável de nome que, quando planejamos, corresponderia
+
+01:04.070 --> 01:10.680
+ao que a tabela de usuários tinha e podemos usar algo chamado JOINs.
+
+01:10.720 --> 01:18.510
+agora com nossas consultas. E essa é uma nova palavra no SQL e provavelmente
+
+01:18.510 --> 01:24.890
+uma das mais poderosas, porque não queremos necessariamente ter uma tabela enorme com centenas de colunas, centenas de linhas.
+
+01:24.900 --> 01:31.350
+Os bancos de dados não são projetados para ter apenas - como uma planilha do Excel, toneladas de linhas e colunas e ter
+
+01:31.350 --> 01:34.740
+todas essas informações em um só lugar, porque não é eficiente.
+
+01:34.770 --> 01:36.110
+Será muito mais lento,
+
+01:36.160 --> 01:37.670
+será muito, muito difícil de gerenciar.
+
+01:37.680 --> 01:41.960
+E quanto maior a sua empresa crescer, será muito, muito difícil.
+
+01:42.000 --> 01:48.150
+Uma boa maneira de projetar um banco de dados é ter essas pequenas mesinhas que estão
+
+01:48.150 --> 01:53.500
+preocupadas, assim como a separação de preocupações, preocupadas com as informações mínimas necessárias.
+
+01:53.550 --> 02:00.180
+E se algo mais for necessário, podemos simplesmente juntar as tabelas para obter informações.
+
+02:00.180 --> 02:01.270
+Deixe-me mostrar o que eu quero dizer.
+
+02:02.850 --> 02:09.830
+Temos aqui nosso banco de dados de teste e vamos ver \ d.
+
+02:09.840 --> 02:12.230
+Tudo bem, temos três arquivos aqui.
+
+02:12.420 --> 02:16.140
+Temos o login e os usuários que criamos.
+
+02:16.140 --> 02:20.130
+Mas qual é a sequência de identificação de login.
+
+02:20.160 --> 02:26.480
+Lembre-se de como criamos uma chave primária. A maneira como os bancos de dados relacionais funcionam é
+
+02:26.480 --> 02:35.320
+que, quando você cria uma chave primária, ele cria outro arquivo que contém essa chave primária. E você pode ver que o tipo é sequência.
+
+02:36.570 --> 02:44.280
+Agora, este é um arquivo que provavelmente não acessaremos, mas internamente o Postgres garantirá que, porque definimos essa
+
+02:44.280 --> 02:50.330
+chave primária, será muito, muito rápido para coletar dados da tabela de login quando
+
+02:50.330 --> 02:50.890
+solicitada.
+
+02:51.100 --> 02:58.890
+Mas digamos que eu queria obter informações de login e usuários. Talvez eu queira obter as informações de Sally,
+
+02:59.640 --> 03:08.320
+mas preciso do aniversário dela, pontuação, idade e também seu segredo. Usando JOINs, podemos fazer isso.
+
+03:09.110 --> 03:11.850
+Eu posso dizer SELECT
+
+03:11.990 --> 03:15.370
+star, então tudo dos usuários.
+
+03:15.690 --> 03:20.900
+E agora, se eu me registrar, posso dizer outro nome de tabela que desejo associar aos usuários.
+
+03:20.900 --> 03:27.580
+No nosso caso, faça o login e temos que dizer ON do que vamos participar ou não.
+
+03:27.590 --> 03:33.370
+Como é que vai saber o que corresponde ao Login.
+
+03:33.470 --> 03:41.400
+Porque se eu voltar aqui, como o banco de dados saberá que eu quero combinar a primeira linha com Andrei, a
+
+03:41.400 --> 03:48.690
+segunda linha com Sally, uma terceira linha com John.
+
+03:48.690 --> 03:49.280
+A palavra-chave ON nos permite garantir que correspondemos a alguma coisa.
+
+03:49.320 --> 03:56.360
+No nosso caso, é o nome da chave primária aqui e a chave estrangeira aqui.
+
+03:56.470 --> 03:59.730
+Então, vamos fazer isso nos usuários. nome é igual a login. nome
+
+03:59.920 --> 04:07.820
+ponto e vírgula.
+
+04:10.500 --> 04:11.290
+Vamos fazer isso.
+
+04:11.340 --> 04:12.080
+E olha isso.
+
+04:13.230 --> 04:14.080
+Temos nome, idade, aniversário, pontuação, mas também ID, segredo, nome por completo.
+
+04:14.280 --> 04:21.810
+Acabamos de juntar esses valores e todos correspondem porque fizemos o login. nome e usuários. nome, e com JOINs vem com grande poder agora, podemos ter pequenas
+
+04:21.980 --> 04:29.750
+tabelas pequenas com base
+
+04:29.750 --> 04:30.810
+no
+
+04:31.010 --> 04:40.170
+que realmente precisamos e sempre que algo específico for necessário, apenas juntamos tabelas e podemos
+
+04:40.170 --> 04:46.710
+fazer várias tabelas, várias JOINs para selecionar as informações que precisar.
+
+04:46.710 --> 04:48.720
+Tudo bem, acho que fizemos um
+
+04:48.720 --> 04:54.030
+trabalho realmente muito bom para entender o SQL e o poder dos bancos de dados relacionais.
+
+04:54.030 --> 04:54.940
+Vejo você no próximo.
+
+04:56.890 --> 04:57.890
+E bom trabalho chegando até aqui, tchau-tchau.

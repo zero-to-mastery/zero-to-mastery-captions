@@ -1,0 +1,862 @@
+WEBVTT
+
+00:01.650 --> 00:08.220
+Se há uma coisa que aprendemos esse tempo todo e este curso é que não há nada estático
+
+00:08.220 --> 00:10.190
+em ser um desenvolvedor web.
+
+00:10.380 --> 00:19.700
+As melhorias são feitas constantemente o tempo todo em HTML, CSS e Javascript e até os navegadores são
+
+00:19.910 --> 00:21.450
+atualizados constantemente.
+
+00:22.680 --> 00:25.480
+Bibliotecas também estão sendo constantemente criadas.
+
+00:25.560 --> 00:31.140
+Se você se lembra das bibliotecas, são apenas partes de código que podem ser CSS, que
+
+00:31.140 --> 00:36.630
+podem ser HTML, que podem ser Javascript. Pedaços de código escritos por outra pessoa para que possamos usá-lo.
+
+00:36.630 --> 00:38.240
+Portanto, não precisamos começar do zero.
+
+00:40.090 --> 00:43.790
+Agora é da natureza humana querer melhorar constantemente.
+
+00:43.890 --> 00:51.200
+E neste vídeo, vamos aprender os novos recursos que todo mundo estará usando.
+
+00:52.190 --> 01:00.310
+Mas primeiro, vamos recapitular algo de nossos vídeos anteriores. Se você se lembra que o javascript foi
+
+01:00.310 --> 01:06.600
+criado pelo navegador Netscape e todos os outros navegadores começaram a usar o javascript.
+
+01:06.640 --> 01:13.950
+Então a Netscape enviou o javascript para algo chamado ECMA International.
+
+01:14.200 --> 01:20.620
+Para que o javascript pudesse ser padronizado e eles pudessem dizer, ei, todo mundo usa essa versão do
+
+01:20.890 --> 01:23.090
+javascript em todos os navegadores.
+
+01:23.270 --> 01:29.640
+Isso é o que o ECMA Script é que o ECMA Script é bom,
+
+01:29.690 --> 01:36.590
+é javascript Mas é apenas a maneira padrão de chamá-lo, de modo que quando os navegadores implementam
+
+01:36.590 --> 01:43.670
+o que o javascript deve fazer e como lêem o javascript Bem, todos concordam com o padrão.
+
+01:43.680 --> 01:52.390
+Agora, toda vez que você vê algo assim como o ES6 e vê
+
+01:52.390 --> 01:59.150
+muito disso, o ES6 representa a versão 6 do ECMAscript.
+
+01:59.200 --> 02:08.500
+Então, sim, houve a versão 1 do Ecmascript até o 6 e atualmente estamos na versão 7, mas ela ainda é nova,
+
+02:08.740 --> 02:13.470
+então estamos aprendendo apenas as versões 5 e 6 por enquanto.
+
+02:13.870 --> 02:21.040
+Mas as versões 5 e 6 introduzem alguns novos recursos realmente poderosos e tornam a codificação em
+
+02:21.040 --> 02:23.190
+javascript realmente muito agradável.
+
+02:23.380 --> 02:29.090
+E a maioria das bases de código que você verá em 2018 usará esses recursos.
+
+02:29.530 --> 02:36.370
+É um tópico muito emocionante para mim, é uma das minhas partes favoritas do javascript agora e estou
+
+02:36.370 --> 02:42.350
+animado para mostrar alguns desses novos recursos que tornarão sua vida muito mais fácil.
+
+02:42.370 --> 02:48.640
+Agora, uma coisa que você pode estar pensando é: Ah! Andre Eu não quero aprender algo se os navegadores não
+
+02:48.640 --> 02:51.350
+os suportarem e eu realmente não posso usá-los.
+
+02:51.880 --> 02:54.170
+Mas Uh! não se preocupe meu amigo.
+
+02:54.250 --> 02:58.950
+Todos esses recursos são suportados, você sabe por quê?
+
+02:59.330 --> 03:03.080
+Bem, principalmente por causa de algo chamado BABEL.
+
+03:03.340 --> 03:10.120
+Você vê alguns anos atrás, o programador criou o BABEL para que os desenvolvedores possam começar a usar novos recursos de javascript à medida
+
+03:10.780 --> 03:11.650
+que forem chegando.
+
+03:11.650 --> 03:18.130
+Lembre-se de que o ECMAScript libera versões o tempo todo, agora sem ter que esperar que os navegadores
+
+03:18.130 --> 03:19.330
+implementem esses recursos.
+
+03:19.330 --> 03:24.440
+BABEL, nos permitiu, bem, usá-los imediatamente.
+
+03:24.510 --> 03:26.330
+Agora, como eles fazem isso?
+
+03:26.340 --> 03:28.120
+Vamos dar uma
+
+03:28.160 --> 03:37.140
+olhada. Se eu tentar aqui, você verá que BABEL me mostra algo que posso escrever e aprenderá a
+
+03:37.140 --> 03:42.720
+sintaxe em breve, não se preocupe, não posso escrever algo assim,
+
+03:42.720 --> 03:50.550
+o que é a nova maneira de escrever javascript com o ECMAScript 6 e compila isso.
+
+03:50.550 --> 03:51.750
+Agora, o que isso significa?
+
+03:51.750 --> 04:00.630
+Isso significa que ele lê um arquivo linha por linha e o altera para uma versão de javascript que todos os navegadores
+
+04:00.630 --> 04:03.480
+conhecem e funciona em todos os navegadores.
+
+04:03.480 --> 04:10.650
+Quando realmente implantamos nosso aplicativo ou site, o que significa colocá-lo on-line depois que terminamos,
+
+04:10.650 --> 04:18.780
+podemos usar o BABEL para dizer que lê nosso arquivo javascript e transformá-lo nisso, para que funcione em
+
+04:18.780 --> 04:20.410
+todos os navegadores.
+
+04:20.520 --> 04:26.790
+Portanto, sem sequer pensar nisso, você pode escrever todo o seu código da maneira mais nova e melhor de escrevê-lo.
+
+04:26.790 --> 04:34.470
+Você pode ver como isso é limpo e o BABEL cuidará de mudar tudo para você, para que os navegadores
+
+04:34.470 --> 04:35.480
+possam lê-lo.
+
+04:36.560 --> 04:38.400
+Isso não é incrível? Chega disso.
+
+04:38.420 --> 04:40.280
+Vamos aprender algumas novas sintaxes.
+
+04:40.430 --> 04:41.320
+E não tenha medo.
+
+04:41.330 --> 04:48.410
+ES5 e ES6 tornaram o javascript muito mais fácil e divertido de escrever. A partir de agora, usaremos o que aprendemos neste
+
+04:48.410 --> 04:54.140
+vídeo para escrever todo o nosso código, porque é o que a indústria está usando no momento.
+
+04:54.170 --> 04:57.320
+E é por isso que você será perguntado durante as entrevistas.
+
+04:57.320 --> 04:59.200
+Então vamos começar.
+
+05:04.760 --> 05:09.850
+O primeiro recurso que vou mostrar é 'let' e 'const'.
+
+05:10.020 --> 05:13.500
+Estes são realmente muito, muito simples.
+
+05:13.530 --> 05:17.090
+Essas são novas maneiras de declarar variáveis.
+
+05:17.220 --> 05:25.230
+Portanto, se você vir aqui em nossa seção resumida, verá que as variáveis javascript agora têm duas novas maneiras
+
+05:25.380 --> 05:33.370
+de declarar uma variável e, na verdade, variável que usamos até o momento, não sabemos ' realmente não
+
+05:33.370 --> 05:35.010
+preciso usá-lo novamente.
+
+05:36.080 --> 05:40.530
+Agora temos algo chamado 'let', para mostrar como esses dois funcionam.
+
+05:40.790 --> 05:42.340
+Vamos fazer um pequeno exemplo.
+
+05:42.350 --> 05:53.970
+Vou dizer 'const player' e 'const' significa constante, dirá 'bobby' e dirá
+
+05:54.170 --> 05:59.420
+'deixe a experiência igual a
+
+05:59.830 --> 06:15.260
+cem' e dirá 'deixe wizardLevel igual a false'. Agora, se eu fizer algo, como 'se a experiência for maior que 90, então
+
+06:18.630 --> 06:21.850
+(deixe wizardLevel) igual a true'.
+
+06:21.980 --> 06:26.500
+OK, então essas variáveis se parecem com nada.
+
+06:26.650 --> 06:30.010
+Vamos executar isso no console e ver o que acontece.
+
+06:31.450 --> 06:32.020
+ESTÁ BEM.
+
+06:32.080 --> 06:34.000
+Se agora
+
+06:39.820 --> 06:46.510
+verificar 'wizardLevel', recebo 'false' Hmmm! isso é estranho, porque no vídeo anterior, onde
+
+06:46.510 --> 06:51.430
+falamos sobre o escopo, se 'wizardLevel' tivesse uma variável, eu teria sido 'verdadeiro' aqui.
+
+06:51.470 --> 06:59.450
+Portanto, se isso era variável e era variável 'wizardLevel', em vez de ser 'falso', será 'verdadeiro'.
+
+06:59.590 --> 07:02.810
+Agora isso é confuso.
+
+07:02.810 --> 07:05.860
+Isso ocorre porque não está dentro de uma função.
+
+07:05.870 --> 07:13.430
+Isso é um pouco complicado, mas com a variável só conseguimos criar um escopo, dentro de uma função,
+
+07:13.880 --> 07:16.720
+mas nunca se ele tivesse colchetes.
+
+07:16.790 --> 07:22.110
+Mas dentro de 'if'.
+
+07:22.290 --> 07:27.230
+Com 'let', quando digo 'let' e 'let', agora criei
+
+07:27.420 --> 07:37.230
+uma variável 'wizardLevel' dentro de 'if', então a única maneira de acessar isso é dentro de
+
+07:37.230 --> 07:38.430
+'if'.
+
+07:38.430 --> 07:42.220
+Se eu fizer 'console. log
+
+07:44.930 --> 07:53.880
+(wizardLevel) 'aqui e' console. log (wizardLevel) 'outside e
+
+07:56.350 --> 08:08.430
+depois vamos colocar' inside 'e' outside '. Se eu copiar isso, colar isso em, 'dentro', eu fico 'verdadeiro', 'fora',
+
+08:08.680 --> 08:17.890
+fico 'falso', porque agora com 'let', sempre que ele estiver enrolado em um colchete, bem, ele cria um
+
+08:18.130 --> 08:21.610
+novo escopo, em comparação com uma variável,
+
+08:22.000 --> 08:23.500
+se eu
+
+08:27.420 --> 08:29.910
+mudar isso para uma
+
+08:32.970 --> 08:46.660
+variável (var) e copiá-la novamente e atualizar, se eu copiar isso, fico 'inside', igual a 'true' e 'outside' igual a 'true' , porque 'wizardLevel' já foi alterado.
+
+08:46.730 --> 08:55.550
+Nenhum novo escopo é criado, dentro dos colchetes, porque isso não é uma função.
+
+08:55.550 --> 08:56.940
+Agora eu sei que isso é realmente muito confuso.
+
+08:56.960 --> 09:03.690
+Mas a grande vantagem disso é que simplesmente não use mais a variável (var). variáveis (var) é realmente bastante confusa.
+
+09:03.710 --> 09:08.870
+Agora pense em 'let' como a nova variável.
+
+09:08.960 --> 09:14.980
+Então, a partir de agora, usaremos 'let' para variáveis, mas o que é 'const'.
+
+09:15.380 --> 09:19.130
+Bem, 'const' é ainda mais legal.
+
+09:19.220 --> 09:20.240
+Vê isto.
+
+09:20.570 --> 09:28.720
+Se eu quiser mudar o nível de experiência, posso dizer 'experiência igual a 80'.
+
+09:28.930 --> 09:31.040
+E agora, se eu olhar para 'experiência', bem
+
+09:31.300 --> 09:32.940
+'experiência' é igual a 80.
+
+09:32.980 --> 09:44.050
+Mas se eu quiser mudar o jogador 'Bobby' para um novo nome, igual a 'Sally', recebo um erro 'Atribuição para variável
+
+09:44.050 --> 09:44.960
+constante'.
+
+09:44.960 --> 09:47.040
+O que isso significa
+
+09:47.070 --> 09:54.870
+é que, como constante, você não pode reatribuir à variável. Portanto, não pode ser atualizado.
+
+09:54.870 --> 09:56.820
+Agora, por que isso seria útil?
+
+09:56.820 --> 10:02.820
+É realmente muito útil porque muitos erros acontecem quando você está trabalhando em uma equipe de pessoas.
+
+10:02.910 --> 10:07.920
+Se você tem algo como 'player' e alguém muda o nome do player enquanto estiver
+
+10:07.920 --> 10:13.510
+trabalhando em um programa e ainda pensa que é 'Bobby', você continua recebendo erros porque alguém o tocou.
+
+10:13.620 --> 10:15.970
+Bem, isso é um pouco de um problema, não é?
+
+10:15.990 --> 10:23.930
+Mas, usando 'const', certifique-se de que essa variável player sempre terá o mesmo valor.
+
+10:23.970 --> 10:30.960
+Portanto, isso é realmente muito, muito útil, e minha recomendação é que, se você tem algo que não
+
+10:30.960 --> 10:33.630
+vai mudar, deve ser uma constante.
+
+10:33.720 --> 10:43.740
+Portanto, uma função pode ser uma constante, porque bem, se essa função ou se a atribuição de 'a' não
+
+10:43.740 --> 10:51.990
+for alterada, nos sentimos muito mais seguros usando 'const' do que digamos 'let', porque garantimos
+
+10:51.990 --> 10:56.000
+que ninguém designe algo mais para 'a'.
+
+10:56.080 --> 11:00.110
+Portanto, a regra a partir de agora é usar 'const'.
+
+11:00.370 --> 11:07.060
+Se você estiver usando uma variável que não muda, na maioria das vezes você a usará e usará
+
+11:07.060 --> 11:12.720
+uma variável. Nível do assistente em que ele muda de 'verdadeiro' para 'falso' 'falso' para
+
+11:12.730 --> 11:13.470
+'verdadeiro'.
+
+11:13.810 --> 11:16.470
+Bem, então use 'let'.
+
+11:16.690 --> 11:28.490
+Uma coisa com 'const' que você deve ter em mente é que, se você faz um objeto 'const' (obj),
+
+11:29.950 --> 11:37.760
+é igual a 'player' 'bobby', 'experience', 'one hundered' e 'WizardLevel' a 'false'
+
+11:37.970 --> 11:39.220
+.
+
+11:39.410 --> 11:50.470
+Bem, se eu copiar esse objeto e tentar reatribuir esse objeto para dizer um número, eu recebo um erro porque é
+
+11:50.470 --> 11:51.610
+uma constante.
+
+11:51.610 --> 11:55.780
+Mas! se eu tentar
+
+12:00.060 --> 12:04.750
+alterar uma propriedade agora meu 'wizardLevel' é 'true'.
+
+12:04.750 --> 12:15.370
+Então, uma coisa constante é que você pode alterar as propriedades dos objetos, mas não pode reatribuir
+
+12:16.860 --> 12:18.480
+a variável.
+
+12:18.520 --> 12:20.520
+Tudo bem para coisas mais divertidas.
+
+12:23.310 --> 12:26.410
+Vamos fazer a reestruturação.
+
+12:26.950 --> 12:30.510
+E este, eu vou mostrar que você facilitará muito sua vida.
+
+12:32.050 --> 12:41.780
+Novamente, se realmente tivermos nosso 'objeto (obj)' aqui, digamos que queremos pegar esses objetos, então teremos que fazer
+
+12:41.780 --> 12:49.460
+'const player é igual a object (obj). jogador 'vai fazer',
+
+12:49.470 --> 13:03.590
+a experiência const é igual a object (obj). experience 'e, em seguida, um objeto' let wizardLevel 'é igual a'
+
+13:03.980 --> 13:05.620
+(obj). wizardLevel '.
+
+13:05.870 --> 13:08.710
+E foi muita digitação para acessar essas propriedades.
+
+13:08.750 --> 13:18.530
+Bem, com a desestruturação, você pode fazer isso, pode dizer 'const player' e 'experience' a partir
+
+13:21.890 --> 13:23.560
+do objeto.
+
+13:23.570 --> 13:31.970
+Portanto, com esta sintaxe, ele faz exatamente a mesma coisa que as duas primeiras linhas aqui, basta selecionar
+
+13:31.970 --> 13:35.440
+as propriedades que deseja de um objeto.
+
+13:35.690 --> 13:45.290
+E agora você tem 'const' 'player' e 'experience' disponíveis para poder usar o 'player' em qualquer lugar que
+
+13:45.290 --> 13:56.520
+desejar na sua base de código e, em seguida, para 'let' podemos fazer 'wizardLevel' é igual a object (obj) ', muito mais limpo.
+
+13:56.570 --> 14:00.500
+Você só precisa se acostumar, mas é muito melhor olhar.
+
+14:00.510 --> 14:09.370
+Tudo bem, outra coisa legal que você pode fazer com objetos. o nome 'const' é igual a 'john snow'.
+
+14:10.680 --> 14:26.600
+Podemos apenas iniciar um novo objeto aqui e podemos dizer agora 'name' é 'olá' e podemos fazer
+
+14:26.730 --> 14:29.600
+'ray', 'smith' 'hihi'.
+
+14:29.770 --> 14:30.000
+Tudo certo.
+
+14:30.010 --> 14:36.730
+Portanto, este é um objeto bobo, mas eu queria mostrar algumas novas maneiras
+
+14:41.320 --> 14:42.280
+de
+
+14:42.320 --> 14:50.980
+declarar propriedades do objeto. Agora, no ES6, você pode ter, em vez da maneira antiga de ter
+
+14:51.250 --> 15:00.160
+apenas 'player' ou 'experience' ou 'wizardLevel', podemos ter algo dinâmica que podemos atribuir como 'john snow' ou
+
+15:00.160 --> 15:07.450
+'ray' mais 'smith' ou 'one' mais 'two' e ter esses valores de propriedades dinâmicas.
+
+15:07.450 --> 15:11.660
+Deixe-me mostrar como eles funcionam.
+
+15:11.960 --> 15:16.240
+Se eu acessar o objeto (obj) agora, tenho três iguais.
+
+15:16.240 --> 15:16.660
+'hihi'.
+
+15:16.670 --> 15:18.040
+E 'john snow' é
+
+15:18.080 --> 15:25.400
+igual a 'olá' Novamente, novas formas de declarar propriedades, muito úteis se você precisar calcular algo para o valor
+
+15:25.400 --> 15:26.530
+da propriedade.
+
+15:27.290 --> 15:34.630
+Mas ainda mais legal é poder fazer algo assim.
+
+15:34.640 --> 15:37.210
+Imagine que você tenha uma
+
+15:37.250 --> 15:38.620
+'const a'
+
+15:38.670 --> 15:39.390
+igual
+
+15:43.450 --> 15:46.560
+a 'simon' 'const b' igual a 'true'.
+
+15:47.890 --> 15:52.920
+E 'const c' é um objeto vazio.
+
+15:53.130 --> 16:06.540
+E se quiséssemos adicioná-los a um objeto, teríamos que fazer 'a' é a, 'b' é b e 'c' é c, e às vezes você queria
+
+16:06.540 --> 16:09.820
+que a propriedade correspondesse ao valor.
+
+16:09.820 --> 16:12.150
+Novamente com o novo javascript.
+
+16:12.150 --> 16:23.760
+Se propriedade e valor forem os mesmos nesse caso, podemos apenas dizer a, b, c para que possamos remover, podemos remover a declaração que
+
+16:23.760 --> 16:29.700
+possuímos com propriedade e valor, se forem iguais, e continuar assim.
+
+16:29.700 --> 16:34.330
+Novamente, isso é algo que, quando chegarmos à seção do Riact, se tornará muito, muito útil.
+
+16:35.450 --> 16:45.950
+Tudo bem, algo ainda mais divertido e, desta vez, o seu modelo é uma string, então 'Template strings'.
+
+16:46.060 --> 16:52.030
+Agora lembre-se de quando temos, digamos uma saudação, o quão irritante é que tínhamos que fazer.
+
+16:52.120 --> 16:53.050
+"Olá"
+
+16:55.580 --> 16:56.590
+'nome' mais
+
+16:56.690 --> 17:09.520
+'você parece estar fazendo' mais 'saudação' e depois diz que tinha um ponto de exclamação e que também precisava se preocupar com uma barra
+
+17:09.520 --> 17:12.460
+invertida se tivesse um apóstrofo.
+
+17:12.460 --> 17:15.550
+Isso foi realmente tedioso e irritante.
+
+17:15.550 --> 17:20.460
+Agora, se você soubesse algo realmente divertido, em vez de fazer dessa maneira.
+
+17:22.500 --> 17:24.930
+Você pode ter 'greetingBest'
+
+17:24.950 --> 17:30.800
+igual a algo chamado Template strings e esses são back ticks.
+
+17:31.020 --> 17:34.270
+Portanto, as marcações anteriores estão logo acima da tecla Tab.
+
+17:34.290 --> 17:43.650
+Se você estiver em um Mac, em vez de usar aspas duplas ou aspas simples, isso significa seqüências de caracteres de modelo e agora
+
+17:43.680 --> 17:50.920
+você pode usar aspas duplas ou aspas simples em qualquer lugar que desejar e será uma string.
+
+17:51.420 --> 18:02.020
+Mas ainda mais legal se você tiver 'nome' igual a "Sally" e 'idade' igual a "34".
+
+18:02.060 --> 18:06.350
+'animal de estimação' é "cavalo".
+
+18:06.390 --> 18:08.250
+Agora podemos fazer,
+
+18:10.980 --> 18:12.050
+'Olá'
+
+18:12.240 --> 18:18.430
+'nome' 'você parece', observe a sintaxe e a coloração.
+
+18:18.430 --> 18:20.920
+'age' menos 10 'Que animal adorável'
+
+18:23.750 --> 18:25.520
+($ pet) 'você tem',
+
+18:27.780 --> 18:29.310
+então observe
+
+18:32.570 --> 18:34.240
+o que fizemos aqui.
+
+18:34.450 --> 18:39.350
+Vou copiar isso apenas para que tenhamos, quando eu comentar isso.
+
+18:39.380 --> 18:43.880
+Agora, se eu olhar no console, atualizarei.
+
+18:43.880 --> 18:53.390
+Você vê que agora, em vez de fazer todas as aspas duplas e mais e se preocupar com o espaçamento
+
+18:53.420 --> 19:02.360
+entre essas marcas, posso dizer um pedaço de corda e adicionar dinamicamente usando o cifrão, então os colchetes
+
+19:02.360 --> 19:05.220
+são o valor que queremos.
+
+19:05.400 --> 19:08.640
+Podemos novamente fazer qualquer tipo de expressão.
+
+19:08.640 --> 19:10.560
+Então 'idade' menos 10.
+
+19:10.560 --> 19:12.070
+'Que animal de estimação adorável
+
+19:12.090 --> 19:13.620
+($ pet) você tem' Vamos ver
+
+19:13.620 --> 19:17.470
+o que acontece, se eu fizer, 'greetingBest'. Olhe para isso, "Olá
+
+19:17.690 --> 19:18.460
+Sally.
+
+19:18.470 --> 19:20.570
+Você parece ter 24 ".
+
+19:20.720 --> 19:22.590
+"Que cavalo adorável você tem".
+
+19:23.720 --> 19:24.430
+Muito legal.
+
+19:24.470 --> 19:29.060
+Portanto, isso é muito, muito útil. Definitivamente, usaremos isso no final do curso.
+
+19:30.150 --> 19:38.440
+Outra coisa que quero mostrar é 'argumentos padrão', que podem fazer algo
+
+19:38.450 --> 19:46.790
+como 'cumprimentar', diremos 'name' igual a string vazia, 'age' igual '30' e diremos.
+
+19:46.800 --> 19:51.760
+'animal de estimação' é um "gato".
+
+19:52.130 --> 19:54.450
+Vamos copiar o que tínhamos antes.
+
+19:55.520 --> 19:58.880
+Com a saudação, vou comentar isso e
+
+20:01.810 --> 20:03.410
+vou devolver.
+
+20:03.790 --> 20:05.790
+Então nada mudou.
+
+20:05.800 --> 20:08.570
+Nós apenas temos uma função que retorna uma saudação.
+
+20:09.590 --> 20:14.740
+A única coisa nova é essa, deixe-me mostrar o que ela faz.
+
+20:15.700 --> 20:26.210
+Se eu comentar isso, eu copio e coloco no console, e agora eu corro 'greet', "Olá, você parece ter 20 anos. "" Que gato adorável você tem
+
+20:26.230 --> 20:27.870
+".
+
+20:29.560 --> 20:35.470
+Você capturou isso, mesmo sendo nosso navegador, e deixe-me atualizar, para ter certeza de que nosso navegador não
+
+20:35.470 --> 20:39.150
+tem idéia de qual idade ou animal de estimação é.
+
+20:39.250 --> 20:41.800
+Mas, se eu executar essa função
+
+20:46.250 --> 20:53.870
+devido à maneira como criei os parâmetros, dei a eles argumentos padrão que informam que, se eu não fornecer
+
+20:53.870 --> 20:58.640
+um valor para o nome que não tenho, não forneço nenhum argumento.
+
+20:58.910 --> 20:59.810
+Bem, então faça.
+
+20:59.810 --> 21:14.490
+'name' string vazia, make 'age' '30' e make 'pet', 'cat', se o fizer agora, 'greet', 'John', '50' e faremos "monkey".
+
+21:14.490 --> 21:15.260
+Agora eu entendo: "Olá
+
+21:15.270 --> 21:16.940
+John, você parece ter 40 anos. ""
+
+21:16.950 --> 21:24.990
+Que macaco adorável você tem ". Isso é ignorado porque eu passei os parâmetros, mas,
+
+21:24.990 --> 21:31.410
+caso contrário, posso passar um parâmetro padrão para que quando alguém chame essa função e eles
+
+21:32.640 --> 21:38.210
+não forneçam esses argumentos, minha função não falhará, porque eu tenho argumentos padrão.
+
+21:38.410 --> 21:39.610
+Muito legal.
+
+21:39.680 --> 21:40.000
+Tudo certo.
+
+21:40.010 --> 21:42.060
+O que mais nos temos.
+
+21:42.500 --> 21:50.880
+Vamos atualizar aqui, se você se lembra que tínhamos mais um tipo para fazer 'TIPOS DE JAVASCRIPT' e esse é um 'Símbolo'.
+
+21:50.900 --> 21:56.720
+Na verdade, ele não é usado com muita frequência, mas eu queria
+
+21:56.720 --> 22:09.000
+mostrar apenas porque, embora seja um tipo de, queremos completar os sete tipos de javascript, e um símbolo é especial, porque se eu tiver o símbolo
+
+22:09.000 --> 22:18.600
+um (sym1), crio um símbolo fazendo esse índice e eu poderia ter um segundo símbolo (sym2) que é 'symbol ()'.
+
+22:18.760 --> 22:32.110
+E aqui dentro podemos colocar qualquer coisa, podemos colocar 'foo' e o símbolo da variável (var) 3 (sym3) é igual a 'Symbol ()'
+
+22:32.110 --> 22:34.490
+e também diremos 'foo'.
+
+22:34.540 --> 22:37.540
+O que há de tão único nos
+
+22:37.870 --> 22:40.310
+símbolos, ooh! nós deveríamos estar usando 'let' aqui.
+
+22:41.560 --> 22:54.580
+Se eu copiar isso e acessar 'sym1', obtenho "symbol ()" acesso 'sym2', obtenho "foo" e 'sym3' obtenho "foo".
+
+22:54.790 --> 23:05.240
+Mas o único é que, se eu fizer 'sym2' igual a 'sym3', eu fico falso.
+
+23:05.290 --> 23:12.430
+Mesmo assim, eles parecem exatamente a mesma coisa, e os símbolos são usados
+
+23:12.430 --> 23:20.630
+porque eles criam esse tipo completamente exclusivo. Para ter certeza de que nunca haverá conflito.
+
+23:20.740 --> 23:26.410
+E o valor do símbolo é usado como um identificador principalmente para propriedades do objeto.
+
+23:26.410 --> 23:32.080
+É praticamente o único objetivo disso, porque às vezes você não quer propriedades de objetos se
+
+23:32.080 --> 23:37.660
+tiver milhares delas para colidir e serem as mesmas, porque então elas terão bugs.
+
+23:37.780 --> 23:42.550
+Não o veremos muito e, é claro, você não o verá na
+
+23:42.550 --> 23:48.820
+natureza demais, mas eu queria mostrar a você independentemente, porque enquanto queremos conhecer todos os tipos de javascript.
+
+23:48.930 --> 23:49.470
+Tudo certo.
+
+23:49.590 --> 23:55.980
+Um último, eu sei que cobrimos muito, mas este é o melhor e isso é 'funções de seta'.
+
+23:57.910 --> 24:09.140
+Até o momento, se quiséssemos fazer algo como adicionar, tivemos que fazer 'a', 'b' e 'retornar a' mais 'b'.
+
+24:09.700 --> 24:17.500
+E você pode ter ficado cansado de escrever constantemente a função repetidamente.
+
+24:17.660 --> 24:19.330
+Bem, agora você tem funções de seta.
+
+24:19.370 --> 24:21.590
+Então, com uma função de seta que
+
+24:32.020 --> 24:35.090
+você pode executar, veja isso, sempre que vir essa sintaxe.
+
+24:35.220 --> 24:37.530
+Opa! e eu tive que
+
+24:37.540 --> 24:44.440
+passar 'a' e 'b' aqui também, sempre que você vê essa sintaxe, é a mesma coisa que dizer função, mas agora é apenas a forma
+
+24:44.440 --> 24:47.180
+abreviada, para que você não precise escrever constantemente a função.
+
+24:47.410 --> 24:56.680
+E a beleza disso, é que você poderia ter 'retornado a' e 'b' e isso funciona completamente.
+
+24:56.680 --> 25:04.180
+Portanto, a única diferença é que temos uma expressão de função que aceita um parâmetro e temos
+
+25:04.180 --> 25:08.620
+essa seta gorda, mas com uma função de seta.
+
+25:08.990 --> 25:11.240
+Se você tiver um único retorno, bem,
+
+25:13.870 --> 25:18.100
+você pode apenas colocá-lo em uma linha, e assume que você deseja devolver isso.
+
+25:18.190 --> 25:27.440
+Se eu salvar e copiar aqui, opa! Eu não preciso dessa sintaxe.
+
+25:27.560 --> 25:33.530
+Vamos copiar mais uma vez 'adicionar 4 e 2'.
+
+25:33.700 --> 25:37.060
+Essa é a primeira função e, em seguida, o novo caminho com a função de seta.
+
+25:37.080 --> 25:41.440
+'add2', '4' '2'.
+
+25:41.680 --> 25:43.060
+Mais uma vez, recebo a mesma coisa.
+
+25:43.060 --> 25:48.240
+Ele retorna automaticamente porque tudo, bem, está em uma linha.
+
+25:48.250 --> 25:51.900
+Parece muito, muito agradável, muito mais fácil de escrever do que o descrito acima.
+
+25:53.220 --> 25:55.360
+E aí está.
+
+25:55.620 --> 25:58.370
+Eu sei que foram muitas informações.
+
+25:58.380 --> 26:04.380
+Certifique-se de fazer os exercícios após este vídeo para se familiarizar com a sintaxe, são apenas novas maneiras
+
+26:04.380 --> 26:05.770
+de fazer as coisas.
+
+26:05.790 --> 26:10.480
+Isso ajudará você a escrever um código melhor e mais limpo.
+
+26:11.330 --> 26:19.050
+E apenas para mostrar o que cobrimos, você conseguiu terminar tudo e o esboço da seção.
+
+26:20.090 --> 26:25.530
+De variáveis a condicionais, e finalmente a função de seta.
+
+26:25.610 --> 26:30.760
+Cobrimos tudo o que queríamos em javascript e avançamos.
+
+26:30.890 --> 26:37.600
+Nós vamos usar essas novas sintaxes para escrever nosso código.
+
+26:37.610 --> 26:40.430
+Espero que você esteja animado como eu para começar a usá-los.
+
+26:40.670 --> 26:42.630
+Vejo você no próximo. Tchau tchau.

@@ -1,0 +1,850 @@
+WEBVTT
+
+00:00.570 --> 00:05.760
+Tudo bem, estamos cada vez mais perto de ter nosso aplicativo com esta aparência, mas vemos claramente que
+
+00:05.760 --> 00:07.820
+temos uma caixa de pesquisa aqui.
+
+00:07.980 --> 00:14.450
+Então, neste vídeo, vamos trabalhar para ter isso interativo. Olhando para o nosso aplicativo, vemos que
+
+00:14.460 --> 00:15.170
+definitivamente
+
+00:15.180 --> 00:21.280
+precisamos de um título e da caixa de pesquisa, então vamos criar isso.
+
+00:21.360 --> 00:22.830
+Se eu for ao índice. js
+
+00:23.030 --> 00:29.730
+Acho que agora que estamos oficialmente construindo um aplicativo, em vez de ter o componente "Cardlist"
+
+00:29.730 --> 00:39.390
+aqui, devemos ter um grande componente chamado "App", e esse "App" será o pai de todos os nossos filhos, de todos os nossos
+
+00:39.900 --> 00:42.890
+componentes Vamos fazer isso. Vamos
+
+00:47.270 --> 00:53.060
+construir o componente "App" primeiro E este componente "App" novamente
+
+00:57.620 --> 01:00.470
+"importará React from 'react';" e
+
+01:06.800 --> 01:13.130
+"App" será igual ao componente "CardList" que podemos copiar e colocar
+
+01:15.560 --> 01:20.840
+aqui. E novamente, alterando isso para "Babel", queremos importar
+
+01:23.850 --> 01:25.740
+o componente "CardList"
+
+01:30.450 --> 01:37.500
+e também queremos que nossos "robôs" sejam realmente importado aqui, para que
+
+01:37.540 --> 01:40.040
+tenhamos acesso a ele.
+
+01:40.150 --> 01:46.120
+E, finalmente, agora queremos renderizar o componente do aplicativo para que
+
+01:46.120 --> 01:48.490
+possamos trazer isso de
+
+01:48.720 --> 01:54.030
+volta da maneira que salvamos. Precisamos obviamente exportar nosso aplicativo.
+
+01:54.050 --> 02:02.960
+Então, diremos "exportar aplicativo padrão;", salve isso. Vamos voltar Sim Sim, tudo ainda está funcionando Agora,
+
+02:03.170 --> 02:04.700
+no
+
+02:04.760 --> 02:06.460
+"CardList", também temos
+
+02:07.060 --> 02:11.400
+um cabeçalho. Então, faremos "h1", que direi "RoboFriends"
+
+02:11.470 --> 02:14.700
+e lembre-se novamente de que precisamos
+
+02:17.990 --> 02:22.850
+retornar apenas um pai ou mãe e precisamos fazer
+
+02:22.850 --> 02:27.110
+algo como um "div" para envolvê-lo e preciso
+
+02:31.560 --> 02:37.680
+fechar essa tag "h1" Tudo bem, tenho meus "amigos robôs" "e
+
+02:37.690 --> 02:46.060
+também precisamos de uma caixa de pesquisa. E embora "h1" tenha sido fácil e agora
+
+02:46.060 --> 02:48.160
+tenhamos que criar um
+
+02:48.160 --> 02:56.700
+componente para isso, parece que provavelmente queremos criar um componente de caixa de pesquisa para esse aplicativo,
+
+02:56.700 --> 03:09.200
+então vamos dizer "importar SearchBox" de um arquivo que criaremos chamado "SearchBox". Criaremos um novo arquivo e esse arquivo terá "import React
+
+03:19.810 --> 03:25.840
+from 'react';" e a caixa de pesquisa terá uma
+
+03:29.030 --> 03:30.370
+função
+
+03:32.570 --> 03:36.120
+que retorna - Vamos pensar
+
+03:36.140 --> 03:38.130
+no que retorna
+
+03:39.400 --> 03:43.830
+Bem, definitivamente retorna uma entrada, certo?
+
+03:43.870 --> 03:47.930
+Esse é o tipo de 'pesquisa'. E
+
+03:48.210 --> 03:51.490
+também temos um espaço reservado
+
+03:51.620 --> 04:02.740
+- vamos fechar isso - e um espaço reservado que diz 'robôs de pesquisa'. Nós fechamos isso e salvamos
+
+04:02.880 --> 04:16.850
+e temos que exportar: "export default SearchBox;", save, "Compiled with! " Tudo certo!
+
+04:16.850 --> 04:19.220
+Temos nossa caixa de pesquisa Mas, bem, não está pesquisando
+
+04:22.690 --> 04:29.130
+nada no momento. Vamos adicionar isso em uma nova linha, apenas para que pareça melhor. E é sempre uma boa ideia, caso você
+
+04:29.130 --> 04:35.620
+queira adicionar mais coisas à caixa de pesquisa, agrupar tudo em um "div". Então, eu vou
+
+04:35.670 --> 04:37.250
+fazer isso agora.
+
+04:39.660 --> 04:44.070
+E esse "div" terá apenas um "className" de "padding2" novamente
+
+04:44.100 --> 04:50.180
+usando [tag-ons] e, com a "input", podemos criar um "className" e eu sei
+
+04:51.450 --> 04:52.920
+que eles ficam
+
+04:52.920 --> 04:55.440
+bem, então vou continuar para
+
+04:55.460 --> 04:56.860
+copiar e
+
+04:56.970 --> 05:00.240
+colar aqui, preenchendo o fundo "azul mais
+
+05:00.240 --> 05:02.930
+claro" Se eu fizer isso e
+
+05:02.940 --> 05:04.800
+- vamos voltar Tudo
+
+05:04.830 --> 05:06.390
+bem Parece melhor
+
+05:06.540 --> 05:10.190
+- queremos centralizar tudo Então, talvez no aplicativo
+
+05:11.220 --> 05:14.570
+possamos adicionar um "className" igual a "centro
+
+05:14.580 --> 05:15.750
+de
+
+05:17.010 --> 05:19.370
+texto" veja se isso funciona
+
+05:19.380 --> 05:21.380
+Aí está Muito melhor
+
+05:21.550 --> 05:25.610
+já gosto disso Agora, como podemos tornar isso interativo?
+
+05:25.660 --> 05:33.600
+Até agora, nós apenas tínhamos esses sites estáticos, mas sites reais são interativos, certo?
+
+05:33.660 --> 05:36.430
+Bem, vamos pensar sobre isso logicamente.
+
+05:36.570 --> 05:39.360
+Temos um aplicativo. Temos um "SearchBox"
+
+05:39.600 --> 05:41.920
+E um "CardList", mas
+
+05:42.910 --> 05:53.220
+o componente da caixa de pesquisa precisa se comunicar com a lista de cartões e o mesmo com a lista de
+
+05:53.220 --> 05:54.930
+cartões. O "CardList"
+
+05:54.960 --> 06:02.410
+precisa saber o que está na caixa de pesquisa para poder filtrar os robôs de acordo. Vamos voltar à nossa imagem
+
+06:03.880 --> 06:10.030
+de que temos um fluxo de dados unidirecional. Olhando para isso, temos o componente do
+
+06:10.030 --> 06:20.430
+aplicativo e, em seguida, o componente da lista de cartões que possui cartões e, em seguida, o componente da caixa de pesquisa que não
+
+06:20.910 --> 06:22.790
+tem filhos agora. Mas,
+
+06:22.920 --> 06:30.030
+para que esses dois se comuniquem, temos dados unidirecionais fluxo, ou seja, eles precisam enviar suas informações
+
+06:30.030 --> 06:36.170
+aos pais e os pais lhes dizem o que fazer Agora, como podemos fazer
+
+06:37.230 --> 06:39.010
+isso Até agora,
+
+06:40.300 --> 06:46.870
+apenas tínhamos alguns dados que acabamos de ler, mas nunca tínhamos onde um dos as
+
+06:47.020 --> 06:51.910
+crianças tiveram que modificar dados ou se comunicar com um vizinho.
+
+06:54.650 --> 06:56.740
+Bem, para fazer
+
+06:56.740 --> 07:06.730
+isso, o React tem uma idéia de algo chamado "estado". Até agora, aprendemos sobre adereços, como propriedades que continuamos
+
+07:06.730 --> 07:09.080
+passando, mas nunca
+
+07:09.860 --> 07:15.150
+os mudamos porque o React apenas lê os adereços.
+
+07:15.170 --> 07:24.130
+Se eu for para "CardList", basta ler os adereços que recebe e renderizar alguma coisa. E esse fluxo de dados unidirecional é
+
+07:24.130 --> 07:33.340
+muito bom, porque esse "CardList" é uma função pura. Ele recebe uma entrada e sempre retorna a mesma saída.
+
+07:33.400 --> 07:37.370
+Portanto, se os robôs são sempre os mesmos, sempre
+
+07:37.660 --> 07:42.760
+retornam a mesma coisa. São funções determinísticas e puras, e é algo
+
+07:42.820 --> 07:48.430
+sobre o qual falamos antes. E isso é realmente uma coisa
+
+07:48.430 --> 07:49.720
+muito boa.
+
+07:49.810 --> 07:56.200
+Esses componentes são chamados de "componentes puros", e alguns até chamam de "componentes burros". Isso significa apenas
+
+07:56.200 --> 08:01.480
+que eles realmente não precisam saber de nada além do fato de serem funções
+
+08:01.480 --> 08:04.680
+puras que recebem algo e retornam algo.
+
+08:05.200 --> 08:11.480
+E isso é muito bom, porque sempre sabemos como isso será, e é tudo o
+
+08:11.540 --> 08:12.870
+que tínhamos
+
+08:13.250 --> 08:18.640
+até agora. Mas agora precisamos nos preocupar com algo que não seja
+
+08:18.740 --> 08:22.840
+adereços. Os acessórios nunca mudam. Props são sempre apenas entradas
+
+08:22.850 --> 08:24.370
+que obtemos
+
+08:25.180 --> 08:29.490
+e nunca as modificamos. Mas, neste caso, precisamos de uma
+
+08:29.680 --> 08:36.150
+memória em nosso aplicativo. Precisamos disso para se comunicar com isso, além de mudar e atualizar
+
+08:36.340 --> 08:44.380
+de acordo. E é isso que "estado" está no React. "Estado" - e você ouvirá muito isso na programação
+
+08:45.340 --> 08:54.060
+de computadores - significa simplesmente a descrição do seu aplicativo. Um "estado" é simplesmente um objeto - um objeto que
+
+08:54.430 --> 09:02.650
+descreve sua aplicação. E esse "estado" que descreve nossa aplicação são os robôs, e o que quer que seja
+
+09:04.110 --> 09:07.020
+inserido na caixa de pesquisa e "estado"
+
+09:07.110 --> 09:13.020
+é capaz de mudar. valor da caixa de pesquisa, valor da entrada, e somos
+
+09:13.060 --> 09:15.190
+capazes de alterar o que
+
+09:15.210 --> 09:17.190
+o array do
+
+09:17.290 --> 09:19.390
+robô significa O que
+
+09:19.570 --> 09:26.330
+é exibido Esta é uma regra que você precisa se lembrar Props são simplesmente coisas que
+
+09:26.440 --> 09:34.570
+saem de "estado" Então um pai alimenta "estado" em um componente filho e, assim que um componente filho (componentes)
+
+09:34.580 --> 09:42.460
+recebe um "estado", é uma propriedade. Essa criança nunca pode mudar essa propriedade. Os pais apenas dizem o que
+
+09:42.460 --> 09:47.630
+é o "estado" e a criança o recebe como "robôs". Portanto, a
+
+09:47.650 --> 09:58.090
+primeira coisa que precisamos fazer é começar a usar o "estado" em nosso aplicativo, a descrição do que é o nosso "estado" deveria ser Então,
+
+09:58.600 --> 10:00.650
+vamos fazer um "estado"
+
+10:00.670 --> 10:07.960
+constante por enquanto e mostrar que nosso "estado" precisa ter uma matriz de "robôs" e precisa ter, vamos
+
+10:08.410 --> 10:14.360
+chamá-lo de "campo de pesquisa" E é exatamente isso que nosso campo de pesquisa
+
+10:14.610 --> 10:18.530
+precisa Mas, para usar o "estado", precisamos voltar à
+
+10:18.840 --> 10:25.500
+nossa maneira original de criar componentes do React. Se você se lembra disso,
+
+10:25.500 --> 10:37.990
+quando criamos o aplicativo React pela primeira vez, criamos uma classe e fazemos isso dizendo "export default"
+
+10:38.380 --> 10:40.420
+ou "export
+
+10:46.710 --> 10:51.540
+App extends React". Componente "Estende a classe"
+
+10:51.670 --> 11:02.640
+Component "e, novamente, podemos usar atalhos aqui e apenas dizer ... Então agora podemos remover o React daqui E
+
+11:02.640 --> 11:03.630
+isso
+
+11:04.510 --> 11:14.830
+sempre tem uma função de renderização que precisa retornar algo, que é isso Novamente, é apenas a
+
+11:18.990 --> 11:28.750
+sintaxe com a qual você precisa se acostumar. Portanto, se eu salvar isso - ah, e eu cometi um erro aqui,
+
+11:28.750 --> 11:30.580
+em vez de "exportar",
+
+11:30.790 --> 11:36.720
+isso deveria dizer "classe" Então, sim, "a classe App estende o Componente" e depois "exportamos o
+
+11:36.730 --> 11:43.750
+aplicativo padrão"; Então, novamente, estamos apenas declarando uma classe. Eu salvo e temos apenas algo que diz "estado é atribuído
+
+11:43.750 --> 11:46.590
+um valor, mas nunca usado" Isso é porque
+
+11:46.740 --> 11:48.270
+é bem verdade que
+
+11:48.270 --> 11:49.150
+não o
+
+11:49.200 --> 11:53.000
+usamos. Então, como podemos adicionar "estado"? Bem, no
+
+11:53.010 --> 11:56.030
+React, simplesmente fazemos um
+
+11:56.040 --> 11:58.600
+construtor. Você deve
+
+11:59.630 --> 12:05.130
+se lembrar disso quando falamos sobre objetos.
+
+12:05.330 --> 12:21.400
+E esse construtor, aqui podemos declarar o estado. Simplesmente dizemos "isso". state = ", e aqui colocamos o que queremos que nosso estado tenha. Então, se eu salvar isso,
+
+12:21.400 --> 12:24.630
+recebo" 'this' não é permitido antes de
+
+12:24.700 --> 12:27.610
+super () "Novamente, algo que você deve
+
+12:27.610 --> 12:34.010
+se lembrar do vídeo de objetos avançados em Para usar "this", precisamos fazer essa
+
+12:34.300 --> 12:42.890
+coisa estranha, onde chamamos "super ()", que chama o construtor do componente. Se eu fizer isso e salvar, tudo
+
+12:43.090 --> 12:49.890
+está funcionando bem. E agora temos o nosso "state", que é robôs e campo de
+
+12:49.960 --> 13:00.810
+pesquisa, e esse "estado", como eu disse antes, é o que descreve nosso aplicativo. Essas são as coisas que podem mudar, e é isso que
+
+13:00.810 --> 13:02.220
+esse "estado" é
+
+13:02.220 --> 13:07.590
+- algo que pode mudar e afetar nosso aplicativo. Eles geralmente vivem
+
+13:07.860 --> 13:08.720
+no
+
+13:10.320 --> 13:17.160
+componente pai, o componente que é o pai que meio que passa "estado" para diferentes
+
+13:17.180 --> 13:19.550
+componentes. E agora eu posso
+
+13:19.550 --> 13:29.210
+acessar "robôs", não daqui, mas daqui ". Estado. robots "E, novamente, apenas reaja à
+
+13:29.310 --> 13:34.100
+sintaxe com a qual você se acostumará. Tudo está funcionando
+
+13:34.270 --> 13:37.180
+como esperado. Você vê que nosso
+
+13:37.490 --> 13:47.210
+estado, que é" robôs ", agora é transmitido como" adereços "para" CardList " "aceita" robôs "como" adereços ", mesmo
+
+13:47.330 --> 13:50.550
+no aplicativo. js
+
+13:50.690 --> 13:59.090
+é um "estado". E como eu disse, porque "App" agora possui "estado", que inclui
+
+13:59.180 --> 14:02.540
+"robôs", é permitido alterá-lo. OK Agora, da
+
+14:02.630 --> 14:11.530
+maneira como podemos comunicá-los, temos esses dois vales e, idealmente, na caixa de pesquisa, tenho algo chamado "onSearchChange ()", que
+
+14:11.530 --> 14:19.930
+novamente é uma função que eu vou inventar. Isso é apenas aleatório nome que eu criei And "onSearchChange ()"
+
+14:20.500 --> 14:23.170
+Quero dizer que toda vez que
+
+14:23.650 --> 14:30.250
+a entrada é alterada, assim como fizemos com a manipulação do DOM, obtemos um evento
+
+14:30.670 --> 14:37.580
+e, dentro desse evento, vou "para o console. log "neste evento, criei uma função e quero
+
+14:41.430 --> 14:44.590
+que sempre que essa entrada for alterada
+
+14:44.590 --> 14:48.740
+para acionar" o console. log "Para
+
+14:49.170 --> 14:58.890
+que possamos passar isso realmente agora. Eu posso dizer "searchChange = [onSearchChange]", mas novamente, porque este é
+
+14:58.890 --> 15:09.090
+um objeto, temos que dizer "isso. "para que diga" this "(que é o" App ")". onSearchChange "é" searchChange "Se eu salvar isso
+
+15:10.110 --> 15:17.760
+e agora for para a caixa de pesquisa, agora tenho" searchChange "como uma função, para que eu
+
+15:21.590 --> 15:25.910
+possa dizer, assim como no HTML - Lembre-se de
+
+15:25.930 --> 15:32.110
+HTML que eu posso fazer" onchange html ", é um evento, estamos apenas
+
+15:32.170 --> 15:36.040
+ouvindo "sempre que a entrada for alterada". Assim, posso
+
+15:36.260 --> 15:39.720
+dizer "onChange =" "[searchChange]" Vamos ver se
+
+15:42.420 --> 15:43.980
+isso funciona. Não
+
+15:43.980 --> 15:45.600
+estou recebendo erros. Se
+
+15:45.690 --> 15:46.730
+eu
+
+15:46.740 --> 15:53.290
+voltar ao meu aplicativo, eu abra o console e digito algo, e veja isso!
+
+15:53.340 --> 16:01.120
+Estou recebendo o evento. E isso é algo que você deve se lembrar é que,
+
+16:01.120 --> 16:09.170
+com um evento, sempre temos "evento". alvo. valor ", que deve nos dar
+
+16:09.190 --> 16:13.580
+o valor do termo de pesquisa Vamos salvar isso e
+
+16:15.160 --> 16:19.960
+digitar algo aqui Veja isso! Agora estamos percebendo a diferença enquanto
+
+16:20.000 --> 16:22.760
+digitamos. Vamos repassar mais uma vez o
+
+16:23.650 --> 16:25.640
+que aconteceu. Novamente, eu
+
+16:25.660 --> 16:31.170
+sei que isso é difícil. Demorei um pouco para começar quando começamos, mas esse diagrama
+
+16:32.080 --> 16:34.180
+realmente explica isso bem. Eu
+
+16:34.180 --> 16:43.940
+tenho meu aplicativo. componente Minha caixa de pesquisa e minha lista de cartões. Sempre que a caixa de pesquisa muda, quando eu vou executar
+
+16:43.940 --> 16:48.620
+a função, chamarei essa função E a maneira como a chamamos
+
+16:48.630 --> 16:51.020
+é que adicionamos isso Lembre-se
+
+16:51.100 --> 16:58.240
+de quando fizemos eventos DOM, definimos a função e a cada no momento em que o evento
+
+16:58.240 --> 16:59.490
+acontece, chamaria.
+
+16:59.920 --> 17:08.720
+Então, estamos dizendo que toda vez que o evento onchange é acionado, chame a função de alteração de pesquisa. E
+
+17:08.950 --> 17:16.330
+se você se lembra da função de alteração de pesquisa, que é um suporte, é a função
+
+17:16.330 --> 17:17.460
+"onSearchChange"
+
+17:17.470 --> 17:19.470
+definida no aplicativo. É assim
+
+17:19.510 --> 17:24.880
+que nos comunicamos com o pai. o evento, o pai diz "Oh,
+
+17:25.060 --> 17:29.810
+execute esta função" E agora essa função é executada Mas agora
+
+17:29.940 --> 17:39.150
+que tenho o valor da entrada de pesquisa, agora posso comunicar diretamente essa entrada de pesquisa à lista de "robôs" Vamos
+
+17:39.330 --> 17:41.110
+ver como isso funciona
+
+17:41.130 --> 17:42.660
+Podemos criar uma
+
+17:42.720 --> 17:55.950
+variável, digamos "robots filtrados", e isso será igual ao "this". Estado. robots "e este" robots ", que é
+
+17:57.980 --> 18:00.190
+o array -
+
+18:00.230 --> 18:08.240
+novamente é assim que acessamos" state "- vai usar" filter ", filtrando nosso array
+
+18:08.410 --> 18:17.290
+Damos a ele" robots ", e agora nosso array terá que retornar um condição, e
+
+18:18.820 --> 18:28.400
+a condição será "robôs" ".
+
+18:28.400 --> 18:28.400
+nome "e vamos fazer algo que nunca vimos antes e que" deve ser.
+
+18:28.720 --> 18:33.850
+LowerCase "E este é um método que vem com
+
+18:33.880 --> 18:39.840
+todas as strings, e apenas torna tudo em minúsculas. E isso
+
+18:39.990 --> 18:51.640
+é bom para comparações, para que não tenhamos que comparar letras maiúsculas ou minúsculas. E se o" nome "de" robôs ", que
+
+18:51.700 --> 18:58.450
+agora é em minúsculas, "inclui" - é outro método e, novamente, é pré-incorporado
+
+18:58.610 --> 19:02.940
+em javascript - se "inclui" o "campo de
+
+19:03.140 --> 19:08.140
+pesquisa" E novamente queremos "toLowerCase" no caso ways E
+
+19:08.510 --> 19:09.260
+aí
+
+19:09.470 --> 19:16.370
+está Se o nome dos robôs em letras minúsculas incluir - e isso
+
+19:16.530 --> 19:26.400
+faz a comparação - se alguma coisa na string incluir "toLowerCase", bem, retorne apenas os robôs que retornam fiéis
+
+19:26.400 --> 19:29.220
+a isso. Vamos salvar - - oh,
+
+19:29.270 --> 19:33.240
+e você vê aqui como você obtém o 'campo de pesquisa' lá porque, bem, é parte do
+
+19:33.260 --> 19:38.190
+estado que eu tenho que fazer "isso. Estado. campo de pesquisa "Se
+
+19:38.400 --> 19:42.150
+eu salvar isso, eu entendo que" 'robotRobots filtrado' recebe
+
+19:42.150 --> 19:44.720
+um valor, mas nunca é usado
+
+19:44.850 --> 19:49.240
+"Mas não se preocupe, agora podemos consolar o log e ver
+
+19:51.320 --> 19:59.970
+o que obtemos se eu salvar e vamos voltar ao nosso aplicativo , e se eu procurar algo aqui, oh, eu
+
+20:00.110 --> 20:03.510
+recebo um erro E este é um erro
+
+20:03.530 --> 20:05.010
+que é muito muito
+
+20:05.120 --> 20:06.490
+confuso É
+
+20:06.620 --> 20:11.700
+complicado da primeira vez Mas tenha paciência comigo aqui O problema agora é
+
+20:12.260 --> 20:23.090
+que o valor de "isso" bem, não é referindo-se ao "App", porque o evento ocorreu na "entrada", o valor de "this" é, assim, a entrada e a
+
+20:23.090 --> 20:28.040
+"entrada" não tem o estado ". robots "E este é um truque
+
+20:28.490 --> 20:35.050
+que você sempre esquece, mas lembre-se disso como regra geral Com tudo o que vem do React,
+
+20:36.060 --> 20:43.740
+o construtor e a renderização são pré-criados no React, sempre que você cria seus próprios métodos em um componente, use
+
+20:43.740 --> 20:54.100
+esta sintaxe, para que a seta funcione, e isso garante que o valor "this" esteja de acordo com o local em que foi criado, que é
+
+20:54.100 --> 20:58.020
+o "App" que eu sei que é confuso. Você pode
+
+20:58.210 --> 20:59.320
+ler mais sobre
+
+20:59.320 --> 21:00.610
+isso, deixarei um
+
+21:00.610 --> 21:02.280
+recurso para isso É
+
+21:02.290 --> 21:06.280
+um tópico difícil de obter, mas, novamente, regra geral -
+
+21:06.280 --> 21:07.260
+use
+
+21:07.300 --> 21:16.550
+as setas Se eu fizer isso agora e clicar, lá vai você - agora eu recebo "robôs" Mas aqui está a coisa Searchfield
+
+21:16.600 --> 21:18.250
+agora - você vê
+
+21:18.250 --> 21:24.610
+isso Eu ainda tenho 10 robôs, não está realmente filtrando nada E isso é porque meu
+
+21:24.880 --> 21:31.570
+"campo de pesquisa" é sempre uma string vazia. Para atualizar o estado novamente,
+
+21:31.660 --> 21:40.890
+outra regra do React é "fazer isso. setState ", e é novamente um método que acompanha o React. E sempre que você deseja alterar
+
+21:40.900 --> 21:47.680
+o estado, sempre faz isso, não faz" isso. Estado. searchfield = "-
+
+21:47.770 --> 21:49.290
+você
+
+21:49.300 --> 22:00.280
+nunca faz isso Você tem que fazer" isso. setState ", e aqui dentro dizemos apenas" campo de pesquisa é ... "- e novamente estamos usando um objeto, portanto, o
+
+22:00.280 --> 22:06.460
+evento" campo de pesquisa agora será ". alvo. valor "Se eu salvar
+
+22:08.480 --> 22:20.870
+isso e voltar, você verá que agora tudo está sendo filtrado. Então, estou alterando o estado para que o" campo de pesquisa "seja
+
+22:20.930 --> 22:26.130
+sempre atualizado e agora estamos filtrando os robôs de acordo
+
+22:26.150 --> 22:30.770
+com o" campo de pesquisa "alterado. OK Então,
+
+22:33.330 --> 22:37.320
+uma última coisa.
+
+22:37.570 --> 22:42.250
+Olhando para isso Temos o fato de que os robôs de filtro ainda não estão
+
+22:42.400 --> 22:48.400
+atribuídos, e você está certo. Se olharmos para isso, agora comunicamos a caixa de pesquisa com o aplicativo e o
+
+22:48.400 --> 22:48.940
+campo
+
+22:48.940 --> 22:56.740
+de pesquisa está em constante mudança. Agora, precisamos para comunicá-lo aos "robots filtrados". O que podemos fazer é que "robôs filtrados" agora possam ser usados como
+
+22:56.740 --> 23:02.350
+acessórios em vez de "isso". Estado. robots "Então, vamos fazer isso.
+
+23:02.350 --> 23:03.100
+Vamos
+
+23:03.160 --> 23:06.910
+mudar isso para cá. Agora, temos acesso a" robots filtrados
+
+23:10.430 --> 23:17.060
+"e, em vez de passar" isso. Estado. robôs "simplesmente passamos"
+
+23:17.690 --> 23:19.970
+filtros filtrados "Se eu salvar
+
+23:20.120 --> 23:23.670
+isso, verifique se a parte da pesquisa também
+
+23:23.930 --> 23:29.940
+foi salva E agora eu volto. Vou fechar a guia e verificamos.
+
+23:33.200 --> 23:34.280
+Veja se o
+
+23:34.430 --> 23:37.420
+aplicativo está funcionando. Que legal é
+
+23:37.610 --> 23:38.610
+isso.
+
+23:39.960 --> 23:43.230
+Vamos revisar mais uma vez para mostrar
+
+23:45.150 --> 23:52.110
+exatamente o que ele faz. Temos o componente "App", que possui dois estados. - "robots"
+
+23:52.300 --> 24:01.120
+e "searchfield" E como "App" possui o estado, qualquer componente que possua "state" usa a sintaxe "class" para que
+
+24:01.150 --> 24:08.930
+eles possam usar a função "constructor" para criar "isso". state "e esse" state "é o que muda em um aplicativo. É o
+
+24:08.950 --> 24:11.380
+que descreve o aplicativo. Lembra quando eu disse
+
+24:11.380 --> 24:16.840
+que o DOM virtual é apenas um objeto javascript? O DOM virtual é apenas um
+
+24:16.840 --> 24:27.190
+objeto que coleta todo esse estado e o React usa esse estado para renderizá-los e transmiti-los como acessórios para esses componentes, para que esses componentes
+
+24:27.190 --> 24:32.740
+que são apenas funções puras possam renderizar. E sempre sabemos que o aplicativo
+
+24:32.940 --> 24:38.010
+vai têm a mesma aparência porque, bem, são apenas simples funções puras.
+
+24:39.350 --> 24:44.500
+Gerenciamos esse estado aqui, o aplicativo é a única coisa que pode
+
+24:44.630 --> 24:52.880
+alterar esse estado. Mas ele pode transmitir coisas como adereços, então passamos "onSearchChange" para o "SearchBox" e o "SearchBox", sempre
+
+24:52.880 --> 24:56.720
+que houver um "onChange" na entrada, ele informa ao
+
+24:56.720 --> 24:59.760
+aplicativo "Ei, houve uma alteração" "Executar esta
+
+24:59.840 --> 25:00.840
+função"
+
+25:01.040 --> 25:07.570
+Ele executa a função com o evento e atualiza o estado do "campo de pesquisa" para
+
+25:09.600 --> 25:15.720
+o que digitarmos Agora, com as informações que temos na caixa de pesquisa, agora podemos
+
+25:15.720 --> 25:26.100
+nos comunicar com a lista de cards e dizer "Ei, eu quero filtrar o estado" robôs "para agora ter apenas o que inclui no "campo
+
+25:27.030 --> 25:34.970
+de pesquisa" e em vez de passar isso "isso. estado "para nossos" robôs ", acabamos de passar os" robôs filtrados ". Você pode estar se
+
+25:35.130 --> 25:39.000
+perguntando" Bem, "robôs" nunca muda realmente, muda? "" Nós sempre criamos
+
+25:39.000 --> 25:43.620
+uma nova matriz chamada "filterRobots" e sempre a transmitimos "" Isso
+
+25:43.680 --> 25:46.540
+precisa fazer parte do estado "E agora
+
+25:47.020 --> 25:53.550
+não, na verdade, porque temos apenas" robôs "codificados, mas quando mais tarde, no decorrer do curso, você
+
+25:53.550 --> 25:56.080
+verá que esse não é o
+
+25:56.220 --> 26:02.550
+caso Na maioria das vezes, você obtém usuários ou robôs de outro lugar pela Internet. Nesse
+
+26:02.550 --> 26:08.610
+caso, precisaremos de "robôs" para mudar de uma matriz vazia para uma matriz depois de
+
+26:08.610 --> 26:15.410
+irmos e pegar todos os nossos usuários Whoo!
+
+26:15.530 --> 26:16.850
+Tudo bem Isso
+
+26:16.880 --> 26:23.000
+foi muita coisa, eu sei, sei que são muitas informações, muitas novas sintaxes, mas como você pode
+
+26:23.000 --> 26:30.320
+ver, com algumas linhas de código, criamos um aplicativo incrível. No próximo vídeo, terminaremos e finalizaremos nosso aplicativo para
+
+26:30.320 --> 26:33.490
+que fique tão bonito quanto isso. Vejo você
+
+26:33.560 --> 26:35.130
+nesse. Tchau!

@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00.570 --> 00:09.900
+Bentornato nel video precedente, abbiamo creato una tabella di accesso ora che abbiamo queste due tabelle insieme.
+
+00:09.930 --> 00:12.900
+Voglio mostrarti il vero potere dei database relazionali.
+
+00:15.440 --> 00:22.200
+Tornando al nostro disegno la parte più importante dei database relazionali è questa idea di schemi, di
+
+00:22.200 --> 00:29.520
+avere tabelle che sono solo preoccupate di archiviare informazioni specifiche su di loro come utenti, tweet e seguirle
+
+00:29.580 --> 00:39.250
+e collegarle attraverso una chiave primaria e una chiave esterna. Ti mostrerò come farlo.
+
+00:39.680 --> 00:41.170
+Bene, l'abbiamo già fatto.
+
+00:41.180 --> 00:46.940
+Ma come possiamo ottenere informazioni da qui. Se torniamo alla nostra tabella, ricordiamo che
+
+00:47.080 --> 00:49.470
+abbiamo eseguito la nostra
+
+00:54.920 --> 01:04.070
+query, abbiamo creato la tabella di accesso Crea qui e abbiamo creato una variabile di nome che, quando pianificato, stava per
+
+01:04.070 --> 01:10.680
+corrispondere a ciò che la tabella degli utenti aveva e possiamo usare qualcosa chiamato JOINs.
+
+01:10.720 --> 01:18.510
+ora con le nostre domande. E questa è una nuova parola in SQL e probabilmente
+
+01:18.510 --> 01:24.890
+una delle più potenti, perché non vogliamo necessariamente avere una tabella enorme con centinaia di colonne, centinaia di righe.
+
+01:24.900 --> 01:31.350
+I database non sono progettati per avere - proprio come un foglio Excel tonnellate di righe e colonne e hanno tutte
+
+01:31.350 --> 01:34.740
+queste informazioni in un unico posto perché non sono efficienti.
+
+01:34.770 --> 01:36.110
+Sarà molto più lento,
+
+01:36.160 --> 01:37.670
+sarà molto, molto difficile da gestire.
+
+01:37.680 --> 01:41.960
+E quanto più cresce la tua azienda, sarà molto, molto dura.
+
+01:42.000 --> 01:48.150
+Un buon modo per progettare un database è avere queste piccole tabelle che sono solo preoccupate,
+
+01:48.150 --> 01:53.500
+proprio come la separazione delle preoccupazioni, preoccupate per le loro informazioni minime necessarie.
+
+01:53.550 --> 02:00.180
+E se è necessario qualcos'altro, possiamo semplicemente unire le tabelle per raccogliere informazioni.
+
+02:00.180 --> 02:01.270
+Lascia che ti mostri cosa intendo.
+
+02:02.850 --> 02:09.830
+Abbiamo qui il nostro database di test e facciamolo vedere.
+
+02:09.840 --> 02:12.230
+Bene, abbiamo tre file qui.
+
+02:12.420 --> 02:16.140
+Abbiamo il login e gli utenti che abbiamo creato.
+
+02:16.140 --> 02:20.130
+Ma qual è la sequenza dell'ID di accesso.
+
+02:20.160 --> 02:26.480
+Ricorda come abbiamo creato una chiave primaria. Il modo in cui funzionano i database relazionali quando
+
+02:26.480 --> 02:35.320
+si crea una chiave primaria crea un altro file che contiene questa chiave primaria. E puoi vedere che il tipo è sequenza.
+
+02:36.570 --> 02:44.280
+Ora questo è un file al quale molto probabilmente non accederemo, ma internamente Postgres si assicurerà che, impostando questa
+
+02:44.280 --> 02:50.330
+chiave primaria, sarà davvero, molto veloce prendere i dati dalla tabella di login quando lo
+
+02:50.330 --> 02:50.890
+richiederemo.
+
+02:51.100 --> 02:58.890
+Ma diciamo che volevo ottenere informazioni da login e utenti. Forse voglio ottenere le informazioni di Sally ma ho
+
+02:59.640 --> 03:08.320
+bisogno del suo compleanno, del punteggio, dell'età e del suo segreto. Usando JOINs possiamo farlo.
+
+03:09.110 --> 03:11.850
+Posso dire SELEZIONA
+
+03:11.990 --> 03:15.370
+stella, quindi tutto dagli utenti.
+
+03:15.690 --> 03:20.900
+E ora se faccio JOIN, posso dire un altro nome di tabella a cui voglio unirmi agli utenti.
+
+03:20.900 --> 03:27.580
+Nel nostro caso accedi e dobbiamo dire ON a cosa ci uniremo o no.
+
+03:27.590 --> 03:33.370
+Come farà a sapere cosa corrisponde a Login.
+
+03:33.470 --> 03:41.400
+Perché se torno qui, come farà il database a sapere che voglio abbinare la prima riga con Andrei, la seconda
+
+03:41.400 --> 03:48.690
+riga con Sally, una terza riga con John.
+
+03:48.690 --> 03:49.280
+La parola chiave ON ci consente di assicurarci che ci abbiniamo a qualcosa.
+
+03:49.320 --> 03:56.360
+Nel nostro caso è il nome della loro chiave primaria qui e la chiave esterna qui.
+
+03:56.470 --> 03:59.730
+Quindi facciamolo sugli utenti ON. il nome equivale al login. nome
+
+03:59.920 --> 04:07.820
+punto e virgola.
+
+04:10.500 --> 04:11.290
+Facciamolo.
+
+04:11.340 --> 04:12.080
+E guarda quello.
+
+04:13.230 --> 04:14.080
+Abbiamo nome, età, data di nascita, punteggio, ma anche ID, segreto, nome del tutto.
+
+04:14.280 --> 04:21.810
+Abbiamo appena aderito a questi valori e tutti corrispondono perché abbiamo effettuato l'accesso. nome e utenti. nome, e con JOINs arriva un grande potere ora, possiamo avere piccole tabelle in
+
+04:21.980 --> 04:29.750
+base a ciò di cui
+
+04:29.750 --> 04:30.810
+abbiamo
+
+04:31.010 --> 04:40.170
+effettivamente bisogno e ogni volta che è necessario qualcosa di specifico ci limitiamo a unire le tabelle e
+
+04:40.170 --> 04:46.710
+possiamo fare più tabelle, più JOIN per selezionare le informazioni che bisogno.
+
+04:46.710 --> 04:48.720
+Va bene, penso che abbiamo
+
+04:48.720 --> 04:54.030
+fatto davvero un ottimo lavoro nel comprendere SQL e la potenza dei database relazionali.
+
+04:54.030 --> 04:54.940
+Ci vediamo nel prossimo.
+
+04:56.890 --> 04:57.890
+E buon lavoro arrivare così lontano, ciao.

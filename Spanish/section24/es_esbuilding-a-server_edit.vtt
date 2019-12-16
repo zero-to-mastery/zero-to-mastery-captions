@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.670 --> 00:04.770
+Dar una buena acogida. Creo que es hora de crear nuestro propio servidor ahora.
+
+00:06.270 --> 00:09.620
+Así que creemos un nuevo archivo llamado 'servidor. js '.
+
+00:09.660 --> 00:11.470
+[servidor táctil. js] Y
+
+00:11.700 --> 00:15.540
+para que nodemon escuche el 'servidor. js '.
+
+00:15.540 --> 00:19.630
+Simplemente escriba 'nodemon' y luego 'server. js '.
+
+00:19.830 --> 00:27.450
+Ahora, si guardo este nodo ,monmon escuchará esto siempre que diga 'npm start'. Como he mencionado
+
+00:31.120 --> 00:33.070
+antes, Node viene
+
+00:34.360 --> 00:42.250
+con su propio módulo HTTP y eso es lo que vamos a usar para crear nuestro servidor.
+
+00:42.250 --> 00:44.080
+Y es muy muy simple de usar.
+
+00:44.260 --> 00:56.600
+Simplemente tomamos el módulo HTTP y luego creamos un servidor definiéndolo diciendo 'http. createServer () '. En este 'createServer' crearemos
+
+00:56.600 --> 01:05.940
+una función de flecha y aquí, por ahora, simplemente hagamos
+
+01:05.970 --> 01:11.100
+'consola. log ('Te escucho! gracias por la
+
+01:12.910 --> 01:20.660
+solicitud) 'Y luego finalmente tenemos que hacer' servidor. listen () 'y dale el número de puerto que queremos escuchar.
+
+01:20.770 --> 01:23.930
+Así que solo haga 3000 por ahora, pero nuevamente puede
+
+01:23.930 --> 01:27.710
+hacer cualquier cosa, puede hacer 3001 si lo desea, pero 3000 es bueno.
+
+01:27.940 --> 01:31.160
+Hagamos 'servidor de nodo. js '- Y
+
+01:31.180 --> 01:32.020
+parece
+
+01:34.690 --> 01:37.000
+que solo está colgando allí.
+
+01:38.000 --> 01:43.680
+Pero vayamos al puerto 3000 en nuestro host local que es nuestra máquina y veamos qué sucede.
+
+01:45.140 --> 01:51.910
+Si abro una nueva pestaña y voy a localhost 3000 hmm, no pasa nada.
+
+01:52.180 --> 01:59.160
+Si abro la consola no hay nada, pero si regreso veo "Te escucho".
+
+01:59.230 --> 02:05.080
+Gracias por la solicitud "y eso es porque recuerde 'servidor. js 'se está ejecutando en el nodo.
+
+02:05.230 --> 02:11.350
+Está funcionando aquí en la Terminal. Pero está escuchando conexiones.
+
+02:11.350 --> 02:19.570
+Entonces, cuando presiono 'actualizar' aquí o presiono Enter e intento conectar, escuchará y
+
+02:19.870 --> 02:24.410
+ejecutará 'consola. log () 'y puedes ver el segundo "Te escucho. Gracias por la solicitud "justo aquí.
+
+02:24.520 --> 02:25.180
+Si
+
+02:25.180 --> 02:26.300
+refresco dos veces más.
+
+02:28.190 --> 02:31.260
+Bueno, nuevamente tengo dos más.
+
+02:31.480 --> 02:36.150
+Pero en este momento el navegador simplemente está colgando allí porque no estamos haciendo nada.
+
+02:36.190 --> 02:37.800
+No estamos respondiendo con nada.
+
+02:37.800 --> 02:40.760
+Puedes ver en la parte inferior que dice 'esperando localhost'.
+
+02:40.960 --> 02:44.080
+Solo estamos iniciando sesión en la consola, pero no estamos recibiendo ninguna respuesta.
+
+02:46.060 --> 02:47.050
+Vamos a hacer eso.
+
+02:47.050 --> 02:53.950
+Voy a eliminar el registro de la consola y usar los parámetros que nos da 'createServer'.
+
+02:53.980 --> 03:02.510
+Entonces, cada vez que intentamos conectarnos, tenemos una 'solicitud' y luego un parámetro de 'respuesta' que podemos usar y
+
+03:02.510 --> 03:07.240
+hagamos esto un poco más pequeño para que podamos ver.
+
+03:07.430 --> 03:16.700
+Y aquí dentro podemos hacer algo como 'respuesta. setHeader () '...
+
+03:19.760 --> 03:26.010
+'Tipo de contenido': le informamos qué tipo de contenido íbamos a enviar y será 'texto / html', y
+
+03:26.580 --> 03:37.950
+esta es solo la forma estándar de declarar el tipo de contenido y diremos 'respuesta . end () 'con una etiqueta' &lt;h1> 'que
+
+03:39.470 --> 03:42.200
+dice' Helloooooo '.
+
+03:46.740 --> 03:50.730
+Si guardo esto y vuelvo a ejecutarlo bien,
+
+03:54.350 --> 03:57.530
+nuevamente tenemos que reiniciar nuestro servidor.
+
+03:57.620 --> 04:02.840
+Entonces, involucremos a nodemon aquí para que escuche los cambios de archivo.
+
+04:02.880 --> 04:05.000
+Voy al paquete. json 'Guardaré esto.
+
+04:05.000 --> 04:10.340
+Y ahora ejecutaré 'npm start' para ver que todo se está ejecutando.
+
+04:10.340 --> 04:12.150
+Volvamos a nuestro 'servidor. archivo de js.
+
+04:12.410 --> 04:19.560
+Si vuelvo y refresco me sale 'holaaaaa'; si voy a la pestaña Red, veo
+
+04:20.350 --> 04:28.670
+que localhost obtengo una respuesta 200; si hago clic en esto, veo que la respuesta fue '&lt;h1>
+
+04:28.900 --> 04:39.970
+helloooooo &lt;/h1>'. Si voy a Encabezados, veo que era un código de estado 200 y el tipo de contenido era 'text / html'.
+
+04:40.150 --> 04:41.230
+Muy genial.
+
+04:41.260 --> 04:43.940
+También puedo escuchar las solicitudes.
+
+04:43.990 --> 04:51.720
+Entonces, por ejemplo, aquí podría haber dicho 'consola. log (solicitud encabezados) 'También podría
+
+04:54.700 --> 05:05.880
+haber dicho, también podría haber dicho' método 'y finalmente algo como' url '' solicitud 'nos da
+
+05:05.880 --> 05:10.430
+mucha información sobre las solicitudes que recibimos.
+
+05:10.530 --> 05:13.700
+Y para que tengamos claro cuáles son cada uno de estos.
+
+05:13.710 --> 05:25.680
+Puedo decir 'encabezados', 'método' y 'url'. Si guardo esto y vuelvo a
+
+05:28.820 --> 05:36.680
+ejecutar, veo que los encabezados son 'localhost: 3000'.
+
+05:36.850 --> 05:42.310
+Vemos que 'agente de usuario' era Mozilla, Macintosh. Entonces eso es lo que usamos.
+
+05:42.610 --> 05:44.180
+Utilizamos una Apple para hacer esa solicitud.
+
+05:44.180 --> 05:44.930
+Todo bien.
+
+05:46.050 --> 05:51.830
+Y el método era un método 'GET' y la url era solo la barra invertida [\].
+
+05:51.900 --> 05:55.890
+Vamos a comentar los encabezados por ahora y mostrarte cómo cambian las cosas.
+
+05:55.890 --> 06:01.020
+Si ahora ingreso 'localhost: 3000 / profile / 123' obtengo 'método GET' y 'url'
+
+06:04.450 --> 06:07.930
+era '/ profile / 123' Entonces obtenemos información
+
+06:07.990 --> 06:12.530
+sobre la solicitud que realizó el front-end, lo cual es muy bueno.
+
+06:13.560 --> 06:22.240
+Ahora, con nuestra respuesta, respondimos con 'text / html' pero recuerdas JSON ¿verdad? Hablamos sobre lo útil que es
+
+06:22.240 --> 06:26.260
+JSON al hacer solicitudes AJAX.
+
+06:26.370 --> 06:27.630
+¿Podemos hacer eso aquí?
+
+06:27.690 --> 06:35.870
+Por supuesto, si voy y cambio 'Content-Type' a 'application / json', entonces solo tendrá que acostumbrarse a esto, pero esta es la
+
+06:35.870 --> 06:39.980
+forma en que dice que el tipo de contenido es JSON.
+
+06:40.040 --> 06:50.270
+Ahora podemos enviar un objeto JavaScript como 'usuario' y diremos "nombre:
+
+06:53.210 --> 06:57.280
+'John'" "hobby: 'Patinaje'".
+
+06:57.320 --> 07:05.360
+Ahora, este usuario, puedo pasar aquí, pero recuerde que para transferir entre los
+
+07:05.510 --> 07:12.980
+cables tenemos que usar 'JSON. stringify 'y asegúrese de ver el video JSON si eso es confuso para usted.
+
+07:13.040 --> 07:22.090
+Pero nuevamente estamos cambiando este objeto en una cadena JSON para poder enviarlo a través de los cables.
+
+07:22.230 --> 07:33.390
+Si guardo y volvamos a refrescarme, ¡mira eso! - una respuesta JSON nuevamente "nombre: 'John', hobby: 'patinaje'" y si hago
+
+07:33.960 --> 07:40.560
+clic en la pestaña Red aquí veo que 'Content-Type' es 'application / json' y
+
+07:40.620 --> 07:43.610
+la respuesta está en formato JSON.
+
+07:43.640 --> 07:47.740
+Así que en el front-end correremos 'json. parse () 'Y luego esto
+
+07:47.750 --> 07:52.520
+[{"nombre:" John "," hobby ":" Patinaje "}] para convertirlo en un objeto JavaScript.
+
+07:52.580 --> 07:53.340
+Muy genial.
+
+07:54.340 --> 08:03.670
+Acabamos de crear nuestro primer servidor, pero este HTTP es bastante básico; Como puedes imaginar, construir servidores es algo que todos hacen que
+
+08:03.670 --> 08:11.670
+tiene un sitio web y hay muchas herramientas que podemos usar ahora que son más elegantes que ejecutar HTTP, y
+
+08:11.790 --> 08:12.780
+la más
+
+08:12.840 --> 08:19.500
+popular y la mejor para usar con Node. js es algo llamado Express,
+
+08:19.500 --> 08:23.510
+del que hablaremos en el próximo video.
+
+08:23.620 --> 08:25.360
+Te veré en ese. Adiós

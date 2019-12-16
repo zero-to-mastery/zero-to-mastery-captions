@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.480 --> 00:01.620
+Bem vindo de volta.
+
+00:01.620 --> 00:08.720
+Vamos conectar nosso banco de dados ao nosso servidor. E para fazer isso, existem toneladas de ferramentas, como você já deve
+
+00:08.720 --> 00:09.540
+ter conhecido.
+
+00:09.830 --> 00:16.090
+Sim, estamos usando o NPM novamente, um pacote de nós que nos permite conectar-se a um banco de dados.
+
+00:16.130 --> 00:17.180
+Há muitas opções.
+
+00:17.210 --> 00:21.170
+E neste vídeo, vamos trabalhar com o meu KNEX favorito. js.
+
+00:21.210 --> 00:23.770
+Ele funciona com PostgreSQL, MSSQL, MySQL,
+
+00:23.770 --> 00:25.770
+MariaDB, SQLite, Oracle, praticamente qualquer
+
+00:25.790 --> 00:27.650
+banco de dados
+
+00:27.840 --> 00:33.620
+relacional com o qual o KNEX trabalha e é super simples de usar.
+
+00:33.860 --> 00:36.880
+Eu absolutamente amo isso e você também vai adorar.
+
+00:38.120 --> 00:42.220
+Apenas para mostrar que existem opções diferentes, existe algo como pg-promessa aqui.
+
+00:42.380 --> 00:47.780
+Isso de novo é muito popular e você pode ver aqui que é muito fácil.
+
+00:47.780 --> 00:56.220
+Você apenas importa e faz. any e faça sua instrução SQL. E você pode escolher o que
+
+00:56.220 --> 00:57.120
+quiser.
+
+00:57.570 --> 01:05.970
+Embora o pg-promessa realmente permita que você escreva consultas SQL simples, o KNEX é apenas uma ferramenta muito boa que, se você estiver trabalhando em um projeto,
+
+01:05.970 --> 01:11.130
+eu recomendaria, então eu vou usar o KNEX. js
+
+01:11.130 --> 01:20.040
+para fazê-lo. E se você entrar na instalação e no Node. js, é claro que eles têm uma boa documentação
+
+01:20.040 --> 01:22.250
+de como instalá-lo. No nosso
+
+01:22.380 --> 01:26.200
+caso, podemos apenas instalar o KNEX no NPM.
+
+01:26.310 --> 01:32.630
+Vou parar o servidor por enquanto e executar a instalação do NPM.
+
+01:32.640 --> 01:34.770
+Vamos abrir o pacote. arquivo json.
+
+01:34.770 --> 01:36.790
+Verifique se está funcionando. Existe o
+
+01:36.870 --> 01:43.400
+KNEX e eles também dizem que precisamos instalar o PostgreSQL ou o banco de dados que desejar.
+
+01:43.440 --> 01:45.080
+No nosso caso, queremos o PostgreSQL.
+
+01:45.270 --> 01:52.660
+Então, vamos instalar o PG no NPM.
+
+01:52.850 --> 02:00.080
+Tudo bem, também temos o PostgreSQL instalado. Surpreendente.
+
+02:00.160 --> 02:06.490
+Novamente, a razão de eu adorar esta biblioteca é que ela torna as coisas tão simples que você pode ver aqui que, no documento
+
+02:06.480 --> 02:10.570
+delas, diz exatamente o que você precisa fazer para conectar-se ao banco de dados.
+
+02:10.630 --> 02:27.450
+Então, vamos copiar isso, vá para o nosso servidor. js. Vamos importar fazendo const KNEX = require ('knex'); e aqui
+
+02:29.020 --> 02:35.230
+vamos apenas copiar e colar, e podemos remover a variável e
+
+02:37.870 --> 02:39.350
+usá-la assim.
+
+02:40.460 --> 02:49.180
+Agora, essa sintaxe pode ser confusa para você, mas tudo o que está fazendo é (se removermos isso) está apenas fazendo knex e
+
+02:51.030 --> 02:54.330
+executando a função KNEX que acabamos de ter.
+
+02:54.330 --> 02:56.140
+Então, vamos continuar assim, porque parece melhor.
+
+02:56.950 --> 03:01.670
+Queremos atualizar nosso cliente para o PostgreSQL.
+
+03:01.720 --> 03:10.270
+Então, novamente, se fizermos o PostgreSQL, será o PG, porque foi o que acabamos de baixar e, em seguida,
+
+03:10.270 --> 03:18.390
+precisamos informar onde fica esse banco de dados. E nós modificaríamos isso de acordo com o local em que configuramos nosso banco
+
+03:18.620 --> 03:20.700
+de dados em uma plataforma hospedada.
+
+03:21.680 --> 03:29.110
+Mas, por enquanto, temos localhost e localhost é a mesma coisa que esse número 127. 0 0 1
+
+03:29.110 --> 03:32.200
+está em casa.
+
+03:32.230 --> 03:38.590
+Há uma camiseta engraçada que eu vi um desenvolvedor usar uma vez, que diz que não há lugar como o 127. 0 0 1 porque significa
+
+03:38.590 --> 03:44.020
+host local e foi uma brincadeira, não há lugar como o lar.
+
+03:44.050 --> 03:45.200
+Pensei que era divertido.
+
+03:45.360 --> 03:53.180
+De qualquer forma, isso é a mesma coisa que o host local, então continuaremos assim e teremos o nosso usuário no nosso caso, se você se lembrar e
+
+03:53.180 --> 03:59.340
+formos ao nosso banco de dados, o usuário que eu acho que será eu, então vou apenas fazer o meu nome .
+
+04:02.040 --> 04:06.700
+Não há senha para o nosso banco de dados, portanto podemos deixá-la em branco.
+
+04:07.050 --> 04:08.290
+Na verdade, também não há usuário.
+
+04:08.300 --> 04:10.170
+Mas por enquanto está tudo bem.
+
+04:10.380 --> 04:12.150
+E o banco
+
+04:15.820 --> 04:21.690
+de dados, se você se lembra, é chamado de 'cérebro inteligente'.
+
+04:21.690 --> 04:24.090
+Agora, se eu realmente sair disso e começar
+
+04:26.840 --> 04:30.190
+de novo, você verá que é a mesma coisa que estamos entrando aqui.
+
+04:30.350 --> 04:34.460
+Estamos apenas dizendo onde está o host, a senha do usuário e o banco de dados.
+
+04:34.460 --> 04:41.120
+E como podemos fazer login aqui sem o usuário e a senha, bem, na verdade não precisamos dessas informações.
+
+04:42.220 --> 04:43.300
+Vamos tentar.
+
+04:43.300 --> 04:50.300
+Eu vou salvar. As npm começam.
+
+04:50.340 --> 04:50.720
+Tudo certo.
+
+04:50.730 --> 04:56.160
+Não estou recebendo nenhum erro aqui, o que é bom.
+
+04:56.210 --> 04:58.450
+Vamos voltar para a página
+
+05:03.310 --> 05:10.760
+aqui e copiar e colar apenas uma declaração simples, talvez selecionada, para garantir que tudo esteja funcionando.
+
+05:10.930 --> 05:14.750
+Se voltarmos para o lado esquerdo, temos o construtor de consultas e selecione.
+
+05:14.760 --> 05:18.360
+Então, vamos pegar algo do nosso banco de dados.
+
+05:18.370 --> 05:26.470
+Mesmo que não tenhamos realmente nada. Você vê que nós apenas temos knex. selecione e, em seguida,
+
+05:26.470 --> 05:30.360
+o que quisermos selecionar do banco de dados.
+
+05:30.370 --> 05:31.330
+Tudo bem, vamos fazer isso.
+
+05:31.510 --> 05:44.000
+Vamos fazer knex.
+
+05:44.000 --> 05:44.000
+selecione (*).
+
+05:44.000 --> 05:46.310
+de ('usuários'); base de dados.
+
+05:46.450 --> 05:50.400
+Vou salvar e recebo um erro que é bom.
+
+05:50.400 --> 05:58.570
+Ele está lendo aqui, mas diz um token inesperado porque, bem, eu tenho que envolver isso como uma string. Vamos tentar de novo.
+
+05:59.820 --> 06:06.180
+E você vê aqui como eu recebo connect select não é uma função, porque aqui eu tenho que atribuir isso a
+
+06:06.180 --> 06:07.070
+uma variável.
+
+06:07.530 --> 06:13.710
+E da maneira que fazemos isso, podemos apenas dizer que o banco de dados const é igual ao que tínhamos antes.
+
+06:13.800 --> 06:16.150
+KNEX. selecione.
+
+06:16.380 --> 06:27.320
+Mas vamos fazer o Postgres por enquanto. Salve e altere isso para o Postgres com save, e agora
+
+06:27.440 --> 06:29.150
+não há erros.
+
+06:29.240 --> 06:29.990
+Fantástico.
+
+06:30.330 --> 06:33.200
+Se talvez consolamos.
+
+06:33.870 --> 06:38.480
+registre agora e salve.
+
+06:38.680 --> 06:42.460
+Tudo bem, temos uma tonelada de informações aqui.
+
+06:43.550 --> 06:46.630
+Mas parece que está respondendo com algo perfeito.
+
+06:46.640 --> 06:54.380
+Parece que estamos conectados ao cérebro inteligente, mas não é exatamente assim que retornamos informações do KNEX
+
+06:54.380 --> 06:57.390
+e entraremos nisso no próximo vídeo.
+
+06:57.680 --> 07:03.530
+Mas, por enquanto, conectamos nosso servidor ao nosso banco de dados.
+
+07:03.590 --> 07:05.040
+Vejo você no próximo.
+
+07:05.240 --> 07:05.520
+Tchau tchau.

@@ -1,0 +1,898 @@
+WEBVTT
+
+00:01.480 --> 00:05.110
+Ben tornato. Abbiamo creato il nostro bellissimo sito web.
+
+00:05.110 --> 00:14.440
+È tempo di creare alcune funzionalità, in cui inseriamo un URL, premiamo 'Rileva' e un'immagine appare con una casella di
+
+00:14.920 --> 00:16.440
+rilevamento del
+
+00:16.540 --> 00:21.980
+volto, se esiste un volto nell'immagine. Quindi come lo faremo?
+
+00:24.100 --> 00:28.900
+Bene, la prima cosa che vogliamo fare, vogliamo assicurarci che ci siano alcune
+
+00:29.260 --> 00:36.730
+funzionalità qui in cui possiamo rilevare, ciò che l'utente inserisce. Ed è qualcosa che abbiamo fatto prima con reagire, quando avevamo la nostra
+
+00:36.730 --> 00:37.710
+app robo friends.
+
+00:37.720 --> 00:41.440
+Avevamo il nostro input filtrato attraverso i robot.
+
+00:41.520 --> 00:50.930
+Quindi, usando la tecnica simile, usando "ImageLinkForm", possiamo creare questa funzionalità.
+
+00:50.950 --> 00:56.620
+Quindi la prima cosa che potresti capire è che, sì! abbiamo sicuramente bisogno di "stato", dobbiamo creare
+
+00:56.650 --> 01:05.020
+uno "stato" in modo che, la nostra app sappia, qual è il valore che l'utente immette, lo ricorda e si aggiorna in qualsiasi
+
+01:05.020 --> 01:06.340
+momento venga modificato.
+
+01:06.340 --> 01:10.360
+Quindi, come ricorderete, per fare ciò, definiremo un
+
+01:13.770 --> 01:19.800
+"costruttore" e all'interno di questo "costruttore", dovremo chiamare "super" per poterlo utilizzare.
+
+01:19.850 --> 01:21.500
+E qui, possiamo
+
+01:21.500 --> 01:25.310
+fare 'questo' 'stato' è uguale e lo chiameremo
+
+01:25.310 --> 01:28.890
+'input', questo è ciò che l'utente inserirà.
+
+01:30.940 --> 01:43.630
+E questo input avrà un 'onChange' o 'onInputChange', che useremo con le funzioni freccia, in modo da non ottenere
+
+01:44.430 --> 01:49.230
+quell'errore che abbiamo visto in precedenza.
+
+01:49.230 --> 01:56.710
+E come sai ogni volta che c'è una sorta di listener di eventi su una pagina web, riceviamo un evento e vogliamo
+
+01:56.710 --> 01:57.760
+fare qualcosa qui.
+
+01:57.760 --> 02:07.130
+Quindi faremo un 'registro punti console', 'evento' per assicurarci di poterlo rilevare e su 'inputChange'
+
+02:07.130 --> 02:11.020
+in 'imageLinkForm' possiamo passarlo come prop.
+
+02:15.310 --> 02:17.860
+E avremo l'errore 'onInputChange' non definito.
+
+02:17.860 --> 02:25.930
+Ricorda che, poiché fa parte di questa classe per accedervi, devi salvare "questo
+
+02:25.960 --> 02:32.150
+punto onInputChange" perché "onInputChange" è una proprietà dell '"App".
+
+02:32.150 --> 02:34.510
+Salviamolo, adesso, beh, non
+
+02:34.520 --> 02:37.910
+sta facendo nulla perché dobbiamo innescarlo.
+
+02:38.090 --> 02:42.440
+Torniamo a 'imageLinkForm' che è il css 'imageLinkForm. js'.
+
+02:42.470 --> 02:47.990
+Possiamo distruggere "onInputChange" che stiamo ottenendo.
+
+02:48.020 --> 02:58.080
+Quindi invece di fare 'puntelli' punto 'suInputChange' quaggiù, lo distruggiamo semplicemente dagli 'oggetti di scena' e possiamo dire su
+
+02:58.080 --> 03:01.500
+'input' qui 'onChange', quindi 'onChange' è
+
+03:05.090 --> 03:13.220
+tecnicamente un evento sintetico di reazione che imita ciò che il html fa ogni volta che
+
+03:13.220 --> 03:14.480
+cambia l'input.
+
+03:14.480 --> 03:22.750
+E qui "onChange", cosa succede, se facciamo "onInputChange" qui, vediamo cosa
+
+03:22.800 --> 03:23.910
+succede?
+
+03:26.860 --> 03:37.640
+Ho intenzione di aprire la console, fare clic o premere qualcosa, oop! vai all'ingresso e premi qualcosa.
+
+03:37.660 --> 03:37.940
+Tutto ok.
+
+03:37.950 --> 03:42.790
+E sembra che stia ricevendo qualcosa, un evento proxy.
+
+03:42.810 --> 03:43.050
+Tutto ok.
+
+03:43.050 --> 03:45.170
+Cosa succede se
+
+03:45.190 --> 03:51.660
+torno alla mia app dot js? e se ricordi il modo in cui otteniamo il nostro valore dall'input è punto 'target' punto 'valore'.
+
+03:51.840 --> 03:59.710
+Se lo salvo, e torno indietro, eccoti, otteniamo il nostro contributo.
+
+03:59.790 --> 04:03.390
+Bello e semplice, proprio come abbiamo fatto prima con la nostra app di reazione iniziale.
+
+04:05.560 --> 04:12.730
+Bene, quindi stiamo ottenendo "onInputChange" e lo vogliamo anche quando facciamo clic su "Rileva" che
+
+04:12.970 --> 04:16.100
+mentre rileviamo un'immagine, come lo faremo?
+
+04:17.030 --> 04:23.660
+Per ora, solo perché mi piace mantenere le cose semplici, costruendo le cose un passo alla volta, possiamo
+
+04:23.660 --> 04:28.320
+semplicemente 'console log' e diremo 'onSubmit' e per ora non avrà parametri.
+
+04:29.420 --> 04:40.880
+Diremo semplicemente "console dot log", fare clic e ora "onSubmit", potremo passare di nuovo al nostro "imageLinkForm".
+
+04:46.250 --> 04:51.000
+Lo chiameremo "onButtonSubmit" qui, solo per chiarire.
+
+04:52.680 --> 04:57.520
+E ancora, lo passeremo con 'this' dot 'onButtonSubmit'.
+
+04:59.660 --> 05:02.810
+Lo salviamo, lo inserirò
+
+05:08.200 --> 05:13.480
+di nuovo in una nuova riga in
+
+05:13.780 --> 05:32.150
+modo da poter vedere, ora "imageLinkForm" riceverà "onButton Submit" e qui possiamo dire che, oltre a "className", essi " Sarà un evento "onClick" che ascolta "on
+
+05:33.700 --> 05:34.530
+ButtonSubmit".
+
+05:35.240 --> 05:39.750
+Salviamo, torniamo al nostro esempio, fai clic,
+
+05:39.750 --> 05:42.730
+guarda quello, funziona.
+
+05:44.280 --> 05:44.620
+Tutto ok.
+
+05:44.650 --> 05:48.850
+Quindi c'è un po 'di funzionalità ma la parte difficile è solo all'inizio.
+
+05:48.880 --> 05:54.850
+Come possiamo visualizzare un'immagine quaggiù e fare in modo che rilevi il viso? Bene, fortunatamente per noi,
+
+05:54.870 --> 06:03.200
+possiamo usare un'API, e questa API penso sia una delle più interessanti in circolazione.
+
+06:03.200 --> 06:11.320
+Si chiama 'clarifai' e come puoi vedere dal loro slogan 'capire i tuoi dati di immagine e video'. Puoi utilizzare questo strumento in
+
+06:11.320 --> 06:15.400
+realtà gratuitamente, fino a un certo punto.
+
+06:15.490 --> 06:24.520
+Se dai un'occhiata ai prezzi qui per gli sviluppatori, hai 5000 operazioni gratuite al mese.
+
+06:24.720 --> 06:28.620
+Quindi puoi inviare 5000 foto e te lo indovina.
+
+06:28.710 --> 06:31.160
+Quando l'app diventa popolare, puoi iniziare a pagarla.
+
+06:31.170 --> 06:39.600
+Ma utilizzeremo un'API gratuita. E voglio che tu ti iscriva a questo, se vuoi usarlo perché la chiave API che
+
+06:39.900 --> 06:43.840
+userò in questo esempio, lo eliminerò in seguito in modo che, beh, in modo
+
+06:43.870 --> 06:47.190
+che altre persone non ah! non lo uso e
+
+06:47.190 --> 06:50.570
+quindi raggiungo il mio limite e non potrò più utilizzarlo.
+
+06:51.250 --> 06:52.830
+Ma è molto semplice registrarsi.
+
+06:52.900 --> 06:54.190
+Devi solo accedere.
+
+06:54.190 --> 07:00.400
+E una volta creato il tuo account qui, verrai reindirizzato al tuo profilo.
+
+07:02.630 --> 07:05.860
+E potrebbero già avere la mia prima domanda per te.
+
+07:05.990 --> 07:10.880
+Se qui non c'è nulla, fai semplicemente clic su "CREA NUOVA APPLICAZIONE" e qui, e
+
+07:13.620 --> 07:17.890
+la tua applicazione, puoi nominarla come preferisci ma non devi toccare nulla.
+
+07:18.150 --> 07:28.890
+Se vai su Chiavi API, questa chiave è il tuo modo di accedere all'API 'clarifai'.
+
+07:30.500 --> 07:40.680
+Quindi, se qui inserisco un URL, premo rilevare, posso inviare quell'URL con la mia chiave API che ti forniscono al loro
+
+07:42.280 --> 07:51.280
+servizio e usando la chiave API diranno, oh! quello è Andre, è sotto il piano gratuito.
+
+07:51.490 --> 07:54.120
+Non ha ancora raggiunto il suo limite di 5000 per il mese.
+
+07:54.340 --> 07:54.680
+Sì.
+
+07:54.700 --> 07:55.710
+Rispondiamo
+
+07:57.260 --> 08:04.330
+E nel caso ti stia chiedendo cosa possano effettivamente fare, se vai ai loro modelli vedi
+
+08:04.780 --> 08:09.370
+qui che usano l'apprendimento automatico per addestrare qualcosa chiamato "Modelli".
+
+08:09.610 --> 08:19.090
+Cioè addestrano un computer dandogli molte foto, tonnellate di immagini, per memorizzare i volti di celebrità, rilevare 'Apparel' come qui, e sa
+
+08:19.090 --> 08:30.240
+che si tratta di occhiali da sole con probabilità del 100 percento perché sono stati addestrati probabilmente milioni di foto di occhiali da sole per
+
+08:30.270 --> 08:37.470
+sapere come sono gli occhiali da sole. Quindi puoi giocare con un sacco di
+
+08:37.470 --> 08:39.960
+roba che hanno qui.
+
+08:39.960 --> 08:42.780
+È davvero bello quello che hanno.
+
+08:42.780 --> 08:48.540
+Utilizzeremo l'API di rilevamento dei volti. E la loro API di
+
+08:48.540 --> 08:49.560
+rilevamento
+
+08:52.280 --> 09:04.350
+del volto, semplicemente, se andiamo a js (javascript), eseguiamo semplicemente questa funzione, ai server 'clarifai' usando la nostra API e ci
+
+09:04.350 --> 09:07.490
+dà una risposta o un errore.
+
+09:07.550 --> 09:16.610
+Ora, questo è sempre molto più facile, da dimostrare che non di cui effettivamente parlare, quindi implementiamolo.
+
+09:16.640 --> 09:19.600
+Sto usando il loro riconoscimento facciale.
+
+09:19.740 --> 09:25.770
+Quindi ho intenzione di copiare e incollare questo. Torna alla mia app e in
+
+09:25.910 --> 09:30.320
+app dot js (app. js), dirò che "onButtonSubmit",
+
+09:30.420 --> 09:41.170
+voglio eseguire, la funzione che "clarifai" mi ha appena detto di usare. Ma come puoi vedere qui, ha "modelli
+
+09:41.460 --> 09:45.100
+punto dot predire punto".
+
+09:45.480 --> 09:52.330
+Bene, in che modo il mio programma saprà cos'è "Dot Dot Model Dot Predict"?
+
+09:52.520 --> 09:59.790
+Bene, se vai alla loro guida API, ti mostreranno esattamente come iniziare e come utilizzare la loro API.
+
+09:59.960 --> 10:05.720
+Ma puoi vedere qui e loro sono "Per iniziare", "Client API" se andiamo su JavaScript, diranno
+
+10:05.920 --> 10:08.140
+installare il client da npm.
+
+10:08.180 --> 10:16.640
+Quindi seguiamo e installiamo 'clarifai' e questo è un pacchetto che hanno creato in modo che
+
+10:17.000 --> 10:25.340
+possano lavorare con javascript, mentre è in caricamento, possiamo vedere che possiamo importare 'chiarire'.
+
+10:25.460 --> 10:30.010
+Possiamo vedere qui che stanno usando il comune JS, "richiedono" il modo di
+
+10:30.020 --> 10:36.160
+importare, ma dal momento che stiamo usando "crea reagire app", possiamo usare "import" qui, e quindi inizializziamo semplicemente
+
+10:36.160 --> 10:44.630
+la tua chiave API con questo . In modo che ora saremo in grado di avere l'oggetto app. Come puoi vedere qui stiamo usando l'app. Modelli'.
+
+10:44.630 --> 10:45.220
+Ma se eseguo questo, non avrò idea di cosa sia l'app. Giusto per
+
+10:45.230 --> 10:53.980
+dimostrare che, se torno alla console qui, "esegui npm start", ottengo che "l'app non è definita", va
+
+10:53.980 --> 10:54.320
+bene.
+
+10:57.940 --> 11:05.050
+Quindi di nuovo copia, ciò che vediamo qui lo copia, lo inseriamo nella nostra configurazione nella parte superiore del file.
+
+11:05.050 --> 11:15.350
+Richiede la nostra chiave API.
+
+11:17.910 --> 11:20.650
+Nel mio caso userò quello che mi hanno dato.
+
+11:20.730 --> 11:24.070
+Vorrei aprire quel link in un nuovo file.
+
+11:27.670 --> 11:29.670
+Vado a "la mia prima applicazione", "chiavi API".
+
+11:30.620 --> 11:34.220
+Copierò e incollerò la mia chiave API. Incollalo qui.
+
+11:34.560 --> 11:38.920
+Come abbiamo parlato nella sezione API,
+
+11:40.640 --> 11:46.730
+le API più utili richiedono una configurazione come questa, in cui è necessario aggiungere una chiave API. Quindi, sebbene questi documenti siano specifici per "chiarire" la maggior parte delle
+
+11:46.730 --> 11:55.190
+API utilizzate saranno molto simili a questa.
+
+11:55.190 --> 11:58.560
+Va bene, quindi abbiamo questo, dobbiamo anche importare,
+
+11:58.570 --> 12:01.060
+se ricordi, quindi tornando qui,
+
+12:01.090 --> 12:07.140
+posso solo importare 'chiarimenti' e perché, possiamo usare il nuovo modo di importazione javascript.
+
+12:10.090 --> 12:18.460
+Lo faremo solo perché sembra molto più bello.
+
+12:18.750 --> 12:22.430
+Va bene salviamo e vediamo cosa succede.
+
+12:23.280 --> 12:25.140
+Tutto ok.
+
+12:26.100 --> 12:26.560
+Sembra che funzioni.
+
+12:26.760 --> 12:29.420
+Vediamo che stiamo solo ottenendo un, questa è solo un'immagine di esempio che stiamo ottenendo.
+
+12:29.440 --> 12:35.250
+Quindi stiamo usando la nostra chiave API e quindi inviando un'immagine dell'URL e
+
+12:36.940 --> 12:45.550
+quindi avendo questo punto, quindi si verifica, consiamo il punto della console e registriamo la risposta e vediamo cosa otteniamo.
+
+12:45.550 --> 12:50.220
+Ho intenzione di fare clic su
+
+12:53.580 --> 12:59.590
+Invia (Rileva) e ottengo lo stato, va bene.
+
+12:59.590 --> 12:59.950
+Sembra che stia rispondendo a qualcosa, va bene.
+
+12:59.950 --> 13:03.420
+Molto bene.
+
+13:04.810 --> 13:09.960
+Va bene, quindi per ora sembra che funzioni.
+
+13:09.960 --> 13:14.520
+Abbiamo un'immagine che stiamo ricevendo quando la inserisco in una nuova riga in modo che tu possa vederla.
+
+13:14.520 --> 13:20.370
+Destra.
+
+13:28.540 --> 13:28.920
+Quindi per ora, prendiamolo, così possiamo mostrare qualsiasi immagine ci abbiano appena dato nel nostro esempio.
+
+13:28.960 --> 13:35.950
+Copiamo e vediamo di che immagine si tratta.
+
+13:35.950 --> 13:42.420
+Quindi vogliamo che questo venga visualizzato in basso.
+
+13:42.440 --> 13:47.030
+Quindi come possiamo farlo?
+
+13:47.100 --> 13:48.700
+Bene, possiamo iniziare a creare il nostro ultimo componente "FaceRecognition". Quindi possiamo spostare le parentesi o i commenti.
+
+13:49.470 --> 14:03.640
+E ora qui, importeremo questo nuovo componente,
+
+14:03.800 --> 14:13.790
+che non abbiamo ancora e questo sarebbe chiamato il componente "Face Recognition".
+
+14:13.790 --> 14:16.730
+E di nuovo creeremo una nuova cartella, che dirà 'FaceRecognition'.
+
+14:21.900 --> 14:27.540
+E all'interno di questa nuova cartella, (lì) ci sarà un
+
+14:28.560 --> 14:33.650
+nuovo file 'FaceRecognition dot js', usando il nostro ottimo
+
+14:33.860 --> 14:40.380
+strumento, copia e incolla, andando a copiare e incollare il componente
+
+14:40.380 --> 14:45.240
+'Navigation' e ora cambiare il nome di
+
+14:48.160 --> 14:53.410
+questo in 'FaceRecognition 'componente e cosa dovrebbe essere visualizzato?
+
+14:54.390 --> 14:56.870
+Bene per ora vogliamo solo mostrare un'immagine statica per assicurarci che funzioni.
+
+14:57.090 --> 15:00.930
+Quindi creerò un 'div' con il
+
+15:02.230 --> 15:03.580
+'className' di
+
+15:07.730 --> 15:14.620
+bene, 'center' che abbiamo già definito prima, se ricordi nella nostra app. css. E avremo un'immagine, con una fonte (src) di, chiudi il tag
+
+15:14.660 --> 15:23.760
+e potremmo semplicemente salvarlo.
+
+15:28.930 --> 15:32.010
+Vediamo se funziona.
+
+15:32.380 --> 15:33.380
+Tutto ok.
+
+15:35.500 --> 15:36.280
+In realtà sembra abbastanza buono.
+
+15:36.280 --> 15:37.620
+Abbiamo la nostra immagine in fondo.
+
+15:37.630 --> 15:40.040
+Viene visualizzato un errore che indica che è necessario un tag "alt".
+
+15:41.430 --> 15:44.190
+Quindi diremo semplicemente "alt" e per ora
+
+15:44.250 --> 15:45.920
+lo lasceremo vuoto.
+
+15:49.290 --> 15:50.770
+Solo così abbiamo qualcosa.
+
+15:50.880 --> 15:53.100
+Tutto ok.
+
+15:53.220 --> 15:53.600
+Quindi abbiamo l'aspetto di base dell'immagine e funziona, ma non è realmente connesso all'API.
+
+15:53.640 --> 16:03.240
+Quando faccio clic su Rileva, è semplicemente codificato.
+
+16:03.250 --> 16:08.820
+Quindi, prima diamo un'occhiata all'API e vediamo come
+
+16:08.970 --> 16:16.050
+possiamo effettivamente inviare, URL delle immagini, se torni ai loro documenti.
+
+16:16.050 --> 16:17.350
+Ancora una volta sono molto bravi con questo.
+
+16:17.650 --> 16:20.870
+Se scorri verso il basso, sotto "Predict", vedi che hanno
+
+16:20.940 --> 16:22.020
+immagini e video.
+
+16:25.960 --> 16:29.660
+Quindi possiamo usare le "Immagini", "tramite URL" e
+
+16:29.830 --> 16:37.720
+vediamo che abbiamo il javascript e sembra che la funzione "Predict" prenda il "clarifai" un modello che hanno.
+
+16:38.500 --> 16:43.690
+Quindi in questo caso stanno inviando il modello generale e l'URL. Bene, quindi è molto simile a quello
+
+16:43.690 --> 16:50.830
+che abbiamo visto prima.
+
+16:50.830 --> 16:51.740
+Quindi a quanto pare perché abbiamo già definito la nostra chiave API non ne abbiamo più bisogno.
+
+16:52.640 --> 16:59.070
+Tutto ciò di cui abbiamo bisogno è dirlo, quale modello vogliamo usare.
+
+16:59.450 --> 17:05.020
+Ma se ricordi che hanno un sacco di modelli. E in realtà voglio mostrarti un modo intelligente
+
+17:05.040 --> 17:11.040
+di guardare questo.
+
+17:11.040 --> 17:11.310
+Hanno
+
+17:11.310 --> 17:17.910
+queste informazioni nei documenti, ma un altro buon modo per farlo è se ricordi che esisteva un pacchetto npm 'clarifai' e questo pacchetto npm ha un link github e tutti i pacchetti npm di solito lo fanno. Qui, se vai a visitare la loro base di codice,
+
+17:17.910 --> 17:30.740
+se vai alla fonte, come ricorderesti, e indicizzerai. js, questo è ciò a cui ci stanno dando
+
+17:31.020 --> 17:40.620
+accesso, e vedete qui che
+
+17:40.620 --> 17:50.360
+hanno 'export global dot clarifai' e qui tutti i loro modelli che possiamo usare. Quindi ci stanno dando il "GENERAL_MODEL".
+
+17:50.380 --> 17:55.360
+Ma puoi vedere, se riusciamo a ottenere il "FOOD_MODEL", il "COLOR_MODEL".
+
+17:55.690 --> 17:58.910
+Quindi usiamo "COLOR_MODEL"
+
+17:59.050 --> 18:04.570
+per ora, e qui diremo "COLOR_MODEL".
+
+18:08.850 --> 18:13.050
+E per avere accesso a questo, dobbiamo fare 'chiarire' punto 'COLOR_MODEL'.
+
+18:13.240 --> 18:21.270
+Quindi salviamolo, e (lo) proveremo aprendo la console facendo clic
+
+18:21.580 --> 18:30.490
+su detect, ottengo una risposta e nella loro risposta, se vado a
+
+18:30.730 --> 18:44.570
+'output', 'zero (0)', 'data', Ottengo "colori" e queste sono tutte previsioni di colori esadecimali e vedi quello con la
+
+18:44.570 --> 18:51.090
+più alta probabilità, vediamo di che colore è.
+
+18:51.090 --> 18:52.090
+Era praticamente nero e se guardi questa immagine sì, è praticamente nero.
+
+18:55.660 --> 19:02.480
+Va bene così funziona.
+
+19:02.480 --> 19:05.680
+E il motivo per cui sono stato in grado di trovarlo è di
+
+19:05.740 --> 19:11.150
+nuovo nella loro documentazione API che ti dice se è un output e un output restituisce un array con dati al suo interno.
+
+19:11.200 --> 19:15.190
+E poiché abbiamo selezionato il modello di colori otteniamo i colori. Bene, quindi per ora usando il
+
+19:15.220 --> 19:23.130
+modello di colori, costruiamolo.
+
+19:23.280 --> 19:26.760
+Vogliamo avere uno stato 'imageUrl'
+
+19:27.130 --> 19:39.660
+e sarà vuoto per ora e questo 'imageUrl' dovrebbe essere visualizzato quando facciamo clic su Invia, quindi possiamo dire che
+
+19:39.810 --> 19:51.500
+'onButtonSubmit', vogliamo che 'questo' punto 'setState' sia uguale , per avere l'URL dell'immagine aggiornato con qualunque sia "input".
+
+19:51.530 --> 19:58.920
+In questo modo, possiamo passare "imageUrl" fino a "FaceRecognition".
+
+19:58.920 --> 20:06.100
+Quindi se faccio 'imageUrl' uguale a 'questo' punto 'stato'
+
+20:06.120 --> 20:15.960
+punto 'imageUrl', ora posso usare 'imageUrl' nel mio componente 'FaceRecognition' come sorgente (src).
+
+20:15.960 --> 20:25.670
+Ora ovviamente dobbiamo riceverlo, quindi lo distruggerò e lo userò come parametro.
+
+20:25.670 --> 20:32.180
+E ottengo 'input non definito', Questo perché qui, ho usato input e bene, deve essere 'questo' punto
+
+20:32.180 --> 20:33.800
+'stato' punto 'input'. Torna indietro ah! ,
+
+20:33.800 --> 20:49.500
+troviamo un nuovo volto in realtà. Facciamo, facciamo un colore.
+
+20:49.520 --> 20:50.150
+Facciamo un paesaggio, facciamolo con un colore che definisce.
+
+20:50.160 --> 20:58.110
+Va bene, guardiamo l'immagine, copiamolo, se lo facciamo e non
+
+20:58.110 --> 21:08.070
+otteniamo nulla perché bene, se ricordi 'onInputChange', non abbiamo mai aggiornato il componente 'input'.
+
+21:08.070 --> 21:13.080
+Abbiamo appena registrato tutto.
+
+21:13.080 --> 21:15.510
+Quindi ora che sappiamo che possiamo solo
+
+21:15.530 --> 21:19.950
+dire, 'questo' punto 'imposta lo stato' 'input' è il 'valore' '' target '' obiettivo
+
+21:19.960 --> 21:20.510
+'' evento
+
+21:23.440 --> 21:23.950
+''.
+
+21:26.740 --> 21:30.060
+Vediamo se funziona.
+
+21:30.200 --> 21:31.460
+E
+
+21:32.340 --> 21:36.370
+torno indietro, provalo e, oh ragazzo! , questa è una grande immagine che dovremo risolvere, ma abbiamo ottenuto la
+
+21:36.430 --> 21:39.420
+visualizzazione delle nostre immagini. Ora, usando queste informazioni,
+
+21:39.430 --> 21:45.620
+significa che possiamo fornire il nostro URL come input qui.
+
+21:45.620 --> 21:51.390
+Possiamo solo inserire 'questo' punto 'stato' punto 'input'
+
+21:51.620 --> 21:54.960
+e aprire la console.
+
+22:03.150 --> 22:08.760
+Va bene, sembra che stiamo ricevendo una risposta.
+
+22:08.760 --> 22:10.730
+Stiamo ottenendo "dati" "colori".
+
+22:10.770 --> 22:13.540
+Abbiamo questo con il 40 percento di probabilità che questo sia il colore.
+
+22:13.790 --> 22:17.930
+Vediamo di che colore è.
+
+22:17.930 --> 22:19.400
+Va bene, è verde.
+
+22:22.040 --> 22:23.150
+È abbastanza bello.
+
+22:23.210 --> 22:24.650
+Quindi funziona chiaramente.
+
+22:24.650 --> 22:26.870
+Ci stiamo avvicinando, ne chiuderò alcuni.
+
+22:26.870 --> 22:28.970
+Va bene, ora le cose funzionano chiaramente, il che è fantastico.
+
+22:36.160 --> 22:40.210
+Ora l'unico trucco che voglio mostrarti, a
+
+22:40.210 --> 22:45.950
+causa del modo in cui reagisce, se avessi fatto qui, "imageUrl", avrei
+
+22:46.240 --> 22:55.320
+effettivamente un errore, quindi se copio e incolla, facciamo un'immagine "Apple" ottenere una "Richiesta non valida" e questo
+
+22:55.540 --> 22:59.980
+è dovuto al modo in cui "imposta stato" funziona.
+
+23:12.590 --> 23:32.790
+Tutto ok.
+
+23:32.870 --> 23:44.700
+Quindi, mentre in realtà vogliamo usare il 'FACE_DETECT_MODEL', quindi usando quello che abbiamo ora, vediamo
+
+23:46.050 --> 23:52.960
+se possiamo ottenere una risposta, e se andiamo alla nostra API possiamo guardare i modelli, e in realtà se
+
+23:58.830 --> 24:06.100
+andiamo a in alto, vai a "Modelli" e andiamo a "Rilevamento volti", vediamo che avremo una risposta simile a questa.
+
+24:09.320 --> 24:15.280
+Ciò che ci interessa è dagli output, per ottenere dati e
+
+24:15.310 --> 24:22.600
+quindi regioni che ci danno le regioni o il riquadro di delimitazione del volto. Vedremo se riusciamo a farlo funzionare.
+
+24:22.600 --> 24:28.200
+Ho inserito "FACE_DETECTION_MODEL" e non
+
+24:28.670 --> 24:33.470
+sappiamo ancora quale sarà la risposta, quindi lo lascerò.
+
+24:33.470 --> 24:34.820
+Ho intenzione
+
+24:35.800 --> 24:39.390
+di trovare un'immagine del viso, facciamo questa
+
+24:44.050 --> 24:47.060
+immagine, copia e incolla, rileviamo, oh
+
+24:47.060 --> 24:47.980
+ragazzo! dobbiamo sistemare quella faccia.
+
+24:53.400 --> 24:55.450
+Ma vediamo che stiamo ottenendo output gtting.
+
+24:55.550 --> 25:00.510
+Nel primo array, otteniamo "dati", "regioni"
+
+25:02.700 --> 25:06.240
+e abbiamo un "bounding_box".
+
+25:10.500 --> 25:12.340
+Quindi è un po 'nidificato qui.
+
+25:12.340 --> 25:14.290
+Quindi, usando queste informazioni, puliamole un po 'e poi otteniamo effettivamente ciò di cui abbiamo bisogno da qui.
+
+25:14.320 --> 25:21.190
+Nel nostro caso, sembra che avremo bisogno di
+
+25:25.030 --> 25:29.670
+ottenere le 'risposte' punto 'output'.
+
+25:29.930 --> 25:33.150
+E poi lo 'zero (0)' il primo array, quindi era 'data', 'regioni', 'zero (0)', 'informazioni sulla regione', quindi 'riquadro di selezione'.
+
+25:36.110 --> 25:46.190
+Va bene, facciamolo.
+
+25:46.400 --> 25:47.700
+Quindi le
+
+25:47.720 --> 25:56.550
+'aree dati' accedono al primo array, 'region_info' e penso che l'ultimo fosse 'bounding box'.
+
+25:57.530 --> 26:01.020
+Proviamo quello.
+
+26:01.100 --> 26:01.860
+Tutto ok.
+
+26:05.370 --> 26:05.630
+Facciamo un tentativo.
+
+26:05.640 --> 26:07.050
+E vedi se funziona.
+
+26:07.930 --> 26:11.760
+Rileva Guarda quello.
+
+26:11.760 --> 26:11.760
+Abbiamo la nostra "riga inferiore", "colonna sinistra", "colonna destra", "riga superiore".
+
+26:14.710 --> 26:20.230
+Non sappiamo ancora cosa significhino questi numeri.
+
+26:20.500 --> 26:22.760
+Dovremo davvero capirlo perché, come puoi vedere, non aggiunge nulla al viso.
+
+26:22.810 --> 26:27.370
+È qualcosa che dovremo fare.
+
+26:27.370 --> 26:29.030
+Ma funziona e abbiamo ottenuto la nostra connessione API.
+
+26:29.830 --> 26:33.270
+In realtà stiamo facendo qualcosa che stiamo visualizzando l'immagine.
+
+26:33.370 --> 26:36.050
+Quindi, prima di entrare nel
+
+26:36.070 --> 26:41.860
+prossimo video, risolviamo questo problema di immagine per assicurarci che tutto appaia bene.
+
+26:42.340 --> 26:44.470
+Quindi se andiamo al "FaceRecognition" qui, ci sono un paio di cose che dovremo risolvere.
+
+26:44.470 --> 26:50.310
+Rimuoverò questa "console".
+
+26:50.350 --> 26:52.740
+Faremo 'ma', che è
+
+26:52.880 --> 27:02.650
+una classe 'tachion' e poi lo avvolgeremo anche in un 'div' e ci sono molti modi per farlo.
+
+27:02.650 --> 27:03.220
+Come ho detto prima con lo styling, ti mostrerò il modo principale per farlo.
+
+27:03.220 --> 27:07.990
+Vado a dire 'margine assoluto primi due' solo così c'è un po 'di spazio tra l'input e l'immagine.
+
+27:08.140 --> 27:17.640
+E ora all'interno dell'immagine, vogliamo assicurarci che la 'larghezza' sia
+
+27:17.770 --> 27:25.330
+sempre la stessa, indipendentemente dalle dimensioni dell'immagine.
+
+27:25.330 --> 27:27.770
+Faremo "500 pixel" ma non vogliamo che venga schiacciato o abbia proporzioni strane.
+
+27:27.960 --> 27:34.890
+Quindi il modo per risolverlo è fare 'auto'. Quindi l'altezza verrà automaticamente regolata in base alla larghezza.
+
+27:34.890 --> 27:42.490
+Quindi salviamo e vediamo cosa
+
+27:42.530 --> 27:44.060
+succede ora.
+
+27:44.070 --> 27:44.470
+Tutto ok.
+
+27:47.570 --> 27:48.140
+Questo è molto meglio.
+
+27:48.140 --> 27:50.740
+Quindi è stato abbastanza veloce.
+
+27:50.760 --> 27:51.840
+Questa è stata la cosa principale che l'ha risolto davvero.
+
+27:51.840 --> 27:55.300
+Tutto ok.
+
+27:56.630 --> 27:57.320
+Eccezionale.
+
+27:57.350 --> 27:57.850
+Quindi ci siamo procurati un'app funzionante che restituisce risultati reali.
+
+27:57.860 --> 28:03.830
+E ora possiamo lavorare per visualizzare una casella intorno al viso, se viene rilevato qualcosa. Solo per
+
+28:04.040 --> 28:12.400
+curiosità.
+
+28:12.400 --> 28:13.200
+Se faccio di nuovo paesaggio.
+
+28:13.210 --> 28:25.230
+Tutto ok.
+
+28:25.280 --> 28:25.760
+Funziona tutto bene.
+
+28:25.760 --> 28:26.450
+Eh! è stato lungo ma le cose stanno iniziando a funzionare.
+
+28:26.460 --> 28:30.980
+Ci vediamo nel prossimo video.
+
+28:30.980 --> 28:32.370
+Buh-bye

@@ -1,0 +1,655 @@
+WEBVTT
+
+00:01.420 --> 00:02.820
+Dar una buena acogida.
+
+00:02.860 --> 00:08.330
+Ahora lo que aprendes en los próximos videos es bastante avanzado.
+
+00:08.350 --> 00:15.310
+Lleva un tiempo comprender realmente los conceptos y comprenderlos, y la mejor manera de hacerlo
+
+00:15.310 --> 00:17.450
+es hacerlo ellos mismos.
+
+00:17.710 --> 00:22.830
+Así que use estos videos como referencia para volver cuando tenga preguntas.
+
+00:22.870 --> 00:28.000
+Voy a cubrir los principales temas que verás en la naturaleza.
+
+00:28.180 --> 00:31.950
+Puede volver y hacer referencia a estos videos cuando tenga preguntas.
+
+00:33.150 --> 00:38.110
+Y en este video vamos a abordar funciones avanzadas.
+
+00:38.310 --> 00:40.540
+Ahora tengo una función de muestra para ti aquí.
+
+00:40.680 --> 00:46.680
+Pero sabiendo lo que aprendimos sobre la nueva sintaxis de JavaScript, vamos a convertir esto
+
+00:46.680 --> 00:50.010
+primero a cómo deberíamos escribir JavaScript en 2018.
+
+00:50.520 --> 00:53.280
+La palabra de función se ha ido ahora.
+
+00:53.640 --> 00:58.490
+Solo podemos decir 'const primero es igual a la función de
+
+01:01.900 --> 01:02.950
+flecha (=>)'.
+
+01:04.390 --> 01:14.080
+Y esta función de flecha tiene un 'saludo' que puede ser una constante y una función
+
+01:14.090 --> 01:18.570
+que nuevamente puede ser 'constante segundo'.
+
+01:18.800 --> 01:24.710
+Y finalmente, esto también puede ser una 'constante'.
+
+01:24.740 --> 01:32.210
+También aprendimos sobre el alcance, una propiedad importante de la función es que las variables creadas
+
+01:32.210 --> 01:38.010
+dentro de ellos, incluidos sus parámetros, son locales para la función.
+
+01:38.300 --> 01:47.090
+Eso significa que cada vez que ejecuta la primera función, este bloque de código se ejecuta y la
+
+01:47.270 --> 01:50.740
+variable 'saludar' se crea cada vez.
+
+01:50.750 --> 01:58.100
+Ahora, esto es realmente bueno para nosotros porque nos aseguramos de que si nuestro programa, cada vez
+
+01:58.310 --> 02:04.980
+que ejecutamos 'primero' recordado 'salude', bueno, tendrán conflictos porque es una constante y constantemente reasignamos lo
+
+02:05.000 --> 02:08.480
+mismo a una variable que ya existe
+
+02:08.480 --> 02:15.050
+De esta manera, dentro de una función, nos aseguramos de que cada vez que la ejecutamos, sea una pizarra limpia.
+
+02:15.170 --> 02:21.550
+Puedes nombrar las variables como quieras porque no hay nada más que choque con ellas.
+
+02:21.590 --> 02:28.850
+Como dije, este comportamiento ayuda a evitar interferencias accidentales entre funciones y, como desarrolladores, queremos minimizar la
+
+02:29.060 --> 02:33.020
+cantidad de errores o errores en nuestro código.
+
+02:33.020 --> 02:39.710
+Si todas las variables fueron compartidas por todo el programa, se necesitará mucho esfuerzo para asegurarse de que ningún
+
+02:39.710 --> 02:42.500
+nombre se use para dos propósitos diferentes.
+
+02:42.500 --> 02:48.820
+Imagínese si 'saludar' estaba en otra función y no teníamos idea y no podemos usarlo.
+
+02:48.890 --> 02:56.960
+Afortunadamente, al tener nuestro propio alcance separado, podemos asegurarnos de que podemos usar 'saludar' sin tener que verificar toda
+
+02:56.960 --> 02:59.070
+la base de código.
+
+03:00.220 --> 03:07.000
+Ahora, al tratar la función, las variables locales como existentes solo dentro de la función, el
+
+03:07.000 --> 03:15.850
+lenguaje hace posible leer y comprender funciones como pequeños universos, donde lo que suceda en ese universo solo es importante para
+
+03:16.060 --> 03:16.930
+sí mismo.
+
+03:18.340 --> 03:26.170
+Pero también quería demostrar un concepto interesante con JavaScript y eso es 'cierres'.
+
+03:26.380 --> 03:31.760
+Puedes pensar en esto como una función que se ejecuta, la función ejecutada.
+
+03:31.900 --> 03:34.080
+Ahora nunca se ejecutará de nuevo.
+
+03:34.120 --> 03:37.920
+Algo así como la primera función que acabamos de ejecutar aquí.
+
+03:38.170 --> 03:45.970
+Y el resultado que ponemos en una nueva función, va a recordar que primero hay referencias a esas
+
+03:46.000 --> 03:48.640
+variables vivas en una memoria.
+
+03:48.960 --> 03:51.270
+Sin embargo, vemos un problema aquí.
+
+03:52.210 --> 03:59.740
+Verá que cuando cargamos este programa en nuestro sitio web, el motor de JavaScript lo verá y le diré
+
+03:59.740 --> 04:02.180
+que tenemos una variable primero.
+
+04:02.230 --> 04:03.540
+Esa es una funcion.
+
+04:03.580 --> 04:04.660
+Excelente.
+
+04:04.690 --> 04:12.100
+Y luego en la siguiente línea vemos, ¡oh! queremos asignar una nueva función variable (newFunc) y queremos obtener el
+
+04:12.100 --> 04:13.460
+resultado de 'primero'.
+
+04:13.510 --> 04:20.980
+Entonces, el programa se ejecuta 'primero', ve que queremos crear un 'saludo constante', 'HI' y luego también vemos
+
+04:21.760 --> 04:26.680
+que tenemos otra función llamada 'segundo' y estamos devolviendo esa función.
+
+04:27.040 --> 04:32.590
+Pero aquí hay un problema, "segundo" necesita recordar qué es "saludar".
+
+04:32.830 --> 04:38.940
+Aunque 'first' se ejecuta y devuelve 'second'.
+
+04:39.060 --> 04:48.820
+Entonces puede pensar en esto como una vez que hagamos esto, solo tendremos la función 'segunda'.
+
+04:48.850 --> 04:52.440
+Ahora, y sé que esto es, esto parece confuso, pero solo mira lo resaltado aquí.
+
+04:52.690 --> 04:55.590
+Eso es lo que significa llamar 'primero'.
+
+04:55.870 --> 04:58.640
+Pero ves aquí que la variable 'saludar'.
+
+04:58.720 --> 04:59.990
+'Segundo' no lo hace.
+
+05:00.010 --> 05:07.180
+Bueno, no está dentro del alcance del 'segundo' ¿verdad? lo que hace 'cierres' y esta
+
+05:07.180 --> 05:14.870
+es la regla en Javascript es que el ámbito secundario siempre tiene acceso al ámbito primario.
+
+05:14.950 --> 05:17.430
+Entonces es casi como si lo recordara.
+
+05:17.470 --> 05:21.720
+Siempre recuerdan que hay una referencia a esas variables mucho.
+
+05:21.760 --> 05:28.890
+Entonces, dentro del navegador web, el navegador web dice: ¡ah! esta segunda función necesita 'saludar'.
+
+05:28.900 --> 05:30.370
+Así que lo voy a recordar.
+
+05:30.400 --> 05:31.710
+Déjame demostrarte eso por ti.
+
+05:31.990 --> 05:39.440
+Entonces, si hago 'primero' aquí y voy a copiar esto en la consola.
+
+05:39.660 --> 05:42.730
+Y ahora tenemos, nueva función.
+
+05:42.810 --> 05:52.040
+Si ejecuto, obtengo una nueva función, 'HI', aunque 'first' nunca se ejecutará nuevamente.
+
+05:53.120 --> 05:59.730
+Lo único que nos queda es la segunda función que el navegador web recuerda 'saludar'.
+
+05:59.850 --> 06:04.200
+Nuevamente, este es un concepto confuso cuando estás aquí por primera vez.
+
+06:04.350 --> 06:14.540
+Pero como dije, solo recuerde que 'cierres' solo dice que una función se ejecutó, la función ejecutada
+
+06:16.220 --> 06:16.910
+nunca
+
+06:19.740 --> 06:21.680
+se ejecutará nuevamente.
+
+06:26.590 --> 06:35.930
+Pero va a recordar que hay referencias a esas variables.
+
+06:36.130 --> 06:44.720
+Por lo tanto, el ámbito secundario siempre tiene acceso al ámbito primario.
+
+06:44.950 --> 06:58.320
+Ahora puede que se pregunte, si escuché que 'const name' es igual a 'Bobby', ¿tendrá la primera función
+
+06:58.320 --> 07:00.660
+acceso a 'Bobby'?
+
+07:00.670 --> 07:01.780
+No, no lo haría.
+
+07:01.780 --> 07:06.860
+Así que piénselo de esta manera, los niños siempre tienen acceso al alcance de sus padres.
+
+07:07.030 --> 07:11.150
+Pero los padres consideran que no tienen acceso a sus hijos.
+
+07:12.640 --> 07:16.690
+Muy bien, entremos en algunas cosas más.
+
+07:16.700 --> 07:25.270
+A continuación, vamos a hablar sobre 'Curry' y 'Curry' es el proceso de convertir una función que toma múltiples argumentos
+
+07:25.360 --> 07:30.290
+en una función que los toma uno a la vez.
+
+07:30.310 --> 07:31.480
+Veamos a qué me refiero.
+
+07:31.660 --> 07:45.460
+Tenemos una función aquí que la llamaremos 'multiplicar' y 'multiplicar' acepta dos parámetros y nuevamente estamos usando nuestra nueva sintaxis de función que dirá 'a multiplica
+
+07:45.460 --> 07:49.000
+b' ahora 'Curry' significa que estamos
+
+07:51.840 --> 07:58.050
+cambiando esta función a solo acepta un parámetro a la vez.
+
+07:58.470 --> 08:08.760
+Eso significa que hacemos 'curriedMultiply' es igual a 'a', 'b' 'a' veces
+
+08:12.270 --> 08:20.260
+'b'. Woh! woh! woh! ¡quien! woh! ¿Qué acabamos de hacer?
+
+08:20.310 --> 08:25.570
+De nuevo, esto parece muy confuso, pero piense en estas flechas como funciones.
+
+08:25.590 --> 08:34.690
+Así que ahora si hago 'curryMultiply' y solo diré tres (3).
+
+08:34.920 --> 08:39.390
+Bueno, verás esto en acción, lo que sucede.
+
+08:39.570 --> 08:42.380
+Obtengo una función que acepta 'b' multiplicado por 'a'.
+
+08:42.510 --> 08:49.810
+Entonces, al ejecutar esto, está diciendo que 'a' es '3'.
+
+08:49.990 --> 08:58.780
+Y ahora sabremos que cuando multiplicamos 'a' es '3', pero debido a que tiene una función y otra función,
+
+08:58.870 --> 09:09.040
+así que una función dentro de una función, esto solo devuelve esta parte, por lo que devuelve una función, como puede ver
+
+09:09.040 --> 09:10.370
+aquí .
+
+09:10.530 --> 09:12.710
+Así que ahora para que esto funcione.
+
+09:12.720 --> 09:17.090
+Permítanme volver a poner esto para que funcione.
+
+09:17.090 --> 09:31.820
+Tenemos que decir 'curriedMultiply' dirá '3' y luego otro paréntesis '4', y obtengo '12'.
+
+09:31.990 --> 09:39.460
+Si observamos esta función en comparación con aquí, vemos exactamente lo que hicimos,
+
+09:39.460 --> 09:44.590
+creamos una variable 'curriedMultiply' que acepta un parámetro.
+
+09:44.590 --> 09:47.360
+Entonces es una función que acepta 'a'.
+
+09:47.380 --> 09:52.920
+En este caso es '3' y una vez que llama a esa
+
+09:52.930 --> 10:02.590
+función, una vez que la ejecuta, devuelve a (a) otra función, que acepta 'b' y esa función multiplica 'a' y 'b'.
+
+10:02.590 --> 10:09.120
+Entonces, lo que estoy haciendo aquí es decir 'curriedMultiplier' 'a' es 3 'b' es 4.
+
+10:09.440 --> 10:13.200
+Y ahora multiplique 'a' por 'b'.
+
+10:13.350 --> 10:19.960
+Y como pueden ver, como dije sobre el curry, es el proceso de convertir una
+
+10:19.960 --> 10:26.930
+función que toma múltiples argumentos como dije en una función que los toma uno a la vez.
+
+10:26.930 --> 10:29.780
+Ahora, ¿por qué necesitamos hacer esto?
+
+10:30.500 --> 10:37.590
+Como ahora es más extensible, puedo hacer algo como 'const' multiplyBy5
+
+10:37.650 --> 10:41.550
+'igual y ahora tengo esto.
+
+10:41.820 --> 10:49.860
+Entonces, en cualquier momento, quiero multiplicar por cinco, solo podría decir, déjenme copiar esto.
+
+10:50.250 --> 10:54.970
+Ahora, cada vez que quiero multiplicar un número
+
+10:58.700 --> 11:09.480
+por cinco, cinco diez, y ahora tengo esta función creada que siempre multiplica las cosas por 5, lo cual es genial.
+
+11:09.480 --> 11:09.990
+Todo bien.
+
+11:10.010 --> 11:16.260
+Vamos a entrar en una cosa más y luego prometo que haré que tu cabeza deje de doler.
+
+11:16.260 --> 11:25.760
+Se llama 'Componer' y 'Componer' es el acto de unir dos funciones para formar una tercera función donde la salida de una
+
+11:26.210 --> 11:33.660
+función es la entrada de la otra, incluso yo digo que soy como, ¿qué acabo de decir?
+
+11:33.800 --> 11:35.230
+Así que vamos a escribir esto.
+
+11:36.170 --> 11:40.910
+Una 'composición' se ve así.
+
+11:41.130 --> 11:52.300
+Digamos que los parámetros 'f' y 'g' 'f' y 'g' devuelven una función que toma el parámetro 'a' que
+
+11:53.200 --> 11:58.590
+devuelve una función que tiene esto, santo moly.
+
+11:58.760 --> 12:03.830
+Y si miras esto y no tienes idea de lo que está sucediendo, esto es algo que a algunos les
+
+12:03.830 --> 12:04.710
+lleva años conseguir.
+
+12:04.850 --> 12:06.650
+Es algo realmente muy avanzado.
+
+12:06.800 --> 12:13.260
+Pero, si eres capaz de entender el funcionamiento interno de esto, puedes hacer casi cualquier cosa.
+
+12:13.260 --> 12:15.310
+Vamos a intentarlo.
+
+12:17.240 --> 12:18.590
+¿Que está sucediendo aquí?
+
+12:18.950 --> 12:23.480
+Bueno, parece que, mirando 'f' y 'g', parece que 'f'
+
+12:23.730 --> 12:29.790
+es una función porque, aunque tenemos los corchetes, incluso los resaltados en azul para
+
+12:29.790 --> 12:33.450
+ti y 'g' también es una función.
+
+12:33.510 --> 12:41.580
+Si tuviera una función de suma que, digamos, toma
+
+12:44.300 --> 12:49.960
+un número y solo agrega 1.
+
+12:50.120 --> 12:58.860
+Lo que podemos hacer con 'componer' es que puedo decir 'componer', nuevamente tenemos la función escuchar, 'sum' 'sum'.
+
+12:58.900 --> 13:03.730
+Entonces, 'f' y 'g' son 'suma'.
+
+13:03.850 --> 13:06.890
+Y ahora, dado que se necesita otro paréntesis, puedo decir 5, está
+
+13:11.230 --> 13:11.560
+bien,
+
+13:11.560 --> 13:16.040
+así que vamos a ejecutar esto y luego podemos ir paso a paso para mostrarle lo que hace.
+
+13:17.890 --> 13:19.550
+Tengo 7.
+
+13:19.570 --> 13:20.640
+Entonces, ¿por qué es eso?
+
+13:20.890 --> 13:23.580
+Bueno, tomémoslo uno por uno.
+
+13:23.790 --> 13:33.590
+Si tanto 'f' como 'g' son 'suma' y 'a' es 5, observamos qué devuelve la función.
+
+13:33.740 --> 13:39.300
+Y debido a que nuevamente tenemos dos corchetes, estamos ejecutando la primera parte de la función que
+
+13:39.300 --> 13:42.080
+nos devuelve en otra función que es esta.
+
+13:42.450 --> 13:44.600
+Y dentro de ella le damos la 'a', 5.
+
+13:44.850 --> 13:49.460
+Entonces, cuando se ejecuta esta función, dice 'a' es 5.
+
+13:49.670 --> 13:50.180
+OKAY.
+
+13:50.460 --> 13:53.270
+Y luego ejecutemos la función interna 'g'.
+
+13:53.370 --> 13:55.310
+En este caso es suma.
+
+13:55.350 --> 14:02.220
+Entonces, si recuerdas, suma solo dice dame cinco y luego cinco más uno.
+
+14:02.220 --> 14:06.090
+Entonces ahora esto cambia a seis.
+
+14:06.310 --> 14:11.180
+Y finalmente, se ejecuta la función 'f', que nuevamente es 'sum'.
+
+14:11.730 --> 14:15.240
+Y esto dice 'suma' me está dando seis.
+
+14:15.270 --> 14:19.270
+Entonces seis más uno es siete.
+
+14:19.350 --> 14:27.000
+Y todo esto devuelve siete.
+
+14:27.230 --> 14:27.680
+Hooh todo bien.
+
+14:27.760 --> 14:37.310
+Había un montón de cosas, pero quiero que recuerdes estas tres palabras clave porque cuando llegas
+
+14:37.310 --> 14:43.450
+a Javascript avanzado, las funciones son realmente muy importantes.
+
+14:43.460 --> 14:51.950
+Escucharás palabras como 'Cierres' y 'Curry' y 'Redactar' mucho y encontrarás herramientas y bibliotecas que
+
+14:51.950 --> 14:54.210
+los usan mucho.
+
+14:54.290 --> 14:57.460
+Ahora no necesita saber la definición de ellos.
+
+14:57.500 --> 15:01.820
+Solo necesita poder leer un código y comprender lo que está sucediendo.
+
+15:01.940 --> 15:11.180
+Y es por eso que me gusta mostrarte esto, aunque es realmente avanzado y muy difícil de entender, entendiendo el
+
+15:11.180 --> 15:15.380
+proceso paso a paso de cómo funciona una función.
+
+15:15.380 --> 15:21.470
+Esto es realmente útil porque ahora, cuando encuentre esto en la naturaleza, comprenderá cómo funciona
+
+15:21.860 --> 15:22.660
+todo.
+
+15:23.370 --> 15:29.640
+Ahora, para terminar, esta sección de funciones quiero decirte lo más
+
+15:29.640 --> 15:42.550
+importante que puedes hacer como desarrollador web al crear código y esa es la idea de evitar los efectos secundarios y la pureza funcional.
+
+15:43.890 --> 15:44.630
+Qué significa eso.
+
+15:44.700 --> 15:48.500
+Bueno, volvamos a mi diagrama aquí.
+
+15:48.510 --> 15:55.620
+Puede recordar esto desde la primera parte donde dijimos que una entrada es lo que le damos a una entrada de función de
+
+15:55.620 --> 15:56.350
+algún tipo.
+
+15:56.370 --> 16:04.110
+Podría ser una entrada vacía o podría tener parámetros como 5 y 10, una función hace algo que definimos, tiene su
+
+16:04.590 --> 16:05.740
+propio alcance.
+
+16:05.760 --> 16:08.100
+Recuerda que es su propio universo.
+
+16:08.100 --> 16:14.410
+Podría tener 'registro de consola', podría hacer un montón de cosas y luego pregunta: ¿Estoy devolviendo algo?
+
+16:14.970 --> 16:18.410
+Puedes, oh! Esto debe ser indefinido.
+
+16:19.570 --> 16:27.690
+Por lo tanto, puede devolver un valor o, si no devuelve nada, simplemente no está definido. Ahora las dos palabras que acabo
+
+16:27.690 --> 16:38.680
+de decir son los efectos secundarios y la pureza funcional. Bueno, los efectos secundarios son cualquiera de estas cosas, cualquiera de las acciones que suceden,
+
+16:39.310 --> 16:48.020
+dentro de la función de la que realmente no sabemos nada. Si interactúa o lee o escribe en una
+
+16:48.020 --> 16:54.440
+variable externa, por ejemplo, o 'registros de consola', bueno, eso es
+
+16:54.440 --> 16:56.750
+un efecto secundario.
+
+16:57.140 --> 17:02.300
+Si cambiamos aquí, una variable, 'a' es igual a uno
+
+17:05.330 --> 17:08.000
+y luego tengo una
+
+17:11.560 --> 17:15.920
+función que cambia 'a'. Bueno, eso es un
+
+17:16.020 --> 17:17.550
+efecto secundario.
+
+17:17.670 --> 17:22.660
+Eso es algo que la función está haciendo para afectar el mundo exterior.
+
+17:22.680 --> 17:29.670
+Recuerde que queremos pensar en las funciones como su propio universo y si comienza a afectar al mundo exterior.
+
+17:29.850 --> 17:31.440
+Quiero decir que no es el fin del mundo.
+
+17:31.440 --> 17:36.200
+Hemos hecho 'registro de consola' antes de hacerlo, lo hemos hecho antes.
+
+17:37.150 --> 17:45.460
+Pero es una buena práctica evitar los efectos secundarios y al evitar los efectos
+
+17:45.460 --> 17:49.820
+secundarios, tenemos algo llamado pureza funcional
+
+17:50.770 --> 17:58.420
+y la pureza funcional es un concepto en el que decimos, para que
+
+17:58.420 --> 18:13.950
+podamos escribir programas realmente buenos queremos evitar efectos secundarios y siempre queremos un retorno, para que esto y esto se hayan ido y siempre devolvamos algo.
+
+18:14.020 --> 18:21.460
+¿Y cuál es el poder en esto? Al evitar los efectos secundarios y siempre regresando.
+
+18:21.570 --> 18:31.860
+Creamos algo que llamamos 'determinista' y 'determinista' es una palabra que puede haber escuchado.
+
+18:31.860 --> 18:40.280
+Significa que, no importa si mis entradas, digamos que cinco y diez pasan por esta función.
+
+18:40.320 --> 18:46.630
+Este pequeño universo, el valor de retorno será siempre el mismo.
+
+18:46.680 --> 18:54.450
+Permítanme decir eso nuevamente, la entrada que sea que pongamos en los parámetros ya sea que esté vacía o tenga
+
+18:54.450 --> 18:55.350
+ciertos parámetros.
+
+18:55.350 --> 18:57.990
+Siempre vuelve, si corremos esto mil veces.
+
+18:57.990 --> 19:00.080
+Siempre devuelve el mismo valor.
+
+19:01.430 --> 19:03.070
+Eso es "determinismo".
+
+19:03.110 --> 19:10.580
+Es un concepto muy importante y es un principio clave para evitar errores porque si esta función siempre hace
+
+19:10.580 --> 19:16.770
+lo mismo bien, entonces sabes exactamente lo que hace y no tendrás errores aleatorios apareciendo
+
+19:16.770 --> 19:18.130
+aquí y allá.
+
+19:18.990 --> 19:29.010
+Con eso quiero dejarte. Aunque esta no es la ley, encontrará bases de código que tendrán
+
+19:29.010 --> 19:30.270
+muchos efectos secundarios.
+
+19:30.270 --> 19:35.250
+Habrá muchas cosas sucediendo dentro de las funciones que tal vez incluso afecten a las variables que
+
+19:35.250 --> 19:36.940
+viven fuera de una función.
+
+19:36.990 --> 19:43.950
+Es realmente una buena práctica ser un desarrollador de alto rendimiento para tener
+
+19:43.950 --> 19:51.150
+esto en mente, para crear funciones que minimicen los efectos secundarios y tengan pureza funcional.
+
+19:51.290 --> 19:57.630
+Lo que llamamos 'determinismo', donde todo lo que pones en la función siempre devuelve lo mismo.
+
+19:59.430 --> 20:01.080
+Muy bien, eso es todo por ahora.
+
+20:01.080 --> 20:02.810
+Ve a probar algunos ejercicios.
+
+20:02.940 --> 20:04.400
+Nos vemos en la próxima.
+
+20:04.410 --> 20:04.900
+A-Dios.

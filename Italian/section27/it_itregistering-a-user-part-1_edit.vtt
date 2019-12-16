@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.520 --> 00:01.780
+Ben tornato.
+
+00:01.780 --> 00:08.160
+Abbiamo lasciato l'ultimo video con questo log della console della query KNEX che abbiamo appena fatto.
+
+00:08.200 --> 00:16.000
+Ora questo a destra qui è ciò che KNEX fa. Costruisce la nostra istruzione SQL per noi.
+
+00:16.300 --> 00:26.230
+Quindi, ciò che abbiamo appena registrato su console è stata l'istruzione query creata da Postgres o KNEX per Postgres.
+
+00:26.340 --> 00:32.100
+Puoi vedere qui che il builder è un oggetto che ha tutte le informazioni di cui abbiamo bisogno per parlare
+
+00:32.100 --> 00:34.670
+con il cervello intelligente e fare questa query.
+
+00:34.770 --> 00:43.890
+Se in realtà voglio accedere a qualcosa dagli utenti, dovrò fare il nostro amico. then () perché questo restituisce
+
+00:44.010 --> 00:49.170
+una promessa e otteniamo la nostra risposta.
+
+00:49.170 --> 00:55.950
+Nel nostro caso saranno i dati, questi dati - di nuovo non dobbiamo fare Json perché non li stiamo inviando tramite HTTP
+
+00:55.950 --> 01:03.040
+- recuperiamo i dati e se ci limitiamo a consolarli. registra questi dati vediamo cosa otteniamo.
+
+01:03.140 --> 01:09.420
+Salva e vai giù ed è un array vuoto.
+
+01:09.460 --> 01:10.510
+Questo è un buon segno.
+
+01:10.510 --> 01:13.480
+Non abbiamo ancora utenti ma stiamo ottenendo una risposta.
+
+01:14.320 --> 01:15.270
+Quindi facciamolo.
+
+01:15.490 --> 01:21.960
+Creiamo una dichiarazione per inserire gli utenti quando si registrano.
+
+01:22.090 --> 01:28.390
+Ho intenzione di cambiarlo nella variabile DB solo per non creare confusione.
+
+01:28.630 --> 01:31.740
+E lo terremo solo come database.
+
+01:31.740 --> 01:37.710
+Va bene andiamo all'endpoint del registro e minimizzerò questo database perché smetteremo di
+
+01:37.710 --> 01:40.440
+usarlo ed eliminarlo in seguito.
+
+01:42.680 --> 01:49.490
+E se andiamo a registrarci, vediamo che ora invece di fare il database. utenti. spingendo nella variabile
+
+01:49.730 --> 01:59.920
+possiamo semplicemente usare KNEX, possiamo rimuoverlo e fare DB dot - Bene, dovremo inserire, giusto.
+
+02:00.120 --> 02:06.780
+Diamo un'occhiata ai documenti KNEX e vediamo e vediamo metodi chiari: inserire.
+
+02:06.790 --> 02:08.670
+Va bene guarda questa fantastica documentazione.
+
+02:08.670 --> 02:13.410
+Possiamo solo scoprire esattamente ciò di cui abbiamo bisogno. Al fine di inserire qualcosa, abbiamo il
+
+02:13.410 --> 02:17.580
+metodo insert con i dati e ciò che vogliamo o ciò che verrà restituito.
+
+02:17.580 --> 02:28.610
+Non possiamo semplicemente copiare e incollare questo, quindi possiamo semplicemente fare DB negli utenti che vogliamo inserire e si legge così bene.
+
+02:28.610 --> 02:29.730
+Adoro KNEX.
+
+02:30.030 --> 02:38.570
+Vogliamo inserire un oggetto e questo oggetto conterrà tutto ciò che avevamo nelle informazioni degli utenti.
+
+02:38.610 --> 02:47.400
+Quindi vogliamo inserire una e-mail, nel qual caso ci sarà e-mail. Abbiamo il nome, che ha di nuovo il nome
+
+02:47.430 --> 02:50.010
+che vediamo dal corpo.
+
+02:50.010 --> 02:57.600
+Abbiamo anche la password, ma ricorda che nella nostra tabella non abbiamo la password sotto gli utenti, quindi la
+
+02:57.600 --> 02:58.740
+lasceremo vuota.
+
+02:58.740 --> 03:06.960
+E se torniamo al nostro esempio di tabella qui e ci ricolleghiamo a qui, vediamo che l'ID dell'utente viene generato automaticamente
+
+03:06.960 --> 03:12.710
+nome, e-mail, valori predefiniti delle voci a zero, quindi non dobbiamo inserire nulla.
+
+03:13.080 --> 03:17.780
+E aderito è la data in cui si sono uniti.
+
+03:17.800 --> 03:32.320
+Quindi facciamo solo unire la nuova data e una volta inserito facciamo solo un. poi (consolle. log) per vedere cosa ci
+
+03:32.320 --> 03:34.290
+viene restituito.
+
+03:34.330 --> 03:41.390
+Ho intenzione di salvare. Non ci sono errori che siano positivi e possiamo tornare alla nostra app. In realtà, solo perché
+
+03:41.390 --> 03:48.350
+è più veloce, invece di registrarsi qui, apriremo postino e postino ha già
+
+03:48.350 --> 03:52.870
+qui tutti i nostri comandi precedenti, che adoro.
+
+03:52.940 --> 04:03.610
+Quindi facciamo clic sul registro e puntiamo con il corpo di Ann Apples e facciamo clic su Invia.
+
+04:03.630 --> 04:08.790
+Va bene otteniamo una risposta ma ricordiamo che non cambiamo mai una risposta ma se torniamo
+
+04:10.220 --> 04:12.550
+al server otteniamo l'inserimento dei risultati.
+
+04:12.650 --> 04:13.460
+Tutto ok.
+
+04:13.460 --> 04:14.660
+Sembra che abbia funzionato.
+
+04:14.870 --> 04:25.260
+Se torniamo al database e selezioniamo la stella dagli utenti quanto è bello.
+
+04:25.490 --> 04:34.250
+Abbiamo Ann che è stata inserita come nostro primo utente, con voci predefinite pari a 0. Stupefacente.
+
+04:34.340 --> 04:35.980
+È come per magia.
+
+04:35.990 --> 04:42.430
+Quanto è stato semplice utilizzare KNEX e Postgres e creare il nostro primo database.
+
+04:42.460 --> 04:43.170
+Tutto ok.
+
+04:43.250 --> 04:47.870
+Nel prossimo video lavoreremo su questa risposta.
+
+04:47.870 --> 04:48.740
+Ci vediamo in quello.
+
+04:49.270 --> 04:49.650
+Buh-bye.

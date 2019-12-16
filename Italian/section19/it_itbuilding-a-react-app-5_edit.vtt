@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.730 --> 00:03.130
+I nostri amici robo stanno davvero bene.
+
+00:03.130 --> 00:05.780
+Mi piace davvero questa app. C'è un problema però.
+
+00:05.920 --> 00:14.580
+Se minimizzo questo. OK, è reattivo, sembra buono. Ma se scorro verso il basso, bene, perdo la barra di ricerca in
+
+00:14.580 --> 00:14.980
+alto.
+
+00:14.980 --> 00:21.540
+Non sarebbe bello se questo fosse in cima e ho una pergamena che posso fare e cercare ancora tra i miei amici?
+
+00:24.510 --> 00:30.150
+Bene, potresti pensare: "Probabilmente c'è uno stile CSS che posso aggiungere qui. "Ma voglio illustrarti il
+
+00:30.150 --> 00:39.180
+fatto che React e perché React così bene è perché puoi creare componenti riutilizzabili, non
+
+00:39.300 --> 00:42.560
+solo componenti di schede ma funzionalità.
+
+00:42.600 --> 00:48.110
+Sarebbe bello se ci fosse forse qualcosa in cui possiamo aggiungere "CardList"?
+
+00:48.120 --> 00:58.960
+Forse posso creare un componente "Scorri"? E questo componente "Scorri" avvolge semplicemente il "CardList".
+
+00:59.190 --> 01:02.130
+E ora "CardList" sarà completamente scorrevole.
+
+01:02.220 --> 01:08.820
+Ma ora posso usare "Scorri" questo componente ovunque nella mia app, ogni volta che ho bisogno di
+
+01:08.820 --> 01:10.740
+scorrere, posso semplicemente avvolgerlo.
+
+01:10.790 --> 01:11.870
+Possiamo farlo?
+
+01:11.930 --> 01:12.860
+Proviamolo.
+
+01:14.690 --> 01:19.030
+Ho intenzione di "importare" un componente che non abbiamo
+
+01:19.160 --> 01:28.510
+ancora chiamato "Scroll" da un file che creeremo nel secondo. Creiamo un nuovo file.
+
+01:30.610 --> 01:32.040
+Lo chiameremo "Scorri.
+
+01:32.080 --> 01:42.850
+js "E qui, di nuovo, passeremo attraverso il movimento di" Reagisci da reagire ".
+
+01:42.900 --> 01:44.340
+Rendiamolo un po 'più grande.
+
+01:46.150 --> 01:54.470
+E di nuovo voglio cambiarlo in Babel e diremo che "const Scroll" equivale
+
+01:54.610 --> 02:01.790
+a tornare - Hmm - che cosa avrebbe dovuto restituire?
+
+02:01.850 --> 02:11.790
+Prima di parlarne solo per non dimenticare, dobbiamo "esportare lo Scorrimento predefinito".
+
+02:11.800 --> 02:18.910
+Ora ecco un problema. Vogliamo restituire qualcosa, ma non ha senso, vero?
+
+02:19.060 --> 02:20.220
+Se vado in "App. js
+
+02:22.130 --> 02:22.990
+"" Scroll
+
+02:23.010 --> 02:27.850
+", ma non è un componente a chiusura automatica, avvolge il componente.
+
+02:27.870 --> 02:33.420
+Quindi, come possiamo dire "Scorri" su "Ehi, rendi semplicemente tutto ciò che è dentro di te. "Fino a questo punto, abbiamo
+
+02:36.320 --> 02:37.370
+imparato
+
+02:37.430 --> 02:44.280
+a conoscere" oggetti di scena "e abbiamo imparato a conoscere lo" stato ".
+
+02:44.340 --> 02:53.040
+C'è un'altra cosa in React che voglio insegnarti e che sono i "bambini". E "bambini" è questo.
+
+02:54.320 --> 03:00.310
+"Scorri" può usare "figli" come un modo per renderizzare i suoi figli.
+
+03:00.740 --> 03:01.790
+Cosa intendo con questo?
+
+03:03.040 --> 03:09.710
+Bene, qui, ogni oggetto "oggetti di scena" ha figli.
+
+03:09.800 --> 03:16.540
+Quindi se vado "oggetti di scena. bambini ", bene, vediamo cosa succede.
+
+03:16.660 --> 03:28.460
+Salvo e torno, tutto è reso. Ma se rimuovo questo e faccio solo un "h1",
+
+03:37.000 --> 03:44.910
+ottengo solo questo. Vedi, "oggetti di scena. bambini "è esattamente questo.
+
+03:45.080 --> 03:49.490
+Se io consolo. log (oggetti di scena) "Apriamo
+
+03:53.520 --> 03:54.860
+la console.
+
+03:54.900 --> 03:57.770
+Vedo che ottengo un oggetto.
+
+03:57.780 --> 04:07.560
+E anche se l'oggetto passa qualsiasi "oggetto" a "Scorri", automaticamente ogni singolo componente
+
+04:07.560 --> 04:18.050
+in React ha questa proprietà, "figli". E questo bambino -a un po 'sembra confuso qui- ma ha "CardList" tipo
+
+04:22.440 --> 04:32.800
+"CardList" Quindi usando questo "oggetti di scena. figli ", possiamo creare componenti che avvolgono altri componenti. Fino a questo punto, siamo stati in
+
+04:32.800 --> 04:39.820
+grado di racchiudere solo questi "componenti minuscoli" che sono un po 'come i tag HTML.
+
+04:39.820 --> 04:44.680
+Ma ogni volta che avevamo un componente personalizzato con una lettera maiuscola che costruivamo, beh,
+
+04:44.680 --> 04:46.000
+non potevamo davvero avvolgerlo.
+
+04:46.020 --> 04:50.690
+Ora possiamo usare "questo. bambini".
+
+04:50.780 --> 04:52.690
+Ma ecco la parte interessante.
+
+04:52.910 --> 04:54.940
+Utilizzando "oggetti di scena. bambini
+
+04:55.160 --> 05:07.180
+"Bene, posso creare un componente scorrevole. Lascia che ti mostri come. Basta "div" chiudere quel "/ div", e qui, ancora,
+
+05:07.180 --> 05:16.150
+puntelli di parentesi graffe ". bambini". E tutto ciò di cui abbiamo bisogno ora è aggiungere stili a questo div.
+
+05:16.150 --> 05:22.630
+Potrei creare un "Scroll. css "file e aggiungi uno stile in modo che sia scorrevole, ma voglio mostrarti un
+
+05:22.630 --> 05:24.230
+altro modo che sta usando" style ".
+
+05:24.550 --> 05:25.950
+Proprio come
+
+05:26.170 --> 05:35.200
+un HTML, usando questo attributo di stile e JSX, posso aggiungere stili ma usando doppie parentesi graffe,
+
+05:35.200 --> 05:43.210
+questa è un'espressione JavaScript e al suo interno sto restituendo un oggetto e questo oggetto
+
+05:43.240 --> 05:47.760
+può avere stili CSS, come una proprietà "overflowY".
+
+05:50.040 --> 05:54.450
+che è una proprietà CSS e questo si
+
+05:54.480 --> 06:06.870
+può dire di nuovo "scroll", un modo CSS per rendere scorrevole l'elemento. Diremo che "border" è 1 pixel, solido, nero e infine
+
+06:06.870 --> 06:17.670
+gli daremo una "altezza" di 500 pixel. Ho intenzione di ridurlo in modo che tu possa vedere, ho intenzione di salvare, la compilazione va
+
+06:17.670 --> 06:18.290
+bene.
+
+06:18.330 --> 06:21.560
+Se torno, sembra che qui abbiamo una scatola.
+
+06:21.690 --> 06:26.520
+Rendiamolo un po 'più grande solo così puoi vedere. Sto per dire 5 pixel anche se è brutto.
+
+06:26.610 --> 06:30.150
+E ho dimenticato 't' qui, giusto?
+
+06:30.180 --> 06:36.760
+Bene, vediamo. Guarda, abbiamo un componente scorrevole.
+
+06:36.770 --> 06:44.110
+Rendiamolo un po 'più grande, solo così possiamo vedere meglio. Guarda quello.
+
+06:44.160 --> 06:53.650
+Se lo rimpicciolisco, ora ho un componente scorrevole all'interno di questo.
+
+06:53.760 --> 06:55.250
+Molto bello.
+
+06:55.320 --> 06:57.690
+Ora questa è una semplice app.
+
+06:57.840 --> 07:00.550
+Ti permette di cercare.
+
+07:00.570 --> 07:07.440
+Ti permette di scorrere ma mostra la potenza di React, vero?
+
+07:08.260 --> 07:18.050
+Abbiamo creato queste semplici funzioni e l'unica cosa che le diciamo di fare è, beh,
+
+07:18.050 --> 07:24.880
+le diciamo che stato ha. L'intera app è descritta attraverso queste due cose.
+
+07:25.040 --> 07:34.550
+I "robot" e il "campo di ricerca" e React si occupano del resto. Non appena "campo di ricerca" o "robot" cambiano, React
+
+07:35.330 --> 07:38.200
+trasuda tutte queste informazioni
+
+07:38.200 --> 07:46.880
+come "oggetti di scena" a tutti questi componenti e crea magicamente la nostra visione per noi.
+
+07:46.900 --> 07:49.780
+Ecco perché React è così potente che è un livello di visualizzazione.
+
+07:49.870 --> 07:55.580
+Si occupa di manipolare il DOM e tutto ciò che diciamo è "Ehi, qual è lo stato? "" Quali sono le funzioni con cui hai
+
+07:55.780 --> 07:59.610
+voluto lavorare con lo stato? " e il resto?
+
+07:59.620 --> 08:06.400
+Bene, ottimizza per assicurarsi che tutto sia super veloce e puoi vedere quanto è incredibilmente veloce tutto
+
+08:06.400 --> 08:06.870
+qui.
+
+08:06.880 --> 08:12.220
+È un'app super scattante e questi componenti sono ora riutilizzabili.
+
+08:12.220 --> 08:19.570
+Posso portare "SearchBox" ora in un'altra parte del sito web. Posso aggiungere "Scorri" in un'altra parte del sito
+
+08:19.570 --> 08:20.440
+web.
+
+08:21.240 --> 08:27.430
+Questo è ciò che ha reso React così potente ed è per questo che così tanti siti web sono gestiti da React.
+
+08:27.480 --> 08:35.960
+Una volta che impari la sintassi e ti abitui a tutto ciò che accade quando React diventa veramente potente.
+
+08:35.960 --> 08:41.790
+Anche se abbiamo impiegato un po 'di tempo per creare questa app, una volta che ti ci
+
+08:41.790 --> 08:46.980
+abitui e un'app come questa puoi crearla in, beh, meno di un'ora, probabilmente 30 minuti.
+
+08:47.050 --> 08:49.980
+Va bene, penso che abbiamo fatto un ottimo lavoro qui.
+
+08:49.990 --> 08:51.560
+Non vedo l'ora di vederti nel prossimo video. Ciao ciao

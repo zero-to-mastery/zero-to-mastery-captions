@@ -1,0 +1,262 @@
+WEBVTT
+
+00:02.130 --> 00:02.840
+Bem vindo de volta.
+
+00:02.910 --> 00:08.820
+Vamos começar a configurar o Postgres em nosso computador, assim como fizemos com os
+
+00:08.830 --> 00:16.050
+servidores no Front End, teremos um terminal executando nosso front-end e um Back-End executando nosso servidor, mas
+
+00:16.050 --> 00:22.920
+também outro terminal que está executando um banco de dados porque, como você se lembra, estes são
+
+00:22.920 --> 00:28.940
+apenas computadores executando em algum lugar. Da mesma maneira que executamos nosso servidor em nosso computador.
+
+00:28.940 --> 00:31.810
+Também podemos executar nosso banco de dados em nosso computador.
+
+00:32.120 --> 00:36.060
+E neste vídeo, vamos nos configurar com o Postgres. Agora o MongoDB
+
+00:36.260 --> 00:38.950
+ficou popular, mas nada supera um
+
+00:39.040 --> 00:45.020
+banco de dados relacional por realmente desenvolver seu conhecimento sobre bancos de dados.
+
+00:45.020 --> 00:52.130
+Depois de entender os bancos de dados relacionais, você fornece realmente boas ferramentas e modelos mentais
+
+00:52.130 --> 00:56.620
+para trabalhar com o MongoDB. O MongoDB é muito, muito simples.
+
+00:56.750 --> 01:02.720
+Você pode pensar nisso como uma estrutura de dados JSON, onde apenas temos JSON que se parece
+
+01:03.080 --> 01:09.460
+com um objeto e armazenamos essas informações lá. Com SQL e bancos de dados relacionais, é
+
+01:09.470 --> 01:11.200
+mais complexo que isso.
+
+01:11.210 --> 01:17.150
+Portanto, se você entender isso, estará a quilômetros de distância quando se trata de entender bancos de dados.
+
+01:17.150 --> 01:23.720
+Então, vamos nos concentrar nisso, porque os princípios ainda são os mesmos para o MongoDB.
+
+01:23.750 --> 01:24.050
+Tudo certo.
+
+01:24.100 --> 01:30.150
+Então, vamos configurar o Postgres em nosso computador.
+
+01:30.190 --> 01:34.890
+A primeira coisa que queremos fazer é baixar algo chamado GUI.
+
+01:34.900 --> 01:42.630
+Portanto, uma interface gráfica de usuário para o Postgres. E isso existe para praticamente qualquer banco de dados por aí.
+
+01:42.670 --> 01:44.960
+Eu gosto do PSequel porque é grátis.
+
+01:45.040 --> 01:49.090
+É muito, muito bom para Mac e é muito leve e simples.
+
+01:49.090 --> 01:55.580
+Também terei a certeza de adicionar notas sobre como baixar algo assim e o Postgres em
+
+01:55.600 --> 02:02.360
+geral, se você estiver usando uma máquina Windows. Caso contrário, basta clicar no link de download, será completamente
+
+02:02.360 --> 02:03.090
+rápido.
+
+02:03.110 --> 02:08.340
+Basta abrir e você terá algo parecido com isto que eu vou usar ao longo do curso.
+
+02:08.570 --> 02:11.130
+Mas há muitas, muitas opções e você pode dar uma olhada.
+
+02:11.330 --> 02:14.800
+Você acabou de procurar a GUI do PostgreSQL.
+
+02:15.380 --> 02:23.440
+E depois de instalar o PSequel, você o encontrará na pasta do aplicativo e poderá acompanhá-lo.
+
+02:23.440 --> 02:29.020
+Agora vamos voltar ao terminal. Para instalar o Postgres - existem muitas, muitas maneiras
+
+02:29.020 --> 02:32.270
+e, novamente, fornecerei algumas notas sobre como você pode fazer isso.
+
+02:32.530 --> 02:37.570
+Mas a melhor maneira, especialmente no Mac, é usar o Brew, sobre o qual já falamos.
+
+02:37.690 --> 02:44.290
+Toda vez que você faz algo com o homebrew- novamente, é uma maneira de baixar pacotes da Internet no
+
+02:44.290 --> 02:45.360
+seu terminal.
+
+02:45.370 --> 02:49.930
+Você sempre deseja fazer uma atualização de preparação para garantir que tudo esteja atualizado.
+
+02:53.420 --> 02:59.780
+E também um especialista em fermentação que apenas garante que tudo esteja funcionando no seu sistema.
+
+03:03.840 --> 03:06.350
+Vamos esclarecer isso. Perfeito.
+
+03:06.530 --> 03:12.530
+Uma vez que você tenha configurado isso, vamos apenas dizer que o
+
+03:15.040 --> 03:19.490
+Brew instala o postgresql e isso será instalado
+
+03:19.670 --> 03:24.250
+para nós no Postgres. E você vê aqui que eu já tenho o Postgres instalado.
+
+03:24.400 --> 03:30.130
+Mas se for sua primeira vez, ele executará os comandos e, na verdade, no final, informará exatamente
+
+03:30.130 --> 03:31.650
+como começar a usá-lo.
+
+03:33.080 --> 03:37.370
+Mas, no nosso caso, eu apenas direi a você. Vai ser muito mais fácil. Para iniciar o Postgres.
+
+03:37.400 --> 03:46.890
+Você precisa fazer 'serviços de preparação para iniciar o postgresql' e não se preocupe, isso não é específico do Postgres. Qualquer banco de dados que você está baixando,
+
+03:46.920 --> 03:52.140
+está basicamente baixando o software e deseja iniciar o serviço.
+
+03:52.250 --> 03:58.520
+Cada um tem seus próprios comandos, mas é tão simples quanto pesquisar no Google e descobrir como executar o banco de dados.
+
+03:58.520 --> 04:02.350
+Então começamos o postgresql.
+
+04:02.350 --> 04:12.740
+Parece que eu já iniciei o serviço e apenas para mostrar se realmente paro aqui, ele interromperá o serviço do
+
+04:12.750 --> 04:13.380
+postgres.
+
+04:16.080 --> 04:24.510
+E vamos começar de novo e você pode ver que está começando. Agora, para podermos usar o Postgres, precisamos criar um
+
+04:24.510 --> 04:26.380
+banco de dados.
+
+04:26.660 --> 04:35.210
+E a maneira como fazemos isso é usar o comando 'Createdb' que veio depois que instalamos o Postgres.
+
+04:35.420 --> 04:37.100
+E aqui podemos chamá-lo como quisermos.
+
+04:37.130 --> 04:40.790
+Então, vamos chamá-lo de teste.
+
+04:40.910 --> 04:42.390
+Vai criar o banco de dados.
+
+04:42.680 --> 04:45.740
+E lá vai você. Aqui está a
+
+04:45.850 --> 04:53.060
+parte legal, se eu voltar ao meu PSequel, abra isso. Deixe-me fechar isso.
+
+04:53.160 --> 04:55.310
+Eu tenho aqui PSequel.
+
+04:55.680 --> 05:00.040
+E solicita ao host qual é o link para onde o banco de dados está localizado.
+
+05:00.060 --> 05:04.230
+No meu caso, está localizado no meu host local, certo.
+
+05:04.230 --> 05:07.740
+Está sendo executado no meu computador.
+
+05:07.820 --> 05:10.790
+Então você quer que ele seja localhost e o número da porta.
+
+05:10.790 --> 05:13.950
+Este é o número da porta padrão de 5 4 3 2.
+
+05:14.030 --> 05:19.270
+Lembre-se de como tínhamos as portas 3000 e 3001 para front-end e back-end.
+
+05:19.340 --> 05:20.200
+É semelhante a isso.
+
+05:20.210 --> 05:22.950
+Está abrindo uma porta para ouvir um banco de dados.
+
+05:23.210 --> 05:27.720
+E esta é a porta padrão para o Postgres que você verá.
+
+05:28.100 --> 05:35.960
+Então, quando eu fiz o 'Start postgresql' e 'createdb', o padrão '5432' já estava definido.
+
+05:36.050 --> 05:38.830
+Eu posso realmente definir quais portas e alterá-las.
+
+05:39.020 --> 05:41.940
+Mas queremos manter tudo padrão, para que assim seja.
+
+05:43.620 --> 05:52.310
+Se eu agora for para o banco de dados e o chamarmos de 'test', novamente faremos o teste de conexão com o banco de dados.
+
+05:52.330 --> 05:52.810
+Tudo certo.
+
+05:52.810 --> 05:58.900
+Estamos conectados ao banco de dados, mas não há muito aqui.
+
+05:59.140 --> 06:03.110
+Mas pelo menos sabemos que estamos conectados ao teste de host local.
+
+06:03.210 --> 06:08.610
+E outra maneira de conectar-se a isso, lembre-se de que é uma interface gráfica do usuário - GUI - e
+
+06:08.610 --> 06:12.840
+estou mostrando isso porque é realmente bom para fins de demonstração, mas quero que você
+
+06:12.840 --> 06:17.990
+se sinta confortável trabalhando também com o terminal. Para fazer o mesmo que fizemos com a
+
+06:18.260 --> 06:25.060
+GUI, podemos digitar 'psql' novamente, que é um comando que obteremos quando instalarmos o Postgres e diremos a qual
+
+06:25.110 --> 06:27.310
+banco de dados queremos conectar.
+
+06:27.390 --> 06:30.700
+No nosso caso *, será o 'teste'.
+
+06:30.890 --> 06:32.210
+E lá vai você.
+
+06:32.390 --> 06:35.050
+Assim como quando executamos o nó e ele muda de terminal.
+
+06:35.060 --> 06:42.670
+Agora estamos no Postgres, que está sendo executado em nosso computador, mas ainda não conhecemos nenhum comando,
+
+06:42.670 --> 06:43.930
+não é?
+
+06:43.930 --> 06:49.510
+Então, no próximo vídeo, vamos aprender alguns comandos SQL e finalmente criar algumas tabelas em nosso
+
+06:49.510 --> 06:51.100
+banco de dados Postgres.
+
+06:51.130 --> 06:52.780
+Vou ver naquele, tchau-tchau.

@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.810 --> 00:01.730
+Ben tornato.
+
+00:01.890 --> 00:05.450
+È tempo di tornare a costruire pagine Web.
+
+00:05.670 --> 00:09.050
+Ma questa volta con JavaScript.
+
+00:09.330 --> 00:15.030
+Fino ad ora abbiamo imparato HTML e CSS e poi abbiamo
+
+00:15.240 --> 00:22.380
+imparato JavaScript ma separatamente. Il vero potere però arriva quando combiniamo tutte e tre queste tecnologie. Ora i video precedenti ho menzionato
+
+00:22.380 --> 00:30.030
+come JavaScript consentiva di eseguire azioni sulla pagina Web. Bene, cosa significavano lì?
+
+00:31.040 --> 00:37.090
+Aggiungendo JavaScript alle nostre pagine Web, ora abbiamo il potere che non abbiamo
+
+00:37.130 --> 00:43.790
+mai avuto con HTML e CSS. Possiamo cambiare tutti gli elementi HTML
+
+00:43.980 --> 00:51.120
+nella pagina, possiamo cambiare tutti gli attributi HTML nella pagina, cambiare tutti gli
+
+00:51.120 --> 00:59.400
+stili CSS nella pagina, rimuovere elementi e attributi HTML esistenti, aggiungere nuovi elementi e attributi HTML
+
+00:59.400 --> 01:08.570
+e JavaScript può anche reagire a eventi HTML esistenti o può creare i propri eventi HTML sulla pagina.
+
+01:08.580 --> 01:15.370
+Ora alcune di queste cose come cambiare tessere CSS o attributi ed elementi HTML.
+
+01:15.380 --> 01:24.710
+Beh, potremmo prima farli prima, ma con JavaScript possiamo farlo mentre l'utente è nella pagina.
+
+01:24.720 --> 01:27.410
+Diamo un'occhiata al diagramma.
+
+01:27.580 --> 01:34.300
+Abbiamo richiesto l'HTML e quindi il browser Web ha visualizzato il tag di collegamento.
+
+01:34.700 --> 01:46.320
+Prendi il CSS e prima di usare JavaScript se volessimo cambiare lo stile o cambiare l'aspetto dell'HTML.
+
+01:46.320 --> 01:49.100
+Forse vogliamo fare clic sulla pagina "Informazioni".
+
+01:49.120 --> 02:01.530
+Mentre richiederemmo di nuovo l'HTML e il CSS per cambiare l'aspetto della pagina Web, ma ora con JavaScript tutto ciò di cui hai
+
+02:02.190 --> 02:10.650
+bisogno è questo e JavaScript può fare tutto per te se lo desideri su tutti nella
+
+02:10.650 --> 02:12.070
+stessa pagina.
+
+02:12.120 --> 02:16.260
+Ora in questa sezione impareremo tutto ciò. Per farlo, però,
+
+02:16.260 --> 02:21.090
+dobbiamo tornare ai nostri diagrammi e comprendere due cose.
+
+02:21.150 --> 02:26.780
+Uno è il DOM e il secondo è il motore JavaScript.
+
+02:26.850 --> 02:34.140
+Fino a questo punto abbiamo parlato di come HTML viene richiesto quindi CSS, quindi il browser fa qualcosa di
+
+02:34.140 --> 02:36.340
+speciale, crea qualcosa chiamato DOM.
+
+02:36.480 --> 02:39.160
+Questo tipo di assomiglia a questo.
+
+02:39.340 --> 02:45.860
+Quando viene caricata una pagina Web, il browser crea il DOM che sta per Document Object Model.
+
+02:46.060 --> 02:50.880
+Qui vedi che abbiamo un documento con l'elemento radice HTML.
+
+02:51.070 --> 02:56.460
+Abbiamo un elemento head, un elemento body con alcuni tag 'a' e tag 'h1'.
+
+02:56.470 --> 02:58.000
+Cosa significa veramente?
+
+02:58.030 --> 03:01.520
+Puoi effettivamente vedere la stessa cosa nella console, quindi diamo un'occhiata.
+
+03:03.110 --> 03:08.990
+Quindi il DOM o Document Object Model è semplicemente "documento".
+
+03:09.040 --> 03:12.490
+Quindi qui se apriamo il documento, eccoti.
+
+03:12.560 --> 03:17.440
+Abbiamo la stessa cosa che abbiamo visto nella scheda degli elementi. Vorrei chiudere lo stile qui.
+
+03:18.530 --> 03:24.890
+Proprio nella console.
+
+03:24.990 --> 03:27.580
+Ora perché abbiamo bisogno del DOM?
+
+03:27.720 --> 03:37.050
+Bene, avevamo bisogno di un modo per ottenere, modificare, aggiungere o eliminare elementi HTML, quindi il DOM è stato creato in modo da poter
+
+03:37.050 --> 03:39.070
+fare qualcosa del genere.
+
+03:39.240 --> 03:42.530
+'documento. scrivi ("ciao")
+
+03:44.170 --> 03:51.590
+"e guarda cosa succede alla pagina web, cambia in" ciao
+
+03:51.730 --> 03:52.590
+".
+
+03:52.600 --> 04:00.700
+Quindi il DOM è qualcosa che un browser crea per permetterci di modificare HTML e CSS.
+
+04:00.970 --> 04:04.420
+OK ora che mi dici dell'altra frase che ho
+
+04:04.420 --> 04:07.770
+citato, il motore JavaScript? Bene fino a
+
+04:07.770 --> 04:14.540
+questo punto abbiamo parlato di come ogni browser carica JavaScript e lo legge magicamente.
+
+04:14.570 --> 04:16.490
+Che cosa vuol dire, anche?
+
+04:16.690 --> 04:24.110
+Bene, ogni browser ha una cosa chiamata "motore JavaScript" e tutti hanno nomi piuttosto interessanti.
+
+04:24.110 --> 04:35.710
+Chrome ha "V8 engine", Edge ha "Chalker Core", Safari ha "Nitro" e Firefox ha "SpiderMonkey". E quello che fanno è che sono quelli che
+
+04:35.720 --> 04:43.670
+guardano il file JavaScript, lo leggono riga per riga ed eseguono il
+
+04:43.670 --> 04:44.830
+JavaScript.
+
+04:44.840 --> 04:48.300
+In che modo questi due legano insieme?
+
+04:48.530 --> 04:53.400
+Bene, ora possiamo usare JavaScript per parlare con il DOM.
+
+04:53.540 --> 04:56.960
+Vedi quando abbiamo fatto dot dot write (document. scrivi) che
+
+05:00.220 --> 05:02.110
+era JavaScript, no?
+
+05:02.140 --> 05:09.390
+Sembra un oggetto e aveva il metodo write che
+
+05:09.430 --> 05:18.250
+accettava un argomento "ciao". I browser Web ci consentono di accedere al DOM tramite l'oggetto documento ed è quello che
+
+05:18.250 --> 05:19.330
+è un oggetto.
+
+05:19.420 --> 05:26.710
+E ora abbiamo il potere che abbiamo menzionato prima di fare tutto per modificare essenzialmente
+
+05:26.830 --> 05:29.410
+l'aspetto della nostra pagina web.
+
+05:29.410 --> 05:38.530
+Quindi sapendo cosa facciamo, il documento è lo schermo che vediamo nel browser. Proprio qui e il documento, come ho già detto,
+
+05:38.650 --> 05:41.210
+è solo un oggetto.
+
+05:41.500 --> 05:48.940
+Ora ha un oggetto genitore? Beh, in effetti lo fa.
+
+05:48.940 --> 05:51.850
+Si chiama finestra.
+
+05:52.090 --> 05:59.610
+E vedi qui una finestra è un oggetto con un sacco di proprietà.
+
+05:59.810 --> 06:08.130
+Ma se scorriamo qui vediamo che una delle proprietà è il documento e lo evidenzia anche
+
+06:08.130 --> 06:13.790
+per noi e se apriamo il documento ha più proprietà.
+
+06:13.830 --> 06:24.730
+Inoltre, ricorda 'alert' e 'prompt' guarda che l'oggetto window ha un avviso.
+
+06:24.790 --> 06:26.570
+Quindi proviamo qualcosa.
+
+06:26.790 --> 06:34.960
+Se l'ho fatto 'finestra. alert ("check check") 'funzionerà ancora?
+
+06:34.960 --> 06:39.920
+Vediamo? Sì, funziona ancora.
+
+06:39.960 --> 06:49.790
+Il motivo per cui "alert" ha funzionato in questo modo è perché "window" è: puoi considerarlo come il genitore
+
+06:49.800 --> 06:59.680
+principale di tutto e una finestra del browser è un oggetto che descrive questo browser e ogni volta che
+
+07:00.070 --> 07:08.210
+usi un metodo come "alert" se non specificare nulla presuppone che tu stia parlando dell'oggetto finestra,
+
+07:08.370 --> 07:16.410
+il genitore più grande. Ma ricorda 'documento. Scrivi'?
+
+07:17.730 --> 07:25.340
+Possiamo farlo sull'oggetto finestra?
+
+07:25.460 --> 07:31.100
+Controlliamo questo. Viene visualizzato un messaggio di errore ". write 'non è
+
+07:31.110 --> 07:36.410
+una funzione perché non esiste come proprietà di' window
+
+07:36.420 --> 07:43.310
+'ma esiste come proprietà del documento che è una proprietà di' window '.
+
+07:43.320 --> 07:54.580
+Quindi ricapitoliamo. Un browser Web ha un oggetto finestra che ha un 'documento' di proprietà
+
+07:54.580 --> 07:58.390
+che specifica cosa deve essere visualizzato per decidere cosa
+
+07:58.390 --> 08:10.030
+visualizzare l'oggetto del documento, il modello a oggetti del documento legge HTML e CSS e quindi JavaScript che viene letto riga per riga da qualcosa come un
+
+08:10.360 --> 08:13.590
+motore JavaScript - In Google Chrome
+
+08:13.600 --> 08:17.380
+questo è il motore V-8 - lo legge.
+
+08:17.770 --> 08:27.400
+E se mai ha bisogno di cambiare qualcosa, JavaScript può parlare con l'oggetto documento e
+
+08:27.600 --> 08:33.850
+modificare HTML e CSS. Utilizzando il nostro nuovo potere trovato, nel
+
+08:33.940 --> 08:40.510
+prossimo video inizieremo a manipolare il DOM per rendere i nostri siti Web più interattivi con JavaScript.
+
+08:40.510 --> 08:42.100
+Iniziamo. Ciao ciao

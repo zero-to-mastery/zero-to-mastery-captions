@@ -1,0 +1,373 @@
+WEBVTT
+
+00:00.890 --> 00:08.310
+¡Hola! Dar una buena acogida. En este video combinaremos todo lo que acabamos de
+
+00:08.310 --> 00:10.540
+aprender para mostrarle por qué JavaScript es útil.
+
+00:10.620 --> 00:18.380
+Porque sé que algunos de ustedes piensan: OK, aprendimos un montón de nuevas formas de escribir JavaScript y aprendimos
+
+00:18.390 --> 00:25.120
+sobre matrices y objetos, pero realmente no sé cómo se relaciona esto con la creación de
+
+00:25.120 --> 00:27.560
+sitios web o aplicaciones web.
+
+00:28.110 --> 00:34.280
+Bueno, les mostraré que podemos construir una versión simplificada de Facebook con lo que acabamos de aprender.
+
+00:35.240 --> 00:36.510
+Entonces empecemos.
+
+00:36.830 --> 00:43.010
+Vamos a tener una base de datos con nombres de usuario y contraseñas. Vamos a tener un 'suministro de noticias' y
+
+00:43.010 --> 00:44.780
+vamos a tener usuarios.
+
+00:44.840 --> 00:51.020
+Comencemos por pensar en cómo funciona Facebook. Con Facebook, generalmente tenemos un
+
+00:51.020 --> 00:55.420
+formulario de registro. Necesitamos iniciar sesión.
+
+00:56.000 --> 01:03.330
+Y una vez que iniciamos sesión, si es correcto, va a nuestro perfil, donde podemos ver nuestro 'suministro de noticias'.
+
+01:03.380 --> 01:10.180
+Así que construyamos eso. Podemos comenzar con tener algo llamado 'base de datos'.
+
+01:10.180 --> 01:12.520
+Entonces tendremos una variable 'base de datos'.
+
+01:12.520 --> 01:16.810
+Y en esta 'base de datos' podemos tener múltiples usuarios.
+
+01:16.810 --> 01:17.230
+¿Correcto?
+
+01:17.350 --> 01:23.210
+Entonces, ¿qué necesitamos aquí? Necesitamos una matriz: una lista de usuarios.
+
+01:23.230 --> 01:24.790
+Así que ahora puedo decir
+
+01:28.110 --> 01:36.000
+que tengo un 'nombre de usuario' y esto puede parecer familiar de nuestras lecciones anteriores. Tenemos un 'nombre de
+
+01:37.140 --> 01:42.740
+usuario' de 'andrei' y una 'contraseña' de 'supersecret'.
+
+01:42.800 --> 01:46.700
+Por ahora solo lo dejaremos en un usuario.
+
+01:46.700 --> 01:50.670
+Tenemos una 'base de datos' y también queremos tener una 'fuente de noticias', ¿verdad?
+
+01:50.720 --> 01:56.730
+Así que tengamos una variable llamada 'suministro de noticias'
+
+01:56.740 --> 02:15.350
+y aquí, un suministro de noticias, bueno, nuevamente, es una lista, una serie de noticias. Entonces podemos tener un 'nombre de usuario' - 'Bobby', que en su línea de tiempo tiene quizás,
+
+02:15.590 --> 02:26.200
+'¡Tan cansado de todo ese aprendizaje! '. También tenemos, tenemos más de un artículo generalmente en un 'suministro de noticias'.
+
+02:26.200 --> 02:39.330
+Podemos decir que 'nombre de usuario', 'Sally'. 'Sally' en su línea de tiempo acaba de publicar '¡Javascript es muuuuuuuuuuuu! '.
+
+02:41.660 --> 02:42.240
+OKAY.
+
+02:42.560 --> 02:53.070
+Así que tenemos una 'fuente de noticias', que tiene una matriz de objetos y tenemos una 'base de datos', que es una matriz de un solo objeto en este
+
+02:53.070 --> 02:55.980
+momento: un 'nombre de usuario' y 'contraseña'.
+
+02:56.950 --> 03:01.190
+Ahora, ¿cómo podemos construir un formulario de 'inicio de sesión'?
+
+03:01.360 --> 03:10.500
+Bueno, nos gustaría realizar una acción para verificar las credenciales de un usuario: su 'nombre de usuario' y 'contraseña'.
+
+03:10.550 --> 03:12.000
+Bueno, ya hemos hecho esto antes, ¿verdad?
+
+03:12.020 --> 03:24.170
+Hemos usado 'prompt' antes, acepta la entrada de un usuario. Entonces, podemos hacer la variable 'userNamePrompt' Diremos igual
+
+03:24.500 --> 03:29.320
+a 'prompt': "¿Cuál es tu nombre de
+
+03:29.680 --> 03:35.370
+usuario? " OKAY.
+
+03:35.760 --> 03:36.930
+También tenemos Y voy
+
+03:36.930 --> 03:39.300
+a hacer esto más pequeño para que todo encaje aquí.
+
+03:39.300 --> 03:57.680
+Espero que todavía puedas ver. Tenemos la variable 'passwordPrompt', que equivale a 'prompt ("¿Cuál es su contraseña? ") '?
+
+03:57.680 --> 03:57.680
+' OKAY.
+
+03:57.860 --> 04:00.970
+Entonces, tenemos esto funcionando.
+
+04:01.250 --> 04:11.280
+Cuando abrimos este archivo y lo actualizamos: HTML se cargará línea por línea. Y vemos, oh, tenemos un guión.
+
+04:11.340 --> 04:17.590
+Déjame cargar el script y luego el navegador lee línea por línea.
+
+04:17.670 --> 04:19.030
+Tenemos una 'base de datos'.
+
+04:19.260 --> 04:20.500
+Tenemos un 'suministro de noticias'.
+
+04:20.970 --> 04:26.930
+Y luego dirá 'usernamePrompt' es igual a 'prompt'. Y nos preguntará "¿Cuál es su nombre de usuario?
+
+04:27.150 --> 04:30.310
+"Y luego nos preguntará" ¿Cuál es su contraseña? "Bueno,
+
+04:30.460 --> 04:32.400
+solo probemos eso.
+
+04:32.490 --> 04:35.410
+Voy a guardar y actualizar y ahí lo tienes.
+
+04:35.460 --> 04:42.730
+"¿Cual es tu nombre de usuario? "-" andrei "y" ¿Cuál es tu contraseña? "-" supersecreto ".
+
+04:43.260 --> 04:53.040
+Eso es muy bueno, pero cuando inicio sesión, quiero saber si mi contraseña es incorrecta o si inicio sesión y
+
+04:53.040 --> 04:54.550
+todo está correcto.
+
+04:54.780 --> 04:56.830
+Quiero obtener mi fuente de noticias, ¿verdad?
+
+04:57.970 --> 05:05.920
+Entonces parece que necesitamos realizar una acción, pero realmente no tenemos una función de inicio de sesión en JavaScript, ¿verdad?
+
+05:05.920 --> 05:10.310
+Es una función personalizada, que necesitamos construir nosotros mismos.
+
+05:11.110 --> 05:13.080
+Así que pensemos en esto.
+
+05:13.090 --> 05:20.880
+Queremos crear una función llamada 'signIn' y para iniciar sesión, ¿qué necesitamos?
+
+05:20.980 --> 05:25.800
+Bueno, necesitamos un 'nombre de usuario' y 'contraseña'.
+
+05:27.410 --> 05:32.450
+Y podemos nombrarlos como queramos y solo para demostrarles que voy a hacer 'usuario'
+
+05:35.190 --> 05:36.300
+y 'contraseña'.
+
+05:36.730 --> 05:39.500
+Haremos 'pasar' así. OKAY.
+
+05:39.530 --> 05:43.610
+Y si recordamos, para crear una función, esta es
+
+05:43.610 --> 05:48.310
+una 'declaración de función'. Tengo mis llaves y aquí puedo hacer algo.
+
+05:48.350 --> 05:53.780
+Entonces, nuevamente pensemos en esto lógicamente: para iniciar sesión, necesito
+
+05:53.800 --> 05:57.300
+verificar 'nombre de usuario' y 'contraseña'.
+
+05:57.640 --> 06:08.990
+Bueno, si la función obtiene el primer argumento 'usuario', bueno, puedo decir que 'if (nombre de usuario)', en este caso 'usuario' es igual,
+
+06:10.780 --> 06:12.940
+bueno, ¿qué es igual?
+
+06:12.950 --> 06:16.820
+Necesita verificar nuestra 'base de datos' ¿verdad?
+
+06:17.310 --> 06:25.770
+Nuestra 'base de datos', cuando 'andrei' se registró en Facebook, dejó su 'nombre de usuario' y su
+
+06:25.770 --> 06:32.220
+'contraseña', así que tenemos esa información. Entonces, podemos decir que cuando inicies sesión, revisaremos 'usuario' para ver
+
+06:32.430 --> 06:35.080
+si el 'usuario' coincide con la 'base de datos'.
+
+06:35.580 --> 06:36.790
+Y es una matriz.
+
+06:37.050 --> 06:45.660
+Así que vamos a tomar el primer elemento de la matriz y vamos a tomar el 'nombre de usuario'
+
+06:50.170 --> 06:50.760
+OK.
+
+06:51.110 --> 06:55.310
+Y también queremos verificar la 'contraseña', ¿verdad?
+
+06:55.310 --> 06:57.970
+Entonces, ¿qué hacemos cuando tenemos que verificar dos cosas?
+
+06:57.980 --> 07:10.120
+Bueno, es un condicional, que tiene "&amp;&amp;". Así que aquí puedo decir: la 'contraseña' debería ser igual a 'base de datos': primer elemento de
+
+07:10.120 --> 07:11.060
+la matriz.
+
+07:11.290 --> 07:15.640
+Y esta vez en lugar de 'nombre de usuario' es 'contraseña'.
+
+07:15.890 --> 07:18.200
+Voy a poner esto en una nueva línea para que puedas verlo.
+
+07:18.200 --> 07:18.820
+Ahí tienes!
+
+07:20.770 --> 07:30.610
+Entonces, la función 'inicio de sesión' va a decir si 'usuario' es igual a lo que tenemos en la 'base de datos': 'nombre de usuario', y 'contraseña' es igual a
+
+07:30.610 --> 07:36.190
+lo que tengamos en la 'base de datos'. Si eso es
+
+07:36.220 --> 07:48.580
+correcto, bueno, podemos decir 'consola. log ', y diremos -' newsfeed '. De lo contrario, si la 'contraseña' o 'nombre de usuario'
+
+07:48.640 --> 07:51.140
+no es correcta, solo diremos 'alerta'.
+
+07:51.550 --> 07:58.890
+"Lo siento, nombre de usuario y contraseña incorrectos! "Entonces, tenemos nuestra función,
+
+07:58.980 --> 08:06.800
+pero esto desapareció en alguna parte. Y guardaremos esto.
+
+08:06.800 --> 08:09.720
+Y vamos a refrescarnos. OKAY.
+
+08:09.930 --> 08:11.470
+"¿Cual es tu nombre de usuario? "Diremos 'andrei"
+
+08:11.520 --> 08:15.290
+y "¿Cuál es su contraseña?
+
+08:15.410 --> 08:19.750
+"Bueno, diremos -" supersecreto ". Presioné enter.
+
+08:20.030 --> 08:20.350
+OKAY.
+
+08:20.360 --> 08:25.660
+Y ahora no pasa nada, porque no tenemos la función de devolución de llamada, ¿verdad?
+
+08:25.670 --> 08:27.670
+Solo sabemos que 'signIn' existe.
+
+08:27.820 --> 08:38.510
+Solo verifiquemos que 'signIn' existe. 'inicio de sesión no está definido'. Es porque lo deletreé, lo deletreé mal. Vamos a "iniciar
+
+08:39.230 --> 08:40.150
+sesión" nuevamente.
+
+08:40.190 --> 08:43.370
+Vamos a refrescarnos 'andrei' 'supersecret'
+
+08:43.660 --> 08:46.800
+Y si busco un
+
+08:46.950 --> 08:51.370
+'signIn' ahora, ahí está la función.
+
+08:51.390 --> 09:05.660
+Entonces, vamos a ejecutarlo. Hagamos 'iniciar sesión'. Y diremos: 'usernamePrompt', 'passwordPrompt'.
+
+09:05.810 --> 09:08.450
+Mira eso. Acabamos de recibir nuestro 'suministro de noticias'.
+
+09:08.690 --> 09:09.320
+Eso es genial.
+
+09:09.320 --> 09:16.090
+Sin embargo, pongamos esto dentro, para que el script simplemente se ejecute y luego obtengamos nuestra respuesta de inmediato.
+
+09:16.280 --> 09:22.230
+Entonces, haremos: 'usernamePrompt' y 'passwordPrompt'.
+
+09:23.110 --> 09:29.780
+Ahora, solo para mostrarle lo que hice aquí, llamo a la función 'inicio de sesión' que
+
+09:29.890 --> 09:32.410
+acepta dos parámetros: 'usuario' y 'contraseña'.
+
+09:32.440 --> 09:38.950
+Entonces, cuando llamo a la función, voy a darle dos argumentos para que coincidan con esos parámetros.
+
+09:38.950 --> 09:43.750
+Voy a darle el 'usernamePrompt', que contiene todo lo que hemos escrito en el primer
+
+09:44.290 --> 09:49.060
+'prompt' y luego 'passwordPrompt', que contiene lo que leímos y el segundo 'prompt'.
+
+09:49.060 --> 09:58.630
+Entonces, si guardo esto y actualizo, puedo decir "¿Cuál es su nombre de usuario? "- 'andre', 'contraseña' - 'supersecreto'.
+
+10:01.270 --> 10:04.930
+Y mira eso. Ahora estoy conectado y puedo
+
+10:04.940 --> 10:10.830
+ver que "Bobby" está "Tan cansado de todo ese aprendizaje" y "Sally", bueno, Sally encuentra "javascript realmente genial".
+
+10:12.240 --> 10:16.480
+Probemos también la declaración 'else' en caso de que estropeemos nuestra información.
+
+10:16.530 --> 10:23.580
+Presiono actualizar y hago "andrei", y para la contraseña simplemente hago "1, 2, 3". Obtendré: "Lo siento, nombre de usuario y
+
+10:23.580 --> 10:28.740
+contraseña incorrectos! "Ahí tienes.
+
+10:28.780 --> 10:35.620
+Hemos creado un Facebook básico y eso es lo sorprendente de JavaScript es que miras sitios web como Facebook, que parecen realmente
+
+10:35.620 --> 10:41.440
+complicados, pero todos están hechos de estos pequeños fragmentos. Y la funcionalidad, que se ve en
+
+10:41.440 --> 10:48.990
+Facebook, es exactamente eso, cuando estamos 'iniciando sesión' y están verificando la información de firma en una 'base de datos'
+
+10:49.000 --> 10:55.060
+y luego, en función de si tenemos razón o no, obtenemos el 'newsfeed' o recibimos, ya
+
+10:55.060 --> 10:57.180
+sabes, "Inicia sesión de nuevo".
+
+10:58.030 --> 11:03.430
+Y ese es el poder de JavaScript aquí. Y es por eso que estoy tan
+
+11:03.460 --> 11:09.670
+emocionado de enseñarte el tema porque abre una posibilidad completamente nueva de hacer casi cualquier cosa en línea ahora.
+
+11:11.150 --> 11:12.970
+Tengo otro video emocionante para
+
+11:12.970 --> 11:14.110
+ti el próximo.
+
+11:14.620 --> 11:16.260
+Te veré en ese. Adiós

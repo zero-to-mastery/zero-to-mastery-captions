@@ -1,0 +1,229 @@
+WEBVTT
+
+00:02.040 --> 00:03.210
+Ben tornato.
+
+00:03.570 --> 00:10.610
+Prima di iniziare a conoscere il problema, dobbiamo parlare di qualcosa chiamato gestione dello stato.
+
+00:10.640 --> 00:12.440
+Abbiamo già sentito questa parola - state.
+
+00:12.530 --> 00:13.050
+Destra.
+
+00:13.190 --> 00:14.690
+Quando si costruisce un'app di reazione.
+
+00:14.720 --> 00:24.300
+Abbiamo avuto questo. stato e stato descrivono come dovrebbe apparire la nostra app. Se ricordiamo questo, beh,
+
+00:27.630 --> 00:36.750
+reagire è semplicemente un gruppo di componenti che sono resi in una struttura ad albero.
+
+00:36.840 --> 00:41.420
+Quindi questa sarebbe l'app. per esempio.
+
+00:41.560 --> 00:48.390
+E ognuno di questi componenti avrebbe lo stato per esempio i punti rossi qui.
+
+00:48.700 --> 00:49.750
+Hanno stato.
+
+00:49.750 --> 00:57.730
+Quindi, ad esempio, questo componente dell'app avrà uno stato di accesso come, e diciamo che lo stato è utente
+
+00:57.730 --> 01:06.340
+in quel caso questo componente utente potrebbe avere uno stato di utente "Mitch" o se è stato eseguito l'accesso come
+
+01:06.340 --> 01:14.200
+"Admin" potrebbe rendere il componente admin e ogni volta che vedi il punto blu significa che c'era un
+
+01:14.200 --> 01:21.340
+cambiamento, quindi se c'è un cambiamento qui può aggiornare qualcosa in questo componente e lo rendiamo.
+
+01:21.640 --> 01:31.380
+E lo abbiamo fatto reagendo e voglio che pensiate allo stato come alla memoria. Un'app ha bisogno di ricordare le
+
+01:31.440 --> 01:40.240
+cose per funzionare altrimenti avremmo semplicemente pagine web html come prima.
+
+01:40.320 --> 01:43.340
+Ricorda questo sito Web Keiko Corp.
+
+01:43.490 --> 01:46.940
+Questo in realtà non ha alcuno stato, lo fa.
+
+01:48.050 --> 01:57.230
+Ogni volta che mostriamo la stessa identica pagina web a chiunque la stia utilizzando. Questa pagina non ha idea di chi sia
+
+01:57.230 --> 02:03.740
+l'utente o di eventuali interazioni che sto avendo - è principalmente solo testo.
+
+02:03.810 --> 02:07.530
+Ora l'app RoboFriends è diversa.
+
+02:07.680 --> 02:08.880
+Ha stato.
+
+02:09.330 --> 02:14.880
+Beh, soprattutto perché l'abbiamo scritto e abbiamo avuto questo. stato ma possiamo interagire con esso.
+
+02:14.940 --> 02:16.450
+Posso digitare qui.
+
+02:17.400 --> 02:25.360
+Leanne e io abbiamo uno stato della casella di ricerca che contiene L-E-A.
+
+02:25.560 --> 02:36.650
+E i robot vengono filtrati solo con Leanne. Stato descrive come dovrebbe apparire la nostra app. La nostra app, la nostra app
+
+02:36.650 --> 02:46.520
+Robo-friends in questo momento dovrebbe assomigliare a questa con una sola carta robot perché lo stato è di una
+
+02:46.520 --> 02:50.540
+casella di ricerca con all'interno le lettere L-E-A.
+
+02:51.570 --> 03:00.660
+Ora con una semplice app come l'ap0 di robo friends, p è stato abbastanza facile da capire, ma la gestione dello stato è un problema
+
+03:00.900 --> 03:02.780
+davvero difficile dato che
+
+03:02.880 --> 03:10.340
+le nostre app diventano sempre più grandi e più grandi. E in effetti vedrai nella parte finale del corso
+
+03:10.340 --> 03:15.180
+quando inizieremo a lavorare sull'app smart brain che esegue il riconoscimento dell'immagine.
+
+03:16.720 --> 03:24.430
+Noterai come lo stato diventa sempre più complicato e la tua testa inizia a far male perché devi tenere traccia
+
+03:24.430 --> 03:26.770
+di tutte queste cose che accadono.
+
+03:28.180 --> 03:35.380
+Quindi, di nuovo, con una semplice app di reazione possiamo avere delle belle viste e magari avere stati diversi e
+
+03:35.380 --> 03:39.680
+componenti diversi ma alla fine quando la nostra app si ingrandirà.
+
+03:39.760 --> 03:49.150
+Finiamo con qualcosa di simile in cui abbiamo sempre più componenti sempre più presenti all'interno di quel componente o possiamo
+
+03:49.150 --> 03:55.540
+avere uno stato enorme in cima qui che diventa anche piuttosto difficile e tutti
+
+03:55.960 --> 03:59.090
+questi punti blu, mentre si aggiornano,
+
+03:59.110 --> 04:04.180
+anche loro aggiornare lo stato e quindi eseguire nuovamente il rendering.
+
+04:04.380 --> 04:11.070
+E questo esempio qui è solo un piccolo diagramma ma puoi vedere con tutte queste frecce
+
+04:11.070 --> 04:17.520
+quanto sarà difficile ottenere e tenere traccia di tutto questo stato è davvero, davvero difficile.
+
+04:17.550 --> 04:23.060
+Quindi abbiamo bisogno di una qualche forma di gestione dello stato, e ridondante.
+
+04:23.060 --> 04:25.070
+risolve questo problema per noi.
+
+04:25.070 --> 04:32.210
+Come possiamo rendere questo diagramma più semplice e rendere le cose più facili da capire nella nostra testa di sviluppatori?
+
+04:32.870 --> 04:35.060
+Redux ha inventato un nuovo concetto.
+
+04:36.470 --> 04:39.750
+Cosa succede se rimuoviamo tutto lo stato,
+
+04:39.980 --> 04:43.050
+quindi questo. stato da tutti i componenti?
+
+04:43.220 --> 04:45.390
+Cosa succede se abbiamo solo oggetti di scena.
+
+04:45.620 --> 04:49.650
+Quindi tutti questi componenti hanno appena tramandato i puntelli.
+
+04:50.000 --> 05:00.150
+E ora lo stato, lo teniamo in un negozio. E un negozio è semplicemente lo stato che è questo. stato che ha
+
+05:00.180 --> 05:01.700
+reagito.
+
+05:01.860 --> 05:05.960
+Ma in un oggetto enorme proprio come vedi qui.
+
+05:06.120 --> 05:14.940
+Quindi un singolo oggetto che descrive come dovrebbe apparire la nostra app e tutto ciò che facciamo è semplicemente passare quello stato a
+
+05:15.300 --> 05:18.840
+qualsiasi componente ne abbia bisogno come oggetti di scena.
+
+05:19.750 --> 05:30.070
+Quindi il nostro diagramma dal guardare in questo modo con solo reagire può andare a guardare così con redux dove nessuno dei componenti ha
+
+05:30.070 --> 05:32.690
+bisogno di mantenere lo stato più.
+
+05:32.860 --> 05:41.020
+E possiamo avere un unico oggetto che descrive la nostra intera app e qualunque componente abbia bisogno di quel puntello può
+
+05:41.020 --> 05:43.440
+essere semplicemente passato ad esso.
+
+05:44.320 --> 05:51.670
+E tutti gli aggiornamenti che accadono passano attraverso lo stato, lo stato viene modificato
+
+05:51.670 --> 05:59.800
+e quindi passiamo tali informazioni al componente. Questo diagramma potrebbe confondere senza effettivamente codificare nulla.
+
+05:59.900 --> 06:01.010
+E torneremo ad
+
+06:01.010 --> 06:02.780
+esso, quindi questo ha senso.
+
+06:02.990 --> 06:11.230
+Ma anche solo visivamente puoi vedere che questo diagramma sembra molto più semplice del diagramma precedente.
+
+06:11.240 --> 06:15.630
+Abbiamo molte meno frecce e tutto scorre semplicemente meglio.
+
+06:15.680 --> 06:20.910
+Quindi mentre passiamo attraverso i video, avrai sempre più familiarità con questa idea di gestione dello stato.
+
+06:20.930 --> 06:28.430
+Ma volevo tenere a mente che, ecco cosa sta risolvendo Redux. Redux è una libreria che semplifica la gestione
+
+06:28.430 --> 06:34.100
+dello stato, non solo per la reazione, ma per tutti gli strumenti che utilizziamo.
+
+06:34.220 --> 06:36.810
+Capita davvero di lavorare davvero bene con reagire.
+
+06:37.400 --> 06:44.870
+E in effetti Redux ha preso ispirazione dal design del database. Da cose come sourcing di eventi o CQRS su
+
+06:45.230 --> 06:49.400
+cui puoi leggere di più. I database avevano lo stesso problema.
+
+06:49.520 --> 06:57.530
+Tutti questi aggiornamenti e tutti questi cambiamenti sono avvenuti, ma avevamo bisogno di un modo per assicurarci che tutti questi cambiamenti
+
+06:57.890 --> 07:00.950
+fossero organizzati in un modo coerente e coeso.
+
+07:02.120 --> 07:02.730
+Tutto ok.
+
+07:02.860 --> 07:08.580
+Bene, passiamo al prossimo video e diventiamo un po 'più profondi con Redux.
+
+07:08.690 --> 07:09.680
+Ci vediamo nel prossimo. Ciao ciao.

@@ -1,0 +1,898 @@
+WEBVTT
+
+00:01.590 --> 00:04.800
+Come funziona effettivamente JavaScript?
+
+00:04.800 --> 00:08.320
+Immagina di ottenere questa domanda durante un'intervista o che
+
+00:08.340 --> 00:13.110
+ne pensi, spiega la differenza tra asincrono e sincrono in Javascript, o forse
+
+00:13.200 --> 00:15.890
+ti chiedono di spiegare questa affermazione.
+
+00:15.990 --> 00:19.560
+Javascript come linguaggio a thread singolo che può essere non bloccante.
+
+00:20.560 --> 00:24.940
+Oh ragazzo! in questo video ti aiuteremo a rispondere a queste domande.
+
+00:24.940 --> 00:28.490
+Questo è un video che potresti dover visitare alcune volte mentre avanzi.
+
+00:28.510 --> 00:29.590
+Per capirlo davvero.
+
+00:29.620 --> 00:32.890
+Quindi non scoraggiarti, se non ti senti sicuro al cento per cento.
+
+00:32.890 --> 00:35.500
+Continua a guardarlo e lo otterrai.
+
+00:35.500 --> 00:40.560
+Ora, non abbiamo bisogno di sapere come javascript funziona internamente per scrivere un programma.
+
+00:40.900 --> 00:42.580
+Ma è importante imparare.
+
+00:42.880 --> 00:47.260
+Vedo molte persone che sono state sviluppatori per anni e nessuno lo sa.
+
+00:47.260 --> 00:51.100
+È come essere un pilota e non sapere come un aereo può volare.
+
+00:51.490 --> 00:55.180
+OK, è un po 'drammatico lì, ma ottieni il mio punto.
+
+00:55.180 --> 01:00.180
+Quindi iniziamo. Innanzitutto, cos'è un programma?
+
+01:00.460 --> 01:03.470
+Bene, un programma deve fare alcune cose semplici.
+
+01:03.520 --> 01:05.530
+Deve allocare memoria.
+
+01:05.560 --> 01:11.100
+Altrimenti, non saremmo in grado di avere variabili o di avere un file sul nostro computer.
+
+01:11.110 --> 01:16.840
+Deve anche analizzare ed eseguire gli script, il che significa che legge ed esegue i comandi.
+
+01:17.130 --> 01:17.760
+OK.
+
+01:17.920 --> 01:26.200
+Ora, sappiamo anche che dalla nostra precedente discussione, c'è il motore javascript implementato da ciascun browser.
+
+01:26.260 --> 01:33.700
+E in Chrome, è il V8 e il motore V8 legge il javascript che scriviamo. Si trasforma in istruzioni eseguibili dal
+
+01:33.700 --> 01:36.880
+computer per il browser.
+
+01:37.420 --> 01:43.330
+Ora il motore è composto da due parti, un mucchio di memoria e uno stack di chiamate.
+
+01:43.390 --> 01:45.040
+Ora, l'heap di
+
+01:45.250 --> 01:48.660
+memoria, è qui che avviene l'allocazione di memoria.
+
+01:48.790 --> 01:50.640
+E non preoccuparti, ne parleremo.
+
+01:50.950 --> 01:52.200
+E poi lo stack di
+
+01:52.240 --> 01:54.870
+chiamate, è qui che il tuo codice viene letto ed eseguito.
+
+01:54.940 --> 01:57.750
+Ti dice dove sei nel programma.
+
+01:59.050 --> 02:06.250
+Quindi semplifichiamo questo e mostriamo cosa intendevo dire. Ho Sublimetext qui, e per noi
+
+02:06.690 --> 02:10.620
+allocare memoria nell'heap di memoria, beh, è
+
+02:10.890 --> 02:18.950
+semplice come fare 'const a uguale a uno'. Abbiamo appena assegnato un ricordo.
+
+02:18.990 --> 02:28.040
+Ora, quando lo assegneremo, il motore JavaScript ricorderà che oh! sì, 'a' ha un valore di 1.
+
+02:28.170 --> 02:30.970
+Abbiamo appena esaurito l'heap di memoria.
+
+02:30.990 --> 02:34.530
+E posso continuare all'infinito, giusto?
+
+02:34.600 --> 02:41.400
+Posso continuare a copiare e incollare e cambiare queste variabili in 'b' e 'c' e posso cambiare i
+
+02:41.400 --> 02:44.460
+valori in 100 e forse qui saranno 10.
+
+02:45.530 --> 02:46.110
+Freddo.
+
+02:46.150 --> 02:49.910
+Ora, qual è un problema che vediamo con questo?
+
+02:50.020 --> 02:55.730
+Questa è una cosa chiamata perdita di memoria che sentirai quando diventerai uno sviluppatore.
+
+02:56.090 --> 03:01.880
+E quello che abbiamo fatto qui è che abbiamo creato tutte queste variabili. Queste variabili globali che si trovano nell'heap
+
+03:01.880 --> 03:03.070
+di memoria.
+
+03:03.230 --> 03:05.350
+Ma vedi questa scatola, giusto?
+
+03:05.510 --> 03:10.910
+E con tutta la memoria abbiamo una quantità limitata, che possiamo effettivamente avere.
+
+03:11.060 --> 03:17.930
+Quindi aumentando il numero di variabili che abbiamo, immagina se avessi solo questa pagina piena di variabili
+
+03:17.930 --> 03:21.650
+e anziché solo numeri, sono come matrici molto grandi.
+
+03:21.980 --> 03:28.430
+Bene, le perdite di memoria si verificano quando si dispone di memoria inutilizzata, come ad esempio, ora
+
+03:28.430 --> 03:33.990
+stiamo usando la variabile 'a', ma è ancora lì, beh, avendo la memoria inutilizzata
+
+03:34.220 --> 03:40.030
+appena sdraiata, riempie questo mucchio di memoria. Ed è per questo che potresti sentire, perché le variabili globali sono cattive.
+
+03:40.130 --> 03:44.430
+Le variabili globali sono sbagliate perché non dimentichiamo di ripulire dopo
+
+03:44.540 --> 03:51.230
+noi stessi, riempiamo questo mucchio di memoria e alla fine il browser non sarà in grado di funzionare.
+
+03:51.270 --> 03:54.050
+Va bene, quindi è un ricordo.
+
+03:54.060 --> 03:56.060
+Parliamo dello stack di chiamate.
+
+03:56.190 --> 03:57.000
+Cos'è quello?
+
+03:58.190 --> 04:17.630
+Bene, ancora una volta, con uno stack di chiamate possiamo avere qualcosa del genere, 'console log' andremo '1', 'console log 2', e
+
+04:17.660 --> 04:28.330
+infine 'console log 3', se eseguo questo codice, nel mio terminale del
+
+04:28.570 --> 04:39.810
+browser, bene ottengo, '1, 2, 3'. Quindi lo stack di chiamate, se ricordi, è quello che legge ed esegue i nostri script.
+
+04:40.230 --> 04:45.890
+Quindi, ciò che fa lo stack di chiamate legge la prima riga, il registro dei punti della
+
+04:46.110 --> 04:48.580
+console, viene inserito nello stack di chiamate.
+
+04:48.870 --> 04:52.500
+Quindi il motore javascript dice oop! , è stato aggiunto il registro punti console.
+
+04:52.650 --> 05:03.150
+Facciamo pop su questo stack di chiamate. E poi lo esegue e ne crea uno, quindi dice: OK, sto rimuovendo
+
+05:03.150 --> 05:09.900
+il primo registro della console appena ho finito di eseguirlo, inserirò il secondo registro della console
+
+05:09.900 --> 05:20.310
+nel mio stack di chiamate, lo aggiungerò qui e dice yah! esegui 2 e poi lo rimuove, lo apre, quindi ottiene il registro 3
+
+05:20.310 --> 05:23.370
+della console e registra il registro 3 della
+
+05:23.400 --> 05:26.110
+console, quindi alla fine lo rimuove.
+
+05:26.970 --> 05:31.920
+Ma facciamo un esempio un po 'più complesso qui per dimostrare questo punto.
+
+05:32.130 --> 05:34.740
+Immagina, ho qualcosa del genere.
+
+05:37.430 --> 05:39.680
+Ho una funzione 'const
+
+05:44.410 --> 05:52.420
+one' e all'interno di questa funzione, abbiamo un'altra funzione 'const two' e per ora non farà davvero molto.
+
+05:52.420 --> 06:04.360
+Consegnerà il punto dot log '4' e poi qui diremo solo, eseguiamo la funzione 'due'.
+
+06:04.390 --> 06:14.790
+Quindi se copio e incollo questo, lo inserisco nella nostra console ed eseguo "uno", ottengo 4 e ignoro questo errore.
+
+06:14.820 --> 06:17.420
+qui, è solo correlato alla mia app nel browser.
+
+06:17.500 --> 06:19.000
+Ma vedi che ne otteniamo 4.
+
+06:19.000 --> 06:21.780
+Quindi cosa è successo qui secondo il Call Stack?
+
+06:22.270 --> 06:30.040
+Bene, se abbiamo lo stack di chiamate qui, per prima cosa abbiamo eseguito la funzione 'one'.
+
+06:30.040 --> 06:34.490
+Quindi, in cima allo stack di chiamate, viene eseguita la funzione "one".
+
+06:34.750 --> 06:40.000
+E mentre entriamo in questo stack di chiamate, vediamo che eseguiamo un'altra funzione "due".
+
+06:40.180 --> 06:50.500
+Quindi "due" va in cima allo stack di chiamate e ora eseguiamo la funzione "due" che è il log dei punti della console.
+
+06:50.560 --> 07:00.090
+Quindi, abbiamo il log dei punti della console '4' che viene eseguito all'interno della funzione '2'.
+
+07:00.110 --> 07:03.980
+Quindi ora che leggiamo questo stack di chiamate dirà, OK, non
+
+07:04.010 --> 07:06.190
+c'è nient'altro all'interno di questo.
+
+07:06.260 --> 07:08.400
+Ho intenzione di eseguire console Locg 4.
+
+07:08.450 --> 07:11.390
+Quindi stamperà il numero 4 qui.
+
+07:11.390 --> 07:22.250
+Lo rimuoverà dallo stack di chiamate, quindi rimuoverà i "due", quindi rimuoverà "uno", perché è stato appena
+
+07:22.310 --> 07:23.370
+chiamato.
+
+07:26.040 --> 07:28.860
+E lo stack di chiamate è ora vuoto.
+
+07:29.250 --> 07:30.000
+Tutto ok.
+
+07:30.030 --> 07:30.580
+Eccezionale.
+
+07:30.690 --> 07:34.590
+Ora rivisitiamo la dichiarazione dall'inizio del video.
+
+07:34.890 --> 07:42.360
+Javascript è un linguaggio a thread singolo che può essere non bloccante. Il thread singolo indica che ha un solo stack
+
+07:42.480 --> 07:43.780
+di chiamate.
+
+07:44.570 --> 07:48.310
+E solo uno stack di chiamate, puoi fare solo una cosa alla volta.
+
+07:48.350 --> 07:53.050
+E come hai visto, uno stack di chiamate è il primo ad uscire.
+
+07:53.090 --> 07:59.390
+Quindi, qualunque cosa sia in cima, lo stack di chiamate viene eseguito per primo, quindi sotto, sotto, fino
+
+07:59.390 --> 08:02.400
+a quando lo stack di chiamate è vuoto.
+
+08:02.530 --> 08:08.840
+Ora, altre lingue possono avere più stack di chiamate e questi sono chiamati multithread.
+
+08:08.870 --> 08:14.030
+Puoi anche vedere come potrebbe essere utile avere più stack di chiamate, in modo che non continuiamo
+
+08:14.030 --> 08:15.310
+ad aspettare cose.
+
+08:15.380 --> 08:21.940
+Perché javascript è stato progettato per essere single thread? Bene, eseguire il codice su un singolo thread può
+
+08:21.940 --> 08:27.910
+essere abbastanza semplice, dal momento che non è necessario affrontare scenari complicati che si presentano in un ambiente multithread.
+
+08:27.910 --> 08:29.700
+Hai solo una cosa di cui preoccuparti.
+
+08:29.920 --> 08:39.720
+E, quando dico problemi con l'ambiente multithread, puoi avere cose come deadlock. Ora, indovina un po ', hai appena imparato cosa
+
+08:40.200 --> 08:48.270
+significa programmazione sincrona, programmazione sincrona significa semplicemente, la riga uno viene eseguita, quindi la riga
+
+08:48.330 --> 08:53.720
+due viene eseguita e quindi la riga tre viene eseguita.
+
+08:55.090 --> 09:02.890
+Quest'ultimo, può iniziare prima del primo, quindi il log della console "2" non si avvia fino al
+
+09:03.100 --> 09:10.490
+termine del log della console. E il registro della console "3" non inizia fino a quando questi due sopra non finiscono. Perché bene, abbiamo esaminato lo stack di chiamate
+
+09:10.490 --> 09:12.410
+a causa dello stack di chiamate.
+
+09:12.410 --> 09:16.590
+Ora potresti aver sentito parlare dell'overflow dello stack del sito.
+
+09:16.690 --> 09:19.700
+Se sei uno sviluppatore lo usi quotidianamente.
+
+09:20.000 --> 09:24.710
+E ti sei mai chiesto cosa significa stack overflow?
+
+09:25.970 --> 09:28.310
+Bene Stack Overflow
+
+09:28.480 --> 09:32.410
+è questo, quando uno stack trabocca.
+
+09:32.410 --> 09:39.220
+Un po 'come abbiamo parlato di perdite di memoria e di come il mucchio di memoria di un motore javascript possa traboccare.
+
+09:40.060 --> 09:43.270
+Bene, con lo stack overflow, questo accade quando lo
+
+09:43.270 --> 09:47.980
+stack di chiamate diventa sempre più grande e più grande fino a quando non ha
+
+09:47.980 --> 09:49.070
+più abbastanza spazio.
+
+09:49.360 --> 09:52.180
+Come possiamo farlo?
+
+09:52.180 --> 09:54.560
+Possiamo ricreare un overflow dello stack?
+
+09:54.910 --> 09:58.990
+Yah! Posso mostrarti rapidamente che
+
+09:58.990 --> 10:06.180
+per creare un overflow dello stack, tutto ciò che devi fare è funzione 'pippo' come abbiamo qui.
+
+10:07.740 --> 10:13.490
+E questa funzione avrà solo "pippo".
+
+10:13.490 --> 10:17.940
+E stiamo semplicemente eseguendo la nostra funzione "foo", va bene.
+
+10:17.950 --> 10:19.090
+Sembra confuso.
+
+10:19.180 --> 10:21.760
+Cosa sta succedendo qui?
+
+10:22.090 --> 10:24.600
+Questo qualcosa chiamato ricorsione.
+
+10:27.270 --> 10:30.350
+E ricorsione significa una funzione che si chiama se stessa.
+
+10:30.660 --> 10:38.670
+Quindi, se guardi cosa fa questa funzione, eseguiamo "foo" e "foo" viene eseguito, ciò che "foo" fa bene, eseguiamo di
+
+10:38.730 --> 10:39.650
+nuovo "foo".
+
+10:39.660 --> 10:46.990
+Quindi continua a girare ripetutamente ancora e ancora, ripetendo, ma non c'è fine in vista giusto.
+
+10:47.070 --> 10:50.520
+Continuiamo ad aggiungere "pippo" allo stack di chiamate.
+
+10:50.640 --> 10:56.930
+Continuiamo ad aggiungerlo, ancora e ancora e ancora e ancora e ancora e ancora e ancora e ancora e ancora.
+
+10:57.210 --> 10:59.700
+E abbiamo un overflow dello stack.
+
+11:00.060 --> 11:07.260
+Quindi, se vuoi divertirti, vai sul tuo browser, vai nella tua console ed esegui qualcosa del genere e guarda cosa
+
+11:07.260 --> 11:07.960
+succede.
+
+11:07.980 --> 11:10.150
+Avrai un overflow dello stack.
+
+11:11.120 --> 11:11.850
+Tutto ok.
+
+11:11.900 --> 11:14.280
+Quindi, si spera, questo ora ha senso.
+
+11:14.300 --> 11:20.920
+Il motore javascript che è il motore V-8 e Chrome ha un heap di memoria e uno stack di chiamate.
+
+11:23.120 --> 11:31.390
+Ora, Javascript è a thread singolo, viene eseguita solo un'istruzione alla volta, ma ora c'è un problema non è
+
+11:31.390 --> 11:32.190
+vero.
+
+11:32.200 --> 11:41.260
+E se la seconda linea fosse un grosso grosso compito che dovevamo fare? forse passare attraverso un array che aveva milioni di
+
+11:41.340 --> 11:44.390
+elementi, cosa sarebbe successo lì?
+
+11:44.430 --> 11:51.790
+Bene, vorremmo che questo log di console venisse eseguito, quindi la seconda riga, quindi è un lavoro enorme e massiccio, e
+
+11:51.840 --> 11:54.920
+basta lavorare lì e il log di console '3'
+
+11:54.930 --> 11:57.240
+impiegherà molto tempo per essere loggato.
+
+11:57.360 --> 12:04.230
+E nel nostro piccolo esempio ciò non significa molto, ma se lo avesse su un sito Web, l'utente non sarebbe in grado
+
+12:04.260 --> 12:05.530
+di fare nulla.
+
+12:05.580 --> 12:11.260
+Il sito web si bloccherebbe fino a quando l'attività non viene eseguita e l'utente non aspetta.
+
+12:11.340 --> 12:13.320
+Non va molto bene, vero?
+
+12:13.470 --> 12:19.650
+Bene con l'attività sincrona, se abbiamo una funzione che impiega molto tempo, manterrà
+
+12:19.650 --> 12:20.670
+la linea.
+
+12:20.760 --> 12:23.170
+Immagina un ristorante a buffet, giusto, se tutte
+
+12:23.170 --> 12:29.130
+le persone vogliono mangiare ma Bobby dice che tieniti forte, devi continuare a mangiare e mettere un bacon nel mio
+
+12:29.130 --> 12:29.590
+piatto.
+
+12:29.640 --> 12:31.860
+Bene, tutti devono aspettare in fila.
+
+12:32.280 --> 12:38.490
+Quindi sembra che abbiamo bisogno di qualcosa che non si blocchi. Ricorda la nostra prima dichiarazione che abbiamo fatto in questo video.
+
+12:38.790 --> 12:43.390
+Javascript come linguaggio a thread singolo che può essere non bloccante.
+
+12:43.710 --> 12:47.150
+Idealmente non aspettiamo cose che richiedono tempo.
+
+12:47.610 --> 12:49.050
+Quindi, come possiamo farlo.
+
+12:49.980 --> 12:52.970
+Bene, asincrono in soccorso.
+
+12:52.980 --> 13:00.060
+Pensa asincrono come un comportamento. L'esecuzione sincrona è fantastica perché prevedibile.
+
+13:00.060 --> 13:02.490
+Sappiamo cosa succede prima e poi cosa succede dopo.
+
+13:02.490 --> 13:03.740
+Cosa succede terzo.
+
+13:04.050 --> 13:05.510
+Ma può rallentare.
+
+13:05.700 --> 13:12.000
+Quindi, quando dobbiamo fare cose come l'elaborazione delle immagini o fare richieste in rete come le chiamate API,
+
+13:12.360 --> 13:15.210
+e non preoccuparti ne parleremo nei video futuri.
+
+13:15.210 --> 13:18.990
+Abbiamo bisogno di qualcosa di più di semplici compiti sincroni, giusto.
+
+13:19.080 --> 13:23.660
+Quindi stai pensando a te stesso, Andre Come facciamo allora la programmazione asincrona?
+
+13:24.090 --> 13:27.820
+Bene, lasciami rimuovere un po 'di questo disordine.
+
+13:28.050 --> 13:35.220
+Possiamo fare una programmazione asincrona facendo qualcosa di simile a questo "setTimeout", di cui parleremo, è una funzione
+
+13:35.220 --> 13:44.780
+presente nei nostri browser e ci consente di creare un timeout. E possiamo solo dargli il primo parametro è la
+
+13:44.780 --> 13:47.740
+funzione che vogliamo eseguire.
+
+13:47.840 --> 13:51.010
+E poi il secondo parametro è quanti secondi vogliamo aspettare.
+
+13:51.020 --> 13:53.280
+Quindi diciamo che voglio aspettare due secondi.
+
+13:53.300 --> 13:55.730
+Quindi 200, 2000 millisecondi.
+
+13:56.240 --> 14:00.730
+Se lo faccio ora, eseguiamolo sulla console e vediamo cosa succede.
+
+14:07.750 --> 14:19.330
+Bene, cosa è appena successo? abbiamo il registro della console "1", quindi il registro della console "3" e quindi il registro della console "2",
+
+14:19.340 --> 14:20.450
+due secondi dopo.
+
+14:20.990 --> 14:28.410
+Sembra che abbiamo appena saltato l'intero passaggio e quindi lo abbiamo messo alla fine.
+
+14:29.720 --> 14:36.750
+Bene, hai appena assistito alla programmazione asincrona. Per capire questo e quello che è appena successo.
+
+14:36.950 --> 14:45.930
+Ho bisogno di portarti alla parte successiva e cioè, per javascript come lo conosciamo, per funzionare per il motore javascript con heap di memoria e lo stack di
+
+14:45.930 --> 14:49.520
+chiamate per funzionare, abbiamo bisogno di qualcosa in più del
+
+14:49.680 --> 14:57.880
+solo motore javascript, abbiamo bisogno di ciò che chiama un ambiente runtime javascript. E l'ambiente di runtime Javascript è
+
+14:58.150 --> 15:03.570
+di nuovo parte del browser, incluso nei browser.
+
+15:03.670 --> 15:06.630
+Hanno cose extra, oltre al motore,
+
+15:06.640 --> 15:12.950
+hanno qualcosa chiamato API Web, coda di richiamata e un ciclo di eventi.
+
+15:13.100 --> 15:19.000
+E come puoi vedere qui, 'setTimeout' fa parte dell'API web.
+
+15:19.100 --> 15:22.780
+Non è tecnicamente parte di JavaScript, vero?
+
+15:23.000 --> 15:28.410
+È quello che i browser ci danno da usare, quindi possiamo fare un programma asincrono.
+
+15:28.680 --> 15:29.130
+OK.
+
+15:29.210 --> 15:31.240
+Quindi, guardando questo diagramma,
+
+15:31.280 --> 15:34.970
+vediamo se possiamo capire cosa stava facendo il nostro codice.
+
+15:36.590 --> 15:53.180
+Possiamo creare qui il nostro stack di chiamate, avremo l'API Web e quindi avremo una coda di richiamata e quindi un ciclo di eventi,
+
+15:53.260 --> 15:59.290
+proprio come nel nostro ambiente di runtime javascript.
+
+15:59.330 --> 16:00.550
+Quindi cosa sta succedendo qui?
+
+16:00.600 --> 16:07.440
+Bene, per prima cosa abbiamo il registro della console che va nello stack delle chiamate.
+
+16:08.350 --> 16:10.690
+E questo viene eseguito.
+
+16:10.930 --> 16:14.690
+Quindi registriamo il log della console '2' nel browser.
+
+16:15.070 --> 16:17.670
+Quindi inseriamo 'setTimeout' nel nostro stack di chiamate
+
+16:18.800 --> 16:24.080
+perché abbiamo finito questa prima attività, andiamo alla seconda. E con 'setTimeout', ciò
+
+16:24.250 --> 16:30.380
+che accadrà è, beh lo stack di chiamate dirà, OK, ho 'setTimeout'.
+
+16:30.860 --> 16:37.610
+E poiché setTimeout non fa parte di JavaScript ma fa parte dell'API Web,
+
+16:37.910 --> 16:42.620
+ha questa caratteristica speciale che accadrà, innesca l'API Web.
+
+16:43.820 --> 16:55.010
+E dice, ehi! 'setTimeout' è appena stato chiamato. E poiché abbiamo notificato l'API Web, possiamo estrarla dallo stack
+
+16:55.160 --> 16:56.400
+di chiamate.
+
+16:56.420 --> 17:02.250
+Ora, l'API Web inizia con un timer qui, un timer di due secondi.
+
+17:02.330 --> 17:10.350
+Saprà che in due secondi devi fare qualcosa. E poiché lo stack di chiamate è
+
+17:11.010 --> 17:18.970
+vuoto, il motore javascript ora passa al log della console '3' ed esegue questo.
+
+17:19.110 --> 17:20.600
+Quindi ha senso, giusto.
+
+17:20.700 --> 17:24.470
+Ora abbiamo fatto '1' e '3' ma abbiamo
+
+17:24.660 --> 17:27.680
+ancora 'setTimeout' 2 secondi nell'API web.
+
+17:27.960 --> 17:36.600
+Ora, dopo due secondi quando il nostro limite di tempo è scaduto, l'API Web dirà, va bene, 'setTimeout' dovrebbe essere
+
+17:36.600 --> 17:37.220
+eseguito.
+
+17:37.260 --> 17:38.550
+Vediamo cosa c'è dentro.
+
+17:38.670 --> 17:40.740
+Bene abbiamo un registro della console 2.
+
+17:40.980 --> 17:45.220
+Quindi quello che accadrà è, dirà, ehi! il tempo impostato è terminato.
+
+17:46.630 --> 17:56.210
+Abbiamo un callback, e questo callback di 'setTimeout', abbiamo aggiunto al callback que, dicendo che, ehi! dobbiamo eseguire qualcosa, siamo
+
+17:56.210 --> 18:00.630
+pronti per eseguirlo.
+
+18:00.750 --> 18:09.060
+Ora, l'ultima parte, il eventloop, il eventloop qui controlla e dice, ehi! lo stack di chiamate è vuoto e continua a
+
+18:09.180 --> 18:10.710
+controllare continuamente.
+
+18:10.710 --> 18:16.200
+Se lo stack è vuoto e se lo stack di chiamate è vuoto e non c'è nulla in esecuzione in questo
+
+18:16.200 --> 18:20.010
+momento il motore javascript, dirà, ehi! abbiamo dei callback?
+
+18:20.040 --> 18:25.250
+Controllerà il callback que e dirà, hmm! c'è qualcosa dentro? , poiché lo stack di
+
+18:25.250 --> 18:28.320
+chiamate è vuoto, possiamo inserire qualcosa e farlo funzionare.
+
+18:28.530 --> 18:31.380
+Nel nostro caso diciamo, oh sì! Lo voglio.
+
+18:31.380 --> 18:34.420
+Lascia che lo inserisca nello stack di chiamate.
+
+18:34.470 --> 18:43.170
+Quindi ora spostiamo il callback nello stack di chiamate e quindi il callback lo eseguiamo e, eseguendo, vediamo che abbiamo
+
+18:43.170 --> 18:45.560
+il registro 2 della console.
+
+18:45.810 --> 18:55.240
+Quindi dirà console dot log 2, eseguirà questa funzione e una volta fatto lo farà uscire dallo stack
+
+18:55.270 --> 18:56.850
+di chiamate.
+
+18:56.890 --> 19:02.890
+E ancora una volta abbiamo terminato il callback, quindi lo rimuoviamo e il gioco è fatto.
+
+19:02.920 --> 19:03.580
+Sono state fatte.
+
+19:03.580 --> 19:09.170
+Tutto è vuoto e abbiamo appena eseguito questo '1', '3'.
+
+19:09.250 --> 19:13.470
+Esaminerà l'intero ciclo di eventi que di callback dell'API Web.
+
+19:13.570 --> 19:17.590
+E poi eseguirà il registro della console '2'. Hoo !.
+
+19:17.680 --> 19:19.350
+Sono state molte informazioni.
+
+19:19.450 --> 19:25.300
+Quindi potresti aver bisogno di guardarlo un paio di volte, ma speriamo che abbia senso per te perché
+
+19:25.300 --> 19:26.870
+abbiamo notato questo comportamento.
+
+19:27.460 --> 19:31.150
+E voglio sfidare la tua comprensione qui.
+
+19:31.420 --> 19:37.160
+Sapendo cosa sai e cosa ti ho appena insegnato cosa succede se cambio questo a zero?
+
+19:37.360 --> 19:39.420
+Ciò significa zero secondi.
+
+19:40.250 --> 19:43.380
+Ti darò un secondo per pensare a cosa accadrà.
+
+19:43.580 --> 19:45.430
+E poi proveremo questo.
+
+19:45.850 --> 19:54.380
+Quando svuoto la console, copia e incolla questo ed eseguilo. Bene uno, tre e due.
+
+19:54.400 --> 19:55.540
+Hai indovinato giusto?
+
+19:56.420 --> 19:59.150
+Ora pensi al perché è successo?
+
+19:59.330 --> 20:04.570
+Anche se questo è zero secondo (s), ha comunque attraversato il processo.
+
+20:04.640 --> 20:09.190
+È stato comunque inserito nelle API Web, quindi nella coda di richiamata
+
+20:09.350 --> 20:11.950
+e quindi nel ciclo degli eventi.
+
+20:12.050 --> 20:19.850
+E quando stava accadendo, lo stack di chiamate era già passato al registro della console "3" e solo dopo che il registro della console "3" era stato completato e lo
+
+20:19.850 --> 20:27.380
+stack delle chiamate era vuoto, il loop degli eventi ha detto, oh sì! possiamo chiamare il log della console '2'.
+
+20:27.680 --> 20:31.430
+Spero che abbia senso per te.
+
+20:31.430 --> 20:36.560
+E se sei in grado di capire che in realtà avrai un sacco di
+
+20:36.560 --> 20:41.800
+persone che assumono ruoli javascript, fai domande come questa in un'intervista e devi spiegare perché.
+
+20:41.810 --> 20:47.870
+Quindi spero che abbia senso per te e che tu possa usarlo a tuo vantaggio nel prossimo secolo.
+
+20:47.900 --> 20:49.810
+Quindi ricapitoliamo.
+
+20:53.950 --> 21:00.340
+Se desideri caricare i tuoi ultimi tweet su una pagina Web e lo fai in modo sincrono, i visitatori del tuo sito non
+
+21:00.340 --> 21:04.600
+saranno in grado di fare nulla fino a quando non vengono caricati quei tweet.
+
+21:04.600 --> 21:08.600
+Ciò potrebbe causare un lungo ritardo prima che arrivino persino a vedere il contenuto del suo sito.
+
+21:08.680 --> 21:12.620
+Potrebbero non essere in grado di fare clic da nessuna parte e la pagina sembrerà congelata.
+
+21:12.760 --> 21:14.590
+Non è una bella esperienza utente, vero?
+
+21:15.420 --> 21:19.100
+Un altro modo di pensare a questo è chiamare il tuo insegnante con una domanda.
+
+21:20.260 --> 21:23.140
+In modo sincrono si chiama insegnante, si aspetta
+
+21:23.140 --> 21:30.430
+al telefono fino a quando l'insegnante non risponde al telefono e si pone la domanda e si spera di ottenere una
+
+21:30.430 --> 21:31.080
+risposta.
+
+21:31.210 --> 21:33.930
+Quindi fai squillare il telefono fino a quando non risponde.
+
+21:34.090 --> 21:37.330
+Ma non stai facendo nient'altro nel frattempo.
+
+21:37.690 --> 21:41.870
+Asincrono significa che si invia un messaggio a un insegnante con una domanda.
+
+21:42.010 --> 21:47.820
+E poi quando l'insegnante, lui o lei ha il tempo, ti risponderà e ti chiamerà con la risposta.
+
+21:48.310 --> 21:55.030
+Quindi puoi fare altre cose nel mezzo. Il javascript è asincrono quando puoi lasciarlo un messaggio e una
+
+21:55.570 --> 22:00.390
+richiamata ti dice, ehi! Sig. l'insegnante ha un messaggio per te quando non sei troppo occupato.
+
+22:02.040 --> 22:05.470
+Ed è per questo che la chiamiamo una funzione
+
+22:05.520 --> 22:10.760
+di callback e una callback que. La richiamiamo per farle sapere che c'è qualcosa che ti sta aspettando.
+
+22:11.010 --> 22:17.250
+Ora vediamo qui che abbiamo DOM, Ajax e Timeout. E ci sono alcune altre cose, ma vedi anche
+
+22:17.250 --> 22:20.410
+nella coda di richiamata, abbiamo fatto clic su Carica su fatto.
+
+22:20.670 --> 22:23.310
+Ricordi gli ascoltatori dell'evento?
+
+22:23.580 --> 22:33.090
+Bene, con un listener di eventi, avevamo qualcosa come un elemento e abbiamo aggiunto un listener di eventi.
+
+22:33.260 --> 22:40.340
+E in questo listener di eventi, potremmo dire in ascolto di un clic e avrà una funzione che
+
+22:40.590 --> 22:42.260
+forse semplicemente consolerà il
+
+22:42.740 --> 22:50.770
+punto log 'clic' Bene, simile a un modo asincrono di programmazione, abbiamo creato questa funzione 'clic' e ora abbiamo lo
+
+22:50.770 --> 22:52.070
+stai solo ascoltando.
+
+22:52.150 --> 22:55.360
+E ogni volta che si verifica un clic sulla pagina Web.
+
+22:55.390 --> 22:57.180
+Quindi sul
+
+22:57.340 --> 23:04.970
+DOM eseguiamo bene la funzione di callback, la cui console registra il "clic".
+
+23:05.460 --> 23:06.190
+Tutto ok.
+
+23:06.480 --> 23:14.020
+Quindi, per finire, quando sta succedendo l'asincrono? succede molto, quando provi a parlare tra macchine,
+
+23:14.020 --> 23:18.280
+come parlare a un database che fa richieste di rete, elaborazione
+
+23:18.340 --> 23:23.530
+di immagini, lettura di file e non preoccuparti, lo vedremo nei video futuri.
+
+23:23.680 --> 23:31.690
+Ma per ricapitolare ciò che abbiamo appena appreso, Javascript è un linguaggio a thread singolo che può essere non bloccante.
+
+23:31.690 --> 23:39.340
+Ha uno stack di chiamate e fa una cosa alla volta. Per non bloccare il singolo thread, può essere
+
+23:39.370 --> 23:48.730
+asincrono con le funzioni di callback e queste funzioni di callback vengono eseguite in background, attraverso la coda di callback e
+
+23:48.730 --> 23:53.670
+quindi il ciclo degli eventi, per riportarlo nello stack di chiamate.
+
+23:53.740 --> 24:00.610
+Quindi alla prossima domanda, qual è la differenza tra un programma sincrono o asincrono?
+
+24:00.910 --> 24:02.790
+O come funziona javascript?
+
+24:02.830 --> 24:06.260
+Dovresti avere un po 'più di fiducia per rispondere a questa domanda.
+
+24:06.660 --> 24:08.340
+E spero che questo sia stato utile.
+
+24:09.070 --> 24:11.070
+Ci vediamo nel prossimo video. Buh-Bye.

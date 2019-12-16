@@ -1,0 +1,898 @@
+WEBVTT
+
+00:01.590 --> 00:04.800
+¿Cómo funciona realmente JavaScript?
+
+00:04.800 --> 00:08.320
+Imagine que recibe esta pregunta durante una entrevista o qué
+
+00:08.340 --> 00:13.110
+tal esto, explique la diferencia entre asíncrono y sincrónico en Javascript, o tal vez
+
+00:13.200 --> 00:15.890
+le pidan que explique esta afirmación.
+
+00:15.990 --> 00:19.560
+Javascript como un lenguaje de subproceso único que puede ser sin bloqueo.
+
+00:20.560 --> 00:24.940
+¡Oh chico! en este video te ayudaremos a responder esas preguntas.
+
+00:24.940 --> 00:28.490
+Este es un video que puede necesitar visitar algunas veces a medida que avanza.
+
+00:28.510 --> 00:29.590
+Para realmente entenderlo.
+
+00:29.620 --> 00:32.890
+Así que no te desanimes, si no te sientes cien por ciento seguro.
+
+00:32.890 --> 00:35.500
+Solo sigue viéndolo y lo obtendrás.
+
+00:35.500 --> 00:40.560
+Ahora, no necesitamos saber cómo funciona JavaScript internamente para escribir un programa.
+
+00:40.900 --> 00:42.580
+Pero es importante aprender.
+
+00:42.880 --> 00:47.260
+Veo a muchas personas que han sido desarrolladores durante años y ninguno lo sabe.
+
+00:47.260 --> 00:51.100
+Es como ser un piloto y no saber cómo puede volar un avión.
+
+00:51.490 --> 00:55.180
+OK, eso es un poco dramático, pero entiendes mi punto.
+
+00:55.180 --> 01:00.180
+Entonces comencemos. Primero, ¿qué es un programa?
+
+01:00.460 --> 01:03.470
+Bueno, un programa tiene que hacer algunas cosas simples.
+
+01:03.520 --> 01:05.530
+Tiene que asignar memoria.
+
+01:05.560 --> 01:11.100
+De lo contrario, no podríamos tener variables o incluso tener un archivo en nuestra computadora.
+
+01:11.110 --> 01:16.840
+También tiene que analizar y ejecutar scripts, lo que significa que lee y ejecuta comandos.
+
+01:17.130 --> 01:17.760
+OKAY.
+
+01:17.920 --> 01:26.200
+Ahora, también sabemos que de nuestra discusión anterior, está el motor de JavaScript que implementa cada navegador.
+
+01:26.260 --> 01:33.700
+Y en Chrome, es el V8 y el motor V8 lee el javascript que escribimos. Cambia a instrucciones ejecutables de la
+
+01:33.700 --> 01:36.880
+máquina para el navegador.
+
+01:37.420 --> 01:43.330
+Ahora el motor consta de dos partes, un montón de memoria y una pila de llamadas.
+
+01:43.390 --> 01:45.040
+Ahora, el montón de
+
+01:45.250 --> 01:48.660
+memoria, aquí es donde ocurre la asignación de memoria.
+
+01:48.790 --> 01:50.640
+Y no te preocupes, vamos a hablar de esto.
+
+01:50.950 --> 01:52.200
+Y luego la pila
+
+01:52.240 --> 01:54.870
+de llamadas, aquí es donde se lee y ejecuta su código.
+
+01:54.940 --> 01:57.750
+Te dice dónde estás en el programa.
+
+01:59.050 --> 02:06.250
+Así que simplifiquemos esto y le mostraremos a qué me refiero. Tengo Sublimetext aquí, y para nosotros asignar
+
+02:06.690 --> 02:10.620
+memoria en el montón de memoria, bueno, es
+
+02:10.890 --> 02:18.950
+tan simple como hacer 'const a igual a uno'. Acabamos de asignar un recuerdo.
+
+02:18.990 --> 02:28.040
+Ahora, cuando asignamos esto, el motor de JavaScript recordará que ¡oh! sí, 'a' tiene un valor de 1.
+
+02:28.170 --> 02:30.970
+Acabamos de usar el montón de memoria.
+
+02:30.990 --> 02:34.530
+Y puedo seguir, seguir y seguir así, ¿verdad?
+
+02:34.600 --> 02:41.400
+Puedo seguir copiando y pegando y cambiando estas variables a 'b' y 'c' y puedo cambiar los valores
+
+02:41.400 --> 02:44.460
+a 100 y tal vez aquí serán 10.
+
+02:45.530 --> 02:46.110
+Guay.
+
+02:46.150 --> 02:49.910
+Ahora, ¿qué problema vemos con esto?
+
+02:50.020 --> 02:55.730
+Esto es algo llamado pérdida de memoria que escuchará cuando se convierta en desarrollador.
+
+02:56.090 --> 03:01.880
+Y lo que hemos hecho aquí es que hemos creado todas estas variables. Estas variables globales que están en el montón
+
+03:01.880 --> 03:03.070
+de memoria.
+
+03:03.230 --> 03:05.350
+Pero ves esta caja ¿verdad?
+
+03:05.510 --> 03:10.910
+Y con toda la memoria tenemos una cantidad limitada, que realmente podemos tener.
+
+03:11.060 --> 03:17.930
+Entonces, al aumentar el número de variables que tenemos, imagínese si solo tuviera esta página llena de variables y,
+
+03:17.930 --> 03:21.650
+en lugar de solo números, son matrices muy grandes.
+
+03:21.980 --> 03:28.430
+Bueno, las pérdidas de memoria ocurren cuando tienes memoria sin usar, como por ejemplo, ahora estamos usando
+
+03:28.430 --> 03:33.990
+la variable 'a', pero todavía está allí, bueno, al tener la memoria sin usar
+
+03:34.220 --> 03:40.030
+por ahí, llena este montón de memoria. Y es por eso que puede escuchar, por qué las variables globales son malas.
+
+03:40.130 --> 03:44.430
+Las variables globales son malas porque no nos olvidamos de
+
+03:44.540 --> 03:51.230
+limpiar después de nosotros mismos, llenamos este montón de memoria y, finalmente, el navegador no podrá funcionar.
+
+03:51.270 --> 03:54.050
+Muy bien, eso es memoria.
+
+03:54.060 --> 03:56.060
+Hablemos de la pila de llamadas.
+
+03:56.190 --> 03:57.000
+¿Que es eso?
+
+03:58.190 --> 04:17.630
+Bueno, de nuevo, con una pila de llamadas podemos tener algo como esto, 'registro de consola', iremos a '1', 'registro de consola 2' y
+
+04:17.660 --> 04:28.330
+finalmente 'registro de consola 3', si ejecuto este código, en mi terminal del
+
+04:28.570 --> 04:39.810
+navegador, bueno, obtengo, '1, 2, 3'. Entonces, si recuerdas, la pila de llamadas es lo que lee y ejecuta nuestros scripts.
+
+04:40.230 --> 04:45.890
+Entonces, ¿qué hace la pila de llamadas? Lee la primera línea, el registro de puntos de la consola,
+
+04:46.110 --> 04:48.580
+se pone en la pila de llamadas.
+
+04:48.870 --> 04:52.500
+Entonces, el motor de JavaScript dice ¡Uy! , se ha agregado el registro de puntos de la consola.
+
+04:52.650 --> 05:03.150
+Vamos a ponerlo en esta pila de llamadas. Y luego lo ejecuta y crea uno, luego dice: OK, estoy eliminando el
+
+05:03.150 --> 05:09.900
+primer registro de la consola cuando acabo de ejecutarlo, voy a colocar el segundo registro de la
+
+05:09.900 --> 05:20.310
+consola en mi pila de llamadas, lo agrego aquí y dice, yah! ejecuta 2 y luego lo elimina, lo hace estallar y luego obtiene el registro
+
+05:20.310 --> 05:23.370
+de consola 3 y registra el registro de
+
+05:23.400 --> 05:26.110
+consola 3, y finalmente lo elimina.
+
+05:26.970 --> 05:31.920
+Pero tengamos un ejemplo un poco más complejo aquí para demostrar este punto.
+
+05:32.130 --> 05:34.740
+Imagina, tengo algo como esto.
+
+05:37.430 --> 05:39.680
+Tengo una función 'const one'
+
+05:44.410 --> 05:52.420
+y dentro de esta función, tenemos otra función 'const two' y por ahora no va a hacer mucho.
+
+05:52.420 --> 06:04.360
+Consolará el registro de puntos '4' y luego aquí solo diremos que ejecutamos la función 'dos'.
+
+06:04.390 --> 06:14.790
+Entonces, si copio y pego esto, y lo coloco en nuestra consola y ejecuto 'one', obtengo 4 e ignoro este error.
+
+06:14.820 --> 06:17.420
+aquí, solo está relacionado con mi aplicación en el navegador.
+
+06:17.500 --> 06:19.000
+Pero ya ves que tenemos 4.
+
+06:19.000 --> 06:21.780
+Entonces, ¿qué pasó aquí según la Pila de llamadas?
+
+06:22.270 --> 06:30.040
+Bueno, si tenemos la pila de llamadas aquí, primero ejecutamos la función 'one'.
+
+06:30.040 --> 06:34.490
+Entonces, en la parte superior de la pila de llamadas, se ejecuta la función 'one'.
+
+06:34.750 --> 06:40.000
+Y a medida que ingresamos en esta pila de llamadas, vemos que ejecutamos otra función 'dos'.
+
+06:40.180 --> 06:50.500
+Entonces, 'dos' va encima de la pila de llamadas, y ahora ejecutamos la función 'dos' que es el registro de puntos de la consola.
+
+06:50.560 --> 07:00.090
+Entonces, tenemos el punto de consola '4' que se ejecuta dentro de la función '2'.
+
+07:00.110 --> 07:03.980
+Entonces, ahora que leemos esto, la pila de llamadas va a decir: OK,
+
+07:04.010 --> 07:06.190
+no hay nada más dentro de esto.
+
+07:06.260 --> 07:08.400
+Voy a ejecutar consola locg 4.
+
+07:08.450 --> 07:11.390
+Entonces va a imprimir el número 4 aquí.
+
+07:11.390 --> 07:22.250
+Eliminará eso de la pila de llamadas, y luego eliminará los 'dos' y luego eliminará el 'uno', porque se acaba de
+
+07:22.310 --> 07:23.370
+llamar.
+
+07:26.040 --> 07:28.860
+Y la pila de llamadas ahora está vacía.
+
+07:29.250 --> 07:30.000
+Todo bien.
+
+07:30.030 --> 07:30.580
+Increíble.
+
+07:30.690 --> 07:34.590
+Ahora volvamos a la declaración desde el principio del video.
+
+07:34.890 --> 07:42.360
+Javascript es un lenguaje de un solo subproceso que puede ser sin bloqueo. Un solo subproceso significa que solo tiene una pila
+
+07:42.480 --> 07:43.780
+de llamadas.
+
+07:44.570 --> 07:48.310
+Y solo una pila de llamadas, solo puede hacer una cosa a la vez.
+
+07:48.350 --> 07:53.050
+Y como viste, una pila de llamadas es la primera en entrar, la última en salir.
+
+07:53.090 --> 07:59.390
+Entonces, lo que esté en la parte superior, la pila de llamadas se ejecuta primero, luego debajo de eso, debajo de eso, debajo
+
+07:59.390 --> 08:02.400
+de eso hasta que la pila de llamadas esté vacía.
+
+08:02.530 --> 08:08.840
+Ahora, otros idiomas pueden tener múltiples pilas de llamadas y estas se llaman multiproceso.
+
+08:08.870 --> 08:14.030
+También puede ver cómo puede ser beneficioso tener múltiples pilas de llamadas, para que no
+
+08:14.030 --> 08:15.310
+sigamos esperando cosas.
+
+08:15.380 --> 08:21.940
+¿Por qué se diseñó JavaScript para un solo subproceso? Bueno, ejecutar código en un solo subproceso puede ser
+
+08:21.940 --> 08:27.910
+bastante fácil, ya que no tiene que lidiar con escenarios complicados que surgen en un entorno multiproceso.
+
+08:27.910 --> 08:29.700
+Solo tienes una cosa de qué preocuparte.
+
+08:29.920 --> 08:39.720
+Y, cuando digo problemas con el entorno multiproceso, puede tener puntos muertos. Ahora, adivina qué, acabas de aprender lo que significa
+
+08:40.200 --> 08:48.270
+la programación síncrona, la programación síncrona simplemente significa, la línea uno se ejecuta, luego la línea
+
+08:48.330 --> 08:53.720
+dos se ejecuta y luego la línea tres se ejecuta.
+
+08:55.090 --> 09:02.890
+Este último, puede comenzar antes de que termine el primero, por lo que este registro de consola '2' no se inicia hasta
+
+09:03.100 --> 09:10.490
+que finaliza el registro de consola. Y el registro de consola '3' no comienza hasta que estos dos anteriores terminen. Porque bueno, hemos visto la pila de llamadas
+
+09:10.490 --> 09:12.410
+debido a la pila de llamadas.
+
+09:12.410 --> 09:16.590
+Ahora, es posible que haya oído hablar del desbordamiento de la pila del sitio.
+
+09:16.690 --> 09:19.700
+Si eres desarrollador, lo usas a diario.
+
+09:20.000 --> 09:24.710
+¿Y alguna vez te has preguntado qué significa el desbordamiento de pila?
+
+09:25.970 --> 09:28.310
+Well Stack Overflow
+
+09:28.480 --> 09:32.410
+es esto, cuando una pila se desborda.
+
+09:32.410 --> 09:39.220
+Algo así como hablamos sobre pérdidas de memoria y cómo el montón de memoria de un motor javascript puede desbordarse.
+
+09:40.060 --> 09:43.270
+Bueno, con el desbordamiento de la pila, esto sucede cuando
+
+09:43.270 --> 09:47.980
+la pila de llamadas solo se hace más y más grande hasta que ya no
+
+09:47.980 --> 09:49.070
+tiene suficiente espacio.
+
+09:49.360 --> 09:52.180
+¿Cómo podemos hacer eso?
+
+09:52.180 --> 09:54.560
+¿Podemos recrear un desbordamiento de pila?
+
+09:54.910 --> 09:58.990
+Yah! Puedo mostrarle rápidamente que para
+
+09:58.990 --> 10:06.180
+crear un desbordamiento de pila, todo lo que tiene que hacer es funcionar 'foo' como lo tenemos aquí.
+
+10:07.740 --> 10:13.490
+Y esta función solo tendrá 'foo'.
+
+10:13.490 --> 10:17.940
+Y solo vamos a ejecutar nuestra función 'foo', de acuerdo.
+
+10:17.950 --> 10:19.090
+Eso se ve confuso.
+
+10:19.180 --> 10:21.760
+¿Que está sucediendo aquí?
+
+10:22.090 --> 10:24.600
+Este algo llamado recursividad.
+
+10:27.270 --> 10:30.350
+Y recursión significa una función que se llama a sí misma.
+
+10:30.660 --> 10:38.670
+Entonces, si miras lo que hace esta función, ejecutamos 'foo' y 'foo' se ejecuta, lo que 'foo' hace es bueno, ejecutamos
+
+10:38.730 --> 10:39.650
+'foo' nuevamente.
+
+10:39.660 --> 10:46.990
+Por lo tanto, sigue dando vueltas una y otra vez, teniendo una recursión pero no hay un final a la vista.
+
+10:47.070 --> 10:50.520
+Seguimos agregando 'foo' a la pila de llamadas.
+
+10:50.640 --> 10:56.930
+Seguimos agregando, una y otra y otra y otra y otra y otra y otra y otra y otra vez.
+
+10:57.210 --> 10:59.700
+Y, tenemos un desbordamiento de pila.
+
+11:00.060 --> 11:07.260
+Entonces, si quiere divertirse, vaya a su navegador, vaya a su consola y ejecute algo como esto y vea qué
+
+11:07.260 --> 11:07.960
+sucede.
+
+11:07.980 --> 11:10.150
+Tendrás un desbordamiento de pila.
+
+11:11.120 --> 11:11.850
+Todo bien.
+
+11:11.900 --> 11:14.280
+Con suerte, esto ahora tiene sentido.
+
+11:14.300 --> 11:20.920
+El motor de JavaScript, que es el motor V-8 y Chrome, tiene un montón de memoria y una pila de llamadas.
+
+11:23.120 --> 11:31.390
+Ahora, Javascript tiene un solo subproceso, solo se ejecuta una declaración a la vez, pero ahora hay un problema,
+
+11:31.390 --> 11:32.190
+¿no?
+
+11:32.200 --> 11:41.260
+¿Qué pasaría si la línea dos fuera una gran tarea que teníamos que hacer? tal vez recorrer una matriz que tenía millones
+
+11:41.340 --> 11:44.390
+de artículos, ¿qué pasaría allí?
+
+11:44.430 --> 11:51.790
+Bueno, tendríamos que ejecutar este registro de la consola, luego la segunda línea, luego es un trabajo masivo masivo, bueno, solo
+
+11:51.840 --> 11:54.920
+trabaje allí y el registro de la consola '3'
+
+11:54.930 --> 11:57.240
+tomará mucho tiempo para iniciar sesión.
+
+11:57.360 --> 12:04.230
+Y en nuestro pequeño ejemplo, eso no significa mucho, pero si tuviera esto en un sitio web, el usuario no
+
+12:04.260 --> 12:05.530
+podría hacer nada.
+
+12:05.580 --> 12:11.260
+El sitio web se congelaría hasta que se complete esa tarea y el usuario solo espere allí.
+
+12:11.340 --> 12:13.320
+Eso no es muy bueno, ¿verdad?
+
+12:13.470 --> 12:19.650
+Bueno, con una tarea sincrónica, si tenemos una función que requiere mucho tiempo, va a retrasar
+
+12:19.650 --> 12:20.670
+la línea.
+
+12:20.760 --> 12:23.170
+Imagínese un restaurante buffet, si todas las
+
+12:23.170 --> 12:29.130
+personas quieren comer, pero Bobby dice que esperen, tengan que seguir comiendo y poner un tocino en mi
+
+12:29.130 --> 12:29.590
+plato.
+
+12:29.640 --> 12:31.860
+Bueno, todos tienen que esperar en la cola.
+
+12:32.280 --> 12:38.490
+Entonces parece que necesitamos algo que no sea de bloqueo. Recuerde nuestra primera declaración que hicimos en este video.
+
+12:38.790 --> 12:43.390
+Javascript como un lenguaje de subprocesos único que puede ser sin bloqueo.
+
+12:43.710 --> 12:47.150
+Idealmente, no esperamos por cosas que llevan tiempo.
+
+12:47.610 --> 12:49.050
+Entonces como hacemos esto.
+
+12:49.980 --> 12:52.970
+Bueno, asíncrono al rescate.
+
+12:52.980 --> 13:00.060
+Piense en asíncrono como un comportamiento. La ejecución sincrónica es excelente porque es predecible.
+
+13:00.060 --> 13:02.490
+Sabemos lo que pasa primero y luego lo que pasa después.
+
+13:02.490 --> 13:03.740
+Lo que pasa tercero.
+
+13:04.050 --> 13:05.510
+Pero puede ser lento.
+
+13:05.700 --> 13:12.000
+Entonces, cuando tengamos que hacer cosas como el procesamiento de imágenes o realizar solicitudes a través de la red, como llamadas API, y
+
+13:12.360 --> 13:15.210
+no se preocupe, hablaremos de esto en futuros videos.
+
+13:15.210 --> 13:18.990
+Necesitamos algo más que tareas sincrónicas, correcto.
+
+13:19.080 --> 13:23.660
+Entonces estás pensando para ti mismo, Andre ¿Cómo hacemos entonces la programación asincrónica?
+
+13:24.090 --> 13:27.820
+Bueno, déjame eliminar algo de este desorden.
+
+13:28.050 --> 13:35.220
+Podemos hacer una programación asincrónica haciendo algo como este 'setTimeout', del que hablaremos, es una función que viene
+
+13:35.220 --> 13:44.780
+dentro de nuestros navegadores y nos permite crear un tiempo de espera. Y solo podemos darle el primer parámetro es la
+
+13:44.780 --> 13:47.740
+función que queremos ejecutar.
+
+13:47.840 --> 13:51.010
+Y luego el segundo parámetro es cuántos segundos queremos esperar.
+
+13:51.020 --> 13:53.280
+Entonces, digamos que quiero esperar dos segundos.
+
+13:53.300 --> 13:55.730
+Entonces 200, 2000 milisegundos.
+
+13:56.240 --> 14:00.730
+Si hago esto ahora, ejecutémoslo en la consola y veamos qué sucede.
+
+14:07.750 --> 14:19.330
+Bueno, ¿qué acaba de pasar? tenemos el registro de consola '1', luego el registro de consola '3' y luego el registro de consola '2',
+
+14:19.340 --> 14:20.450
+dos segundos después.
+
+14:20.990 --> 14:28.410
+Parece que nos saltamos todo este paso y luego lo ponemos al final.
+
+14:29.720 --> 14:36.750
+Bueno, acabas de presenciar la programación asincrónica. Para entender esto y lo que acaba de suceder.
+
+14:36.950 --> 14:45.930
+Necesito llevarlo a la siguiente parte y es que, para que JavaScript tal como lo conocemos, se ejecute para el motor de JavaScript con memoria heap y la pila de
+
+14:45.930 --> 14:49.520
+llamadas para ejecutar, necesitamos más que solo el motor de JavaScript,
+
+14:49.680 --> 14:57.880
+necesitamos lo que necesitamos. llame a un entorno de tiempo de ejecución de JavaScript. Y el entorno de tiempo de ejecución de
+
+14:58.150 --> 15:03.570
+Javascript nuevamente forma parte del navegador, está incluido en los navegadores.
+
+15:03.670 --> 15:06.630
+Tienen cosas adicionales, además del motor,
+
+15:06.640 --> 15:12.950
+tienen algo llamado API web, cola de devolución de llamada y un bucle de eventos.
+
+15:13.100 --> 15:19.000
+Y como puede ver aquí, 'setTimeout' es parte de la API web.
+
+15:19.100 --> 15:22.780
+No es técnicamente parte de JavaScript, ¿verdad?
+
+15:23.000 --> 15:28.410
+Es lo que los navegadores nos dan para usar, para que podamos hacer un programa asincrónico.
+
+15:28.680 --> 15:29.130
+OKAY.
+
+15:29.210 --> 15:31.240
+Mirando este diagrama, veamos
+
+15:31.280 --> 15:34.970
+si podemos descubrir qué estaba haciendo nuestro código.
+
+15:36.590 --> 15:53.180
+Podemos crear aquí nuestra propia pila de llamadas, tendremos API web y luego tendremos una cola de devolución de llamada y luego un bucle de eventos, tal como lo hemos
+
+15:53.260 --> 15:59.290
+hecho en nuestro entorno de tiempo de ejecución de JavaScript.
+
+15:59.330 --> 16:00.550
+Entonces, ¿qué está pasando aquí?
+
+16:00.600 --> 16:07.440
+Bueno, primero tenemos un registro de consola que va a la pila de llamadas.
+
+16:08.350 --> 16:10.690
+Y eso se corre.
+
+16:10.930 --> 16:14.690
+Entonces registramos el registro de consola '2' en el navegador.
+
+16:15.070 --> 16:17.670
+Luego obtenemos 'setTimeout' en nuestra pila de llamadas
+
+16:18.800 --> 16:24.080
+porque terminamos esta primera tarea, vamos a la segunda. Y con 'setTimeout', lo que va
+
+16:24.250 --> 16:30.380
+a suceder es que, bueno, la pila de llamadas va a decir: OK, tengo 'setTimeout'.
+
+16:30.860 --> 16:37.610
+Y debido a que setTimeout no es parte de javascript sino parte de la API web, tiene
+
+16:37.910 --> 16:42.620
+esta característica especial de lo que sucederá, desencadena la API web.
+
+16:43.820 --> 16:55.010
+Y dice, ¡oye! 'setTimeout' acaba de ser llamado. Y debido a que notificamos la API web, podemos sacarla de la
+
+16:55.160 --> 16:56.400
+pila de llamadas.
+
+16:56.420 --> 17:02.250
+Ahora, la API web comienza con un temporizador aquí, un temporizador de dos segundos.
+
+17:02.330 --> 17:10.350
+Sabrás que en dos segundos, tienes que hacer algo. Y debido a que la pila de llamadas
+
+17:11.010 --> 17:18.970
+está vacía, el motor de JavaScript ahora va al registro de consola '3' y ejecuta esto.
+
+17:19.110 --> 17:20.600
+Entonces eso tiene sentido, correcto.
+
+17:20.700 --> 17:24.470
+Ahora hemos hecho '1' y '3' pero todavía tenemos
+
+17:24.660 --> 17:27.680
+'setTimeout' 2 segundos en la API web.
+
+17:27.960 --> 17:36.600
+Ahora, después de dos segundos cuando nuestro límite de tiempo se ha agotado, la API web dirá, está bien, se debe ejecutar
+
+17:36.600 --> 17:37.220
+'setTimeout'.
+
+17:37.260 --> 17:38.550
+Veamos qué hay dentro.
+
+17:38.670 --> 17:40.740
+Bueno, tenemos un registro de consola 2.
+
+17:40.980 --> 17:45.220
+Entonces, lo que va a pasar es, va a decir, ¡oye! el tiempo establecido ya está hecho.
+
+17:46.630 --> 17:56.210
+Tenemos una devolución de llamada, y esta devolución de llamada de 'setTimeout', agregamos a la devolución de llamada que, diciendo eso, ¡oye! tenemos que ejecutar algo, estamos
+
+17:56.210 --> 18:00.630
+listos para ejecutarlo.
+
+18:00.750 --> 18:09.060
+Ahora, la última parte, el bucle de eventos, el bucle de eventos aquí, comprueba y dice: ¡Hola! es la pila de llamadas vacía y sigue comprobando
+
+18:09.180 --> 18:10.710
+todo el tiempo.
+
+18:10.710 --> 18:16.200
+Si la pila está vacía y si la pila de llamadas está vacía y no hay nada funcionando en este momento el
+
+18:16.200 --> 18:20.010
+motor de JavaScript, va a decir, ¡oye! ¿tenemos alguna devolución de llamada?
+
+18:20.040 --> 18:25.250
+Comprobará la devolución de llamada y dirá, ¡mmm! hay algo ahí? , debido a que la pila
+
+18:25.250 --> 18:28.320
+de llamadas está vacía, podemos arrojar algo allí y hacer que funcione.
+
+18:28.530 --> 18:31.380
+En nuestro caso decimos, ¡oh sí! Hago.
+
+18:31.380 --> 18:34.420
+Déjame poner esto en la pila de llamadas.
+
+18:34.470 --> 18:43.170
+Así que ahora movemos la devolución de llamada a la pila de llamadas y luego la devolución de llamada la ejecutamos y al ejecutar vemos que
+
+18:43.170 --> 18:45.560
+tenemos el registro de consola 2.
+
+18:45.810 --> 18:55.240
+Entonces va a decir consola dot log 2, ejecutará esta función y una vez que lo haga, la sacará de la
+
+18:55.270 --> 18:56.850
+pila de llamadas.
+
+18:56.890 --> 19:02.890
+Y nuevamente hemos terminado con la devolución de llamada, por lo que la eliminamos y listo.
+
+19:02.920 --> 19:03.580
+Ya hemos terminado
+
+19:03.580 --> 19:09.170
+Todo está vacío y acabamos de ejecutar este '1', '3'.
+
+19:09.250 --> 19:13.470
+Pasará por todo el bucle de eventos de devolución de llamada de API web.
+
+19:13.570 --> 19:17.590
+Y luego ejecutará el registro de consola '2'. Hoo!
+
+19:17.680 --> 19:19.350
+Esa fue mucha información.
+
+19:19.450 --> 19:25.300
+Por lo tanto, es posible que tenga que ver eso varias veces, pero con suerte eso tiene sentido para usted
+
+19:25.300 --> 19:26.870
+por qué notamos este comportamiento.
+
+19:27.460 --> 19:31.150
+Y quiero desafiar tu comprensión aquí.
+
+19:31.420 --> 19:37.160
+Sabiendo lo que sabes y lo que te acabo de enseñar, ¿qué sucede si cambio esto a cero?
+
+19:37.360 --> 19:39.420
+Eso significa cero segundo (s).
+
+19:40.250 --> 19:43.380
+Voy a darte un segundo para pensar en lo que sucederá.
+
+19:43.580 --> 19:45.430
+Y luego vamos a probar esto.
+
+19:45.850 --> 19:54.380
+Cuando borre la consola, copie y pegue esto y ejecútelo. Bueno uno, tres y dos.
+
+19:54.400 --> 19:55.540
+¿Adivinaste bien?
+
+19:56.420 --> 19:59.150
+Ahora piensa en por qué sucedió eso.
+
+19:59.330 --> 20:04.570
+Aunque esto es cero segundo (s), todavía pasó por el proceso.
+
+20:04.640 --> 20:09.190
+Todavía se ingresó en las API web y luego en la cola de devolución de
+
+20:09.350 --> 20:11.950
+llamada y luego en el bucle de eventos.
+
+20:12.050 --> 20:19.850
+Y cuando eso sucedía, la pila de llamadas ya se había movido al registro de consola '3' y solo después de que se hizo el registro de consola '3' y
+
+20:19.850 --> 20:27.380
+la pila de llamadas estaba vacía, el bucle de eventos dijo: ¡oh sí! podemos llamar al registro de consola '2'.
+
+20:27.680 --> 20:31.430
+Espero que eso tenga sentido para ti.
+
+20:31.430 --> 20:36.560
+Y si puede comprender que en realidad tendrá muchas personas que contratan para roles
+
+20:36.560 --> 20:41.800
+de JavaScript, haga preguntas como esta en una entrevista, y debe explicar por qué es así.
+
+20:41.810 --> 20:47.870
+Así que espero que tenga sentido para usted y que pueda usarlo para su ventaja en el próximo siglo.
+
+20:47.900 --> 20:49.810
+Así que recapitulemos.
+
+20:53.950 --> 21:00.340
+Si desea cargar sus últimos tweets en una página web y lo hace sincrónicamente, los visitantes de su
+
+21:00.340 --> 21:04.600
+sitio no podrán hacer nada hasta que se carguen esos tweets.
+
+21:04.600 --> 21:08.600
+Esto podría causar un largo retraso antes de que incluso puedan ver el contenido de su sitio.
+
+21:08.680 --> 21:12.620
+Es posible que no puedan hacer clic en ningún lado y la página se sentirá como congelada.
+
+21:12.760 --> 21:14.590
+No es una muy buena experiencia de usuario, ¿verdad?
+
+21:15.420 --> 21:19.100
+Otra forma de pensar sobre esto es llamar a su maestro con una pregunta.
+
+21:20.260 --> 21:23.140
+Sincrónicamente se llama al maestro, espera en
+
+21:23.140 --> 21:30.430
+el teléfono hasta que el maestro contesta el teléfono y le hace la pregunta y, con suerte, recibe una
+
+21:30.430 --> 21:31.080
+respuesta.
+
+21:31.210 --> 21:33.930
+Así que dejas que suene el teléfono hasta que contesta.
+
+21:34.090 --> 21:37.330
+Pero no estás haciendo nada más mientras tanto.
+
+21:37.690 --> 21:41.870
+Asíncrono significa que envía un mensaje de texto a un maestro con una pregunta.
+
+21:42.010 --> 21:47.820
+Y luego, cuando el maestro, él o ella tenga tiempo, le responderá y lo llamará con la respuesta.
+
+21:48.310 --> 21:55.030
+Entonces puedes hacer otras cosas en el medio. El javascript es asíncrono cuando puedes dejarle un mensaje y una devolución
+
+21:55.570 --> 22:00.390
+de llamada te dice, ¡oye! señor. El profesor tiene un mensaje para ti cuando no estás demasiado ocupado.
+
+22:02.040 --> 22:05.470
+Y es por eso que lo llamamos una función de devolución de
+
+22:05.520 --> 22:10.760
+llamada y una función de devolución de llamada. Volveremos a llamar para hacerle saber que hay algunas cosas esperándote.
+
+22:11.010 --> 22:17.250
+Ahora, vemos aquí que tenemos DOM, Ajax y Timeout. Y hay algunas otras cosas, pero también se ve en la
+
+22:17.250 --> 22:20.410
+llamada de devolución de llamada, tenemos que hacer clic en cargar al finalizar.
+
+22:20.670 --> 22:23.310
+¿Te acuerdas de los oyentes del evento?
+
+22:23.580 --> 22:33.090
+Bueno, con un detector de eventos, teníamos algo así como un elemento, y agregamos un detector de eventos.
+
+22:33.260 --> 22:40.340
+Y en este eventlistener, podríamos decir escuchar un clic y tendrá una función que quizás solo
+
+22:40.590 --> 22:42.260
+consola log log 'clic'
+
+22:42.740 --> 22:50.770
+Bueno, similar a una forma asíncrona de programación, hemos creado esta función 'clic' y ahora tenemos solo lo
+
+22:50.770 --> 22:52.070
+estoy escuchando.
+
+22:52.150 --> 22:55.360
+Y cada vez que ocurre un clic en la página web.
+
+22:55.390 --> 22:57.180
+Entonces, en el
+
+22:57.340 --> 23:04.970
+DOM, bueno, ejecutamos la función de devolución de llamada, que la consola registra 'clic'.
+
+23:05.460 --> 23:06.190
+Todo bien.
+
+23:06.480 --> 23:14.020
+Entonces, para terminar, ¿cuándo está sucediendo asincrónico? sucede mucho, cuando intentas hablar entre máquinas, como hablar
+
+23:14.020 --> 23:18.280
+a una base de datos haciendo solicitudes de red, procesamiento de
+
+23:18.340 --> 23:23.530
+imágenes, lectura de archivos y no te preocupes, veremos esto en futuros videos.
+
+23:23.680 --> 23:31.690
+Pero para recapitular lo que acabamos de aprender, Javascript es un lenguaje de un solo subproceso que puede no bloquearse.
+
+23:31.690 --> 23:39.340
+Tiene una pila de llamadas y hace una cosa a la vez. Para no bloquear el hilo único, puede ser asíncrono con
+
+23:39.370 --> 23:48.730
+las funciones de devolución de llamada y estas funciones de devolución de llamada se ejecutan en segundo plano, a través de la cola de devolución de
+
+23:48.730 --> 23:53.670
+llamada y luego el bucle de eventos, para devolverlo a la pila de llamadas.
+
+23:53.740 --> 24:00.610
+Entonces, la próxima vez que te pregunten, ¿cuál es la diferencia entre un programa síncrono o asíncrono?
+
+24:00.910 --> 24:02.790
+¿O cómo funciona JavaScript?
+
+24:02.830 --> 24:06.260
+Debería tener un poco más de confianza para responder esa pregunta.
+
+24:06.660 --> 24:08.340
+Y espero que esto haya sido útil.
+
+24:09.070 --> 24:11.070
+Nos vemos en el próximo video. A-Dios.

@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00.910 --> 00:01.580
+Dar una buena acogida.
+
+00:01.630 --> 00:07.860
+En este video quiero hablar sobre los tres tipos de módulos que puede tener en Node.
+
+00:07.960 --> 00:14.670
+Hemos visto que tenemos este tipo del que ya sabemos cuál es un módulo que
+
+00:14.710 --> 00:23.770
+creas tú mismo como 'script2' y tiene sus exportaciones de módulos y le das la ruta al archivo para que puedas encontrarlo.
+
+00:23.790 --> 00:33.910
+También hay algo llamado 'módulos integrados' y los módulos integrados son módulos que ya vienen preinstalados con
+
+00:33.910 --> 00:34.780
+Node.
+
+00:35.170 --> 00:43.750
+Por ejemplo, uno de los más populares es el módulo 'fs' y este módulo, si
+
+00:48.660 --> 00:52.930
+consola log [consola. log (c)] es un módulo con un montón de cosas una vez más.
+
+00:53.250 --> 00:56.030
+Pero le permite leer el sistema de archivos.
+
+00:56.130 --> 01:04.790
+Es decir, si tenía un archivo de texto y deseaba leerlo y extraer cuántas veces se decía
+
+01:04.790 --> 01:12.830
+la palabra 'hola', puede escribirlo simplemente usando el módulo del sistema de archivos y usando
+
+01:13.490 --> 01:24.610
+algo como 'readFile : 'o' readFileSync: 'que generará, haga algo como' readFile ', generará el contenido del archivo y luego podrá
+
+01:24.760 --> 01:28.480
+hacer lo que quiera con él.
+
+01:29.280 --> 01:39.180
+Otro popular es el módulo HTTP que, como puedes adivinar, es el módulo que usaremos más
+
+01:39.180 --> 01:45.730
+adelante para construir un servidor. Y puede leer sobre todos estos módulos, pero esos dos son probablemente los más populares.
+
+01:45.730 --> 01:56.020
+En nuestro caso como desarrolladores web, estamos realmente preocupados por el HTTP, estos módulos no tienen la 'ruta',
+
+01:57.240 --> 02:00.260
+simplemente son exactamente así [('http')].
+
+02:01.100 --> 02:09.130
+Y finalmente, el tercer tipo de módulo nuevamente, el que sabemos es algo de npm, un paquete.
+
+02:09.500 --> 02:16.810
+Y uno de mis paquetes favoritos para usar con Node es algo llamado 'nodemon' y
+
+02:16.810 --> 02:27.070
+nodemon es realmente muy bueno porque bueno, si borro esto e instalo npm 'install', primero tendré que hacer 'npm init' para
+
+02:27.070 --> 02:33.280
+hacer Seguro que tengo un 'paquete. json 'y si paso el' -y 'solo dirá sí a todas las
+
+02:33.700 --> 02:35.260
+indicaciones que recibo de antemano.
+
+02:36.460 --> 02:37.240
+Ahí tienes.
+
+02:37.320 --> 02:46.590
+Tengo mi 'paquete. json ', y ahora dentro de este paquete'. json 'Voy a decir' npm install
+
+02:47.190 --> 02:49.800
+nodemon --save-dev 'Si voy al
+
+02:55.760 --> 02:57.820
+paquete'. json 'Veo
+
+02:57.870 --> 02:58.500
+que
+
+02:58.530 --> 03:03.900
+ahora tengo nodemon en' devDependencies 'y no hemos visto esto antes.
+
+03:03.900 --> 03:09.600
+Hasta ahora hemos hecho '--save' o nada en absoluto y lo hemos puesto automáticamente en
+
+03:10.540 --> 03:14.840
+'dependencias'. 'DevDependencies' son dependencias que solo usamos cuando estamos desarrollando.
+
+03:14.890 --> 03:22.300
+Cuando realmente lancemos esta aplicación o el servidor, no se incluirá porque nodeman es solo para,
+
+03:22.360 --> 03:26.300
+nuevamente, para nuestro disfrute mientras estamos desarrollando.
+
+03:26.300 --> 03:28.220
+Ahora déjame mostrarte lo que hace nodeman.
+
+03:28.400 --> 03:33.100
+nodemon ahora se puede usar porque está en 'node_modules' si vas
+
+03:33.130 --> 03:35.890
+a '. bin 'ves nodemon aquí.
+
+03:36.260 --> 03:42.020
+Bueno, porque está en el paquete 'node_modules. bin 'Puedo usar el
+
+03:42.460 --> 03:46.880
+comando como "start" y decir "nodemon" y
+
+03:50.770 --> 03:59.590
+Node es lo suficientemente inteligente como para saber que si ejecuto nodemon, se verá
+
+03:59.600 --> 04:02.550
+en'. bin 'y encontrarlo allí; si lo
+
+04:02.810 --> 04:03.750
+encuentra allí, lo
+
+04:03.790 --> 04:04.870
+que hace, ejecutará el comando.
+
+04:05.000 --> 04:06.140
+Entonces, veamos qué pasa.
+
+04:07.300 --> 04:16.990
+Si borro esto y hago 'npm start', tenemos un pequeño error porque tenemos algunos archivos raros aquí, así
+
+04:16.990 --> 04:20.970
+que volvamos a nuestro ejemplo original.
+
+04:21.010 --> 04:28.640
+Guardemos la ejecución 'npm start' y tenemos una 'salida limpia'.
+
+04:28.810 --> 04:30.860
+Pero ves que algo sigue funcionando.
+
+04:30.970 --> 04:35.590
+Si cambio esto ahora a 6 y lo
+
+04:35.590 --> 04:41.710
+guardo, lo veré por mí; sigue escuchando los cambios y generará todo.
+
+04:41.710 --> 04:51.240
+Nuevamente, si cambio esto, no tengo que seguir ejecutando el script de nodo. comando de js.
+
+04:51.360 --> 04:52.050
+Muy genial.
+
+04:52.050 --> 04:57.210
+Así que usaremos mucho nodemon y es una de mis cosas favoritas para usar de nuevo para que no tenga que ir de un lado
+
+04:57.210 --> 04:58.820
+a otro, de un lado a otro.
+
+04:58.890 --> 05:05.210
+Y si comete algún error, le informará de inmediato.
+
+05:05.270 --> 05:05.520
+Todo bien.
+
+05:05.520 --> 05:06.800
+Perfecto.
+
+05:06.840 --> 05:07.820
+Eso es todo por ahora.
+
+05:07.830 --> 05:09.900
+Nos vemos en la próxima. Adiós

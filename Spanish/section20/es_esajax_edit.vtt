@@ -1,0 +1,421 @@
+WEBVTT
+
+00:01.060 --> 00:09.590
+Bienvenido de nuevo en los videos anteriores que aprendimos sobre HTTP y JSON. Aprendimos que podemos enviar solicitudes y
+
+00:09.650 --> 00:14.830
+obtener respuestas. Pero hay un problema. Hasta ahora,
+
+00:14.920 --> 00:23.720
+cada vez que necesitamos comunicarnos con el servidor, hacemos esa solicitud y luego el navegador cuando
+
+00:23.870 --> 00:29.930
+recibe la respuesta actualiza la página. Originalmente, la carga de la página en la
+
+00:30.810 --> 00:35.710
+web era simple: enviaba una solicitud de un sitio web a un servidor.
+
+00:35.940 --> 00:43.350
+Y mientras nada saliera mal, la página web descargaría los activos y los mostraría en su
+
+00:43.350 --> 00:44.150
+computadora.
+
+00:45.280 --> 00:51.820
+El problema con este modelo es que siempre que desee actualizar cualquier parte de la página, por ejemplo,
+
+00:51.820 --> 00:59.390
+muestre un nuevo conjunto de productos como en Amazon. Bueno, tendrás que volver a cargar todo el programa,
+
+00:59.510 --> 01:09.050
+incluso el esquema, incluso la barra de navegación en la parte superior. Todo tuvo que volver a cargarse, una actualización completa de la página.
+
+01:09.080 --> 01:16.070
+Esto es extremadamente derrochador y da como resultado una mala experiencia del usuario, especialmente a medida que las páginas se hacen
+
+01:16.070 --> 01:17.770
+más grandes y más complejas.
+
+01:17.930 --> 01:20.220
+Puedes pensarlo en el sitio web de Udemy.
+
+01:20.810 --> 01:34.640
+Si vamos a Udemy, bueno, si hago clic en digamos marketing, la barra superior permanecerá. ¿Viste eso?
+
+01:34.640 --> 01:37.230
+Es una buena experiencia de usuario.
+
+01:37.520 --> 01:41.500
+Puedo hacer clic en las pestañas y no obtendré una actualización completa de la página.
+
+01:41.510 --> 01:48.630
+Es bueno, carga datos automáticamente en la página.
+
+01:48.640 --> 01:55.450
+Ahora, este problema que tuvimos aquí llevó a la creación de tecnologías que permiten a
+
+01:55.450 --> 02:04.520
+las páginas web solicitar pequeños fragmentos de datos como HTML, XML, texto plano, JSON y mostrarlos solo cuando sea necesario.
+
+02:05.740 --> 02:07.990
+Ayudando a resolver este problema de actualización.
+
+02:09.340 --> 02:14.010
+Y la tecnología se llamaba AJAX.
+
+02:14.040 --> 02:22.470
+Le permite leer desde un servidor web después de que la página se haya cargado y actualizar
+
+02:22.470 --> 02:31.610
+una página web sin volver a cargar la página. Y finalmente envíe datos en segundo plano mientras el usuario interactúa con el sitio web.
+
+02:31.660 --> 02:40.000
+En realidad, fue pionero de Google en 2006 y ahora es lo que esperamos de los sitios web y cualquier aplicación web
+
+02:40.000 --> 02:42.790
+que vea en línea ahora usa Ajax.
+
+02:42.800 --> 02:50.920
+Verá que Google tuvo este gran problema cuando buscamos algo, bueno, inicialmente escribiría
+
+02:50.920 --> 02:56.430
+'apple' y se actualizaría la página por completo.
+
+02:56.430 --> 03:03.270
+Pero ahora con esto puedo mantener la barra superior y tener esto cargado.
+
+03:03.410 --> 03:05.050
+Incluso puedo tener sugerencias surgidas
+
+03:07.980 --> 03:09.190
+del servidor.
+
+03:09.300 --> 03:17.070
+Y todo esto es una respuesta del servidor que dice que estas son algunas de las sugerencias basadas en la tienda
+
+03:17.080 --> 03:18.200
+de Apple.
+
+03:18.650 --> 03:24.410
+Por lo tanto, fue un gran problema para Google y pudieron resolverlo con Ajax, pero ahora todos
+
+03:24.410 --> 03:25.650
+tenemos esta capacidad.
+
+03:25.670 --> 03:27.530
+Entonces, ¿cómo podemos hacer esto?
+
+03:27.530 --> 03:37.430
+"¿Qué es el Ajax? "AJAX es solo una tecnología, un método para combinar piezas para lograr esto.
+
+03:37.590 --> 03:46.280
+Y se logró usando una herramienta que los navegadores construyeron y se llamaba solicitud XML HTTP.
+
+03:46.620 --> 03:49.670
+Se veía algo así.
+
+03:50.130 --> 03:58.110
+Creó un nuevo objeto de solicitud HTTP HTTP. Como puede ver, parece un poco difícil.
+
+03:58.980 --> 04:08.810
+Realiza una solicitud: realiza una solicitud de obtención en esta URL que dice cargar cuando se carga. Si el estado la respuesta
+
+04:08.810 --> 04:15.200
+es mayor que 200 o menor que 400.
+
+04:15.200 --> 04:16.300
+Es un exito.
+
+04:16.310 --> 04:25.880
+Vamos a analizar el texto de respuesta recuerde porque estamos recibiendo una cadena del servidor. Si no es un éxito,
+
+04:25.880 --> 04:36.640
+podemos devolver un error y luego enviamos nuestra solicitud y también escuchamos cualquier error.
+
+04:37.320 --> 04:44.770
+Parece bastante difícil, pero son cosas que hemos analizado. Pero no te preocupes, en realidad ya no hacemos esto.
+
+04:44.770 --> 04:49.560
+Esta era la antigua forma de hacerlo cuando se presentó Ajax por primera vez.
+
+04:49.570 --> 04:52.980
+jQuery vino y dijo que esto es algo
+
+04:52.980 --> 04:58.320
+difícil de hacer cada vez. Te lo haremos más fácil simplemente haciendo esto.
+
+04:58.550 --> 05:01.820
+Y esa fue otra parte de la razón por la que jQuery era popular.
+
+05:01.820 --> 05:05.700
+Simplemente podemos hacer solicitudes de Ajax haciendo este método.
+
+05:06.050 --> 05:11.690
+Pero ahora hay una forma aún más nueva que utilizamos cuando creamos nuestra aplicación
+
+05:11.690 --> 05:17.220
+de reacción y es compatible con los navegadores y se llama fetch.
+
+05:17.510 --> 05:26.930
+Como recordarán, fue buscar en la URL y luego hicimos esto '. entonces (respuesta) 'y recibimos una respuesta.
+
+05:26.930 --> 05:31.790
+Ahora, esto es algo realmente bueno porque las actualizaciones de la página son mucho más rápidas y no tiene que esperar a
+
+05:31.790 --> 05:33.140
+que la página se actualice.
+
+05:33.140 --> 05:36.660
+Lo que significa que el sitio se siente más rápido y más receptivo.
+
+05:38.390 --> 05:44.250
+También se descargan menos datos en cada actualización, lo que significa menos ancho de banda desperdiciado.
+
+05:44.750 --> 05:50.840
+Y este es un problema importante, especialmente en dispositivos móviles donde la conexión a Internet podría
+
+05:50.840 --> 05:52.460
+no ser tan buena.
+
+05:52.580 --> 06:03.370
+Ajax permite que las páginas web y, por extensión, las aplicaciones web cambien el contenido dinámicamente y está en todas partes.
+
+06:04.080 --> 06:06.510
+Es algo que es muy agradable.
+
+06:06.510 --> 06:14.140
+Parece intimidante, pero es solo una cuestión de hacer esta búsqueda que hace HTTP por usted y todo lo que
+
+06:14.140 --> 06:21.090
+hace es decir si desea hacer un GET, un POST y agregar algunos datos JSON a esa solicitud.
+
+06:21.220 --> 06:29.460
+Así que revisemos nuevamente lo que sucede con Ajax. Se produce un evento en una página web, como iniciar sesión
+
+06:29.460 --> 06:34.200
+y hago clic en iniciar sesión. Objeto de solicitud HTTP HTTP:
+
+06:34.290 --> 06:41.280
+una vez más, algo que los navegadores web han implementado se crea y se crea usando javascript.
+
+06:41.560 --> 06:49.800
+El objeto de solicitud XML HTTP envía una solicitud al servidor web, el servidor procesa la solicitud y
+
+06:49.920 --> 06:54.500
+luego el servidor envía una respuesta a la página web.
+
+06:54.590 --> 07:03.650
+La respuesta es leída por javascript y el usuario puede iniciar sesión. Al mismo tiempo, solo actualiza una pequeña
+
+07:03.650 --> 07:06.490
+parte de la ventana.
+
+07:06.530 --> 07:12.380
+Eso es lo que es una aplicación de una sola página y es una palabra que probablemente
+
+07:12.410 --> 07:21.770
+has escuchado antes y es una tendencia en cómo hacer aplicaciones web. Cuando carga una base, una página casi vacía y construye el contenido sobre la
+
+07:21.770 --> 07:25.010
+marcha en función de los datos obtenidos del servidor.
+
+07:25.010 --> 07:27.790
+Volvamos a ti, Udemy.
+
+07:27.900 --> 07:36.270
+Cuando hago clic en un curso, hagamos 'relaciones públicas', verá que esto se está cargando uno a la vez. Tenía la barra superior
+
+07:36.810 --> 07:38.040
+cargada.
+
+07:38.160 --> 07:41.350
+Luego tuve una pausa y luego el resto cargó.
+
+07:41.400 --> 07:45.900
+Si hago clic en 'Explorar curso', verás nuevamente la barra superior cargada.
+
+07:45.930 --> 07:50.540
+Otras partes de la web se cargan lentamente de forma dinámica.
+
+07:50.620 --> 07:59.820
+Y nuevamente, si vuelvo a 'fotografía', por ejemplo, partes de la página web se cargan dinámicamente
+
+07:59.820 --> 08:06.890
+y esa es la belleza. Estas aplicaciones casi nunca realizan una recarga completa, destruyen todo
+
+08:06.890 --> 08:12.270
+el contenido anterior o parte de él y lo creamos en base a nuevos datos: nueva página.
+
+08:12.470 --> 08:14.760
+Y esto puede sonarte familiar.
+
+08:15.720 --> 08:19.350
+¿Recuerdas cómo creamos nuestra aplicación 'robofriends'?
+
+08:19.740 --> 08:24.950
+Buscamos esta URL que nos dio usuarios.
+
+08:25.330 --> 08:30.260
+Entonces, ahora que entendemos estos conceptos, vamos línea por línea y veamos qué sucede.
+
+08:30.280 --> 08:34.790
+Solía buscar basado en lo que dije, Fetch debería ser parte del objeto de la ventana, ¿verdad?
+
+08:34.990 --> 08:41.500
+Vamos a revisar. Si abro la consola y lo hago
+
+08:41.730 --> 08:43.870
+'ventana. fetch 'sí,
+
+08:43.940 --> 08:53.520
+fetch es una función que podemos usar y esta URL, si recuerdas, nos devuelve el contenido. ¿Qué es
+
+08:53.620 --> 08:54.200
+eso?
+
+08:54.220 --> 08:56.540
+Sí, un objeto JSON.
+
+08:56.800 --> 09:05.500
+Y este objeto JSON, fetch nos permite hacer algo llamado respuesta: 'respuesta. json () '.
+
+09:05.840 --> 09:08.800
+Bueno, hagamos esto por ahora y veamos qué sucede.
+
+09:08.810 --> 09:14.750
+Voy a copiar y pegar esto. Voy a abrir la consola y sabes que voy a abrir una nueva
+
+09:14.750 --> 09:17.180
+pestaña para mostrarte que puedes hacerlo desde cualquier lugar.
+
+09:18.170 --> 09:25.770
+Si copio y pego esta búsqueda, obtengo algo llamado promesa y esto es algo en JavaScript al
+
+09:26.040 --> 09:27.630
+que te acostumbrarás.
+
+09:27.750 --> 09:34.050
+Promise dice "hey, estoy haciendo una solicitud a algún lugar a través de Internet y prometo avisarle cuando
+
+09:34.050 --> 09:37.160
+tenga este valor devuelto. "Entonces, la forma en que
+
+09:37.650 --> 09:42.310
+accedes a la promesa es, así que tienes esto: 'una vez que esto sea devuelto,
+
+09:42.360 --> 09:43.540
+dame el valor'.
+
+09:43.620 --> 09:45.540
+Tú lo haces '. entonces
+
+09:45.660 --> 09:51.600
+'y te da la respuesta. Si agrego a mi solicitud anterior. entonces
+
+09:51.920 --> 10:05.520
+y lo hago 'consola de respuesta. log (respuesta) '.
+
+10:05.690 --> 10:11.510
+Mira eso, recibo una respuesta. Estado 200 lo recordaremos.
+
+10:11.720 --> 10:12.520
+Ok, eso es bueno.
+
+10:12.530 --> 10:19.690
+Y también obtenemos este cuerpo, pero dice una corriente transpirable. Y buscar ... quiero decir
+
+10:19.850 --> 10:25.930
+que aprendimos sobre JSON. analizar para analizar JSON.
+
+10:26.340 --> 10:32.300
+Pero fetch en realidad viene con su propio método llamado "json".
+
+10:32.450 --> 10:39.770
+Entonces, en esta respuesta, si hacemos "json", en realidad lo convertirá por nosotros.
+
+10:39.770 --> 10:49.310
+Veamos. Si vuelvo a esa solicitud nuevamente, recibo una respuesta. Si en lugar de iniciar sesión en la consola,
+
+10:49.380 --> 10:51.320
+digo 'respuesta. json
+
+10:51.530 --> 10:55.800
+() 'En ese caso, recibo una promesa nuevamente.
+
+10:55.800 --> 11:03.300
+Eso significa que tenemos que hacer. luego recibir cada vez que esto devuelva la promesa, que es el valor.
+
+11:03.680 --> 11:07.440
+Así que de nuevo subo y hago. Entonces, y en este caso,
+
+11:07.600 --> 11:13.780
+veamos qué datos recibimos, obtenemos datos y los consolamos. Dato de registro.
+
+11:17.680 --> 11:31.800
+Si presiono enter. Mira que recibimos a nuestros usuarios, los mismos usuarios que estaban aquí.
+
+11:31.880 --> 11:40.160
+Ahora puede ver que simplemente usamos la API de recuperación que nos permite hacer una llamada AJAX después de montar el
+
+11:40.160 --> 11:40.740
+componente.
+
+11:40.880 --> 11:48.830
+Entonces, una vez que se cargó nuestra aplicación robo friends, realizamos una solicitud de Ajax utilizando la API fetch.
+
+11:49.100 --> 11:53.350
+Recibimos una respuesta que fue una promesa.
+
+11:53.360 --> 12:01.190
+Entonces tuvimos que hacer eso y esta respuesta, y esto es simplemente estándar, cada vez que vayas a buscar
+
+12:01.190 --> 12:03.420
+lo recordarás. json
+
+12:03.710 --> 12:11.270
+Convertí esto en algo que bien podemos usar en javascript y
+
+12:11.270 --> 12:21.440
+porque esto devolvió una promesa que hicimos. luego obtuvimos los usuarios y ahora tenemos los objetos de los usuarios y nunca tuvimos que actualizar la página.
+
+12:21.510 --> 12:29.870
+Y, por cierto, si desea que este JSON cada vez que acceda a él se vea más bonito
+
+12:29.870 --> 12:36.560
+y sea un poco más legible, estoy usando una extensión de Chrome llamada 'JSONView'.
+
+12:36.590 --> 12:37.130
+Es gratis.
+
+12:37.130 --> 12:39.580
+Simplemente agregue Chrome, lo hace automáticamente por usted.
+
+12:39.590 --> 12:43.000
+Lo recomiendo altamente. Bien, volvamos a
+
+12:43.460 --> 12:46.030
+esto. Esto debería tener sentido
+
+12:46.040 --> 12:47.450
+ahora.
+
+12:47.810 --> 12:56.670
+Ahora tenemos la capacidad de cargar dinámicamente nuestras páginas web para hacer aplicaciones de una sola página usando
+
+12:56.750 --> 13:07.640
+AJAX y Ajax es una combinación de herramientas de usar la API de búsqueda, usar HTTP, usar JSON para comunicarse con los
+
+13:07.640 --> 13:08.630
+servidores.
+
+13:09.080 --> 13:20.000
+Y ahora tenemos una imagen completa de nuestro front end. Nuestro front end puede tener HTML, CSS, javascript, reaccionar.
+
+13:20.000 --> 13:31.670
+Podemos usar AJAX para comunicarnos con servidores y usar datos JSON para enviar datos por cable. Realmente emocionado por los próximos
+
+13:31.670 --> 13:33.660
+videos.
+
+13:34.500 --> 13:35.470
+Entonces veré en ese. Adiós.

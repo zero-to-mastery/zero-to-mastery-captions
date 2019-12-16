@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.750 --> 00:01.320
+Todo bien.
+
+00:01.430 --> 00:10.700
+Entonces, creemos una tabla. Si recuerda ir a nuestra base de datos de Postgres, simplemente escribimos psql, luego el
+
+00:10.700 --> 00:14.980
+nombre de nuestra base de datos e ingresaremos en la base de datos.
+
+00:15.130 --> 00:18.410
+Y ahora podemos comunicarnos con él usando SQL.
+
+00:18.430 --> 00:19.950
+Ahora creemos una tabla.
+
+00:20.060 --> 00:21.060
+Cómo podemos hacer eso.
+
+00:21.940 --> 00:29.380
+De nuevo, SQL viene con algo de lenguaje. Sintaxis del lenguaje que podemos usar. Y para crear una tabla podemos usar
+
+00:29.380 --> 00:30.840
+algo como esto.
+
+00:30.970 --> 00:34.580
+Decimos 'CREAR TABLA', que es un comando SQL.
+
+00:34.870 --> 00:43.780
+Ingresamos un nombre de tabla seguido de corchetes y luego decimos lo que queremos que diga la columna_1 con el
+
+00:43.780 --> 00:52.940
+tipo de datos, columna_2 con el tipo de datos, columna_3 con el tipo de datos y luego terminando con punto y coma.
+
+00:52.940 --> 00:56.010
+Permítanme presionar enter y ver qué pasa aquí.
+
+00:56.180 --> 01:05.030
+Recibo un error "tipo" tipo de datos "no existe" y eso es porque el tipo de datos se refiere a lo que sabe
+
+01:05.060 --> 01:12.000
+Postgres o nuestra base de datos relacional, tenemos que decir con anticipación qué tipo de datos tienen la
+
+01:12.020 --> 01:14.400
+columna_1, la columna_2 y la columna_3.
+
+01:15.590 --> 01:23.030
+Si volvemos a nuestro navegador Chrome, vemos que para Postgres tenemos algunos tipos
+
+01:23.030 --> 01:29.240
+de datos que podemos almacenar. Tipos de datos de cadena, tipos de datos numéricos y tipos de datos de fecha y hora.
+
+01:29.360 --> 01:33.180
+Y cada uno de ellos tiene cosas diferentes. Para un tipo de
+
+01:33.230 --> 01:37.900
+datos numéricos Tenemos un entero que es un entero de 4 bytes.
+
+01:38.000 --> 01:43.980
+Tenemos bigint que permite un número mayor y todas estas cosas diferentes, tenemos dinero que es el valor
+
+01:44.000 --> 01:49.870
+de la moneda y la razón por la que tenemos que dar este tipo de datos se debe
+
+01:49.880 --> 01:57.080
+a la forma en que funcionan las bases de datos. Están optimizados para asegurarse de que, siempre y cuando todo sea igual
+
+01:57.410 --> 02:00.840
+en su columna, puedan trabajar realmente rápido para realizar acciones.
+
+02:02.190 --> 02:10.550
+En nuestro caso, usemos algunos de los más comunes. Podemos usar texto para la primera columna.
+
+02:10.620 --> 02:11.370
+Entonces hagamos eso.
+
+02:11.370 --> 02:16.110
+Voy a presionar la flecha hacia arriba y crear la tabla.
+
+02:16.110 --> 02:21.300
+También voy a nombrar esta tabla, llamémosla usuarios
+
+02:24.000 --> 02:39.550
+y la columna_1 será nombre, el tipo de datos puede ser texto, la columna_2 podemos decir que es edad y tipo de datos para una
+
+02:39.550 --> 02:40.390
+edad.
+
+02:40.390 --> 02:43.870
+Bueno, si miramos aquí abajo, miramos los tipos numéricos.
+
+02:43.960 --> 02:49.920
+Queremos usar algo como smallint, que es un entero de 2 bytes con signo.
+
+02:50.080 --> 02:56.320
+Significa que un max para una smallint, si voy a smallint Max, vemos
+
+02:58.990 --> 03:04.820
+que el rango máximo es 32,762. Bueno, nadie va a ser tan viejo,
+
+03:04.820 --> 03:05.530
+¿verdad?
+
+03:05.530 --> 03:14.160
+Así que podemos usar smallint por ahora, hagamos eso. Voy a decir que la edad es pequeña.
+
+03:14.300 --> 03:24.140
+Y finalmente, la tercera columna solo tendrá 'cumpleaños' y el cumpleaños puede ser un tipo de datos
+
+03:24.140 --> 03:32.460
+de fecha y solo podemos tener una fecha, presione enter y obtengo crear tabla.
+
+03:32.610 --> 03:37.670
+Echemos un vistazo a nuestra PSequel aquí. Y minimizaré esto.
+
+03:37.900 --> 03:48.190
+Y si hago clic en Actualizar aquí, veo que tenemos usuarios. Mire eso y tenemos columnas para los usuarios de la tabla que
+
+03:48.220 --> 03:50.470
+son nombre, edad, cumpleaños.
+
+03:50.520 --> 03:53.110
+Nos dice el tipo y la longitud.
+
+03:53.110 --> 03:56.320
+Entonces ahora tenemos nuestra mesa. Increíble.
+
+03:56.560 --> 04:06.700
+También hay una manera de hacerlo aquí si hacemos '\ d' obtengo una lista de relaciones y miro que tenemos
+
+04:06.700 --> 04:13.600
+nuestra tabla de usuarios y el propietario, que soy yo, muy genial.
+
+04:13.600 --> 04:14.210
+Ahí tienes.
+
+04:14.290 --> 04:20.620
+Hemos creado nuestra primera mesa. Ahora que tenemos esto, podemos comenzar a ingresar cierta información.
+
+04:20.620 --> 04:24.800
+Y, por cierto, es posible que se pregunte cuántas veces ejecutamos estos comandos.
+
+04:25.090 --> 04:30.490
+Bueno, idealmente, una vez que crea su base de datos y vive en algún lugar de una computadora en algún lugar
+
+04:31.540 --> 04:33.740
+del mundo, solo ejecuta esto una vez, ¿verdad?
+
+04:33.910 --> 04:40.420
+Usted crea una tabla de cómo desea que se vea su base de datos y el resto es simplemente completar
+
+04:40.420 --> 04:43.180
+e insertar información y leer información de ella.
+
+04:43.180 --> 04:49.510
+Entonces, este es el comando que configuraremos cuando creamos nuestra propia base de datos para configurar nuestros esquemas.
+
+04:49.510 --> 04:52.470
+Y luego, después de eso, se ejecutará solo.
+
+04:52.660 --> 04:55.530
+Y podrá comunicarse con el back-end.
+
+04:55.720 --> 04:57.370
+Va a ser muy divertido.
+
+04:57.370 --> 05:00.560
+Por cierto, antes de pasar al siguiente video, quiero mostrarles un comando más.
+
+05:00.580 --> 05:03.980
+Aprendimos que '\ d' nos muestra nuestras tablas.
+
+05:04.060 --> 05:12.480
+Si hago '\ q' Salimos de aquí y volvemos a la terminal.
+
+05:12.490 --> 05:14.470
+Muy bien, nos vemos en el próximo.
+
+05:14.860 --> 05:15.100
+Adiós.

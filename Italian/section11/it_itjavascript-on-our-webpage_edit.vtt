@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.840 --> 00:03.000
+E bentornato!
+
+00:03.000 --> 00:10.830
+Faremo una breve pausa dall'apprendimento della sintassi JavaScript per mostrarti come JavaScript viene implementato nel
+
+00:11.190 --> 00:12.170
+browser.
+
+00:12.450 --> 00:15.730
+Torneremo su questa immagine che
+
+00:15.780 --> 00:22.650
+abbiamo visto molte volte in questo corso. E abbiamo una buona idea di cosa fanno HTML e CSS.
+
+00:22.650 --> 00:31.740
+Se ricordi che l'HTML viene inviato al browser, viene visualizzato il tag "link" e il CSS viene inviato al
+
+00:31.740 --> 00:32.570
+browser.
+
+00:32.670 --> 00:36.270
+Ma che dire del nostro nuovo amico JavaScript qui?
+
+00:36.300 --> 00:37.380
+Cosa succede con lui?
+
+00:38.260 --> 00:43.350
+Bene, in questo video impareremo esattamente questo.
+
+00:43.390 --> 00:49.340
+Quindi ho qui un indice. file html. Lo aprirò con Google Chrome.
+
+00:49.450 --> 00:50.940
+Adesso è completamente vuoto.
+
+00:51.250 --> 00:57.630
+E lo trascinerò anche nel mio testo Sublime, in modo da poter aggiungere qualcosa.
+
+01:00.370 --> 01:06.790
+Quindi ho testo Sublime e il browser, e useremo il nostro breve comando per creare
+
+01:06.790 --> 01:09.660
+un rapido file html - 'Javascript'.
+
+01:09.970 --> 01:21.600
+E abbiamo solo una semplice "intestazione" che dice "Javascript in HTML". Salva e aggiorna.
+
+01:21.650 --> 01:22.260
+Perfezionare!
+
+01:22.280 --> 01:23.910
+Ne abbiamo già padroni.
+
+01:23.930 --> 01:25.760
+Sappiamo tutti cosa sta succedendo.
+
+01:26.180 --> 01:29.830
+Quindi, come possiamo aggiungere JavaScript a questo?
+
+01:29.840 --> 01:41.620
+Voglio dire: con CSS avevamo il tag 'link', giusto? E abbiamo avuto questo 'href' dove gli diciamo dove si trova. Bene, se ricordi, JavaScript,
+
+01:41.620 --> 01:49.910
+proprio come HTML e CSS, è solo un file.
+
+01:50.050 --> 01:54.550
+Quindi creiamo prima uno. Nel testo Sublime ho intenzione di creare
+
+01:54.550 --> 01:55.950
+un nuovo file.
+
+01:56.100 --> 02:00.170
+Lo salverò e dirò 'script. js'.
+
+02:00.220 --> 02:01.160
+'Script. js'.
+
+02:01.180 --> 02:02.860
+Vedi il "punto js" alla fine?
+
+02:02.860 --> 02:04.550
+Ciò significa JavaScript.
+
+02:04.660 --> 02:10.050
+Nota, cosa succede quando faccio clic su "Salva". In fondo Sublime Text
+
+02:10.090 --> 02:13.780
+ora ha convertito la sintassi in JavaScript.
+
+02:13.850 --> 02:21.440
+Quindi ora posso scrivere qualcosa come '4 + 3' e ottengo i fantastici colori JavaScript come,
+
+02:21.890 --> 02:35.850
+e posso scrivere 'if (4 + 3 === 7)', posso 'avvisare ("Sei intelligente! ").
+
+02:36.500 --> 02:38.800
+Quindi puoi vedere che fa la sintassi per me.
+
+02:39.870 --> 02:40.450
+OK.
+
+02:40.830 --> 02:42.220
+Perfezionare.
+
+02:42.330 --> 02:44.650
+Quindi lo salvo.
+
+02:44.760 --> 02:47.840
+Vediamo se possiamo aggiungere questo a ... oops.
+
+02:47.880 --> 02:49.390
+Ho dimenticato il punto e virgola qui.
+
+02:49.410 --> 02:51.080
+Lo dimentico sempre anche io.
+
+02:51.210 --> 02:53.210
+Aggiungiamolo al nostro HTML.
+
+02:53.430 --> 02:58.720
+Se funziona, avremo un 'avviso' che dice "Sei un furbo! "Quindi come possiamo
+
+02:58.920 --> 03:00.190
+farlo?
+
+03:01.240 --> 03:06.780
+Bene, c'è un tag HTML chiamato tag 'script'.
+
+03:07.150 --> 03:15.510
+Quindi tag "link" - per foglio di stile, tag "script" per - JavaScript. E tutto ciò che facciamo è questo: abbiamo
+
+03:15.680 --> 03:25.250
+il 'tipo = "testo / javascript"'. Vedi qui come con CSS abbiamo "text / css". Bene, stiamo
+
+03:25.250 --> 03:36.380
+dicendo qui che questo è JavaScript. E qui JavaScript può essere scritto proprio qui.
+
+03:37.280 --> 03:45.150
+Vado 'alert ("ciao")' e potresti ricordarlo perché è una specie di tag 'style' per CSS.
+
+03:45.310 --> 03:46.400
+Vediamo cosa succede.
+
+03:47.380 --> 03:49.930
+Ho intenzione di rinfrescarmi e ottengo
+
+03:50.060 --> 03:50.790
+"ciao".
+
+03:51.140 --> 03:51.950
+Guarda quello!
+
+03:51.950 --> 04:01.520
+Abbiamo appena aggiunto JavaScript a HTML. Ma voglio davvero usare questo file. Come sappiamo con i CSS, non vogliamo necessariamente
+
+04:01.520 --> 04:06.890
+che il nostro JavaScript viva su HTML, vogliamo la separazione delle preoccupazioni, vogliamo il
+
+04:06.890 --> 04:08.620
+JavaScript nel file JavaScript.
+
+04:09.180 --> 04:14.480
+Bene, il modo in cui lo facciamo è attraverso un file sorgente.
+
+04:15.040 --> 04:20.830
+Quindi tutto ciò che facciamo è - 'src'. Potresti ricordare questo dalle immagini.
+
+04:20.860 --> 04:27.690
+Quindi invece di 'href' e 'link' abbiamo 'src' e diciamo 'script. js'.
+
+04:28.660 --> 04:34.300
+Salvo e aggiorno. E ottengo "Sei intelligente! ".
+
+04:34.310 --> 04:41.980
+Ora di nuovo possiamo dire 'script. js ', perché, beh, è nella stessa cartella - è nella cartella del desktop.
+
+04:42.050 --> 04:49.130
+Se non lo fosse, allora diciamo che questo HTML non era nella cartella desktop, dovremmo fare qualcosa come "desktop /
+
+04:49.160 --> 04:51.350
+script. js ... '. OK.
+
+04:59.150 --> 05:05.310
+Quindi è molto interessante. E se avessi più file JavaScript, potremmo
+
+05:05.330 --> 05:09.440
+averlo visto in ... ricorda Bootstrap e Bootstrap abbiamo come tre tag 'script'.
+
+05:09.810 --> 05:10.600
+Beh, si.
+
+05:10.700 --> 05:18.020
+Puoi, proprio come fai con 'link', puoi avere più tag 'script' e puoi semplicemente
+
+05:18.050 --> 05:24.490
+dire 'script2', 'script3' e ancora, ognuno viene eseguito uno alla volta.
+
+05:25.660 --> 05:26.320
+OK.
+
+05:26.730 --> 05:36.540
+Ora una domanda che potresti avere è: 'Perché ho appena messo il tag' script 'in fondo qui, in fondo al
+
+05:36.540 --> 05:38.200
+corpo? 'Perché non
+
+05:38.260 --> 05:39.190
+l'abbiamo fatto -
+
+05:39.220 --> 05:41.200
+e lasciami rimuovere questo per ora ...
+
+05:41.200 --> 05:47.550
+Perché non lo mettiamo semplicemente in alto, come facciamo con il file CSS?
+
+05:47.680 --> 05:49.140
+Bene, lascia che ti mostri qualcosa.
+
+05:49.240 --> 05:50.560
+Mettiamolo qui.
+
+05:50.560 --> 05:51.690
+Vediamo cosa succede.
+
+05:52.000 --> 05:59.350
+Ho intenzione di rinfrescare. OK. Ottengo "Sei intelligente! "Non so se l'hai
+
+05:59.390 --> 06:00.350
+visto.
+
+06:00.350 --> 06:02.030
+Hai visto JavaScript andare?
+
+06:02.180 --> 06:03.300
+Cambiamolo rapidamente.
+
+06:03.320 --> 06:10.750
+Diciamo che il nostro sito Web è ora nuovo e aggiornato e sto per dire "Aspettando Javascript".
+
+06:11.010 --> 06:15.080
+Ho intenzione di salvare. Nota cosa succede all'intestazione.
+
+06:15.380 --> 06:18.970
+Io aggiorno. Non è ancora cambiato.
+
+06:19.190 --> 06:22.500
+Devo fare clic su "Sei intelligente! "Vedi,
+
+06:22.550 --> 06:24.600
+è completamente sparito.
+
+06:24.610 --> 06:34.640
+Fai clic su "OK" e solo allora viene visualizzato, perché il browser legge il file, va e ottiene il file CSS, quindi vede il tag "script" e dice "Oh,
+
+06:34.640 --> 06:39.070
+vado a leggere cosa c'è qui! "Ed ecco un
+
+06:39.140 --> 06:42.770
+'avviso' e che 'avviso' lo fa ...
+
+06:42.830 --> 06:50.090
+Ci aspetta che facciamo clic su "OK", quindi il browser non può visualizzare (mentre) in attesa di JavaScript.
+
+06:50.090 --> 06:56.750
+Quindi vedrai persone di siti Web più anziani che inseriscono i tag "script" qui, ma ciò in realtà ritarda ciò
+
+06:56.750 --> 06:58.470
+che viene visto dall'utente.
+
+06:58.820 --> 07:11.270
+Invece, se lo mettiamo qui e cambiamo di nuovo il testo in "Non in attesa" e un salvataggio. Guarda cosa succede.
+
+07:13.260 --> 07:20.440
+"Non aspetto Javascript", che è stato modificato. Quindi idealmente vogliamo mettere i nostri tag 'script' nella parte inferiore
+
+07:20.440 --> 07:21.200
+del corpo.
+
+07:21.400 --> 07:31.270
+Ciò significa che il sito Web viene visualizzato, reso e quindi dobbiamo ancora attendere il caricamento di JavaScript - diciamo che
+
+07:31.270 --> 07:34.000
+abbiamo avuto una bella animazione.
+
+07:34.000 --> 07:36.070
+Dovrò aspettare che carichi.
+
+07:36.220 --> 07:43.090
+Ma per un utente sembra che il sito web si carichi molto più velocemente perché potrebbero non fare clic su un menu
+
+07:43.090 --> 07:48.790
+a discesa o vedere l'animazione immediatamente e notare che c'è un ritardo, ma vedranno un ritardo se non
+
+07:48.790 --> 07:50.310
+vedono nulla sulla pagina.
+
+07:50.350 --> 07:54.030
+Quindi tag 'script' in fondo.
+
+07:54.110 --> 07:55.220
+Un'ultima cosa.
+
+07:56.370 --> 08:00.600
+Come possiamo ottenere quella console per stampare roba?
+
+08:01.440 --> 08:05.760
+Sarebbe bello se, invece di allertare continuamente, potessi avere qualcosa nella console.
+
+08:05.910 --> 08:14.060
+Bene, in JavaScript puoi fare qualcosa, chiamato 'console. log'.
+
+08:14.140 --> 08:18.710
+E qui posso dire "Helooooo".
+
+08:18.820 --> 08:20.640
+Quindi questa sintassi è un po 'strana.
+
+08:20.650 --> 08:29.580
+Spiegherò più avanti cosa sta succedendo qui, ma 'console. log 'è una piccola sintassi speciale, che possiamo usare.
+
+08:29.590 --> 08:39.420
+E ora se aggiorno la pagina, accedo qui. Quindi posso scrivere quanto voglio qui.
+
+08:39.430 --> 08:46.130
+Un po 'come "allerta", ma senza che quel fastidioso pop-up si ripeta e si aggiorni.
+
+08:46.310 --> 08:47.430
+E ottengo "Hellooooo".
+
+08:47.480 --> 08:51.800
+E useremo 'console. accedi molto nei prossimi due video.
+
+08:51.820 --> 08:59.170
+Puoi vedere qui che è un bel modo per noi di stampare qualcosa sulla console, prima di imparare come
+
+08:59.530 --> 09:01.210
+cambiare il nostro HTML.
+
+09:02.420 --> 09:03.380
+Quindi vedrò nel prossimo. Ciao ciao

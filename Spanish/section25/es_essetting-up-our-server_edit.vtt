@@ -1,0 +1,307 @@
+WEBVTT
+
+00:01.100 --> 00:06.280
+Dar una buena acogida. En esta sección, vamos a seguir
+
+00:06.410 --> 00:12.620
+trabajando en nuestro proyecto final: la aplicación de reconocimiento facial que hemos creado, y tenemos el front-end
+
+00:12.620 --> 00:16.720
+hecho principalmente para ello, pero ahora necesitamos un servidor, algo que el
+
+00:17.060 --> 00:23.910
+front-end puede comuníquese para que esta aplicación pueda vivir en algo más que nuestra computadora portátil; de hecho, podemos implementarla.
+
+00:24.120 --> 00:33.480
+Y si recuerda nuestra aplicación, tenemos un inicio de sesión y el inicio de sesión también está vinculado a un registro en el que podemos
+
+00:33.480 --> 00:35.270
+registrar a los usuarios.
+
+00:35.520 --> 00:40.130
+Y si acabamos de tener la aplicación como está ahora, no hay nada que interactúe con ella.
+
+00:40.290 --> 00:47.830
+Cada vez que iniciamos sesión en la aplicación, podemos crear una nueva contraseña para un nuevo usuario e iniciar sesión sin problemas.
+
+00:50.530 --> 00:57.140
+Pero si construimos un back-end para él, ahora tenemos la capacidad de interactuar con él.
+
+00:57.250 --> 01:02.820
+Incluso podemos incluir una base de datos para que haya memoria y podamos tener usuarios reales que
+
+01:02.830 --> 01:07.450
+nuestro back-end recordará, y llegaremos a la base de datos en las siguientes secciones.
+
+01:07.540 --> 01:12.440
+Pero por ahora hemos trabajado en Node y Express y deberíamos estar familiarizados con su funcionamiento.
+
+01:13.330 --> 01:15.500
+Es bastante agradable y simple, ¿verdad?
+
+01:15.520 --> 01:24.160
+Simplemente estamos creando URL y puntos finales y brindando una respuesta al front-end.
+
+01:24.180 --> 01:26.360
+Entonces, en eso vamos a trabajar en esta sección.
+
+01:27.730 --> 01:28.930
+Si volvemos a
+
+01:32.470 --> 01:37.080
+nuestra aplicación solo mirando esta aplicación, podemos descubrir qué puntos finales queremos tener.
+
+01:37.090 --> 01:46.370
+Definitivamente queremos tener un punto final de 'inicio de sesión'; queremos tener un punto final de 'registro' y cada vez que iniciemos sesión
+
+01:46.370 --> 01:50.480
+en esta aplicación, bueno, tendremos algún tipo de perfil.
+
+01:50.480 --> 02:00.450
+Queremos que se muestre nuestro nombre y nuestro rango, e idealmente este rango cambiará en función de cuántas caras o cuántas URL
+
+02:00.450 --> 02:03.190
+he enviado para mi perfil.
+
+02:05.870 --> 02:07.610
+Así que aquí está la parte divertida.
+
+02:07.610 --> 02:13.850
+En realidad, no tocaremos realmente el front-end para el primer par de videos porque
+
+02:13.850 --> 02:21.790
+la forma en que desea construir un servidor API es que quiere descubrir cuál es la funcionalidad
+
+02:21.790 --> 02:30.100
+que queremos y probarla en algo como Postman. Así que en los próximos videos usaremos Postman y solo crearemos
+
+02:30.100 --> 02:37.310
+nuestro servidor, y con Postman probaremos nuestro servidor como lo hicimos en la sección anterior, conseguiremos que todos nuestros
+
+02:37.310 --> 02:38.020
+puntos
+
+02:39.030 --> 02:43.060
+finales funcionen y finalmente vamos a conectarlo a nuestro front-end.
+
+02:44.360 --> 02:45.740
+Va a ser muy divertido.
+
+02:45.920 --> 02:54.200
+Ahora por aquí he cambiado el nombre de nuestro proyecto front-end a smart-brain, pero esa es la aplicación React en
+
+02:54.200 --> 03:03.050
+la que hemos estado trabajando y también he creado una carpeta llamada 'smart-brain-api', y no tiene absolutamente nada en él a
+
+03:03.050 --> 03:07.090
+excepción de un 'paquete. json '.
+
+03:07.220 --> 03:10.040
+Así que simplemente ejecuté 'npm init'.
+
+03:10.040 --> 03:13.520
+Pero es algo con lo que ya estábamos familiarizados, así que no te aburriré.
+
+03:13.760 --> 03:19.560
+Y luego instalé un par de paquetes que hemos usado en la sección anterior.
+
+03:19.880 --> 03:26.870
+El framework Express, para que podamos construir un servidor realmente bien, Nodemon, para que podamos ejecutar Nodemon en
+
+03:26.870 --> 03:36.100
+nuestros scripts y asegurarnos de que nuestro servidor se esté ejecutando, y también tenemos body-parser, que utilizamos para analizar y tener acceso al solicitar
+
+03:36.100 --> 03:40.120
+cuerpo de punto [req. body] para leer JSON y formar datos.
+
+03:40.360 --> 03:43.610
+Aparte de eso, no hay ningún archivo JavaScript.
+
+03:43.720 --> 03:53.760
+Comencemos creando un 'servidor'. js 'y ahora que tenemos' servidor. js ', en los "scripts"
+
+03:53.760 --> 04:02.280
+podemos decir que NPM "start" y nuevamente es JSON, así que tengo que envolverlo entre llaves.
+
+04:03.280 --> 04:08.410
+Y este "inicio" solo dirá "servidor nodemon". js "- Y ahora
+
+04:10.730 --> 04:12.800
+cada vez que
+
+04:12.800 --> 04:19.800
+ejecutamos 'npm start' nuestro servidor se ejecutará pero aún no tenemos nada.
+
+04:19.810 --> 04:27.170
+Entonces, obtengamos nuestro esqueleto básico de nuestra aplicación Express, y esto ya debería serle familiar.
+
+04:27.640 --> 04:38.470
+Solo tendremos un const express igual que require el paquete express [const express = require ('express')].
+
+04:38.620 --> 04:41.890
+Luego crearemos nuestra aplicación ejecutando Express y
+
+04:46.140 --> 04:55.710
+finalmente tendremos la aplicación dot listen y usaremos el puerto 3000 [app. listen (3000)] y dentro del 'listen' podemos enviarle un segundo parámetro,
+
+04:55.710 --> 05:00.970
+que es una función dentro de esta función, se ejecutará justo después
+
+05:03.610 --> 05:08.220
+de que ocurra el 'listen' en el puerto 3000.
+
+05:08.440 --> 05:19.990
+Y solo para asegurarnos de que todo funcione sin problemas, solo diremos 'la aplicación se está ejecutando en el puerto
+
+05:20.240 --> 05:28.110
+3000'. Nodemon hace esto por nosotros, pero me gusta tenerlo aquí independientemente.
+
+05:28.120 --> 05:28.410
+Todo bien.
+
+05:28.420 --> 05:30.790
+Entonces, para probar esto si hago 'npm start' tenemos Nodemon
+
+05:35.330 --> 05:42.410
+iniciado, la aplicación se está ejecutando en el puerto 3000 tal como lo he dicho aquí [consola. log ('la aplicación se está ejecutando en el puerto 3000')].
+
+05:42.500 --> 05:48.830
+En este momento, ahora que tenemos la aplicación en ejecución, creemos una ruta básica para asegurarnos de
+
+05:48.830 --> 05:50.720
+que todo funcione bien.
+
+05:50.750 --> 05:58.780
+Simplemente puede crear una 'aplicación. get () 'en la ruta raíz [(' / ')].
+
+05:59.080 --> 06:04.700
+Y nuevamente, como lo hemos hecho anteriormente, esto obtendrá una respuesta de solicitud.
+
+06:08.150 --> 06:19.240
+Y aquí haremos una respuesta dot send [res. send ('esto está funcionando')] guardemos y regresemos a nuestro cartero
+
+06:19.250 --> 06:24.100
+y hagamos nuestro localhost 3000 y solo haremos una
+
+06:27.270 --> 06:31.850
+raíz [/] y obtendremos 'esto está funcionando' perfectamente.
+
+06:31.870 --> 06:35.560
+Entonces, ahora que tenemos esta configuración, me gusta planificar nuestra API.
+
+06:35.590 --> 06:40.450
+Y esto es algo como desarrollador que realmente quieres hacer antes de comenzar a codificar y
+
+06:40.450 --> 06:44.900
+quieres asegurarte de tener una idea de cómo se verá tu diseño de API.
+
+06:46.470 --> 06:47.850
+Así que pensemos en esto.
+
+06:47.940 --> 06:53.760
+Voy a resumir esto en comentarios y podemos trabajar en ello uno por uno. Si desea tener una ruta
+
+06:53.850 --> 07:00.280
+raíz que quizás por ahora solo diremos que responde con
+
+07:00.510 --> 07:02.760
+'esto está funcionando'.
+
+07:02.820 --> 07:12.150
+También queremos tener una ruta de 'inicio de sesión' porque bien queremos que las personas inicien sesión y este
+
+07:12.150 --> 07:22.190
+'inicio de sesión' probablemente sea una solicitud POST porque estamos publicando algunos datos, algo de JSON, algo de información del usuario,
+
+07:22.190 --> 07:24.530
+y responderá con ya sea
+
+07:27.680 --> 07:29.640
+exitoso o fracasado.
+
+07:30.110 --> 07:30.710
+Todo bien.
+
+07:30.770 --> 07:39.200
+También tenemos un 'registro' y el registro nuevamente será una solicitud POST porque queremos agregar los datos
+
+07:39.230 --> 07:49.610
+a la base de datos o, en nuestro caso, una variable en nuestro servidor y con nuestra nueva información de usuario.
+
+07:49.620 --> 07:53.860
+Entonces, tal vez en lugar de decir 'éxito / fracaso' devolveremos al
+
+07:53.880 --> 07:57.620
+usuario recién creado para asegurarnos de que todo esté funcionando.
+
+07:57.930 --> 08:03.300
+Y diremos que este es el nuevo objeto de usuario que devolveremos. OKAY.
+
+08:03.310 --> 08:11.190
+También queremos en la pantalla de inicio tener la capacidad de acceder al perfil del usuario.
+
+08:11.250 --> 08:19.890
+Entonces quizás tengamos un perfil con un parámetro opcional de 'userId' para que cada usuario tenga su propia pantalla
+
+08:20.020 --> 08:21.110
+de inicio.
+
+08:21.390 --> 08:25.230
+Y lo más probable es que sea una solicitud GET.
+
+08:25.230 --> 08:33.700
+Solo queremos obtener la información del usuario y esto nos devolverá el usuario. Y debido a que queremos trabajar con la clasificación o en
+
+08:33.700 --> 08:41.530
+cualquier momento en que un usuario publique una nueva foto, queremos asegurarnos de que aumente su recuento de cuántas fotos han enviado
+
+08:41.530 --> 08:49.190
+y tal vez tenga una manera de llevar puntaje, una variable que aumenta en una cada vez que un usuario envía
+
+08:49.190 --> 08:54.740
+estas fotos y luego compara con otros usuarios para ver quién ha enviado más y
+
+08:54.740 --> 08:56.170
+otorgarles un rango.
+
+08:56.540 --> 09:09.080
+Tal vez podamos tener un punto final de imagen que nuevamente sea una publicación o tal vez en nuestro caso porque estamos actualizando el puntaje,
+
+09:09.080 --> 09:11.210
+debería ser un PUT.
+
+09:11.210 --> 09:17.520
+Debido a que el usuario ya existe y queremos asegurarnos de que haya una actualización en el perfil del usuario.
+
+09:17.810 --> 09:26.470
+Y esto solo devolverá el objeto de usuario actualizado o tal vez lo que hayamos actualizado, en nuestro caso un recuento
+
+09:26.800 --> 09:28.130
+de algún tipo.
+
+09:29.710 --> 09:37.660
+Y también podría preguntarse aquí con el 'inicio de sesión' si no estamos creando un nuevo usuario, ¿por
+
+09:37.690 --> 09:40.110
+qué estamos haciendo una POST?
+
+09:40.140 --> 09:46.680
+Y si recuerda que cada vez que enviamos una contraseña, realmente no
+
+09:46.670 --> 09:56.030
+queremos enviarla como una cadena de consulta, ¿verdad? Queremos enviarlo dentro del cuerpo idealmente a través de HTTPS para que esté oculto de los ataques de
+
+09:56.030 --> 10:00.250
+hombre en el medio y sea seguro. Mirando esto, esto podría cambiar
+
+10:00.250 --> 10:06.860
+a medida que avanzamos en el proyecto, pero tenemos una idea de lo que queremos crear.
+
+10:06.880 --> 10:14.070
+Entonces, en los próximos videos, comenzaremos a crear estos puntos finales y a probarlos con
+
+10:14.070 --> 10:16.950
+Postman para asegurarnos de que funcionen.
+
+10:17.040 --> 10:18.900
+Nos vemos en la próxima. Adiós

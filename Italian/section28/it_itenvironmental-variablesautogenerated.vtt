@@ -1,0 +1,223 @@
+WEBVTT
+
+00:01.430 --> 00:02.390
+Ben tornato.
+
+00:02.390 --> 00:08.880
+Volevo mostrarti un breve video su un importante concetto chiamato variabili ambientali e qui ho creato
+
+00:08.880 --> 00:15.910
+un semplice sondaggio che abbiamo fatto prima di utilizzare il modulo http fornito con il nodo e abbiamo un
+
+00:15.910 --> 00:18.750
+semplice server che ascolta la porta 3000.
+
+00:18.970 --> 00:28.470
+Se avessi eseguito un nodo server punto js, avremo il server in ascolto sulla porta 3000. Tuttavia questo non è molto
+
+00:28.470 --> 00:30.060
+realistico.
+
+00:31.180 --> 00:36.890
+A volte non vogliamo codificare quale porta stiamo ascoltando.
+
+00:37.150 --> 00:43.980
+Ad esempio, quando stiamo implementando qualcosa tramite un altro servizio come faremo con Heroku, non
+
+00:43.990 --> 00:46.960
+possiamo davvero scegliere quale porta ascoltare.
+
+00:47.020 --> 00:50.150
+Abbiamo bisogno di qualcosa di dinamico in modo che possa essere cambiato.
+
+00:51.490 --> 00:56.700
+Come possiamo farlo? Bene, questo concetto di variabili ambientali.
+
+00:56.850 --> 01:11.160
+è l'idea che ci siano variabili proprio come se abbiamo una const A uguale a una const B uguale a due variabili
+
+01:11.760 --> 01:13.950
+in questo ambiente.
+
+01:15.040 --> 01:22.330
+C'è un'idea di una variabile ambientale che è un ambiente come qui, un computer su cui questa applicazione è in esecuzione
+
+01:22.330 --> 01:25.260
+o su cui è in esecuzione il server.
+
+01:25.510 --> 01:33.460
+Potrebbe avere le sue variabili e siamo in grado di iniettare queste variabili nella posizione specifica
+
+01:33.460 --> 01:35.230
+in un file.
+
+01:35.340 --> 01:38.550
+E questo non è solo un nodo o un server specifico.
+
+01:38.550 --> 01:42.090
+È con tutta la programmazione.
+
+01:42.090 --> 01:46.050
+Ovunque guardi ci saranno variabili ambientali che vengono utilizzate.
+
+01:46.050 --> 01:47.640
+È un concetto.
+
+01:47.640 --> 01:58.080
+Quindi, come possiamo farlo nel nodo. Bene nel nodo a cui abbiamo accesso - facciamo un
+
+01:59.440 --> 02:00.450
+log
+
+02:00.520 --> 02:10.410
+di console process env punto e con process dot env, se eseguo il server vedi che mi dice l'ambiente come
+
+02:10.770 --> 02:21.270
+dove lo sto eseguendo da casa, ci dice cosa programma terminale con cui sto correndo, che è iTerm, ottenendo molte informazioni.
+
+02:21.320 --> 02:23.900
+Cancella questo. E con
+
+02:23.900 --> 02:29.150
+questo ora possiamo impostare le nostre variabili. Se si desidera impostare la porta.
+
+02:29.150 --> 02:37.880
+Ad esempio, possiamo dire process env dot port e ora lo cambiamo in process
+
+02:41.310 --> 02:44.500
+en dot dot port.
+
+02:45.060 --> 02:55.990
+E solo per rendere questo strumento più pulito possiamo avere PORT uguale al processo punto env punto PORT.
+
+02:56.010 --> 03:01.240
+Quindi ora possiamo rimuovere la stessa chiamata.
+
+03:05.980 --> 03:10.180
+Consentiamo di accedere al log anche qui solo per assicurarci di vederlo.
+
+03:10.220 --> 03:23.040
+Se eseguo il nodo server mi viene indefinito. Ma questo perché questo numero di porta è qualcosa che inizialmente non
+
+03:23.040 --> 03:24.190
+avevamo.
+
+03:24.270 --> 03:25.670
+Ho appena inventato questo nome.
+
+03:25.710 --> 03:33.440
+Avrei potuto dire ABC. Non esiste Per consentirci di accedere o creare una variabile
+
+03:33.530 --> 03:35.720
+ambientale all'interno di questo computer.
+
+03:35.720 --> 03:37.500
+Dobbiamo iniettarlo.
+
+03:37.610 --> 03:42.620
+Ti mostrerò come fare con il pesce che è il guscio che sto usando qui
+
+03:42.620 --> 03:46.700
+che è un po 'diverso da bash e più comunemente vedrai Bash.
+
+03:46.850 --> 04:00.570
+Quindi ti mostrerò prima in quel modo. Con bash facciamo semplicemente punti js del server del nodo PORT 3000
+
+04:00.790 --> 04:07.740
+e guardiamo a quello. Il server sta ascoltando la porta 3000. Se cambio
+
+04:10.380 --> 04:17.670
+questo a 3050 il server sta ascoltando 3050.
+
+04:17.930 --> 04:20.540
+E questo non si limita alla porta.
+
+04:20.750 --> 04:28.680
+Vedrai nei prossimi video durante la produzione che possiamo impostare qualcosa come un URL del database.
+
+04:32.890 --> 04:36.820
+E questo URL del database ora può essere dinamico.
+
+04:36.820 --> 04:41.550
+Forse non sapremo dove sarà l'URL del database. In quel caso.
+
+04:41.590 --> 04:44.890
+Posso semplicemente dire che l'URL
+
+04:48.100 --> 04:56.990
+del database equivale a 123 nodi server punto js E otteniamo che le porte
+
+04:57.020 --> 04:59.030
+non siano definite.
+
+04:59.030 --> 05:07.020
+Perché non lo stiamo usando qui, quindi riportiamo questo alla porta tremila ed eseguiamo di nuovo quel
+
+05:07.020 --> 05:07.540
+comando.
+
+05:09.100 --> 05:16.060
+E guarda quel server che ascolta la porta 1 2 3 perché è l'URL del database e possiamo
+
+05:16.060 --> 05:18.030
+impostare qualunque variabile ambientale desideriamo.
+
+05:19.140 --> 05:24.890
+E l'importanza di loro non entrerà davvero in gioco fino a dopo in questi video.
+
+05:25.140 --> 05:31.410
+Ma sono davvero importanti per cose che dovrebbero essere mantenute segrete o dinamiche.
+
+05:31.420 --> 05:37.830
+Ad esempio porta potremmo non sapere su quale porta verrà eseguita la nostra API.
+
+05:37.870 --> 05:45.110
+Quindi in questo modo chiunque lo stia eseguendo può semplicemente impostare la porta senza toccare la base di codice. Ma anche per segreti, ad esempio chiavi
+
+05:45.120 --> 05:50.140
+API, che potremmo non voler avere nella nostra base di codice.
+
+05:50.160 --> 05:58.830
+Possiamo semplicemente avviare l'app e fornire forse chiavi API o persino password per accedere dinamicamente al database attraverso
+
+05:58.860 --> 06:02.930
+l'ambiente in modo che sia più sicuro.
+
+06:02.940 --> 06:05.820
+Lascia che ti mostri come farlo nei pesci.
+
+06:05.820 --> 06:13.680
+È un po 'diverso e non devi preoccuparti troppo perché è solo specifico
+
+06:13.680 --> 06:19.730
+per pescare è una specie di strano nodo ma puoi
+
+06:23.380 --> 06:34.410
+fare l'URL del database dell'ambiente Dirà ciao nodo server punto js e abbiamo server in ascolto sulla porta Ciao.
+
+06:34.440 --> 06:41.510
+Ancora una volta, questo è specifico per i pesci, ma per dimostrarvi che ci sono variabili
+
+06:41.810 --> 06:47.810
+di ambiente, l'ambiente decide le variabili e poiché l'ambiente su cui è in
+
+06:47.830 --> 06:54.630
+esecuzione è un guscio di pesce, devo usare il modo specifico di pesce per dichiararlo.
+
+06:54.780 --> 06:56.250
+Ma l'obiettivo è sempre lo stesso.
+
+06:56.250 --> 07:02.370
+Stiamo provando a iniettare queste proprietà e valori nel nodo in modo che abbia accesso ad esso.
+
+07:02.520 --> 07:09.240
+Ed è per questo che si chiama process dot env per le variabili ambientali e le useremo nei
+
+07:09.240 --> 07:10.530
+prossimi due video.
+
+07:11.400 --> 07:12.590
+Vedrò nel prossimo.
+
+07:12.910 --> 07:13.200
+Ciao ciao.

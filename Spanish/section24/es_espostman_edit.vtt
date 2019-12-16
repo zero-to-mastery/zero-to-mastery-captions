@@ -1,0 +1,250 @@
+WEBVTT
+
+00:00.960 --> 00:09.500
+Dar una buena acogida. Intentemos que esta solicitud de 'publicación' funcione, que no pudimos obtener en el video anterior.
+
+00:09.740 --> 00:16.100
+Ahora, para que podamos probar algo más que solo GET, bueno, podemos usar el Terminal, pero hay una herramienta
+
+00:16.100 --> 00:21.570
+realmente agradable que nos permite hacer estas solicitudes a un servidor y ver qué recuperamos.
+
+00:21.920 --> 00:25.690
+Y se llama Cartero.
+
+00:25.790 --> 00:33.620
+Si vas a www. getpostman. com es una de las mejores herramientas si alguna vez trabajas con
+
+00:33.620 --> 00:34.310
+un servidor.
+
+00:34.310 --> 00:38.910
+Es gratis y puedes descargarlo para tu sistema operativo.
+
+00:39.080 --> 00:42.320
+Simplemente haga clic en el que desee.
+
+00:42.320 --> 00:49.180
+Regístrese y una vez que esté cargado, puede abrirlo y tendrá algo como esto.
+
+00:50.330 --> 00:53.040
+Y no te preocupes, es muy simple de usar.
+
+00:53.120 --> 00:58.150
+Simplemente tenemos aquí las solicitudes que queremos recibir.
+
+00:58.190 --> 01:02.030
+Y verá algunos que nunca ha visto antes y no se preocupe por ellos.
+
+01:02.030 --> 01:04.970
+Estos son muy, muy raramente utilizados.
+
+01:04.970 --> 01:08.810
+Vemos los que nos interesan DELETE, PUT, POST, GET allí mismo
+
+01:11.640 --> 01:15.630
+y simplemente ingrese la URL en la que desea que se ejecute.
+
+01:16.110 --> 01:19.130
+Entonces, en nuestro ejemplo, hagamos 'npm start' nuevamente.
+
+01:20.850 --> 01:25.370
+Y mientras el servidor se está ejecutando, vamos a '/ profile'.
+
+01:25.620 --> 01:34.720
+Y luego aquí queremos decir 'localhost: 3000', ese es el puerto que le dimos, y diremos '/ profile', así que
+
+01:34.760 --> 01:36.320
+queremos hacer una
+
+01:36.420 --> 01:38.460
+solicitud GET por aquí.
+
+01:38.520 --> 01:50.500
+Si hago clic en enviar, obtengo 'obtener perfil'. Me da los encabezados y el cuerpo, lo cual es genial, pero ahora porque tenemos
+
+01:50.500 --> 01:54.110
+esta herramienta también podemos hacer una solicitud POST.
+
+01:54.190 --> 01:59.250
+Entonces, digamos que ya no estamos enviando al 'usuario'.
+
+01:59.740 --> 02:02.820
+Queremos enviar una respuesta [res].
+
+02:05.590 --> 02:10.790
+Y a partir de esta respuesta, queremos devolver cualquier usuario que enviemos a '/ profile'.
+
+02:14.060 --> 02:14.960
+Entonces, comencemos aquí, primero.
+
+02:14.960 --> 02:19.960
+Vamos a cambiar esto a un POST y
+
+02:20.090 --> 02:26.780
+con un POST recuerde que en realidad podemos agregar cosas al
+
+02:26.900 --> 02:37.800
+cuerpo y verá aquí que hay un par de opciones: 'form-data' el 'x-www-form-urlencoded 'tenemos' crudo 'y luego' binario '.
+
+02:37.850 --> 02:39.160
+Ahora no dejes que esto te asuste.
+
+02:39.170 --> 02:43.390
+Estos dos son formularios a través de HTML.
+
+02:43.460 --> 02:51.230
+Si normalmente hace una etiqueta de formulario HTML y realiza una solicitud GET o POST, puede hacer clic en
+
+02:51.230 --> 02:58.620
+esto y puede ver aquí 'Valor clave' para que pueda decir que el nombre es igual a 'andrei'.
+
+02:58.710 --> 03:09.330
+Y ahora, cuando envío esto, obtengo 'Sally' y 'fútbol' bien porque bueno, aún no lo he guardado. Volvamos a
+
+03:09.330 --> 03:18.050
+lo que teníamos antes y lo enviemos nuevamente, vemos que la solicitud POST está funcionando.
+
+03:18.150 --> 03:22.650
+Y si quiero acceder a esta información, simplemente lo
+
+03:27.150 --> 03:29.520
+hago '(req. cuerpo) 'Pero
+
+03:29.860 --> 03:31.960
+veamos si esto funciona.
+
+03:32.260 --> 03:33.190
+Si hago
+
+03:37.590 --> 03:45.230
+clic en enviar Hmm me sale 'indefinido' y eso es porque Express solo te da un poco.
+
+03:45.270 --> 03:48.470
+Aún necesita algunos paquetes si quiere que esto funcione.
+
+03:48.630 --> 03:58.200
+Si alguna vez quieres acceder '(req. body) 'bueno, necesitas usar un middleware y el middleware que queremos se llama
+
+03:58.200 --> 04:03.900
+body-parser y lo usarás y la mayoría de los servidores Express, así que simplemente te
+
+04:03.900 --> 04:04.470
+acostumbrarás.
+
+04:04.470 --> 04:09.110
+Es 'npm install body-parser'.
+
+04:09.360 --> 04:14.970
+Y ahora, este analizador del cuerpo lo que va a hacer es tomar toda la
+
+04:15.510 --> 04:26.440
+información que recibamos y analizarla como JSON o formas en algo que podamos usar. Para usarlo realmente bien, sabemos cómo funciona el middleware, simplemente en la
+
+04:27.400 --> 04:32.080
+parte superior decimos 'aplicación'. use ()
+
+04:35.320 --> 04:48.960
+'y body-parser vendrá con un' bodyParser 'que solo necesitaremos con el paquete que acabamos de instalar.
+
+04:53.740 --> 04:59.010
+En 'aplicación. use () 'simplemente hacemos'
+
+04:59.040 --> 05:01.040
+bodyParser. urlencoded
+
+05:02.450 --> 05:06.880
+'Que es cómo podemos obtener esto [' x-www-form-urlencoded '].
+
+05:07.040 --> 05:12.290
+Y solo tenemos que pasarle un parámetro: {extendido: falso}.
+
+05:12.360 --> 05:13.150
+Intentemos eso de nuevo.
+
+05:13.200 --> 05:13.970
+Voy
+
+05:17.200 --> 05:24.470
+a guardar haremos 'npm start' si regresamos y enviamos nuevamente.
+
+05:24.640 --> 05:25.440
+Vemos eso.
+
+05:25.480 --> 05:26.940
+Ahí lo tienes está funcionando.
+
+05:26.940 --> 05:33.940
+{nombre: 'andrei'} porque enviamos nuestro 'Valor clave' con los datos del formulario.
+
+05:34.010 --> 05:40.620
+Entonces, si está creando un servidor para un formulario que se envía, lo usará.
+
+05:40.770 --> 05:47.970
+Pero como saben, también hay JSON que podemos usar y la forma en que usamos JSON
+
+05:47.970 --> 05:57.000
+es haciendo clic en 'sin procesar' y aquí podemos enviar lo que queramos; en nuestro caso será JSON, y con JSON
+
+05:57.000 --> 06:06.590
+ahora podemos decir lo que queremos enviar, y si alguna vez hacemos una sintaxis incorrecta, nos dirá que esto es un JSON incorrecto.
+
+06:06.780 --> 06:14.290
+Pero digamos que para el '/ perfil' quiero agregar un nuevo usuario y se llamará a este usuario
+
+06:14.290 --> 06:20.810
+- recuerde las comillas dobles aquí - tendremos "usuario" y este usuario se llamará "Jenny"
+
+06:24.540 --> 06:28.860
+y "Jenny" tener un pasatiempo de "tenis" Todo se
+
+06:36.550 --> 06:37.590
+ve bien
+
+06:37.600 --> 06:40.540
+Eso es JSON Si
+
+06:45.660 --> 06:54.600
+ahora envío esto, obtengo un objeto vacío. Nuevamente, porque solo le hemos dicho que analice el analizador de cuerpo 'codificado
+
+06:54.600 --> 07:06.020
+por urlen' también necesita saber sobre JSON. Nuevamente para hacer eso decimos 'aplicación. uso (bodyParser. json ()) 'Si guardamos
+
+07:06.020 --> 07:06.740
+eso
+
+07:09.380 --> 07:18.510
+y lo enviamos nuevamente, mira eso, tenemos {usuario:' Jenny ', hobby:' tenis '}.
+
+07:18.590 --> 07:28.590
+Así que ahora podemos agregar a ese usuario quizás agregándolo a nuestra base de datos y luego enviando una respuesta
+
+07:31.800 --> 07:33.500
+'Éxito'. Intentémoslo nuevamente.
+
+07:33.690 --> 07:41.340
+Recibimos una respuesta 'Éxito' de que hemos publicado "Jenny" "tennis" de esta manera, también podemos hacer PUT, que es
+
+07:41.340 --> 07:48.180
+muy similar, solo enviamos los datos, pero PUT se usa para actualizar si queremos actualizar quizás
+
+07:48.180 --> 07:56.420
+Jenny a tener un pasatiempo diferente y BORRAR para eliminar tal vez ese usuario, algo que veremos en el próximo video.
+
+07:56.490 --> 07:58.730
+Pero como puedes ver, Postman es genial.
+
+07:58.860 --> 08:03.810
+Es una excelente manera de probar su servidor antes de conectarlo a su
+
+08:03.810 --> 08:08.600
+front-end, algo que definitivamente haremos en este curso en nuestro proyecto final.
+
+08:08.600 --> 08:09.950
+Muy genial.
+
+08:10.010 --> 08:11.510
+Nos vemos en la próxima.
+
+08:11.520 --> 08:12.300
+Adiós.

@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.940 --> 00:06.610
+Bentornato, in questa sezione, parleremo di alcuni argomenti avanzati nei CSS e
+
+00:06.610 --> 00:09.930
+inizierò con il percorso di rendering critico.
+
+00:10.000 --> 00:10.800
+Cos'è quello?
+
+00:11.720 --> 00:17.540
+Bene, dovremmo sempre sapere come funzionano le cose sotto il cofano in modo da poter rendere i nostri siti
+
+00:17.570 --> 00:19.950
+Web il più veloci e affidabili possibile.
+
+00:19.970 --> 00:25.410
+Quindi, in base a ciò che abbiamo costruito nella sezione precedente, diamo un'occhiata a ciò che sta accadendo sotto il cofano.
+
+00:25.520 --> 00:31.760
+Stiamo andando al nostro sito Web e idealmente il nostro sito Web sarà su un server e ti mostrerò come
+
+00:31.760 --> 00:33.500
+farlo più avanti nel corso.
+
+00:33.620 --> 00:41.660
+Per ora è solo il nostro computer. Ma facciamo finta di avere un server, dove sono ospitati i nostri file. Quando andiamo sul nostro sito
+
+00:41.660 --> 00:42.620
+web.
+
+00:42.650 --> 00:45.160
+Lo chiameremo "coolwebsite. com".
+
+00:45.290 --> 00:54.150
+Richiederemo il file HTML e il browser ora visualizzerà il nostro file HTML.
+
+00:54.270 --> 01:02.730
+Quindi legge questo documento e mentre lo osserva nota che "Oh, ho bisogno di un file CSS
+
+01:02.730 --> 01:03.230
+qui".
+
+01:04.210 --> 01:11.040
+Quindi torna indietro, fa un'altra richiesta e dice 'Ehi, puoi darmi anche un file CSS? 'Il server dice' Sì,
+
+01:11.850 --> 01:13.760
+nessun problema.
+
+01:13.860 --> 01:15.690
+Lascia che lo prenda per te. 'Afferra
+
+01:15.690 --> 01:27.560
+il file CSS e ora inizia a guardare entrambi: il file HTML e CSS per cercare di capire come dovrebbe
+
+01:27.620 --> 01:30.000
+apparire la pagina web.
+
+01:30.170 --> 01:34.000
+Ma poi nota anche che: 'Aspetta un secondo.
+
+01:34.070 --> 01:36.090
+Ho bisogno anche di alcuni caratteri. 'Quindi va
+
+01:36.320 --> 01:39.980
+a questo indirizzo e cerca di nuovo il carattere.
+
+01:40.430 --> 01:45.420
+Il sito Web ora chiede al sito Web in cui sono ospitati i caratteri.
+
+01:45.440 --> 01:53.950
+Nel nostro caso è l'API di Google e prende il file del carattere. Ora ecco la cosa.
+
+01:54.170 --> 02:02.110
+Mentre sta afferrando il file del carattere, potrebbe visualizzare la pagina e renderizzare significa visualizzare il sito Web, quindi
+
+02:03.590 --> 02:05.800
+potrebbe visualizzare il sito Web.
+
+02:05.810 --> 02:13.970
+Se ha solo HTML o CSS ma potrebbe non mostrare il testo, perché il testo sta cercando
+
+02:13.970 --> 02:16.000
+il file del carattere.
+
+02:16.090 --> 02:22.930
+Quindi, quando parliamo del percorso di rendering critico, ci piace menzionare che CSS è un file di blocco del rendering,
+
+02:22.930 --> 02:30.520
+quindi non sarai in grado di eseguire il rendering di una pagina web fino a quando non riceverai il tuo CSS e,
+
+02:30.520 --> 02:36.460
+a volte, se hai file di font, avrai anche attendere il rendering del testo sulla pagina.
+
+02:36.630 --> 02:41.460
+Quindi tienilo a mente quando costruisci i tuoi siti web. Ma quali sono alcune cose che possiamo considerare quando
+
+02:41.670 --> 02:44.900
+lo facciamo, in modo che i nostri siti Web si caricino più velocemente?
+
+02:44.970 --> 02:47.580
+Uno è forse avere i nostri file di font.
+
+02:47.700 --> 02:54.420
+Un altro potrebbe essere che non vuoi rendere il tuo CSS troppo grande se avessimo centinaia e centinaia di
+
+02:54.420 --> 02:56.250
+righe di codice CSS.
+
+02:56.490 --> 03:01.620
+Bene il file diventa sempre più grande ed è sempre più che devi trasferire tramite il filo.
+
+03:03.240 --> 03:09.950
+Un metodo che le persone hanno usato e vedrai spesso è qualcosa, chiamato "minimizzare" il tuo CSS. E se apriamo il
+
+03:09.950 --> 03:12.080
+browser qui.
+
+03:12.300 --> 03:13.050
+"Buongiorno! "Sì,
+
+03:13.070 --> 03:15.320
+è la mattina presto che sto filmando questo!
+
+03:16.730 --> 03:23.660
+E CSS Minifier. Quello che fa è che puoi inserire il tuo CSS qui - puoi vedere un esempio qui.
+
+03:23.660 --> 03:28.070
+Quindi inserisci questo e fai clic su "Minimizza".
+
+03:28.310 --> 03:33.890
+E cosa fa Minify: rimuove tutto lo spazio bianco, quindi tutto è su una
+
+03:33.890 --> 03:36.060
+riga, solo molto piccolo insieme.
+
+03:36.080 --> 03:43.040
+Quindi, anche se è lo stesso CSS, tecnicamente rende il file un po 'più piccolo in modo che
+
+03:43.130 --> 03:50.030
+il numero di byte che stai inviando su Internet sia molto meno e vedrai quella tecnica utilizzata
+
+03:50.030 --> 03:51.350
+anche in Javascript.
+
+03:51.350 --> 03:57.620
+E ne parleremo in quella sezione. Questo è il percorso di rendering critico, un percorso che
+
+03:57.620 --> 04:03.300
+un sito Web prende per mostrare qualcosa all'utente. Ci vediamo nel prossimo.
+
+04:03.330 --> 04:03.810
+Ciao ciao

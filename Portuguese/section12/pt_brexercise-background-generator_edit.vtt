@@ -1,0 +1,595 @@
+WEBVTT
+
+00:01.070 --> 00:11.070
+Bem vindo de volta. Até agora, vimos como o Javascript interage com HTML e
+
+00:11.070 --> 00:18.390
+CSS e vimos que conseguimos alterar texto, estilos e interagir com nossa página da Web.
+
+00:18.620 --> 00:21.350
+Neste vídeo, vamos tentar algo divertido.
+
+00:21.410 --> 00:26.780
+Vamos fazer um exercício no qual criaremos um gerador de plano de
+
+00:26.780 --> 00:34.660
+fundo para que, para nossos projetos futuros, possamos ter um ótimo gradiente impressionante para nossos planos de fundo.
+
+00:34.770 --> 00:39.670
+Vamos usar apenas algumas linhas de Javascript para criar isso.
+
+00:39.790 --> 00:40.830
+Então vamos começar.
+
+00:42.760 --> 00:46.460
+Tudo bem, temos uma bela tela em branco aqui.
+
+00:46.540 --> 00:53.080
+Abra o console para que, enquanto escrevemos o código, verifique se não cometemos erros e vamos começar
+
+00:53.080 --> 00:55.420
+com um simples arquivo HTML.
+
+00:56.690 --> 01:05.780
+Vamos chamá-lo de fundo gradiente e, dentro do corpo, teremos algumas coisas em cada um que dirão gerador
+
+01:06.410 --> 01:18.560
+de plano de fundo e também teremos um H2 que indicará o plano de fundo atual do CSS e teremos um H3 que ficará
+
+01:22.020 --> 01:29.790
+em branco por enquanto, porque colocaremos o estilo CSS para que as pessoas possam
+
+01:29.790 --> 01:34.250
+copiar e colar esse gradiente de fundo aqui.
+
+01:34.410 --> 01:42.630
+E, obviamente, precisamos de Javascript, portanto, adicionaremos uma tag de script e faremos o código-fonte igual ao ponto de script JS.
+
+01:42.810 --> 01:50.000
+Sim, vamos atualizar Agora, quero mostrar duas coisas legais que acompanham HTML e CSS.
+
+01:51.080 --> 01:53.780
+A primeira é a cor do tipo de entrada.
+
+01:57.690 --> 02:02.630
+E o segundo é o gradiente linear do CSS.
+
+02:08.430 --> 02:13.330
+Portanto, o CSS3 tem esses fundos de gradiente legais que podemos fazer.
+
+02:13.390 --> 02:21.640
+Portanto, usaremos essa sintaxe para criar nosso gradiente e, para o seletor de cores, usaremos a cor do tipo HTML
+
+02:22.030 --> 02:27.850
+na entrada para obter um seletor de cores, para que possamos fazer isso rapidamente.
+
+02:27.850 --> 02:40.500
+Vamos logo abaixo do H2 e criaremos uma entrada e o tipo será o nome da cor 1 e também
+
+02:40.600 --> 02:48.180
+podemos atribuir um valor padrão para que possamos atribuir valor e apenas
+
+02:49.050 --> 02:51.030
+colocá-lo aleatoriamente
+
+02:51.040 --> 02:57.720
+A cor HEX fará 00ff00. E queremos ter dois seletores de cores, porque a forma como os
+
+02:57.720 --> 03:00.490
+gradientes funcionam passa de uma cor para a outra.
+
+03:00.510 --> 03:05.070
+Então, vamos colocar outro seletor de cores para salvar.
+
+03:05.240 --> 03:16.510
+Altere o nome para color2, desta vez, essa cor ficará mais vermelha e atualizada e pronto.
+
+03:16.540 --> 03:19.400
+Temos nossos seletores de cores.
+
+03:20.580 --> 03:21.840
+Agora, a única coisa que quero lhe mostrar.
+
+03:21.840 --> 03:27.940
+Criei uma folha de estilos que fornecerei para você que terá um estilo padrão, para que pareça realmente
+
+03:27.940 --> 03:28.950
+muito bom.
+
+03:29.380 --> 03:38.080
+E podemos incluir que, em nosso arquivo HTML, diga CSS no estilo Link
+
+03:38.210 --> 03:41.610
+e se eu atualizar.
+
+03:42.210 --> 03:51.390
+Bem, temos um plano de fundo incrível com nossa fonte legal e tudo centralizado mostra rapidamente o que fez o
+
+03:51.390 --> 03:54.330
+plano de fundo ter esse gradiente.
+
+03:54.330 --> 04:03.390
+Tudo o que fiz foi ter o gradiente linear de fundo e você seguiu e deu a direção que queremos ir
+
+04:03.390 --> 04:08.510
+para a direita e a cor inicial e a cor final.
+
+04:08.820 --> 04:11.620
+Então essa é a cor padrão que temos.
+
+04:11.670 --> 04:15.750
+O resto é apenas alinhamento de fonte e texto.
+
+04:15.750 --> 04:22.290
+Portanto, nada muito louco, nada que você não possa fazer sozinho, mas a única coisa que precisamos é que
+
+04:22.290 --> 04:23.410
+isso seja interativo.
+
+04:23.430 --> 04:30.080
+Se eu escolher uma cor aqui, quero mudar a mesma para esta.
+
+04:30.680 --> 04:37.940
+E, idealmente, se eu encontrar um plano de fundo realmente claro para o meu aplicativo, posso imprimi-lo aqui
+
+04:37.940 --> 04:43.000
+para que eu possa copiar e colar o gradiente linear e usá-lo.
+
+04:43.010 --> 04:43.840
+Então, vamos trabalhar nisso.
+
+04:48.030 --> 04:49.640
+O que sabemos até agora?
+
+04:49.640 --> 04:55.630
+Sabemos que o Javascript pode ler no DOM e pode afetá-lo.
+
+04:55.880 --> 05:02.890
+Então, queremos ler qual é o valor das cores de ambas as entradas.
+
+05:04.030 --> 05:10.840
+E queremos colocar um pedaço de texto na parte inferior aqui com esses valores no formato CSS.
+
+05:11.050 --> 05:21.620
+Parece que precisaremos selecionar duas entradas e também selecionar o H3 para
+
+05:21.620 --> 05:32.610
+que possamos inserir algum texto aqui. Vamos para o arquivo JS de script e a primeira coisa que queremos fazer é selecionar o H3.
+
+05:33.100 --> 05:43.670
+Portanto, todo o nosso CSS é igual ao documento dot querySelector e, como existe apenas um H3, podemos
+
+05:43.670 --> 05:47.510
+apenas selecionar H3. ESTÁ BEM.
+
+05:47.510 --> 05:56.490
+Também queremos selecionar as cores e devemos dar uma classe para que possamos diferenciá-las.
+
+05:56.530 --> 06:12.270
+Então, eu vou dizer que uma classe é igual a cor1 e a outra terá a classe cor2.
+
+06:12.280 --> 06:15.040
+Então agora podemos
+
+06:15.190 --> 06:24.790
+fazer a variável color1 igual ao documento querySelector e faremos a color1.
+
+06:24.870 --> 06:32.880
+Novamente, é um querySelector. Então, fazemos classSelector da mesma forma que fazemos em CSS e, para color2, fazemos
+
+06:32.880 --> 06:33.820
+a mesma coisa.
+
+06:41.850 --> 06:43.040
+Parece bom por enquanto.
+
+06:44.030 --> 06:45.890
+Idealmente, pegamos tudo
+
+06:46.010 --> 06:48.650
+isso e nosso cenário deve mudar.
+
+06:48.650 --> 06:53.210
+Vamos verificar tudo e ter certeza de que estamos corretos.
+
+06:53.720 --> 06:55.050
+E o que você fez até agora.
+
+07:03.170 --> 07:05.810
+Vamos atualizar a página e pronto.
+
+07:05.810 --> 07:12.420
+Temos nosso H3, é onde queremos ter nosso texto CSS para nosso plano de fundo.
+
+07:12.500 --> 07:13.920
+Nós temos nossas entradas.
+
+07:14.270 --> 07:16.150
+O primeiro e o segundo.
+
+07:16.610 --> 07:18.750
+OK, parece que estamos fazendo tudo certo.
+
+07:19.690 --> 07:22.220
+Agora o que queremos que aconteça?
+
+07:22.240 --> 07:30.090
+Queremos ouvir um evento em que observamos as ações do usuário aqui.
+
+07:30.210 --> 07:38.370
+Aprendemos sobre o clique e o centro do mouse e o pressionamento de teclas.
+
+07:38.370 --> 07:41.810
+Mas isso não é realmente nenhum deles, é?
+
+07:41.830 --> 07:49.610
+Bem, há um evento realmente muito bom para entradas e é chamado de entrada.
+
+07:49.680 --> 07:55.700
+Assim, sempre que o valor de entrada muda, o mesmo ocorre toda vez que mudamos a cor, podemos detectá-lo.
+
+07:57.630 --> 08:00.810
+Então, vamos pensar em como faríamos isso.
+
+08:00.810 --> 08:07.580
+Queremos que color1 tenha um ouvinte de evento.
+
+08:11.110 --> 08:20.020
+Isso terá entrada e você terá uma função que, por enquanto, podemos apenas consolar o valor do ponto da
+
+08:20.030 --> 08:22.980
+cor1 do log de pontos.
+
+08:23.040 --> 08:27.290
+Agora também queremos que a segunda cor tenha a mesma coisa.
+
+08:28.510 --> 08:34.530
+Mas para color2. Vamos atualizar e verificar aqui, removemos os logs do console porque
+
+08:34.530 --> 08:39.460
+não precisamos de mais atualizações e vamos ver. Olhe para isso.
+
+08:39.550 --> 08:41.320
+Você os vê no console.
+
+08:41.440 --> 08:42.940
+Isso está sendo atualizado.
+
+08:42.940 --> 08:44.290
+Isso é bem legal.
+
+08:44.290 --> 08:45.730
+Tudo bem, então o primeiro está trabalhando.
+
+08:45.730 --> 08:51.260
+O segundo agora também está funcionando. Impressionante.
+
+08:51.290 --> 08:54.480
+Então, nós estamos pegando as cores, a cor do valor.
+
+08:54.530 --> 08:57.680
+O que queremos fazer a seguir com esse valor.
+
+08:59.570 --> 09:02.780
+Bem, queremos mudar a cor do plano de fundo.
+
+09:03.720 --> 09:12.400
+E como podemos fazer isso? Bem, o plano de fundo se clicar com o botão direito e inspecionar.
+
+09:12.570 --> 09:17.340
+Você torna isso maior, maior.
+
+09:17.470 --> 09:25.230
+Vemos que o fundo está na tag body, então, idealmente, mudamos isso.
+
+09:28.240 --> 09:29.830
+Vamos voltar ao console.
+
+09:30.010 --> 09:35.170
+Minimize isso e vamos tentar mudar o fundo agora com as informações que temos.
+
+09:35.250 --> 09:39.700
+Sempre que a cor1 mudar, queremos pegar a tag do plano de fundo.
+
+09:39.750 --> 09:46.560
+Bem, novamente, podemos dizer que o corpo é igual ao ponto do documento ...
+
+09:49.230 --> 09:52.390
+getElementBy e vamos ter um ID aqui.
+
+09:52.770 --> 09:53.820
+Bem,
+
+09:56.750 --> 10:07.150
+diga Id gradiente e podemos dizer get elementById e diremos gradiente.
+
+10:07.350 --> 10:10.310
+Novamente, queremos ter certeza de que estamos realmente selecionando.
+
+10:10.320 --> 10:11.180
+Então, vamos
+
+10:15.320 --> 10:17.430
+tentar o corpo e atualizar.
+
+10:17.860 --> 10:25.750
+Tudo bem, estamos recebendo a etiqueta do corpo e, se lembrarmos, podemos mudar o estilo do corpo fazendo o estilo de
+
+10:27.310 --> 10:30.350
+fundo com pontos. Essa é uma propriedade
+
+10:30.620 --> 10:34.620
+CSS e podemos apenas dizer vermelho. veja se isso funciona.
+
+10:35.630 --> 10:36.030
+Ótimo.
+
+10:36.030 --> 10:42.000
+Estamos mudando a cor para vermelho, mas isso não parece tão bom
+
+10:42.000 --> 10:53.340
+quanto ótimo, mas pelo menos agora sabemos como mudar isso, para que possamos dizer quando a primeira entrada muda, o fundo do corpo
+
+10:56.320 --> 11:03.270
+ou o estilo do ponto é igual ao gradiente linear para a direita .
+
+11:04.210 --> 11:06.740
+E há apenas a sintaxe à qual você terá que se acostumar.
+
+11:08.040 --> 11:14.520
+E diremos que a primeira cor terá o valor de color1 ponto e precisaremos de uma vírgula para isso.
+
+11:14.760 --> 11:23.080
+E o segundo valor estará dentro de um espaço aqui, valor color2.
+
+11:23.250 --> 11:32.650
+Então esse é o segundo seletor de cores e diremos mais fechar o suporte e o CSS e deve ser bom
+
+11:32.650 --> 11:33.360
+ir.
+
+11:33.360 --> 11:35.550
+E eu coloquei isso em uma nova linha apenas para que você possa ver.
+
+11:42.390 --> 11:48.080
+Perfeito, e novamente o javascript não vê o ponto-e-vírgula aqui, por isso continua lendo linha por linha.
+
+11:48.120 --> 11:50.850
+OK, então vamos salvar e ver se fizemos isso direito.
+
+11:50.850 --> 11:54.730
+Vou atualizar e, na verdade, você não precisa de um ponto e vírgula aqui.
+
+11:54.810 --> 11:56.510
+Então, vamos ver se isso funciona.
+
+11:56.640 --> 12:05.160
+Vou atualizar, selecionar o primeiro, analisar isso e fazer com que o gradiente funcione.
+
+12:05.440 --> 12:10.760
+Mas, obviamente, precisamos fazer o segundo também, porque agora é apenas o log do console.
+
+12:11.150 --> 12:23.620
+Novamente, vamos fazer a mesma coisa no segundo seletor de cores. Salvei e atualizei você escolheu o primeiro
+
+12:25.510 --> 12:28.390
+e o próximo.
+
+12:28.410 --> 12:29.560
+Olhe para isso.
+
+12:29.640 --> 12:31.510
+Isso é muito bonito.
+
+12:31.660 --> 12:33.710
+Mas isso deveria ter desencadeado alguma coisa.
+
+12:33.760 --> 12:37.090
+Acabamos de copiar e colar as mesmas linhas de código.
+
+12:37.210 --> 12:43.790
+E se lembrarmos que é um grande problema porque é seco. Não se repita.
+
+12:44.080 --> 12:49.750
+Então, como podemos extrair essa função para que fique muito mais limpa?
+
+12:49.940 --> 13:01.800
+Muito fácil, podemos criar uma função e diremos definir o gradiente e definir o gradiente bem, como o
+
+13:01.800 --> 13:06.780
+nome sugere definir o nosso belo gradiente.
+
+13:06.790 --> 13:17.590
+Portanto, agora essa função pode ser chamada de setGradient e a mesma cor para a segunda cor.
+
+13:17.680 --> 13:23.550
+Posso dizer que setGradient parece muito mais limpo.
+
+13:23.700 --> 13:25.850
+Bem, vamos ver se tudo ainda funciona.
+
+13:25.910 --> 13:28.590
+Eu vou atualizar.
+
+13:28.840 --> 13:30.210
+Eu vou selecionar.
+
+13:30.520 --> 13:32.190
+E parece que quebramos alguma coisa.
+
+13:33.630 --> 13:34.810
+Veja o que fizemos aqui.
+
+13:35.680 --> 13:40.570
+Este evento de entrada é acionado automaticamente e executa uma função.
+
+13:41.550 --> 13:51.210
+Não precisamos chamar a função porque esse evento de entrada é acionado automaticamente e o segundo
+
+13:51.210 --> 13:55.680
+parâmetro é executado automaticamente com o evento.
+
+13:55.680 --> 14:07.360
+Então, agora, se eu salvar esse select, tudo funcionará novamente apenas para reiterar. Se tivéssemos chamado as funções como estas.
+
+14:07.570 --> 14:15.400
+A primeira passagem quando os documentos HTML carregados lê o arquivo de script e passa pelas
+
+14:15.400 --> 14:16.230
+linhas.
+
+14:16.640 --> 14:23.480
+E quando temos o ouvinte de eventos, também definimos o gradiente.
+
+14:23.760 --> 14:29.930
+Mas queremos que isso seja chamado toda vez que a entrada for selecionada.
+
+14:29.940 --> 14:37.840
+Então, novamente, nossa função agora é assim e temos um lindo gerador de
+
+14:40.620 --> 14:42.950
+plano de fundo.
+
+14:43.190 --> 14:48.800
+Na verdade, vamos usar isso quando projetarmos nosso projeto final, porque acho que os cenários parecem
+
+14:48.800 --> 14:50.270
+bem legais com isso.
+
+14:51.910 --> 14:52.760
+Muito legal.
+
+14:53.080 --> 14:57.250
+E você vê o quão fácil isso foi rápido. Apenas
+
+14:57.250 --> 14:59.060
+algumas linhas de código.
+
+14:59.350 --> 15:07.180
+Quero mostrar uma última coisa e é que usamos o addEventListener, que é
+
+15:07.180 --> 15:14.440
+a maneira recomendada de fazer as coisas, porque mantemos o Javascript
+
+15:14.440 --> 15:24.560
+e o arquivo Javascript, mas também poderíamos ter feito na entrada um atributo onclick ou oninput atributo.
+
+15:26.330 --> 15:35.250
+Então, aqui dentro eu poderia ter dito, porque temos isso disponível para nós setGradient
+
+15:37.290 --> 15:47.390
+Eu poderia ter dito setGradient e também no segundo, faríamos setGradient para ver se isso
+
+15:50.360 --> 15:51.730
+funciona.
+
+15:51.760 --> 15:57.520
+Se eu comentar isso, nunca tive o ouvinte de evento e atualizo, pois
+
+16:00.130 --> 16:01.510
+ele ainda muda.
+
+16:05.570 --> 16:11.850
+Qual é a diferença entre fazer isso e fazê-lo desta maneira?
+
+16:13.510 --> 16:21.320
+Bem, a diferença é que aqui estamos adicionando Javascript ao HTML contra a separação de preocupações.
+
+16:21.490 --> 16:28.550
+E também você pode ver aqui que só podemos adicionar setGradient.
+
+16:28.630 --> 16:40.150
+Portanto, essa entrada pode ter apenas um atributo oninput versus aqui, onde podemos continuar adicionando funções diferentes a eventos
+
+16:40.160 --> 16:41.250
+diferentes.
+
+16:41.480 --> 16:49.010
+Portanto, isso é muito mais extensível, mas eu queria mostrar que você pode fazer isso e que uma
+
+16:49.010 --> 16:52.350
+função onclick é apenas uma especificação HTML.
+
+16:52.550 --> 16:59.360
+Quando chegamos à seção React, você verá que ela tem seu próprio modo de realizar esse tipo de evento.
+
+17:01.170 --> 17:08.030
+Então, novamente, vou restaurar essa atualização para o nosso lindo site.
+
+17:08.060 --> 17:14.550
+Há outra coisa que precisamos fazer e que precisamos ter o CSS na parte inferior aqui.
+
+17:14.910 --> 17:16.460
+Isso é muito fácil de fazer.
+
+17:16.500 --> 17:24.630
+Podemos apenas dizer CSS dot textContent que é novo.
+
+17:24.630 --> 17:33.110
+Você nunca viu isso antes. Mas você pode apenas dizer o estilo do ponto do corpo, fundo do ponto e adicionaremos o
+
+17:33.160 --> 17:34.070
+ponto e vírgula.
+
+17:35.190 --> 17:36.570
+Se eu salvar
+
+17:40.360 --> 17:43.410
+e atualizar, veja isso. À
+
+17:46.060 --> 17:54.060
+medida que escolhemos o gradiente, temos essa atualização.
+
+17:54.240 --> 17:56.350
+Agora, algumas perguntas que você pode ter.
+
+17:56.520 --> 17:58.450
+O que é essa coisa de textContent?
+
+17:58.500 --> 18:03.310
+Até agora eu mostrei o innerHTML.
+
+18:03.800 --> 18:18.070
+Também mostrei a você createTextNode e agora temos textContent como se houvesse tantas coisas para lembrar.
+
+18:18.480 --> 18:19.960
+O que é isso?
+
+18:19.990 --> 18:28.870
+Ele adiciona um conteúdo de texto, como você pode ver, existem muitas maneiras de adicionar itens ao DOM.
+
+18:29.440 --> 18:35.950
+E a razão pela qual fiz isso é porque eu queria mostrar a frustração que muitas pessoas tiveram no início
+
+18:36.340 --> 18:39.330
+dos anos 2000 ao trabalhar com o DOM.
+
+18:39.390 --> 18:47.080
+E no próximo vídeo, vou falar sobre alguns desses problemas e o que fizemos para resolver isso. E, eventualmente, quando entrarmos no React,
+
+18:47.110 --> 18:52.210
+veremos que na verdade não usaremos nenhum deles, porque o
+
+18:52.660 --> 19:00.580
+React extraiu tudo isso para nós, para que seja muito mais simples do que descobrir como
+
+19:00.580 --> 19:09.780
+inserir conteúdo de texto adicionando ouvintes de eventos e todo esse material que pode ser francamente frustrante às vezes.
+
+19:09.780 --> 19:10.830
+Por enquanto é isso.
+
+19:11.770 --> 19:14.690
+Vamos ver o que mais você pode adicionar a esse plano de fundo.
+
+19:14.710 --> 19:21.400
+Deixarei o código para você na próxima seção para que você possa brincar com ele e torná-lo ainda melhor
+
+19:21.400 --> 19:23.230
+do que é agora.
+
+19:23.230 --> 19:24.460
+Vejo você no próximo.
+
+19:24.610 --> 19:25.090
+Tchau tchau.

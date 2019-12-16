@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+Dan selamat datang kembali. Kami tahu cara kerja aplikasi
+
+00:05.660 --> 00:14.330
+RoboFriends sekarang, dengan reaksi, itu hebat. Tetapi Bruno menanyakan sesuatu yang spesifik kepada kami. Kita perlu menambahkan redux ke aplikasi
+
+00:14.330 --> 00:20.860
+RoboFriends kita sehingga dapat meningkatkan skala dengan baik, dan menangani manajemen negara dengan lebih baik.
+
+00:22.630 --> 00:28.960
+Sekarang dengan video-video berikutnya akan bekerja bersama, langkah demi langkah.
+
+00:28.990 --> 00:34.630
+Saya akan menunjukkan kepada Anda bagaimana redux diimplementasikan dan cara kerjanya dan Anda akan mengikuti
+
+00:35.170 --> 00:38.320
+sambil mencoba memastikan bahwa kode Anda juga berfungsi.
+
+00:38.770 --> 00:42.120
+Baiklah jadi berhentilah sekarang dan siapkan lingkungan Anda.
+
+00:42.140 --> 00:46.470
+Jadi Anda bisa kode bersama saya. Anda sudah siap?
+
+00:46.510 --> 00:46.940
+Baiklah.
+
+00:46.960 --> 00:48.300
+Saya akan memulai.
+
+00:48.370 --> 00:56.360
+Hal pertama yang akan saya lakukan adalah, saya memiliki aplikasi RoboFriends saya, jadi saya akan mengkloning repo ini dan kami hanya akan melakukan set up
+
+00:56.360 --> 01:06.650
+biasa dengan git clone dan kemudian saya akan memasukkan CD ke dalam RoboFriends saya . Sempurna.
+
+01:06.690 --> 01:09.510
+Mari kita buka ini di editor teks Anda.
+
+01:14.630 --> 01:18.720
+Dan lagi saya suka menggabungkan ini bersama sehingga terlihat bagus
+
+01:19.470 --> 01:20.670
+Dan bersih.
+
+01:20.720 --> 01:21.250
+Sempurna.
+
+01:22.670 --> 01:29.510
+Sekarang jelas hal pertama yang perlu kita lakukan ketika kita mengkloning sesuatu adalah menginstal npm
+
+01:29.510 --> 01:32.710
+untuk memastikan kita memiliki semua paket.
+
+01:32.920 --> 01:38.970
+Dan kami juga ingin memastikan bahwa semuanya berjalan lancar tanpa kesalahan apa pun.
+
+01:39.190 --> 01:48.410
+Jadi langkah selanjutnya adalah menjalankan npm start.
+
+01:48.460 --> 01:49.180
+Baiklah.
+
+01:49.180 --> 01:49.690
+Sempurna.
+
+01:49.690 --> 01:50.930
+Semuanya berfungsi.
+
+01:51.040 --> 01:53.780
+Dan kita harus bisa memfilter.
+
+01:53.780 --> 01:56.420
+Sempurna.
+
+01:56.430 --> 01:56.690
+Baiklah.
+
+01:56.700 --> 01:59.790
+Jadi kita terbiasa dengan basis kode ini.
+
+02:01.120 --> 02:09.990
+Kami memiliki aplikasi reaksi kami, tetapi hanya itu. Hanya aplikasi reaksi sederhana dengan wadah dan komponen.
+
+02:10.040 --> 02:20.930
+Hal pertama yang ingin kita lakukan adalah menginstal redux. Jadi saya akan menutup ini dan menjalankan npm install redux.
+
+02:23.740 --> 02:30.990
+Paket redux ini akan memberi kita beberapa alat untuk memasukkan redux ke dalam aplikasi reaksi kita.
+
+02:32.220 --> 02:33.840
+Tapi inilah bagian yang keren.
+
+02:33.840 --> 02:37.630
+Dengan paket redux, dan mengapa saya penggemar berat.
+
+02:38.690 --> 02:45.680
+90% kode Anda masih berupa Javascript. Redux akan memberi Anda beberapa pembantu tetapi
+
+02:46.070 --> 02:48.620
+Anda masih menulis Javascript.
+
+02:48.740 --> 02:52.280
+Ini masih meningkatkan keterampilan Javascript Anda.
+
+02:52.280 --> 02:57.470
+Ketika Anda menulis redux dan mengajarkan prinsip-prinsip yang sangat
+
+02:57.530 --> 03:05.630
+bagus, itulah sebabnya saya penggemar berat perpustakaan. Anda mungkin tidak selalu memerlukan redux dalam proyek Anda, tetapi itu
+
+03:05.960 --> 03:13.070
+hanya alat yang bagus dan bagus untuk dipelajari karena ia memiliki konsep hebat yang akan Anda gunakan sepanjang karier Anda.
+
+03:13.220 --> 03:19.010
+Sekarang hal kedua yang kita butuhkan, dan ini adalah sesuatu yang mirip dengan reaksi -
+
+03:19.010 --> 03:25.730
+ingat bagaimana kita menginstal paket reaksi, dan kemudian kita juga membutuhkan sesuatu yang disebut paket reaksi dom untuk
+
+03:25.730 --> 03:29.130
+menghubungkan reaksi ke dom? Nah, dengan cara yang sama.
+
+03:29.140 --> 03:38.770
+Kita perlu menghubungkan redux untuk bereaksi karena redux secara teoritis dapat bekerja dengan perpustakaan lain dengan menambahkan
+
+03:38.980 --> 03:40.240
+paket lain.
+
+03:40.300 --> 03:46.600
+Kami kembali dapat memberi tahu bahwa hei kita akan menggunakan redux dengan Anda.
+
+03:46.600 --> 03:48.050
+Jadi itu sangat mudah dilakukan.
+
+03:48.070 --> 03:53.080
+Kami hanya akan menginstal npm dan paket tersebut disebut react redux.
+
+03:59.260 --> 04:06.570
+Dan cara reaksi reduks ini bekerja adalah bahwa itu hanya akan menghubungkan wadah.
+
+04:06.760 --> 04:14.410
+Jadi dalam aplikasi kasus ini. js ke, apa yang kita sebut toko redux atau objek Javascript besar yang sedang kita
+
+04:14.410 --> 04:14.820
+bicarakan.
+
+04:14.860 --> 04:21.110
+Itu menggambarkan keadaan aplikasi kita dan mereka akan berkomunikasi, wadah akan berkomunikasi
+
+04:21.200 --> 04:23.770
+dengan toko dan sebaliknya.
+
+04:24.900 --> 04:31.410
+Sekarang komponen lain, apa yang kita sebut komponen bodoh atau presentasi, tidak
+
+04:31.530 --> 04:34.250
+akan tahu bahwa ada redux.
+
+04:34.320 --> 04:41.010
+Satu-satunya koneksi adalah antara sesuatu yang disebut wadah atau komponen pintar dan
+
+04:41.100 --> 04:42.650
+toko redux.
+
+04:42.660 --> 04:44.130
+Jadi, saya tunjukkan apa yang saya maksud.
+
+04:45.280 --> 04:51.040
+Jika Anda ingat diagram ini, kami baru saja menginstal paket redux yang dapat Anda anggap sebagai
+
+04:51.040 --> 04:51.990
+di sini.
+
+04:52.000 --> 04:58.300
+Kotak merah ini yang memungkinkan kita untuk membuat toko dan beberapa fungsi bantuan lainnya.
+
+04:58.300 --> 05:10.310
+Kami juga mengunduh reaksi redux yang memungkinkan kami untuk menghubungkan dua bagian ini dan reaksi redux dapat digunakan untuk mengatakan
+
+05:10.310 --> 05:17.090
+hei kami ingin komponen kuning ini menyadari bahwa kami menggunakan redux dan
+
+05:17.090 --> 05:20.650
+mendapatkan statusnya dari toko redux.
+
+05:22.380 --> 05:28.020
+Jadi pikirkan saja diagram ini karena kami sedang mengerjakan semua yang kami lakukan pada
+
+05:28.020 --> 05:30.710
+dasarnya menghubungkan kedua perpustakaan ini bersama-sama.
+
+05:30.770 --> 05:37.630
+Baiklah sekarang karena kita memiliki dua paket ini kita dapat mulai mengimpornya dan menggunakannya dalam aplikasi
+
+05:37.630 --> 05:43.660
+kita tetapi itu untuk beberapa video berikutnya. Sampai jumpa di yang berikutnya.
+
+05:43.770 --> 05:44.010
+Sampai jumpa.

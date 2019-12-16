@@ -1,0 +1,549 @@
+WEBVTT
+
+00:00.840 --> 00:04.900
+Tudo bem, vamos criar nosso aplicativo RoboFriends. Penso que, para começar,
+
+00:04.930 --> 00:10.730
+queremos pensar nos componentes novamente e que tipo de componentes queremos
+
+00:10.750 --> 00:16.720
+construir. Olhando para este site, o menor componente em que provavelmente queremos
+
+00:17.020 --> 00:19.000
+começar a trabalhar
+
+00:19.000 --> 00:25.480
+talvez seja o componente da placa. Se pudermos criar um desses, de acordo
+
+00:25.720 --> 00:29.180
+com o que eu disse antes, podemos apenas
+
+00:29.350 --> 00:31.440
+copiar todos esses componentes
+
+00:31.660 --> 00:34.530
+e adicioná-los à página. Então, vamos
+
+00:34.590 --> 00:36.400
+começar com isso. Componente
+
+00:36.580 --> 00:40.610
+'Olá' e se você se lembra, parecia assim Vamos
+
+00:40.690 --> 00:43.430
+apenas - eu sei que
+
+00:43.780 --> 00:47.530
+é triste, mas vamos excluí-lo Vamos excluir o
+
+00:47.680 --> 00:49.810
+'Olá'. css
+
+00:50.290 --> 00:52.090
+'Comece limpo Então,
+
+00:52.100 --> 00:54.830
+eu vou excluir. OK E
+
+01:00.330 --> 01:03.810
+também excluiremos ello olá. css 'Eu sei
+
+01:03.850 --> 01:09.040
+que todo o nosso trabalho duro acabou completamente Você sabe
+
+01:09.210 --> 01:12.420
+o que? Vamos começar a excluir coisas que
+
+01:12.420 --> 01:16.880
+não precisamos neste projeto. Por exemplo, o ‘App. js 'que tínhamos inicialmente?
+
+01:16.890 --> 01:28.450
+Bem, podemos excluir isso. Também podemos excluir ‘App. css '' App.
+
+01:32.370 --> 01:41.020
+test 'E o logotipo Tudo bem Então, tudo está
+
+01:41.050 --> 01:44.410
+muito pequeno agora Temos
+
+01:44.470 --> 01:52.430
+apenas' índice. css ',' index. js 'e este' Register Service Worker 'que vem
+
+01:52.430 --> 01:54.620
+com' Create a React App ', que
+
+01:54.950 --> 02:00.940
+não precisamos tocar em OK. Obviamente, não conseguimos compilar porque, bem, as importações do 'Olá' não funcionam realmente. Nós não temos
+
+02:00.940 --> 02:03.970
+nada. Então, vamos começar
+
+02:03.990 --> 02:08.670
+com isso Vamos começar criando um componente de 'cartão' E esse componente
+
+02:10.330 --> 02:15.870
+de cartão, teremos que importá-lo do 'cartão'. js 'Novamente, se eu
+
+02:15.940 --> 02:22.860
+salvar isso, ainda recebo um erro porque não existe. Então, vamos criá-lo.
+
+02:22.990 --> 02:23.740
+Vou
+
+02:23.770 --> 02:37.130
+dizer' novo arquivo ', cartão. js '. Mais uma vez, verifique se está usando 'Babel'. E vamos fazer o que fizemos
+
+02:37.130 --> 02:38.870
+antes. Importamos
+
+02:42.180 --> 02:46.800
+React de 'react' Em vez de seguir o caminho
+
+02:47.050 --> 02:51.520
+da classe, agora vamos nos preocupar em criar
+
+02:51.580 --> 02:57.440
+a função, então vou dizer 'const', 'Card' é igual a -
+
+02:57.440 --> 02:59.400
+ele não terá
+
+03:00.470 --> 03:05.490
+propriedades por enquanto E isso retornará - tenha alguns colchetes
+
+03:11.530 --> 03:21.110
+E aqui vamos dizer que ele tem um 'div'. Dentro desse 'div', teremos uma imagem e essa imagem terá algum tipo de fonte
+
+03:21.110 --> 03:26.180
+que - ainda não sabemos o que é, portanto, manteremos do jeito que está
+
+03:26.280 --> 03:29.840
+na tag de fechamento. E teremos outra 'div' dentro
+
+03:34.780 --> 03:35.500
+daqui.
+
+03:35.520 --> 03:46.980
+Se você se lembrar, temos nosso nome e e-mail aqui. Então, vamos fazer um 'H2'. Vamos apenas escrever valores codificados aqui.
+
+03:46.990 --> 03:48.080
+Vamos
+
+03:48.310 --> 03:51.890
+fazer Jane Doe E, finalmente, uma
+
+03:52.070 --> 04:01.090
+tag 'p' com algum endereço de email. Então vamos lá Jane Doe no gmail dot com Fechar a
+
+04:01.550 --> 04:03.970
+tag Tudo bem Então, temos apenas
+
+04:03.970 --> 04:07.530
+um componente simples que está retornando 'card' E lembre-se
+
+04:07.540 --> 04:10.950
+de que queremos exportar isso, então queremos dizer
+
+04:10.960 --> 04:14.530
+'export', 'default', 'card' Salvar Eu recebo 'elementos img devem
+
+04:17.370 --> 04:18.210
+ter
+
+04:18.490 --> 04:21.480
+uma propriedade alt'. Novamente, ele está me
+
+04:21.630 --> 04:23.390
+dando uma boa dica,
+
+04:23.400 --> 04:26.920
+então vamos adicionar uma propriedade 'alt'. Apenas dizemos
+
+04:26.970 --> 04:29.540
+o que é essa foto, então
+
+04:29.640 --> 04:38.870
+vou dizer 'foto' por enquanto. Ou direi "robôs" por enquanto. Compilar com sucesso. Se olharmos para o nosso aplicativo, teremos os
+
+04:46.160 --> 04:52.850
+robôs Jane Doe e Jane Doe. Perfeito
+
+Bem. Temos o componente do cartão e você deve estar se perguntando por
+
+04:52.850 --> 04:54.630
+que estamos usando o React aqui, se realmente não
+
+04:54.860 --> 04:56.510
+o estamos usando. Vamos ver o que
+
+04:58.130 --> 05:05.370
+acontece se eu removê-lo. Eu recebo vários erros que dizem 'React deve estar no escopo ao usar JSX '. Lembre-se de que JSX é este.
+
+05:05.390 --> 05:07.810
+Não estamos escrevendo
+
+05:07.910 --> 05:16.680
+HTML, estamos escrevendo JSX e precisamos importar o React para que nosso programa
+
+05:16.740 --> 05:20.070
+entenda JSX. Essa sintaxe semelhante a
+
+05:20.300 --> 05:26.470
+HTML OK, agora precisamos de uma imagem e, para este exercício, tenho algo
+
+05:26.820 --> 05:29.100
+chamado 'RoboHash' para você. É
+
+05:29.100 --> 05:33.240
+uma API realmente muito legal. E para aqueles que
+
+05:33.240 --> 05:35.350
+não sabem o que
+
+05:35.550 --> 05:45.180
+são APIs - não se preocupe, tenho uma seção chegando com todas essas informações onde você aprenderá sobre isso, mas o
+
+05:45.180 --> 05:47.420
+interessante do RoboHash é que
+
+05:47.460 --> 05:49.530
+posso dizer qualquer coisa
+
+05:49.740 --> 05:59.130
+aqui e ele retornará um robô aleatório para mim Tudo o que precisamos é apenas esse URL, e posso diga
+
+05:59.370 --> 06:05.840
+apenas por agora, 'teste' Se eu salvar isso e voltar ao meu exemplo Aqui
+
+06:06.020 --> 06:08.150
+está o nosso robô aleatório
+
+06:08.450 --> 06:17.760
+Se eu mudei isso para, digamos 'teste de teste', eu salvei, bem, agora eu pego outro robô Que legal é
+
+06:17.780 --> 06:18.820
+aquele?
+
+06:20.500 --> 06:27.610
+Tudo bem, eu quero ter certeza de que o tamanho é um pouco pequeno, para que você possa fazer um ponto de
+
+06:27.610 --> 06:29.120
+interrogação aqui e apenas
+
+06:29.200 --> 06:32.830
+dar largura e altura. Então, eu vou fazer 200 por 200
+
+06:32.890 --> 06:36.150
+E, novamente, isso é algo que você faz com esse
+
+06:36.310 --> 06:40.950
+URL que eles fornecem nas informações aqui - não vou fazer você passar por
+
+06:44.940 --> 06:47.520
+ele, eu salvo. Tudo deve ficar
+
+06:49.020 --> 07:00.330
+bem Agora, digamos que eu queira adicionar um título e faça algo como 'div' ou 'H1', 'RoboFriends' aqui. Você vê que há um
+
+07:06.950 --> 07:08.240
+erro aqui?
+
+07:08.390 --> 07:17.430
+É porque - lembre-se de que precisamos retornar uma coisa. E não podemos retornar vários elementos, certo?
+
+07:17.610 --> 07:21.540
+Se queremos retornar algo, verifique se é uma coisa ou
+
+07:21.540 --> 07:25.520
+uma matriz, mas por enquanto nos preocuparemos com o título
+
+07:25.530 --> 07:29.640
+mais tarde. Queremos ter certeza de que estamos retornando apenas
+
+07:29.640 --> 07:35.680
+um elemento. Nesse caso, o elemento 'div' que possui uma tonelada de coisas dentro do
+
+07:35.690 --> 07:38.930
+qual é o componente 'cartão' Tudo bem, vamos
+
+07:38.960 --> 07:41.720
+salvar Tudo bem, temos nosso
+
+07:41.720 --> 07:45.760
+componente de cartão Parece bom, mas e se eu quisesse
+
+07:45.760 --> 07:50.350
+ter vários cartões agora De acordo com o que sabemos, porque temos
+
+07:50.360 --> 08:00.810
+o componente de cartão Se eu for para 'índice. js '.. Posso apenas dizer - coloquei isso em nossa nova linha
+
+08:00.810 --> 08:09.080
+para que você possa ver - posso apenas agrupar isso em uma 'div'. Novamente, porque queremos retornar apenas um único elemento, e
+
+08:12.090 --> 08:16.040
+eu poderia dizer "cartão" e fechar a tag
+
+08:18.650 --> 08:22.660
+"div" Salvar. Veja isso. Agora temos vários cartões. Cada
+
+08:22.650 --> 08:26.350
+um deles tem seu próprio componente. Tudo bem, mas vamos adicionar um
+
+08:26.540 --> 08:32.420
+pouco de estilo a ele, apenas para torná-lo melhor. Novamente, porque temos taquiões,
+
+08:32.750 --> 08:39.290
+podemos usar uma sintaxe muito boa. Se formos para o componente 'cards' dentro da div, posso dizer o
+
+08:39.440 --> 08:40.310
+nome da 'classe'
+
+08:40.340 --> 08:45.180
+novamente, lembre-se de que não podemos usar a classe. 'BG', verde claro, de modo que
+
+08:45.200 --> 08:50.780
+seja 'fundo', 'verde claro', e essas são apenas aulas de táquion que já são predefinidas para
+
+08:50.780 --> 08:51.840
+nós. Novamente,
+
+08:52.060 --> 08:54.870
+seção CSS - não é isso, então não vamos
+
+08:54.950 --> 09:00.260
+nos concentrar muito no CSS. Vou apenas dar os estilos que você precisa. Temos a div, a
+
+09:00.260 --> 09:07.570
+borda, temos o preenchimento de três, muitas margens também. E então 'crescerá', que é
+
+09:07.580 --> 09:10.060
+a animação. Então, se eu
+
+09:10.070 --> 09:16.510
+salvar isso. Olhe para isso. Isso é.. isso é muito bom Você sabe
+
+09:19.210 --> 09:21.670
+o que? Vamos adicionar mais alguns. Faremos
+
+09:21.820 --> 09:29.560
+o 'bw2' e o 'shadow 5' para adicionar um pouco de sombras a eles. Lá vai eles Eles
+
+09:30.010 --> 09:32.740
+parecem mais 3D agora Isso parece
+
+09:32.740 --> 09:33.900
+muito bom Aqui
+
+09:35.200 --> 09:37.400
+está Nós temos nossos cartões.
+
+09:37.420 --> 09:44.100
+Novamente, não queremos este cartão estático onde diz Jane Doe Jane Doe Jane Doe, queremos que seja dinâmico, certo?
+
+09:44.100 --> 09:53.040
+Parece que precisamos, o que chamamos de 'adereços' - propriedades. Bem, na verdade, tenho para você um objeto de robôs que eu
+
+09:53.040 --> 09:53.920
+criei,
+
+09:54.030 --> 10:01.140
+então adicionarei um novo arquivo aqui que diz ‘robots. js 'e aqui dentro
+
+10:01.140 --> 10:08.910
+vou copiar e colar isso. Como você pode ver, é apenas um objeto constante,
+
+10:08.910 --> 10:16.420
+são robôs, são uma variedade de objetos e possuem ID, nome, nome de usuário, e-mail e são apenas
+
+10:16.530 --> 10:21.440
+aleatórios que eu criei. Se você deseja este arquivo, pode pegar os
+
+10:21.610 --> 10:26.300
+arquivos. do final desta seção Mas, por enquanto, desta maneira, tenho
+
+10:26.410 --> 10:36.140
+algo que posso usar e você pode ver que estou exportando. Posso dizer importar robôs de 'ponto', porque estamos no mesmo diretório de robôs
+
+10:36.500 --> 10:39.000
+Agora, se eu salvar obtemos 'robôs
+
+10:39.060 --> 10:48.760
+como definidos por nunca usados', mas, como isso está usando 'export' em vez de 'export default', esse arquivo pode ter várias exportações. Acontece
+
+10:48.790 --> 10:52.630
+que eu só tenho uma. A regra é, para
+
+10:52.690 --> 10:54.620
+essas porque existem um
+
+10:54.880 --> 11:01.960
+padrão - bem, você pode simplesmente fazer 'cartão'. Para aqueles que não são padrão, você
+
+11:01.960 --> 11:02.650
+precisa
+
+11:02.740 --> 11:05.530
+desestruturá-la. É assim. Se eu tiver
+
+11:05.680 --> 11:07.020
+outra variável,
+
+11:07.030 --> 11:14.930
+digamos, que diz 'gatos', então terei que fazer 'gatos' para pegá-la. Então, temos robôs e agora
+
+11:16.220 --> 11:21.930
+eu pode dar algumas propriedades, posso dizer 'id' é igual E, novamente,
+
+11:21.940 --> 11:24.340
+temos esses colchetes para
+
+11:24.370 --> 11:33.130
+que seja uma expressão javascript e diremos 'robots' .. Primeira
+
+11:34.570 --> 11:44.070
+matriz de "robôs". dot 'id' tem o ID, então temos
+
+11:44.150 --> 11:58.340
+nome igual a robôs novamente, o primeiro nome de ponto de usuário, fecha o colchete e também temos email igual a robôs
+
+11:58.340 --> 12:03.400
+primeiro na matriz, dot email Santo Moly, é
+
+12:03.440 --> 12:10.140
+muita digitação. E eu vou fazer isso menor só para que você possa ver. Vou copiar
+
+12:10.140 --> 12:15.580
+e colar para os outros também, exceto ..
+
+12:15.660 --> 12:23.150
+altere isso para o segundo usuário e, em seguida,
+
+12:23.220 --> 12:31.560
+o terceiro uso - Ops. o segundo usuário Agora, se eu salvar
+
+12:31.800 --> 12:39.750
+isso, ele será compilado com êxito, mas nada mudou, pois precisamos acessar as cartas
+
+12:39.810 --> 12:47.070
+que vou fechar 'robôs. js 'por enquanto. Como os cartões agora precisam aceitar parâmetros e quais são
+
+12:47.070 --> 12:47.810
+os parâmetros?
+
+12:47.820 --> 13:05.620
+Bem, é propriedades. E esses adereços agora são adereços dot name, e adereços dot email,
+
+13:05.780 --> 13:08.650
+eu salvo isso, volte
+
+13:08.840 --> 13:13.340
+Hmm. Não está funcionando. Bem, porque esta é uma expressão
+
+13:13.400 --> 13:13.950
+javascript, certo?
+
+13:13.970 --> 13:18.050
+Então, eu preciso colocá-lo entre colchetes do jeito que
+
+13:18.820 --> 13:23.680
+funciona no JSX. Salvar Veja que temos nomes dinâmicos
+
+13:23.750 --> 13:29.840
+que estamos passando como propriedades para cada um. Vamos adicionar 'centro de texto' aqui
+
+13:30.000 --> 13:31.950
+e lá vai você
+
+13:33.800 --> 13:34.630
+Agora
+
+13:34.670 --> 13:35.890
+temos tudo centralizado
+
+13:35.960 --> 13:38.490
+Isso é muito melhor, ok, mas
+
+13:38.500 --> 13:42.210
+também passamos o ID. Podemos usar o
+
+13:42.250 --> 13:50.500
+ID para fazer algo bacana. Se você se lembra da seção ESX, temos strings de modelo e, como essa é
+
+13:50.500 --> 13:55.020
+uma string de modelo, precisamos envolvê-la em um colchete, para que
+
+13:55.360 --> 14:02.780
+seja uma expressão javascript. E agora no RoboHash, em vez de usar test aqui podemos aleatoriamente quais robôs
+
+14:02.920 --> 14:05.310
+obtemos usando a sintaxe como você
+
+14:05.500 --> 14:08.790
+se lembra e aqui podemos apenas dizer props
+
+14:08.920 --> 14:16.000
+dot ID Então, agora isso vai dizer RoboHash. org, ID do que quer que seja para o robô
+
+14:16.000 --> 14:20.200
+com o site. Portanto, garantimos que novamente os IDs estejam sempre dinâmicos
+
+14:20.200 --> 14:29.010
+e mudando. Se eu salvar isso e voltar. Olhe para isso. Você vê que há um atraso novamente, porque estamos conversando com
+
+14:29.010 --> 14:31.440
+a API e a API está retornando a resposta
+
+14:31.440 --> 14:33.800
+para nós, mas o quão legal é isso?
+
+14:33.810 --> 14:39.350
+Acabamos de criar nossos próprios cartões dinâmicos
+
+14:39.380 --> 14:46.120
+Uma última coisa. Embora isso funcione, algo mais agradável que você pode fazer
+
+14:46.370 --> 14:48.500
+é termos algo chamado desestruturação.
+
+14:50.940 --> 14:57.730
+Podemos fazer algo como o nome 'const'. o email.. é igual a 'adereços', novamente
+
+14:57.820 --> 15:05.470
+como você deve se lembrar do E6, e agora eu também posso usar o 'ID' externo e ainda funciona Outra
+
+15:11.280 --> 15:12.430
+coisa legal
+
+15:14.240 --> 15:21.160
+que você pode fazer e isso é ainda mais limpo é, dentro dos parâmetros que você pode
+
+15:21.620 --> 15:23.840
+desestruturar Novamente você pode adicioná-los
+
+15:28.740 --> 15:34.790
+aqui agora E agora, se eu salvar, ainda deve funcionar e funciona Isso pode ser
+
+15:34.990 --> 15:42.070
+confuso se você é novo na desestruturação, mas como você viu passo a passo, estamos apenas recebendo adereços
+
+15:42.070 --> 15:46.260
+e destruindo os adereços bem dentro dos colchetes aqui Isso é
+
+15:47.460 --> 15:50.440
+muito mais limpo Tudo bem Isso foi muito
+
+15:50.760 --> 15:51.450
+divertido
+
+15:51.450 --> 15:54.210
+de uma maneira realmente muito rápida, acabamos
+
+15:54.210 --> 15:57.960
+de criar nossos próprios cartões. Na próxima seção, vamos expandir
+
+15:57.990 --> 16:01.120
+isso e tornar isso ainda melhor. Vejo você
+
+16:01.200 --> 16:02.820
+nessa. Tchau tchau

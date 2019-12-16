@@ -1,0 +1,682 @@
+WEBVTT
+
+00:00.840 --> 00:08.140
+Ben tornato! È giunto il momento per noi di distribuire effettivamente la nostra app su cui abbiamo lavorato così duramente.
+
+00:08.220 --> 00:15.640
+Fino a questo punto il nostro intero progetto, la nostra intera bellissima app è appena vissuta sui nostri laptop.
+
+00:15.930 --> 00:20.560
+Se volessimo mostrarlo a qualcuno, sarebbe necessario averlo installato sul nostro laptop.
+
+00:20.820 --> 00:22.790
+Ma non è proprio realistico.
+
+00:22.800 --> 00:30.810
+Se vogliamo mai ottenere utenti e spargere la voce sul nostro progetto, dobbiamo averlo online accessibile a tutti
+
+00:30.810 --> 00:33.820
+e lo faremo in questa sezione.
+
+00:34.110 --> 00:39.240
+Se ricordi che abbiamo il front-end tutto fatto con reagire.
+
+00:39.240 --> 00:47.490
+Abbiamo il nostro server back-end che ha una bellissima API creata dal nodo in Express e
+
+00:47.490 --> 00:55.470
+abbiamo anche il nostro database postgres impostato e configureremo ognuno di questi rettangoli che ricordi
+
+00:55.510 --> 00:57.910
+dovrebbero essere computer separati.
+
+00:58.030 --> 01:03.580
+Li distribuiremo separatamente in modo che finché possano comunicare e sappiano dove vivono gli
+
+01:03.580 --> 01:07.620
+altri, non importa dove si trovino ciascuno di essi.
+
+01:07.630 --> 01:15.970
+Fintanto che hanno questa connessione e stiamo andando a dispiegare in un posto chiamato Heroku e Heroku è solo una società
+
+01:15.970 --> 01:24.740
+che ha un sacco di computer e sono disposti a ospitare i file che li diamo per noi e io ' Ti guiderò
+
+01:25.580 --> 01:30.680
+attraverso questo e potresti chiederti perché non stiamo usando qualcosa come HostGator o
+
+01:30.680 --> 01:33.870
+qualcosa di cui ho sentito parlare prima.
+
+01:34.250 --> 01:42.290
+Bene HostGator o host blu o la maggior parte delle piattaforme di hosting di cui hai sentito parlare sono queste semplici piattaforme
+
+01:42.290 --> 01:44.300
+di cui abbiamo parlato prima.
+
+01:44.300 --> 01:48.700
+Di solito hanno un server Apache che ospita solo file.
+
+01:48.770 --> 01:55.160
+Quindi sono davvero bravi a ospitare e servire progetti basati su HTML davvero semplici.
+
+01:55.190 --> 02:02.210
+Se hai solo una pagina di informazioni o un sito Web ben fatto, sono davvero utili forse hai un sito
+
+02:02.210 --> 02:08.180
+Web WordPress che è buono se non sei preoccupato per i server e tutto è curato.
+
+02:08.480 --> 02:11.300
+Ma non è più così che distribuiamo app.
+
+02:11.390 --> 02:17.540
+Se in realtà stai creando applicazioni più complesse, abbiamo bisogno di qualcosa che ci dia
+
+02:17.540 --> 02:18.430
+maggiore controllo.
+
+02:18.710 --> 02:26.070
+E ci sono molte opzioni e queste sono alcune delle più famose come Amazon, Heroku che
+
+02:26.070 --> 02:28.870
+useremo, Engine Yard, Digital Ocean.
+
+02:28.890 --> 02:36.260
+C'è anche Google e Microsoft che offre servizi Web e offrono moltissime cose diverse nelle quali non
+
+02:36.530 --> 02:38.260
+abbiamo davvero bisogno.
+
+02:38.270 --> 02:43.870
+C'è un settore speciale chiamato dev ops che si concentra davvero su questo dominio.
+
+02:44.840 --> 02:50.020
+Ma vogliamo sapere come funziona in modo che quando lo incontriamo possiamo esplorare di più e capirlo.
+
+02:50.990 --> 02:55.580
+Alla fine, questi sono solo computer gestiti da queste aziende.
+
+02:55.580 --> 03:00.230
+Ti permettono di eseguire i tuoi file sul loro computer e in cambio,
+
+03:00.320 --> 03:01.550
+Bene, li paghiamo.
+
+03:01.550 --> 03:06.310
+Ma si assicurano anche che i computer funzioneranno molto velocemente.
+
+03:06.320 --> 03:10.850
+E se stiamo eseguendo qualcosa come Postgresql o una base di dati, proveranno a fare
+
+03:10.850 --> 03:16.880
+del loro meglio per assicurarsi che non vada giù o che ci siano backup e sentirai molto parlare di questo
+
+03:17.480 --> 03:19.030
+tipo di aziende molto.
+
+03:19.040 --> 03:25.060
+Quando entri nel campo dello sviluppo Web, stiamo usando Heroku qui perché è davvero favorevole agli sviluppatori.
+
+03:25.070 --> 03:31.330
+E offrono anche un livello gratuito che è ottimo per progetti come questo solo a scopo dimostrativo.
+
+03:31.470 --> 03:38.610
+Se vai sul loro sito Web hanno davvero un'ottima documentazione ed è così semplice da configurare.
+
+03:38.640 --> 03:43.140
+Quindi andrò avanti e ti dirò di iscriverti per questo.
+
+03:43.140 --> 03:44.330
+È completamente gratuito.
+
+03:44.400 --> 03:52.240
+Non appena esegui l'accesso, verrai indirizzato a qualcosa di simile alla tua dashboard personale e vedrai che puoi utilizzare
+
+03:52.250 --> 03:54.840
+lingue diverse per la distribuzione.
+
+03:54.900 --> 04:01.710
+Nel nostro caso stiamo usando il nodo e possiamo semplicemente fare clic sul nodo e ci porterà alla documentazione
+
+04:01.710 --> 04:05.720
+che ci porta da zero a distribuire la nostra app.
+
+04:05.980 --> 04:10.560
+Ma non è necessario passare attraverso tutto questo perché è così semplice.
+
+04:10.660 --> 04:11.550
+Lascia che ti mostri.
+
+04:11.800 --> 04:17.190
+Ho intenzione di collegarmi a tutta questa documentazione dopo questo video in modo da poter dare un'occhiata a te stesso.
+
+04:17.350 --> 04:24.400
+Ma è davvero molto semplice se vai alla documentazione e la distribuzione con Git è
+
+04:27.320 --> 04:29.240
+semplice come pochi comandi.
+
+04:31.160 --> 04:33.860
+Ti dice che essenzialmente abbiamo bisogno di due cose.
+
+04:34.480 --> 04:37.140
+Uno di cui abbiamo bisogno di Git che già abbiamo.
+
+04:37.330 --> 04:38.250
+E Heroku.
+
+04:38.380 --> 04:40.020
+Quindi parliamo del nostro piano di gioco.
+
+04:42.620 --> 04:49.390
+Inseriremo il nostro server su Heroku e anche il nostro database Postgres su Heroku e l'app Front-End
+
+04:49.400 --> 04:50.440
+di reazione.
+
+04:50.570 --> 04:56.450
+Possiamo metterlo ovunque davvero, ma possiamo usare le pagine Github che abbiamo usato in precedenza per il progetto
+
+04:56.450 --> 04:58.500
+generatore di sfondo perché è gratuito.
+
+05:00.380 --> 05:04.700
+Diamo un'occhiata prima all'API perché è la più importante
+
+05:04.700 --> 05:08.090
+che penso sia il connettore dei due.
+
+05:08.260 --> 05:09.810
+Git è già installato.
+
+05:09.910 --> 05:17.320
+Quindi prendiamo Heroku CLI che è l'interfaccia della riga di comando che è che possiamo usarla nel terminale
+
+05:19.150 --> 05:20.270
+per installarlo.
+
+05:20.560 --> 05:28.630
+Ora, prima di entrare in questo, sono andato avanti e ho messo la nostra API su Github per assicurarci di poter effettivamente eseguire questi comandi e
+
+05:28.630 --> 05:31.510
+assicurarci che si tratti di un progetto Git.
+
+05:31.540 --> 05:35.090
+Sono andato avanti e l'ho fatto senza registrarlo perché lo abbiamo già provato prima.
+
+05:35.110 --> 05:36.790
+Non volevo annoiarti con quello.
+
+05:36.790 --> 05:38.880
+Dovresti sapere come farlo ormai.
+
+05:40.950 --> 05:43.090
+Quindi guarda la CLI di Heroku.
+
+05:43.290 --> 05:49.570
+Disponiamo di sistemi operativi Mac Windows e Ubuntu su cui è possibile eseguirlo.
+
+05:49.570 --> 05:50.820
+Quindi di nuovo mi collegherò a questi.
+
+05:50.830 --> 05:53.860
+E puoi decidere in che modo desideri installarlo da solo.
+
+05:54.310 --> 05:55.240
+Per me è un Mac.
+
+05:55.240 --> 06:01.230
+Quindi userò brew install e installerò questa riga di comando.
+
+06:01.500 --> 06:06.380
+Voglio dire, come puoi vedere qui ho già installato questo, ma per te potrebbe richiedere
+
+06:06.380 --> 06:11.400
+un po 'più di tempo e una volta fatto dirà che è installato vai e divertiti.
+
+06:13.340 --> 06:13.570
+Tutto ok.
+
+06:13.580 --> 06:15.320
+Quindi abbiamo installato Heroku.
+
+06:15.440 --> 06:23.530
+Se torniamo alla documentazione, ti dice come aggiungere la tua app a Git che già conosciamo.
+
+06:23.540 --> 06:31.990
+Quindi possiamo ignorarlo e dice che dobbiamo semplicemente eseguire Heroku create per creare un'app.
+
+06:32.100 --> 06:37.480
+Andiamo nella nostra directory ed eseguiamo semplicemente
+
+06:40.480 --> 06:48.390
+Heroku create E guardalo! Ha creato la nostra app, ci ha persino fornito un URL per raggiungere la nostra app.
+
+06:48.400 --> 06:49.640
+Va bene, fantastico.
+
+06:49.700 --> 06:56.360
+Ma per usarlo bene andiamo a questo URL e vediamo se funziona.
+
+06:57.310 --> 07:03.490
+Possiamo usare Heroku open per portarci effettivamente a questo link.
+
+07:03.510 --> 07:04.500
+Vediamo cosa succede.
+
+07:05.840 --> 07:14.030
+Dice che non è stato possibile trovare quell'app. Poiché in realtà abbiamo ancora alcuni passaggi, dobbiamo effettivamente distribuire
+
+07:14.030 --> 07:19.650
+l'app e il modo in cui lo distribuiamo dobbiamo prima controllare qualcosa chiamato Git remote.
+
+07:19.700 --> 07:21.980
+Ed è qualcosa di cui non abbiamo davvero parlato.
+
+07:22.070 --> 07:23.470
+Ma lascia che ti mostri di cosa si tratta.
+
+07:24.560 --> 07:30.550
+Se siamo in grado di accedere al trattino remoto V, otteniamo ...
+
+07:30.580 --> 07:31.510
+Fammi aprire questo.
+
+07:31.510 --> 07:33.520
+Rendi questo un po 'più grande.
+
+07:33.520 --> 07:34.130
+Ecco qua
+
+07:35.880 --> 07:40.420
+Vediamo che abbiamo Heroku e l'origine.
+
+07:40.440 --> 07:49.530
+Fino a questo punto, quando si lavora con Git, l'impostazione predefinita è origin, quindi è possibile eseguire comandi come Git push origin master.
+
+07:49.530 --> 07:58.610
+Ciò significa che stiamo spingendo verso Origin che è Github e stiamo spingendo sul ramo principale e origin è solo il
+
+07:58.610 --> 08:03.380
+nome predefinito che Github ha. Potremmo aver eseguito il
+
+08:03.380 --> 08:08.960
+comando Just Git push perché l'impostazione predefinita è sempre origine e master.
+
+08:09.110 --> 08:12.030
+Quindi quello era solo il modo abbreviato di farlo.
+
+08:12.110 --> 08:17.990
+Ma ora, poiché abbiamo eseguito questi comandi Heroku, ora abbiamo anche Heroku.
+
+08:18.010 --> 08:22.190
+Quindi, invece di spingere verso Github, possiamo spingere verso Heroku. Quindi,
+
+08:27.660 --> 08:33.500
+nel nostro caso, se andiamo a distribuire il codice, vediamo che eseguiamo semplicemente Git push Heroku Master.
+
+08:34.110 --> 08:41.870
+Facciamolo. Ho intenzione di eseguire Git per spingere il maestro Heroku e vedere cosa succede.
+
+08:42.980 --> 08:49.360
+Vedi qui che ho ricevuto un errore e questo è un errore che potresti non avere, ma perché ho usato
+
+08:49.360 --> 08:50.080
+Heroku prima.
+
+08:51.470 --> 08:53.210
+Ha un nome diverso.
+
+08:53.210 --> 08:55.510
+Puoi vedere qui "ancoraggio schermato".
+
+08:55.510 --> 09:00.340
+contro il nome che desidero in realtà, che è "oceano radiante".
+
+09:00.440 --> 09:05.450
+E vediamo che anche nel nostro telecomando che non abbiamo
+
+09:05.780 --> 09:14.190
+l'app radiant-ocean abbiamo qualcos'altro che ho creato prima. E il modo in cui ci aggiriamo è nella -
+
+09:14.280 --> 09:18.600
+per un'app Heroku esistente puoi semplicemente eseguire questo comando per rinominarlo.
+
+09:18.880 --> 09:25.930
+Quindi facciamo Git Heroku Git da remoto e il nome della
+
+09:26.260 --> 09:32.840
+nuova app che vuoi aggiungere nel nostro caso è questo.
+
+09:32.930 --> 09:38.450
+E ora se lo faccio Git dash remoto V.
+
+09:38.670 --> 09:43.830
+Va bene, ho una radiante oceano come app e non preoccuparti se questo è confuso.
+
+09:43.840 --> 09:48.430
+È solo una questione di lettura della documentazione.
+
+09:48.510 --> 09:53.970
+È molto specifico per Heroku e qualcosa a cui ti abituerai, ma ora la nostra app punta
+
+09:53.970 --> 09:55.280
+nella giusta direzione.
+
+09:55.350 --> 09:56.230
+Quindi ci proveremo di nuovo.
+
+09:56.230 --> 10:01.720
+Proveremo e Git spingerà ancora una volta il maestro Heroku.
+
+10:04.770 --> 10:05.490
+Tutto ok.
+
+10:05.520 --> 10:06.610
+Sembra che stia funzionando.
+
+10:06.630 --> 10:14.190
+E puoi vedere qui che stiamo creando un ambiente, stiamo installando un sacco di cose, sta installando i moduli del
+
+10:14.190 --> 10:22.380
+nodo, quindi sta eseguendo l'installazione di NPM per noi e ottenendo tutto impostato e sta dicendo che la verifica è stata eseguita.
+
+10:22.380 --> 10:23.480
+Eccezionale.
+
+10:23.490 --> 10:26.470
+Facciamo aprire Heroku e vediamo se funziona davvero.
+
+10:32.410 --> 10:34.390
+Ed è solo appeso lì.
+
+10:35.360 --> 10:37.630
+E non preoccuparti, l'ho fatto apposta.
+
+10:37.640 --> 10:43.310
+La ragione per cui non funziona è invece che io ti dica di capire cosa sta realmente succedendo.
+
+10:43.420 --> 10:50.750
+C'è un altro comando che possiamo usare che è la coda del trattino dei registri di Heroku.
+
+10:50.900 --> 10:55.530
+E questo ci dà un registro di ciò che sta accadendo in questo computer in cui è in esecuzione il server.
+
+10:59.840 --> 11:02.860
+Bene, quindi sembra che tutto stia funzionando.
+
+11:04.000 --> 11:09.970
+Il server dei nodi sta ascoltando la porta 3000.
+
+11:10.100 --> 11:11.590
+Vediamo che ora riceviamo un errore.
+
+11:11.590 --> 11:19.890
+Quindi sembra che stiamo ottenendo un timeout di avvio e che il processo Web non sia riuscito a collegarsi alla porta.
+
+11:20.000 --> 11:26.860
+E questo è qualcosa che leggerai nel leggi me o nella documentazione di Heroku. Quello che sta succedendo
+
+11:26.860 --> 11:34.280
+qui è che Heroku ha una propria porta che assegna.
+
+11:34.450 --> 11:40.300
+E dato che abbiamo già parlato delle variabili ambientali prima
+
+11:34.280 --> 11:48.820
+perché stiamo impostando la nostra porta per ascoltare 3000 qui Heroku vuole una sua porta, non si preoccupa necessariamente delle 3000, ha le sue cose.
+
+11:48.820 --> 11:58.150
+Quindi il modo per aggirare questo è che possiamo usare process dot env Dot PORT in modo
+
+11:58.150 --> 12:04.870
+che se riceviamo una porta dall'ambiente in cui siamo in esecuzione
+
+12:06.250 --> 12:23.730
+in questo caso Heroku esegue che altrimenti eseguono la porta tremila e possiamo cambiare l'app è in esecuzione sulla porta 3000 a qualcosa di più dinamico come process dot env dot PORT.
+
+12:23.750 --> 12:25.080
+Va bene torniamo indietro.
+
+12:26.510 --> 12:27.120
+E avvia
+
+12:30.990 --> 12:32.480
+Git, spingi il maestro Heroku.
+
+12:32.700 --> 12:33.580
+Ma ecco la cosa.
+
+12:33.750 --> 12:35.530
+Perché stiamo attraversando Git.
+
+12:35.580 --> 12:41.380
+Dobbiamo davvero aggiungere queste modifiche al nostro repository, quindi stiamo spingendo tutto.
+
+12:41.400 --> 12:49.290
+Se eseguiamo questo comando da solo dirà che tutto è aggiornato perché non abbiamo eseguito i comandi
+
+12:49.290 --> 12:51.150
+Git ADD Git commit.
+
+12:51.250 --> 13:10.000
+Quindi facciamo che Git aggiunga Git commit aggiungendo porta e poi faremo Git push Heroku master. Eseguirà nuovamente i comandi.
+
+13:10.180 --> 13:12.860
+Sta ridistribuendo l'intero server.
+
+13:13.150 --> 13:15.790
+E se andiamo ad Heroku
+
+13:19.660 --> 13:25.440
+aperto, sembra che stiamo di nuovo appendendo e otteniamo un errore interno del server.
+
+13:25.450 --> 13:26.510
+Diamo un'occhiata ai registri.
+
+13:27.830 --> 13:33.010
+Andiamo di nuovo alla coda dei tronchi di Heroku.
+
+13:33.250 --> 13:37.290
+E questo è un po 'complicato se scorri qui.
+
+13:37.550 --> 13:39.520
+Vogliamo andare all'app.
+
+13:39.570 --> 13:39.820
+OK.
+
+13:39.830 --> 13:44.900
+Quindi nodemon è in esecuzione, l'app è in esecuzione sulla porta 9098.
+
+13:45.120 --> 13:51.500
+Ma se si continua a scendere dopo l'avvio di NPM, viene visualizzato un errore di riferimento: il database non è definito.
+
+13:51.670 --> 13:54.200
+E questo qualcosa che ho lasciato qui apposta.
+
+13:54.980 --> 13:59.710
+Solo per mostrarti come funziona il debug dove devi guardare attraverso i registri.
+
+13:59.960 --> 14:06.320
+Se ricordi che non stiamo più usando quel database che abbiamo creato, la prima variabile.
+
+14:06.320 --> 14:14.010
+E poiché la nostra app quando viene caricata per la prima volta va sulla route principale eseguirà questo comando e dirà
+
+14:14.010 --> 14:16.010
+che il database non esiste.
+
+14:16.020 --> 14:17.950
+Non so di cosa stai parlando.
+
+14:17.950 --> 14:21.900
+Quindi, per risolvere il problema, cambiamo questo in.
+
+14:22.140 --> 14:24.260
+Funziona.
+
+14:24.330 --> 14:30.080
+Se salviamo e sì, sfortunatamente, dobbiamo ripetere i nostri comandi Git.
+
+14:30.090 --> 14:33.300
+Andiamo ad aggiungere
+
+14:35.570 --> 14:46.590
+Git impegnando il cambiamento della risposta e Git spingerà Heroku Master Va bene.
+
+14:46.800 --> 14:51.860
+Quindi correre attraverso un po 'di magia e facciamo aprire Heroku
+
+14:58.150 --> 14:58.960
+funziona.
+
+14:58.960 --> 15:06.310
+La nostra app è ora in questa posizione e possiamo raggiungerla usando questa.
+
+15:06.310 --> 15:07.590
+Mettiamo alla prova questa teoria.
+
+15:07.690 --> 15:14.090
+Aggiungiamo questo invece del nostro host locale alla nostra app front-end e comunque se vai alla
+
+15:14.090 --> 15:17.070
+dashboard di Heroku che posso usare qui
+
+15:20.030 --> 15:23.510
+e vediamo che la mia app è in esecuzione.
+
+15:23.510 --> 15:26.210
+Ha tutti i registri di cui ho bisogno.
+
+15:26.480 --> 15:29.120
+Posso guardare le metriche, posso vedere l'attività
+
+15:32.260 --> 15:35.780
+che puoi guardare il processo di distribuzione e aggiungere cose diverse.
+
+15:35.780 --> 15:37.550
+Ci sono così tante cose che puoi fare.
+
+15:37.600 --> 15:39.050
+È davvero fantastico.
+
+15:39.310 --> 15:43.550
+Ma proviamo solo il nostro presupposto per assicurarsi che la nostra app funzioni davvero.
+
+15:44.330 --> 15:48.860
+Ho l'applicazione per il cervello intelligente in esecuzione qui.
+
+15:48.870 --> 15:51.120
+Apriamo apt dot js
+
+15:52.690 --> 15:58.920
+E lo rendo un po 'più piccolo in modo da poter vedere e dove
+
+15:58.950 --> 16:05.000
+facciamo i nostri recuperi cambieremo localhost che è il nostro computer all'endpoint reale.
+
+16:05.460 --> 16:06.630
+Copiamo l'endpoint
+
+16:09.230 --> 16:11.750
+che ci ha dato Heroku.
+
+16:18.890 --> 16:23.390
+E cambiarlo per tutte le posizioni localhost.
+
+16:23.390 --> 16:24.310
+Quindi abbiamo questo.
+
+16:24.320 --> 16:29.530
+E se ricordi che abbiamo anche il registro e anche l'accesso.
+
+16:42.710 --> 16:50.150
+Solo per confermare con te quello che abbiamo appena fatto. In sostanza abbiamo appena detto al front-end dove
+
+16:50.150 --> 16:58.050
+dovrebbero puntare queste frecce e dovrebbe puntare alla posizione del server che ci è stata fornita da Heroku.
+
+16:58.050 --> 16:59.930
+Va bene, quindi proviamo.
+
+16:59.940 --> 17:01.910
+Ho intenzione di avviare
+
+17:06.670 --> 17:10.350
+NPM start e speriamo che tutto funzioni come lo vogliamo.
+
+17:11.180 --> 17:15.040
+Se eseguiamo l'accesso o facciamo semplicemente clic su sospira.
+
+17:15.120 --> 17:16.110
+Non succede nulla.
+
+17:16.110 --> 17:18.190
+Quindi dobbiamo registrare qualcuno.
+
+17:18.240 --> 17:22.980
+Andremo con Todd Todd alla Gmail Dot Com.
+
+17:23.040 --> 17:26.200
+Uno due tre registri.
+
+17:26.280 --> 17:27.070
+Oh abbiamo un errore.
+
+17:27.090 --> 17:27.900
+Vediamo cosa otteniamo.
+
+17:30.030 --> 17:34.430
+Se andiamo alla console, il server ha risposto con lo stato di 400.
+
+17:34.430 --> 17:37.910
+Brutta richiesta. diamo un'occhiata alla rete e vediamo cosa succede.
+
+17:38.880 --> 17:39.860
+Faccio clic
+
+17:43.110 --> 17:51.180
+su Register e non riusciamo a registrarci, il che in realtà è davvero un buon segno perché è quello che abbiamo
+
+17:51.180 --> 17:51.800
+scritto.
+
+17:51.900 --> 17:58.980
+Ricorda che nel nostro server abbiamo detto che quando abbiamo provato a registrarci
+
+18:01.600 --> 18:03.990
+se fallisce, vogliamo tornare.
+
+18:04.030 --> 18:06.800
+Impossibile registrarsi.
+
+18:06.820 --> 18:10.240
+Quindi si sta effettivamente connettendo al nostro front-end.
+
+18:10.600 --> 18:11.410
+È stupefacente.
+
+18:12.100 --> 18:20.130
+Ma potresti notare un problema. Questo è ora il fatto che non
+
+18:20.130 --> 18:24.400
+abbiamo più un database perché il nostro database
+
+18:24.530 --> 18:37.240
+e il backend fanno riferimento, se ricordi il nostro localhost ma poiché questo computer ora vive da qualche parte su Heroku, non ne ha idea.
+
+18:37.330 --> 18:44.110
+Beh, potrebbe sapere cos'è localhost ma sicuramente non hanno un database chiamato smart brain.
+
+18:44.120 --> 18:49.270
+Quindi ora creiamo un database postgres su Heroku.
+
+18:49.580 --> 18:52.190
+Ma questo video sta già diventando un po 'troppo lungo.
+
+18:52.370 --> 18:54.010
+Questo è per il prossimo video.
+
+18:54.320 --> 18:56.180
+Ci vediamo in quell'unico ciao.

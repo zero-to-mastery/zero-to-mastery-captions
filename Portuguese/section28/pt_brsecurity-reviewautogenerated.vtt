@@ -1,0 +1,556 @@
+WEBVTT
+
+00:01.070 --> 00:02.480
+Bem vindo de volta.
+
+00:02.480 --> 00:10.100
+Quero fazer uma rápida revisão de nossa segurança e de como nosso aplicativo está funcionando agora, porque colocar um aplicativo
+
+00:10.310 --> 00:19.650
+Web seguro on-line é uma responsabilidade muito importante do Desenvolvedor da Web. Vamos voltar à nossa base de código.
+
+00:19.750 --> 00:24.250
+Existem dois problemas principais que vejo até agora.
+
+00:24.280 --> 00:28.870
+A primeira coisa é que não estamos fazendo nada chamado validação.
+
+00:29.010 --> 00:39.820
+Se eu vou entrar aqui e vou para o meu controlador de entrada, se um usuário não digitar o email apropriado ou digitar algo que não esperamos, talvez
+
+00:40.150 --> 00:45.460
+deixe esse campo de email em branco ou o campo de senha em branco
+
+00:46.860 --> 00:51.310
+Bem O que acontece depois? E o mesmo com o registro.
+
+00:51.470 --> 01:00.800
+Se formos registrar e um usuário não digitar o e-mail, nome ou senha adequados, tecnicamente ainda os registramos, porque, se deixarmos o
+
+01:00.800 --> 01:09.230
+nome em branco do e-mail em branco, a senha em branco, eles apenas inserirão um usuário em branco no
+
+01:09.260 --> 01:10.810
+banco de dados.
+
+01:12.160 --> 01:14.670
+Vamos para o aplicativo e mostrar o que isso significa.
+
+01:15.460 --> 01:23.480
+Se eu deixar esse campo em branco e clicar em registrar, observe que eu entrei no aplicativo e se eu
+
+01:23.480 --> 01:24.170
+voltar
+
+01:26.910 --> 01:37.200
+ao banco de dados e acessar os usuários, vejo um usuário em branco. E isso não é muito prejudicial, mas mostra um tópico importante que você
+
+01:37.200 --> 01:44.790
+realmente deseja focar no seu aplicativo e que é a validação - certificando-se de que quando você se comunica
+
+01:44.790 --> 01:49.520
+entre o front-end e o back-end há algumas camadas de segurança.
+
+01:49.620 --> 01:54.420
+Primeiro, o Front-End fará sua própria validação.
+
+01:54.420 --> 02:03.670
+Por exemplo, se formos para a página de login ou a página de registro em nosso Front-End em nosso aplicativo de
+
+02:03.670 --> 02:10.100
+re-ação, na verdade, verificaremos antes de clicar em registrar e ter um botão Enviar.
+
+02:10.330 --> 02:18.360
+E, ao enviar, verificará se o nome não está vazio, o email tem o formato de email adequado,
+
+02:18.450 --> 02:26.830
+como ter um sinal de arroba ou um ponto com no final e a senha terá algum tipo de validação,
+
+02:26.830 --> 02:33.690
+digamos que ter mais de seis caracteres. E agora o front end envia essas informações
+
+02:34.320 --> 02:40.520
+validadas para o back-end, e uma coisa importante que você deseja garantir com o servidor
+
+02:40.520 --> 02:45.590
+é que o servidor nunca confie em nada recebido do front end.
+
+02:45.640 --> 02:48.050
+Portanto, ele deve fazer sua própria validação.
+
+02:48.070 --> 02:56.470
+Isto é, verifique o nome e a senha do email e verifique se há valores que ele deseja inserir e fazer transações no
+
+02:56.590 --> 02:58.030
+banco de dados.
+
+02:58.920 --> 03:14.470
+Uma maneira de fazer isso. Bem, podemos simplesmente dizer que, se e-mail ou nome ou senha, e podemos simplesmente fazer o
+
+03:14.800 --> 03:17.070
+não, é o contrário.
+
+03:17.320 --> 03:20.700
+Então, se isso estiver vazio, eles se tornarão verdadeiros.
+
+03:20.740 --> 03:24.500
+Se isso estiver vazio, eles se tornarão verdadeiros, isso estará vazio, eles se tornarão verdadeiros.
+
+03:24.580 --> 03:30.280
+Portanto, se algum desses itens estiver vazio, podemos responder ao status
+
+03:32.710 --> 03:33.370
+400
+
+03:36.330 --> 03:40.910
+e responder com o envio incorreto do formulário.
+
+03:43.710 --> 03:45.420
+Vamos salvar isso e ver o que acontece.
+
+03:47.570 --> 03:53.500
+Eu vou salvar. A única coisa que quero fazer é realmente voltar ao meu banco de dados e colocar meu PSQL em
+
+03:53.500 --> 03:53.850
+execução aqui.
+
+03:53.890 --> 03:58.540
+Se eu for logar ou usuários, quero excluir o usuário vazio.
+
+03:58.540 --> 04:07.130
+Agora e este é bem perfeito.
+
+04:07.350 --> 04:09.570
+Se eu voltar aqui e
+
+04:12.780 --> 04:15.470
+tentar clicar em registrar, ainda recebo o registro.
+
+04:15.490 --> 04:19.180
+Isso ocorre porque, se eu voltar, vejo um erro aqui
+
+04:23.080 --> 04:26.050
+e "não consigo definir cabeçalhos após o envio".
+
+04:26.590 --> 04:33.430
+E isso é um pouco de truque, porque se você for aqui e abrir o console.
+
+04:33.660 --> 04:44.890
+Tudo bem, temos uma solicitação incorreta do servidor, mas esta instrução if é executada e continua e faz isso também
+
+04:44.890 --> 04:52.810
+porque lembre-se de que, para finalizar a execução em uma função, precisamos dizer
+
+04:53.050 --> 04:53.670
+retorno.
+
+04:53.920 --> 05:01.870
+Dessa forma, se isso for executado, ele retornará dessa função e essa parte nunca será executada.
+
+05:03.480 --> 05:14.860
+Deixe-me salvar que volte ao nosso aplicativo agora, vamos atualizar aqui. Vamos apenas fazer um usuário em branco.
+
+05:14.950 --> 05:21.100
+Mais uma vez, estamos entrando no sistema porque agora, quando vamos para o front end, se você se
+
+05:21.100 --> 05:26.030
+lembra do nosso arquivo de registro no front end, quando clicamos em registrar.
+
+05:28.890 --> 05:30.180
+Bem, estamos
+
+05:32.690 --> 05:40.640
+buscando e estamos apenas verificando se usuário e esse usuário, porque estamos respondendo aqui com o envio
+
+05:41.060 --> 05:43.400
+incorreto do formulário, será esse.
+
+05:43.400 --> 05:51.530
+Então, vamos apenas verificar aqui o ID. Salvamos e lembramos que
+
+05:51.560 --> 06:00.310
+isso foi feito com nosso login também nos vídeos anteriores.
+
+06:00.780 --> 06:06.430
+Não está me deixando porque, se eu abrir o console, não consigo carregar os recursos.
+
+06:06.430 --> 06:17.400
+Se eu for à rede, tente isso novamente. Para registrar, recebo "envio incorreto de formulário".
+
+06:17.520 --> 06:19.530
+Então isso é realmente muito importante.
+
+06:19.560 --> 06:28.460
+O servidor e o cliente devem fazer sua própria validação e garantir que ele lide com todas as possibilidades.
+
+06:28.530 --> 06:35.610
+Se um invasor, por exemplo, digitar algum código realmente muito ruim, em vez de um email. Bem, precisamos validar isso
+
+06:35.610 --> 06:42.260
+e garantir que tomemos as medidas adequadas com base nisso.
+
+06:42.430 --> 06:49.220
+Assim, podemos adicionar coisas como essas em outras partes do nosso aplicativo, especialmente nas quais aceitamos informações.
+
+06:49.510 --> 06:57.760
+Felizmente para nós, isso é para o nosso registro e, em seguida, também temos nosso logon.
+
+06:57.760 --> 07:05.430
+E então, para o logon, podemos simplesmente copiar e colar, e aqui, usando o corpo do ponto
+
+07:05.550 --> 07:10.740
+de solicitação, email e senha do ponto, para que possamos simplesmente
+
+07:13.540 --> 07:17.310
+reestruturar a senha novamente do corpo do ponto
+
+07:20.360 --> 07:21.390
+de solicitação,
+
+07:25.190 --> 07:34.300
+removeremos o nome e novamente e removeremos o corpo do ponto de solicitação desses apenas para torná-lo um pouco mais limpo.
+
+07:34.460 --> 07:37.270
+E se eu salvar isso, também deve funcionar.
+
+07:37.640 --> 07:40.610
+Vamos entrar, verifique se não consigo fazer login.
+
+07:40.730 --> 07:41.260
+Perfeito.
+
+07:41.270 --> 07:51.570
+E se eu for para Wes no gmail dot com Um login de dois três, eu posso entrar.
+
+07:51.590 --> 07:54.550
+Tudo bem, então essa é a primeira parte da segurança que eu queria cobrir.
+
+07:54.890 --> 07:59.170
+Obviamente, há mais algumas coisas que podemos fazer aqui, mas acho que você entendeu.
+
+08:00.570 --> 08:09.160
+A próxima coisa, e outra falha importante em nosso aplicativo, é que, quando enviamos uma imagem, vamos pegar
+
+08:12.200 --> 08:14.880
+isso e abrir a guia.
+
+08:15.320 --> 08:18.020
+A guia rede aqui clique em detectar
+
+08:20.930 --> 08:25.600
+e, se você olhar bem o ponto de extremidade da imagem, quando cuidarmos.
+
+08:25.610 --> 08:31.560
+Mas se você observar as saídas, é aqui que solicitamos à API clarifai a solicitação.
+
+08:31.580 --> 08:43.650
+Se eu clicar nisto e olhar para os cabeçalhos e para a autorização, recebo a chave com o DCB17e ...
+
+08:43.690 --> 08:49.290
+E se eu voltar ao Front-End e no app dot
+
+08:55.810 --> 08:58.170
+js DCB17e ...
+
+08:58.180 --> 08:59.970
+Essa é a nossa chave de API.
+
+09:00.390 --> 09:03.520
+Estamos criando nossa chave de API, que no meu caso é gratuita.
+
+09:03.520 --> 09:11.190
+Mas quando você está usando uma API que custa dinheiro, alguém pode roubar essas informações e usar sua API para
+
+09:11.350 --> 09:19.690
+carregar essa API apenas com solicitações e fazer com que você pague muito dinheiro e nunca queira fazer isso quando estiver jogando
+
+09:19.690 --> 09:22.090
+como desenvolvedor em seu próprio projeto.
+
+09:22.090 --> 09:23.230
+Isso é bom.
+
+09:23.590 --> 09:26.560
+Mas coisas assim não deveriam acontecer.
+
+09:26.560 --> 09:31.880
+Portanto, uma coisa que podemos fazer para evitar isso é movê-lo para o back-end em vez do front-end.
+
+09:32.200 --> 09:33.510
+Deixe-me mostrar como podemos fazer isso.
+
+09:36.800 --> 09:44.390
+Voltaremos ao nosso front end e, no nosso front-end, copiaremos as informações clarifai
+
+09:44.390 --> 09:49.440
+para o back-end e as removeremos do front-end.
+
+09:49.910 --> 09:56.490
+Portanto, se você se lembrar, precisamos instalar o clarifai
+
+09:56.490 --> 10:02.370
+no back-end, então eu pararei o servidor e
+
+10:06.500 --> 10:14.230
+o NPM instalará o clarifai para que tenhamos o pacote dot json.
+
+10:14.250 --> 10:16.200
+Então, vamos para
+
+10:19.250 --> 10:29.860
+a nossa imagem de manipulação e, em seguida, a imagem de manipulação que iremos importar e, em vez de
+
+10:32.150 --> 10:41.550
+importar, faremos const clarifai iguais exigir clarifai e apenas copiaremos exatamente o que temos em nosso aplicativo
+
+10:41.550 --> 10:48.730
+e desejaremos remover isso. corte isso, use nossa chave de API aqui.
+
+10:52.680 --> 11:01.940
+Em seguida, rolando para baixo, vamos dar uma olhada em onde usamos nossa chave API no nosso caso, é aqui o aplicativo. modelos.
+
+11:02.280 --> 11:08.940
+E aqui queremos apenas fazer o clarifai e depois pegar nossa resposta.
+
+11:09.090 --> 11:11.210
+Então, essa parte inferior podemos manter.
+
+11:11.210 --> 11:19.620
+Nós só precisamos da chamada clarifai para agora estar vindo do back-end, então copiaremos isso.
+
+11:19.670 --> 11:20.900
+Volte ao
+
+11:24.110 --> 11:31.320
+nosso back-end e vamos colocar isso em prática, porque agora temos o aplicativo a partir da nova instanciação do clarifai
+
+11:31.320 --> 11:33.500
+e agora precisamos capturar a entrada.
+
+11:33.570 --> 11:40.210
+Parece que precisaremos de um novo endpoint. Vamos limpar isso um pouco e prever o clarifai, vamos fazer
+
+11:42.580 --> 11:43.380
+isso aqui
+
+11:46.470 --> 11:49.950
+apenas para que possamos ver melhor. Vou minimizar isso um
+
+11:52.860 --> 12:03.780
+pouco e os modelos de pontos do aplicativo prevêem que iremos prever isso com a nossa solicitação de entrada do corpo do ponto, que obviamente não
+
+12:03.780 --> 12:04.470
+temos.
+
+12:04.490 --> 12:09.980
+Mas agora sabemos que precisamos da entrada e podemos envolver isso em torno de uma função como esta.
+
+12:10.140 --> 12:20.560
+Podemos dizer que const handleApiCall e este receberão uma resposta de solicitação
+
+12:25.280 --> 12:30.230
+e apenas a moveremos aqui.
+
+12:30.300 --> 12:39.550
+Portanto, agora podemos apenas dizer manipular chamada de API na parte inferior aqui e em nosso servidor,
+
+12:39.550 --> 12:48.710
+podemos criar um novo terminal para Image e podemos fazer uma solicitação de postagem porque a
+
+12:48.710 --> 12:50.540
+adicionaremos ao nosso
+
+12:50.570 --> 12:59.900
+corpo de ponto de solicitação e chamaremos esse imageurl e o ponto de extremidade imageurl terão o handleApiCall.
+
+13:00.040 --> 13:07.240
+Não precisará do banco de dados. Definitivamente, precisamos importá-lo, mas já o temos no objeto de imagem.
+
+13:07.240 --> 13:17.220
+OK. Se eu salvar isso, agora precisamos garantir que recebemos o corpo com o URL, indo para
+
+13:17.220 --> 13:18.940
+o front-end.
+
+13:19.190 --> 13:28.980
+Diremos que, ao enviar, precisamos buscar e vamos copiar isso.
+
+13:28.980 --> 13:36.780
+O que temos aqui por enquanto. Queremos buscar imageurl.
+
+13:37.010 --> 13:49.310
+Vai ser um método post e teremos um json de entrada e essa entrada
+
+13:49.310 --> 14:01.700
+será simplesmente essa entrada DOT do estado. Isso vai nos dar uma resposta e essa resposta continuará sendo assim.
+
+14:01.810 --> 14:08.220
+Mas lembre-se de que, como se trata de uma busca, teremos que responder dot json.
+
+14:08.470 --> 14:16.550
+Portanto, isso é simples o suficiente para fazer, vamos corrigir o recuo aqui e faremos um ponto. Em seguida, a
+
+14:18.530 --> 14:19.760
+resposta é igual
+
+14:22.420 --> 14:28.510
+ao ponto de resposta Jason. Economizamos e queremos voltar e garantir que isso esteja funcionando.
+
+14:28.510 --> 14:41.660
+Então, vamos ao nosso servidor, vá para a imagem e verifique se estamos respondendo aqui com dados pontuais e esses dados terão
+
+14:41.660 --> 14:43.180
+um ponto
+
+14:43.260 --> 14:51.470
+de resposta json de dados. O que quer que isso nos dê. Se houver algum tipo de erro, capturaremos.
+
+14:54.470 --> 14:56.420
+Eu direi status de resposta 400.
+
+14:59.050 --> 15:00.810
+Nós vamos fazer.
+
+15:00.810 --> 15:12.900
+json "incapaz de trabalhar com a API". Vamos economizar. Vamos ver se isso funciona pela primeira vez.
+
+15:12.920 --> 15:23.930
+Geralmente isso não acontece, mas se entrarmos com Wes no Gmail dot com 1 2 3, teremos um problema.
+
+15:25.420 --> 15:29.060
+Vamos para consol - falha ao
+
+15:32.090 --> 15:38.040
+buscar Oh, na verdade, precisamos iniciar o NPM no servidor.
+
+15:38.110 --> 15:39.510
+Tudo bem e agora temos alguns erros.
+
+15:39.520 --> 15:40.660
+Tudo certo.
+
+15:40.660 --> 15:47.510
+Faltam colchetes, então apenas cometemos um erro de sintaxe aqui e é porque
+
+15:47.510 --> 15:50.270
+esqueci um período aqui.
+
+15:50.270 --> 15:51.390
+Vamos salvar isso.
+
+15:51.920 --> 15:58.810
+E se formos para o front-end em execução, o back-end está em execução. Vamos encerrar e tentar novamente.
+
+16:00.170 --> 16:01.190
+Tudo bem, eu estou logado.
+
+16:01.250 --> 16:09.680
+Se eu copiar esta imagem novamente. Momento da verdade.
+
+16:09.790 --> 16:10.180
+Tudo certo.
+
+16:10.180 --> 16:17.820
+Estamos recebendo a imagem, mas a resposta - algo não está funcionando. Falha ao buscar a resposta do servidor
+
+16:17.900 --> 16:20.390
+com o status 500.
+
+16:20.390 --> 16:24.140
+Portanto, recebemos um erro no servidor e parece que a manipulação
+
+16:26.740 --> 16:29.620
+de chamada de API não é uma função.
+
+16:29.650 --> 16:39.010
+Então, vamos ao servidor e ao meu terrível erro de ortografia novamente. Isso sempre leva você à ortografia.
+
+16:39.040 --> 16:41.150
+Vamos tentar isso mais uma vez.
+
+16:41.340 --> 16:47.710
+Vamos limpar isso e detectar. Sem erros.
+
+16:47.750 --> 16:48.480
+Tudo certo.
+
+16:48.570 --> 16:49.410
+Olhe para isso.
+
+16:49.680 --> 16:51.120
+Isso está funcionando.
+
+16:51.120 --> 16:52.100
+Surpreendente.
+
+16:52.530 --> 16:59.340
+Não vejo erros na minha API ou no front end.
+
+16:59.420 --> 17:00.510
+Então isso não foi ruim.
+
+17:00.590 --> 17:08.100
+E se eu realmente voltar para a solicitação, vá para a guia rede e vamos
+
+17:08.100 --> 17:12.810
+verificar isso, pressionarei detectar se for para o imageurl.
+
+17:13.060 --> 17:15.560
+Não estamos vendo nenhuma das nossas chaves.
+
+17:15.580 --> 17:21.780
+A única coisa que estamos vendo é uma resposta que recebemos do clarifai, mas nosso servidor está sendo
+
+17:21.780 --> 17:25.850
+executado em nosso próprio ambiente e ninguém tem acesso a ele.
+
+17:27.290 --> 17:30.110
+Então, vamos rever o que acabamos de fazer.
+
+17:30.200 --> 17:39.720
+Criamos um novo ponto de extremidade e, como agora temos nossos próprios controladores e é sobre a imagem, podemos adicioná-lo aos
+
+17:39.720 --> 17:46.500
+controladores de imagem e, dentro dos controladores de imagem, criamos uma nova função e
+
+17:46.500 --> 17:54.480
+praticamente copia e cola exatamente como fizemos no frente e respondemos com dados Json e esses dados
+
+17:54.480 --> 17:59.400
+Json agora estão sendo enviados como ponto de resposta Json.
+
+17:59.790 --> 18:09.920
+Portanto, no front-end, simplesmente criamos uma solicitação de busca que enviou a entrada e respondemos com uma resposta.
+
+18:10.290 --> 18:14.630
+Portanto, nada mudou muito no front-end, exceto pelo fato de que agora estamos ocultando a chave da API.
+
+18:14.760 --> 18:21.030
+E em vez de ter clarifai aqui, temos no back-end.
+
+18:21.280 --> 18:26.630
+Espero que tenham sido algumas dicas valiosas de segurança para você.
+
+18:26.650 --> 18:31.130
+Há muitas coisas no que diz respeito à segurança e, definitivamente, é algo com o
+
+18:31.130 --> 18:35.190
+qual você deve se acostumar, pois tem mais e mais anos de experiência.
+
+18:36.250 --> 18:43.900
+Mas ter essa regra geral de garantir que sua máquina ou, no nosso caso, sua base de código de front end
+
+18:43.900 --> 18:49.210
+e back e nunca confie na segurança do outro, sempre se concentre e
+
+18:49.220 --> 18:55.650
+verifique se todas as entradas que obtém de outros lugares fora de si são sempre validadas .
+
+18:55.780 --> 19:00.510
+E protegemos todos os segredos que temos do mundo exterior.
+
+19:00.610 --> 19:04.760
+Nunca confiar em alguém é praticamente o lema da segurança.
+
+19:05.570 --> 19:08.680
+Espero que tenha sido esclarecedor e verei no próximo vídeo.

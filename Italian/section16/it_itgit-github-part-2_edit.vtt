@@ -1,0 +1,565 @@
+WEBVTT
+
+00:00.710 --> 00:01.480
+Ben tornato.
+
+00:01.670 --> 00:09.430
+Continuiamo dal nostro video precedente per parlare di un flusso di lavoro più avanzato e git e github.
+
+00:10.700 --> 00:16.490
+Fino a questo punto sia Marcy che io abbiamo appena lavorato qui.
+
+00:16.490 --> 00:19.110
+Branch master cosa significa.
+
+00:19.280 --> 00:27.240
+Bene, dice rami ma vedo solo il maestro qui e potresti aver notato un problema con il modo in cui stavamo
+
+00:27.240 --> 00:28.520
+facendo le cose.
+
+00:28.710 --> 00:34.030
+Questo è se è il mio primo giorno di lavoro e ho appena cambiato il titolo.
+
+00:34.320 --> 00:36.030
+Ma forse non volevamo nemmeno quel cambiamento.
+
+00:36.030 --> 00:40.650
+Forse questo rompe il nostro marchio o rompe la nostra app.
+
+00:40.650 --> 00:44.350
+Ma sono stato in grado di farlo così facilmente per cambiarlo in Maestro.
+
+00:44.400 --> 00:48.840
+Forse Marcy non sapeva nemmeno di aver aggiunto quella modifica e questo è un grosso problema, giusto.
+
+00:48.840 --> 00:53.830
+Non vuoi mettere le cose in ciò che chiamiamo produzione in ciò che l'utente vede.
+
+00:54.360 --> 00:59.820
+Se si romperà il nostro sito Web se sei una grande azienda come Facebook, ciò potrebbe
+
+00:59.820 --> 01:07.030
+significare milioni di dollari in entrate perse anche se hai un bug che dura alcune ore, quindi ti mostrerò un flusso di
+
+01:07.030 --> 01:09.360
+lavoro più realistico che tu avrò.
+
+01:09.370 --> 01:12.860
+E questo è con la ramificazione. Lascia che ti mostri cosa intendo.
+
+01:14.300 --> 01:18.760
+Qui ho un'idea di cosa sia davvero bravo Git.
+
+01:18.890 --> 01:22.410
+Fino ad ora abbiamo lavorato su ciò che chiamiamo maestro.
+
+01:22.580 --> 01:24.250
+Questo è il ramo principale.
+
+01:24.250 --> 01:28.270
+Pensa al ramo principale come all'autorità.
+
+01:28.310 --> 01:33.000
+Questo è il modo giusto in cui dovrebbe apparire la nostra app o il nostro sito Web.
+
+01:33.010 --> 01:41.660
+E fino ad ora quando ho aggiunto il fantastico titolo di sfondo Beh, sono passato da un generatore di sfondo a un
+
+01:42.530 --> 01:47.600
+generatore di freddo e poi quando Marcy è passato alle lettere maiuscole.
+
+01:47.600 --> 01:52.820
+Poi siamo andati qui e siamo semplicemente andati in modo lineare da un'estremità
+
+01:52.820 --> 01:53.650
+all'altra all'altra.
+
+01:54.030 --> 01:56.490
+Ma come ho detto, è un po 'un problema.
+
+01:56.510 --> 01:59.900
+Quindi una cosa migliore da fare è quella che chiamiamo ramificazione.
+
+01:59.900 --> 02:06.420
+Se volessi cambiare il titolo, creerò un ramo e chiamerò quella piccola funzione per esempio.
+
+02:06.890 --> 02:15.290
+E lavoro solo su quel ramo da solo senza influenzare il ramo principale ciò che l'utente vede.
+
+02:15.540 --> 02:20.950
+Solo quando è finito quando Marcy lo ha esaminato quando lo abbiamo testato e tutti nel team sono
+
+02:20.950 --> 02:21.780
+a posto.
+
+02:21.950 --> 02:29.140
+Quindi lo riportiamo in Master e puoi vedere qui con la grande funzionalità che
+
+02:29.140 --> 02:38.140
+puoi continuare a lungo nel tuo ramo e solo quando hai finito fai quello che chiamiamo unisci in Master.
+
+02:38.200 --> 02:39.710
+Ti mostrerò come funziona oggi.
+
+02:41.360 --> 02:42.280
+Lo chiudo.
+
+02:42.290 --> 02:51.440
+E ricorda il nostro esempio: qui abbiamo il computer di Marcy con tutti i file e qui abbiamo il mio computer con tutti
+
+02:51.530 --> 02:52.750
+i file.
+
+02:53.030 --> 03:00.560
+Entrambi abbiamo le nostre postazioni di lavoro configurate e ora vedi cosa significa master nel mio terminale e ti mostrerò nelle note
+
+03:00.560 --> 03:05.880
+come puoi avere questa configurazione in modo che ti dica su quale ramo sei.
+
+03:05.900 --> 03:12.770
+Ma possiamo vedere che siamo entrambi su Master. Quello è il mio computer e anche il computer di Marcy è nel Master.
+
+03:12.950 --> 03:18.470
+Vogliamo assicurarci di essere entrambi aggiornati con l'ultimo github.
+
+03:18.470 --> 03:22.950
+Quindi Marcy farà git pull e anche io farò git pull.
+
+03:26.460 --> 03:33.090
+E diciamo che ora sto lavorando a una nuova funzionalità e perché è un flusso di lavoro migliore per non lavorare sul
+
+03:33.090 --> 03:33.590
+master.
+
+03:33.600 --> 03:37.730
+E questo è un buon consiglio in genere non funziona sul master, si ramifica sempre.
+
+03:37.860 --> 03:44.790
+Se faccio git branch mi mostreranno che ho solo un ramo e questo è master
+
+03:44.790 --> 03:57.340
+ma possiamo aggiungere ad esso possiamo dire git branch nuova o piccola funzionalità e ora se faccio git branch vedo che ho poca funzionalità ma il Master è
+
+03:57.340 --> 04:00.970
+evidenziato perché al momento sono il master.
+
+04:01.210 --> 04:11.390
+Quindi, nel modo in cui andrei al piccolo ramo di funzionalità, dirò git checkout piccola funzione e il gioco è fatto.
+
+04:11.400 --> 04:13.140
+Passa alla funzione piccola filiale.
+
+04:13.140 --> 04:21.480
+E ora sono su un piccolo ramo di funzionalità, quindi quello che ho fatto è che mi sono ramificato dal master
+
+04:22.080 --> 04:24.890
+e ora ho creato una piccola funzionalità.
+
+04:25.100 --> 04:26.830
+Creiamo un po 'di cambiamento.
+
+04:26.840 --> 04:33.770
+Sto per dire nella piccola funzione che cambieremo l'attuale titolo di sfondo CSS per dire che
+
+04:34.850 --> 04:36.890
+questo è lo sfondo che
+
+04:41.010 --> 04:42.080
+salverò qui.
+
+04:42.360 --> 04:49.100
+E ancora faccio il mio semplice flusso di lavoro che abbiamo fatto nell'ultimo stato di git video.
+
+04:49.170 --> 04:49.680
+Capisco.
+
+04:49.680 --> 04:49.990
+Si.
+
+04:50.130 --> 04:53.630
+Abbiamo l'indice. HTML modificato, andando a cancellare in modo che possiamo vedere.
+
+04:53.650 --> 05:02.720
+Quindi ora che abbiamo apportato questa modifica, aggiungiamo git add e di nuovo solo git status per assicurarci che tutto sia andato a buon
+
+05:02.720 --> 05:03.330
+fine.
+
+05:03.470 --> 05:06.090
+Sì, siamo pronti per eseguire il commit dell'indice. html.
+
+05:06.110 --> 05:14.310
+Quindi git il messaggio di commit cambierà il testo. Perfezionare.
+
+05:14.330 --> 05:16.020
+Chiariamolo.
+
+05:16.210 --> 05:21.880
+E ora di nuovo per far sapere a Github tutti i cambiamenti che dobbiamo fare per eseguire git push.
+
+05:22.160 --> 05:23.900
+Quindi faremo git push.
+
+05:29.960 --> 05:32.930
+Andiamo su github e vediamo cosa è successo.
+
+05:34.950 --> 05:40.650
+Vediamo che ora abbiamo questa barra gialla che è appena apparsa e dice "Di recente hai spinto i rami".
+
+05:41.760 --> 05:44.550
+Quindi, se faccio clic su questo pulsante verde qui
+
+05:47.790 --> 05:54.640
+confronta e richiama richiesta mi mostra quali cambiamenti ho che è che ho cambiato il titolo e qui posso far sapere a
+
+05:54.650 --> 05:59.330
+Marcy dicendo "Marcy ho cambiato il testo. " "Cosa ne
+
+05:59.800 --> 06:03.450
+pensi". E faccio clic su Crea
+
+06:06.480 --> 06:11.410
+richiesta pull e ora ho il mio PR e vedi qui come si dice unisci richiesta pull.
+
+06:11.430 --> 06:18.570
+Bene, se torniamo al nostro diagramma, ho creato questa piccola funzione e ora sto dicendo hey Marcy, ho
+
+06:18.690 --> 06:20.820
+appena fatto questa nuova modifica.
+
+06:20.820 --> 06:21.750
+Cosa ne pensi.
+
+06:21.780 --> 06:25.200
+Va bene per me fonderlo nel maestro.
+
+06:25.380 --> 06:31.230
+E cosa succederà qui molto probabilmente quando Marcy verrà a vedere questa richiesta pull.
+
+06:31.230 --> 06:33.180
+Puoi vedere che siamo nelle schede della richiesta pull.
+
+06:33.210 --> 06:37.420
+Quindi sarà in grado di vederli e vedere Oh Andrea ha appena fatto questo cambiamento.
+
+06:37.620 --> 06:46.860
+Guarderà attraverso le modifiche e dirà bene Hmm se le piace dire che può essere bella sembra che può fare clic
+
+06:47.910 --> 06:53.240
+su per iniziare una recensione e sai cosa le piace davvero, quindi
+
+07:01.310 --> 07:04.040
+approverà Now Marcy o me stesso.
+
+07:04.040 --> 07:08.630
+Di solito non vuoi unire la tua richiesta pull qualcuno nel team può
+
+07:09.230 --> 07:17.400
+ora solo dire Unisci richiesta pull confermare confermare unione e lì vai alcuni team come eliminare la succursale in seguito, quindi puoi semplicemente fare
+
+07:17.400 --> 07:18.890
+clic su Elimina qui.
+
+07:21.020 --> 07:26.520
+Se torno al codice, beh non ho più i rami perché l'ho appena eliminato.
+
+07:26.780 --> 07:35.110
+Ma nel mio padrone se vado all'indice. html Vedo che questo è lo sfondo, quindi
+
+07:35.110 --> 07:37.840
+ora Marcy può andare
+
+07:40.680 --> 07:47.150
+al suo progetto e dire git pull e di nuovo ha l'ultimo aggiornamento.
+
+07:47.160 --> 07:49.970
+Ora parliamo di alcuni conflitti che possono sorgere.
+
+07:50.130 --> 07:56.840
+Ora diciamo che Marcy vuole cambiare qualcosa e anch'io cambio la stessa cosa e otteniamo il nostro conflitto di unione.
+
+07:57.210 --> 07:58.450
+Vediamo cosa succede.
+
+07:58.470 --> 08:05.570
+Quindi diciamo che Marcy vuole cambiare creare una nuova funzionalità dicendo che chiameremo questa grande
+
+08:05.570 --> 08:09.780
+funzionalità e dirà git checkout o git branch.
+
+08:09.890 --> 08:17.750
+Grande caratteristica. Dirà git checkout grande funzionalità.
+
+08:19.980 --> 08:23.490
+E se faccio git branch vediamo che c'è un nuovo ramo qui.
+
+08:23.580 --> 08:24.820
+Chiariamolo.
+
+08:24.930 --> 08:30.900
+E lei dirà qui che vuole cambiare questo colore di sfondo o generatore di sfondo perché tutti gli utenti si lamentano del fatto
+
+08:30.930 --> 08:34.490
+che il titolo è cambiato e che il vecchio titolo gli è piaciuto.
+
+08:34.500 --> 08:36.000
+Quindi l'ha cambiato.
+
+08:36.480 --> 08:42.920
+Ha fatto l'aggiunta git, git commit,
+
+08:45.490 --> 08:54.560
+tornando al vecchio titolo perfetto e poi farà git push.
+
+08:54.670 --> 08:56.540
+Oh, cancelliamo il primo in realtà.
+
+08:57.060 --> 09:03.260
+E facciamo git push. Una prima volta che si ottiene questo, è possibile che venga visualizzato questo errore che indica che
+
+09:03.830 --> 09:06.280
+non esiste alcun upstream, è sufficiente copiare il codice che ti danno qui.
+
+09:10.770 --> 09:11.520
+Perfezionare.
+
+09:11.520 --> 09:12.510
+Ora, se
+
+09:15.300 --> 09:23.400
+torno al generatore di background, vedo la grande richiesta pull di funzionalità qui e solo per mostrarti che puoi avere
+
+09:23.400 --> 09:27.790
+più commit diciamo che Marcy decide di oh questo sono io.
+
+09:27.810 --> 09:30.590
+Marcy decide di aggiungere un punto esclamativo qui.
+
+09:30.630 --> 09:34.030
+Può solo dire di nuovo che lo salva.
+
+09:34.130 --> 09:41.000
+Chiariamo che dirà git add, git commit. Lo fai molto.
+
+09:41.000 --> 09:51.140
+Quindi diventi davvero bravo a lavorare in git dopo aver lavorato in compagnia per un po 'e lei dirà aggiunta esclamazione.
+
+09:51.430 --> 09:53.430
+Non è quello che volevo fare. Git commit.
+
+09:55.950 --> 10:01.440
+Commit ha aggiunto l'esclamazione e lei farà di nuovo
+
+10:03.810 --> 10:06.050
+il push git.
+
+10:09.930 --> 10:13.250
+E torniamo a Github.
+
+10:13.370 --> 10:19.790
+Se esaminiamo la richiesta pull, in realtà entrambi avranno questo ritorno al vecchio
+
+10:19.790 --> 10:27.800
+titolo e hanno aggiunto l'esclamazione e vediamo qui entrambe le modifiche che creano la richiesta pull richiede modifiche.
+
+10:27.950 --> 10:40.780
+Andrea, quindi, mentre questa richiesta pull è disponibile, ho deciso di avviare una nuova filiale chiamata Chiamiamola conflitto per
+
+10:40.780 --> 10:41.490
+ora.
+
+10:44.390 --> 10:49.710
+E farò conflitto git checkout.
+
+10:49.830 --> 11:02.720
+E ora nel ramo del conflitto decido di cambiarlo per rimuovere completamente il generatore freddo.
+
+11:03.180 --> 11:10.980
+Lo salvo di nuovo controllo il mio stato e indice. il file html è stato modificato.
+
+11:11.410 --> 11:18.730
+Quindi, mentre ciò accade, riesco a unire la richiesta pull a Marcey.
+
+11:18.730 --> 11:23.150
+Quindi è entrata nel master, la sua richiesta pull è in.
+
+11:23.200 --> 11:33.770
+E ora se torno al mio conflitto e faccio lo stato git e dobbiamo aggiungerli, quindi git add quindi git commit farò solo un breve
+
+11:34.230 --> 11:35.550
+messaggio qui.
+
+11:35.590 --> 11:49.750
+Basta controllare e ora se torno al master. Oh, devo eseguire nuovamente git checkout master prima di inviare le modifiche. Voglio assicurarmi
+
+11:49.750 --> 11:56.140
+di disporre dell'ultima versione di master, quindi non sto cambiando nulla.
+
+11:56.140 --> 12:02.740
+Non avrò alcun conflitto, quindi farò git pull per ottenere le ultime novità.
+
+12:02.950 --> 12:18.320
+E ora vado al ramo di conflitto di git checkout e posso fare questo comando git merge master.
+
+12:18.400 --> 12:25.490
+Quindi sto dicendo di unire tutto ciò che è padrone in conflitto.
+
+12:25.720 --> 12:34.260
+Marcy ha lavorato alla grande funzionalità e l'ha unita, quindi ora Master ha la grande sezione ma ...
+
+12:34.280 --> 12:41.830
+Ho anche creato un altro ramo e ho lavorato da solo sul ramo del conflitto e il ramo del conflitto non sa nulla
+
+12:41.830 --> 12:47.800
+del master, quindi sto dicendo hey tutto ciò che è in master in questo momento che include la grande
+
+12:47.800 --> 12:49.780
+funzionalità che Marcy Lavorato su.
+
+12:50.140 --> 12:53.610
+Inseriscilo e assicurati che non ci siano conflitti.
+
+12:53.620 --> 13:00.520
+Quindi lo faccio e oh-oh ottengo conflitto nell'unione del conflitto nell'indice. file html.
+
+13:00.850 --> 13:08.240
+Ora, se faccio effettivamente clic sul testo sublime, mi permetta di aprirlo in modo da poterlo vedere meglio,
+
+13:08.840 --> 13:11.750
+oh ragazzo, ho questa strana piccola sintassi.
+
+13:12.020 --> 13:18.910
+All'inizio è travolgente ma è facile vedere cosa sta succedendo in testa dove si trova il mio ramo.
+
+13:19.130 --> 13:28.520
+E mi mostra che qui fino alla fine non ho più l'h1 ma nel ramo master abbiamo un
+
+13:28.520 --> 13:30.310
+generatore di background.
+
+13:31.290 --> 13:37.730
+Ora posso parlare con Marcy e dire hey Marcy vuoi mantenere il titolo di generatore di sfondo.
+
+13:37.750 --> 13:40.930
+E lei dirà di sì che era la cosa giusta da fare.
+
+13:40.950 --> 13:42.590
+Non cambiare lo sfondo.
+
+13:42.600 --> 13:45.500
+Bene, in quel caso rimuovo
+
+13:49.120 --> 13:53.330
+solo queste righe, rimuovo questo e salvo adesso.
+
+13:53.330 --> 13:59.630
+Se faccio lo stato git ora OK.
+
+13:59.660 --> 14:01.860
+Abbiamo lo stato modificato qui.
+
+14:01.880 --> 14:05.010
+Vorrei solo ridurlo di nuovo in modo da poterlo vedere.
+
+14:05.120 --> 14:06.890
+Vorrei chiarire questo.
+
+14:07.100 --> 14:12.890
+Quello che facciamo ora è che dobbiamo fare di nuovo git add perché
+
+14:13.280 --> 14:19.820
+abbiamo apportato queste modifiche e dobbiamo fare git commit per risolvere il problema di unione.
+
+14:20.020 --> 14:22.150
+E ho dimenticato la "m". Proviamo di nuovo.
+
+14:28.030 --> 14:31.260
+Conflitto che risolve il problema di unione.
+
+14:31.270 --> 14:36.160
+Cancella qui e facciamo lo stato git.
+
+14:36.290 --> 14:38.420
+Niente da impegnare, albero di lavoro pulito.
+
+14:38.480 --> 14:44.810
+E se faccio git push Beh, ancora una volta ricevo questo errore ma voglio mostrarti questa volta
+
+14:45.080 --> 14:48.090
+se faccio git push conflitto di origine.
+
+14:51.410 --> 14:53.480
+Adesso funziona.
+
+14:53.480 --> 14:58.680
+Torniamo a Github, vediamo che tipo di cose abbiamo.
+
+14:58.680 --> 15:05.670
+Abbiamo il ramo del conflitto e se guardiamo bene il ramo del conflitto non c'è nulla di cambiato perché abbiamo appena ripristinato tutte
+
+15:05.690 --> 15:08.670
+le mie modifiche in modo che sia completamente vuoto.
+
+15:08.670 --> 15:18.860
+Non ci sono cambiamenti ora, quindi Marcy sarà come ehi, volevi fare questo PR?
+
+15:18.960 --> 15:20.150
+È vuoto.
+
+15:22.030 --> 15:25.880
+Tutti vedono questo messaggio sul mio PR e posso continuare.
+
+15:25.880 --> 15:30.100
+E questo è praticamente il flusso di lavoro che vedrai in Git.
+
+15:30.140 --> 15:33.530
+Lascerò i comandi per te dopo questo.
+
+15:33.740 --> 15:36.360
+Ma è molto bello lavorare con.
+
+15:36.410 --> 15:42.170
+Apprendi alcuni comandi e finché hai questo modello visivo di ogni volta che lavori su qualcosa
+
+15:42.200 --> 15:47.150
+crei sempre un ramo, lo titoli con qualsiasi funzione su cui stai lavorando.
+
+15:47.720 --> 15:56.360
+E di tanto in tanto vuoi inserire master e unire master nel tuo ramo per assicurarti di non perdere alcun
+
+15:56.660 --> 16:00.880
+aggiornamento fatto da altri sviluppatori o compagni di squadra.
+
+16:01.940 --> 16:09.830
+Una volta terminata la tua funzione, fai una richiesta pull facendo git push e quella richiesta pull.
+
+16:09.830 --> 16:15.500
+Aggiungerai commenti e le persone esamineranno le modifiche ai tuoi file e se vogliono che tu apporti alcune
+
+16:15.500 --> 16:22.370
+modifiche, puoi fare di nuovo git add, git commit infine apportare le modifiche e quindi puoi unire la richiesta pull e una
+
+16:22.370 --> 16:25.310
+volta fatto, allora tutti gli altri nella squadra.
+
+16:25.340 --> 16:30.230
+Ora c'è un nuovo maestro, quindi anche tutti gli altri membri del team dovrebbero fare git pull.
+
+16:31.210 --> 16:37.300
+Ci vuole un po 'di tempo per abituarsi, ma è davvero un bel flusso di
+
+16:37.420 --> 16:44.530
+lavoro per assicurarsi che tutti i membri del team lavorino sugli stessi file degli stessi progetti senza causare
+
+16:44.530 --> 16:48.850
+errori e assicurarsi che tutti collaborino bene e basta.
+
+16:48.850 --> 16:50.280
+Spero che l'abbia trovato utile.
+
+16:50.290 --> 16:51.440
+Ci vediamo nel prossimo.
+
+16:51.700 --> 16:51.940
+Ciao ciao

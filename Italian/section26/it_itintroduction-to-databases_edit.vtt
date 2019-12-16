@@ -1,0 +1,364 @@
+WEBVTT
+
+00:01.910 --> 00:10.340
+Tutte le aziende archiviano i dati. Da un semplice libro discografico di una piccola impresa, magari anche su un
+
+00:10.340 --> 00:11.580
+giornale o un
+
+00:11.690 --> 00:17.810
+pezzo di carta, a grandi aziende come Amazon che hanno bisogno di computer per archiviare petabyte di dati.
+
+00:17.810 --> 00:26.000
+Ora, al fine di archiviare queste informazioni praticamente ogni azienda e talvolta anche le persone hanno bisogno di
+
+00:26.000 --> 00:27.940
+qualcosa chiamato un database.
+
+00:28.070 --> 00:35.060
+Nell'ultima sezione abbiamo visto quanto sia stato difficile per il nostro server ricordare un nuovo utente. Ogni volta che il server si arrestava in
+
+00:35.060 --> 00:35.810
+modo
+
+00:35.810 --> 00:40.030
+anomalo La variabile veniva ripristinata e quindi ricominciava da capo.
+
+00:40.460 --> 00:48.400
+O se volessimo fare un login o un controllo di accesso e scorrere le e-mail e le password,
+
+00:48.470 --> 00:52.160
+facendo un ciclo attraverso javascript che è inefficiente.
+
+00:52.160 --> 00:54.240
+Ecco dove il database viene in soccorso.
+
+00:54.990 --> 00:58.850
+Quindi chiediamoci cos'è un database.
+
+00:58.890 --> 01:01.960
+Un database è una raccolta di dati.
+
+01:02.050 --> 01:03.540
+E cosa intendiamo per
+
+01:03.850 --> 01:05.730
+dati: ce ne sono molte forme giuste.
+
+01:05.770 --> 01:10.360
+Possono esserci numeri, possono esserci date, potrebbero esserci hash
+
+01:10.360 --> 01:17.440
+di password, potrebbero esserci informazioni sull'utente. I database ci consentono di organizzare questi dati in
+
+01:17.440 --> 01:24.340
+un modo che ci è utile e che semplifica la gestione dei dati e ne è venuto fuori qualcosa.
+
+01:24.650 --> 01:29.930
+E in breve si chiama sistema di gestione del database o DBMS.
+
+01:29.990 --> 01:35.120
+È una raccolta di programmi che ci consente di accedere ai database e lavorare con i dati.
+
+01:35.450 --> 01:39.740
+Inoltre, consente l'accesso controllato agli utenti del database.
+
+01:41.600 --> 01:50.820
+Quindi un DBMS è qualcosa in questa scatola qualcosa che ci consente uno strumento o un software che ci
+
+01:50.820 --> 01:59.420
+consente di comunicare con il database, archiviare informazioni che ci sono utili e ci consente anche di
+
+02:00.050 --> 02:05.780
+aggiornare, inserire, eliminare, cercare qualunque cosa ci sia nella Banca dati.
+
+02:05.840 --> 02:12.980
+E questa idea di un DBMS ha iniziato a prendere forma negli anni '60 e ora è in prima linea in
+
+02:12.980 --> 02:14.130
+molte cose interessanti.
+
+02:14.150 --> 02:19.850
+C'è un intero settore di ingegneri che lavora solo con i database perché è così importante.
+
+02:21.100 --> 02:27.130
+Ora ci sono due tipi di DBMS che sono molto popolari in questo momento e di cui parleremo in
+
+02:27.130 --> 02:27.980
+questo corso.
+
+02:29.820 --> 02:36.310
+E questi due tipi sono rappresentati davvero bene da Postgres e MongoDB.
+
+02:36.450 --> 02:43.230
+Parliamo del primo che è il database relazionale. E questo è probabilmente il più popolare. Come puoi vedere sul
+
+02:43.230 --> 02:44.600
+lato destro.
+
+02:44.610 --> 02:49.410
+Vedi che tutti questi sono database relazionali.
+
+02:49.630 --> 02:56.890
+Postgres, Oracle, SQL server, potresti aver sentito parlare di mySQL, SQLite.
+
+02:57.230 --> 03:03.840
+Questi sono tutti i tipi di database che hanno questo tag di database relazionale.
+
+03:04.100 --> 03:06.770
+E il bello è che sono praticamente tutti simili.
+
+03:06.770 --> 03:10.630
+Seguono tutti lo stesso formato standard.
+
+03:10.640 --> 03:19.510
+I database relazionali sono composti da due o più tabelle con colonne e righe.
+
+03:19.530 --> 03:27.180
+Quindi in questo caso gli utenti sono una tabella e full_name, username, text, Created_at sono colonne e
+
+03:27.180 --> 03:30.900
+tutti i valori che hanno qui sono righe.
+
+03:31.230 --> 03:34.690
+Ogni riga rappresenta una voce e ogni colonna
+
+03:34.700 --> 03:39.710
+memorizza un tipo molto specifico di informazioni come nome, indirizzo o numeri di telefono.
+
+03:39.930 --> 03:48.050
+E quindi la relazione tra tabelle e campo si chiama uno schema. In un database relazionale lo schema deve essere chiaramente
+
+03:48.170 --> 03:55.480
+definito prima di poter aggiungere qualsiasi informazione. E se questo è fonte di confusione in questo momento,
+
+03:55.480 --> 03:59.230
+non preoccuparti, in realtà creeremo questi database, quindi ha senso per te.
+
+03:59.500 --> 04:05.470
+Se avessimo Twitter, ad esempio, puoi vedere qui i tipi di tabelle che avremmo e
+
+04:05.470 --> 04:07.130
+come lo organizzeremmo.
+
+04:07.240 --> 04:15.400
+Avremmo una tabella utenti, una tabella tweet, una tabella seguente e possiamo collegare tutte queste informazioni.
+
+04:15.420 --> 04:23.220
+Ad esempio collegando diversi pezzi del tavolo. Ad esempio il nome utente sarà lo stesso
+
+04:23.220 --> 04:27.560
+nella tabella degli utenti come nella tabella dei tweet.
+
+04:27.570 --> 04:37.530
+In questo modo possiamo dire che il nome utente nella tabella tweet è la chiave esterna del
+
+04:37.530 --> 04:46.090
+nome utente nella tabella degli utenti. E quindi from_user sarà la chiave esterna del nome utente nella tabella seguente.
+
+04:46.110 --> 04:56.400
+Ora cose come il nome completo o l'id, qualcosa che identifica ogni riga in una tabella si chiama chiave
+
+04:57.060 --> 05:01.940
+primaria e lo esamineremo più avanti in questa sezione.
+
+05:01.940 --> 05:07.130
+Bene, quindi tutti questi database - impareremo Postgres SQL ma sono praticamente tutti
+
+05:07.130 --> 05:07.670
+uguali.
+
+05:07.670 --> 05:14.810
+Quindi, una volta che ne conosci uno, è abbastanza facile raccogliere gli altri: come comunicano effettivamente
+
+05:15.660 --> 05:22.230
+con il server con il Backend. Bene, tutti i database relazionali usano qualcosa chiamato SQL.
+
+05:26.510 --> 05:34.960
+E SQL ci consente di comunicare proprio come ha fatto HTTP tra frontend e backend. Con SQL siamo in grado di
+
+05:34.960 --> 05:42.410
+comunicare con il database e modificare o ottenere o aggiornare come vogliamo.
+
+05:43.040 --> 05:45.620
+E avremo anche un video su questo argomento.
+
+05:45.620 --> 05:49.820
+Va bene, quindi sono database relazionali.
+
+05:49.820 --> 05:51.740
+Che dire del secondo tipo.
+
+05:51.800 --> 05:58.870
+Il secondo tipo è chiamato un database non relazionale o un database NoSQL.
+
+05:59.000 --> 06:05.000
+E ancora una volta ci sono molti tipi diversi di database con alcuni nomi interessanti
+
+06:05.000 --> 06:06.680
+come CouchDB e HYPERTABLE.
+
+06:06.810 --> 06:12.810
+Ora un mongoDB o un database non relazionale consentono di creare
+
+06:12.810 --> 06:14.900
+un'applicazione senza dover
+
+06:14.970 --> 06:26.400
+prima definire lo schema a differenza di un database relazionale. Se torniamo al database relazionale, questo schema o queste tabelle devono
+
+06:26.490 --> 06:27.750
+essere predefiniti.
+
+06:27.750 --> 06:35.930
+Dobbiamo sapere come apparirà la nostra app, creare queste tabelle in modo che, una volta che l'app è pubblica, possiamo
+
+06:35.940 --> 06:45.030
+iniziare a inserire le informazioni dell'utente, i tweet e i follower. Con un NoSQL o un database non relazionale possiamo
+
+06:45.030 --> 06:47.050
+semplicemente definirlo mentre procediamo.
+
+06:47.340 --> 06:53.410
+E tutti hanno modi diversi di conservare queste informazioni, quindi ognuno è molto, molto diverso.
+
+06:53.490 --> 06:58.650
+E questa è un'altra potente ragione per usare un database non relazionale è che, se i requisiti dei tuoi dati non sono
+
+06:58.650 --> 07:05.790
+chiari all'inizio del tuo progetto e forse hai una grande quantità di dati non strutturati. Potresti non avere il lusso
+
+07:05.790 --> 07:11.390
+di sviluppare un database relazionale con uno schema chiaramente definito.
+
+07:11.480 --> 07:18.390
+Offrono invece una maggiore flessibilità in quanto un database non relazionale è più simile alle cartelle, semplicemente
+
+07:18.390 --> 07:21.510
+assemblando informazioni correlate di tutti i tipi.
+
+07:22.340 --> 07:26.560
+Ora MongoDB è qualcosa chiamato documento orientato.
+
+07:26.600 --> 07:31.740
+Memorizza le informazioni come documenti.
+
+07:31.750 --> 07:33.700
+Lascia che ti illustri questo punto.
+
+07:33.700 --> 07:37.170
+Ho il mio desktop qui con due cartelle.
+
+07:37.540 --> 07:40.330
+Uno è un database relazionale.
+
+07:40.330 --> 07:48.920
+E qui ho utenti, tweet, profilo, seguenti. E puoi pensare a database relazionali con questo tipo di archiviazione in cui questa
+
+07:48.920 --> 07:56.540
+cartella vive da qualche parte su un computer che memorizza queste informazioni. E ogni volta che dobbiamo chiedere qualcosa
+
+07:56.540 --> 08:02.600
+a un database, bene prendiamo gli utenti e se vogliamo anche
+
+08:02.600 --> 08:09.680
+prendere i tweet dell'utente. Troviamo l'utente che ci interessa. Quindi trova i tweet dell'utente
+
+08:09.680 --> 08:17.510
+che ci interessano anche con la chiave esterna che collega gli utenti e possiamo anche trovare quanti follower
+
+08:17.540 --> 08:18.680
+ha quell'utente.
+
+08:18.680 --> 08:22.780
+Raccogliamo tali informazioni e le visualizziamo sulla nostra app Web.
+
+08:25.480 --> 08:27.360
+MongoDB invece
+
+08:28.240 --> 08:37.100
+avrà effettivamente ciascun utente come documento. Quindi, se volevo prendere il primo utente.
+
+08:37.420 --> 08:43.740
+Bene, ho appena preso questo documento e ha tutti i follower, i
+
+08:43.740 --> 08:51.590
+tweet, il profilo, tutto in questo documento. E potresti pensare "MongoDB sembra una scelta migliore che avere questo modo di fare le cose nel
+
+08:53.100 --> 08:54.390
+modo giusto? "Beh, dipende
+
+08:55.560 --> 09:00.000
+dalle tue necessità ed è per questo che i database sono un argomento così complesso.
+
+09:00.030 --> 09:02.460
+Dipende davvero dalla tua situazione.
+
+09:02.490 --> 09:08.760
+Puoi vedere questo modo MongoDB che è molto utile se hai qualcosa come un profilo, forse un profilo
+
+09:08.760 --> 09:09.410
+linkedin.
+
+09:09.630 --> 09:15.390
+Ma se hai bisogno di qualcosa in cui lavori semplicemente seguendo i dati o semplicemente i dati dei tweet, forse
+
+09:15.430 --> 09:19.020
+con i tweet vuoi vedere qual è la dimensione media del tweet.
+
+09:19.140 --> 09:25.530
+Bene, è davvero semplice prendere questo file e calcolarlo in questo modo in cui
+
+09:25.530 --> 09:28.810
+potresti doverlo estrarre da ciascuno degli utenti.
+
+09:29.010 --> 09:31.900
+Quindi dipende davvero dalle tue esigenze.
+
+09:32.050 --> 09:40.990
+Lascia che ti mostri un altro diagramma che potrebbe essere utile. Quando guardiamo ai database relazionali rispetto a quelli non
+
+09:40.990 --> 09:42.000
+relazionali.
+
+09:42.220 --> 09:44.950
+Puoi pensare al rapporto come ogni tabella ha
+
+09:45.040 --> 09:54.250
+un post sul blog, un tag sul blog, un commento sul blog e collega queste tabelle per darti le informazioni sul blog rispetto a un non
+
+09:55.030 --> 10:02.170
+relazionale che memorizza l'intero post in blocco in una voce e ha commenti, tag , categorie e tutti gli
+
+10:02.590 --> 10:04.200
+altri dati correlati
+
+10:04.210 --> 10:05.920
+Solo in un unico posto.
+
+10:05.950 --> 10:08.890
+Quindi cosa usa MongoDB per comunicare.
+
+10:09.420 --> 10:16.130
+Se torniamo al nostro esempio qui abbiamo avuto SQL per database relazionali come Postgres.
+
+10:16.200 --> 10:26.760
+Bene MongoDB ha il suo proprio linguaggio di query ed è solo il linguaggio di query MongoDB.
+
+10:31.690 --> 10:33.690
+Ma entrambi mirano a fare la stessa cosa.
+
+10:33.700 --> 10:40.060
+Cioè per comunicare con il database, fornire un modo semplice per il server di comunicare
+
+10:40.060 --> 10:41.690
+con il database.
+
+10:41.810 --> 10:46.280
+E in questa sezione ne parleremo e finalmente collegheremo i punti e
+
+10:46.850 --> 10:51.510
+ti mostreremo la potenza dei database una volta che sono collegati a un server.
+
+10:51.560 --> 10:53.600
+Vedrò nel prossimo. Ciao ciao.

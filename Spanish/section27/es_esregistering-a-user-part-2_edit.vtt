@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00.480 --> 00:07.860
+Veamos lo que acabamos de hacer en el video anterior. Hemos hecho que nuestra base de datos se comunique con el servidor,
+
+00:07.950 --> 00:11.300
+y hemos registrado a nuestro primer usuario que fue Ann.
+
+00:11.660 --> 00:16.440
+Pero ahora queremos responder al Front-End con esta nueva usuaria,
+
+00:16.440 --> 00:18.340
+Ann. Entonces, ¿cómo podemos hacer eso?
+
+00:18.660 --> 00:25.320
+Bueno, si esto es un éxito, en cuyo caso queremos hacer un punto, que tenemos aquí.
+
+00:29.080 --> 00:34.590
+Si obtenemos una respuesta, en ese caso queremos
+
+00:37.360 --> 00:45.070
+enviar una respuesta a Json y esta respuesta dot json responderá con ...
+
+00:45.270 --> 00:48.100
+Bueno, ¿con qué debería responder?
+
+00:48.140 --> 00:56.570
+Afortunadamente para nosotros, KNEX nuevamente está construido con esto en mente, y tiene una característica que
+
+00:56.570 --> 01:00.300
+es, o un método llamado retorno.
+
+01:00.640 --> 01:07.230
+Entonces, en lugar de hacer otra declaración de selección y agarrar a Ann, podemos decir que devolvemos todo.
+
+01:07.540 --> 01:14.890
+Esto dice que los usuarios insertan Ann y devuelven todas las columnas.
+
+01:14.890 --> 01:16.210
+A ver si eso funciona.
+
+01:16.420 --> 01:22.730
+Si eso funciona, puedo colocar la respuesta aquí.
+
+01:22.910 --> 01:23.550
+Vamos a ver.
+
+01:25.800 --> 01:28.960
+Entra en guardar. Abre nuestro cartero.
+
+01:29.390 --> 01:42.290
+Voy a agregar un nuevo usuario, solo diremos Anne con una e. Presiona enviar, así. Tengo una serie que es Anne.
+
+01:44.290 --> 01:44.800
+Asombroso.
+
+01:44.830 --> 01:45.810
+Parece que está funcionando.
+
+01:45.820 --> 01:54.950
+Si vuelvo a la base de datos y selecciono la estrella de los usuarios, hay dos usuarios, pero el que
+
+01:55.280 --> 02:02.360
+recibí es solo Anne. Vamos a crear un nuevo usuario. Voy a crear John, galletas.
+
+02:02.390 --> 02:09.610
+Recordamos a este chico. Haz clic en enviar. Tenemos a John.
+
+02:09.620 --> 02:10.310
+Asombroso.
+
+02:10.310 --> 02:13.950
+Verifiquemos con el front end para ver si esto realmente funciona.
+
+02:14.120 --> 02:20.840
+Si vuelvo aquí, simplemente cambiemos esto a usuario para que sea más descriptivo.
+
+02:20.840 --> 02:28.440
+Por lo tanto, estamos devolviendo al usuario, pero también queremos asegurarnos de que no sea una matriz y estamos devolviendo el
+
+02:28.440 --> 02:29.010
+objeto.
+
+02:29.010 --> 02:30.360
+Así que solo lo haremos usuario.
+
+02:30.420 --> 02:35.730
+La primera porque cuando registras un usuario, solo deben ser uno.
+
+02:35.780 --> 02:41.090
+Y también queremos asegurarnos de que si, en caso de que haya un error, respondamos.
+
+02:41.890 --> 02:57.220
+Con un error de respuesta punto Json o incluso puede hacer un estado 400. Vamos a intentarlo, y esto debería ser lo
+
+02:57.220 --> 02:58.410
+siento.
+
+02:58.420 --> 02:59.250
+Captura.
+
+02:59.260 --> 03:02.560
+Digamos eso nuevamente: para detectar cualquier error que pueda haber sucedido aquí.
+
+03:03.110 --> 03:10.760
+Si vuelvo aquí y trato de registrarme con el mismo John, veo, mira eso, un error.
+
+03:13.010 --> 03:16.430
+Y vemos que el correo electrónico clave de John ya existe.
+
+03:16.520 --> 03:18.600
+Este es un punto importante aquí.
+
+03:18.800 --> 03:25.110
+Recibimos un error 400 pero estamos devolviendo información sobre nuestra base de datos.
+
+03:25.170 --> 03:29.960
+Ahora sabemos que en esta base de datos John ya existe.
+
+03:30.190 --> 03:36.550
+Y uno de los grandes principios de seguridad es que desea asegurarse de no proporcionar al cliente ninguna
+
+03:36.670 --> 03:38.510
+información sobre su sistema.
+
+03:39.530 --> 03:41.430
+Y esto no es bueno.
+
+03:41.480 --> 03:53.410
+Entonces, en lugar de devolver el error, podemos decir "no se puede unir" o "no se puede registrar". Si guardamos, envíe de
+
+03:53.410 --> 04:04.490
+nuevo. No se puede registrar - 400 - solicitud incorrecta. Asombroso.
+
+04:04.500 --> 04:07.370
+Veamos si eso realmente funciona con nuestro front end ahora.
+
+04:07.390 --> 04:16.290
+Regreso a mi aplicación, haga clic en registrarse y registremos con un usuario completamente nuevo. El correo electrónico
+
+04:16.680 --> 04:28.610
+de Amy será TheAmy @ gmail. com contraseña 1 2 3 - oops - contraseña 1 2 3. Registro. Amy, tu conteo de entrada
+
+04:28.610 --> 04:30.400
+actual es cero.
+
+04:30.420 --> 04:32.700
+Cuan genial es eso.
+
+04:32.730 --> 04:34.650
+Y solo para asegurarse de que Amy se haya registrado.
+
+04:34.650 --> 04:42.300
+Si volvemos a nuestra base de datos y selecciono o puedo presionar hacia arriba porque lo hemos hecho antes
+
+04:43.320 --> 04:51.090
+de tener a Amy en mi base de datos. Muy guay.
+
+04:51.310 --> 04:53.360
+Así que hemos hecho el registro.
+
+04:53.710 --> 04:55.080
+Todo se ve muy bien.
+
+04:55.090 --> 04:58.390
+Hay algunos puntos finales más para arreglar, así que hagámoslo.
+
+04:58.390 --> 04:59.440
+Nos vemos en la próxima.
+
+04:59.840 --> 05:00.070
+Adiós.

@@ -1,0 +1,310 @@
+WEBVTT
+
+00:01.470 --> 00:07.810
+Quero acrescentar uma última coisa que negligenciamos até este ponto, porque, bem, não
+
+00:07.810 --> 00:10.300
+quero atrapalhá-lo com muitas coisas.
+
+00:10.300 --> 00:21.520
+Se dermos uma olhada no nosso projeto. Bem, é - são muitos arquivos. Mesmo sendo um aplicativo simples, você pode imaginar
+
+00:21.520 --> 00:26.380
+como (muito) cada vez maior esse arquivo de origem pode ficar.
+
+00:26.530 --> 00:31.010
+E a organização é uma grande parte do trabalho em projetos.
+
+00:31.030 --> 00:36.940
+A maioria dos aplicativos será muito maior do que os que criamos e precisamos de uma boa maneira de organizá-los,
+
+00:36.940 --> 00:40.640
+e a estrutura de pastas é uma das coisas mais importantes.
+
+00:40.660 --> 00:42.520
+Então, vamos limpar esse código.
+
+00:42.580 --> 00:48.780
+Vou mostrar o que eu faria se estivesse trabalhando nesse aplicativo e quero torná-lo mais extensível e mais
+
+00:48.790 --> 00:52.660
+limpo para que, quando outras pessoas entrem na equipe, o entendam.
+
+00:52.660 --> 00:56.110
+E também posso continuar crescendo essa base de código.
+
+00:59.270 --> 01:09.350
+A primeira coisa que farei é criar algumas pastas. Um deles será chamado de "componentes" e esses são os
+
+01:09.350 --> 01:14.240
+componentes que criamos, como "CardList", "SearchBox" e "Scroll".
+
+01:14.300 --> 01:20.560
+O segundo será chamado de "contêineres". E os contêineres são esses componentes
+
+01:20.990 --> 01:29.030
+inteligentes, os componentes que contêm, que possuem estado, que possuem ganchos de ciclo de vida, que
+
+01:29.120 --> 01:31.880
+possuem a sintaxe da classe.
+
+01:31.880 --> 01:35.660
+Você vê esses componentes ou esses contêineres, não podemos usar
+
+01:35.660 --> 01:39.680
+uma função pura com eles, porque tecnicamente eles não são puros.
+
+01:39.740 --> 01:45.630
+Eles afirmam que modificam dentro dessas funções e tudo bem.
+
+01:45.680 --> 01:52.700
+É impossível ter apenas funções puras, pois na maioria das vezes precisamos fazer
+
+01:52.820 --> 01:58.600
+solicitações ao mundo exterior. Mas esses componentes são especiais e vamos
+
+01:58.600 --> 02:03.560
+chamá-los de contêineres, eles contêm coisas e passam o estado para os componentes.
+
+02:03.570 --> 02:14.920
+Agora podemos apenas dizer que vamos mudar o "App. css "agora em" contêineres ".
+
+02:14.920 --> 02:21.800
+Também vamos dizer "App. js ", também vamos movê-lo para" contêineres ".
+
+02:25.440 --> 02:30.030
+E então os componentes, as funções simples, as funções puras
+
+02:30.090 --> 02:33.370
+que criamos "SearchBox", "Scroll" e "CardList" Bem,
+
+02:33.390 --> 02:42.370
+elas podem estar em "componentes". Vamos abrir a pasta e simplificar. fechando a guia,
+
+02:42.370 --> 02:54.740
+abra robofriends e vamos abrir o código-fonte. Diremos que "Scroll", "SearchBox", "Card" e "CardList", que são apenas funções
+
+02:54.790 --> 02:58.350
+puras, estão dentro de "componentes".
+
+02:59.420 --> 03:05.420
+Agora, se você se lembra da nossa fonte, também faz parte do "Aplicativo". css ".
+
+03:05.450 --> 03:11.550
+Então, vamos colocar isso lá também, porque está definido lá. Com isso, vamos voltar ao nosso aplicativo e, agora, temos muitas
+
+03:12.650 --> 03:20.290
+falhas, porque agora elas se referem a partes diferentes. Nossa App. js vive em uma
+
+03:20.300 --> 03:27.590
+pasta diferente de "CardList", "SearchBox" e "Scroll". A maneira como
+
+03:27.590 --> 03:37.940
+fazemos isso é que usamos ".. "o que significa deixar a pasta ou ir para a pasta e, a
+
+03:40.390 --> 03:44.140
+partir daí, entrar nos contêineres, desculpe, entre nos contêineres -
+
+03:44.200 --> 03:48.950
+então onde" App. js "é, eu vou deixar o que é" .. "E quando estiver
+
+03:49.210 --> 03:57.070
+aqui no nível da pasta, direi" componentes "e posso fazer o mesmo pelo resto
+
+03:57.610 --> 03:58.660
+deles.
+
+04:05.410 --> 04:11.300
+Salve e também temos "índice. js "que agora se
+
+04:11.640 --> 04:15.360
+refere ao" aplicativo "que vive em contêineres.
+
+04:15.360 --> 04:21.540
+Então, novamente, porque agora estamos vivendo uma pasta, estamos no mesmo bairro enquanto
+
+04:22.350 --> 04:25.390
+podemos apenas ". / containers
+
+04:25.610 --> 04:30.220
+/ App "Vamos salvar- oh, e eu expliquei errado.
+
+04:30.220 --> 04:31.630
+Boa ortografia por mim.
+
+04:31.760 --> 04:32.920
+Tudo parece bem.
+
+04:33.080 --> 04:36.090
+Vamos voltar ao nosso site.
+
+04:36.090 --> 04:36.840
+Ai está.
+
+04:36.840 --> 04:38.670
+Tudo está rastejando bem.
+
+04:39.880 --> 04:40.090
+ESTÁ BEM.
+
+04:40.100 --> 04:43.640
+Portanto, temos uma boa estrutura de pastas aqui.
+
+04:43.650 --> 04:45.360
+As coisas estão limpas.
+
+04:45.370 --> 04:47.750
+E também temos "Scroll. js "E
+
+04:48.470 --> 04:55.500
+acho que temos apenas uma cópia extra, para que possamos ter feito uma cópia disso.
+
+04:55.770 --> 04:57.730
+Certifique-se de que tudo ainda funcione, sim,
+
+04:57.990 --> 04:59.160
+tudo ainda funcione.
+
+05:01.650 --> 05:05.440
+Queremos remover alguns espaços aqui que fizemos.
+
+05:05.460 --> 05:10.120
+Também notamos alguns erros, não necessariamente erros, mas coisas estilísticas.
+
+05:10.140 --> 05:16.710
+Por exemplo, com o filtro, digo filtrar os robôs e percorrer os robôs, não faz realmente sentido,
+
+05:16.710 --> 05:18.270
+não é? Cada
+
+05:18.270 --> 05:23.470
+item deve ser um usuário "robô" que obtemos.
+
+05:23.610 --> 05:28.380
+Então eu salvo isso ainda o mesmo sem erros.
+
+05:28.410 --> 05:35.690
+Também vejo um pouco de limpeza que pode ser feita com "usando isso". declarar "muito, podemos apenas dizer - novamente,
+
+05:35.770 --> 05:39.490
+usando a desestruturação, podemos dizer" const robots "e"
+
+05:42.100 --> 05:44.320
+searchfield ", estamos fazendo
+
+05:44.350 --> 05:45.610
+a desestruturação
+
+05:45.700 --> 05:50.810
+- é igual a" isso. Estado".
+
+05:51.000 --> 05:54.780
+E agora eu posso remover "isso. estado "daqui.
+
+05:54.780 --> 06:04.140
+Eu posso remover "isso. estado "daqui e de todos os outros lugares que estamos usando" isso. estado "e" renderizar
+
+06:04.140 --> 06:08.630
+". Se eu salvar, tudo ainda funciona.
+
+06:08.750 --> 06:11.680
+Mas o código é muito mais limpo.
+
+06:11.700 --> 06:19.050
+Também percebemos que aqui dentro "robôs. length "é igual a zero, na verdade existe uma maneira mais fácil de fazer isso.
+
+06:19.050 --> 06:21.150
+E, novamente, é apenas estilístico.
+
+06:21.150 --> 06:23.930
+Isso será igual a zero.
+
+06:23.970 --> 06:29.070
+Portanto, se esse valor for zero, o JavaScript será avaliado como falso.
+
+06:29.070 --> 06:31.250
+Então, podemos apenas dizer o contrário.
+
+06:31.300 --> 06:36.470
+Lembra da sintaxe? então, se este for zero, o que
+
+06:36.480 --> 06:45.390
+será falso, transforme-o em verdadeiro, para que, se não houver robôs, estamos "Carregando". Salve e isso ainda deve funcionar.
+
+06:45.390 --> 06:58.960
+E finalmente, se você vir uma declaração 'if ~ else', bem, podemos retornar ou não? podemos dizer "robôs de retorno".
+
+07:02.540 --> 07:07.060
+Se houver robôs "devolva isso", vamos ver se isso ainda funciona.
+
+07:09.040 --> 07:10.180
+Não precisamos desse suporte extra.
+
+07:14.200 --> 07:15.630
+Olhe para isso, ainda funciona.
+
+07:15.970 --> 07:19.210
+E você pode ver agora que as coisas estão muito mais limpas.
+
+07:19.210 --> 07:26.670
+Temos um aplicativo que processa todas as nossas coisas para nós.
+
+07:26.670 --> 07:34.800
+E para terminar, lembra? "empacotado. json "? como tivemos alguns scripts pré-criados? E nós tivemos esse comando
+
+07:35.510 --> 07:36.130
+"build".
+
+07:36.300 --> 07:48.700
+Se eu parar isso agora e fizer "NPM build" ou "NPM run build", verifique isso. Enquanto isso está sendo construído, eles criaram uma nova pasta
+
+07:48.910 --> 07:57.200
+chamada "build" e aqui dentro, temos todos os nossos arquivos. Mas desta vez,
+
+07:57.400 --> 08:00.090
+otimizados. O que isso significa?
+
+08:00.100 --> 08:10.420
+Bem, se formos para "estático" e "js", olhe para isso, tudo está minificado para nós, nosso CSS é otimizado e tudo o que
+
+08:11.320 --> 08:19.540
+precisamos para implantar o site está nesta pasta. Agora, podemos pegar essa pasta "build" e colocá-la em
+
+08:19.840 --> 08:21.060
+qualquer lugar.
+
+08:21.070 --> 08:24.540
+Por isso, está na internet e até fornece boas informações.
+
+08:24.700 --> 08:28.780
+Então agora temos essa "compilação" otimizada, não precisamos minimizá-la, não
+
+08:28.810 --> 08:31.420
+precisamos fazer toda essa otimização.
+
+08:31.510 --> 08:35.240
+Ele passa por babel para que possamos usar instruções de importação nos navegadores.
+
+08:35.290 --> 08:40.370
+E agora essa pasta "build" agora pode ser implantada em qualquer lugar.
+
+08:40.410 --> 08:44.670
+Como eu disse, "criar aplicativo de reação" tira toda a dor da instalação.
+
+08:44.820 --> 08:51.120
+Tudo é feito para você. Você pode escrever código usando componentes React de
+
+08:51.360 --> 08:55.250
+toda a Web para criar sites bonitos.
+
+08:55.280 --> 08:57.560
+Espero que você esteja animado com o React como eu.
+
+08:57.560 --> 09:02.680
+É por isso que é uma ferramenta tão popular e é por isso que muitas empresas agora a estão usando.
+
+09:03.710 --> 09:04.760
+Vejo você no próximo.
+
+09:04.970 --> 09:05.350
+Tchau tchau

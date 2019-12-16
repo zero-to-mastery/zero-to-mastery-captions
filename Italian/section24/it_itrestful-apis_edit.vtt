@@ -1,0 +1,346 @@
+WEBVTT
+
+00:01.010 --> 00:01.960
+Ben tornato.
+
+00:02.000 --> 00:07.130
+In questo video parleremo dell'API RESTful.
+
+00:07.250 --> 00:08.050
+Ora che cos'è?
+
+00:08.940 --> 00:16.290
+Un'API REST definisce un insieme di funzioni che gli sviluppatori possono eseguire richieste
+
+00:16.350 --> 00:25.310
+e ricevere risposte tramite un protocollo HTTP come GET, POST, PUT, DELETE - qualcosa di cui abbiamo parlato.
+
+00:25.310 --> 00:33.590
+Ricorda come ho detto che un browser invia una richiesta e spera solo che il server restituisca ciò che il browser
+
+00:33.620 --> 00:34.410
+ha richiesto.
+
+00:34.640 --> 00:37.590
+Un server di Google può inviarci quello che vuole.
+
+00:37.610 --> 00:46.040
+Non deve seguire le regole che forse il browser imposta. Con l'API RESTful siamo in grado di creare
+
+00:46.070 --> 00:52.670
+un'API RESTful, qualcosa che segue le regole su cui tutti possono concordare in modo
+
+00:52.670 --> 00:55.930
+da avere compatibilità tra sistemi diversi.
+
+00:57.350 --> 01:05.290
+Quindi un'API RESTful è uno stile architettonico ed è un approccio alle comunicazioni; un insieme di
+
+01:05.290 --> 01:14.230
+regole concordato in modo che tutti giochino bene. Gli utenti di un'API RESTful OTTENGONO di ricevere una risorsa,
+
+01:14.440 --> 01:22.990
+PUT per modificare lo stato o aggiornare una risorsa, un POST che crea una risorsa e un CANC per rimuoverlo.
+
+01:23.390 --> 01:30.800
+E questo è qualcosa di cui abbiamo già parlato, e l'API RESTful è un modo per definire il nostro server
+
+01:31.700 --> 01:35.610
+in modo che specifichi cosa può fornire e come usarlo.
+
+01:37.580 --> 01:42.520
+In altre parole, i parametri URL dovrebbero avere un senso.
+
+01:42.550 --> 01:49.360
+Ad esempio se stiamo facendo '/ profilo' - beh, ci aspettiamo che se si tratta di una richiesta
+
+01:49.360 --> 01:50.920
+GET otterremo un profilo.
+
+01:51.130 --> 01:55.270
+Se si tratta di una richiesta POST, aggiungeremo un profilo.
+
+01:55.270 --> 02:00.130
+Se è un PUT, forse stiamo aggiornando il profilo e questo URL ha senso.
+
+02:01.050 --> 02:08.140
+E puoi pensare a questo come al nome di ciò che vogliamo ricevere. La richiesta HTTP è il verbo
+
+02:08.210 --> 02:13.600
+e tutto ciò che segue la barra [/] è il sostantivo.
+
+02:16.180 --> 02:23.800
+Ora finalmente le API REST sono chiamate "apolidi", il che significa che le chiamate possono essere effettuate indipendentemente l'una dall'altra e
+
+02:23.800 --> 02:32.040
+ogni chiamata contiene tutti i dati necessari per completarsi correttamente. Un server non ha bisogno di continuare
+
+02:32.160 --> 02:34.560
+a memorizzare le cose.
+
+02:34.560 --> 02:40.590
+Ogni richiesta che arriva ha abbastanza informazioni a cui il server può rispondere, indipendentemente da
+
+02:40.590 --> 02:42.570
+chi sia quella persona.
+
+02:42.570 --> 02:53.080
+Quindi in questo esempio costruiamo una piccola piccola app con un'API RESTful.
+
+02:53.200 --> 02:55.740
+Rendiamolo molto più piccolo.
+
+02:56.900 --> 03:03.940
+Ecco fatto - abbiamo il nostro esempio precedente - avvieremo il server e parleremo di alcune delle cose
+
+03:04.540 --> 03:06.430
+che possiamo fare qui.
+
+03:06.700 --> 03:14.460
+Bene, quando guardiamo una richiesta GET questa richiesta GET - rimuoviamo effettivamente anche questa, quindi non
+
+03:14.460 --> 03:16.400
+è troppo disordinata.
+
+03:18.240 --> 03:23.900
+Questa richiesta GET avrà un oggetto richiesta che riceviamo.
+
+03:24.000 --> 03:27.690
+Ora questo oggetto richiesta può avere alcune cose: possiamo avere richiesta punto
+
+03:27.690 --> 03:29.300
+query [req. query] possiamo
+
+03:32.580 --> 03:37.020
+avere il corpo del punto richiesta [req. body], che abbiamo visto nel video precedente.
+
+03:37.020 --> 03:46.190
+Abbiamo anche l'intestazione del punto richiesta [req. header], ancora una volta qualcosa che abbiamo visto prima e richiede anche dot params [req. params] e questa è
+
+03:46.190 --> 03:50.700
+probabilmente la proprietà di richiesta più utilizzata.
+
+03:50.790 --> 03:52.200
+Quindi esaminiamolo uno per uno.
+
+03:54.100 --> 04:00.200
+'Req. query "è ciò che otteniamo quando eseguiamo una query GET.
+
+04:00.300 --> 04:12.250
+Per esempio, qui dentro, se faccio una 'console.
+
+04:12.250 --> 04:12.250
+log (req.
+
+04:12.700 --> 04:24.850
+query) "Beh, posso andare su localhost e qui - qualcosa di cui abbiamo già parlato - posso aggiungere un punto interrogativo per dire
+
+04:24.850 --> 04:35.160
+che si tratta di una stringa di query e dire" nome = andrei &amp; age = 31 ".
+
+04:36.200 --> 04:37.770
+Premo Invio per
+
+04:38.000 --> 04:44.240
+tornare indietro e vedo qui che ho 'nome' è 'andrei', 'age' è '31' perché
+
+04:44.280 --> 04:52.950
+ho accesso alla stringa di query [console. log (req. query)].
+
+04:52.980 --> 05:01.020
+Abbiamo anche un corpo di richiesta [req. body], di cui abbiamo ancora parlato - usando
+
+05:01.430 --> 05:12.690
+qualcosa come i tuoi parser di corpo "urlencoded" o "JSON", possiamo aggiungere quel middleware per ricevere qualunque cosa la richiesta invii nel body.
+
+05:12.720 --> 05:15.530
+Abbiamo anche l'intestazione del punto richiesta [req. intestazione].
+
+05:15.600 --> 05:30.900
+Quindi se consolo. log (req. header) "bene, usando Postman posso dire nell'intestazione - e ha una
+
+05:30.900 --> 05:34.760
+bella scheda Headers - vedete che abbiamo Content-Type"
+
+05:34.760 --> 05:41.210
+application / json ", che lo fa automaticamente perché l'ultima richiesta era una richiesta JSON.
+
+05:41.430 --> 05:50.130
+Ma posso inserire qualsiasi cosa qui posso dire 'nome' è 'andrei' - o questa volta solo per cambiarlo diremo 'sally' se
+
+05:51.090 --> 05:56.510
+invio questo - e questo è un metodo DELETE assicuriamoci che sia un
+
+05:56.620 --> 05:57.490
+metodo
+
+06:01.120 --> 06:09.180
+GET - Se invio questo lo vedo ora (req. header) ha tutte queste intestazioni ma anche - name: 'sally'.
+
+06:09.250 --> 06:10.510
+Molto bello.
+
+06:10.570 --> 06:16.460
+E poi finalmente abbiamo anche qualcosa chiamato (req. params)
+
+06:16.720 --> 06:28.050
+E se 'console. log (req. params) '- questa è una sintassi in cui si utilizzano i parametri dell'URL.
+
+06:28.140 --> 06:39.620
+Se faccio il punto e virgola e poi diciamo 'id' ['/: id'] - lo salvo e ora abbiamo accesso a qualunque sia il
+
+06:40.190 --> 06:41.330
+parametro dell'URL.
+
+06:41.390 --> 06:47.510
+Quindi diciamo solo "1234" e per ora rimuoverò l'intestazione.
+
+06:47.520 --> 06:54.080
+Se 'Invio' ora ho {id: '1234'} giusto.
+
+06:54.080 --> 06:54.570
+Eccezionale.
+
+06:54.740 --> 07:02.290
+E puoi avere tutti i parametri che desideri e puoi annidarli, ma abbiamo accesso alle informazioni sulla
+
+07:02.300 --> 07:05.340
+nostra richiesta, il che è fantastico.
+
+07:06.290 --> 07:15.700
+Ora, quando inviamo una risposta, vogliamo anche avere un po 'di opzione su ciò che vogliamo inviare. Bene con una risposta possiamo
+
+07:15.700 --> 07:20.840
+dire che con l'invio vogliamo anche
+
+07:20.840 --> 07:32.510
+rispondere con uno stato, diciamo uno stato di 404 e potremmo dire invia ("non
+
+07:34.190 --> 07:45.440
+trovato") se aggiorno e invio ora, ottengo 'non trovato' con uno stato di 404.
+
+07:45.640 --> 07:48.460
+Ancora una volta, se torno al
+
+07:51.350 --> 07:55.560
+browser e aggiorno, nella scheda Rete ho uno stato 404.
+
+07:55.580 --> 07:56.720
+Tutto ok.
+
+07:56.720 --> 07:57.900
+Perfezionare.
+
+07:57.980 --> 08:01.550
+E ancora una volta personalizzi - in modo da
+
+08:01.820 --> 08:08.430
+avere un'API RESTful - GET, POST, PUT e DELETE per seguire le regole che i browser web si aspettano.
+
+08:08.460 --> 08:09.780
+Ora un'ultima cosa.
+
+08:09.840 --> 08:12.270
+Fino ad ora stiamo solo inviando dati avanti e indietro.
+
+08:12.270 --> 08:20.130
+Ma cosa succede se vogliamo servire qualcosa chiamato risorse statiche che è 'indice. html ", file CSS, file JavaScript: è
+
+08:20.130 --> 08:22.180
+più realistico vero?
+
+08:22.180 --> 08:30.210
+Di solito vogliamo un file indice e far funzionare la nostra app - beh, è molto facile da fare.
+
+08:30.270 --> 08:36.310
+Possiamo crearlo all'interno di questo progetto - facciamo solo una nuova cartella chiamata pubblica.
+
+08:36.780 --> 08:42.150
+E questo nome potrebbe esserti familiare perché quando abbiamo creato 'create-reagire-app' il pubblico era lì e
+
+08:42.150 --> 08:44.650
+conteneva tutti i nostri file statici.
+
+08:45.290 --> 08:50.980
+Quindi qui facciamo un nuovo file - 'indice. html'.
+
+08:51.020 --> 08:55.070
+Ora all'interno di questo file pubblico faremo solo un rapido
+
+08:55.070 --> 08:57.340
+documento HTML che dice "ciao".
+
+08:57.590 --> 09:01.940
+E dentro qui dirò 'funziona'.
+
+09:04.820 --> 09:10.910
+Per fare in modo che Express invii file statici, per ora possiamo semplicemente
+
+09:11.150 --> 09:13.370
+rimuoverlo solo per mantenerlo
+
+09:13.460 --> 09:20.640
+pulito e fare un'altra app di middleware. uso()'.
+
+09:20.830 --> 09:30.300
+E questo viene con Express che già facciamo. static () 'e qui diamo il percorso del file.
+
+09:30.410 --> 09:38.190
+Nel nostro caso sappiamo che vogliamo ottenere il '__dirname', che abbiamo visto in un video precedente,
+
+09:38.190 --> 09:47.850
+che è la directory di dove siamo; nel nostro caso il suo nodo e vogliamo andare nella cartella pubblica, quindi facciamo "pubblico".
+
+09:53.680 --> 09:55.240
+Questo stamperà 'nodo'
+
+09:58.010 --> 09:59.380
+quindi 'pubblico'.
+
+09:59.630 --> 10:08.670
+Quindi ora se lo salvo e torno alla nostra richiesta GET ottengo 'funziona'.
+
+10:08.780 --> 10:12.670
+Permettimi di ingrandirlo in modo da poterlo vedere.
+
+10:12.840 --> 10:22.260
+E se apriamo la nostra console e la nostra scheda Rete - aggiorno ricevo - ooh, facciamo un duro aggiornamento - Ottengo '200' Ottengo 'text
+
+10:25.100 --> 10:26.210
+/ html'
+
+10:26.240 --> 10:29.400
+E la risposta è il mio file HTML.
+
+10:29.570 --> 10:35.420
+E se avessi un collegamento CSS qui, questo caricherà il CSS nella mia cartella pubblica.
+
+10:35.540 --> 10:41.700
+Se avessi un file JavaScript, lo caricherà perché all'interno del corpo possiamo aggiungere un tag di script.
+
+10:42.110 --> 10:49.350
+E questo è un server che abbiamo appena creato che serve semplici risorse statiche.
+
+10:49.580 --> 10:56.210
+E non appena vogliamo avere qualcosa come un'API in cui interagiamo con essa, GET,
+
+10:56.210 --> 10:56.930
+POST,
+
+10:56.990 --> 11:03.810
+PUT DELETE è quando iniziamo a usare i nostri metodi che abbiamo imparato in precedenza.
+
+11:03.860 --> 11:04.880
+Molto bello.
+
+11:05.000 --> 11:12.860
+Ora che abbiamo questa base di base costruiremo il nostro server per la nostra app - l'app che costruiamo nel nostro
+
+11:12.860 --> 11:16.230
+progetto finale, la nostra app di riconoscimento delle immagini?
+
+11:16.640 --> 11:19.240
+Bene, costruiremo il back-end per questo.
+
+11:20.230 --> 11:21.870
+Vedrò nel prossimo. Ciao ciao

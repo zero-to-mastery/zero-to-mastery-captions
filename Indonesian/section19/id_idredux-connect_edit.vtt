@@ -1,0 +1,490 @@
+WEBVTT
+
+00:01.160 --> 00:02.750
+Dan selamat datang kembali.
+
+00:02.750 --> 00:10.130
+Satu hal yang saya perhatikan dari video sebelumnya adalah dalam file Konstanta saya, saya harus memastikan bahwa variabel
+
+00:10.130 --> 00:12.260
+dan string saya sama.
+
+00:12.260 --> 00:16.910
+Jadi cukup tambahkan garis bawah di sini, oke.
+
+00:16.940 --> 00:27.200
+Jadi mari kita bicara tentang bagian selanjutnya yang menggunakan metode lain yang dilengkapi dengan react redux yang terhubung.
+
+00:30.310 --> 00:39.170
+Sekarang fungsi koneksi ini dioptimalkan agar kita tidak menggunakan sesuatu yang disebut store. berlangganan.
+
+00:39.310 --> 00:44.490
+Jadi, jika Anda ingat ketika kami konsol login toko di apt kami.
+
+00:44.590 --> 00:50.960
+Ya, kami memiliki beberapa fungsi termasuk fungsi get state yang kami kunci.
+
+00:50.960 --> 00:55.430
+Sekarang ada juga fungsi titik berlangganan yang berlangganan
+
+00:55.480 --> 01:02.510
+komponen apa pun yang tertarik untuk menyadari redux dan mendengarkan perubahan apa pun.
+
+01:03.680 --> 01:10.400
+Tapi itu sedikit membosankan dan koneksi menyederhanakan proses hanya dengan mengatakan menggunakan fungsi koneksi.
+
+01:10.400 --> 01:17.220
+dan dengan itu kita akan membuat komponen redux sadar.
+
+01:17.430 --> 01:25.740
+Jika Anda ingat komponen penghubung adalah komponen kecil berwarna kuning yang tahu tentang redux.
+
+01:25.740 --> 01:33.470
+Jadi kami telah membuat komponen penyedia yang pada dasarnya meneruskan toko ke komponen.
+
+01:33.510 --> 01:35.180
+Tapi sekarang
+
+01:35.220 --> 01:45.870
+kita harus mengatakan yang mana, salah satu komponen reaksi ini kita ingin menjadi pintar atau sadar bahwa ada pustaka redux dan
+
+01:45.870 --> 01:47.560
+mereka dapat berlangganan perubahan.
+
+01:47.580 --> 01:49.230
+Jadi saya akan menunjukkan kepada
+
+01:52.380 --> 01:59.040
+Anda bagaimana melakukannya dalam video ini dan omong-omong standar ini di industri adalah bahwa kita menyebut wadah komponen pintar ini
+
+01:59.040 --> 02:01.310
+semacam aplikasi sejenis. js Jadi
+
+02:01.410 --> 02:08.080
+kita kemungkinan besar akan menghubungkan aplikasi. File js karena merupakan wadah.
+
+02:08.210 --> 02:15.680
+Jadi hal pertama yang akan kita lakukan adalah masuk ke aplikasi. File js dan di sini kami
+
+02:15.740 --> 02:18.590
+ingin mengimpor beberapa hal.
+
+02:18.620 --> 02:21.490
+Mari kita mulai dengan mengimpor tindakan.
+
+02:21.530 --> 02:26.250
+Jadi saya akan mengimpor tindakan yang kita miliki.
+
+02:26.480 --> 02:27.770
+Mari kita ke sini.
+
+02:28.620 --> 02:32.300
+Kami memiliki tindakan bidang pencarian yang ditetapkan.
+
+02:32.310 --> 02:41.210
+Jadi kita akan melakukan tindakan setSearchField dan kita akan mengimpornya dari tindakan. File js dan
+
+02:41.210 --> 02:51.030
+karena tindakan. File js adalah level folder sejak aplikasi. js ada di wadah.
+
+02:51.120 --> 02:56.740
+Saya akan melakukan periode ganda.
+
+02:56.850 --> 03:03.720
+Mari kita simpan itu dan kita mendapat peringatan kecil yang menyenangkan yang mengatakan bahwa ... bidang pencarian didefinisikan tetapi tidak pernah
+
+03:03.720 --> 03:04.800
+digunakan.
+
+03:04.920 --> 03:11.330
+Mari kita juga menyimpan file indeks kita, sempurna.
+
+03:11.370 --> 03:16.120
+Sekarang mari kita gunakan metode hubungkan ini yang telah saya bicarakan.
+
+03:16.140 --> 03:31.970
+Jadi sekarang di bagian atas sini saya akan mengatakan impor metode hubungkan dari react redux dan metode hubungkan ini, Cara
+
+03:31.970 --> 03:33.570
+kerjanya.
+
+03:33.590 --> 03:40.140
+Dan lagi dan Anda hanya harus terbiasa di bagian paling bawah di mana kami melakukan ekspor standar.
+
+03:40.710 --> 03:50.820
+Kita akan mengatakan connect akan menjadi fungsi dan kemudian kurung lain atau lain di sekitar aplikasi.
+
+03:50.840 --> 03:58.550
+Sekarang sintaks ini mungkin terlihat sedikit membingungkan dan terhubung adalah sesuatu yang kita sebut fungsi tingkat tinggi.
+
+03:58.940 --> 04:09.130
+Sekarang fungsi urutan yang lebih tinggi adalah fungsi yang mengembalikan fungsi lain. Jadi koneksi akan berjalan dan koneksi apa pun
+
+04:09.160 --> 04:15.500
+yang ada di dalam fungsi ini akan mengembalikan fungsi lain.
+
+04:15.640 --> 04:22.250
+Dan karena mengembalikan fungsi lain, itu akan menjalankan bagian ini dengan aplikasi.
+
+04:22.280 --> 04:28.190
+Jadi begitulah komponen orde tinggi bekerja dan Anda akan belajar lebih banyak tentang ini nanti dalam karier Anda.
+
+04:28.190 --> 04:35.330
+Tetapi untuk sekarang ketahuilah bahwa ini adalah sintaks yang harus Anda gunakan. Sekarang mari kita tambahkan baris baru sehingga kita bisa melihatnya lebih
+
+04:35.430 --> 04:36.560
+baik di sini.
+
+04:37.410 --> 04:47.250
+Sekarang di sini, terhubung menerima dua parameter yang lagi standar. Saya dapat memberi nama
+
+04:47.470 --> 04:58.750
+mereka apa pun yang saya inginkan tetapi kami hanya mengikuti standar
+
+04:58.750 --> 05:08.520
+redux, yang pertama adalah mapStateToProps dan yang kedua adalah mapDispatchToProps.
+
+05:08.580 --> 05:09.100
+Baiklah.
+
+05:09.100 --> 05:17.560
+Jadi saat ini kami baru saja menghubungkan komponen ini, komponen aplikasi ini dan berkata, hei
+
+05:17.560 --> 05:21.240
+berlangganan perubahan negara di toko redux.
+
+05:22.090 --> 05:28.930
+Dan sekarang aplikasi tahu bahwa ada toko redux di suatu tempat dan setiap kali
+
+05:28.930 --> 05:31.330
+ada perubahan mungkin tertarik.
+
+05:31.390 --> 05:35.470
+Tapi sekarang kita perlu mengatakannya apa yang menarik.
+
+05:35.500 --> 05:42.230
+Itulah keadaan yang harus saya dengarkan, pengiriman apa atau tindakan apa yang harus saya dengarkan.
+
+05:42.250 --> 05:46.820
+Jadi mari kita kembali ke atas dan paling atas di sini.
+
+05:46.910 --> 05:54.000
+Kami ingin mendefinisikan fungsi-fungsi ini, atau parameter ini. Jadi yang akan kita
+
+05:54.000 --> 06:04.410
+lakukan adalah mengatakan const mapStateToProps dan ini akan menerima status dan oops.
+
+06:04.520 --> 06:06.980
+Dan itu akan mengembalikan objek dan seperti yang
+
+06:09.850 --> 06:10.480
+saya katakan
+
+06:13.730 --> 06:19.310
+sebelumnya Anda dapat memberi nama ini apa pun yang Anda inginkan, tetapi ini adalah standar dan aplikasi redux apa pun
+
+06:19.310 --> 06:22.040
+yang Anda akan lihat ini atau terbiasa dengan sintaks.
+
+06:22.100 --> 06:25.340
+Setelah Anda melakukannya beberapa kali, itu menjadi kebiasaan.
+
+06:25.340 --> 06:25.690
+Baiklah.
+
+06:25.690 --> 06:30.950
+Dan di sini kami ingin mengatakan bahwa bidang pencarian menyatakan
+
+06:35.270 --> 06:41.690
+lagi jika kami pergi ke reduksi kami, kami memiliki bidang pencarian di sini.
+
+06:44.530 --> 06:53.260
+Negara bidang pencarian ini akan sama dengan keadaan yang kami terima dot bagian dari peredam yang
+
+06:53.260 --> 07:06.550
+lagi jika kita pergi ke reduksi adalah robot pencarian jadi searchRobots. searchField Jadi sekali lagi itu mengatakan bahwa bidang pencarian yang akan kita
+
+07:06.560 --> 07:13.580
+kembalikan yang akan digunakan sebagai alat peraga oleh komponen App akan berasal
+
+07:13.970 --> 07:24.560
+dari negara bagian (bukan Stata) searchRobots. searchField yang sekali lagi berasal
+
+07:25.010 --> 07:33.980
+dari peredam kami karena ingat dalam indeks. File js kami telah membuat toko
+
+07:34.070 --> 07:37.220
+dengan peredam robot pencarian.
+
+07:37.250 --> 07:45.980
+Jadi jika kita kembali ke sini, mari kita simpan itu, dan kita memiliki MapDispatchToProps tidak didefinisikan.
+
+07:46.160 --> 07:53.690
+Dan lagi karena kita membutuhkan bagian kedua yaitu MapDispatchToProps jadi mari kita buat lagi
+
+07:56.970 --> 08:07.700
+Kami akan mengatakan bahwa const mapDispatchedToProps akan menerima sesuatu yang disebut dispatch.
+
+08:07.830 --> 08:14.730
+Dan lagi sesuatu itu, Anda hanya harus terbiasa. Pengiriman, jika Anda ingat dalam diskusi
+
+08:14.730 --> 08:21.510
+kami tentang fluks yang memicu tindakan, maka tindakan hanyalah sebuah objek yang telah
+
+08:21.510 --> 08:29.330
+kami buat, sekali lagi, jika Anda ingat. Tetapi untuk mengirim tindakan ini kita
+
+08:29.360 --> 08:35.250
+perlu sesuatu yang disebut pengiriman - sehingga dikirim ke peredam.
+
+08:35.330 --> 08:44.750
+Jadi pengiriman ini sekarang dapat digunakan untuk mengirim tindakan, dan cara kita melakukannya, kita dapat mengatakan onSearchChange yang hanya nama itu -
+
+08:46.040 --> 08:48.350
+saya bisa mengatakan apa saja.
+
+08:48.360 --> 08:51.950
+Jadi ingat ini prop yang akan diterima.
+
+08:51.950 --> 08:58.230
+Tapi kami akan tetap sama dengan yang ada di aplikasi reaksi kami - onSearchChange.
+
+08:58.260 --> 09:05.910
+Dan inilah yang akan dinamai prop. Dan onSearchChange akan menerima acara karena
+
+09:06.390 --> 09:15.270
+ingat itu adalah kotak input yang diketikkan pengguna, dan acara ini, sekali lagi karena
+
+09:15.270 --> 09:26.840
+perubahan pencarian adalah fungsi, akan mengirimkan tindakan setSearchField karena ingat, tindakan itu hanya sebuah objek hanya sebuah objek fungsi
+
+09:26.870 --> 09:28.870
+yang mengembalikan objek.
+
+09:28.940 --> 09:30.530
+Kami ingin mengirim itu.
+
+09:30.620 --> 09:39.950
+Jadi reduksi menyadarinya dan bidang pencarian ini ketika dikirim akan mendengarkan.
+
+09:40.100 --> 09:47.590
+Jika Anda ingat dalam tindakan kami itu akan menerima teks. Itu adalah apa pun yang diinput pengguna.
+
+09:48.220 --> 09:59.100
+Dalam hal ini kita bisa melakukan event. target. nilai lagi seperti yang kita miliki di onSearchChange
+
+09:59.100 --> 10:03.520
+di sini, acara. target. nilai Jadi jika
+
+10:03.530 --> 10:07.970
+saya menyimpan ini, biarkan saya membuat ini sedikit lebih kecil
+
+10:07.970 --> 10:11.390
+dan simpan sekarang, saya punya sedikit peringatan.
+
+10:11.390 --> 10:17.100
+Pertama, ingat bahwa kita perlu mengembalikan ini sebagai objek.
+
+10:17.180 --> 10:30.930
+Jadi kami ingin mengatakan kembali sama seperti yang kami lakukan di atas dengan negara, objek yang berisi semua tindakan kami.
+
+10:30.950 --> 10:38.340
+Sekali lagi mapStateToProps memberi tahu saya keadaan apa, bagian apa yang perlu saya dengarkan, dan kirim sebagai
+
+10:38.350 --> 10:46.270
+alat peraga dan mapDispatchToProps berkata, hei, beri tahu saya alat peraga apa yang harus saya dengarkan yang merupakan tindakan
+
+10:46.300 --> 10:47.720
+yang perlu dikirim.
+
+10:49.160 --> 10:52.170
+Baiklah semuanya bekerja.
+
+10:52.670 --> 10:54.640
+Kami tidak mendapatkan kesalahan apa pun di sini.
+
+10:55.070 --> 11:01.520
+Dan ingat sekarang bahwa di sini di dalam koneksi kita tahu apa itu mapStateToProps,
+
+11:01.530 --> 11:08.120
+(apa) mapDispatchToProps adalah dan connect akan menjalankan bagian pertama dari fungsi dan berkata Oke saya
+
+11:08.120 --> 11:15.950
+mendengarkan bagian negara ini dan saya tertarik dalam tindakan ini dan kemudian akan memberikan alat peraga itu
+
+11:16.010 --> 11:17.460
+ke aplikasi.
+
+11:17.480 --> 11:19.260
+Inilah bagian yang menarik.
+
+11:20.160 --> 11:24.850
+Karena ingat saya katakan redux dapat menggantikan status Anda di aplikasi Anda.
+
+11:24.990 --> 11:36.490
+Secara teknis saya sekarang dapat menghapus bidang pencarian dari ini. nyatakan dari aplikasi dan saya juga dapat menghapus onSearchChange karena sekali
+
+11:36.510 --> 11:40.290
+lagi yang turun sebagai alat peraga.
+
+11:40.290 --> 11:45.860
+Kami tidak perlu mendeklarasikannya sebagai metode aplikasi. Jadi saya bisa menghapusnya sekarang.
+
+11:46.760 --> 11:52.660
+Dan kemudian di sini saya tidak tertarik dengan ini. nyatakan lagi bidang pencarian.
+
+11:52.790 --> 11:56.780
+Saya bisa menghapus itu karena sekarang turun sebagai alat peraga.
+
+11:56.990 --> 11:59.570
+Jadi alih-alih saya
+
+12:02.890 --> 12:16.180
+bisa mengatakan const searchField dengan modal F berasal dari ini. alat peraga dan akhirnya onSearchChange tidak berasal
+
+12:16.180 --> 12:21.350
+dari ini. onSearchChange yang merupakan metode aplikasi.
+
+12:21.370 --> 12:22.520
+Itu berasal dari alat peraga.
+
+12:22.600 --> 12:31.650
+Jadi sekali lagi saya bisa mengatakan onSearchChange dan menghapus. ini Mari selamatkan itu.
+
+12:35.740 --> 12:42.040
+Dan lagi saya akan mendapatkan kesalahan dengan mengatakan bahwa bidang pencarian tidak ditentukan karena ingat,
+
+12:42.040 --> 12:47.730
+dengan kondisi redux kami, kami mengubah bidang pencarian untuk memiliki modal F.
+
+12:47.750 --> 12:52.480
+Jadi jika saya mengubahnya sehingga mengerti itu, itulah yang kami minati.
+
+12:53.860 --> 12:57.080
+Semuanya berfungsi.
+
+12:57.110 --> 13:06.950
+Sekarang inilah sedikit gotcha. Sekarang karena di indeks kami. File js kita hanya memiliki satu peredam.
+
+13:06.980 --> 13:11.440
+Kami membuat toko dari ini, jika kami kembali ke aplikasi. Status js
+
+13:11.490 --> 13:17.460
+sebenarnya hanya memiliki satu bidang dan itu adalah searchField.
+
+13:17.570 --> 13:21.950
+Jadi kita harus melakukan sesuatu seperti ini.
+
+13:22.830 --> 13:28.680
+Agar itu bekerja. Sekarang kita akan kembali ke titik ini,
+
+13:29.190 --> 13:37.470
+karena begitu kita mulai menambahkan lebih banyak potongan negara dan lebih banyak reduksi kita harus mendapatkan keadaan dari setiap bagian yang kita minati.
+
+13:37.860 --> 13:42.510
+Tapi untuk saat ini kita akan kembali ke keadaan yang kita sebut keadaan. searchField karena jika Anda ingat
+
+13:42.510 --> 13:47.630
+dan menghibur. toko log. dapatkan keadaan.
+
+13:47.700 --> 13:49.230
+Kami baru saja memiliki kolom pencarian.
+
+13:49.530 --> 13:54.730
+Jadi mari kita simpan itu dan kembali.
+
+13:54.750 --> 13:55.850
+Baiklah.
+
+13:55.950 --> 13:58.160
+Tidak ada di konsol yang bagus.
+
+13:58.230 --> 14:03.530
+Momen kebenaran jika saya mengetikkan sesuatu di sini.
+
+14:03.610 --> 14:04.340
+Lihat itu.
+
+14:04.360 --> 14:11.140
+Semuanya berfungsi, terlepas dari kenyataan bahwa kami tidak lagi memiliki keadaan untuk bidang pencarian
+
+14:11.440 --> 14:13.910
+di sini atau metode.
+
+14:14.050 --> 14:16.570
+Alih-alih semuanya berjalan melalui redux.
+
+14:16.570 --> 14:28.090
+Dan hanya untuk menguji teori itu jika saya masuk ke sini, ke setSearchField saya dan bukannya memiliki pengembalian
+
+14:28.090 --> 14:37.240
+otomatis ini saya akan mengatakan konsol. log (teks) dan saya akan kembali dari sini
+
+14:37.240 --> 14:44.110
+objek jadi kita hanya akan konsol log untuk melihat apakah tindakan tersebut masuk
+
+14:44.140 --> 14:46.480
+Saya simpan dan kembali.
+
+14:46.480 --> 14:51.290
+Mari kita buka alat, konsol dan lihat itu.
+
+14:51.370 --> 14:55.890
+Semua yang saya ketik sedang dikirim melalui tindakan.
+
+14:55.900 --> 15:01.000
+Dan bagian keren lainnya adalah jika saya pergi ke peredam dan lagi saya
+
+15:01.000 --> 15:11.340
+menguji semuanya dan saya katakan konsol. log (tindakan. ketik) Saya menyimpan ini dan kembali. kita melihat bahwa kita memiliki tindakan lucu yang terjadi.
+
+15:11.340 --> 15:13.980
+Dan ini adalah default ketika redux memulai.
+
+15:14.100 --> 15:20.520
+Tetapi sekarang jika saya mengklik sesuatu atau mengetik sesuatu, saya mendapatkan CHANGE_SEARCH_FIELD,
+
+15:20.520 --> 15:27.390
+CHANGE_SEARCH_FIELD karena peredam pada setiap tindakan dijalankan, dan mengatakan - apakah tindakan CHANGE_SEARCH_FIELD terjadi?
+
+15:27.420 --> 15:29.960
+Jika itu masalahnya saya akan mengembalikan negara baru.
+
+15:29.970 --> 15:31.050
+Sangat keren.
+
+15:31.050 --> 15:37.820
+Kami baru saja menghubungkan reaksi kami hingga redux dan semuanya bekerja dengan baik.
+
+15:38.850 --> 15:44.000
+Ada sedikit boilerplate di sini dan Anda tahu Anda harus mengingat mapStateToProps, mapDispatchToProps
+
+15:44.000 --> 15:53.040
+tetapi begitu Anda terbiasa dengan sintaks itu, itu benar-benar bagus dan indah cara redux bekerja dan bagaimana kami telah membersihkan segala sesuatu
+
+15:53.250 --> 16:01.710
+di mana semuanya mengalir dengan baik. Sama seperti yang kami sebutkan. Kami telah membuat
+
+16:01.710 --> 16:10.320
+tindakan yang dikirim ke reducer, fungsi yang berdasarkan tindakan itu mengambil status
+
+16:10.320 --> 16:13.710
+dan mengubahnya di toko.
+
+16:13.710 --> 16:19.200
+Dan karena toko mendapat pembaruan komponen reaksi yang tertarik akan mendengarkan perubahan
+
+16:19.200 --> 16:22.040
+itu dan membuat perubahan tampilan.
+
+16:23.460 --> 16:25.260
+Sangat keren.
+
+16:25.260 --> 16:28.430
+Baiklah, beberapa hal yang lebih menarik akan muncul di video berikutnya.
+
+16:28.620 --> 16:30.080
+Sampai jumpa di situ.
+
+16:30.080 --> 16:30.390
+Sampai jumpa

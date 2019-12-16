@@ -1,0 +1,811 @@
+WEBVTT
+
+00:01.390 --> 00:09.650
+Las promesas son una nueva característica en JavaScript a partir de ES6. Pero eso significa que son realmente útiles para que se presenten
+
+00:09.650 --> 00:11.590
+como parte del lenguaje.
+
+00:11.630 --> 00:12.410
+¿Correcto?
+
+00:12.660 --> 00:14.490
+Pues tienes toda la razón.
+
+00:14.510 --> 00:16.350
+Las promesas están en todas partes.
+
+00:16.400 --> 00:21.680
+Y en este video les voy a mostrar qué son, cómo funcionan y, con suerte, entenderemos por
+
+00:21.710 --> 00:25.970
+qué todos deberíamos estar contentos de tenerlos en lugar de devoluciones de llamadas.
+
+00:25.970 --> 00:29.260
+Ahora para entender las promesas, definamos.
+
+00:29.660 --> 00:36.650
+Una promesa es un objeto que puede producir un valor único en algún momento en el futuro. Un valor resuelto o una razón por la
+
+00:37.160 --> 00:39.920
+que no se resuelve o rechaza.
+
+00:40.910 --> 00:46.890
+Una promesa tal vez en uno de los tres posibles estados cumplidos, rechazados o pendientes.
+
+00:47.010 --> 00:47.750
+Huh
+
+00:48.150 --> 00:53.730
+Vamos a averiguar qué significa eso en este video para que al final de todo eso tenga sentido para
+
+00:53.730 --> 00:54.340
+ti.
+
+00:54.450 --> 01:00.840
+Ahora, para comprender completamente el concepto, primero debemos hablar sobre lo que teníamos antes de las promesas y eso son las
+
+01:01.050 --> 01:02.050
+devoluciones de llamada.
+
+01:03.340 --> 01:04.430
+Algo como esto.
+
+01:04.570 --> 01:11.170
+Cuando se hace algo, ejecute este código. Las devoluciones de llamada en javascript son exactamente eso.
+
+01:11.170 --> 01:17.360
+Le envío un mensaje de texto a mi amigo Bob y le digo Hola Bob, ¿cuál es esa canción realmente buena de los Backstreet Boys?
+
+01:18.130 --> 01:23.020
+Cuando Bob tiene tiempo, me vuelve a llamar y dice oh sí, sí esa canción. Es que la
+
+01:23.090 --> 01:24.460
+quiero de esa manera.
+
+01:24.670 --> 01:27.590
+Y eso es exactamente lo que está sucediendo aquí también.
+
+01:27.820 --> 01:30.940
+Tenemos un elemento al que estamos agregando un oyente de eventos.
+
+01:31.120 --> 01:38.320
+Y cuando un usuario haga clic, tendremos el formulario de envío de devolución de llamada. Una vez que el usuario haga
+
+01:38.320 --> 01:42.100
+clic, responderemos con el formulario de envío.
+
+01:42.140 --> 01:43.750
+Pensemos en otro ejemplo.
+
+01:44.000 --> 01:50.480
+Digamos que estamos creando un juego y tenemos esta función de mover jugador que tiene la distancia para mover
+
+01:50.480 --> 01:52.230
+al jugador y la dirección.
+
+01:52.640 --> 01:59.330
+Bueno, si quisiera mover al jugador 100 a la izquierda, correría eso. Una vez hecho esto, quiero que ejecute una función de
+
+01:59.360 --> 02:07.070
+devolución de llamada que es mover el jugador 400 a la izquierda nuevamente y luego otra función de devolución de llamada justo después de
+
+02:07.070 --> 02:12.740
+eso para mover al jugador 10 a la derecha y otra opción de devolución de llamada para mover
+
+02:12.740 --> 02:15.200
+al jugador 330 a la izquierda .
+
+02:15.350 --> 02:19.950
+Y tenemos algo llamado la pirámide de la fatalidad.
+
+02:20.030 --> 02:23.060
+Este es obviamente un ejemplo simple.
+
+02:23.240 --> 02:30.290
+Pero con las devoluciones de llamada obtendrá esta función anidada anidada y creará esta pirámide de código realmente muy complicado
+
+02:30.290 --> 02:35.930
+de esto sucede, luego esto sucede y esto sucede y esto sucede y es realmente
+
+02:35.930 --> 02:37.460
+muy difícil de leer.
+
+02:37.550 --> 02:39.460
+Déjame mostrarte un ejemplo más realista.
+
+02:42.640 --> 02:50.380
+Digamos que teníamos una especie de aplicación que usa Twitter y déjame hacerla más grande para que puedas ver
+
+02:50.380 --> 02:51.350
+que tenemos
+
+02:51.360 --> 02:56.410
+una función grabTweets de que el primer parámetro tiene la URL. Por
+
+02:56.410 --> 02:57.740
+ahora lo simplifiqué.
+
+02:57.760 --> 03:00.430
+Acabamos de pasar Twitter y el identificador de Twitter.
+
+03:00.640 --> 03:05.780
+Y luego la función de devolución de llamada después de tomar los tweets que tiene un error.
+
+03:05.830 --> 03:07.330
+Y los tweets.
+
+03:07.750 --> 03:11.040
+Y si hay un error, arrojamos un error.
+
+03:11.050 --> 03:13.620
+Entonces eso solo crea un error en javascript.
+
+03:13.810 --> 03:15.870
+De lo contrario, vamos a mostrar los tweets.
+
+03:16.180 --> 03:21.740
+Pero luego, si los tweets de andrei fueron exitosos, entonces también queremos tomar los tweets nuevamente.
+
+03:22.000 --> 03:24.840
+Hagamos a Elon Musk una y otra vez si hay un error. Vamos
+
+03:24.880 --> 03:25.830
+a arrojar un error.
+
+03:25.930 --> 03:28.270
+De lo contrario, vamos a mostrar sus tweets.
+
+03:28.450 --> 03:33.880
+Y si eso tiene éxito, también vamos a captar los tweets de Vitalik Buterin.
+
+03:34.000 --> 03:42.520
+Y nuevamente si hay un error, arroje el error; de lo contrario, muestre los tweets. Y eso no se ve muy bonito, ¿verdad?
+
+03:43.340 --> 03:46.840
+Quiero decir que tenemos que hacer lo mismo que tenemos que verificar si hay errores.
+
+03:46.880 --> 03:54.310
+Y cada vez que lo anidamos y, en general, tenemos muchas repeticiones de código.
+
+03:55.820 --> 04:01.330
+Ahora las promesas tienen el mismo propósito que las devoluciones de llamada.
+
+04:01.450 --> 04:03.520
+Entonces, ¿por qué tenemos dos cosas?
+
+04:03.520 --> 04:08.080
+Las buenas promesas son nuevas en ES6 y son un poco más potentes.
+
+04:08.080 --> 04:10.490
+Déjame mostrarte cómo es una promesa.
+
+04:12.190 --> 04:14.830
+Recuerdas este código de jugador de movimiento.
+
+04:14.970 --> 04:21.690
+Bueno, esto con una promesa se verá más o menos así.
+
+04:21.690 --> 04:29.010
+No se ve mucho mejor, pero es muy difícil comprender lo que está sucediendo aquí sin saber realmente
+
+04:29.010 --> 04:30.900
+cómo crear una promesa.
+
+04:30.930 --> 04:32.420
+Entonces comencemos con eso.
+
+04:32.760 --> 04:44.150
+Voy a eliminar esto y crear nuestra primera promesa. Diremos que constante promesa es igual, y esta es una nueva sintaxis a
+
+04:44.320 --> 04:47.240
+la que solo tendrá que acostumbrarse.
+
+04:47.440 --> 04:49.900
+'new Promise ()'
+
+04:49.900 --> 04:59.940
+Entonces estamos creando una nueva promesa y esta promesa tiene un parámetro que resuelve o rechaza.
+
+05:00.080 --> 05:08.560
+Y aquí, en esta función, tenemos la opción de decir simplemente resolver.
+
+05:08.670 --> 05:23.570
+Simplemente hagamos 'cosas trabajadas' o rechacemos y en este caso tenemos un 'Error, se rompió'.
+
+05:23.610 --> 05:29.160
+Ahora, obviamente, queremos tener una declaración condicional aquí, diremos que si la condición en nuestro caso simplemente la
+
+05:29.160 --> 05:30.720
+dejaremos ser cierta por ahora.
+
+05:31.850 --> 05:32.850
+si
+
+05:33.050 --> 05:42.520
+es cierto, así que si la promesa regresó, la resolveremos.
+
+05:42.600 --> 05:50.510
+De lo contrario, vamos a rechazar.
+
+05:50.590 --> 05:51.330
+Y aquí está la cosa.
+
+05:51.340 --> 05:54.530
+Esto parece confuso sin conocer realmente la aplicación.
+
+05:54.580 --> 05:58.780
+Pero quiero que tengas esto aquí para que puedas echarle un vistazo a medida que avanzamos
+
+05:58.780 --> 06:01.310
+en este video, esto tendrá más y más sentido.
+
+06:01.360 --> 06:10.360
+Ahora que tenemos una promesa si pongo esto en mi consola, mi navegador Chrome.
+
+06:11.180 --> 06:11.470
+Muy
+
+06:11.480 --> 06:12.820
+bien, tengo la promesa ahora.
+
+06:12.830 --> 06:16.850
+Pero, ¿cómo podemos cumplir esta promesa?
+
+06:17.090 --> 06:21.240
+Bueno, solo puedo prometer. Entonces, una
+
+06:21.370 --> 06:32.650
+vez más, la promesa se resuelve o se rechaza. entonces quiero obtener los resultados y
+
+06:32.650 --> 06:38.590
+luego queremos consolar. registrar el 'resultado'.
+
+06:38.740 --> 06:39.250
+Eso es.
+
+06:39.270 --> 06:41.260
+Entonces, veamos qué sucede aquí.
+
+06:41.260 --> 06:43.850
+Voy a copiar esto y pegarlo aquí.
+
+06:44.650 --> 06:45.800
+"Cosas trabajadas".
+
+06:46.120 --> 06:46.560
+Todo bien.
+
+06:46.600 --> 06:57.000
+Así que cumplimos la promesa de que ejecutó esta parte y porque acabamos de hacer si es igual a cierto, va a ejecutar
+
+06:57.000 --> 06:58.310
+la resolución.
+
+06:59.150 --> 07:06.350
+Y la resolución enviará "Stuff Worked" al resultado y vamos a la consola. log "Cosas trabajadas.
+
+07:06.560 --> 07:10.750
+"Y también ves aquí que la promesa está resuelta.
+
+07:11.200 --> 07:21.520
+Nuevamente, si solo registro 'promesa' aquí, veo que tenemos la promesa con 'Stuff Worked' increíble.
+
+07:21.690 --> 07:28.110
+De acuerdo con lo que sabemos ahora, echemos un vistazo a lo que podemos hacer con las promesas.
+
+07:28.160 --> 07:33.710
+Digamos que ahora con 'Stuff Worked' quiero obtener el resultado.
+
+07:37.880 --> 07:48.380
+Y agregue un signo de exclamación y luego, y esto se llama encadenamiento en promesas.
+
+07:48.380 --> 07:55.250
+Luego, después de hacer eso, devolverá este resultado con el signo de exclamación y en
+
+07:55.310 --> 07:59.220
+nuestro caso solo quiero obtener el 'resultado2'.
+
+07:59.330 --> 08:06.370
+Y solo consolaremos. log 'resultado2'.
+
+08:06.520 --> 08:07.120
+Todo bien.
+
+08:07.170 --> 08:08.660
+Bueno, veamos qué pasa ahora.
+
+08:08.780 --> 08:13.340
+Así que tengo mi promesa de asegurarme de que la tengamos aquí.
+
+08:13.340 --> 08:14.250
+Perfecto.
+
+08:15.300 --> 08:25.070
+Y vamos a ejecutar el material de la promesa que funcionó con el signo de exclamación muy bien.
+
+08:25.180 --> 08:30.970
+Pero, ¿qué pasa si algo pasa entre aquí? Solo tenemos una consola. log, pero digamos que tenemos
+
+08:30.970 --> 08:36.300
+un error y ese error nos hace arrojar un error.
+
+08:37.500 --> 08:44.290
+¿Qué pasa ahora? Con promesas puedes hacer algo llamado '. catch () 'Y esto
+
+08:44.710 --> 08:48.880
+detectará cualquier error que pueda tener la promesa.
+
+08:48.880 --> 08:51.700
+En nuestro caso solo queremos una consola. log Y
+
+08:52.390 --> 08:54.460
+ahora si ejecuto esto,
+
+08:57.770 --> 09:00.170
+la consola registrará el error.
+
+09:00.210 --> 09:02.250
+Solo hagamos esto un poco más limpio.
+
+09:02.660 --> 09:06.620
+Para que pueda ver exactamente lo que está sucediendo.
+
+09:09.700 --> 09:14.480
+Así que nuevamente copie y pegue.
+
+09:14.560 --> 09:16.220
+Ahí tienes, recibimos el error.
+
+09:16.390 --> 09:20.760
+Si el error de lanzamiento ocurre antes, digamos que sucede arriba y
+
+09:23.430 --> 09:24.150
+queremos
+
+09:28.170 --> 09:29.610
+devolver esto Bueno, si
+
+09:32.990 --> 09:43.310
+muevo el error de lanzamiento en la parte superior aquí. Guardar y copiar y pegar nuevamente. Limpiemos esto un poco y veamos
+
+09:43.310 --> 09:46.300
+que todavía recibimos el error.
+
+09:46.370 --> 09:56.300
+Asi que . catch captura cualquier error que pueda ocurrir entre las cadenas. entonces lo cual es muy muy bueno.
+
+09:56.290 --> 09:57.990
+Está bien, así que tengo una pequeña pregunta para ti.
+
+09:58.100 --> 10:05.060
+¿Qué sucede si hacemos algo en esta línea? Permítanme volver a lo que teníamos antes. Ya no tenemos un
+
+10:05.060 --> 10:06.690
+error.
+
+10:07.910 --> 10:17.900
+Pero esta vez tenemos el resultado2 más el signo de interrogación.
+
+10:18.060 --> 10:20.920
+Entonces vamos a agregar un signo de interrogación a eso.
+
+10:20.950 --> 10:22.360
+Vamos a devolver eso.
+
+10:22.390 --> 10:27.450
+Vamos a atrapar con la consola. error de registro
+
+10:27.620 --> 10:33.160
+Y después de eso vamos a tener un. luego result3 y
+
+10:33.950 --> 10:39.270
+luego result3 tendrán un result3 plus,
+
+10:40.610 --> 10:43.800
+hagamos otro signo de
+
+10:44.780 --> 10:47.190
+exclamación.
+
+10:47.540 --> 10:50.820
+Y queremos que la consola registre esto nuevamente.
+
+10:50.900 --> 10:51.440
+Whoops
+
+10:52.260 --> 10:55.900
+Vamos a la consola. registre
+
+10:57.840 --> 10:59.680
+esto bien.
+
+10:59.690 --> 11:00.860
+Qué piensas que va a pasar?
+
+11:00.860 --> 11:02.780
+Veamos.
+
+11:03.010 --> 11:09.530
+Guardamos, copiamos y pegamos y miramos eso.
+
+11:09.540 --> 11:12.790
+Hemos 'rellenado trabajado' - o '¡relleno trabajado!?! '- jaja
+
+11:12.870 --> 11:15.280
+Exclamación signo de interrogación exclamación.
+
+11:15.420 --> 11:20.450
+Asi que '. catch 'solo se ejecuta si algo falla entre aquí.
+
+11:20.490 --> 11:25.840
+Pero debido a que lo puse antes de esto, si esto
+
+11:33.210 --> 11:42.140
+falla, bueno, no obtengo la consola de error. Recibo un error dentro de nuestra consola porque arrojamos un error, pero la
+
+11:42.170 --> 11:44.100
+instrucción catch nunca se ejecuta.
+
+11:44.480 --> 11:53.750
+Entonces, donde pones la declaración catch es: va a verificar y ejecutar si hay algo antes de que falle.
+
+11:54.140 --> 11:54.800
+Todo bien.
+
+11:54.800 --> 11:55.440
+Increíble.
+
+11:55.730 --> 11:58.250
+Así es como creamos una promesa.
+
+11:58.340 --> 12:01.130
+Una promesa tiene una resolución y un rechazo.
+
+12:01.190 --> 12:03.770
+Y hasta ahora solo se ha resuelto.
+
+12:03.770 --> 12:05.330
+Simplemente ha funcionado.
+
+12:05.360 --> 12:06.950
+Nunca hemos corrido el rechazo.
+
+12:06.950 --> 12:08.320
+Lo haremos más adelante.
+
+12:08.570 --> 12:19.060
+Pero vemos que con una promesa podemos darle una variable y ejecutar esto y hacer algo con ella de forma asincrónica.
+
+12:19.280 --> 12:25.730
+Cuando corremos luego y obtenga el resultado y haga lo que quiera con él, podemos
+
+12:25.730 --> 12:27.890
+seguir encadenándolo y también podemos detectar nuestros errores.
+
+12:27.920 --> 12:32.840
+Una promesa es algo que tiene ahora que puede usar alrededor de su código aunque todavía
+
+12:32.840 --> 12:34.450
+no tenga el valor.
+
+12:34.610 --> 12:39.230
+Puede asignarlo a una variable como lo hicimos aquí a una promesa constante.
+
+12:39.240 --> 12:43.250
+"Ahora, ¿cuándo sería esto algo bueno? "Las buenas promesas son
+
+12:43.670 --> 12:48.380
+excelentes para la programación asincrónica. Si no recuerda qué es eso,
+
+12:48.380 --> 12:52.790
+asegúrese de ver mi video sobre 'cómo funciona JavaScript' para comprender el concepto.
+
+12:53.030 --> 12:58.940
+Cuando no desea que javascript bloquee la ejecución de su código, como hacer llamadas a
+
+12:58.940 --> 13:04.960
+la API, tomar datos de una base de datos u optimizar una imagen, usa una promesa para
+
+13:05.690 --> 13:12.800
+que la tarea ocurra en la parte posterior cuando la promesa se resuelve o rechaza, entonces usted obtendré esa respuesta.
+
+13:12.800 --> 13:16.610
+Ahora vamos a mostrarle algo más que las promesas pueden hacer.
+
+13:16.610 --> 13:18.750
+Eso los hace realmente poderosos.
+
+13:18.890 --> 13:30.840
+Digamos que aquí tenemos otra promesa, una promesa constante2 y esta promesa nuevamente tiene
+
+13:30.840 --> 13:33.080
+una resolución.
+
+13:34.810 --> 13:35.380
+Rechazar
+
+13:41.960 --> 13:50.170
+Voy a hacer esto un poco más pequeño y esta 'resolver, rechazar' tendrá un setTimeout. Entonces setTimeout es una API web que nos
+
+13:50.180 --> 13:56.470
+permite agotar el tiempo de espera y ejecutar algo después de unos segundos.
+
+13:56.570 --> 13:58.150
+Entonces
+
+13:58.190 --> 14:11.070
+'setTimeout ()' Vamos a decir "resolver en 100 segundos" o "100 milisegundos" el texto 'HIII' Ok.
+
+14:11.150 --> 14:12.910
+No te preocupes demasiado por la sintaxis.
+
+14:12.950 --> 14:19.100
+Esencialmente esto dice: "Ejecute esto y devuelva la resolución 'HIII' en 100 milisegundos. "También tengamos otra
+
+14:19.100 --> 14:21.970
+promesa.
+
+14:22.870 --> 14:23.740
+Digamos
+
+14:23.740 --> 14:28.610
+promesa3 y esta se resuelve en un segundo.
+
+14:28.730 --> 14:33.010
+Y este va a decir 'POOKIE'.
+
+14:33.080 --> 14:40.250
+Y finalmente, una cuarta promesa y esta cuarta promesa se resolverá
+
+14:40.310 --> 14:42.630
+en tres segundos.
+
+14:42.770 --> 14:49.280
+Y va a decir '¿Es a mí a quien buscas? '.
+
+14:54.240 --> 14:54.860
+Todo bien.
+
+14:55.030 --> 14:56.650
+Entonces tenemos estas promesas.
+
+14:56.650 --> 15:05.470
+Bueno, una vez más, una característica que tenemos es algo llamado 'Promesa'. todos () 'y prometen. todo toma una serie
+
+15:05.470 --> 15:07.480
+de promesas.
+
+15:07.480 --> 15:20.330
+En nuestro caso, 'promesa' (uno), 'promesa2', 'promesa3' y luego hagamos 'promesa4', son muchas promesas y aquí podemos
+
+15:21.460 --> 15:24.550
+hacer una. luego, y los
+
+15:24.930 --> 15:31.160
+valores se devolverán como una matriz en el orden en que se escribieron.
+
+15:32.080 --> 15:37.910
+Y aquí solo podemos consolar. valores de registro vamos a guardar.
+
+15:38.310 --> 15:43.420
+Y voy a copiar esto en nuestra consola.
+
+15:43.650 --> 15:45.560
+En realidad solo copiemos y peguemos.
+
+15:45.570 --> 15:51.600
+Todo esto, mira la parte inferior de la pantalla aquí mientras presiono enter.
+
+15:53.190 --> 15:59.540
+Uno, dos, tres, cuatro, cinco y tenemos nuestro resultado
+
+15:59.700 --> 16:06.870
+Cinco segundos después. Usted ve aquí que a pesar de que estos se tomaron mucho menos bien porque lo prometimos. todo 'esperó hasta
+
+16:06.870 --> 16:15.250
+que se resolvieron todas las promesas y luego cerró los valores muy bien.
+
+16:15.960 --> 16:29.060
+Y, por cierto, la razón es que si hago esto: donde asigno las variables primero y luego ejecuto 'promesa. todo 'el resultado es
+
+16:29.140 --> 16:32.610
+instantáneo.
+
+16:32.800 --> 16:36.300
+Y eso es porque ya hemos cumplido estas promesas correctamente.
+
+16:36.310 --> 16:43.570
+Lo hemos asignado a una variable y entre el momento en que copiamos y pegamos esto aquí, estas promesas
+
+16:43.600 --> 16:46.390
+en segundo plano se han resuelto.
+
+16:46.600 --> 16:47.170
+Todo bien.
+
+16:47.170 --> 16:53.410
+Terminemos con el ejemplo final que tiene algunas aplicaciones del mundo real para que tenga
+
+16:53.410 --> 16:55.710
+una idea de cuándo queremos
+
+17:01.840 --> 17:04.710
+usar promesas. Voy a eliminar esto, actualizar.
+
+17:04.790 --> 17:11.680
+Ahora tengo aquí una lista de URL y estas URL provienen de una API simple.
+
+17:11.750 --> 17:12.860
+Deja que te enseñe.
+
+17:17.500 --> 17:23.120
+Se llama marcador de posición JSON y simplemente nos dan algunos puntos finales que podríamos usar, como los
+
+17:23.120 --> 17:25.310
+usuarios que nos devuelven algunos datos JSON.
+
+17:25.540 --> 17:28.410
+Así que tengo usuarios, publicaciones y álbumes aquí.
+
+17:29.670 --> 17:34.310
+Y esto es muy similar a algo que haces en un sitio web
+
+17:34.320 --> 17:44.390
+donde deseas obtener información, tal vez de tu servidor de la base de datos con usuarios, publicaciones y álbumes, y digamos que todos son importantes para nosotros para la
+
+17:44.390 --> 17:47.440
+página de la página de perfil. del usuario
+
+17:47.480 --> 17:54.450
+"¿Cómo podemos agarrarlos a todos? "Bueno, nuevamente usando promesas que podemos simplemente prometer. todo y
+
+17:54.450 --> 17:59.330
+podemos simplemente tomar las URL.
+
+17:59.930 --> 18:03.730
+Y en este caso podemos simplemente mapear esto para que sea una matriz.
+
+18:05.770 --> 18:18.980
+Y con cada URL que agarramos. Queremos, queremos recuperar una API web para capturar URLs y
+
+18:18.980 --> 18:24.250
+hacer una llamada AJAX a la URL. entonces queremos ejecutar la respuesta a través de la respuesta. json nuevamente Eso solo viene con la búsqueda
+
+18:24.330 --> 18:32.730
+que debes hacer y luego desde aquí
+
+18:32.800 --> 18:34.520
+podemos hacer
+
+18:34.550 --> 18:35.470
+una. entonces Y esto nos
+
+18:38.320 --> 18:43.350
+va a devolver recordar una matriz porque estamos recibiendo una promesa.
+
+18:43.580 --> 18:48.320
+Todas estas recuperaciones va a devolver resultados estos resultados.
+
+18:48.330 --> 18:57.720
+Bueno por ahora solo consolamos. regístrelos y haremos los resultados.
+
+18:57.720 --> 19:01.250
+El primero el segundo y el
+
+19:01.630 --> 19:02.350
+tercero. A ver si eso funciona. Voy a copiar todo esto.
+
+19:05.850 --> 19:16.170
+Volvamos a nuestra página.
+
+19:16.590 --> 19:18.710
+Copia y pega nuestro código esperando un poco.
+
+19:19.500 --> 19:23.130
+Y ahi tienes.
+
+19:23.130 --> 19:24.760
+Ahí está nuestra respuesta.
+
+19:24.840 --> 19:26.490
+Vemos que tenemos indefinidos aquí porque puse tres aquí en lugar de dos. Vamos a hacer eso. Copiamos y pegamos esto
+
+19:26.580 --> 19:35.120
+nuevamente para actualizar la página y ahí lo tienes.
+
+19:35.120 --> 19:40.760
+Tenemos nuestros usuarios, tenemos nuestras publicaciones y luego también tenemos nuestros álbumes.
+
+19:40.790 --> 19:48.680
+Muy genial.
+
+19:48.690 --> 19:49.730
+Digamos que algo falla aquí, tal vez escribimos mal una de las URL.
+
+19:50.920 --> 19:56.320
+Entonces la API de los usuarios no funcionará.
+
+19:56.350 --> 19:58.990
+Agreguemos a. captura y consola. error de
+
+19:59.290 --> 20:03.490
+registro Si copio y pego esta actualización y vuelvo a ejecutar esto a través de la consola, mira que obtenemos un error.
+
+20:09.910 --> 20:22.170
+Con lo prometido. todo si todo falla porque necesitamos usuarios, publicaciones y álbumes para
+
+20:22.170 --> 20:28.320
+toda nuestra página en nuestro sitio web.
+
+20:28.320 --> 20:29.420
+Obtenemos un 'rechazo' de la promesa y podemos atraparlo y podemos hacer lo que queramos con este error.
+
+20:29.490 --> 20:37.980
+Muy genial.
+
+20:38.010 --> 20:39.040
+Está bien, así que arreglemos eso.
+
+20:39.180 --> 20:40.810
+Entonces está funcionando de nuevo.
+
+20:40.830 --> 20:42.460
+Y ahi tienes.
+
+20:42.800 --> 20:43.550
+Es por eso que las promesas son tan beneficiosas.
+
+20:43.590 --> 20:47.100
+Podemos hacer algo como esto de una manera muy limpia.
+
+20:47.100 --> 20:50.750
+Recuerde que la
+
+20:50.760 --> 20:56.060
+búsqueda simplemente devuelve una promesa. Si acabo de ejecutar fetch aquí. Ves que recibo
+
+20:56.200 --> 21:00.970
+una promesa pendiente.
+
+21:01.000 --> 21:04.100
+Y al agregar a. entonces estamos respondiendo a lo que sea
+
+21:04.180 --> 21:12.370
+que la promesa devuelva con si se resuelve o se rechaza.
+
+21:12.370 --> 21:13.260
+Y llegar a manipular la deuda.
+
+21:13.390 --> 21:16.500
+Entonces, sus promesas más básicas son un poco como los
+
+21:16.900 --> 21:24.130
+oyentes de eventos, excepto que una promesa solo puede tener éxito o fracasar una vez que no puede tener éxito o fallar dos veces.
+
+21:24.130 --> 21:27.850
+Y esto es extremadamente útil para cosas que son
+
+21:27.940 --> 21:31.860
+asincrónicas. Éxito y falla, como las llamadas a la API,
+
+21:31.870 --> 21:39.580
+porque estamos menos interesados en el momento exacto en que algo estuvo disponible y más interesados en reaccionar ante el resultado.
+
+21:39.580 --> 21:43.490
+Entonces estamos reaccionando a algo que sucede de forma asincrónica.
+
+21:43.600 --> 21:48.130
+Entonces, recordemos que lo que comenzamos con una promesa es un
+
+21:48.150 --> 21:56.700
+objeto que puede producir un valor único en algún momento en el futuro, ya sea resuelto o rechazado con una razón
+
+21:56.790 --> 22:06.020
+por la cual fue rechazado y una promesa tal vez en uno de los tres estados posibles que puede cumplirse, rechazarse o pendiente. Mira, eso no fue tan malo, ahora se apaga, practica algunas
+
+22:06.120 --> 22:18.590
+promesas y ve todo su poder.
+
+22:18.590 --> 22:23.970
+Nos vemos en la próxima. Adiós.

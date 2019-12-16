@@ -1,0 +1,685 @@
+WEBVTT
+
+00:01.000 --> 00:02.050
+Dar una buena acogida.
+
+00:02.050 --> 00:09.070
+En este video quiero hacer algo llamado revisión de código y específicamente para el front-end de nuestra aplicación, una revisión de
+
+00:09.610 --> 00:14.710
+código es algo que quieres hacer de vez en cuando cuando trabajas con tu base
+
+00:14.950 --> 00:17.400
+de código porque siempre se puede mejorar.
+
+00:17.410 --> 00:23.650
+Nunca es perfecto y el proyecto en el que hemos estado trabajando es bastante bueno, pero hay
+
+00:23.890 --> 00:25.770
+pequeños ajustes que podríamos hacer.
+
+00:25.780 --> 00:31.600
+Entonces, en este video quiero pasar por un proceso simple de revisión de código para mostrarle cómo podemos mejorar la
+
+00:31.600 --> 00:37.030
+aplicación para que pueda tomar esta base de código y expandirla, hacerlo aún mejor, por su cuenta.
+
+00:38.900 --> 00:40.700
+Déjame mostrarte un error que tenemos.
+
+00:40.970 --> 00:50.520
+Si creo un nuevo usuario, Mike y Mike tienen un correo electrónico y una contraseña. Ahora, si inicio sesión con Mike y tengo una
+
+00:50.520 --> 00:59.620
+cara de muestra aquí que podemos usar. Si entro en esta cara, llego a la disección de
+
+00:59.770 --> 01:05.590
+mi cara, lo cual es genial, pero cuando salgo ahora y me registro
+
+01:11.440 --> 01:17.830
+con un nuevo usuario, llamémosle Wes Well, nunca borramos el estado de la aplicación front-end.
+
+01:17.840 --> 01:24.810
+Entonces Wes de alguna manera ve lo que Mike envió. Así que arreglemos esto.
+
+01:24.810 --> 01:34.100
+Si vamos a nuestra aplicación front-end y abramos la aplicación. js, tenemos el onRouteChange que se
+
+01:34.100 --> 01:36.040
+llama justo
+
+01:36.200 --> 01:42.610
+aquí cuando nos registramos. Y cuando cerramos la sesión, todo lo que hacemos es establecer Estado en isSignedIn: falso.
+
+01:42.610 --> 01:51.090
+Pero si miramos nuestro estado, nunca limpiamos el objeto de usuario, ¿verdad?
+
+01:51.430 --> 01:55.060
+El objeto de usuario que al principio era Mike permanece igual.
+
+01:55.270 --> 02:03.110
+Y cuando volvemos a iniciar sesión como Wes, esta tiene la información de Mike.
+
+02:03.220 --> 02:07.080
+Entonces, podemos hacer algo interesante aquí,
+
+02:10.110 --> 02:20.330
+simplemente podemos crear un estado inicial, por lo que fuera de la aplicación lo llamaremos estado inicial y
+
+02:21.690 --> 02:32.080
+este estado inicial tendrá todo este objeto, de modo que este estado de punto será el estado inicial.
+
+02:32.090 --> 02:32.830
+Todo bien.
+
+02:32.960 --> 02:40.120
+Y ahora podemos simplemente usar esta variable para cambiar onRouteChange cuando cerremos la sesión.
+
+02:40.130 --> 02:42.340
+Queremos eliminar toda la información.
+
+02:42.380 --> 02:55.700
+Entonces, en lugar de hacer que setState inicie sesión en falso, solo podemos decir que queremos establecer el estado en initialState.
+
+02:55.730 --> 02:56.750
+A ver si eso funciona.
+
+02:57.620 --> 03:04.790
+Voy a guardar volver a nuestra aplicación y volver a iniciar sesión como Mike.
+
+03:12.250 --> 03:14.510
+Y tomaremos esta cara de nuevo.
+
+03:20.460 --> 03:21.540
+Se detecta la cara.
+
+03:21.570 --> 03:26.100
+Si nos desconectamos ahora e iniciamos sesión como
+
+03:33.240 --> 03:37.700
+Wes, recibimos un error: solicitud incorrecta.
+
+03:37.740 --> 03:40.990
+Ah, y eso es porque escribí mal su nombre.
+
+03:41.010 --> 03:44.430
+Lo intentaremos de nuevo. Registrarse. ¡Todo bien!
+
+03:44.460 --> 03:45.170
+Ahí tienes.
+
+03:45.360 --> 03:47.550
+Tenemos a Wes ahora con un perfil claro.
+
+03:47.560 --> 03:51.410
+No sabe lo que Mike ha estado haciendo.
+
+03:51.410 --> 03:51.690
+Todo bien.
+
+03:51.710 --> 03:56.610
+Nos las arreglamos para corregir un error que es genial.
+
+03:56.810 --> 04:00.220
+¿Qué más podemos hacer con esta base de código?
+
+04:00.250 --> 04:08.320
+Hay muchas cosas que creo que podemos limpiar, por ejemplo, siempre es importante tener una declaración de captura
+
+04:08.320 --> 04:12.490
+cada vez que realizas algún tipo de recuperación.
+
+04:12.580 --> 04:19.950
+Vemos que estamos usando fetch pero nunca detectamos si por alguna razón esta respuesta de fetch a
+
+04:20.010 --> 04:23.230
+la imagen localhost falla alguna vez.
+
+04:24.500 --> 04:31.710
+Lo único que atrapamos es atrapar si falla la API de clarifai.
+
+04:31.900 --> 04:36.310
+Pero una buena práctica es tener siempre un punto de captura después de hacer cualquier punto entonces.
+
+04:36.310 --> 04:45.480
+Entonces podemos hacer algo simple como un registro de puntos de la consola catch para cerrar la sesión de cualquier error que tengamos.
+
+04:45.700 --> 04:52.210
+Y eso es algo que mejorará lo que llamamos manejo de errores para asegurarnos de que no tenga errores que
+
+04:52.240 --> 04:54.220
+sucedan sin que lo sepamos.
+
+04:55.640 --> 05:03.580
+Eso es algo que podemos mejorar, también tenemos los componentes de registro e inicio de sesión. Si recuerda que son muy, muy
+
+05:03.590 --> 05:07.350
+similares, copiamos y pegamos mucho.
+
+05:07.490 --> 05:14.930
+Y lo único que fue realmente diferente con ellos fueron estos valores de entrada. El formulario de registro tiene un campo adicional que
+
+05:15.200 --> 05:20.860
+es nombre, y el inicio de sesión, bien, solo tenía correo electrónico y contraseña.
+
+05:23.800 --> 05:24.820
+Y no entraremos
+
+05:24.820 --> 05:31.900
+en este video porque es bastante simple y hay muchas formas de hacerlo. Pero podemos imaginar que quizás tenga un
+
+05:31.900 --> 05:39.810
+componente compartido, tal vez lo llamemos formulario y este formulario acepta diferentes accesorios como tipos de entrada
+
+05:39.880 --> 05:47.080
+para que podamos establecer y compartir ese componente entre el inicio de sesión y el
+
+05:47.640 --> 05:52.510
+registro para que no tengamos esta base de código duplicada.
+
+05:52.530 --> 05:52.990
+Todo bien.
+
+05:53.010 --> 05:53.780
+Increíble.
+
+05:53.800 --> 06:00.540
+Eso es algo que podemos hacer con nuestro front-end solo para mejorar algunos de nuestros errores y parte de
+
+06:00.540 --> 06:02.340
+la duplicación de código.
+
+06:02.790 --> 06:09.490
+Probablemente incluso podamos poner esto en un componente contenedor para que la aplicación. js App. CSS y aplicación. prueba. js están
+
+06:09.650 --> 06:12.320
+todos en un componente contenedor.
+
+06:12.510 --> 06:16.050
+Pero en general, la parte delantera se ve muy bonita y limpia.
+
+06:16.080 --> 06:17.490
+Bastante simple.
+
+06:17.760 --> 06:24.330
+A medida que ampliamos la aplicación, siempre podemos mover componentes y hacerlos cada vez más pequeños si lo deseamos, por lo
+
+06:24.330 --> 06:25.490
+que queremos reutilizarlos.
+
+06:26.380 --> 06:32.470
+Vemos que ya hablamos sobre cómo podemos desglosar el componente de inicio de sesión y registro. Tal vez dentro del formulario
+
+06:32.470 --> 06:36.660
+de enlace de imagen si vamos a ese componente.
+
+06:36.900 --> 06:42.360
+Podemos dividir la entrada y el botón para poder reutilizarlo en alguna parte.
+
+06:42.360 --> 06:48.340
+Pero para una aplicación de este tamaño, creo que este es un lugar lo suficientemente bueno como para dejar esta aplicación.
+
+06:48.570 --> 06:54.300
+Pasemos al back-end y veamos cómo podemos mejorar el back-end.
+
+06:54.510 --> 07:04.900
+Recuerda aquí nuestra API, que está conectada a una base de datos, y tenemos nuestras cuatro rutas simples, y hemos mantenido esto
+
+07:04.900 --> 07:06.790
+un poco desordenado.
+
+07:08.240 --> 07:11.840
+Hemos tenido todo en un solo servidor de archivos. js.
+
+07:11.930 --> 07:19.590
+Pero idealmente en cualquier proyecto grande no tiene un solo archivo que lo contenga todo.
+
+07:19.800 --> 07:23.880
+Aunque esto son solo cuatro rutas, puedes imaginar que esto se hace cada vez más grande.
+
+07:23.880 --> 07:31.280
+Entonces, una cosa que me gusta hacer en el back-end es crear algo llamado carpeta de controladores.
+
+07:34.630 --> 07:42.350
+Y lo que hacen los controladores son cosas que controlan lo que sucede cuando un punto final es alcanzado.
+
+07:43.560 --> 07:44.770
+Déjame mostrarte lo que quiero decir.
+
+07:44.840 --> 07:54.590
+Voy a crear un nuevo archivo y este archivo dirá registrarse. js y dentro de registro. js podemos copiar toda esta
+
+07:54.590 --> 08:01.980
+función, toda esta transacción que usamos para que ahora tengamos un registro
+
+08:06.380 --> 08:15.340
+de puntos y podamos llamar a la función aquí en lugar de tener todo
+
+08:15.340 --> 08:16.930
+ese bloque.
+
+08:16.950 --> 08:26.670
+Entonces, digamos que lo vamos a llamar registrarse dot handleRegister.
+
+08:26.700 --> 08:27.860
+Entonces, ¿cómo va a funcionar esto?
+
+08:28.020 --> 08:34.370
+Bueno, vamos al archivo de registro y voy a copiar la función que acabo de
+
+08:34.410 --> 08:35.160
+copiar.
+
+08:37.110 --> 08:45.270
+Al observar el punto del servidor js, vemos que Register dot handleRegister obtendrá la respuesta de la solicitud, de modo que cuando
+
+08:45.270 --> 08:52.840
+se golpee el punto final del registro, recibiré la solicitud y la respuesta y se me llamará con ella.
+
+08:57.190 --> 09:00.820
+Entonces, todo lo que haremos
+
+09:03.710 --> 09:07.360
+aquí es exportar puntos de módulo.
+
+09:07.630 --> 09:09.050
+Si recuerda
+
+09:13.740 --> 09:22.490
+esta sintaxis y dentro de aquí solo tendremos una función de registro de identificador que crearemos.
+
+09:22.720 --> 09:28.770
+Y solo lo estamos exportando y esta función de registro de identificador será solo
+
+09:28.770 --> 09:31.910
+este bloque de función que estamos creando.
+
+09:31.950 --> 09:37.050
+Entonces lo llamaremos const handleRegister.
+
+09:37.220 --> 09:44.310
+es igual a este bloque pero puede notar un problema aquí.
+
+09:45.800 --> 09:55.370
+Tenemos la solicitud y la respuesta, pero no tenemos DB o bcrypt.
+
+09:55.520 --> 10:01.940
+Si ejecuto esta función en este archivo, obtendré un error que dice que no tengo idea de qué es bcrypt y
+
+10:01.940 --> 10:05.510
+no tengo idea de qué es DB y tenemos dos opciones.
+
+10:05.840 --> 10:08.780
+Podemos, dentro de este archivo, colocar
+
+10:12.050 --> 10:20.690
+las importaciones bcrypt y KNEX y conectarnos a la base de datos o podemos pasarlas a la función.
+
+10:20.690 --> 10:21.140
+Deja que te enseñe.
+
+10:24.030 --> 10:30.420
+Dentro del registro, bueno, simplemente puedo hacer una solicitud de respuesta.
+
+10:33.080 --> 10:45.630
+Y esta respuesta de solicitud recibirá la respuesta de solicitud, así como la base de datos se conecta y bcrypt.
+
+10:45.710 --> 10:51.760
+Entonces tiene eso disponible. Esto es lo que llamamos inyección de dependencia,
+
+10:52.210 --> 10:56.310
+estamos inyectando cualquier dependencia que necesite esta función de registro de identificador.
+
+10:56.350 --> 11:08.280
+Entonces, si volvemos y ahora cambiamos nuestros parámetros para incluir los que hemos establecido y guardar bien.
+
+11:08.400 --> 11:11.050
+Bajemos y veamos eso.
+
+11:11.060 --> 11:11.240
+Sí.
+
+11:11.280 --> 11:14.860
+Tenemos exportaciones modulares, todo se ve bien en este extremo.
+
+11:15.670 --> 11:27.220
+Si vuelvo al servidor y ahora dentro de aquí hago un const que requiere el registro y le damos una
+
+11:27.220 --> 11:28.000
+ruta.
+
+11:28.060 --> 11:33.280
+En nuestro caso serán controladores y registro.
+
+11:36.740 --> 11:50.890
+Entonces, veamos si esto funciona. Vaya a Tim Tim en gmail dot com contraseña 1 2 3 regístrese y parece que estoy registrado.
+
+11:51.110 --> 12:01.120
+Si voy a mi base de datos y me aseguro de que tenemos a Tim allí, puedo seleccionar una estrella de los usuarios.
+
+12:01.120 --> 12:04.090
+Muy bien, tengo a Tim allí y si voy a
+
+12:09.410 --> 12:12.780
+la tabla de inicio de sesión, también tengo el correo electrónico de Tim.
+
+12:12.930 --> 12:15.390
+Por lo tanto, no hemos cambiado ninguna de nuestras funciones.
+
+12:15.390 --> 12:23.100
+Todo sigue funcionando, pero la única diferencia es que ahora hemos hecho que el registro solo tenga una línea y la
+
+12:23.100 --> 12:32.280
+separemos de la función de registro para que esté en este archivo. De modo que si quisiéramos agregar más cosas específicamente
+
+12:32.280 --> 12:39.720
+para registrar, separamos estas preocupaciones de la lógica de registro para estar en este archivo.
+
+12:40.870 --> 12:43.520
+Y esta es una mejor manera de hacer las cosas.
+
+12:43.660 --> 12:47.270
+Así que sigamos su ejemplo y hagámoslo también con el resto de las funciones.
+
+12:48.380 --> 12:51.910
+Comenzaremos con el inicio de sesión ahora.
+
+12:51.960 --> 13:02.990
+Nuevamente, solo copiaré esto y vemos que el inicio de sesión requiere el bcrypt y el DB también.
+
+13:07.970 --> 13:24.760
+Diré que la respuesta de solicitud se ejecutará con una función que es signin dot handle signin que tendrá un DB de respuesta
+
+13:24.760 --> 13:27.160
+de solicitud
+
+13:30.210 --> 13:32.890
+y el bcrypt y
+
+13:35.680 --> 13:42.340
+lo haré más pequeño para que pueda ver mejor.
+
+13:42.340 --> 13:42.640
+Todo bien.
+
+13:42.640 --> 13:56.660
+Y podemos crear eso aquí diciendo que se requiere inicio de sesión y crearemos ese archivo justo después de esto.
+
+13:56.850 --> 13:58.640
+Lo llamaremos signin.
+
+14:03.900 --> 14:05.160
+Ir a los controladores.
+
+14:08.210 --> 14:10.450
+Parece que tenemos un error aquí, verifiquemos esto: no
+
+14:13.370 --> 14:15.860
+podemos encontrar el módulo porque lo estamos creando en este momento.
+
+14:15.860 --> 14:35.000
+Diré que el nuevo archivo de inicio de sesión dot js copia y pega nuestra función y lo llamaremos handleSignin, recibirá la
+
+14:35.030 --> 14:44.550
+base de datos y se cifrará mediante inyección de dependencia y
+
+14:50.110 --> 14:54.770
+lo exportaremos handleSignin como handleSignin
+
+14:55.160 --> 15:06.690
+Vamos a guardar. Asegúrese de que aún podamos iniciar sesión en nuestra aplicación. Cerraremos sesión, iniciaremos sesión en Tim en gmail dot
+
+15:07.050 --> 15:12.460
+com y su contraseña fue 1 2 3 correcta, recibimos un pequeño error.
+
+15:12.460 --> 15:16.360
+Veamos. Esa solicitud Oh, queremos asegurarnos
+
+15:20.770 --> 15:25.970
+de que lo deletreemos correctamente - bcrypt. Asegúrese de tener eso en el servidor
+
+15:26.100 --> 15:27.290
+también bcrypt.
+
+15:27.440 --> 15:29.510
+Muy bien, vamos a intentarlo.
+
+15:29.510 --> 15:36.210
+Iremos a firmar y tenemos a Wes en la contraseña de gmail 1 2 3, podemos firmarlo.
+
+15:36.240 --> 15:36.930
+Todo bien.
+
+15:39.220 --> 15:41.900
+OK, las cosas comienzan a verse un poco más limpias.
+
+15:43.480 --> 15:45.540
+Continuemos con este de nuevo.
+
+15:45.550 --> 15:48.000
+Y puedes ver que hay un poco de repetición aquí.
+
+15:49.210 --> 15:52.600
+Pero espero que esto ahora tenga sentido.
+
+15:52.600 --> 15:57.000
+Sabemos que aquí no estamos usando bcrypt pero estamos usando el DB.
+
+15:57.220 --> 16:01.790
+Entonces solicitaremos una respuesta, diremos perfil
+
+16:06.670 --> 16:07.920
+handleProfile
+
+16:11.810 --> 16:14.570
+y diremos Get here.
+
+16:18.140 --> 16:27.670
+Y se solicita respuesta y el DB. Nuevamente crearemos un nuevo archivo llamándolo perfil dot js.
+
+16:30.920 --> 16:45.200
+const handleProfileGet que recibe la base de datos. Y, por supuesto, haremos exportaciones de puntos de módulo y manejaremosProfileGet y
+
+16:49.360 --> 16:53.540
+te mostraré nuevamente con ES6 que en
+
+16:53.540 --> 16:56.700
+realidad no necesitamos desvalorizar.
+
+16:57.050 --> 17:02.170
+Entonces, si hago esto, vaya al servidor, hagamos
+
+17:04.900 --> 17:09.670
+el perfil aquí y el perfil.
+
+17:09.670 --> 17:19.710
+Y finalmente, hagamos nuestro punto final de imagen que no necesita bcrypt pero sí la dependencia de DB.
+
+17:19.840 --> 17:22.100
+Entonces haremos una
+
+17:26.120 --> 17:32.280
+imagen de solicitud de respuesta. handleImage solicita respuesta DB.
+
+17:35.410 --> 17:43.250
+Cree una nueva imagen de archivo dot js Cópielo correctamente, de modo que tendré que
+
+17:43.580 --> 17:45.170
+manejar el módulo
+
+17:56.080 --> 17:58.300
+ImageImage dot exportas handleImage y
+
+18:02.230 --> 18:04.030
+asegurarme de que
+
+18:06.640 --> 18:07.550
+también
+
+18:10.590 --> 18:13.500
+tengamos esa base de datos allí.
+
+18:15.220 --> 18:20.370
+Regrese a nuestros servidores y asegurémonos de que este punto final de la imagen funcione.
+
+18:20.660 --> 18:23.470
+Si regreso, el
+
+18:30.610 --> 18:37.060
+signo está como Wes y presentaré una cara aquí.
+
+18:37.310 --> 18:41.250
+Y no estoy obteniendo el punto de entrada, así que
+
+18:47.030 --> 18:52.820
+cometimos un error, regresemos aquí, la imagen no está definida y eso se debe
+
+18:52.870 --> 18:55.630
+a que en la parte superior
+
+19:00.790 --> 19:07.260
+aquí todavía no hemos importado controladores e imagen. Todo bien.
+
+19:07.290 --> 19:08.370
+Vamos a intentarlo.
+
+19:08.490 --> 19:10.030
+Asegúrese de que no tengamos ningún error.
+
+19:12.520 --> 19:17.440
+Intentemos eso nuevamente, detecte que estamos haciendo uno.
+
+19:17.440 --> 19:20.740
+Y si detectamos nuevamente somos un dos.
+
+19:20.740 --> 19:21.840
+Todo esta funcionando.
+
+19:22.830 --> 19:23.600
+Increíble.
+
+19:24.030 --> 19:33.000
+Eso fue un poco de repetición, pero mira qué tan limpio se ve nuestro servidor dot js ahora.
+
+19:33.000 --> 19:44.290
+Simplemente tenemos archivos muy sencillos, y alguien puede venir y mirar el servidor y saber exactamente cuáles son
+
+19:44.320 --> 19:46.580
+nuestros puntos finales.
+
+19:49.030 --> 19:53.850
+Y cada vez que queramos agregar más funciones para manejar imágenes, tal vez no queramos hacer
+
+19:53.950 --> 19:59.310
+una solicitud de publicación con una imagen, tal vez con un perfil, también queremos hacer una solicitud de eliminación.
+
+19:59.500 --> 20:05.800
+Podemos ampliar esto y saber exactamente dónde están nuestras preocupaciones con el perfil e importarlos a nuestro
+
+20:05.800 --> 20:09.230
+servidor como una forma de manejar las cosas.
+
+20:09.280 --> 20:12.760
+Lo último que quería mostrarte es cómo podemos limpiar esto.
+
+20:12.790 --> 20:17.980
+Esto es realmente bueno porque puedes ver exactamente de qué depende cada función.
+
+20:17.980 --> 20:24.790
+Pero también puede hacer algo como esto en lugar de declarar la función y
+
+20:28.640 --> 20:36.680
+ahora debido a la forma en que lo hacemos, primero ejecutamos esta función con DB y bcrypt.
+
+20:36.830 --> 20:41.760
+Y luego recibe automáticamente la solicitud y la respuesta.
+
+20:41.810 --> 20:43.980
+Entonces esta función se ejecuta.
+
+20:44.130 --> 20:51.370
+Luego, la respuesta a la solicitud también se llama.
+
+20:52.510 --> 20:57.430
+Y sé que eso es un poco confuso y es un poco avanzado, pero si recuerdas
+
+20:57.520 --> 21:04.480
+nuestra sección de funciones, sección de funciones avanzadas en JavaScript. Es similar a que podemos volver a
+
+21:05.110 --> 21:08.080
+nuestro inicio de sesión y
+
+21:14.780 --> 21:18.240
+ahora podemos tener una respuesta de solicitud.
+
+21:18.270 --> 21:22.980
+Sé que esto parece un poco aterrador, pero veamos
+
+21:26.660 --> 21:35.330
+qué sucede si guardo este inicio de sesión como Wes y funciona bien, agregue otra imagen aquí.
+
+21:38.010 --> 21:41.220
+Todo sigue funcionando.
+
+21:41.410 --> 21:47.670
+Y esto es un poco avanzado y puede llevar un tiempo comprenderlo.
+
+21:47.680 --> 21:55.580
+Tenemos una función que devuelve otra función y luego ejecuta esto.
+
+21:55.660 --> 22:00.060
+Pero si lo miras paso a paso, está bastante claro.
+
+22:00.160 --> 22:03.610
+Estamos ejecutando handleSignin con DB y bcrypt.
+
+22:03.610 --> 22:13.720
+Si volvemos a él, para iniciar sesión de nuevo, estamos pasando esto y también lo estamos cuando se golpea la firma.
+
+22:13.840 --> 22:20.790
+Estamos pasando la respuesta a la solicitud, por lo que estamos ejecutando la función nuevamente.
+
+22:21.010 --> 22:30.160
+Para que este orden sea exactamente el mismo que el de aquí.
+
+22:30.330 --> 22:36.330
+Y esto es una cuestión de preferencia si esto te parece demasiado confuso, puedes recurrir a esta
+
+22:36.330 --> 22:38.070
+otra forma de hacerlo.
+
+22:39.690 --> 22:45.180
+No creo que uno sea mejor que el otro es solo una cuestión de preferencia. Me gusta el hecho de que esto
+
+22:45.180 --> 22:50.220
+se ve mucho más limpio que la repetición aquí, pero podría ser más confuso para algunos miembros del equipo, así
+
+22:50.220 --> 22:51.870
+que quería mostrarles ambas cosas. .
+
+22:53.850 --> 22:54.470
+Todo bien.
+
+22:54.470 --> 22:57.320
+Creo que es suficiente para una revisión de código.
+
+22:58.020 --> 23:01.500
+Hemos hecho este servidor un poco más limpio.
+
+23:01.500 --> 23:05.880
+Nuestro servidor dot js se ve bastante bonito, bastante limpio.
+
+23:05.880 --> 23:14.280
+Aquí solo tenemos 35 líneas de código y sabemos exactamente a dónde ir para encontrar a nuestros
+
+23:14.280 --> 23:17.400
+controladores cómo se llama cada ruta.
+
+23:17.410 --> 23:19.090
+Muy bien, eso es todo por ahora.
+
+23:19.090 --> 23:20.810
+Nos vemos en el próximo video.
+
+23:20.820 --> 23:21.330
+Adiós.

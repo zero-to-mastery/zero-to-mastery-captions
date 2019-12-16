@@ -1,0 +1,280 @@
+WEBVTT
+
+00:00.360 --> 00:00.870
+Welcome back.
+
+00:01.560 --> 00:10.100
+I want to talk to you about two other new U.S. 2018 features and to show you how they work.
+
+00:10.110 --> 00:18.000
+We're going to use the example that we had before in the video about promises where we loop through
+
+00:18.000 --> 00:22.010
+all these you are L's are Star Wars API.
+
+00:22.140 --> 00:30.240
+Well we fetched the data and then we just console logged whatever we received so that if I copy this
+
+00:31.020 --> 00:39.910
+and paste it into our console we get our users.
+
+00:40.060 --> 00:44.820
+We have Luke Skywalker C3 peo r2 d2 and Darth Vader.
+
+00:44.950 --> 00:51.250
+And if this doesn't look familiar to you Make sure you check out the promises videos first before tackling
+
+00:51.280 --> 00:52.360
+this one.
+
+00:52.450 --> 00:59.800
+Now the first feature I'm going to talk about that's new in Javascript is called finally and as the
+
+00:59.800 --> 01:03.050
+name suggests it allows us to do something.
+
+01:03.070 --> 01:11.820
+Finally after a promise has finished and the way it works is we added usually at the end.
+
+01:12.850 --> 01:22.720
+And this finally block will be called regardless of whether dot then works or the promise airs and catches
+
+01:22.840 --> 01:24.060
+into an error.
+
+01:24.130 --> 01:26.310
+So no matter what.
+
+01:26.440 --> 01:31.540
+After everything is done inside of a promise Finally you will be called.
+
+01:31.540 --> 01:39.100
+Whether it resolves or rejects and does something that we tell it to in our case let's say I can have
+
+01:39.190 --> 01:47.350
+data here and this data will just console dialog to see what we get and we'll just say extra
+
+01:52.640 --> 01:59.890
+so that when we run this one more time I'm going to copy let's refresh here.
+
+01:59.950 --> 02:08.160
+Copy and paste I hit enter we get extra over here but undefined.
+
+02:08.160 --> 02:11.490
+And that is because finally doesn't really receive a parameter.
+
+02:11.550 --> 02:16.020
+So this is usually empty doesn't receive anything from the promise.
+
+02:16.380 --> 02:18.690
+So we can just leave this out.
+
+02:19.460 --> 02:25.990
+But you see here that I was able to call extra even though the dot then finished.
+
+02:26.060 --> 02:35.300
+But what happens if we throw an error and a catch block gets called we can simulate that fairly easily.
+
+02:35.970 --> 02:45.280
+We can just do inside of dot then in JavaScript back and throw an error by saying throw Error and what's
+
+02:45.280 --> 02:54.280
+going to happen here is as soon as this line reaches it's going to throw an error skip over all these
+
+02:54.280 --> 03:05.500
+console logs and hit the cache block with this error parameter so if I say this or let's copy this going
+
+03:05.500 --> 03:15.180
+to refresh the page copy and paste and let's see what happens down here I'm going to hit enter and we
+
+03:15.180 --> 03:24.880
+see that oh we get the error the cache block has run with our error but we also have the extra being
+
+03:24.880 --> 03:28.150
+called which is finally.
+
+03:28.150 --> 03:36.240
+So finally is great for those times that you need to run a piece of code no matter what.
+
+03:36.340 --> 03:43.870
+After a promise perhaps you want to send an email to a user regardless of whether their request was
+
+03:43.870 --> 03:45.590
+successful or failed.
+
+03:45.850 --> 03:48.530
+Maybe you want to have a little notification icon.
+
+03:48.550 --> 03:54.100
+There are many ways to use finally and now there is a way to make sure that something happens after
+
+03:54.100 --> 03:55.390
+a promise.
+
+03:55.390 --> 04:04.990
+Whatever we tell it to now the next one I want to talk about is a little bit more advanced in order
+
+04:04.990 --> 04:05.850
+to explain it.
+
+04:05.860 --> 04:19.340
+Let's clean this up and talk about the for a wait of feature now if you remember we had this piece of
+
+04:19.340 --> 04:29.420
+code in our async await video and there I showed you how we're able to use the async await feature of
+
+04:29.690 --> 04:37.610
+yes eight to make our promises more synchronous looking instead of having those promised change of dot
+
+04:37.640 --> 04:48.440
+then DOD then DOD then dot catch we can use async await now the cool thing about this new feature is
+
+04:48.440 --> 04:57.260
+that it allows us to loop through our async await calls if we have multiple of them just like we are
+
+04:57.260 --> 05:06.410
+able to using the for of so using the for of loop that allowed us to iterate over intervals we're now
+
+05:06.410 --> 05:14.060
+able to iterate over the await promises that we're going to have but instead of talking let me show
+
+05:14.060 --> 05:22.660
+you in code now let's say we'll use this as an example we're gonna create a new function and this is
+
+05:22.660 --> 05:32.590
+going to be called get data to actually let's remember what the for of loop looks like if I had a function
+
+05:32.680 --> 05:44.980
+let's call it loop through your ls that receives the your l parameter and it will loop using the for
+
+05:45.190 --> 05:54.640
+loop will say you are all of you are ls and the you are ls is this array over here with 3 or else and
+
+05:54.640 --> 06:00.140
+this for all loop is simply going to a loop through everything and we can just log out there you are
+
+06:00.150 --> 06:13.920
+about fight copy and paste this let's refresh here hit enter and just do loop through your ls now and
+
+06:13.920 --> 06:22.380
+pass into your else parameter I see that I'm just looping through these so that's what 4 of was.
+
+06:22.380 --> 06:31.230
+So using that knowledge we can now create a new function called get data to add this new function we'll
+
+06:31.230 --> 06:38.870
+do exactly what this one does above by using these for a weight of feature let's see how that would
+
+06:38.870 --> 06:39.550
+look.
+
+06:39.770 --> 06:49.400
+We will have an async function so that we can use the awake keyword and then here we can have an array
+
+06:49.940 --> 07:01.240
+of promises because an array of promises is irritable and able to be looped by the for a weight of keywords
+
+07:02.530 --> 07:12.900
+so these arrays of promises will simply be are your Ls thought map that will loop and let's make this
+
+07:12.900 --> 07:22.230
+a little bit bigger so we can see that's better we're going to loop over the you are well and it's going
+
+07:22.230 --> 07:30.650
+to return the fetch you are well so and here in the first line all we're doing is creating an array
+
+07:30.890 --> 07:36.560
+of these fetch promises of each one of these requests
+
+07:40.690 --> 07:50.500
+next we can use them for a wait of to loop through these promises so all we would say is say for a wait
+
+07:51.610 --> 07:55.390
+and then here we'll say let request
+
+08:00.120 --> 08:08.130
+array of promises which is an admirable is going to loop through each of these promises each of the
+
+08:08.130 --> 08:19.060
+requests and we're going to extract that data from each of the requests by saying oh wait request dropped.
+
+08:19.110 --> 08:25.310
+Jason because remember we used the awake keyword in front of a promise.
+
+08:25.450 --> 08:33.820
+And as we know we're using the wait keyword here because we're looping over our promises and we need
+
+08:33.820 --> 08:36.600
+to await request.
+
+08:36.640 --> 08:41.650
+Jason which again is a promise that receives our data.
+
+08:41.650 --> 08:49.830
+Remember similar to how we did here before and then we simply cancelled our log let's say data to see
+
+08:49.890 --> 08:55.140
+while we get Fi clear this and let's just copy our new code
+
+08:58.020 --> 09:03.800
+make this a little bit bigger and make sure I don't have the semicolon then I have it here.
+
+09:03.810 --> 09:07.980
+So let's copy the you or else refresh a page.
+
+09:08.070 --> 09:14.140
+Copy that you URLs and then we'll also copy the function paste it in here.
+
+09:14.310 --> 09:23.990
+Hit enter and let's just clear this and if I do get data to now when I run this we see that look at
+
+09:23.990 --> 09:32.690
+that we've received first the users which are right here let's make this a little bit bigger so we can
+
+09:32.690 --> 09:43.850
+see we have the users and the next stop we have what do we have next.
+
+09:43.930 --> 09:52.710
+We have the posts so a hundred posts and then the next stop is the album's just like that
+
+09:58.370 --> 10:03.610
+and this is the new Yes 2018 feature as you see here.
+
+10:03.650 --> 10:06.200
+It's the exact same thing as we did above.
+
+10:06.620 --> 10:11.410
+If I run our original function get data
+
+10:18.390 --> 10:28.360
+we see that we get the exact same results you have albums we have post we have users.
+
+10:28.570 --> 10:37.390
+The only thing that the for a wait of feature does it allows us to loop through these multiple promises
+
+10:38.350 --> 10:48.150
+almost as if we're writing synchronous code right so to review we have the finally function that we
+
+10:48.150 --> 10:56.280
+can run at the end of a promise and we have the for a weight of that takes each item from an array of
+
+10:56.400 --> 11:01.590
+promises that returns to us in the correct order.
+
+11:01.590 --> 11:03.890
+All the responses.
+
+11:03.980 --> 11:04.400
+All right.
+
+11:04.590 --> 11:05.590
+I think that's enough.
+
+11:05.610 --> 11:07.990
+It's time for you to play around with this.
+
+11:08.010 --> 11:09.490
+I'll see you in the next video.
+
+11:09.500 --> 11:09.960
+Bye bye.

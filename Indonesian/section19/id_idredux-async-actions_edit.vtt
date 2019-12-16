@@ -1,0 +1,871 @@
+WEBVTT
+
+00:00.900 --> 00:02.410
+Selamat datang kembali.
+
+00:02.420 --> 00:10.380
+Ada satu bagian terakhir dari teka-teki yang kita butuhkan dengan redux dan sesuatu yang kita hindari
+
+00:10.710 --> 00:12.600
+hingga saat ini.
+
+00:12.750 --> 00:15.620
+Anda lihat apakah kita masuk ke Aplikasi. js Anda
+
+00:16.130 --> 00:21.840
+ingat bahwa kami melakukan permintaan pengambilan componentDidMount ini.
+
+00:22.000 --> 00:23.890
+Kami memiliki permintaan yang tidak sinkron.
+
+00:23.890 --> 00:34.690
+Kami membuat permintaan ke API yang meraih pengguna mereka dan akhirnya mengatur keadaan itu menjadi robot.
+
+00:34.730 --> 00:39.890
+Tapi bagaimana cara kerjanya di redux.
+
+00:39.970 --> 00:49.070
+Karena ingat sampai titik ini semua yang kami lakukan telah sinkron karena jika kami melakukan hal yang sama
+
+00:49.070 --> 00:57.850
+seperti yang kami lakukan dengan bidang pencarian, itu tidak akan berfungsi dengan mengambil robot, karena kami mengirim
+
+00:57.850 --> 01:05.860
+tindakan katakanlah mengambil robot, tetapi karena itu tidak sinkron, ia akan keluar di dunia lain
+
+01:05.860 --> 01:07.810
+ke dalam API.
+
+01:08.700 --> 01:17.720
+Dan coba ambil robotnya. Sementara itu, peredam hanya akan memeriksa robot dan mengatakan belum ada
+
+01:17.730 --> 01:22.880
+robot karena mereka berada di tanah API (dan permintaan / tindakan) belum kembali.
+
+01:22.890 --> 01:24.050
+Persis seperti janji.
+
+01:24.090 --> 01:29.070
+Jadi peredam terus berjalan dan tidak membuat perubahan karena negara tidak berubah.
+
+01:29.100 --> 01:36.690
+Jadi bagaimana kita bisa membuat tindakan yang asinkron, yang masih melewati peredam toko dan kemudian
+
+01:36.690 --> 01:37.860
+membuat perubahan.
+
+01:39.640 --> 01:44.180
+Dan ini adalah tempat kami menggunakan, menerapkan middleware lagi.
+
+01:45.500 --> 01:54.400
+Kita dapat menggunakan sesuatu yang disebut redux-thunk untuk menangani tindakan asinkron seperti panggilan AJAX.
+
+01:54.560 --> 02:04.170
+Ini adalah middleware yang menyediakan fungsi get dan fungsi pengiriman yang diteruskan. Anda dapat menangani sesuatu yang disebut efek
+
+02:04.170 --> 02:08.840
+samping seperti panggilan AJAX dengan paket
+
+02:09.000 --> 02:10.440
+ini.
+
+02:10.440 --> 02:12.020
+Jadi, kami akan menunjukkan cara kerjanya.
+
+02:13.520 --> 02:18.050
+Hal pertama yang ingin kita lakukan adalah menginstal paket redux-thunk.
+
+02:18.130 --> 02:22.690
+Jadi saya akan mengatakan NPM menginstal redux-thunk.
+
+02:22.940 --> 02:29.380
+Dan omong-omong seperti halnya ada banyak cara lain untuk menangani aksi
+
+02:29.400 --> 02:34.190
+asinkron di redux. Hanya saja tidak terpasang di luar gerbang sehingga Anda memerlukan beberapa paket.
+
+02:34.190 --> 02:42.450
+Ada pilihan lain tetapi redux-thunk adalah yang terbaik dan paling sederhana untuk memulai.
+
+02:45.140 --> 02:45.820
+Baiklah.
+
+02:45.980 --> 02:52.320
+Kami memiliki redux-thunk sekarang dan kami dapat mulai menggunakannya dengan masuk ke indeks. js dan
+
+02:52.390 --> 03:07.230
+di sini kita dapat mengatakan bahwa kita ingin mengimpor sesuatu yang disebut thunkMiddleware dari redux-thunk.
+
+03:07.760 --> 03:13.920
+Sekali lagi Anda dapat membaca semua tentang ini, dan ada dokumentasi di Github. Thidd middleware, kita sudah tahu
+
+03:13.970 --> 03:18.780
+cara menerapkan middleware ke aplikasi redux kita, kan.
+
+03:18.800 --> 03:23.330
+Kami memiliki fungsi applyMiddleware kami.
+
+03:23.510 --> 03:31.480
+Kita cukup menambahkan aplikasi terapan atau - bukan terapan - thunkMiddleware.
+
+03:31.690 --> 03:35.200
+Dan biarkan saya menempatkan ini pada baris baru sehingga Anda bisa melihatnya dengan lebih baik
+
+03:36.000 --> 03:40.500
+thunkMiddleware untuk applyMiddleware kami.
+
+03:40.500 --> 03:41.360
+Dan ini
+
+03:41.370 --> 03:48.630
+dipesan, jadi itu akan melalui thunkMiddleware dan kemudian middleware logger. Sempurna.
+
+03:48.840 --> 03:54.980
+Jadi mari kita jalankan mulai NPM.
+
+03:55.250 --> 04:00.820
+Dan saya juga akan menyimpan ini, sepertinya semua berjalan lancar.
+
+04:02.330 --> 04:05.280
+Kami menerapkan middleware ini sekarang.
+
+04:05.840 --> 04:11.850
+Tapi bagaimana kita menggunakannya? Baiklah mari kita mulai dengan langkah pertama.
+
+04:11.970 --> 04:21.310
+Hal pertama yang ingin kita lakukan adalah membuat konstanta jadi konstanta untuk meminta robot kita.
+
+04:21.450 --> 04:28.160
+Ingat di aplikasi. File js kita memiliki array robot ini
+
+04:28.160 --> 04:34.980
+yang akan diisi setelah componentDidMount dengan, setelah kita melakukan panggilan panggilan dan kita setState dengan pengguna baru.
+
+04:35.040 --> 04:39.460
+Jadi secara konstan kita dapat melakukan sesuatu yang mirip di atas.
+
+04:39.470 --> 04:49.990
+Kami dapat mengekspor const REQUEST_ROBOTS. Sekarang, karena ini akan
+
+04:50.840 --> 04:53.780
+menjadi janji.
+
+04:53.900 --> 04:58.030
+Ini akan memiliki tiga negara.
+
+04:58.190 --> 05:06.490
+Jadi yang pertama adalah PENDING yang merupakan pertama kalinya kami mengirim permintaan itu akan ditunda
+
+05:06.490 --> 05:09.470
+kami menunggu janji untuk kembali.
+
+05:09.790 --> 05:22.130
+Jadi kita akan kembali menggunakan string yang sama di sini, dan kita juga akan memiliki dua status setelah pengembalian tertunda
+
+05:22.340 --> 05:25.150
+yang SUKSES dan juga
+
+05:30.250 --> 05:31.240
+GAGAL.
+
+05:39.690 --> 05:45.860
+Permintaan ini memiliki tiga tindakan: tertunda, sukses, gagal.
+
+05:45.930 --> 05:47.250
+Bahwa kami ingin melacak.
+
+05:47.730 --> 05:53.280
+Dan sekali lagi ini cukup standar dengan semua tindakan asinkron seperti panggilan AJAX.
+
+05:53.520 --> 06:01.670
+Jadi mari kita simpan itu, dan langkah selanjutnya seperti yang kita tahu adalah membuat tindakan menggunakan hal-hal ini.
+
+06:01.710 --> 06:10.080
+Jadi mari kita kembali ke tindakan dan kali ini alih-alih mengimpor CHANGE_SEARCH_FIELD mari kita mengimpor beberapa
+
+06:10.080 --> 06:11.260
+hal lagi.
+
+06:17.720 --> 06:22.770
+Saya akan mengimpor, mari kita salin dan tempel di sini karena itu banyak mengetik.
+
+06:23.030 --> 06:27.920
+Mari kita pergi ke Konstanta.
+
+06:28.180 --> 06:29.590
+Kami
+
+06:32.400 --> 06:38.150
+akan mengimpor kesuksesan yang tertunda dan akhirnya gagal.
+
+06:42.720 --> 06:45.140
+mari kita simpan.
+
+06:45.380 --> 06:48.320
+Dan ketika Anda mendapat peringatan bahwa kami tidak sedang - kami tidak menggunakannya.
+
+06:48.590 --> 06:57.790
+Jadi mari kita buat tindakan ini sekarang sama seperti yang kita lakukan di atas kita
+
+06:57.790 --> 07:06.340
+akan mengekspor const dan kami akan menamai ini requestRobots dan mengambil tindakan ini.
+
+07:06.380 --> 07:08.830
+Hmm apa yang akan diambil.
+
+07:08.830 --> 07:17.810
+Yah ini agak rumit tetapi akan mengambil pengiriman. Dan kirim, Jika Anda ingat, dan kami pergi
+
+07:17.840 --> 07:20.650
+ke App. js,
+
+07:20.720 --> 07:30.580
+adalah sesuatu yang kita gunakan di mapDispatchToProps yang kita dapatkan dari redux untuk mengirimkan
+
+07:30.670 --> 07:32.150
+tindakan ke reducer.
+
+07:32.380 --> 07:39.100
+Dan ketika kami kembali ke sini, Anda akan melihat bahwa kami akan benar-benar meneruskan ini ke tindakan kami.
+
+07:39.100 --> 07:40.780
+Jadi kita punya akses ke sana.
+
+07:40.960 --> 07:50.030
+Tetapi sekali lagi untuk sekarang, ketahuilah bahwa kita akan mengirim berita, dan di dalam sini kita akan melakukan beberapa hal
+
+07:50.030 --> 07:53.540
+yang sedikit berbeda dari yang di atas.
+
+07:53.540 --> 08:03.820
+Hal pertama ketika kita meminta robot Yah kita ingin mengirimkan tindakan yang tertunda jadi sekali lagi
+
+08:03.820 --> 08:12.430
+kita bisa melakukan sintaks standar pengiriman objek yang merupakan tipe permintaan robot yang tertunda
+
+08:15.020 --> 08:16.700
+dan payload.
+
+08:17.060 --> 08:19.390
+Ya tidak ada payload nyata.
+
+08:19.460 --> 08:26.780
+Kami hanya memiliki permintaan yang tertunda, jadi kami bisa membiarkannya seperti sekarang tanpa muatan.
+
+08:28.340 --> 08:35.220
+Selanjutnya kita memiliki sesuatu yang tidak sinkron.
+
+08:35.220 --> 08:38.230
+Kita perlu melakukan panggilan telepon.
+
+08:38.340 --> 08:41.710
+Jadi kami memiliki fungsi pengambilan.
+
+08:42.060 --> 08:44.690
+Dan jika Anda ingat kami pergi ke App. js Kami memiliki
+
+08:44.730 --> 08:52.950
+API ini yang perlu kami panggil, tetapi Anda juga perlu melakukan respons tanggapan. json lagi.
+
+08:52.950 --> 09:02.580
+Jadi saya hanya akan menyalin semua itu, pergi ke tindakan dan hanya menyalin dan menempel ini.
+
+09:02.830 --> 09:12.600
+Jadi kami mengambil pengguna yang kami lakukan. lalu dan json, menggunakan metode json pada respons.
+
+09:12.600 --> 09:17.750
+Dan akhirnya di sini kami memiliki dua pilihan.
+
+09:17.880 --> 09:23.920
+Kami punya. lalu dan. tangkap kalau-kalau ada kesalahan atau sesuatu gagal.
+
+09:25.060 --> 09:30.800
+Dalam . maka kami menerima semacam data yang akan menjadi pengguna.
+
+09:31.300 --> 09:38.530
+Dan setelah kami menerima bahwa kami dapat mengatakan pengiriman, kami akan mengirim. Menurut Anda apa yang akan
+
+09:38.530 --> 09:40.050
+kami kirim.
+
+09:40.060 --> 09:47.870
+Nah objek yang bertipe REQUEST_ROBOTS_SUCCESS dan kali ini payload untuk ini
+
+09:50.660 --> 09:53.360
+akan menjadi data
+
+09:56.160 --> 10:04.310
+yang kami terima dari API dan dengan tangkapan yang sangat mirip.
+
+10:04.310 --> 10:11.120
+Kami akan mendapatkan semacam kesalahan dan kesalahan ini akan
+
+10:14.800 --> 10:19.610
+sekali lagi dikirim dan akan
+
+10:22.460 --> 10:30.500
+memiliki jenis REQUEST_ROBOTS_FAILED dengan payload, mari berikan kesalahan yang kami terima.
+
+10:30.500 --> 10:30.950
+Baiklah.
+
+10:30.950 --> 10:39.260
+Biarkan saya membuat ini sedikit lebih kecil sehingga Anda bisa melihatnya. Jadi kami menyimpannya, dan sekarang kami memiliki tindakan kami
+
+10:39.260 --> 10:43.220
+dan tindakan ini jauh lebih rumit daripada setSearchField.
+
+10:43.220 --> 10:50.240
+Kami memiliki - segera, ketika kami menyebut tindakan ini, pengiriman yang REQUEST_ROBOTS_PENDING
+
+10:50.330 --> 10:58.490
+dan kemudian kami menjemput pengguna, kami menerima pengguna, dan kemudian kami berhasil dengan payload
+
+10:59.000 --> 11:04.180
+pengguna atau kesalahan dengan payload of error .
+
+11:04.230 --> 11:12.480
+Akhirnya kita masuk ke reduksi dan di reducer kita tahu bahwa kita ingin mengimpor dari konstanta tindakan yang sama
+
+11:12.780 --> 11:14.270
+yang kita miliki.
+
+11:14.270 --> 11:21.870
+Jadi mari kita pergi ke Constance atau mari kita pergi ke tindakan dan menyalin apa yang kita miliki di sini juga.
+
+11:24.720 --> 11:27.080
+Karena kita akan membutuhkan semua konstanta itu.
+
+11:28.020 --> 11:35.640
+Dan sekarang di sini kita akan membuat peredam baru karena alih-alih menggabungkan semua pereduksi ini kami
+
+11:35.640 --> 11:39.280
+ingin membuatnya masing-masing khusus untuk kasus penggunaannya.
+
+11:39.480 --> 11:48.490
+Peredam ini khawatir tentang robot pencarian, peredam baru akan khawatir tentang permintaan.
+
+11:48.630 --> 11:57.660
+Robot dan sekali lagi dengan sintaks yang sama kita memiliki negara yang akan sama dengan
+
+11:58.560 --> 12:06.220
+keadaan awal dan kemudian tindakan yang akan memiliki objek kosong default.
+
+12:06.430 --> 12:14.390
+Dan di dalam sini sebuah objek atau di dalam sini kita akan memiliki sekali lagi pernyataan beralih yang mendengarkan tindakan. ketik dan tindakan
+
+12:14.390 --> 12:22.070
+ini. tipe akan memiliki tiga kemungkinan status.
+
+12:22.100 --> 12:32.590
+Salah satunya adalah case adalah REQUEST_ROBOTS_PENDING dalam hal ini kami mengembalikan objek. Menugaskan
+
+12:32.680 --> 12:38.080
+kembali objek kosong.
+
+12:38.180 --> 12:39.770
+Negara.
+
+12:39.980 --> 12:47.000
+Dan akhirnya kita akan membuat negara baru bernama isPending.
+
+12:47.330 --> 12:50.240
+Dan isPending ini akan
+
+12:53.840 --> 13:00.600
+disetel ke true karena robot permintaan sedang menunggu saat ini.
+
+13:00.600 --> 13:01.350
+Baiklah.
+
+13:01.680 --> 13:08.850
+Hal selanjutnya yang akan kita lakukan lagi adalah kita akan memiliki kasing untuk kali ini.
+
+13:09.240 --> 13:19.130
+Keberhasilan dan ini akan mengembalikan objek. menetapkan objek kosong status.
+
+13:19.600 --> 13:34.310
+Dan ini robot properti baru yaitu aksi. payload dan juga kami ingin mengubah keadaan isPending untuk sekarang menjadi
+
+13:34.700 --> 13:36.440
+salah karena
+
+13:39.550 --> 13:43.270
+kami telah mendapat respon dari
+
+13:50.350 --> 13:56.470
+janji dan kemudian kasus ketiga adalah ketika ada kesalahan.
+
+13:57.040 --> 14:00.670
+Dan dalam hal ini kita akan mengembalikan objek. menetapkan status dan
+
+14:04.180 --> 14:16.550
+kami hanya akan memiliki status kesalahan yang akan kami buat yang memiliki tindakan. muatan
+
+14:16.690 --> 14:23.260
+Dan sekali lagi kita akan ingin mengubah isPending menjadi sama
+
+14:26.050 --> 14:34.010
+dengan false dan menutup objek. Dan ingat selalu, dengan peredam,
+
+14:34.420 --> 14:43.810
+Kami ingin memiliki di akhir, selalu mengembalikan negara jika tidak cocok dengan salah satu kriteria.
+
+14:43.810 --> 14:49.250
+Jadi sekali lagi kembalikan keadaan. Luar biasa.
+
+14:49.620 --> 14:53.860
+Sekarang Anda mungkin berpikir untuk diri sendiri keadaan awal.
+
+14:54.020 --> 14:59.990
+Kami memiliki ini tetapi REQUEST_ROBOTS tidak peduli tentang bidang pencarian.
+
+14:59.990 --> 15:06.860
+Dan dalam hal ini kami ingin membuat dua status awal yang berbeda: satu untuk robot pencarian dan satu
+
+15:06.860 --> 15:08.460
+untuk robot permintaan.
+
+15:08.600 --> 15:14.560
+Jadi mari kita rename ini menjadi initialStateSearch
+
+15:17.420 --> 15:29.000
+dan buat state baru initialStateRobots yang sekarang memiliki tiga status ini yang kita sebutkan
+
+15:29.570 --> 15:43.360
+di sini adalah Pending of false untuk memulai, array robot yang saat ini kosong, dan string kesalahan yang
+
+15:43.570 --> 15:45.350
+juga kosong.
+
+15:49.020 --> 15:50.010
+Jadi mari kita simpan itu.
+
+15:52.910 --> 15:58.810
+Dan mari kita lihat beberapa kesalahan yang kita dapatkan di sini dan kita memiliki sedikit kesalahan sintaks.
+
+16:02.360 --> 16:04.970
+Karena kita tidak membutuhkan braket keriting ini.
+
+16:04.970 --> 16:08.220
+Ini dia.
+
+16:08.280 --> 16:11.060
+Dan lagi kami ingin mengubah initialStateRobots.
+
+16:11.080 --> 16:16.050
+dalam fungsi yang satu ini.
+
+16:18.250 --> 16:21.420
+Kami menyimpan dan semuanya terlihat bagus.
+
+16:21.430 --> 16:26.770
+Biarkan saya membuat ini sedikit lebih kecil.
+
+16:26.830 --> 16:28.920
+Sekarang kita punya masalah.
+
+16:29.410 --> 16:32.970
+Kita harus mengurangi sekarang dan jika kita pergi ke indeks. js kita
+
+16:33.060 --> 16:40.360
+melihat bahwa dalam fungsi createStore kita hanya menggunakan peredam searchRobots.
+
+16:40.780 --> 16:42.760
+Jadi mari kita impor sekarang.
+
+16:42.790 --> 16:52.640
+Peredam lain yang kita miliki adalah requestRobots dan sekarang menambahkan ini ke toko juga.
+
+16:53.020 --> 16:55.740
+Tetapi bagaimana kita melakukannya?
+
+16:58.080 --> 17:08.180
+Ya, kami memiliki fungsi yang kembali hadir dengan redux yang disebut dengan combedReducers. Dan RedRed ini, cukup
+
+17:08.180 --> 17:15.160
+jelas, menggabungkan semua reduksi menjadi reducer root.
+
+17:15.290 --> 17:16.380
+Jadi mari kita lakukan itu.
+
+17:16.400 --> 17:23.380
+Saya akan mengatakan const rootReducer akan sama dengan gabunganReducers.
+
+17:23.750 --> 17:32.120
+Dan ini akan dan menerima, dalam bentuk objek, semua reduksi.
+
+17:32.240 --> 17:38.180
+Dalam kasus saya ini adalah searchRobots dan requestRobots.
+
+17:38.390 --> 17:44.630
+Dan sekarang rootReducer ini dapat digunakan di toko untuk
+
+17:47.720 --> 17:51.880
+memasukkan kedua reduksi Mari kita simpan.
+
+17:51.880 --> 17:53.110
+Baiklah.
+
+17:53.110 --> 17:54.040
+Kita hampir sampai.
+
+17:55.720 --> 17:58.930
+Sekarang karena kami baru saja menggunakan reduksi kombinasi.
+
+17:58.930 --> 18:03.180
+Itu adalah sesuatu yang telah kami sebutkan sebelumnya, dan itu adalah jika saya masuk ke aplikasi. js dan
+
+18:03.340 --> 18:14.950
+gulirkan sepenuhnya ke mapStateToProps, negara kami sekarang tidak lagi memiliki searchField sebagai bagian dari
+
+18:14.950 --> 18:16.200
+propertinya.
+
+18:16.240 --> 18:25.780
+Alih-alih itu akan memiliki dua properti searchRobots dan requestRobots yang masing-masing memiliki properti
+
+18:25.780 --> 18:26.920
+sendiri.
+
+18:26.920 --> 18:29.680
+Jadi sekarang kita
+
+18:33.370 --> 18:40.190
+harus memperbarui searchRobots seperti ini yang memiliki properti searchField.
+
+18:40.250 --> 18:50.460
+Jadi inilah yang kemungkinan besar akan Anda lihat ketika Anda bekerja di redux di mapStateToProps.
+
+18:50.490 --> 18:58.270
+Sekarang bagian terakhir dari teka-teki: redux-thunk. Bagaimana cara kerjanya?
+
+18:58.680 --> 19:10.740
+Well redux-thunk adalah middleware yang menunggu dan melihat melihat apakah ada tindakan mengembalikan fungsi, bukan
+
+19:10.740 --> 19:12.050
+objek.
+
+19:12.440 --> 19:13.360
+Apa artinya?
+
+19:13.740 --> 19:25.740
+Jika kita pergi ke tindakan, kita melihat bahwa ini mengembalikan suatu objek, tetapi di sini kita tidak
+
+19:26.100 --> 19:33.930
+mengembalikan objek, kan, sebenarnya kita tidak benar-benar mengembalikan apa pun sekarang.
+
+19:34.070 --> 19:36.820
+Thidd middleware sedang menunggu suatu fungsi.
+
+19:36.920 --> 19:43.880
+Dan jika pernah ada tindakan yang melewatinya -mengingat middleware hanyalah sebuah terowongan yang
+
+19:44.660 --> 19:49.050
+dilalui tindakan dan memperhatikan fungsi yang akan ditindaklanjutinya.
+
+19:49.100 --> 19:53.130
+Jadi mari kita lakukan itu terlebih dahulu dan saya akan menjelaskan secara detail cara kerjanya.
+
+19:54.030 --> 19:57.350
+Pertama-tama kita harus pergi ke App. js.
+
+19:57.420 --> 20:01.850
+Dan di dalam sini kami ingin memperbarui beberapa hal.
+
+20:01.900 --> 20:16.610
+Pertama kita ingin memperbarui status untuk sekarang juga termasuk robot untuk memiliki negara. requestRobots. robot Sekali lagi ini adalah
+
+20:16.640 --> 20:19.960
+keadaan dari peredam.
+
+20:20.010 --> 20:29.630
+Ada juga keadaan isPending lagi melalui requestRobots mereka. isPending
+
+20:30.050 --> 20:43.030
+Dan akhirnya kesalahan menyatakan dari sekali lagi menyatakan permintaanRobots. kesalahan Bagian kedua dan
+
+20:43.060 --> 20:51.510
+yang paling penting adalah aksi robot permintaan.
+
+20:51.680 --> 20:58.240
+Sekali lagi sesuatu yang menggantikan permintaan componentDidMount ini.
+
+20:58.390 --> 21:05.650
+Cara yang dapat kita lakukan adalah di dalam sini tambahkan properti lain yang akan
+
+21:05.650 --> 21:11.000
+kita sampaikan dan kita dapat menamainya apa pun yang kita
+
+21:11.000 --> 21:17.820
+inginkan kita akan mengatakan padaRequestRobots dan ini akan menjadi fungsi, dan fungsi ini.
+
+21:17.950 --> 21:23.320
+Ingat kami tidak ingin hanya mengirim.
+
+21:23.670 --> 21:28.670
+Kami ingin - mengembalikan fungsi darinya.
+
+21:28.740 --> 21:43.410
+Dalam kasus kami ini adalah peredam requestRobots dan peredam atau aksi requestRobots ini
+
+21:43.980 --> 21:47.480
+memiliki metode pengiriman.
+
+21:47.510 --> 21:48.090
+Baiklah.
+
+21:48.090 --> 21:49.000
+Saya tahu itu banyak.
+
+21:48.990 --> 21:51.480
+Jadi mari kita lewati ini sekali lagi.
+
+21:52.800 --> 21:55.770
+Saat ini kami
+
+21:59.230 --> 22:10.620
+membutuhkan tindakan requestRobots dan tindakan requestRobots ini membutuhkan metode pengiriman untuk benar-benar mengirimkan tindakan ini.
+
+22:10.920 --> 22:22.120
+Jadi di App. js pertama kita perlu mengimpor tindakan kita
+
+22:22.120 --> 22:30.750
+yang requestRobots dari file tindakan dan requestRobots ini harus memiliki metode pengiriman.
+
+22:30.760 --> 22:42.580
+Ini sama dengan melakukan ini.
+
+22:43.190 --> 22:54.870
+Dan sekarang pengiriman ini akan berfungsi selama kita menggunakan redux-tThunk karena itu akan menangkap
+
+22:54.870 --> 23:00.140
+fakta bahwa ini akan mengembalikan fungsi.
+
+23:00.170 --> 23:07.390
+Jadi jika kita kembali ke tindakan kita sekarang kita bisa melakukan ini.
+
+23:13.770 --> 23:25.280
+Baiklah, apa yang baru saja terjadi? Yah, kami telah membuat fungsi urutan lebih tinggi: fungsi yang mengembalikan fungsi.
+
+23:25.280 --> 23:28.810
+Dan saya tahu ini bisa sedikit membingungkan tetapi pukulan.
+
+23:28.880 --> 23:34.950
+Karena sekarang requestRobots akan kembali lagi karena fungsi kesalahan.
+
+23:35.000 --> 23:42.800
+Ini akan menyiratkan bahwa itu mengembalikan ini, itu akan menyediakan fungsi pengiriman ke fungsi lapisan kedua
+
+23:42.950 --> 23:47.040
+ini sehingga kita dapat menggunakannya di sini.
+
+23:47.420 --> 23:55.430
+Sekali lagi ini adalah sesuatu yang Anda harus terbiasa tetapi pada akhirnya jika kita menyimpan ini mari kita lihat apakah itu
+
+23:55.430 --> 23:56.120
+berfungsi.
+
+23:56.140 --> 24:01.530
+Sekarang saya tahu ini pertama kalinya, jadi kami mungkin mengacaukan sesuatu, tetapi mari kita periksa.
+
+24:04.000 --> 24:07.490
+Saya menyegarkan dan semuanya berfungsi.
+
+24:07.490 --> 24:08.890
+Kami tidak mendapatkan kesalahan.
+
+24:09.020 --> 24:19.380
+Tapi ingat, kita sebenarnya harus terhubung ke aplikasi kita. Jika kita kembali, kita sekarang dapat pergi ke aplikasi. js dan kami memiliki semua alat peraga yang
+
+24:19.380 --> 24:21.690
+dapat kita gunakan sekarang.
+
+24:21.960 --> 24:31.530
+Jadi componentDidMount tidak perlu lagi menerima panggilan. Yang dia butuhkan adalah ini. alat peraga.
+
+24:32.760 --> 24:42.200
+dan tindakan yang kami minta robot kami diRequestRobots sempurna.
+
+24:42.430 --> 24:46.670
+Dan kita juga tidak perlu konstruktor lagi kan.
+
+24:46.750 --> 24:53.110
+Karena tidak ada lagi negara robot ini sekarang akan dikembalikan sebagai
+
+24:53.380 --> 24:56.930
+bagian dari alat peraga dari onRequestRobots.
+
+24:57.040 --> 25:01.100
+Jadi sekali lagi kita akan mengubah ini. nyatakan ke
+
+25:03.790 --> 25:15.540
+robot dan kita juga bisa mendapatkan isPending untuk memeriksa apakah isPending benar.
+
+25:19.140 --> 25:25.770
+Untuk merender jika ini benar maka kami ingin me-render loading.
+
+25:25.950 --> 25:30.950
+Jika tidak, kami hanya ingin membuat teman robo kami.
+
+25:30.970 --> 25:33.660
+Jadi itu berasal dari alat peraga
+
+25:34.780 --> 25:39.230
+kami Dan sekarang kami hanya memiliki componentDidMount di aplikasi kami.
+
+25:39.440 --> 25:45.360
+Mari kita simpan dan kembali ke aplikasi kita.
+
+25:45.380 --> 25:47.490
+Baiklah, lihat itu.
+
+25:47.780 --> 25:53.990
+Itu tidak sering terjadi tetapi saya entah bagaimana berhasil membuat kode tanpa membuat - tanpa membuat kesalahan.
+
+25:53.990 --> 25:55.250
+Sekali lagi itu jarang terjadi.
+
+25:55.250 --> 25:56.210
+Nikmati momen ini.
+
+25:56.210 --> 25:57.780
+Saya pasti menikmatinya.
+
+25:57.800 --> 26:05.090
+Kami melihat di sini bahwa "REQUEST_ROBOTS_PENDING" kami dipecat dan SUCCESS dipecat lagi.
+
+26:06.760 --> 26:09.070
+Mari menyegarkan dengan cepat.
+
+26:09.070 --> 26:09.400
+Baiklah.
+
+26:09.400 --> 26:11.300
+Apa yang terjadi jika permintaan gagal.
+
+26:11.320 --> 26:14.500
+Ayo kembali ke sini dan pergi ke aksi kita. js Dan mari kita
+
+26:14.560 --> 26:18.280
+ketik sesuatu yang salah di sini, kita akan mengatakan seperti itu.
+
+26:18.280 --> 26:19.510
+Simpan itu.
+
+26:19.510 --> 26:23.020
+Kembali dan di sana Anda pergi.
+
+26:23.120 --> 26:27.170
+Kami memiliki "REQUEST_ROBOTS_FAILED".
+
+26:27.190 --> 26:31.560
+Sangat keren.
+
+26:31.730 --> 26:32.640
+Mari kita perbaiki itu.
+
+26:33.620 --> 26:37.040
+Dan simpan.
+
+26:37.090 --> 26:37.780
+Baiklah.
+
+26:37.960 --> 26:44.020
+Kami memiliki aplikasi kami yang melakukan hal yang persis sama seperti sebelumnya.
+
+26:45.220 --> 26:51.080
+Tidak ada yang terlalu gila hanya menyaring robot kami.
+
+26:51.310 --> 27:02.760
+Tetapi satu-satunya perbedaan adalah bahwa kami memiliki kemampuan logging yang luar biasa dan menggunakan redux.
+
+27:02.850 --> 27:07.340
+Sangat keren.
+
+27:07.350 --> 27:10.180
+Saya ingin membahas ini sekali lagi.
+
+27:11.850 --> 27:16.450
+Dan ini karena ini merupakan titik yang sulit bagi kebanyakan orang.
+
+27:18.640 --> 27:25.720
+Ingat permintaan ini, Robot, bagaimana ia memiliki dua fungsi ini.
+
+27:25.930 --> 27:29.210
+RequestRobot, sekarang redux, di luar kotak,
+
+27:29.220 --> 27:36.160
+tidak akan mengerti ini, karena kami tidak mengembalikan objek, seperti yang diharapkan untuk tindakan.
+
+27:36.220 --> 27:46.090
+Kami mengembalikan fungsi dan fungsi ini, tidak akan berarti apa-apa untuk itu. Dengan menambahkan muxleware redux-thunk, kami sekarang
+
+27:46.240 --> 27:47.980
+mendengarkan tindakan.
+
+27:48.040 --> 27:54.490
+Dan setiap kali aksi requestRobots terpicu akan mengembalikan fungsi dan memicu redux-thunk dan redux-thunk akan
+
+27:54.490 --> 28:00.780
+mengatakan - oh ini adalah fungsi yang akan saya berikan kepada Anda, ini
+
+28:00.790 --> 28:08.350
+adalah pengiriman sehingga Anda benar-benar dapat menelepon beberapa tindakan, dan kami akhirnya dapat menjalankan tindakan kami seperti ini.
+
+28:08.350 --> 28:15.240
+Jadi jika kita kembali ke diagram kita, kita telah menciptakan sistem di mana tindakan dipicu.
+
+28:15.390 --> 28:17.310
+Mereka melewati middleware apa saja.
+
+28:17.370 --> 28:24.030
+Jika ini adalah perubahan istilah pencarian, itu hanya akan langsung ke reducer, jalankan melalui fungsi yang
+
+28:24.450 --> 28:32.730
+bagus memperbarui toko dan membuat perubahan pada tampilan kami. Jika kami meminta robot, itu akan melihat
+
+28:32.730 --> 28:39.120
+bahwa itu adalah fungsi yang akan masuk ke middleware, dan redux-thunk akan mengatakannya.
+
+28:39.140 --> 28:47.250
+Baiklah, pertama-tama kirim saja yang menunggu ke peredam, dan saya akan memberi tahu Anda kalau saya sudah selesai dengan janji itu dan saya akan
+
+28:48.000 --> 28:50.490
+memberi tahu Anda jika saya punya robot.
+
+28:50.740 --> 28:59.080
+Dan ketika mengembalikannya akan mengirimkan keberhasilan, pergi melalui peredam, perbarui toko dan buat
+
+28:59.230 --> 29:00.010
+perubahan.
+
+29:01.410 --> 29:03.570
+Fiuh! Itu banyak.
+
+29:03.630 --> 29:09.550
+Tetapi jika Anda sampai sejauh ini dan Anda memahaminya, Anda sudah mendapatkan cukup banyak redux.
+
+29:09.600 --> 29:10.440
+Itu dia.
+
+29:10.440 --> 29:13.730
+Itu seluruh pustaka redux.
+
+29:13.980 --> 29:15.230
+Ini sangat sangat sederhana.
+
+29:15.240 --> 29:20.340
+Dan begitu Anda mulai menggunakannya beberapa kali dan Anda merasa nyaman dengannya, itu benar-benar
+
+29:20.370 --> 29:21.850
+indah cara semuanya bekerja.
+
+29:21.870 --> 29:24.150
+Tapi untuk sekarang mari kita istirahat.
+
+29:24.150 --> 29:26.240
+Terima kasih telah menonton dan sampai jumpa di yang berikutnya.
+
+29:26.550 --> 29:27.000
+Sampai jumpa

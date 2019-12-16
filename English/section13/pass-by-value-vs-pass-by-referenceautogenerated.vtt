@@ -1,0 +1,511 @@
+WEBVTT
+
+00:00.890 --> 00:02.130
+Welcome back.
+
+00:02.150 --> 00:10.820
+Let's talk about passed by reference versus passed by value to finish our discussion about JavaScript
+
+00:11.030 --> 00:12.110
+types.
+
+00:12.230 --> 00:17.330
+Now in the previous video I said that primitive types are immutable.
+
+00:17.330 --> 00:18.350
+What does that mean.
+
+00:18.350 --> 00:23.090
+Well it means that we can't really change them in order to change them.
+
+00:23.090 --> 00:31.140
+We need to completely remove the primitive type and let's say if variable A equals five.
+
+00:31.220 --> 00:40.070
+Well in order for me to change what that five value is I have to literally move it from memory and create
+
+00:40.070 --> 00:49.020
+something new like a equals 10 I can really modify it just something new gets created and primitive
+
+00:49.020 --> 00:57.480
+types are exactly like that when I assign a variable a to five somewhere in memory variable a is going
+
+00:57.480 --> 01:06.120
+to contain and reference the value five if I do variable B equals two let's say 10 again same thing
+
+01:06.990 --> 01:10.390
+and they don't really know of each other's existence.
+
+01:11.230 --> 01:19.530
+This is what we call pass by value objects on the other hand are what we call pass by reference let's
+
+01:19.530 --> 01:22.550
+write some code to figure out what this really means.
+
+01:22.650 --> 01:36.850
+If I do variable A equals to five and then I do variable B equals to 10 well a now has an address of
+
+01:36.910 --> 01:41.450
+where this primitive value five sits in memory.
+
+01:41.650 --> 01:49.450
+And same with b b has an address of where the primitive value 10 sits in memory.
+
+01:49.450 --> 01:50.880
+What if I do B.
+
+01:50.890 --> 01:53.090
+Very Bobbie equals two.
+
+01:53.160 --> 02:03.830
+Hey what happens then remember primitive types they're passed by value when we do pass by value.
+
+02:04.300 --> 02:08.350
+Well what if I do something like B plus plus here.
+
+02:08.350 --> 02:24.190
+So that is add one to b if I console dot log a I have five and if I console dot log B I have six and
+
+02:24.310 --> 02:34.460
+this is because of past by value all I did or all the JavaScript engine did was copy the primitive type
+
+02:34.760 --> 02:45.180
+value five as if I was doing B equals five so that now B has a reference to the value primitive type
+
+02:45.390 --> 02:55.510
+five all we did was copy the value so looking at this this diagram should make sense any time even though
+
+02:55.510 --> 03:06.650
+we did B equals to a we simply copied the value and put it into a new memory space in our machine remember
+
+03:06.650 --> 03:14.900
+our memory heap or our stack where we store information we just simply made a copy they don't really
+
+03:14.900 --> 03:18.860
+have any connection whatsoever and that's what passed by.
+
+03:18.860 --> 03:27.620
+Value meets pass by value simply means we copy the value and we create that value somewhere else in
+
+03:27.620 --> 03:28.770
+memory.
+
+03:28.900 --> 03:35.350
+Now let's see how objects are different unlike what we had before or let's keep this here for now just
+
+03:35.350 --> 03:46.240
+so you can see if I create an object let's say Object 1 and object 1 has name of Yao and let's say this
+
+03:46.240 --> 03:57.120
+is a user that also has a password with 1 2 3 as the password super secure I now and we're also going
+
+03:57.120 --> 04:07.430
+to create another object let object to and this is going to be well we can just copy the first object
+
+04:08.240 --> 04:19.230
+so object to an object one should be the same right but what if I go ahead and with object 2 I change
+
+04:19.410 --> 04:33.990
+password to equal easy peasy what will happen then if I console dialog Object 1 and I also console log
+
+04:35.010 --> 04:35.790
+object to
+
+04:38.640 --> 04:51.900
+and I run whoa what just happened password has been changed both object one's password and object two's
+
+04:51.900 --> 04:54.670
+password were updated by doing this.
+
+04:56.190 --> 05:01.060
+And this is due to pass by reference.
+
+05:01.110 --> 05:11.320
+You see objects in javascript are stored in memory and are passed by reference which means that we don't
+
+05:11.590 --> 05:15.450
+copy the values like we did with primitive types.
+
+05:15.760 --> 05:26.350
+We simply when we assigned it object one to object to we're simply said hey this is where the object
+
+05:26.380 --> 05:27.860
+is in memory.
+
+05:27.910 --> 05:35.900
+If we go back to the code object 1 and object 2 are both pointing somewhere in memory.
+
+05:35.920 --> 05:36.840
+We don't know where.
+
+05:36.880 --> 05:43.990
+Somewhere in the memory heap to a shelf that contains this information.
+
+05:43.990 --> 05:54.930
+So all I did by saying object to equals object want is hey this is let's say the address in memory of
+
+05:54.960 --> 05:57.450
+wherever this is located.
+
+05:57.720 --> 06:07.200
+So that what that means is when I change object dot password like this I'm saying well change password
+
+06:07.440 --> 06:15.270
+on this object in memory that also object one is pointing to its referencing that's where passed by
+
+06:15.270 --> 06:17.010
+reference comes from.
+
+06:17.010 --> 06:19.890
+Now why do you think that's a good idea.
+
+06:19.930 --> 06:21.060
+Let's think about this.
+
+06:21.060 --> 06:23.080
+Why is this good.
+
+06:23.140 --> 06:26.150
+I mean it's kind of nice right.
+
+06:26.230 --> 06:32.110
+Because by just having one object here we're saving space and memory.
+
+06:32.110 --> 06:37.640
+We're not copying and cloning the object creating multiple version.
+
+06:37.660 --> 06:46.240
+We can simply save memory reference just one location instead of just loading up our memory heap.
+
+06:47.050 --> 06:50.040
+But why might this also be bad.
+
+06:50.930 --> 06:58.100
+Well because unlike a primitive type we might have this issue where by mistake somebody else changes
+
+06:58.130 --> 07:02.180
+a property on that referenced object.
+
+07:02.250 --> 07:07.450
+So this is something that we need to be careful let's do another example.
+
+07:07.450 --> 07:12.930
+And just to prove like I said before that arrays are simply objects.
+
+07:12.940 --> 07:14.770
+Let's try this with an array.
+
+07:15.460 --> 07:26.830
+If I do variable C and this variable C has one two three four five and then variable D is equal to C
+
+07:28.480 --> 07:40.080
+and then finally we'll say D dot push some giant number on make sure it's a number not a string if I
+
+07:40.080 --> 07:48.190
+console log C or let's console log D first and I run this.
+
+07:48.620 --> 07:49.430
+I see that.
+
+07:49.430 --> 07:49.770
+Yep.
+
+07:49.790 --> 07:58.160
+We modified the array but because arrays are objects they're passed by reference C should also have
+
+07:58.160 --> 07:59.370
+changed right.
+
+07:59.460 --> 08:05.600
+Fight console log C and I run Yep C has also changed as well
+
+08:08.510 --> 08:10.210
+we noticed something here right.
+
+08:10.370 --> 08:11.000
+This is good.
+
+08:11.000 --> 08:12.860
+We're saving memory.
+
+08:12.860 --> 08:14.930
+We're not just constantly copying things.
+
+08:14.930 --> 08:18.970
+Imagine if C was a massive massive object.
+
+08:19.040 --> 08:26.440
+If we're copying two different parts of the code every time well.
+
+08:26.690 --> 08:34.220
+This would create a lot of memory but then there are times where maybe we do want to own an object copy
+
+08:34.220 --> 08:36.840
+it so that we don't modify it like this.
+
+08:37.610 --> 08:41.150
+How can we do that well with something like an array.
+
+08:41.180 --> 08:48.950
+There's different ways of doing it but I can simply do array an empty array and then do the cone cat
+
+08:49.070 --> 08:57.380
+method which pushes whatever I have in C into this empty array so that when I run here you see that
+
+08:57.470 --> 08:59.940
+C is still the same.
+
+09:00.050 --> 09:04.010
+But if I go to D I have a new array.
+
+09:04.010 --> 09:06.070
+It's cloned an array.
+
+09:06.350 --> 09:09.320
+Objects are a little bit more difficult.
+
+09:09.410 --> 09:10.970
+Let's say we had an object.
+
+09:12.930 --> 09:20.480
+That equals a one let's say B is two.
+
+09:20.570 --> 09:30.350
+That's a little confusing let's do a and then B B and then finally c equals C
+
+09:33.510 --> 09:37.780
+and this object I want a copy.
+
+09:37.780 --> 09:40.750
+I want to have this piece of code.
+
+09:40.750 --> 09:45.590
+This object in a different location in memory.
+
+09:45.610 --> 09:47.240
+How can we do that.
+
+09:47.260 --> 09:57.660
+Well I can't do another object like this because it's simply going to pass by reference and we're still
+
+09:57.660 --> 10:05.830
+going to be referencing the same object instead we can clone an object by doing something like this
+
+10:06.550 --> 10:15.920
+object dot a sign in here the first parameter is the object to copy to which is an empty object.
+
+10:16.030 --> 10:18.600
+And then what is the source.
+
+10:18.610 --> 10:22.510
+So that is from which to copy the properties.
+
+10:22.510 --> 10:36.310
+So in my case they'll be the object so that now if I change let's say object a far less new object C
+
+10:36.970 --> 10:49.090
+to equal five if I console dot log the clone object and I run well I made a little big mistake.
+
+10:49.090 --> 10:50.770
+Let's see here.
+
+10:50.860 --> 10:54.220
+Knife had a semicolon instead of a comma.
+
+10:54.330 --> 10:54.820
+There we go.
+
+10:55.080 --> 11:01.890
+If I run this look at that the cloned object was not affected at all.
+
+11:01.890 --> 11:04.940
+Even though we changed C to be five.
+
+11:05.580 --> 11:12.060
+Remember if we didn't do this we didn't clone it and we just did object that would have been passed
+
+11:12.060 --> 11:17.770
+by reference and we would see the change that we saw in the original object but because of object a
+
+11:17.770 --> 11:21.510
+sign we were able to clone the object.
+
+11:21.540 --> 11:23.000
+Very cool.
+
+11:23.070 --> 11:28.110
+There's also another way of doing it and that is using the spread operator.
+
+11:28.170 --> 11:35.010
+I can do let alone two equal object or not really.
+
+11:35.070 --> 11:46.180
+We just create an object and then do dot dot dot and then the object nice and clean and this is a new
+
+11:46.180 --> 11:53.590
+feature that we got in the javascript language which is really really nice and once again if I run this
+
+11:53.590 --> 12:00.460
+code I see that clone hasn't been modified and if I do clone to
+
+12:03.570 --> 12:11.280
+that hasn't been modified either just for a reference I'll add the original object as well to see that
+
+12:11.670 --> 12:15.150
+indeed it is different than what we had before.
+
+12:15.180 --> 12:15.770
+Awesome.
+
+12:15.780 --> 12:23.220
+So cloning is great but let me ask you this what do you think will happen with the code that we have
+
+12:23.700 --> 12:29.640
+if we have an object inside an object.
+
+12:29.860 --> 12:39.220
+For example if C instead of just being a string is a another pass by reference object that let's say
+
+12:39.220 --> 12:50.020
+has deep as a property and this deep is going to equal try and copy me.
+
+12:50.200 --> 12:51.100
+I hope that makes sense.
+
+12:51.100 --> 12:54.500
+Let me adjust the indentation here so you see it better.
+
+12:54.520 --> 12:56.840
+As to what is happening.
+
+12:57.030 --> 12:59.650
+So what happens here.
+
+12:59.700 --> 13:06.960
+We have a object that is referenced somewhere in memory and inside of that object there is again another
+
+13:06.960 --> 13:14.170
+pointer to another place in memory that references this object let's run this code
+
+13:17.870 --> 13:19.790
+well nothing has changed.
+
+13:19.790 --> 13:20.380
+Right.
+
+13:20.420 --> 13:23.690
+I mean C has obviously changed and.
+
+13:23.960 --> 13:26.060
+Well that's something that we already saw before.
+
+13:26.150 --> 13:37.120
+But what if I change d this time around instead of C What if I do object dot c dot deep and deep is
+
+13:37.120 --> 13:50.630
+now going to say hahaha what do you think will happen here let's run this code and oh no we've just
+
+13:51.230 --> 13:59.560
+we cloned everything but it got overwritten I thought we cloned everything what happened here remember
+
+13:59.920 --> 14:03.220
+each object gets passed by reference.
+
+14:03.370 --> 14:09.010
+So although we cloned the object the initial object.
+
+14:09.280 --> 14:15.340
+This is what we call a shallow clone it clone the first level.
+
+14:15.340 --> 14:24.100
+So that is the memory address in this object but within this object there was another address to another
+
+14:24.100 --> 14:24.690
+object.
+
+14:24.700 --> 14:32.280
+So again remember this is just another address that we had someplace in memory and this address.
+
+14:32.310 --> 14:34.000
+Well it never changed.
+
+14:34.050 --> 14:37.200
+It always referenced this object.
+
+14:37.260 --> 14:44.330
+So this is shallow cloning where we can only clone the first layer.
+
+14:44.390 --> 14:45.890
+That's a big problem right.
+
+14:45.890 --> 14:53.020
+How can we do deep cloning and the way we can do this is.
+
+14:53.210 --> 15:06.770
+Well a little funky we use Jason we say let super clone and we're going to use the Jason dot pass method
+
+15:08.630 --> 15:10.820
+and this is beyond the scope of the course.
+
+15:10.820 --> 15:13.800
+You can read up on what Jason pass does.
+
+15:13.940 --> 15:24.580
+But this Jason object is going to say Jason dot stringy ify let's make this a little bit bigger.
+
+15:24.590 --> 15:25.550
+There you go.
+
+15:25.550 --> 15:33.270
+We're going to string ify that is turn everything in here into a string and then once we turn everything
+
+15:33.270 --> 15:40.920
+into a string we're going to pass it and turn that string back into an object so that if I do super
+
+15:40.920 --> 15:41.490
+clone now
+
+15:44.600 --> 15:55.530
+at the bottom here let's do super clone and I run look at that try and copy me super clone.
+
+15:55.610 --> 15:58.540
+Let's make this a little bit smaller.
+
+15:58.550 --> 15:59.320
+There you go.
+
+15:59.390 --> 16:09.340
+Super clone version did a deep clone of the object very very cool now before.
+
+16:09.360 --> 16:13.740
+And this video I hope passed by reference and passed by value makes sense to you.
+
+16:13.740 --> 16:16.720
+Now I do want to give you a bit of a warning.
+
+16:16.800 --> 16:26.920
+However if you're doing a deep clone Well you should be careful because this can have some performance
+
+16:26.920 --> 16:33.720
+implications if this object was extremely deep a massive object.
+
+16:33.850 --> 16:38.240
+It's going to take a long time to clone everything right.
+
+16:38.320 --> 16:43.540
+So you won't see this out in the wild too much if you're cloning objects like this.
+
+16:43.690 --> 16:47.320
+There's most likely some other ways that you should be doing things.
+
+16:47.410 --> 16:54.520
+But I wanted to show you the idea of pass by reference the idea of shallow cloning deep cloning and
+
+16:54.610 --> 17:01.590
+some of the ways that we can use objects to get the desired.
+
+17:01.600 --> 17:03.790
+All right I hope that was fun.
+
+17:03.790 --> 17:05.820
+I'll see you in the next video by.

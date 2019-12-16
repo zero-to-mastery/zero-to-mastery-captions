@@ -1,0 +1,439 @@
+WEBVTT
+
+00:01.080 --> 00:01.450
+All right.
+
+00:01.480 --> 00:04.470
+It's time to talk about layout now.
+
+00:04.540 --> 00:07.910
+We already learned how will layout works and bootstrap.
+
+00:07.910 --> 00:11.640
+And we talked about why bootstrap became so popular now.
+
+00:11.770 --> 00:12.450
+Don't worry.
+
+00:12.460 --> 00:18.940
+Later on in the course I'm going to introduce you to topics like CSX grid and actually talk about really
+
+00:18.970 --> 00:22.750
+easy ways to do layout on a page.
+
+00:22.750 --> 00:27.190
+But for now we want us to use bootstrap because that's what we learned.
+
+00:27.250 --> 00:31.240
+And I'm warning you this is going to seem very overwhelming.
+
+00:31.240 --> 00:37.300
+I want to show you how bootstrap does layout because down the road when I introduce you to things like
+
+00:37.390 --> 00:43.780
+CSX grid you're going to see how much easier we have it now than we had maybe a few years ago but I
+
+00:43.780 --> 00:49.810
+still want you to learn how layout is done in bootstrap because you will encounter it throughout your
+
+00:49.810 --> 00:50.800
+career.
+
+00:50.830 --> 00:56.080
+Now if you go to the layout section on the bootstrap documentation you see over here that has some pretty
+
+00:56.080 --> 00:57.540
+good information.
+
+00:57.610 --> 01:06.110
+We can look at the grids and we've already talked about how grid works with bootstrap now.
+
+01:06.120 --> 01:12.060
+The first thing we want to do is to have a container and then maybe some rows that we can use columns
+
+01:12.510 --> 01:19.570
+on so if we go back to our page and we open up the index got a simple file.
+
+01:19.570 --> 01:22.450
+The first thing I want to do around the body.
+
+01:22.450 --> 01:27.220
+And one thing I'll do with my sublime text here is actually minimize the head tack here just so we can
+
+01:27.220 --> 01:27.820
+see a little bit.
+
+01:27.970 --> 01:30.190
+So I'm going to just click on this and look at that.
+
+01:30.220 --> 01:32.940
+It's minimized so I can just focus on the body.
+
+01:33.130 --> 01:42.310
+The first thing I want to do is say that I want to create a div with a class of container just like
+
+01:42.310 --> 01:47.320
+that and then we'll close this right over here.
+
+01:47.650 --> 01:50.460
+So let's indent that properly.
+
+01:50.470 --> 01:53.470
+Let's save and refresh right.
+
+01:53.480 --> 01:55.490
+We have everything in a container.
+
+01:55.490 --> 01:59.630
+Next is that we want to ideally all of these things to be in a row.
+
+01:59.660 --> 02:07.100
+So we want the H1 the H.R. and the button to just be a row one row that we have that is in the center
+
+02:07.100 --> 02:07.690
+of the page.
+
+02:08.390 --> 02:19.280
+So I'm just going to wrap this in a div and give it a class of row so once again let's close the div
+
+02:22.820 --> 02:24.710
+and indent this again.
+
+02:24.710 --> 02:31.800
+If I refresh not much has changed we may have lost the H.R. we'll get back to that in a second but we
+
+02:31.800 --> 02:38.140
+have a row now so that if I inspect let's say view developer tools
+
+02:41.370 --> 02:49.380
+and I click on this inspect I see well these elements if I go over here and let's open this up.
+
+02:49.380 --> 02:50.790
+Make this a little bit smaller.
+
+02:50.880 --> 02:58.900
+We see that we have the body we have the div which is the container and then we have the row right here.
+
+02:58.920 --> 03:05.710
+All right let me close this let's divide up these items into different sections.
+
+03:05.850 --> 03:10.690
+We have the header element that we can use.
+
+03:11.130 --> 03:15.570
+And this header element will contain the H one over here.
+
+03:15.570 --> 03:25.890
+So we have the header and one thing that we can use with bootstrap is a class called text center and
+
+03:25.890 --> 03:27.670
+text center as you might guess.
+
+03:27.720 --> 03:30.880
+If I refresh centers the text.
+
+03:31.200 --> 03:31.880
+So that's great.
+
+03:31.880 --> 03:34.230
+That's our header element.
+
+03:34.230 --> 03:37.610
+And we also want to create a another section here.
+
+03:37.650 --> 03:40.430
+Let's call it section.
+
+03:40.510 --> 03:52.040
+So this is a section element and this section element will also have the class text center.
+
+03:52.080 --> 03:55.230
+So if I refresh There you go.
+
+03:55.230 --> 03:58.900
+We got our H.R. horizontal line back.
+
+03:59.120 --> 03:59.910
+Hmm.
+
+04:00.540 --> 04:05.330
+Why isn't this center let's inspect this and find out.
+
+04:06.180 --> 04:12.840
+So I can open developer tools by pressing command option i or control option i if you're on a windows
+
+04:12.840 --> 04:13.070
+and
+
+04:15.880 --> 04:23.930
+let's look at the elements we have the container we have the RO We have the header and then we have
+
+04:24.290 --> 04:25.610
+the section.
+
+04:25.620 --> 04:26.250
+Mm hmm.
+
+04:26.240 --> 04:33.130
+Now we see over here that these ones aren't taking up the full width as we would want of the container.
+
+04:33.380 --> 04:35.320
+And we've seen this before with bootstrap.
+
+04:35.390 --> 04:35.660
+Right.
+
+04:36.880 --> 04:44.940
+We have to use this columns to tell it hey we want to contain or expand along the call
+
+04:47.920 --> 04:54.830
+and because bootstrap uses a 12 grid system we can just say in here in the header we want the column
+
+04:55.210 --> 05:02.000
+12 grid and then for the section we want the column 12 grid.
+
+05:02.140 --> 05:05.840
+So if I refresh There you go look at that.
+
+05:05.840 --> 05:13.040
+If I go over here I see that we have the row we have the header and then we have the text which as you
+
+05:13.040 --> 05:21.540
+can see contains the full amount of the container in the blue that's looking a lot better.
+
+05:21.550 --> 05:23.250
+That's great.
+
+05:23.260 --> 05:29.080
+Now if I close this home are taxed and Bunn it's still at the top.
+
+05:29.080 --> 05:31.410
+Ideally it's in the middle of the image.
+
+05:31.450 --> 05:34.660
+How can we fix this now.
+
+05:34.720 --> 05:37.380
+This part is really really tricky.
+
+05:37.510 --> 05:47.530
+If I actually search vertical alignment here you'll see that bootstrap has some vertical alignment options
+
+05:48.010 --> 05:56.500
+but these ones are using inline inline block inline table which is actually not the recommended way.
+
+05:56.610 --> 06:01.660
+Now the way we're going to do this is we're going to use flex.
+
+06:01.830 --> 06:09.570
+And this is a new feature with bootstrap because they're using the Flex box utilities that we've learned
+
+06:09.570 --> 06:10.150
+about.
+
+06:10.320 --> 06:10.620
+Right.
+
+06:11.100 --> 06:21.300
+So if I go over here you can see that I can activate the Flex box system by using the D flex class.
+
+06:21.300 --> 06:28.700
+So if I copy this and go to container and say deflects if I refresh.
+
+06:28.770 --> 06:29.190
+All right.
+
+06:29.190 --> 06:37.750
+Nothing happened because we've just enabled flex box but now we want to make sure that we can place
+
+06:37.750 --> 06:49.470
+things vertically in the center and this if we scroll down is what we want right here a line items.
+
+06:49.470 --> 06:52.650
+If we look over here it's a line items.
+
+06:52.650 --> 07:06.870
+Center so if I copy this which is this one over here and we add a line items Center five refresh.
+
+07:07.020 --> 07:10.720
+This isn't working and this is a little tricky.
+
+07:11.010 --> 07:14.760
+And I'm showing you this just to understand how to debug things.
+
+07:14.790 --> 07:20.640
+So let's say you just did this and for some reason you don't understand why this isn't working on the
+
+07:20.640 --> 07:21.800
+documentation page.
+
+07:21.810 --> 07:28.120
+Clearly it shows us that this should be working well we can inspect.
+
+07:28.130 --> 07:34.310
+So let's right click inspect and have a look at our H2 mail page.
+
+07:34.400 --> 07:37.800
+We have the container and then the body.
+
+07:37.820 --> 07:41.230
+Now you see here how everything is in the container.
+
+07:41.370 --> 07:47.450
+And as a matter of fact if we look at the container we're actually aligning items in the center because
+
+07:47.450 --> 07:50.850
+the container is actually not the full page.
+
+07:50.900 --> 07:52.490
+It's only the top part.
+
+07:52.490 --> 07:53.450
+Right.
+
+07:53.450 --> 07:54.970
+It's just this part.
+
+07:55.130 --> 08:02.850
+So here the container is not fully covering the page.
+
+08:02.870 --> 08:10.370
+So what we need to do just like we have in body if we look at style here you see how we have height
+
+08:10.490 --> 08:17.650
+of 100 percent all we need to do is tell the container that hey I want you to span the entire height
+
+08:18.130 --> 08:20.400
+of the page and then bootstrap.
+
+08:20.410 --> 08:29.460
+We can do that by saying height one hundred instead of adding the CSF stuff if I save this and refresh
+
+08:30.520 --> 08:31.310
+look at that.
+
+08:31.450 --> 08:32.650
+Five hover.
+
+08:32.740 --> 08:40.800
+You'll see that my container is now the full length of the page and our writing is right in the middle.
+
+08:40.840 --> 08:45.820
+If I scroll up or down look at that it's adjusting properly.
+
+08:45.880 --> 08:49.920
+Everything is centered.
+
+08:50.170 --> 08:53.920
+Now don't worry if this takes you a long time to figure out.
+
+08:53.920 --> 09:01.270
+Sometimes it involves googling around figure things out like it said later on in the CSX layout section
+
+09:01.270 --> 09:05.060
+of the course I'll actually show you how to make this so much simpler.
+
+09:05.110 --> 09:11.770
+Now the last thing I want to do is well right here I want to have a bit of space between the writing
+
+09:12.070 --> 09:13.380
+and the button.
+
+09:13.540 --> 09:15.090
+So what can we do here.
+
+09:15.920 --> 09:23.450
+I want to another section in between these two to hopefully buffer them away from each other so we can
+
+09:23.450 --> 09:32.120
+create that fairly easily we can just add a new div and we'll give it a class here of buffer that we'll
+
+09:32.120 --> 09:41.210
+have to write ourselves in this buffer class will be in between the header and then the horizontal line
+
+09:41.210 --> 09:42.190
+and the button.
+
+09:42.230 --> 09:49.790
+So let's also give this a column of 12 because we want to make sure that it covers the entire area.
+
+09:49.790 --> 09:52.130
+But right now there's nothing.
+
+09:52.130 --> 09:55.040
+If I right click here and inspect
+
+09:59.320 --> 10:03.220
+you'll see here that I have the buffer but the buffer doesn't have anything.
+
+10:03.220 --> 10:10.390
+It's completely empty because while there's nothing inside here but we can add a style let's say dot
+
+10:10.690 --> 10:17.900
+buffer in this buffer will have a height of what should we say.
+
+10:17.950 --> 10:25.220
+Well if I do let's say 50 pixels and I refresh look at that I get a nice little buffer.
+
+10:25.230 --> 10:33.690
+So now if I scroll over to buffer you see that I have a 50 pixel height buffer but I always like using
+
+10:33.780 --> 10:36.900
+our yen instead of pixels so let's do our.
+
+10:37.020 --> 10:39.930
+Let's see what five RTM means.
+
+10:39.930 --> 10:40.160
+All right.
+
+10:40.170 --> 10:41.080
+That's good.
+
+10:41.100 --> 10:43.840
+Maybe a little bit more.
+
+10:43.840 --> 10:44.790
+Let's do 10.
+
+10:44.800 --> 10:48.730
+Ah yeah let's save and refresh.
+
+10:48.730 --> 10:49.120
+All right.
+
+10:49.120 --> 10:50.900
+That looks actually quite nice.
+
+10:50.950 --> 10:54.310
+Fly close this down open it up.
+
+10:54.750 --> 10:55.070
+Yeah.
+
+10:55.080 --> 10:55.680
+Look at that.
+
+10:55.680 --> 10:57.880
+Now looks really really nice.
+
+10:57.990 --> 10:59.040
+And there we go.
+
+10:59.070 --> 11:02.010
+We have our startup landing page right here.
+
+11:02.070 --> 11:04.170
+Everything looks pretty nice right.
+
+11:04.260 --> 11:08.000
+And the way we've organized things seems pretty clean.
+
+11:08.040 --> 11:18.280
+Our button is well when we hover available but whenever I click on this button nothing's happening.
+
+11:18.280 --> 11:27.060
+Ideally we have a new page that opens up so that we can enter or our customers can enter their e-mails.
+
+11:27.160 --> 11:32.560
+And this is the exciting part that we're going to get to in the next video I'll see in that one by.

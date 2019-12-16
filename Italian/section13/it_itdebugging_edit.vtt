@@ -1,0 +1,283 @@
+WEBVTT
+
+00:01.100 --> 00:02.330
+Ben tornato.
+
+00:02.330 --> 00:10.550
+Voglio parlarti rapidamente di un argomento molto importante per uno sviluppatore, e questo è il debug.
+
+00:10.610 --> 00:14.810
+Il debug è l'atto di guardare il codice, capire cosa
+
+00:14.810 --> 00:22.870
+sta facendo e capire perché non si comporta come previsto o forse non è nemmeno in esecuzione, forse stai ricevendo
+
+00:22.880 --> 00:28.610
+errori o forse qualcosa che l'utente fa su un sito web sta innescando un
+
+00:28.730 --> 00:30.570
+comportamento strano .
+
+00:30.860 --> 00:36.100
+Questo è il debug. Capire perché il programma non si comporta così com'è.
+
+00:36.440 --> 00:42.190
+E quando lavori come sviluppatore, molto del tuo tempo viene impiegato per il debug.
+
+00:42.230 --> 00:48.130
+Quindi è un argomento molto importante e voglio parlare di alcune delle strategie che possiamo usare per il debug.
+
+00:48.170 --> 00:56.090
+Ho una funzione piuttosto complessa e francamente, a meno che tu non abbia molta esperienza con JavaScript, questa è
+
+00:56.720 --> 00:59.360
+una funzione piuttosto difficile da capire.
+
+00:59.510 --> 01:08.740
+Diciamo che ti metti al lavoro e qualcuno dice, ehi! Non lo so, non so cosa stia
+
+01:08.740 --> 01:09.870
+succedendo
+
+01:10.240 --> 01:17.600
+con questa funzione, puoi guardarci dentro? e devi capire cosa fa e se funziona bene o no.
+
+01:18.070 --> 01:23.490
+Quindi ti guiderò attraverso i passaggi che userei per eseguire il debug di questo codice.
+
+01:23.530 --> 01:29.970
+Forse funziona bene, forse no, ma voglio capire cosa fa questo pezzo di codice.
+
+01:30.880 --> 01:39.410
+Quindi la prima cosa che vorrei fare è leggerlo, dico OK, stiamo assegnando una variabile e sembra che
+
+01:39.410 --> 01:41.140
+abbiamo un array.
+
+01:41.270 --> 01:46.070
+È un array nidificato, quindi c'è un array all'interno di un array.
+
+01:47.410 --> 01:51.800
+E sembra che questo codice voglia fare qualcosa chiamato appiattito.
+
+01:51.870 --> 01:52.570
+OK.
+
+01:52.840 --> 02:00.790
+Sappiamo che "ridurre" da ciò che abbiamo imparato prima, "a" è "l'accumulatore".
+
+02:00.790 --> 02:01.690
+Posso cambiare il nome,
+
+02:01.720 --> 02:03.070
+quindi per me ha più senso.
+
+02:03.070 --> 02:05.730
+OK, l'accumulatore è perfetto.
+
+02:05.800 --> 02:08.790
+E 'b' sta bene cos'è 'b'?
+
+02:09.280 --> 02:20.320
+'b' è giusto, perché stiamo iterando, eseguendo il ciclo sul primo array che quindi ci dà tre array.
+
+02:20.510 --> 02:23.240
+Quindi posso solo dire, array qui. OK.
+
+02:28.620 --> 02:38.250
+Ora vedo anche che all'interno di questa riduzione, ho l'accumulatore, ho l'array e voglio che l'accumulatore inizi con
+
+02:38.370 --> 02:40.490
+un array vuoto.
+
+02:40.680 --> 02:42.170
+Questo ha senso finora.
+
+02:42.270 --> 02:45.470
+Quindi, quando si inizia, l'accumulatore sarà un array vuoto.
+
+02:45.720 --> 02:48.080
+E quello che faremo è che faremo,
+
+02:48.090 --> 02:50.410
+svuotare la matrice di punti concat.
+
+02:50.430 --> 02:58.580
+E se ricordi, 'concat' collega il contenuto di un array a qualunque cosa venga concessa.
+
+02:58.580 --> 03:06.590
+Una cosa che posso fare è aprire questa funzione, così ora, invece di avere
+
+03:06.590 --> 03:18.120
+solo una riga, posso dire 'console. registra 'array e scopriremo cos'è l'array e diremo anche' console. registro '' accumulatore ', dirà' accumulatore '.
+
+03:18.170 --> 03:24.050
+Quindi abbiamo la console aperta e vogliamo anche assicurarci di restituirla perché l'abbiamo rimossa da
+
+03:24.080 --> 03:29.160
+una singola riga che già implicitamente significa ritorno, per creare due righe.
+
+03:29.410 --> 03:29.620
+OK.
+
+03:29.630 --> 03:36.320
+Quindi aggiorna e aggiungi questa funzione e vediamo se riusciamo a ottenere alcuni registri della console per capire cosa
+
+03:36.320 --> 03:37.300
+sta facendo.
+
+03:37.410 --> 03:44.390
+Ci saranno tre loop che vediamo e nel primo loop sembra, dice che l'array è
+
+03:44.390 --> 03:48.050
+[0, 1] e "l'accumulatore" è l'array vuoto.
+
+03:48.140 --> 03:49.670
+Ok ha senso.
+
+03:49.670 --> 03:58.430
+E poi vediamo il secondo loop attorno all'array 2 e 3 che è qui, viene loopato intorno e
+
+03:58.760 --> 04:01.940
+'l'accumulatore' ora ha 0 e 1.
+
+04:01.940 --> 04:08.270
+Quindi sembra che dopo il primo ciclo, ho aggiunto lo zero e uno dell'array nell'array
+
+04:08.270 --> 04:11.870
+vuoto che è l'accumulatore. OK.
+
+04:12.050 --> 04:15.690
+E poi l'ultimo passaggio attraverso il quale sono quattro e cinque.
+
+04:15.740 --> 04:23.260
+Ora collego l'array di 4 e 5 nell'accumulatore che aggiunge 0, 1, 2, 3.
+
+04:23.300 --> 04:33.110
+Quindi sembra che ciò che stiamo facendo è afferrare ciascun array e lo stiamo aggiungendo all'accumulatore.
+
+04:33.150 --> 04:37.190
+E perché sembra qualcosa del genere.
+
+04:37.260 --> 04:44.530
+Quindi questo è come sembrerebbe nel primo passaggio, stiamo solo usando la funzione concat
+
+04:44.530 --> 04:53.560
+per unire gli array, [0, 1], in modo da appiattire l'array, quindi significa invece di avere un array
+
+04:53.590 --> 04:58.360
+all'interno di un array, possiamo appiattire completamente tutto.
+
+04:58.360 --> 05:08.570
+Ciò significa che con 'appiattito', se guardo a ciò che fa, trova semplicemente l'array [0, 1, 2, 3, 4, 5]. Eccezionale.
+
+05:08.720 --> 05:14.420
+C'è un altro trucco che voglio mostrarti, e cioè invece di usare il registro della
+
+05:14.420 --> 05:22.610
+console puoi usare qualcosa chiamato debugger. E noti che il colore è diventato rosso, il che significa Sì! è una parola chiave javascript.
+
+05:22.850 --> 05:24.460
+E cosa ti permette di fare?
+
+05:24.560 --> 05:33.430
+Bene, vediamo cosa succede quando eseguo di nuovo questa funzione per aggiornare qui e voglio eseguirla, whoa!
+
+05:33.430 --> 05:33.430
+cosa è appena successo.
+
+05:34.800 --> 05:43.350
+Quando il motore javascript e il browser si imbattono nel debugger di parole, si arrestano.
+
+05:43.430 --> 05:49.720
+È una, è una parola che dice qualunque cosa stia leggendo questo file, ehi! ferma qualunque cosa tu stia facendo, blocca
+
+05:50.840 --> 05:55.120
+e ci apre la finestra esattamente dove si è fermata.
+
+05:55.400 --> 05:58.190
+Quindi fammi fare questo a schermo intero e mostrarti.
+
+05:58.390 --> 06:07.330
+Si ferma nel mezzo della sua esecuzione. Ma vediamo che qui 'accumulatore' è un
+
+06:07.330 --> 06:17.700
+array vuoto perché mentre lo abbiamo avviato e l'array è 0 e 1, ora ho un paio di opzioni.
+
+06:17.850 --> 06:21.600
+Posso colpire il gioco che riprende l'intera cosa o posso
+
+06:21.600 --> 06:26.750
+premere Passa sopra e vediamo cosa succede con il passo sopra, passa alla riga successiva.
+
+06:27.780 --> 06:31.460
+E se clicco di nuovo, passa alla riga successiva.
+
+06:32.400 --> 06:40.980
+E ora vedo che l'accumulatore è 0 e 1 e l'array è ora 2 e 3.
+
+06:41.020 --> 06:48.130
+Quindi so che nella riga successiva, l'accumulatore, lo cambierò per errore in un array ma
+
+06:48.130 --> 06:59.550
+questo sarà l'accumulatore sarà 0 e 1 punto concat, 2 e 3. E posso continuare a passare attraverso questo e
+
+06:59.550 --> 07:06.260
+vedere come cambiano i parametri e letteralmente passare attraverso l'intera funzione.
+
+07:06.720 --> 07:07.950
+Chiudiamolo.
+
+07:08.260 --> 07:13.070
+Se lo riporto come era l'accumulatore, crealo a
+
+07:18.470 --> 07:19.910
+schermo intero.
+
+07:19.910 --> 07:20.720
+Tutto ok.
+
+07:20.720 --> 07:24.950
+Quindi array è [0, 1] 'accumulator' è un array vuoto, ho intenzione
+
+07:28.260 --> 07:34.470
+di passare in rassegna, che cambiato 'accumulator' è ora [0, 1] array [2, 3] e continuo a passare
+
+07:34.470 --> 07:40.460
+e noto esattamente cosa sta succedendo nel codice e quando ha terminato l'esecuzione, ritorna e guarda quello.
+
+07:40.620 --> 07:46.370
+Abbiamo di nuovo la nostra console.
+
+07:46.420 --> 07:47.500
+Non è fantastico?
+
+07:47.500 --> 07:53.080
+Il debugger ci consente di entrare letteralmente nella funzione e vedere cosa succede passo dopo passo. Mentre lo
+
+07:53.080 --> 07:57.050
+restituisco così com'era.
+
+07:57.160 --> 08:01.780
+Voglio che tu lo porti con te e capisca che anche se quando vedi per
+
+08:01.780 --> 08:02.800
+la prima volta
+
+08:02.800 --> 08:09.070
+qualcosa del genere, è travolgente, con abbastanza tempo e usando console e debugger sei in grado di capire cosa fa una
+
+08:09.070 --> 08:14.140
+funzione e se sta facendo qualcosa che non fai non aspettarti di fare o sta facendo qualcosa
+
+08:14.710 --> 08:17.390
+di sbagliato, puoi usare queste tecniche per risolverlo.
+
+08:17.400 --> 08:20.410
+È un'abilità molto utile che userai molto.
+
+08:20.730 --> 08:21.540
+Perciò buona fortuna.
+
+08:21.660 --> 08:23.270
+Divertiti là fuori. Buh-bye

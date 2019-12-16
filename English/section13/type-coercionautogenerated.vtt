@@ -1,0 +1,304 @@
+WEBVTT
+
+00:01.850 --> 00:03.660
+Type coercion.
+
+00:03.890 --> 00:09.940
+If there's one thing that's gonna make you pull out all your hair out of frustration.
+
+00:10.150 --> 00:19.290
+It's type caution if you Google type origin in JavaScript and looked at some of the posts you're going
+
+00:19.290 --> 00:26.310
+to see a lot of people angry at some of the funky things that JavaScript does and we're going to talk
+
+00:26.310 --> 00:32.700
+about that and I'm going to just give you a brief overview of it because it does get really convoluted
+
+00:32.730 --> 00:39.390
+complex and it's something that you should understand and know what it is but you don't have to know
+
+00:39.510 --> 00:43.630
+every single detail because most of the tricky parts.
+
+00:43.680 --> 00:48.060
+Well you shouldn't be using it in your code because it's confusing.
+
+00:48.060 --> 00:50.500
+So what is type cause.
+
+00:51.620 --> 00:59.620
+It's something like this one equals two string one and that equals two.
+
+00:59.690 --> 01:08.000
+True you see type caution means that when the appearance that is the things to the left and to the right
+
+01:08.510 --> 01:13.070
+of the operator are different types.
+
+01:13.120 --> 01:21.730
+That is no end string type one of them will be converted into an equivalent value by the JavaScript
+
+01:21.790 --> 01:22.150
+engine.
+
+01:22.990 --> 01:27.740
+So the JavaScript engine is going to say 1 equals to string 1.
+
+01:27.940 --> 01:29.890
+I think you mean number one.
+
+01:29.890 --> 01:39.550
+So it's going to do this for us and compare number one to number one now based on the definition type
+
+01:39.640 --> 01:47.100
+caution means the language converting a certain type to another type.
+
+01:47.150 --> 01:55.460
+Let me ask you a question do all languages have type caution.
+
+01:55.490 --> 01:58.900
+What do you think yes they do.
+
+01:59.470 --> 02:07.230
+Because we always need to convert types between programs to do things in memory.
+
+02:07.290 --> 02:12.240
+Different types look completely different than what we type.
+
+02:12.250 --> 02:16.290
+Write the number five in actual physical memory.
+
+02:16.290 --> 02:23.070
+Oh my computer is represented in once in zero and all languages do this.
+
+02:23.070 --> 02:29.110
+So there is some sort of type caution at different levels of the stack.
+
+02:29.430 --> 02:37.650
+It just so happens that JavaScript has an especially heavy type cause in nature to it because it's dynamically
+
+02:37.650 --> 02:40.460
+type which is why it does this.
+
+02:40.500 --> 02:50.170
+Let's go back to the example in JavaScript type caution happens when you use the double equal double
+
+02:50.170 --> 02:59.410
+equal sign simply means compare the two values and if they have different types try to well coerce one
+
+02:59.920 --> 03:00.790
+into the same type.
+
+03:02.330 --> 03:13.880
+If we go back and do a string here and I do three equals and I run I get false because three equals
+
+03:13.940 --> 03:17.180
+in JavaScript means compare to values.
+
+03:17.360 --> 03:25.300
+But don't try and curse the values be explicit with your comparison and do exactly what I tell you.
+
+03:25.470 --> 03:32.000
+So is there ever a time you should just use two equals instead of three equals.
+
+03:32.160 --> 03:33.340
+Mm hmm.
+
+03:33.510 --> 03:34.410
+I'll say that.
+
+03:34.410 --> 03:35.970
+No there isn't.
+
+03:36.000 --> 03:43.930
+Some people may argue that double equal can actually have some interesting applications where we coerce
+
+03:44.010 --> 03:51.890
+something and we do some sort of checking really quickly but it's not predictable code right.
+
+03:51.900 --> 03:53.000
+It can be confusing.
+
+03:53.040 --> 04:00.100
+It could really be a gotcha and trick some people so always use three equals instead of two.
+
+04:00.300 --> 04:04.590
+Now type caution doesn't happen just with the equals sign.
+
+04:04.590 --> 04:06.870
+You can also do an if statement.
+
+04:07.020 --> 04:19.930
+So if one then return five and if I run this well there's no function in here less to console.
+
+04:21.030 --> 04:22.900
+I've been recording for a long day today right.
+
+04:22.910 --> 04:24.560
+So give me a break everybody.
+
+04:24.640 --> 04:25.360
+All right.
+
+04:25.530 --> 04:29.540
+If I run this five is logged.
+
+04:29.580 --> 04:30.450
+Why is that.
+
+04:30.480 --> 04:35.400
+Because javascript course is one to equal true.
+
+04:35.490 --> 04:36.930
+What if I do zero here.
+
+04:36.990 --> 04:44.220
+If I do zero no javascript course is this and says well I want to boolean here.
+
+04:44.430 --> 04:53.050
+So I'm going to take your zero and turn that into a false now this sort of type caution there is a lot
+
+04:53.050 --> 04:55.390
+of interesting specifics to it.
+
+04:56.260 --> 05:02.470
+And as a matter of fact there's a nice little website that shows you some of the comparisons that JavaScript
+
+05:02.470 --> 05:04.990
+does with three equals.
+
+05:04.990 --> 05:08.920
+That is with no type caution things make sense.
+
+05:08.920 --> 05:13.860
+You see that false equals two false and that's it.
+
+05:13.910 --> 05:23.070
+You can see that string false only triple equals and returns true with string false again.
+
+05:23.540 --> 05:26.740
+But if we do double equals well.
+
+05:27.440 --> 05:27.810
+Oh boy.
+
+05:27.830 --> 05:30.790
+That's just a mess isn't it.
+
+05:30.800 --> 05:41.210
+For example string one is the same as true an array that contains one is also true when it's compared
+
+05:41.210 --> 05:42.880
+to string of one.
+
+05:43.100 --> 05:47.200
+And there are so many weird little edge cases here.
+
+05:47.390 --> 05:49.820
+If you want to play around with this go for it.
+
+05:49.820 --> 05:53.330
+But I'd like to stick with triple equals.
+
+05:53.360 --> 06:03.260
+You can also see some of the if statements here and some of the F cases that can really be tricky now
+
+06:03.380 --> 06:10.550
+if we go to this MDMA page which I will link to in this video we see that we have the double equals
+
+06:11.090 --> 06:12.410
+the triple equals.
+
+06:12.500 --> 06:20.270
+But then also something called Object dot is that's fairly new to JavaScript and this is an interesting
+
+06:20.270 --> 06:23.380
+one that you most likely won't see very often.
+
+06:23.390 --> 06:24.790
+But I think it's interesting.
+
+06:24.800 --> 06:31.730
+So we're going to talk about it just quickly you see in JavaScript there is a concept of negative zero
+
+06:32.360 --> 06:35.120
+and plus zero.
+
+06:35.120 --> 06:35.850
+Strange I know.
+
+06:36.200 --> 06:48.850
+So if I do negative zero triple equals plus zero and I run I get true but they're technically different
+
+06:49.030 --> 06:55.180
+things in JavaScript so I can actually do object dot is
+
+06:59.190 --> 07:04.190
+and given the two parameters and run and I get false.
+
+07:04.400 --> 07:12.910
+Now why is this useful if we go back to this page we see that object that is works pretty much the same
+
+07:12.940 --> 07:16.300
+as the triple equals except for a few cases.
+
+07:16.420 --> 07:19.220
+That is the plus and negative 0.
+
+07:19.390 --> 07:29.790
+And if we scroll all the way down to this funky little and a n not a no and we can do a whole course
+
+07:29.790 --> 07:39.360
+on how weird this not a number is but if I did not a number which represents not in numbers in JavaScript
+
+07:39.700 --> 07:46.020
+and I do triple equals not a number I get false but why is that.
+
+07:46.020 --> 07:49.200
+This is this should be equal right.
+
+07:49.470 --> 07:54.240
+So if we use object that is this turns into true.
+
+07:54.240 --> 08:01.470
+Again most likely in your day to day programming life you're never going to encounter this problem.
+
+08:01.680 --> 08:09.140
+But I wanted to demonstrate for you how confusing type caution can be and if you're the type of person
+
+08:09.140 --> 08:14.860
+that just loves type caution and wants to read all about it and understand all these intricacies I'll
+
+08:14.870 --> 08:22.880
+linked to the actual spec that talks about how the equality comparison algorithm works for me if I read
+
+08:22.910 --> 08:26.440
+this I'll be a good bedtime reading to make me fall asleep.
+
+08:26.570 --> 08:28.970
+If you're interested in it you can have a look.
+
+08:28.970 --> 08:36.980
+The main takeaway from here is that well you should use triple equals because type caution in JavaScript
+
+08:37.220 --> 08:39.780
+can be really tricky.
+
+08:39.970 --> 08:46.090
+By the way as a fun little side note there's a screen capture I took from Netflix watching this great
+
+08:46.270 --> 08:51.650
+hilarious documentary and you see that bugs in the code are unavoidable.
+
+08:51.730 --> 08:58.300
+Even the mighty Netflix every once in a while has an issue somewhere not a number.
+
+08:58.300 --> 08:58.670
+All right.
+
+08:58.870 --> 08:59.760
+That's it for now.
+
+08:59.800 --> 09:01.230
+I see in the next one by.

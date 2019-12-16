@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.520 --> 00:01.780
+Bem vindo de volta.
+
+00:01.780 --> 00:08.160
+Paramos no último vídeo com este log do console da consulta KNEX que acabamos de fazer.
+
+00:08.200 --> 00:16.000
+Agora, aqui está o que o KNEX faz. Ele cria nossa instrução SQL para nós.
+
+00:16.300 --> 00:26.230
+Então, o que acabamos de registrar foi a instrução de consulta criada pelo postgres ou pelo KNEX para o postgres.
+
+00:26.340 --> 00:32.100
+Você pode ver aqui que o construtor é um objeto que possui todas as informações necessárias para falar
+
+00:32.100 --> 00:34.670
+com o cérebro inteligente e fazer essa consulta.
+
+00:34.770 --> 00:43.890
+Se eu realmente quiser acessar algo dos usuários, terei que fazer nosso amigo. then () porque isso retorna
+
+00:44.010 --> 00:49.170
+uma promessa e recebemos nossa resposta.
+
+00:49.170 --> 00:55.950
+No nosso caso, serão dados, esses dados - novamente não precisamos fazer o Json porque não estamos enviando por
+
+00:55.950 --> 01:03.040
+HTTP -, recuperamos os dados e, se apenas consolamos. registrar esses dados, vamos ver o que obtemos.
+
+01:03.140 --> 01:09.420
+Salve e desça e é uma matriz vazia.
+
+01:09.460 --> 01:10.510
+Esse é um bom sinal.
+
+01:10.510 --> 01:13.480
+Ainda não temos usuários, mas estamos recebendo uma resposta.
+
+01:14.320 --> 01:15.270
+Então vamos fazer isso.
+
+01:15.490 --> 01:21.960
+Vamos criar uma instrução para inserir usuários quando eles se registrarem.
+
+01:22.090 --> 01:28.390
+Vou mudar isso para a variável DB apenas para que não fique confuso.
+
+01:28.630 --> 01:31.740
+E vamos manter isso como banco de dados.
+
+01:31.740 --> 01:37.710
+Tudo bem, vamos ao ponto final do registro e vou minimizar esse banco de dados porque
+
+01:37.710 --> 01:40.440
+vamos parar de usá-lo e excluí-lo depois.
+
+01:42.680 --> 01:49.490
+E se formos registrar, vemos isso agora, em vez de fazer o banco de dados. Comercial. pressione a variável, podemos
+
+01:49.730 --> 01:59.920
+apenas usar o KNEX, podemos remover isso e fazer o DB dot - Bem, teremos que inserir, certo.
+
+02:00.120 --> 02:06.780
+Vamos dar uma olhada nos documentos do KNEX e ver e ver métodos claros - insira.
+
+02:06.790 --> 02:08.670
+Tudo bem, veja esta excelente documentação.
+
+02:08.670 --> 02:13.410
+Podemos apenas descobrir exatamente o que precisamos. Para inserir algo, temos o método
+
+02:13.410 --> 02:17.580
+insert com os dados e o que queremos ou o que será retornado.
+
+02:17.580 --> 02:28.610
+Não podemos simplesmente copiar e colar isso, para que possamos inserir o banco de dados nos usuários que queremos inserir e que sejam lidos muito bem.
+
+02:28.610 --> 02:29.730
+Eu amo o KNEX.
+
+02:30.030 --> 02:38.570
+Queremos inserir um objeto e esse objeto conterá o que tivermos nas informações do usuário.
+
+02:38.610 --> 02:47.400
+Então, queremos inserir um e-mail, caso em que haverá um e-mail. Temos o nome, que novamente tem o nome
+
+02:47.430 --> 02:50.010
+que vemos do corpo.
+
+02:50.010 --> 02:57.600
+Também temos a senha, mas lembre-se de que em nossa tabela não temos a senha sob os usuários, portanto, deixaremos
+
+02:57.600 --> 02:58.740
+essa em branco.
+
+02:58.740 --> 03:06.960
+E se voltarmos ao nosso exemplo de tabela aqui e nos conectarmos novamente aqui, veremos que o ID do usuário é gerado automaticamente
+
+03:06.960 --> 03:12.710
+como nome, email, e as entradas são zeradas para que não tenhamos que inserir nada.
+
+03:13.080 --> 03:17.780
+E ingressou é a data em que ingressou.
+
+03:17.800 --> 03:32.320
+Então, vamos começar uma nova data e, uma vez inseridos, vamos fazer a. então (console. log) para ver o que recebemos
+
+03:32.320 --> 03:34.290
+de volta.
+
+03:34.330 --> 03:41.390
+Eu vou salvar. Não recebemos nenhum erro, o que é bom e podemos voltar ao nosso aplicativo. Na verdade, só porque é
+
+03:41.390 --> 03:48.350
+mais rápido, em vez de fazer o registro por aqui, vamos abrir o carteiro e o carteiro já
+
+03:48.350 --> 03:52.870
+tem todos os nossos comandos anteriores aqui, o que eu amo.
+
+03:52.940 --> 04:03.610
+Então, clique no registro e aponte com o corpo de Ann Apples e clique em enviar.
+
+04:03.630 --> 04:08.790
+Tudo bem, obtemos uma resposta, mas lembre-se de que nunca mudamos uma resposta, mas se voltarmos
+
+04:10.220 --> 04:12.550
+ao servidor, obtemos a inserção do resultado.
+
+04:12.650 --> 04:13.460
+Tudo certo.
+
+04:13.460 --> 04:14.660
+Parece que funcionou.
+
+04:14.870 --> 04:25.260
+Se voltarmos ao banco de dados e selecionarmos uma estrela dos usuários, quão legal é isso.
+
+04:25.490 --> 04:34.250
+Temos Ann, que foi inserida como nosso primeiro usuário, com entradas padrão de 0. Surpreendente.
+
+04:34.340 --> 04:35.980
+É como mágica.
+
+04:35.990 --> 04:42.430
+Quão simples foi usar o KNEX e o postgres e criar nosso primeiro banco de dados.
+
+04:42.460 --> 04:43.170
+Tudo certo.
+
+04:43.250 --> 04:47.870
+No próximo vídeo, trabalharemos nessa resposta.
+
+04:47.870 --> 04:48.740
+Vejo você nesse.
+
+04:49.270 --> 04:49.650
+Tchau tchau.

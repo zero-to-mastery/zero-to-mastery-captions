@@ -1,0 +1,265 @@
+WEBVTT
+
+00:01.620 --> 00:03.020
+Hei kamu masih ada.
+
+00:03.060 --> 00:04.880
+Senang bertemu denganmu lagi.
+
+00:04.890 --> 00:05.290
+Baiklah.
+
+00:05.340 --> 00:11.550
+Jadi kami hanya konsol yang mencatat jenis tindakan ini dan juga melakukannya.
+
+00:11.550 --> 00:12.690
+Di mana kita melakukan itu.
+
+00:12.690 --> 00:16.260
+Kami juga melakukan itu bagian aksi juga.
+
+00:16.420 --> 00:23.660
+Tapi maksud saya ini bagus untuk dilihat tetapi kami tidak ingin menghibur log di mana saja di aplikasi redux kami untuk semua
+
+00:23.660 --> 00:24.580
+tindakan kami.
+
+00:24.800 --> 00:29.300
+Jadi mari kita hapus ini dan kembali ke cara kita memiliki sesuatu.
+
+00:29.390 --> 00:35.010
+Biarkan saya mengatakan itu dan juga di reducer hapus log konsol kami.
+
+00:35.340 --> 00:44.010
+Sekarang bukankah itu keren jika ada cara bagi kita untuk kembali ke aplikasi kita dan masih memantau tindakan
+
+00:44.910 --> 00:52.760
+kita dan men-debug aplikasi kita dengan hanya melihat tindakan mana yang dipicu mana peredam dipicu.
+
+00:53.220 --> 00:56.500
+Untungnya bagi kita ada cara untuk melakukan itu.
+
+00:57.320 --> 00:58.790
+Sekarang saya akan menunjukkan kepada Anda bagaimana itu.
+
+00:58.790 --> 01:03.250
+Tetapi pertama-tama saya harus mengakui sesuatu: Saya mungkin telah berbohong sedikit kepada Anda.
+
+01:03.530 --> 01:13.180
+Anda lihat sebenarnya ada bagian lain dari diagram ini yang menunjukkan Anda dan itu adalah sesuatu yang disebut middleware.
+
+01:13.490 --> 01:14.360
+Dan jangan takut.
+
+01:14.360 --> 01:20.690
+Ini cukup sederhana dan bekerja mirip dengan bagaimana middleware mengekspresikan. js bekerja.
+
+01:21.210 --> 01:31.680
+Ini hanya mendengarkan tindakan dan merupakan terowongan yang dilalui tindakan dan tergantung pada apa middleware itu, ia
+
+01:31.680 --> 01:36.660
+dapat memodifikasi tindakan atau memicu tindakan lain.
+
+01:36.660 --> 01:44.790
+Jadi mereka seperti pemicu yang dilalui tindakan dan sesuatu terjadi di dalam kotak biru ini,
+
+01:44.790 --> 01:46.860
+sebelum menyentuh peredam.
+
+01:46.890 --> 01:50.020
+Jadi mengapa itu mungkin berguna bagi kita.
+
+01:50.970 --> 01:57.820
+Saya akan menunjukkan satu hal yang sangat bagus untuk Anda. Jika kita kembali ke indeks. File js, kita
+
+01:59.250 --> 02:05.580
+dapat menginstal sesuatu yang merupakan middleware dan itu disebut redux logger.
+
+02:05.580 --> 02:13.140
+Jadi mari kita lakukan itu: npm install redux-logger.
+
+02:13.140 --> 02:13.840
+Baiklah, sempurna.
+
+02:13.950 --> 02:20.850
+Dan cara kita menggunakan logger ini, yang membantu dengan masuk ke
+
+02:20.850 --> 02:32.010
+konsol sehingga kita dapat men-debug aplikasi kita dengan sangat mudah, kita dapat mengimpor sesuatu yang disebut createLogger dari paket yang
+
+02:32.010 --> 02:40.020
+baru saja kita instal yang merupakan paket redux-logger dan ini sangat sangat mudah digunakan.
+
+02:40.290 --> 02:49.780
+Yang perlu kita lakukan hanyalah mengucapkan const logger eqals ke createLogger.
+
+02:50.000 --> 03:01.270
+Dan sekarang kita memiliki fungsi logger ini, yang merupakan middleware, kita dapat menerapkannya pada aplikasi redux kami.
+
+03:01.660 --> 03:10.450
+Dan cara kita melakukan itu adalah melalui paket redux yang datang dengan sesuatu yang disebut applyMiddleware dan kita menerapkan middleware mengatakan
+
+03:13.990 --> 03:19.380
+hei kita ingin menerapkan beberapa middleware untuk aliran ini yang telah kita
+
+03:21.010 --> 03:28.870
+lakukan sehingga kita dapat dengan mudah membuat fungsi toko memiliki parameter kedua yang mengatakan applyMiddleware dan berikan middleware
+
+03:28.870 --> 03:31.160
+apa pun yang kami tertarik.
+
+03:31.240 --> 03:39.050
+Dalam kasus kami, logger. Jadi katakan saja itu. Saya akan mulai NPM di sini.
+
+03:47.660 --> 03:55.330
+Dan cara kita membuat logger karena ini adalah fungsi, kita perlu menjalankan fungsinya.
+
+03:55.400 --> 03:59.900
+Mari kita simpan, kembali, kita tidak memiliki kesalahan log konsol.
+
+04:00.360 --> 04:11.900
+Tapi sekarang jika saya mengetik sesuatu ke dalam kotak Anda melihat bahwa saya baru saja mengetik L dan logger middleware menangkap tindakan saya
+
+04:12.050 --> 04:19.670
+dan berkata Di atas tindakan ini yang akan masuk ke peredam saya ingin juga konsol
+
+04:19.670 --> 04:23.000
+log ini dan itu aksinya .
+
+04:23.030 --> 04:29.600
+Jadi saya mendapatkan searchField keadaan sebelumnya kosong dan kemudian tindakan yang kami lakukan adalah CHANGE_SEARCH_FIELD
+
+04:29.960 --> 04:31.820
+dengan payload "l".
+
+04:32.180 --> 04:35.220
+Dan negara berikutnya adalah searchField dengan "l".
+
+04:35.450 --> 04:36.750
+Betapa kerennya itu.
+
+04:36.770 --> 04:47.400
+Kami memiliki pencatatan instan dalam aplikasi kami dan pencatat ini membantu kami bekerja dengan kode kami lebih baik.
+
+04:47.410 --> 04:55.100
+Inilah bagian yang menarik tentang ini. Karena saat ini sulit untuk benar-benar mengatakan mengapa
+
+04:55.100 --> 04:58.620
+ini berguna selain hanya mendapatkan beberapa penebangan.
+
+04:58.780 --> 05:07.420
+Tetapi keindahan dengan redux adalah fakta bahwa itu membuatnya sangat mudah bagi Anda untuk alasan tentang aplikasi Anda, dan memantau mengapa
+
+05:07.420 --> 05:09.290
+aplikasi Anda sedang berjalan.
+
+05:09.570 --> 05:15.540
+Anda tahu sekarang, kita memiliki sistem yang bersih untuk memonitor setiap
+
+05:15.670 --> 05:26.020
+tindakan kita sehingga tidak peduli berapa banyak tindakan yang kita miliki, kita selalu dapat memprediksi apa yang akan mereka
+
+05:26.020 --> 05:26.890
+lakukan.
+
+05:26.920 --> 05:34.110
+Kita dapat mendengarkan apa hasil pencatatan setiap tindakan ini terjadi, karena peredam adalah fungsi murni.
+
+05:34.210 --> 05:39.910
+Kita selalu tahu itu akan mengembalikan keadaan yang sama dan lagi karena cara bereaksi bekerja kita juga tahu bahwa
+
+05:39.910 --> 05:48.660
+begitu keadaan berubah itu akan membuat perubahan yang dapat diprediksi ke pandangan kita. Dan dengan middleware
+
+05:48.660 --> 05:54.090
+kami dapat mencatat tindakan ini.
+
+05:54.090 --> 06:01.330
+Dan secara teoritis kita bahkan dapat kembali ke masa lalu dan memainkan berbagai tindakan yang dimainkan pengguna kami.
+
+06:02.450 --> 06:07.840
+Karena kita memiliki daftar, daftar kronologis dari semua tindakan
+
+06:07.840 --> 06:11.840
+ini sekarang. ini sebabnya saya suka mengajar redux.
+
+06:11.980 --> 06:15.920
+Itu bukan karena perpustakaan akan ada untuk selamanya.
+
+06:16.000 --> 06:21.970
+Tidak, itu kemungkinan besar akan digantikan oleh sesuatu yang baru oleh alat dan perpustakaan lain.
+
+06:22.900 --> 06:31.210
+Tapi itu adalah perpustakaan yang sangat penting yang mengubah cara kita berpikir tentang membangun aplikasi alih-alih hanya
+
+06:31.210 --> 06:37.720
+memiliki tindakan berantakan di mana-mana dan hanya memikirkan kode atau sesuatu yang terus
+
+06:37.720 --> 06:43.320
+kita tempel dan terus membangun dan terus menambahkan fitur berbeda, redux
+
+06:43.330 --> 06:52.810
+membuat Anda berpikir dengan cara hei bagaimana saya bisa membuat aplikasi yang dapat meningkatkan skala di mana kita memiliki ribuan
+
+06:52.810 --> 06:55.590
+interaksi pengguna jutaan interaksi pengguna.
+
+06:55.660 --> 07:03.190
+Bagaimana kita dapat membuatnya sehingga informasi mengalir dari satu ke yang lain ke tampilan yang dapat diprediksi,
+
+07:03.190 --> 07:05.480
+ke sistem yang dapat diprediksi.
+
+07:05.810 --> 07:12.970
+Dan sebagai pengembang senior Anda benar-benar ingin memikirkan hal ini, bagaimana Anda membangun sistem yang bekerja
+
+07:12.970 --> 07:17.300
+sangat baik bersama dan logis dan mengalir dengan baik.
+
+07:17.350 --> 07:22.660
+Dan itulah mengapa redux mendapatkan inspirasi dari desain basis data karena basis datanya hampir sama.
+
+07:22.660 --> 07:24.670
+Mereka selalu ditindaklanjuti.
+
+07:24.670 --> 07:32.590
+Ada yang membaca, ada yang menulis, dan mereka perlu cara untuk memastikan bahwa mereka mengelola semua orang ini dengan mencelupkan tangan
+
+07:32.590 --> 07:39.160
+mereka ke dalam database dan melakukan sesuatu, tetapi juga menghindari bug dan kesalahan dan semua hal ini
+
+07:39.160 --> 07:41.080
+pada saat yang bersamaan.
+
+07:41.170 --> 07:47.920
+Ini sedikit catatan tetapi saya pikir penting untuk memahami ini, dan ini adalah cara yang baik untuk memikirkan
+
+07:48.190 --> 07:53.890
+hal-hal dan diagram alir bagaimana data mengalir melalui aplikasi Anda dan bagaimana Anda harus menyusun aplikasi
+
+07:53.890 --> 07:56.450
+Anda sehingga data mengalir dengan lancar.
+
+07:58.170 --> 08:06.270
+Akhirnya saya ingin menunjukkan kepada Anda alat lain. Saya suka redux logger karena sederhana, tetapi Redux DevTools
+
+08:06.290 --> 08:14.000
+benar-benar bagus dan menggunakan ide middleware ini untuk mendengarkan aksi dan log out untuk Anda satu ton hal menarik
+
+08:14.000 --> 08:19.400
+yang Anda bahkan dapat memutar ulang sejarah dan apa yang Anda lakukan di aplikasi.
+
+08:19.400 --> 08:23.510
+Ini adalah alat yang sangat bagus untuk Anda mainkan saat ini.
+
+08:24.410 --> 08:27.130
+Kami telah belajar tentang middleware.
+
+08:27.280 --> 08:34.840
+Kami telah menciptakan toko kami dan kami memiliki gambaran lengkap. Atau apakah kita?
+
+08:34.840 --> 08:39.230
+Ada bagian lain dari aplikasi kami yang harus diubah menjadi redux.
+
+08:39.260 --> 08:42.860
+Jadi, dengan itu, saya akan melihat Anda di yang berikutnya. Sampai jumpa

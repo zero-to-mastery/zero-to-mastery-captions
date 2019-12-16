@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+E bem vindo de volta.
+
+00:02.830 --> 00:10.710
+Neste vídeo, falaremos sobre um conceito importante em javascript chamado 'scope'.
+
+00:10.840 --> 00:20.890
+Agora, o que é escopo? escopo significa acesso variável, a quais variáveis eu tenho acesso quando um código está em execução?
+
+00:21.710 --> 00:29.600
+Por padrão, em Javascript, você está no 'escopo raiz', que é o objeto 'janela'.
+
+00:29.600 --> 00:30.410
+Deixe-me mostrar o que estou falando.
+
+00:31.700 --> 00:36.560
+Se no meu console eu faço algo como
+
+00:39.820 --> 00:49.160
+o console 'function aa ()' '. log ("test") 'e encerramos essa função.
+
+00:49.230 --> 00:58.530
+Bem, agora, a 'função aa' faz parte do 'escopo da janela'.
+
+00:58.630 --> 01:09.120
+Se eu abrir 'janela' aqui e abrir 'janela', verá que a função 'aa' foi adicionada ao 'escopo
+
+01:09.330 --> 01:11.250
+da janela'.
+
+01:11.290 --> 01:15.610
+Portanto, quando você está trabalhando em um navegador, isso é chamado de 'escopo raiz'.
+
+01:15.610 --> 01:19.600
+Então, o escopo pai.
+
+01:19.760 --> 01:28.890
+Agora, e se eu fizer algo assim. Se eu for 'função bb'.
+
+01:29.680 --> 01:33.930
+E dentro dessa função, faremos.
+
+01:34.180 --> 01:34.870
+a
+
+01:39.820 --> 01:47.050
+variável 'a' é igual a "olá" Será que essa função, se eu executar isso
+
+01:47.230 --> 01:54.460
+no console, se eu executar agora 'console. log (a) 'funcionará.
+
+01:54.550 --> 02:03.280
+Não, porque 'a' vive apenas dentro da 'função bb', o escopo está dentro da função.
+
+02:03.280 --> 02:12.330
+Portanto, a única maneira de fazer o console. log (a) 'está na função de adicionar, oops!
+
+02:12.460 --> 02:20.060
+Deve tentar isso novamente, dentro da função para adicionar 'console. log (a) '.
+
+02:20.070 --> 02:24.000
+Então agora se eu executar a função, tenho
+
+02:24.060 --> 02:24.930
+'olá'.
+
+02:25.410 --> 02:32.850
+Agora, o interessante é que as funções têm acesso a qualquer variável no
+
+02:32.850 --> 02:34.110
+escopo raiz.
+
+02:34.380 --> 02:51.080
+Por exemplo, se eu fizer 'variável (var) b igual, posso acessar isso? 'A função' bb 'tem acesso a isso?
+
+02:51.250 --> 03:05.920
+Porque como você sabe 'janela. bb 'existe e a variável' b 'vive no objeto da janela.
+
+03:05.960 --> 03:13.990
+Então, ambos têm o mesmo pai. Deixe-me mostrar o que quero dizer, copiando isso e colocando-o
+
+03:13.990 --> 03:15.760
+no console Agora,
+
+03:15.940 --> 03:22.180
+no console 'function bb' if we do '. log (b) 'Bem, temos
+
+03:27.450 --> 03:40.170
+acesso a este OK, e se eu fizer algo ao longo das linhas da variável (var)' b 'posso acessar isso.
+
+03:40.170 --> 03:45.150
+Eu faço 'b' é igual a "olá", se eu copiar isso.
+
+03:45.280 --> 03:47.940
+E agora eu faço
+
+03:48.020 --> 03:50.230
+'console. log (b) 'Bem,
+
+03:50.230 --> 03:56.840
+eu tenho, posso acessar isso porque não executei a função, mas se eu executar a função' bb () '.
+
+03:57.020 --> 03:57.890
+Agora se eu fizer.
+
+03:57.890 --> 04:02.330
+'console. log (b) 'Eu recebo' Olá
+
+04:02.420 --> 04:03.190
+'.
+
+04:03.470 --> 04:08.860
+Porque 'b' é a mesma variável.
+
+04:09.290 --> 04:14.550
+Ok, vamos fazer algo um pouco mais complexo.
+
+04:14.880 --> 04:23.540
+Então, sabendo o que sabemos, sabemos que esse é o escopo raiz do nosso caso, é a janela.
+
+04:23.540 --> 04:25.150
+Dentro daqui, podemos declarar uma variável.
+
+04:25.210 --> 04:27.480
+"divertido", diremos que é igual a cinco.
+
+04:28.280 --> 04:30.290
+E também
+
+04:32.840 --> 04:35.550
+declararemos uma função, denominada 'funFunction'.
+
+04:35.870 --> 04:41.940
+E nessa função, assim que criamos esses colchetes '{}', criamos um escopo filho aqui.
+
+04:46.280 --> 04:55.170
+Então aqui dentro eu direi variável (var) 'fun' igual 'hellooo' e will 'console. log (fun) 'aqui e
+
+05:00.410 --> 05:07.650
+criaremos outra função, exceto esta que chamará' funnerfunction '.
+
+05:07.810 --> 05:15.030
+E dentro deste, você dirá 'Byee' e o console registrará isso.
+
+05:15.180 --> 05:24.110
+E, finalmente, criaremos uma terceira função e chamaremos isso de 'funnestFunction'.
+
+05:24.110 --> 05:32.670
+E aqui removemos a variável e dizemos 'AHHHHHH'.
+
+05:32.850 --> 05:40.370
+E na parte inferior também faremos o console. log (divertido) '.
+
+05:40.400 --> 05:41.020
+Tudo certo.
+
+05:41.160 --> 05:42.390
+Então, vamos rever isso.
+
+05:42.390 --> 05:44.020
+Estamos declarando que uma variável divertida
+
+05:44.130 --> 05:45.440
+é igual a cinco.
+
+05:45.480 --> 05:51.800
+Criamos três funções e cada uma dessas funções cria seu próprio escopo e o console de
+
+05:54.770 --> 05:58.240
+cada uma dessas funções. log (divertido) '.
+
+05:58.340 --> 06:06.580
+Mas o que “diversão” significa em cada um deles é diferente com base em seu escopo.
+
+06:07.430 --> 06:18.510
+Portanto, o primeiro nomeá-lo como '1', para que saibamos que o segundo dirá '2', 'terceiro (3)' e,
+
+06:18.510 --> 06:22.590
+finalmente, aqui podemos apenas dizer 'janela'.
+
+06:22.690 --> 06:24.880
+Então, vamos executar esta função e ver o que acontece.
+
+06:25.800 --> 06:28.730
+Veja se você consegue adivinhar, o que está prestes a acontecer aqui,
+
+06:29.000 --> 06:29.480
+OK.
+
+06:29.610 --> 06:34.970
+Então, temos uma janela 5, o que significa esta linha aqui.
+
+06:35.200 --> 06:37.700
+A variável divertida é '5'.
+
+06:37.720 --> 06:39.770
+Nada foi executado.
+
+06:39.810 --> 06:44.910
+Lemos o script e vemos que a variável diversão é igual a 5 e, em seguida, vemos essas
+
+06:44.910 --> 06:46.660
+funções, mas nenhuma delas é executada.
+
+06:46.830 --> 06:55.400
+E agora, se eu executar o 'funFunction' para executá-los e o 'funnerFunction'.
+
+06:55.650 --> 07:06.920
+E finalmente a 'funnestFunction'. Eu copio e colo e executo novamente, vemos que temos a janela 5, linha 24 que
+
+07:06.920 --> 07:09.650
+foi executada, que é a variável 5.
+
+07:10.070 --> 07:18.350
+Agora, na primeira função, temos a variável diversão igual a "hellooo" porque criamos um novo escopo
+
+07:19.710 --> 07:25.620
+e, dentro dessa função, vive a diversão variável que tem "hellooo".
+
+07:25.640 --> 07:27.940
+Então isso é substituído.
+
+07:28.190 --> 07:35.630
+E então temos a segunda função que tem "Byee" novamente a mesma coisa que acima, porque temos um novo escopo,
+
+07:35.660 --> 07:36.880
+uma nova variável.
+
+07:37.050 --> 07:38.480
+diversão é igual a "comprador".
+
+07:38.870 --> 07:44.410
+E então o terceiro, vemos que nos divertimos é igual a "AHHHHHH".
+
+07:44.930 --> 07:47.330
+E novamente isso muda.
+
+07:47.870 --> 07:50.550
+E isso é igual à diversão.
+
+07:50.690 --> 07:52.550
+Aqui está a parte divertida.
+
+07:52.580 --> 07:56.330
+Se agora eu faço 'console. log (diversão)
+
+07:59.610 --> 08:13.550
+'agora é igual a' AHHHHHH 'porque na terceira função, modificamos a diversão, que é essa variável igual a "AHHHHHH".
+
+08:14.000 --> 08:22.480
+Uma coisa que quero mostrar é que, nas duas primeiras funções, não poderei acessar a variável 'fun'
+
+08:22.480 --> 08:29.750
+no escopo raiz, porque eu as substituí essencialmente nas 'funFunction' e 'funnerFunction' 'fun' é
+
+08:30.810 --> 08:35.010
+igual a algo que é seu próprio significado.
+
+08:35.010 --> 08:40.890
+Portanto, dentro desta função, diversão é igual a "hellooo", na função funner é igual a "Byee".
+
+08:41.190 --> 08:49.590
+E não importa o que aconteça, não teremos acesso ao escopo raiz e isso é chamado de conflito de nomenclatura, onde nomeamos
+
+08:49.590 --> 08:56.610
+as coisas da mesma maneira, algo que vive, digamos no escopo pai, e perderemos o acesso a
+
+08:56.610 --> 08:57.120
+ele.
+
+08:58.070 --> 09:04.710
+Então, para finalizar esse ponto, vamos excluir isso e analisar o que está acontecendo aqui.
+
+09:04.800 --> 09:08.640
+Então, vamos excluir isso também e diremos apenas o 'console'. log 'aqui.
+
+09:09.260 --> 09:16.090
+Quando alguém executa 'funnestFunction', executamos isso e o Javascript respira divertido o log do console.
+
+09:16.530 --> 09:18.660
+Ok, divertido, nós
+
+09:18.660 --> 09:22.060
+a conhecemos? e olhamos para o escopo aqui.
+
+09:22.060 --> 09:22.830
+Você olha para esta função.
+
+09:22.840 --> 09:25.840
+Ei, você sabe o que é "divertido"?
+
+09:25.930 --> 09:32.840
+E a função diz: Bem, desculpe amigo, eu realmente não sei 'diversão', mas pergunte aos meus pais.
+
+09:33.070 --> 09:37.110
+Então agora vamos para fora da função.
+
+09:37.210 --> 09:38.890
+Nesse caso, o escopo das raízes.
+
+09:38.890 --> 09:42.650
+Agora dizemos: ei, você sabe 'divertido'?
+
+09:42.700 --> 09:44.830
+E eles são como, Yah yah! nós temos uma diversão variável.
+
+09:44.830 --> 09:46.170
+É igual a cinco.
+
+09:46.570 --> 09:51.000
+Então agora console. log 'pode registrar 5.
+
+09:51.180 --> 09:59.760
+Mas se "diversão" não existe, perguntamos aos pais e os pais dizem: "Desculpe, não tenho idéia do que é divertido".
+
+09:59.810 --> 10:03.410
+Então temos, bem, temos um erro.
+
+10:03.470 --> 10:07.060
+Portanto, a última verificação é sempre o escopo raiz. No nosso caso,
+
+10:07.190 --> 10:09.410
+o objeto window, se não conseguimos encontrá-lo.
+
+10:09.410 --> 10:11.360
+Temos esse erro no console.
+
+10:11.360 --> 10:12.630
+Nós sempre vemos.
+
+10:12.830 --> 10:15.560
+Desculpe! sua variável friend não existe.
+
+10:15.650 --> 10:19.340
+Eu acho que você a inventou e é isso que se aplica.
+
+10:19.340 --> 10:22.390
+Eu tenho um exercício divertido para você logo após este vídeo.
+
+10:22.400 --> 10:25.030
+Faça uma tentativa e até a próxima.

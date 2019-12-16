@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.750 --> 00:05.650
+E un bentornato. Sappiamo come funziona l'applicazione RoboFriends
+
+00:05.660 --> 00:14.330
+adesso, con la reazione, è grandioso. Ma Bruno ci ha chiesto una cosa specifica. Dobbiamo aggiungere redux alla nostra app
+
+00:14.330 --> 00:20.860
+RoboFriends in modo che possa scalare bene e gestire meglio la gestione dello stato.
+
+00:22.630 --> 00:28.960
+Ora con questi prossimi video avremmo lavorato insieme, passo dopo passo.
+
+00:28.990 --> 00:34.630
+Ti mostrerò come viene implementato Redux e come funziona e seguirai cercando di
+
+00:35.170 --> 00:38.320
+assicurarti che anche il tuo codice funzioni.
+
+00:38.770 --> 00:42.120
+Va bene, prendi una pausa ora e imposta il tuo ambiente.
+
+00:42.140 --> 00:46.470
+Quindi puoi scrivere insieme a me. Sei pronto?
+
+00:46.510 --> 00:46.940
+Tutto ok.
+
+00:46.960 --> 00:48.300
+Ho intenzione di iniziare.
+
+00:48.370 --> 00:56.360
+La prima cosa che farò è che ho la mia app RoboFriends, quindi ho intenzione di clonare questo repo e faremo il nostro normale
+
+00:56.360 --> 01:06.650
+set up con git clone e poi andrò su CD nel mio RoboFriend . Perfezionare.
+
+01:06.690 --> 01:09.510
+Apriamolo nel tuo editor di testo.
+
+01:14.630 --> 01:18.720
+E ancora mi piace unirmi a questi insieme così sembra carino.
+
+01:19.470 --> 01:20.670
+E pulito
+
+01:20.720 --> 01:21.250
+Perfezionare.
+
+01:22.670 --> 01:29.510
+Ora ovviamente la prima cosa che dobbiamo fare quando cloniamo qualcosa è l'installazione di npm
+
+01:29.510 --> 01:32.710
+per assicurarci di avere tutti i pacchetti.
+
+01:32.920 --> 01:38.970
+E vogliamo anche assicurarci che tutto proceda senza intoppi e senza errori.
+
+01:39.190 --> 01:48.410
+Quindi il prossimo passo sarà eseguire npm start.
+
+01:48.460 --> 01:49.180
+Tutto ok.
+
+01:49.180 --> 01:49.690
+Perfezionare.
+
+01:49.690 --> 01:50.930
+Tutto funziona.
+
+01:51.040 --> 01:53.780
+E dovremmo essere in grado di filtrare.
+
+01:53.780 --> 01:56.420
+Perfezionare.
+
+01:56.430 --> 01:56.690
+Tutto ok.
+
+01:56.700 --> 01:59.790
+Quindi abbiamo familiarità con questo codice base.
+
+02:01.120 --> 02:09.990
+Abbiamo la nostra app di reazione, ma il gioco è fatto. Basta una semplice app per reagire con contenitori e componenti.
+
+02:10.040 --> 02:20.930
+La prima cosa che vorremmo fare è installare Redux. Quindi ho intenzione di chiudere questo ed eseguire npm install redux.
+
+02:23.740 --> 02:30.990
+Questo pacchetto di redux ci darà alcuni strumenti per incorporare il redux nella nostra app di reazione.
+
+02:32.220 --> 02:33.840
+Ma ecco la parte interessante.
+
+02:33.840 --> 02:37.630
+Con il pacchetto di ridondanza e perché sono un grande fan.
+
+02:38.690 --> 02:45.680
+È che il 90 percento del tuo codice sarà comunque Javascript. Redux ti darà alcuni aiutanti ma
+
+02:46.070 --> 02:48.620
+stai ancora scrivendo Javascript.
+
+02:48.740 --> 02:52.280
+Sta ancora migliorando le tue abilità Javascript.
+
+02:52.280 --> 02:57.470
+Quando scrivi redux e insegna principi veramente buoni, ecco
+
+02:57.530 --> 03:05.630
+perché sono un grande fan della biblioteca. Potresti non aver sempre bisogno di essere ridisegnato nei tuoi progetti,
+
+03:05.960 --> 03:13.070
+ma è solo uno strumento buono e buono da imparare perché ha concetti così grandi che useresti per tutta la tua carriera.
+
+03:13.220 --> 03:19.010
+Ora la seconda cosa di cui abbiamo bisogno, e questo è qualcosa di simile, reagire - ricorda
+
+03:19.010 --> 03:25.730
+come abbiamo installato il pacchetto react, e poi abbiamo anche avuto bisogno di qualcosa chiamato il pacchetto dom reac per
+
+03:25.730 --> 03:29.130
+collegare reagire al dom? Bene, in modo simile.
+
+03:29.140 --> 03:38.770
+Abbiamo bisogno di connettere redux per reagire perché redux teoricamente potrebbe funzionare con qualsiasi altra libreria aggiungendo un
+
+03:38.980 --> 03:40.240
+altro pacchetto.
+
+03:40.300 --> 03:46.600
+Possiamo di nuovo lasciarci reagire sapendo che hey stiamo andando usando redux con te.
+
+03:46.600 --> 03:48.050
+Quindi è molto facile da fare.
+
+03:48.070 --> 03:53.080
+Installeremo semplicemente npm e il pacchetto si chiamerà reacte redux.
+
+03:59.260 --> 04:06.570
+E il modo in cui questa reazione si ridurrà funzionerà è che collegherà solo i contenitori.
+
+04:06.760 --> 04:14.410
+Quindi in questo caso app. js to the, ciò che chiamiamo un negozio redux o quel grande oggetto Javascript di cui stiamo
+
+04:14.410 --> 04:14.820
+parlando.
+
+04:14.860 --> 04:21.110
+Questo descrive lo stato della nostra app e stanno per comunicare, il contenitore sta per
+
+04:21.200 --> 04:23.770
+comunicare con il negozio e viceversa.
+
+04:24.900 --> 04:31.410
+Ora gli altri componenti, quelli che chiamiamo componenti stupidi o di presentazione, non
+
+04:31.530 --> 04:34.250
+sapranno che esiste un redux.
+
+04:34.320 --> 04:41.010
+L'unica connessione sarà tra qualcosa chiamato contenitore o componente intelligente e l'archivio
+
+04:41.100 --> 04:42.650
+di ridondanza.
+
+04:42.660 --> 04:44.130
+Quindi lascia che ti mostri cosa intendo.
+
+04:45.280 --> 04:51.040
+Se ricordi questo diagramma, abbiamo appena installato il pacchetto di redux che puoi pensare
+
+04:51.040 --> 04:51.990
+sia qui.
+
+04:52.000 --> 04:58.300
+Questa casella rossa che ci consente di creare un negozio e un paio di altre funzioni di aiuto.
+
+04:58.300 --> 05:10.310
+Abbiamo anche scaricato react redux che ci permette di collegare questi due pezzi e reagire redux è in grado di essere usato per dire hey vogliamo
+
+05:10.310 --> 05:17.090
+che queste componenti gialle siano consapevoli del fatto che stiamo usando redux e per
+
+05:17.090 --> 05:20.650
+ottenere il loro stato dal redux store.
+
+05:22.380 --> 05:28.020
+Quindi, basti pensare a questo diagramma mentre ci stiamo lavorando, tutto ciò che stiamo facendo
+
+05:28.020 --> 05:30.710
+è essenzialmente connettere queste due librerie insieme.
+
+05:30.770 --> 05:37.630
+Bene, ora che abbiamo questi due pacchetti possiamo iniziare a importarli e usarli nella nostra app, ma
+
+05:37.630 --> 05:43.660
+questo è il prossimo paio di video. Ci vediamo nel prossimo.
+
+05:43.770 --> 05:44.010
+Ciao ciao.

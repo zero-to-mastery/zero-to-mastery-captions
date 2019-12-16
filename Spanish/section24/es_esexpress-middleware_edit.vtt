@@ -1,0 +1,91 @@
+WEBVTT
+
+00:01.450 --> 00:03.440
+Dar una buena acogida. En este
+
+00:03.450 --> 00:09.000
+video quiero hablar sobre un concepto importante en Express y es el middleware.
+
+00:09.110 --> 00:10.430
+Dejame mostrarte como funciona.
+
+00:10.550 --> 00:20.030
+Si ejecuto el servidor aquí, solo tengo un servidor simple que envía 'prueba', Express tiene un concepto de
+
+00:21.180 --> 00:28.720
+middleware y, si lo hago, la aplicación. use () 'este es un middleware Express genérico que puedo ingresar aquí.
+
+00:29.040 --> 00:35.730
+Y lo que hace el middleware es, como su nombre lo indica, a medida que llega
+
+00:35.730 --> 00:40.420
+la solicitud, pasará por esta función de 'uso' y luego irá
+
+00:40.420 --> 00:47.430
+a lo que obtengamos: POST, PUT, DELETE y este middleware hará algo para la solicitud que acabamos
+
+00:47.430 --> 00:50.880
+de tener para facilitar el trabajo aquí abajo.
+
+00:52.280 --> 01:02.020
+Demostremos ese ejemplo: 'app. use () 'recibe' solicitud ',' respuesta 'y luego algo llamado' siguiente '.
+
+01:02.240 --> 01:04.010
+Y dentro de esta función
+
+01:07.830 --> 01:15.000
+solo diremos 'consola. log () '' &lt;h1> Helllooo
+
+01:18.750 --> 01:27.600
+&lt;/h1> 'Si guardamos y volvemos aquí y ejecutamos localhost, hmmm está colgando aquí.
+
+01:27.700 --> 01:31.170
+Incluso si abro la consola no pasa nada.
+
+01:31.390 --> 01:38.170
+Si regreso, veo que '&lt;h1> helllooo &lt;/h1>' se activa porque estoy iniciando sesión en la
+
+01:41.540 --> 01:49.950
+consola, pero nunca llega aquí bien, eso es porque para que el middleware continúe pasando datos, debe llamar ' siguiente'.
+
+01:50.340 --> 01:52.720
+El tercer parámetro.
+
+01:52.810 --> 01:59.530
+Entonces, al llamar a 'siguiente' si actualizo, recibo 'prueba'.
+
+01:59.620 --> 02:09.620
+Entonces, el middleware de la forma en que funciona es que usamos 'app'. use () 'recibe las solicitudes del sitio web; La solicitud
+
+02:09.620 --> 02:10.510
+llega.
+
+02:10.520 --> 02:12.190
+Podemos hacer lo que queramos con él.
+
+02:12.200 --> 02:17.010
+En nuestro caso, realmente no lo estamos tocando, solo estamos registrando la consola '&lt;h1> helllooo &lt;/h1>' y luego presionamos a continuación y luego Express
+
+02:17.030 --> 02:21.740
+sigue ejecutándose a través de estas [aplicación. get () y la aplicación. escucha()].
+
+02:21.830 --> 02:26.030
+Y aunque podría estar pensando por qué es útil?
+
+02:26.060 --> 02:31.920
+Hay muchos casos que te mostraré más adelante, mientras que el middleware es importante, y los
+
+02:31.920 --> 02:40.220
+middlewares son excelentes scripts que la gente ha preescrito y que puedes agregar a tu servidor, pero lo verás más en el próximo
+
+02:40.220 --> 02:40.970
+video.
+
+02:40.970 --> 02:47.760
+Solo quería mostrarle el concepto básico de middleware: algo que recibe con anticipación antes
+
+02:47.760 --> 02:55.570
+de llegar a las rutas, la solicitud, lo modifica y luego pasa la siguiente función para que continúe.
+
+02:56.640 --> 02:58.410
+Ya veré en la próxima. Adiós.

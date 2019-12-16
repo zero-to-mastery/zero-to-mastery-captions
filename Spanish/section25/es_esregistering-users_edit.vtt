@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.570 --> 00:01.290
+Dar una buena acogida.
+
+00:01.410 --> 00:05.160
+Implementemos más rutas en nuestra aplicación front-end.
+
+00:05.230 --> 00:09.430
+Acabamos de iniciar sesión en el front-end.
+
+00:09.580 --> 00:18.320
+Así que ahora también trabajemos en el Registro, y ya tenemos un buen marco de lo que queremos
+
+00:18.320 --> 00:34.290
+hacer en función de lo que hicimos con Iniciar sesión. Podemos volver a convertir esto en una clase que extienda 'Reaccionar'. Componente'.
+
+00:34.520 --> 00:37.340
+Y
+
+00:42.370 --> 00:49.870
+esto generará esta declaración de devolución.
+
+00:50.100 --> 00:57.520
+Y también queremos tener un par de rutas que por ahora solo vamos a copiar por completo desde Iniciar sesión.
+
+01:05.120 --> 01:09.830
+Y aquí solo tendremos: para el registro podemos
+
+01:12.330 --> 01:16.000
+decir 'correo electrónico' 'contraseña' Y finalmente
+
+01:16.270 --> 01:18.190
+también 'nombre'
+
+01:21.840 --> 01:25.750
+y tendremos que agregar otro método aquí.
+
+01:26.960 --> 01:35.460
+Eso será solo por el nombre y se llamará 'onNameChange' y tendremos que cambiar los
+
+01:35.460 --> 01:43.680
+valores a 'nombre', 'correo electrónico' y 'contraseña'. Increíble.
+
+01:48.230 --> 01:55.680
+Lo guardaremos y tendremos que comenzar a agregarlos a nuestro componente.
+
+01:55.680 --> 02:02.700
+Lo primero que queremos hacer es usar la desestructuración para obtener
+
+02:03.600 --> 02:12.820
+nuestro componente o "onRouteChange" de "esto". props 'y
+
+02:12.820 --> 02:36.860
+agreguemos' onPasswordChange 'en todas las demás entradas; de nuevo creando estos en una nueva línea.
+
+02:37.030 --> 02:38.830
+Whoo! Todo bien.
+
+02:38.990 --> 02:41.720
+Y de nuevo queremos crear un método de 'búsqueda' aquí.
+
+02:41.720 --> 02:48.910
+Entonces, mirando Iniciar sesión, definitivamente queremos hacer una POST para poder copiar esto por ahora.
+
+02:48.910 --> 02:55.700
+Nuevamente, no soy un gran fanático de la copia y la repetición de código, pero espero que esto le dé una idea de
+
+02:55.700 --> 03:00.410
+algunas de las cosas que podemos mejorar a medida que mejoramos nuestra aplicación más adelante.
+
+03:00.830 --> 03:10.680
+Ahora en 'submitSignIn' nuevamente, querremos hacer esto en lugar de 'onRouteChange', así que hagamos 'on' y
+
+03:11.350 --> 03:16.600
+tendremos que hacer 'esto. onSubmitSignIn '.
+
+03:16.740 --> 03:21.260
+Y también olvidé esta palabra clave en todo esto.
+
+03:25.070 --> 03:30.600
+Muy bien, ahora el ... Veo que nos falta el 'correo electrónico' de aquí.
+
+03:30.620 --> 03:31.480
+Eso no debería estar allí.
+
+03:31.500 --> 03:32.340
+Todo bien.
+
+03:32.460 --> 03:39.700
+Y queremos asegurarnos de enviar el "correo electrónico" a "esto". estado. correo electrónico
+
+03:43.070 --> 03:50.020
+'- Haremos' contraseña 'Y finalmente haremos'
+
+03:50.120 --> 03:54.260
+esto. estado. nombre'.
+
+03:58.580 --> 04:05.430
+Y 'onRouteChange': ya no lo necesitamos por aquí, ¿verdad? 'onRouteChange': queremos ir a 'inicio' una vez
+
+04:05.620 --> 04:12.610
+que estemos registrados, pero recuerde que si vamos a nuestro servidor nuestro '/ registro' devuelve
+
+04:12.610 --> 04:13.940
+el último
+
+04:13.960 --> 04:19.840
+usuario, así que nuestro usuario actual. Estos datos serán del usuario.
+
+04:19.850 --> 04:26.130
+Entonces digamos usuario.
+
+04:26.230 --> 04:36.640
+Entonces, si recuperamos un usuario, cambiaremos la ruta a 'inicio' y probablemente también queramos actualizar el perfil del usuario en el
+
+04:37.330 --> 04:38.250
+front-end.
+
+04:39.630 --> 04:44.720
+Pero si observa el front-end, todavía no tenemos un perfil de usuario, pero tal vez deberíamos.
+
+04:44.720 --> 04:52.430
+Así que agreguemos eso. Voy a decir usuario y va a ser un objeto que contiene 'correo electrónico', que
+
+04:52.430 --> 04:53.480
+es una cadena vacía.
+
+04:54.910 --> 04:59.680
+Y podemos copiar lo que sea que nos devuelva nuestra base de datos
+
+05:04.180 --> 05:05.060
+en nuestro
+
+05:05.140 --> 05:12.580
+caso, serán todos estos valores, no necesitamos el correo electrónico porque lo tenemos allí, excepto que todo estará vacío para comenzar,
+
+05:13.760 --> 05:17.690
+y no lo hacemos ' No es necesario devolver la contraseña.
+
+05:22.400 --> 05:30.850
+Se elimina el "correo electrónico". 'entradas' será cero por ahora, y 'unido' será solo una cadena vacía.
+
+05:30.860 --> 05:34.690
+Idealmente, cuando nos registremos, podremos actualizarlos.
+
+05:34.760 --> 05:42.650
+Entonces, lo que podemos hacer con Register es que tendremos un cambio de
+
+05:42.650 --> 05:51.830
+ruta, pero quizás también llamemos a una llamada de función: 'updateUser' o 'loadUser', que aún no tenemos.
+
+05:51.830 --> 05:55.370
+Y quizás podamos pasar el objeto de usuario a esto.
+
+05:55.680 --> 06:01.840
+Y debido a que esto es algo que toda la aplicación necesita, creo que deberíamos construirla en el componente Aplicación.
+
+06:01.970 --> 06:11.460
+Así que guardaremos esto. accesorios. loadUser (usuario) 'y volveremos a' Aplicación. js 'y
+
+06:12.400 --> 06:28.370
+crea esa función Diremos' loadUser ',' user 'y simplemente actualizará el estado con el usuario que recibimos.
+
+06:30.570 --> 06:33.030
+En nuestro caso serán estos valores.
+
+06:46.030 --> 06:54.100
+Y todos estos valores provendrán del parámetro 'usuario'. Y cambiemos el nombre aquí solo para no
+
+06:54.100 --> 06:57.350
+confundirnos con 'datos' por ahora.
+
+07:02.120 --> 07:03.260
+'datos.
+
+07:06.890 --> 07:11.110
+id 'Tendremos' nombre 'aquí; tendremos entradas
+
+07:15.360 --> 07:16.210
+de
+
+07:16.530 --> 07:17.490
+"correo
+
+07:23.520 --> 07:33.950
+electrónico" y "finalmente unidas". Tengo la sintaxis aquí un poco apagada. Ahí tienes.
+
+07:34.080 --> 07:41.130
+Está bien si volvemos a 'Registrarse. js 'tenemos' onRouteChange 'guardado con éxito. Entonces estamos cargando al usuario y
+
+07:41.670 --> 07:46.020
+luego también cambiando la ruta. Eso fue mucho trabajo sin probar el código, así
+
+07:46.020 --> 07:47.300
+que vamos a verlo.
+
+07:47.400 --> 07:48.570
+Vamos a ver si esto funciona.
+
+07:49.440 --> 08:03.920
+Voy a ir a Registrarse. Dudo que esto funcione la primera vez, pero veamos. 'wes @ gmail. com 'Ese es el nombre.
+
+08:03.950 --> 08:12.370
+Entonces diremos 'wes', 'wes @ gmail. com 'nuestra contraseña es' 123 '. Voy a abrir la consola aquí solo para ver qué
+
+08:12.370 --> 08:13.710
+tipo de errores tenemos.
+
+08:15.860 --> 08:17.810
+Dudo que funcione la primera vez, pero ya veremos.
+
+08:17.810 --> 08:19.930
+Registro. Todo bien.
+
+08:19.930 --> 08:29.590
+Tenemos un par de errores aquí. "loadUser no es una función" y eso es porque si vamos a 'App'. js '' loadUser
+
+08:29.630 --> 08:34.450
+'nunca se pasa a' Registrarse '.
+
+08:34.530 --> 08:35.190
+Entonces hagamos eso.
+
+08:38.110 --> 08:47.200
+'Registrarse' también recibirá 'loadUser' como este.
+
+08:50.720 --> 08:52.130
+Y tendrá que ser 'esto. loadUser '.
+
+08:52.220 --> 08:52.780
+- Todo
+
+08:53.300 --> 08:53.830
+bien.
+
+08:53.870 --> 08:54.520
+Segundo round.
+
+08:54.620 --> 08:55.960
+Vamos a ver si esto funciona.
+
+09:03.250 --> 09:08.190
+Uno dos tres.
+
+09:08.190 --> 09:08.710
+Todo bien.
+
+09:08.730 --> 09:17.160
+Podemos iniciar sesión pero tenemos una solicitud incorrecta.
+
+09:17.190 --> 09:21.210
+Veamos que nuestra información se ve bien.
+
+09:21.210 --> 09:23.210
+'correo electrónico', 'nombre', 'contraseña'.
+
+09:23.630 --> 09:26.830
+Y la respuesta que obtuvimos fue "error al iniciar sesión".
+
+09:27.110 --> 09:31.580
+Y eso es porque si volvemos a nuestra página de Registro.
+
+09:31.610 --> 09:34.390
+Bueno, no cambiamos solo esto a '/ register', ¿verdad?
+
+09:34.400 --> 09:35.680
+Eso es tonto de nuestra parte.
+
+09:36.580 --> 09:39.190
+Cambiamos eso a 'registrarse', pero me
+
+09:42.670 --> 09:45.420
+cansaré de escribir la información de Wes aquí.
+
+09:50.000 --> 09:54.700
+Y registrarse. Todo bien.
+
+09:54.720 --> 10:00.990
+Sin errores. Veamos cuál fue la respuesta de 'registrarse'.
+
+10:01.180 --> 10:11.340
+Recibimos la respuesta; Wes es el usuario '125'; 'contraseña' es '123'; 'entradas' es 0 'y' unido '- en este día.
+
+10:11.470 --> 10:13.590
+Nuevamente, realmente no queremos la contraseña.
+
+10:13.630 --> 10:22.250
+Realmente no deberíamos devolver la contraseña, pero es una solución fácil y simplemente la eliminamos del
+
+10:22.250 --> 10:24.490
+servidor. js '.
+
+10:24.500 --> 10:25.420
+¿Cuan genial es eso?
+
+10:25.430 --> 10:27.700
+Tenemos nuestro propio registro.
+
+10:28.130 --> 10:35.260
+Y si en realidad volvemos a una ruta raíz, o si vamos a localhost, vamos a este lado por
+
+10:35.270 --> 10:35.730
+aquí.
+
+10:36.940 --> 10:44.470
+Y solo ve a la ruta raíz; hemos vuelto a actualizar, por lo que Wes no está allí, pero si te registras de nuevo ...
+
+10:48.050 --> 10:53.020
+Nuevamente, esto es exactamente por qué no podemos esperar para tener una base de datos.
+
+10:53.060 --> 10:55.630
+Intentemos eso de nuevo y miremos eso.
+
+10:55.670 --> 10:59.230
+Tenemos a Wes como nuestro usuario.
+
+10:59.290 --> 11:00.520
+Muy genial.
+
+11:00.520 --> 11:06.760
+Y ahora hay un poco de repetición, ¿verdad? Simplemente buscamos para conectarnos con nuestro servidor y ambas
+
+11:07.060 --> 11:12.910
+partes quieren asegurarse de que envíen los datos correctos y que el servidor responda con los datos
+
+11:12.910 --> 11:13.480
+correctos.
+
+11:13.480 --> 11:18.190
+Definitivamente hay una gran cantidad de limpieza que podemos hacer, muchos errores que pueden
+
+11:18.190 --> 11:23.210
+ocurrir, por ejemplo, si ingreso un correo electrónico y contraseña o nombre de usuario no válidos.
+
+11:23.430 --> 11:26.280
+Pero creo que estás empezando a entenderlo.
+
+11:26.290 --> 11:26.650
+Todo bien.
+
+11:26.740 --> 11:28.040
+Nos vemos en la próxima. Adiós

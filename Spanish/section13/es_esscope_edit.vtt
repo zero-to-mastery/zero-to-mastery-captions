@@ -1,0 +1,346 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+Y bienvenido de nuevo.
+
+00:02.830 --> 00:10.710
+En este video vamos a hablar sobre un concepto importante en javascript llamado 'alcance'.
+
+00:10.840 --> 00:20.890
+Ahora ¿Qué es el alcance? alcance significa acceso variable, ¿a qué variables tengo acceso cuando se está ejecutando un código?
+
+00:21.710 --> 00:29.600
+Entonces, por defecto, en Javascript, se encuentra en el 'alcance raíz', que es el objeto 'ventana'.
+
+00:29.600 --> 00:30.410
+Déjame mostrarte de qué estoy hablando.
+
+00:31.700 --> 00:36.560
+Si en mi consola hago algo como
+
+00:39.820 --> 00:49.160
+la consola 'function aa ()' '. log ("test") 'y cerramos esa función.
+
+00:49.230 --> 00:58.530
+Bueno, ahora, la 'función aa' es parte del 'alcance de la ventana'.
+
+00:58.630 --> 01:09.120
+Si voy a 'ventana' aquí y abro 'ventana', verá que la función 'aa' se ha agregado al 'alcance
+
+01:09.330 --> 01:11.250
+de la ventana'.
+
+01:11.290 --> 01:15.610
+Entonces, cuando está trabajando en un navegador, esto se llama 'alcance raíz'.
+
+01:15.610 --> 01:19.600
+Entonces el alcance principal.
+
+01:19.760 --> 01:28.890
+¿Y si hago algo como esto? Si voy 'función bb'.
+
+01:29.680 --> 01:33.930
+Y dentro de esta función lo haremos.
+
+01:34.180 --> 01:34.870
+la
+
+01:39.820 --> 01:47.050
+variable 'a' es igual a "hola" ¿Funcionará esto si ejecuto esto en la
+
+01:47.230 --> 01:54.460
+consola? Si ahora lo hago 'consola. log (a) 'funcionará eso.
+
+01:54.550 --> 02:03.280
+No porque 'a' solo vive dentro de 'función bb', el alcance está dentro de la función.
+
+02:03.280 --> 02:12.330
+Así que la única forma en que podemos hacer 'consola. log (a) 'está dentro de la función para agregar, ¡vaya!
+
+02:12.460 --> 02:20.060
+Debe intentarlo nuevamente, dentro de la función para agregar 'consola. log (a) '.
+
+02:20.070 --> 02:24.000
+Entonces, si ejecuto la función, tengo
+
+02:24.060 --> 02:24.930
+'hola'.
+
+02:25.410 --> 02:32.850
+Ahora lo interesante es que las funciones tienen acceso a cualquier variable en el
+
+02:32.850 --> 02:34.110
+ámbito raíz.
+
+02:34.380 --> 02:51.080
+Entonces, por ejemplo, si hago 'variable (var) b igual ¿puedo acceder a esto? 'Will' function bb 'tiene acceso a esto?
+
+02:51.250 --> 03:05.920
+Porque como sabes 'ventana. bb 'existe y la variable' b 'vive en el objeto de la ventana.
+
+03:05.960 --> 03:13.990
+Entonces ambos tienen el mismo padre. Permíteme mostrarte lo que quiero decir, copiando esto y poniéndolo
+
+03:13.990 --> 03:15.760
+en la consola Ahora
+
+03:15.940 --> 03:22.180
+dentro de 'function bb' si lo hacemos 'consola. log (b) 'Bueno, tenemos
+
+03:27.450 --> 03:40.170
+acceso a este OK, ¿y si hago algo en la línea de la variable (var)' b 'puedo acceder a esto?
+
+03:40.170 --> 03:45.150
+Hago 'b' es igual a "hola", si copio esto.
+
+03:45.280 --> 03:47.940
+Y ahora lo hago
+
+03:48.020 --> 03:50.230
+'consola. log (b) 'Bueno,
+
+03:50.230 --> 03:56.840
+tengo, ¿puedo acceder a esto porque no he ejecutado la función pero si ejecuto la función' bb () '?
+
+03:57.020 --> 03:57.890
+Ahora si lo hago.
+
+03:57.890 --> 04:02.330
+'consola. log (b) 'Me sale' Hola
+
+04:02.420 --> 04:03.190
+'.
+
+04:03.470 --> 04:08.860
+Porque 'b' es la misma variable.
+
+04:09.290 --> 04:14.550
+Ok, hagamos algo un poco más complejo.
+
+04:14.880 --> 04:23.540
+Entonces, sabiendo lo que sabemos, sabemos que este es el alcance raíz en nuestro caso es la ventana.
+
+04:23.540 --> 04:25.150
+Aquí podemos declarar una variable.
+
+04:25.210 --> 04:27.480
+"divertido" diremos igual a cinco.
+
+04:28.280 --> 04:30.290
+Y también declararemos
+
+04:32.840 --> 04:35.550
+una función, la llamaremos 'funFunction'.
+
+04:35.870 --> 04:41.940
+Y dentro de esta función, tan pronto como creamos estos corchetes '{}', creamos un elemento secundario aquí.
+
+04:46.280 --> 04:55.170
+Así que aquí diré que la variable (var) 'diversión' es igual a 'holaoo' y 'consola'. log (fun) 'aquí y
+
+05:00.410 --> 05:07.650
+crearemos otra función, excepto que se llamará' funnerfunction '.
+
+05:07.810 --> 05:15.030
+Y dentro de este se dirá 'Byee' y la consola lo registrará.
+
+05:15.180 --> 05:24.110
+Y finalmente, crearemos una tercera función y la llamaremos la 'función más divertida'.
+
+05:24.110 --> 05:32.670
+Y aquí eliminaremos la variable y diremos 'AHHHHHH'.
+
+05:32.850 --> 05:40.370
+Y en la parte inferior también haremos 'consola. log (divertido) ".
+
+05:40.400 --> 05:41.020
+Todo bien.
+
+05:41.160 --> 05:42.390
+Así que repasemos esto.
+
+05:42.390 --> 05:44.020
+Estamos declarando que una diversión variable
+
+05:44.130 --> 05:45.440
+es igual a cinco.
+
+05:45.480 --> 05:51.800
+Creamos tres funciones y cada una de estas funciones crea su propio alcance y la consola de cada
+
+05:54.770 --> 05:58.240
+una de estas funciones. log (divertido) ".
+
+05:58.340 --> 06:06.580
+Pero lo que significa "diversión" en cada uno de ellos es diferente según su alcance.
+
+06:07.430 --> 06:18.510
+Entonces, el primero lo titulará '1' solo para que sepamos que el segundo dirá '2', 'tercero (3)' y
+
+06:18.510 --> 06:22.590
+luego, finalmente, aquí podemos decir 'ventana'.
+
+06:22.690 --> 06:24.880
+Entonces, ejecutemos esta función y veamos qué sucede.
+
+06:25.800 --> 06:28.730
+A ver si puedes adivinar, qué va a pasar aquí, está
+
+06:29.000 --> 06:29.480
+bien.
+
+06:29.610 --> 06:34.970
+Entonces tenemos una ventana 5, lo que significa esta línea por aquí.
+
+06:35.200 --> 06:37.700
+La variable divertida es '5'.
+
+06:37.720 --> 06:39.770
+No se ha corrido nada.
+
+06:39.810 --> 06:44.910
+Leemos el script y vemos que la diversión variable es igual a 5, y luego vemos estas funciones
+
+06:44.910 --> 06:46.660
+pero ninguna de ellas se ejecuta.
+
+06:46.830 --> 06:55.400
+Y ahora si hago 'funFunction' para ejecutar realmente estos y haremos 'funnerFunction'.
+
+06:55.650 --> 07:06.920
+Y finalmente la 'función más divertida'. Copio y pego esto y vuelvo a ejecutar esto, vemos que tenemos la ventana 5, línea 24
+
+07:06.920 --> 07:09.650
+que se ejecutó, que es la variable 5.
+
+07:10.070 --> 07:18.350
+Ahora dentro de la primera función tenemos la variable diversión es igual a "holaoo" porque bien hemos creado un nuevo
+
+07:19.710 --> 07:25.620
+alcance y dentro de esta función vive la diversión variable que tiene "holaoo".
+
+07:25.640 --> 07:27.940
+Entonces eso se anula.
+
+07:28.190 --> 07:35.630
+Y luego tenemos la segunda función que tiene "Byee" nuevamente lo mismo que arriba porque tenemos un nuevo alcance,
+
+07:35.660 --> 07:36.880
+una nueva variable.
+
+07:37.050 --> 07:38.480
+diversión es igual a "Buyee".
+
+07:38.870 --> 07:44.410
+Y luego en el tercero vemos que nos divertimos es igual a "AHHHHHH".
+
+07:44.930 --> 07:47.330
+Y de nuevo eso se cambia.
+
+07:47.870 --> 07:50.550
+Y eso equivale a la diversión.
+
+07:50.690 --> 07:52.550
+Aquí está la parte divertida sin embargo.
+
+07:52.580 --> 07:56.330
+Si ahora lo hago 'consola. log (diversión) 'ahora
+
+07:59.610 --> 08:12.670
+es igual a' AHHHHHH 'porque en la tercera función hemos modificado diversión, que es esta variable para que sea igual a
+
+08:12.720 --> 08:13.550
+"AHHHHHH".
+
+08:14.000 --> 08:22.480
+Una cosa que quiero mostrarles es que en las dos primeras funciones no podré acceder a la variable 'diversión'
+
+08:22.480 --> 08:29.750
+en el alcance raíz porque esencialmente las he sobrescrito dentro de 'funFunction' y 'funnerFunction' fun '
+
+08:30.810 --> 08:35.010
+es igual a algo que es su propio significado.
+
+08:35.010 --> 08:40.890
+Entonces, dentro de esta función, fun es igual a "hola" dentro de la función funner, fun es igual a "Byee".
+
+08:41.190 --> 08:49.590
+Y pase lo que pase, no tendremos acceso al alcance raíz y esto se llama un conflicto de nombres, donde nombramos las
+
+08:49.590 --> 08:56.610
+cosas de la misma manera, algo que vive, digamos en el alcance principal y perderemos el acceso a
+
+08:56.610 --> 08:57.120
+él.
+
+08:58.070 --> 09:04.710
+Para finalizar este punto, eliminemos esto y repasemos lo que está sucediendo aquí.
+
+09:04.800 --> 09:08.640
+Así que eliminemos esto también y diremos solo la 'consola. iniciar sesión aquí.
+
+09:09.260 --> 09:16.090
+Cuando alguien ejecuta 'funnestFunction', ejecutamos esto y Javascript respira diversión en el registro de la consola.
+
+09:16.530 --> 09:18.660
+Ok diversión, ¿la
+
+09:18.660 --> 09:22.060
+conocemos? y miramos el alcance aquí.
+
+09:22.060 --> 09:22.830
+Te fijas en esta función.
+
+09:22.840 --> 09:25.840
+Oye, ¿sabes qué es "diversión"?
+
+09:25.930 --> 09:32.840
+Y la función dice: Bueno, lo siento amigo, realmente no sé "divertido", pero pregúntale a mis padres.
+
+09:33.070 --> 09:37.110
+Así que ahora vamos fuera de la función.
+
+09:37.210 --> 09:38.890
+En este caso el alcance de las raíces.
+
+09:38.890 --> 09:42.650
+Ahora decimos oye, ¿sabes 'diversión'?
+
+09:42.700 --> 09:44.830
+Y son como, ¡Yah yah! Tenemos una diversión variable.
+
+09:44.830 --> 09:46.170
+Es igual a cinco.
+
+09:46.570 --> 09:51.000
+Así que ahora 'consola. log 'puede iniciar sesión 5.
+
+09:51.180 --> 09:59.760
+Pero si no existe "diversión", les preguntamos a los padres y el padre dice: Lo siento, no tengo idea de qué es "diversión".
+
+09:59.810 --> 10:03.410
+Entonces obtenemos, bueno, obtenemos un error.
+
+10:03.470 --> 10:07.060
+Entonces, la última verificación es siempre el alcance raíz, en nuestro caso el
+
+10:07.190 --> 10:09.410
+objeto de ventana, si no podemos encontrarlo.
+
+10:09.410 --> 10:11.360
+Recibimos este error en la consola.
+
+10:11.360 --> 10:12.630
+Siempre vemos
+
+10:12.830 --> 10:15.560
+¡Lo siento! tu variable amigo no existe.
+
+10:15.650 --> 10:19.340
+Creo que la inventaste y eso es todo.
+
+10:19.340 --> 10:22.390
+Tengo un ejercicio divertido para ti justo después de este video.
+
+10:22.400 --> 10:25.030
+Pruébalo y nos vemos en el próximo.

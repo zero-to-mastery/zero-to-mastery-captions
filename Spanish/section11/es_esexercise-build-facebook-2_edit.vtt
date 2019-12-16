@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.990 --> 00:08.250
+¡Dar una buena acogida! Usando nuestro nuevo conocimiento de los bucles, haremos que nuestra aplicación de Facebook sea un
+
+00:08.250 --> 00:09.000
+poco mejor.
+
+00:09.420 --> 00:13.270
+Quiero decir porque Facebook tiene más de un usuario, ¿verdad?
+
+00:13.350 --> 00:16.660
+No es solo un usuario, tiene millones de ellos.
+
+00:16.950 --> 00:25.990
+Entonces, ¿cómo podemos verificar la contraseña de alguien revisando no solo un usuario, sino varios?
+
+00:26.140 --> 00:30.510
+Bueno, suena como una solución perfecta para bucles, así que vamos a intentarlo.
+
+00:30.520 --> 00:33.650
+Voy a agregar algunos usuarios más aquí.
+
+00:33.740 --> 00:42.100
+Simplemente copiaremos esto. Y tenemos 'sally' con la contraseña '123'.
+
+00:42.400 --> 00:49.600
+Y también tenemos 'ingrid' con contraseña '777'.
+
+00:49.820 --> 00:51.700
+Así que vamos a actualizarlo.
+
+00:51.700 --> 00:54.760
+Voy a hacer esto en una nueva línea para que puedas verlo.
+
+00:54.890 --> 00:59.850
+Voy a actualizar y escriba 'ingrid'.
+
+01:02.570 --> 01:06.960
+'777'. 'Lo siento, nombre de usuario y contraseña incorrectos'.
+
+01:07.210 --> 01:13.360
+Y eso tiene sentido, ¿verdad? Porque cuando creamos nuestra función 'iniciar sesión', bueno, solo está verificando el
+
+01:13.360 --> 01:15.480
+primer elemento en la base de datos.
+
+01:15.790 --> 01:17.260
+Pero queremos revisarlos todos.
+
+01:17.260 --> 01:22.800
+Queremos verificar el primer elemento de la matriz, el segundo y el tercero.
+
+01:22.900 --> 01:25.510
+Parece que necesitamos agregar un 'bucle' aquí.
+
+01:26.480 --> 01:28.050
+Entonces, ¿cómo podemos hacer eso?
+
+01:28.430 --> 01:31.910
+Deberíamos, bueno, agregar un 'bucle for'.
+
+01:31.940 --> 01:34.500
+Voy a decir aquí.
+
+01:34.730 --> 01:44.150
+Bueno, en realidad voy a comentar esto primero, y diremos que cuando estamos en 'signIn' queremos hacer
+
+01:44.150 --> 01:47.130
+'para var i = 0'.
+
+01:47.170 --> 01:56.210
+Recordamos este índice del último video, diremos 'i es menor que la base de datos. longitud'.
+
+01:56.950 --> 02:09.410
+Entonces, 'base de datos. longitud 'eso es' 3 '. E incrementaremos 'i' cada vez. Abra y cierre los corchetes,
+
+02:09.410 --> 02:14.320
+y luego aquí queremos decir 'if (base de datos [i])'.
+
+02:14.420 --> 02:15.280
+Entonces, en lugar
+
+02:15.290 --> 02:22.470
+de '0' ahora podemos decir 'i', porque 'i' va a ir '0, 1, 2'. Entonces 'si la base de
+
+02:22.510 --> 02:30.080
+datos [i] es igual', y también deberíamos tener un 'nombre de usuario' aquí.
+
+02:30.180 --> 02:42.470
+Entonces, si el 'nombre de usuario' es igual al 'nombre de usuario', que recibimos, que es la entrada 'nombre de usuario'. Y voy a comenzar una nueva
+
+02:42.480 --> 02:56.600
+línea aquí. 'base de datos [i]. contraseña 'es igual a la' contraseña 'que recibimos del' usuario '. Bueno, si ese es el caso,
+
+02:56.810 --> 02:58.940
+¿qué debemos hacer?
+
+02:59.270 --> 03:03.380
+Bueno, si eso es correcto, haremos 'consola. log (suministro de noticias) ".
+
+03:04.830 --> 03:05.610
+De otra manera.
+
+03:05.910 --> 03:10.970
+De lo contrario haremos 'alerta'.
+
+03:11.050 --> 03:17.780
+"Lo siento, nombre de usuario y contraseña incorrectos".
+
+03:17.920 --> 03:28.700
+Entonces, ahora voy a ahorrar. Probemos esto. 'nombre de usuario'? - 'ingrid', 'contraseña'? - '777'. 'Lo siento, nombre de usuario y contraseña incorrectos'.
+
+03:28.890 --> 03:33.550
+"Lo siento, nombre de usuario y contraseña incorrectos", pero luego recibo el "suministro de noticias"
+
+03:33.670 --> 03:34.630
+¿Lo que acaba de suceder?
+
+03:35.920 --> 03:41.680
+Bueno, lo que acabamos de hacer fue hacer un bucle for, pero lo ejecutamos 3 veces.
+
+03:41.680 --> 03:47.830
+Entonces, la primera vez que recibí 'Lo siento, nombre de usuario incorrecto', la segunda vez recibí 'Lo siento,
+
+03:47.830 --> 03:56.080
+nombre de usuario incorrecto', porque está marcando 'andrei' y 'sally', y luego está marcando 'ingrid', que finalmente funciona y da me devuelve el 'suministro de noticias'.
+
+03:57.330 --> 04:04.110
+Entonces nuestra lógica aquí no es correcta. ¿Qué podemos hacer para resolver esto?
+
+04:04.160 --> 04:08.390
+Pues tengo una idea. Creemos otra función.
+
+04:08.390 --> 04:16.910
+Voy a llamar a esta función 'isUserValid' y esta función recibirá 'nombre de
+
+04:20.330 --> 04:22.340
+usuario' y 'contraseña'.
+
+04:22.410 --> 04:28.550
+Y aquí podemos copiar esto y moverlo aquí.
+
+04:28.550 --> 04:35.750
+Pero en realidad no queremos hacer lo que sucedió aquí, donde registramos constantemente, sino
+
+04:36.290 --> 04:39.520
+que queremos decir 'return true'.
+
+04:39.560 --> 04:50.180
+Entonces, si el usuario es válido 'devuelve verdadero', si el usuario no es válido, entonces deberíamos 'devolver falso', ¿verdad?
+
+04:50.210 --> 04:52.740
+¿Pero cómo podemos hacer eso?
+
+04:52.850 --> 04:58.060
+Bueno, si 'devuelvo falso' aquí, veamos la lógica.
+
+04:58.340 --> 05:00.320
+Estoy recorriendo todo.
+
+05:00.620 --> 05:06.710
+Si en algún momento el 'nombre de usuario' y la 'contraseña' coinciden, con lo que tenemos en la base de datos 'return true'.
+
+05:06.710 --> 05:11.630
+Y recordamos que una función se detiene y sale cuando ve 'retorno'.
+
+05:11.630 --> 05:13.150
+Entonces, va a devolver 'verdadero'.
+
+05:13.580 --> 05:20.810
+Pero si realiza el bucle 3 veces y esta condición 'si' nunca pasa, irá a la siguiente
+
+05:20.810 --> 05:23.410
+línea que es 'return false'.
+
+05:25.590 --> 05:28.350
+Entonces ahora 'isUserValid'.
+
+05:28.350 --> 05:30.420
+Bueno, vamos a probar esto!
+
+05:30.660 --> 05:40.820
+Voy a decir 'consola. log (isUserValid) ', y le daremos' nombre de usuario 'y' contraseña '.
+
+05:41.310 --> 05:44.970
+Puede ver que el 'nombre de usuario' y la 'contraseña' provienen de aquí.
+
+05:45.000 --> 05:47.880
+Entonces veamos. Voy
+
+05:50.500 --> 05:54.980
+a guardar y actualizar 'ingrid', '777'.
+
+05:55.190 --> 05:55.870
+'cierto'.
+
+05:55.880 --> 05:56.540
+Está bien.
+
+05:56.660 --> 05:58.550
+Probemos algo donde no está bien.
+
+05:58.550 --> 06:03.280
+Voy a decir 't' y 'garblegarblegarble', 'falso'.
+
+06:03.380 --> 06:03.610
+OKAY.
+
+06:03.620 --> 06:07.160
+Parece que nuestra función 'isUserValid' está funcionando.
+
+06:08.810 --> 06:11.300
+Así que ahora mire
+
+06:11.540 --> 06:17.730
+esto: podemos eliminar el registro y descomentar nuestra función original.
+
+06:19.500 --> 06:33.610
+Y en lugar de hacer todo este control, ahora podemos decir 'if (isUserValid)', 'nombre de usuario' y 'contraseña', que nuevamente es este 'nombre
+
+06:33.610 --> 06:40.070
+de usuario' y 'contraseña', que recibimos aquí desde el 'aviso'.
+
+06:40.280 --> 06:45.230
+Si esto es 'verdadero', ejecute el 'suministro de noticias'.
+
+06:45.350 --> 06:51.020
+Si es falso, bueno 'más' dices 'Lo siento, nombre de usuario y contraseña incorrectos'.
+
+06:51.500 --> 06:54.280
+Vamos a guardar y actualizar. OKAY.
+
+06:54.360 --> 06:55.170
+Vamonos.
+
+06:55.170 --> 07:05.760
+'ingrid', contraseña '777'. Recibimos nuestro 'suministro de noticias' y si ingresamos la información incorrecta,
+
+07:08.790 --> 07:13.290
+obtenemos 'Lo siento, nombre de usuario y contraseña incorrectos'.
+
+07:13.300 --> 07:14.730
+¿Cuan genial es eso?
+
+07:14.770 --> 07:20.700
+Ahora acabamos de crear 2 funciones y se lee muy bien, ¿verdad? Y dice 'iniciar sesión'.
+
+07:21.040 --> 07:24.040
+Aquí está el 'nombre de usuario'. Aquí está la 'contraseña'.
+
+07:24.040 --> 07:29.730
+Vamos a la función 'signIn', dice: "Hey, if 'isUserValid'? "" Sí, el
+
+07:30.260 --> 07:36.140
+usuario es válido ". "Que 'registrar suministro de noticias', de lo contrario 'alerta' 'Lo siento, nombre de usuario y contraseña incorrectos".
+
+07:36.360 --> 07:42.180
+Y ese es un concepto realmente importante de nombrar cosas y ordenar códigos para que pueda
+
+07:42.180 --> 07:44.560
+leerlo como inglés y tiene sentido.
+
+07:44.660 --> 07:45.940
+Y ahí lo tienes.
+
+07:46.080 --> 07:48.780
+Tenemos nuestra aplicación de Facebook.
+
+07:48.780 --> 07:50.960
+Puedes ver aquí el poder de JavaScript.
+
+07:51.000 --> 08:00.640
+Nuevamente, hemos creado estas funcionalidades que se pueden aplicar a gran escala en aplicaciones web reales.
+
+08:00.750 --> 08:02.670
+Nos vemos en la próxima. Adiós

@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00.910 --> 00:02.810
+E bentornato.
+
+00:02.830 --> 00:10.710
+In questo video parleremo di un concetto importante in javascript chiamato 'scope'.
+
+00:10.840 --> 00:20.890
+Ora cos'è lo scopo? ambito significa accesso variabile, a quali variabili ho accesso quando un codice è in esecuzione?
+
+00:21.710 --> 00:29.600
+Quindi per impostazione predefinita in Javascript ci si trova nell '"ambito radice" che è l'oggetto "finestra".
+
+00:29.600 --> 00:30.410
+Lascia che ti mostri di cosa sto parlando.
+
+00:31.700 --> 00:36.560
+Se nella mia console faccio qualcosa come
+
+00:39.820 --> 00:49.160
+la console 'function aa ()' '. log ("test") 'e chiudiamo quella funzione.
+
+00:49.230 --> 00:58.530
+Bene, ora la "funzione aa" fa parte dell'ambito della "finestra".
+
+00:58.630 --> 01:09.120
+Se vado 'finestra' qui e apro 'finestra' vedrai che la funzione 'aa' è stata aggiunta all''ambito della
+
+01:09.330 --> 01:11.250
+finestra '.
+
+01:11.290 --> 01:15.610
+Quindi, quando si lavora in un browser, questo si chiama 'ambito root'.
+
+01:15.610 --> 01:19.600
+Quindi l'ambito genitore.
+
+01:19.760 --> 01:28.890
+E se facessi qualcosa del genere. Se vado 'funzione bb'.
+
+01:29.680 --> 01:33.930
+E all'interno di questa funzione lo faremo.
+
+01:34.180 --> 01:47.050
+la variabile 'a' equivale a "ciao" Questa funzione, se la eseguo nella console, se lo
+
+01:47.230 --> 01:54.460
+faccio ora "console. log (a) 'funzionerà.
+
+01:54.550 --> 02:03.280
+No perché 'a' vive solo all'interno di 'funzione bb' l'ambito è all'interno della funzione.
+
+02:03.280 --> 02:12.330
+Quindi l'unico modo in cui possiamo fare 'console. log (a) 'è all'interno della funzione da aggiungere, oops!
+
+02:12.460 --> 02:20.060
+Deve riprovare, all'interno della funzione per aggiungere 'console. log (a)'.
+
+02:20.070 --> 02:24.000
+Quindi ora se eseguo la funzione, ho
+
+02:24.060 --> 02:24.930
+'ciao'.
+
+02:25.410 --> 02:32.850
+Ora la cosa interessante è che le funzioni hanno accesso a qualsiasi variabile
+
+02:32.850 --> 02:34.110
+nell'ambito root.
+
+02:34.380 --> 02:51.080
+Quindi, per esempio, se faccio 'variabile (var) b uguale posso accedere a questo? 'La funzione' bb 'ha accesso a questo?
+
+02:51.250 --> 03:05.920
+Perché come sai 'finestra. bb 'esiste e la variabile' b 'vive sull'oggetto finestra.
+
+03:05.960 --> 03:13.990
+Quindi entrambi hanno lo stesso genitore. Lascia che ti mostri cosa intendo, copiando questo e mettendolo
+
+03:13.990 --> 03:15.760
+nella console Ora
+
+03:15.940 --> 03:22.180
+all'interno di 'function bb' se lo facciamo 'console. log (b) 'Bene,
+
+03:27.450 --> 03:40.170
+abbiamo accesso a questo OK e se faccio qualcosa sulla falsariga della variabile (var)' b 'posso accedervi.
+
+03:40.170 --> 03:45.150
+Faccio 'b' equivale a "ciao", se copio questo.
+
+03:45.280 --> 03:47.940
+E ora lo faccio
+
+03:48.020 --> 03:50.230
+"console. log (b)
+
+03:50.230 --> 03:56.840
+'Bene, posso accedervi perché non ho eseguito la funzione ma se eseguo la funzione' bb () '.
+
+03:57.020 --> 03:57.890
+Ora se lo faccio.
+
+03:57.890 --> 04:02.330
+'Console. log (b) 'I
+
+04:02.420 --> 04:03.190
+get'Hello'.
+
+04:03.470 --> 04:08.860
+Perché 'b' è la stessa variabile.
+
+04:09.290 --> 04:14.550
+Ok, facciamo qualcosa di un po 'più complesso.
+
+04:14.880 --> 04:23.540
+Quindi, sapendo ciò che sappiamo, sappiamo che questo è lo scopo principale nel nostro caso è la finestra.
+
+04:23.540 --> 04:25.150
+All'interno qui possiamo dichiarare una variabile.
+
+04:25.210 --> 04:27.480
+'divertente' diremo uguale a cinque.
+
+04:28.280 --> 04:30.290
+E dichiareremo anche
+
+04:32.840 --> 04:35.550
+una funzione, la chiameremo "funFunction".
+
+04:35.870 --> 04:41.940
+E all'interno di questa funzione non appena creiamo queste parentesi graffe '{}' qui abbiamo creato un ambito figlio.
+
+04:46.280 --> 04:55.170
+Quindi dentro qui dirò variabile (var) 'fun' equivale a 'hellooo' e sarà 'console. log (fun) "qui e
+
+05:00.410 --> 05:07.650
+creeremo un'altra funzione tranne questa che chiamerà" funnerfunction ".
+
+05:07.810 --> 05:15.030
+E in questo si dirà 'Byee' e lo conserverà.
+
+05:15.180 --> 05:24.110
+E infine creeremo una terza funzione e la chiameremo "funnestFunction".
+
+05:24.110 --> 05:32.670
+E all'interno rimuoveremo la variabile e diremo 'AHHHHHH'.
+
+05:32.850 --> 05:40.370
+E in fondo faremo anche 'console. log (divertente)'.
+
+05:40.400 --> 05:41.020
+Tutto ok.
+
+05:41.160 --> 05:42.390
+Quindi andiamo oltre questo.
+
+05:42.390 --> 05:44.020
+Dichiariamo un divertimento variabile
+
+05:44.130 --> 05:45.440
+uguale a cinque.
+
+05:45.480 --> 05:51.800
+Abbiamo creato tre funzioni e ognuna di queste crea il proprio ambito e ciascuna console
+
+05:54.770 --> 05:58.240
+di queste funzioni. log (divertente)'.
+
+05:58.340 --> 06:06.580
+Ma cosa significa "divertimento" in ognuno di essi è diverso in base alla loro portata.
+
+06:07.430 --> 06:18.510
+Quindi il primo lo chiamerà '1' solo così sappiamo che il secondo dirà '2', 'terzo (3)' e poi
+
+06:18.510 --> 06:22.590
+finalmente qui possiamo solo dire 'finestra'.
+
+06:22.690 --> 06:24.880
+Quindi eseguiamo questa funzione e vediamo cosa succede.
+
+06:25.800 --> 06:28.730
+Vedi se riesci a indovinare, cosa sta per succedere qui,
+
+06:29.000 --> 06:29.480
+OK.
+
+06:29.610 --> 06:34.970
+Quindi abbiamo una finestra 5, che significa questa riga qui.
+
+06:35.200 --> 06:37.700
+La variabile divertente è '5'.
+
+06:37.720 --> 06:39.770
+Non è stato eseguito nulla.
+
+06:39.810 --> 06:44.910
+Leggiamo lo script e vediamo che il divertimento variabile è uguale a 5, quindi vediamo queste funzioni ma
+
+06:44.910 --> 06:46.660
+nessuna di esse viene eseguita.
+
+06:46.830 --> 06:55.400
+E ora se faccio 'funFunction' per eseguirli effettivamente e faremo 'funnerFunction'.
+
+06:55.650 --> 07:06.920
+E infine la 'funnestFunction'. Copio e incollo e rieseguiamo, vediamo che abbiamo eseguito la finestra 5, riga
+
+07:06.920 --> 07:09.650
+24, che è la variabile 5.
+
+07:10.070 --> 07:18.350
+Ora, all'interno della prima funzione, il divertimento variabile equivale a "ciao" perché ben abbiamo creato un nuovo ambito
+
+07:19.710 --> 07:25.620
+e all'interno di questa funzione vive un divertimento variabile che ha "ciao".
+
+07:25.640 --> 07:27.940
+In modo che venga ignorato.
+
+07:28.190 --> 07:35.630
+E poi abbiamo la seconda funzione che ha di nuovo "Byee" come sopra perché abbiamo un nuovo ambito una
+
+07:35.660 --> 07:36.880
+nuova variabile.
+
+07:37.050 --> 07:38.480
+divertimento è uguale a "Buyee".
+
+07:38.870 --> 07:44.410
+E poi il terzo che vediamo che ci divertiamo equivale a "AHHHHHH".
+
+07:44.930 --> 07:47.330
+E ancora, questo viene cambiato.
+
+07:47.870 --> 07:50.550
+E questo è uguale al divertimento.
+
+07:50.690 --> 07:52.550
+Ecco la parte divertente però.
+
+07:52.580 --> 07:56.330
+Se ora lo faccio 'console. log (divertimento)
+
+07:59.610 --> 08:13.550
+'ora è uguale a' AHHHHHH 'perché nella terza funzione abbiamo modificato il divertimento che è questa variabile uguale a "AHHHHHH".
+
+08:14.000 --> 08:22.480
+Una cosa che voglio mostrarti è che nelle prime due funzioni non sarò in grado di accedere alla
+
+08:22.480 --> 08:29.750
+variabile "fun" nell'ambito root perché essenzialmente le ho sovrascritte in "funFunction" e "funnerFunction" "fun" è
+
+08:30.810 --> 08:35.010
+uguale a qualcosa che è il loro significato.
+
+08:35.010 --> 08:40.890
+Quindi all'interno di questa funzione il divertimento è uguale a "ciao" all'interno della funzione funner il divertimento è uguale a "Ciao".
+
+08:41.190 --> 08:49.590
+E non importa quale sia, non avremo accesso all'ambito radice e questo si chiama conflitto di denominazione, in cui
+
+08:49.590 --> 08:56.610
+denominiamo le cose allo stesso modo, qualcosa che vive diciamo nell'ambito genitore e perderemo l'accesso ad
+
+08:56.610 --> 08:57.120
+esso.
+
+08:58.070 --> 09:04.710
+Quindi, per finalizzare questo punto, cancelliamolo e ripassiamo quello che sta succedendo qui.
+
+09:04.800 --> 09:08.640
+Quindi eliminiamo anche questo e diremo solo la 'console. accedi "qui.
+
+09:09.260 --> 09:16.090
+Quando qualcuno esegue "funnestFunction", eseguiamo questo e Javascript respira il divertimento della console.
+
+09:16.530 --> 09:18.660
+Ok divertente, la
+
+09:18.660 --> 09:22.060
+conosciamo? e guardiamo l'ambito qui.
+
+09:22.060 --> 09:22.830
+Guardi questa funzione.
+
+09:22.840 --> 09:25.840
+Ehi, sai cos'è il "divertimento"?
+
+09:25.930 --> 09:32.840
+E la funzione dice: Beh, scusa amico, non so davvero "divertente", ma chiedi a mio genitore.
+
+09:33.070 --> 09:37.110
+Quindi ora andiamo fuori dalla funzione.
+
+09:37.210 --> 09:38.890
+In questo caso l'ambito di root.
+
+09:38.890 --> 09:42.650
+Ora diciamo ehi, conosci il divertimento?
+
+09:42.700 --> 09:44.830
+E sono come, Yah yah! ci divertiamo in modo variabile.
+
+09:44.830 --> 09:46.170
+È uguale a cinque.
+
+09:46.570 --> 09:51.000
+Quindi adesso "console. log 'può registrare 5.
+
+09:51.180 --> 09:59.760
+Ma se il "divertimento" non esiste, abbiamo chiesto ai genitori e il genitore dice: Mi dispiace non ho idea di cosa sia il "divertimento".
+
+09:59.810 --> 10:03.410
+Quindi abbiamo, beh, abbiamo un errore.
+
+10:03.470 --> 10:07.060
+Quindi l'ultimo controllo è sempre l'ambito principale, nel nostro caso l'oggetto
+
+10:07.190 --> 10:09.410
+finestra, se non riusciamo a trovarlo.
+
+10:09.410 --> 10:11.360
+Viene visualizzato questo errore nella console.
+
+10:11.360 --> 10:12.630
+Vediamo sempre.
+
+10:12.830 --> 10:15.560
+Scusate! la variabile del tuo amico non esiste.
+
+10:15.650 --> 10:19.340
+Penso che tu l'abbia inventata e basta.
+
+10:19.340 --> 10:22.390
+Ho un esercizio divertente per te subito dopo questo video.
+
+10:22.400 --> 10:25.030
+Provalo e ci vediamo nel prossimo.
