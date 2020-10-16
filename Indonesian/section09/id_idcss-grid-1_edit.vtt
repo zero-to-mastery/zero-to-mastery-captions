@@ -1,0 +1,257 @@
+WEBVTT
+
+00:00:00.610 --> 00:00:01.849
+Selamat datang kembali.
+
+00:00:01.850 --> 00:00:07.970
+Saya telah memberi Anda beberapa file untuk memulai, jadi saya sarankan tonton video ini sambil anda ngoding
+
+00:00:08.060 --> 00:00:09.510
+pada komputer Anda.
+
+00:00:09.530 --> 00:00:16.519
+Di sini, kita memiliki beberapa kartu hewan yang sangat imut, tentunya. Sekarang, jika kita melihat apa yang kita miliki
+
+00:00:16.520 --> 00:00:24.310
+kita memiliki sebuah halaman dengan div (tag) sederhana yang berisi emoji hewan-hewan ini dengan ukuran kecil.
+
+00:00:24.440 --> 00:00:32.440
+Dan jika kita melihat tab style (style.css), Saya telah mengisi beberapa hal untuk Anda agar terlihat bagus. Tetapi, apa yang
+
+00:00:32.450 --> 00:00:39.709
+sebenarnya kita lakukan di sini adalah kita memiliki beberapa warna dan kita telah menambahkan gradien di sini supaya ini terlihat sedikit lebih
+
+00:00:39.710 --> 00:00:48.679
+baik dan kita memiliki zona yang mana adalah kartu individual ini dengan beberapa properti CSS yang telah ditentukan yang kita
+
+00:00:48.680 --> 00:00:54.360
+telah lihat pada video sebelumnya. Hanya dengan CSS dasar yang kita miliki ini,
+
+00:00:54.410 --> 00:00:57.920
+Kita bisa melihat bahwa kita memiliki beberapa kartu yang terlihat sangat bagus.
+
+00:00:58.190 --> 00:01:02.000
+Dan sekarang kita sedang menggunakan 'display: inline-block'.
+
+00:01:02.210 --> 00:01:08.569
+Jika saya mengubah ini menjadi 'display: block' dan menyimpan ini (file),  ayo lakukan refresh (browser)
+
+00:01:08.570 --> 00:01:18.429
+Kita bisa lihat bahwa sekarang kita memiliki beberapa balok (blocks). Itu bagus! Tapi kita menginginkan kontrol sedikit lebih banyak dan mungkin membuat
+
+00:01:18.430 --> 00:01:21.520
+grid ini sedikit lebih responsif.
+
+00:01:21.610 --> 00:01:27.999
+Mungkin terlihat sedikit berbeda dan secara keseluruhan lebih bersih (clean). Dan ketika menemui grid (kotak-kotak/jaring), CSS grid adalah sebuah
+
+00:01:28.000 --> 00:01:28.450
+jalan yang dapat ditempuh.
+
+00:01:28.451 --> 00:01:30.080
+Jadi bagaimana cara kita menggunakannya?
+
+00:01:30.520 --> 00:01:38.040
+Nah, hal pertama yang perlu kita lakukan adalah memiliki sebuah wadah (container) yang menyelimuti barang-barang (hewan) ini.
+
+00:01:38.180 --> 00:01:47.030
+Jadi, saya hanya akan membuat div (tag) baru dan memberikannya class container. Kita bisa memberi nama apa pun yang kita inginkan
+
+00:01:47.060 --> 00:01:48.560
+tapi nama (class) container itu bagus.
+
+00:01:49.970 --> 00:01:51.620
+Nama kelas yang deskriptif.
+
+00:01:51.860 --> 00:01:56.190
+Dan kita membungkus semua barang (hewan) dalam container ini.
+
+00:01:56.210 --> 00:02:01.490
+Sekarang cara kerja CSS grid sangat mirip dengan flexbox.
+
+00:02:01.580 --> 00:02:12.770
+Ketika kita memberikan properti "display: grid" pada ini (tag) maka semua anak (children)-nya sekarang akan menjadi bagian dari
+
+00:02:12.830 --> 00:02:14.959
+sistem grid ini.
+
+00:02:14.960 --> 00:02:16.819
+Jadi mari kita lihat seperti apa itu.
+
+00:02:16.820 --> 00:02:25.530
+Saya akan memiliki class container dan class container ini akan memiliki display
+
+00:02:29.260 --> 00:02:30.020
+grid.
+
+00:02:30.250 --> 00:02:33.150
+Jadi, ingat, dengan flexbox kita dapat melakukan flex.
+
+00:02:33.250 --> 00:02:34.150
+Ini mirip dengan itu.
+
+00:02:34.180 --> 00:02:40.299
+Kita memang menggunakan "display: grid" dan kita sudah tidak ingin menggunakan "display: block" pada zona (blok kotak-kotak) karena kita akan
+
+00:02:40.300 --> 00:02:41.529
+memiliki sebuah sistem grid.
+
+00:02:41.530 --> 00:02:46.509
+Jadi, saya akan mengubah ini menjadi komentar untuk saat ini. Kita baru saja menyatakan ini sebagai sebuah sistem grid, tetapi kita sebenarnya
+
+00:02:46.510 --> 00:02:47.930
+harus menyatakan apa yang harus dilakukan oleh sistem ini sekarang
+
+00:02:48.160 --> 00:02:59.769
+Dan bagian terpenting dari CSS grid adalah properti 'grid-template-columns' ini dan kemungkinan besar Anda
+
+00:02:59.770 --> 00:03:06.409
+akan menggunakan ini pada setiap implementasi dari CSS grid dan di mana kita bisa menggunakan 'grid-template-columns'
+
+00:03:06.410 --> 00:03:11.959
+adalah dengan menyatakan pada halaman kita seberapa banyak kolom yang kita butuhkan. Di sini
+
+00:03:11.960 --> 00:03:24.250
+Jika saya menyatakan misalnya 300px dan 300px, lalu saya save (filenya) dan refresh (browsernya). Coba lihat itu! Saya memiliki 300px
+
+00:03:24.340 --> 00:03:32.229
+dan kemudian 300px dan secara otomatis karena Saya telah mendeklarasikannya dengan cara ini yaitu dengan dua definisi atau dua
+
+00:03:32.230 --> 00:03:33.729
+nilai.
+
+00:03:33.730 --> 00:03:39.420
+Ini mengasumsikan bahwa kita memiliki dua grids, dua grid yang berukuran 300px dan 300px (baris dan kolomnya)
+
+00:03:39.430 --> 00:03:52.140
+Jadi, jika saya mengubah ini menjadi lebih besar atau lebih kecil, kolomnya akan selalu memiliki ukuran 300px.
+
+00:03:52.270 --> 00:03:58.419
+Jika saya misalnya memiliki 300px lainnya di sini lalu simpan (filenya) dan refresh (browsernya).
+
+00:03:58.420 --> 00:04:00.050
+Lihat itu!
+
+00:04:00.230 --> 00:04:02.420
+Kita sekarang memiliki tiga kolom.
+
+00:04:02.480 --> 00:04:04.069
+Sangat sangat bagus.
+
+00:04:04.070 --> 00:04:11.400
+Satu lagi yang akan sering kamu lihat adalah 'grid-gap'
+
+00:04:11.520 --> 00:04:17.040
+Dan seperti yang bisa kamu tebak dari namanya, ini menyatakan kepada kita seberapa besar jarak yang kita inginkan di antara masing-masing grid
+
+00:04:17.070 --> 00:04:24.640
+Jadi, jika saya melakukan 20px di sini dan saya refresh (browsernya), lihat itu, kita mendapatkan 20px jarak.
+
+00:04:24.750 --> 00:04:26.759
+Ini terlihat sangat bagus sekarang. 
+
+00:04:26.760 --> 00:04:35.470
+Tetapi jika saya mengubah hal-hal di sekitar ini, tidak terlalu responsif karena setiap kolom lebarnya 300px.
+
+00:04:35.730 --> 00:04:40.180
+Dan seperti yang kita ketahui pengguna memiliki ukuran tampilan (layar) yang berbeda-beda.
+
+00:04:40.410 --> 00:04:45.689
+Jadi Anda mendapatkan grid yang jelek ini di mana Anda memiliki ruang putih di sini.
+
+00:04:45.690 --> 00:04:49.110
+Bagaimana cara kita menyelesaikan masalah ini?
+
+00:04:49.240 --> 00:04:57.249
+Dan Anda mungkin berpikir bagaimana jika kita hanya menggunakan persentase di sini, bagaimana jika kita memiliki empat kolom dan kita menyatakan
+
+00:04:57.250 --> 00:05:04.850
+'25% 25% 25% 25%', jika Saya refresh (browser) ini 
+
+00:05:09.920 --> 00:05:13.800
+Saya memiliki 4 kolom tetapi masih ada beberapa scroll yang terlibat
+
+00:05:16.660 --> 00:05:20.070
+meskipun kita lihat bahwa semuanya sedikit lebih responsif sekarang.
+
+00:05:23.240 --> 00:05:27.159
+Sekarang Anda benar-benar dapat melakukan persentase dengan menggunakan 'grid-template-columns'
+
+00:05:27.183 --> 00:05:31.283
+dan ini tentu jauh lebih baik daripada menggunakan sesuatu seperti 'px'
+
+00:05:31.360 --> 00:05:35.160
+Tapi sekarang Kamu perlu mulai memperhitungkan 'grid-gap'
+
+00:05:35.180 --> 00:05:42.139
+20px dan ya, CSS grid sebenarnya memberi kita alat yang sangat bagus. Saya rekomendasikan padamu
+
+00:05:42.140 --> 00:05:48.010
+kapanpun daripada menggunakan '%' atau 'px' atau 'em' ataupun 'rem'
+
+00:05:48.320 --> 00:05:53.170
+gunakanlah 'fr' atau fraksi (pecahan)
+
+00:05:53.260 --> 00:06:00.939
+Sekarang, apa maksud dari sintaks 'fr'? Jika Saya tulis '1fr' di sini, lalu Saya save dan refresh (browsernya)
+
+00:06:00.940 --> 00:06:08.940
+Saya mendapatkan 1 balok (item). 'fr' artinya kita memiliki 1 bagian dari kolom ini, jadi ini akan mengisi seluruhnya.
+
+00:06:10.250 --> 00:06:17.160
+Jika Saya menulis '1fr' lagi, lalu Saya refresh (browsernya), Saya mendapatkan 2 kolom.
+
+00:06:17.400 --> 00:06:21.720
+Tapi coba lihat ini, ketika Saya membesarkan lalu mengecilkannya
+
+00:06:22.030 --> 00:06:30.160
+Ini secara otomatis mengubah ukurannya karena Saya menyatakan bahwa Saya menginginkan 2 kolom yaitu '1fr' dan '1fr'
+
+00:06:32.990 --> 00:06:41.439
+Sekarang untuk menjelaskan maksud dari nilai ini lebih baik, adalah jika Saya mengubah misalnya '2fr' di sini. Apa yang kamu
+
+00:06:41.440 --> 00:06:42.440
+pikir akan terjadi?
+
+00:06:43.050 --> 00:06:48.559
+Jika saya save (filenya) dan refresh (browsernya), ini akan memberimu ide yang lebih baik.
+
+00:06:48.560 --> 00:06:52.190
+Yang tertulis di sini adalah kita menginginkan 3 kolom.
+
+00:06:52.330 --> 00:07:01.999
+Dan secara istilah proporsi atau ukuran, Saya menginginkan 2 kolom pertama memiliki ukuran setegah dari
+
+00:07:02.000 --> 00:07:02.730
+kolom ketiga.
+
+00:07:02.830 --> 00:07:07.690
+Karena secara istilah 'pecahan', ini dua kali sebesarnya kolom satunya.
+
+00:07:09.580 --> 00:07:16.330
+Ketika Saya membuat ini lebih besar dan lebih besar lagi, ini selalu akan menjaga proporsinya seperti itu.
+
+00:07:16.360 --> 00:07:19.280
+Ini akan menjadi dua kali lebih besar dari kolom yang lain. 
+
+00:07:22.790 --> 00:07:29.989
+Jadi ketika Anda menggunakan CSS grid ini adalah cara terbaik untuk
+Anda menjaga sistem grid ini dan memastikan
+
+00:07:29.990 --> 00:07:31.840
+bahwa ini responsif.
+
+00:07:31.850 --> 00:07:33.110
+Betapa kerennya itu!
+
+00:07:33.410 --> 00:07:39.800
+Hanya dengan menulis tiga properti yang kita inginkan untuk menggunakan sistem grid, lalu tambahkan misalnya, 'grid-gap'
+
+00:07:40.040 --> 00:07:48.549
+dan 'grid-template-columns' dengan nilai 'fr' ini, kita telah membuat sebuah sistem grid yang cukup responsif
+
+00:07:48.550 --> 00:07:52.260
+ada beberapa properti lagi yang kita dapat gunakan dalam CSS grid
+
+00:07:52.270 --> 00:07:54.100
+Jadi, mari kita cek pada video selanjutnya.
